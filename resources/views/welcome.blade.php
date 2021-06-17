@@ -12,7 +12,7 @@
     <header class="header">
         <nav>
             <div class="logo-container">
-
+                <img src="{{ asset('images/daya-white-logo.png') }}">
             </div>
             <ul class="main-menu p-0 m-0">
                 <li><a href="#">خانه</a></li>
@@ -22,6 +22,7 @@
                 <li><a href="#">تماس با ما</a></li>
                 <li>
                     <a href="#" class="btn-white">+‌ سفارش</a>
+                    <button class="btn btn-light btn-phone btn-sm mr-2"><i class="fas fa-phone"></i></button>
                 </li>
             </ul>
             <!-- <div class="last-item">

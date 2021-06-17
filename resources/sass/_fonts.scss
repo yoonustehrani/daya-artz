@@ -1,7 +1,6 @@
 @font-face {
-    font-family: 'Iransans';
-    src: url("/fonts/IranSans/IRANSansWeb.ttf");
-    
+    font-family: 'IranSansWeb';
+    src: url(/fonts/IRANSansWeb.ttf) format("truetype");
 }
 
-$iran-sans: 'Iransans';
+$iran-sans: "IranSansWeb";

@@ -1,3 +1,5 @@
+
+$text-color: #ebe7fa;
 html, body {
     width: 100%;
     height: 100%;
@@ -9,8 +11,12 @@ html, body {
 }
 
 
-h1,h2,h3,h4,h5,h6,p,span,button {
+h1,h2,h3,h4,h5,h6,p,span,button, a {
     font-family: $iran-sans;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .header {
@@ -23,37 +29,57 @@ h1,h2,h3,h4,h5,h6,p,span,button {
         float: right;
         width: 85%;
         height: 70px;
-        background: blue;
+        border-bottom: 2px solid rgba(255,255,255,0.1);
         > .logo-container {
             width: 70px;
             height: 100%;
             float: right;
-            background: green;
+            text-align: center;
+            > img {
+                width: auto;
+                height: 100%;
+                
+            }
         }
         ul.main-menu {
-            width: calc(100% - 70px);
+            width: calc(90% - 70px);
             height: 100%;
-            float: right;
-            background: red;
+            display: flex;
+            flex-flow: row wrap;
+            box-sizing: border-box;
+            padding-right: 10px !important;
             justify-content: space-around;
             li {
+                list-style: none;
                 display: inline-block;
-                background-color: gray;
-                height: fit-content;
-                margin: 10px 0px;
+                height: 100%;
+                box-sizing: border-box;
+                padding-top: 15px;
+                margin: 0 10px;
                 > a {
                     width: 100%;
                     float: left;
                     text-align: center;
                     padding: 10px;
                     font-size: 18px;
+                    height: 100%;
+                    margin-top: 2px;
+                    color: $text-color;
+                    transition: 0.3s;
+                    border-bottom: 2px solid transparent;
+                }
+                > a:hover {
+                    border-color: #78cad2;
+                    transition: 0.3s;
                 }
             }
             > li:last-child {
-                float: left;
                 margin-left: 5px;
-                .btn-white {
+                display: flex;
+                justify-items: flex-end;
+                .btn-white, button {
                     font-size: 16px;
+                    height: fit-content;
                 }
                 // height: 100%;
             }
@@ -80,7 +106,27 @@ h1,h2,h3,h4,h5,h6,p,span,button {
 
 
 .btn-white {
-    border: 1px solid #ffffff;
+    border: 1px solid #ffffff !important;
     border-radius: 14px;
     padding: 5px 10px !important;
+    transition: 0.3s;
+    &:hover {
+        transition: 0.3s;
+        background-color: #ffffff;
+        color: #a87df2 !important;
+    }
+}
+
+button {
+    > i {
+        margin-top: 5px;
+    }
+    i.fa-phone {
+        transform: rotate(90deg);
+    }
+}
+
+.btn-phone {
+    border-radius: 50%;
+    width: 50px;
 }
