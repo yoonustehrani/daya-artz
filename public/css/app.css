@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Iransans";
-  src: url(/fonts/IranSans/IRANSansWeb.ttf);
+  src: url("/fonts/IranSans/IRANSansWeb.ttf");
 }
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
