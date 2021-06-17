@@ -10029,7 +10029,7 @@ a:hover {
 }
 
 .header {
-  background: linear-gradient(60deg, #ffffff 0 30%, #9A6DEE 30.09%, #6734E3) border-box;
+  background: linear-gradient(50deg, #ffffff 0 26%, #a77cf2 26.09%, #6332de) border-box;
   direction: rtl;
   width: 100%;
   float: left;
@@ -10037,8 +10037,10 @@ a:hover {
 }
 .header > nav {
   float: right;
-  width: 85%;
+  width: 100%;
+  padding-left: 50px;
   height: 70px;
+  position: relative;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 .header > nav > .logo-container {
@@ -10050,6 +10052,7 @@ a:hover {
 .header > nav > .logo-container > img {
   width: auto;
   height: 100%;
+  padding: 5px;
 }
 .header > nav ul.main-menu {
   width: calc(90% - 70px);
@@ -10058,7 +10061,7 @@ a:hover {
   flex-flow: row wrap;
   box-sizing: border-box;
   padding-right: 10px !important;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 .header > nav ul.main-menu li {
   list-style: none;
@@ -10084,23 +10087,36 @@ a:hover {
   border-color: #78cad2;
   transition: 0.3s;
 }
-.header > nav ul.main-menu > li:last-child {
-  margin-left: 5px;
+.header > nav .last-item {
+  position: absolute;
+  left: 8%;
+  top: 0px;
+  height: 100%;
+  padding-top: 15px;
   display: flex;
   justify-items: flex-end;
 }
-.header > nav ul.main-menu > li:last-child .btn-white, .header > nav ul.main-menu > li:last-child button {
+.header > nav .last-item .btn-white, .header > nav .last-item button {
   font-size: 16px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
+.header > nav .last-item a.white-button {
+  border: 2px solid #ffffff;
+  padding: 4px 10px;
+  text-align: center;
+  float: right;
+  font-size: 16px;
+  border-radius: 16px;
+}
 
 .btn-white {
   border: 1px solid #ffffff !important;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 5px 10px !important;
   transition: 0.3s;
+  color: #ebe7fa;
 }
 .btn-white:hover {
   transition: 0.3s;
@@ -10116,6 +10132,12 @@ button i.fa-phone {
 }
 
 .btn-phone {
-  border-radius: 50%;
-  width: 50px;
+  border-radius: 100%;
+  border: none;
+}
+.btn-phone:hover {
+  box-shadow: 0 0 2px 1px #333;
+}
+.btn-phone i {
+  padding: 5px;
 }

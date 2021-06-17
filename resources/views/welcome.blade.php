@@ -20,15 +20,11 @@
                 <li><a href="#">مقالات</a></li>
                 <li><a href="#">درباره ما</a></li>
                 <li><a href="#">تماس با ما</a></li>
-                <li>
-                    <a href="#" class="btn-white">+‌ سفارش</a>
-                    <button class="btn btn-light btn-phone btn-sm mr-2"><i class="fas fa-phone"></i></button>
-                </li>
             </ul>
-            <!-- <div class="last-item">
-                <a href="#" class="white-button">+ سفارش</a>
-                <button><i class="fas fa-phone"></i></button>
-            </div> -->
+            <div class="last-item">
+                <a href="#" class="btn-white">+‌ سفارش</a>
+                <button class="btn-phone mr-3"><i class="fas fa-phone"></i></button>
+            </div>
         </nav>
     </header>
 </body>
