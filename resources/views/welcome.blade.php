@@ -9,6 +9,26 @@
     <title>Daya Artz</title>
 </head>
 <body>
-    <h1 class="p-3">Welcome to DayaArtz</h1>
+    <header class="header">
+        <nav>
+            <div class="logo-container">
+
+            </div>
+            <ul class="main-menu p-0 m-0">
+                <li><a href="#">خانه</a></li>
+                <li><a href="#">طراحی گرافیک</a></li>
+                <li><a href="#">مقالات</a></li>
+                <li><a href="#">درباره ما</a></li>
+                <li><a href="#">تماس با ما</a></li>
+                <li>
+                    <a href="#" class="btn-white">+‌ سفارش</a>
+                </li>
+            </ul>
+            <!-- <div class="last-item">
+                <a href="#" class="white-button">+ سفارش</a>
+                <button><i class="fas fa-phone"></i></button>
+            </div> -->
+        </nav>
+    </header>
 </body>
 </html>

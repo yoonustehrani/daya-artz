@@ -1,4 +1,8 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Iransans";
+  src: url(/fonts/IranSans/IRANSansWeb.ttf);
+}
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10000,4 +10004,72 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: right;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, button {
+  font-family: "Iransans";
+}
+
+.header {
+  background: linear-gradient(60deg, #ffffff 0 30%, #9A6DEE 30.09%, #6734E3) border-box;
+  direction: rtl;
+  width: 100%;
+  float: left;
+  height: 600px;
+}
+.header > nav {
+  float: right;
+  width: 85%;
+  height: 70px;
+  background: blue;
+}
+.header > nav > .logo-container {
+  width: 70px;
+  height: 100%;
+  float: right;
+  background: green;
+}
+.header > nav ul.main-menu {
+  width: calc(100% - 70px);
+  height: 100%;
+  float: right;
+  background: red;
+  justify-content: space-around;
+}
+.header > nav ul.main-menu li {
+  display: inline-block;
+  background-color: gray;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 10px 0px;
+}
+.header > nav ul.main-menu li > a {
+  width: 100%;
+  float: left;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+}
+.header > nav ul.main-menu > li:last-child {
+  float: left;
+  margin-left: 5px;
+}
+.header > nav ul.main-menu > li:last-child .btn-white {
+  font-size: 16px;
+}
+
+.btn-white {
+  border: 1px solid #ffffff;
+  border-radius: 14px;
+  padding: 5px 10px !important;
 }
