@@ -10155,7 +10155,7 @@ h3 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 .services-container .service-container .service-item h1 {
@@ -10167,20 +10167,12 @@ h3 {
   font-size: 18px;
   margin-bottom: 18px;
 }
-.services-container .service-container .service-item span {
-  background-image: url(/images/item-background.png);
-  font-size: 60px !important;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
-  display: inline-block;
-  width: 34%;
-}
-.services-container .service-container .service-item span i {
-  font-size: 55px;
-}
 .services-container .service-container .service-item button {
   background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
+  background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
+}
+
+.btn-gradient {
   -webkit-appearance: none;
   background-size: 500% !important;
   border: none;
@@ -10196,7 +10188,7 @@ h3 {
   -ms-user-select: none;
   user-select: none;
 }
-.services-container .service-container .service-item button:hover {
+.btn-gradient:hover {
   animation-name: gradient;
   -webkit-animation-name: gradient;
   animation-duration: 1.3s;
@@ -10205,6 +10197,53 @@ h3 {
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
+}
+
+span.back-aqua {
+  background-image: url(/images/item-background.png);
+  font-size: 60px !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  display: inline-block;
+  width: 34%;
+}
+span.back-aqua i {
+  font-size: 55px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 300px;
+}
+.contact-info > div {
+  height: 100%;
+  border: 2px solid #78cad2;
+  background-image: url(/images/contact-background.svg);
+  background-position: center;
+  background-size: cover;
+}
+.contact-info > div span {
+  margin-bottom: 15px;
+}
+.contact-info > div h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+.contact-info > div p {
+  font-size: 16px;
+}
+.contact-info > div button {
+  background: linear-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
+  background: -webkit-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
+  display: block;
+  margin: 0px auto 5px auto;
+}
+.contact-info > div .mt-12-p {
+  margin-top: 12%;
 }
 
 html, body {
@@ -10232,6 +10271,10 @@ a:hover {
 
 .rtl {
   direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
 }
 
 .header {
@@ -10436,32 +10479,6 @@ div.header-section div.header-text div.header-btn-container .aqua {
 div.header-section div.header-text div.header-btn-container .purple {
   background: -webkit-gradient(to right, #34167C 0%, #C3AFF1 50%, #DC47DE 100%);
   background: linear-gradient(to right, #34167C 0%, #C3AFF1 50%, #DC47DE 100%);
-}
-div.header-section div.header-text div.header-btn-container button {
-  -webkit-appearance: none;
-  background-size: 500% !important;
-  border: none;
-  border-radius: 5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  color: #fff;
-  cursor: pointer;
-  letter-spacing: 0.05em;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-div.header-section div.header-text div.header-btn-container button:hover {
-  animation-name: gradient;
-  -webkit-animation-name: gradient;
-  animation-duration: 1.5s;
-  -webkit-animation-duration: 1.5s;
-  animation-iteration-count: 1;
-  -webkit-animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  -webkit-animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes gradient {
