@@ -57,21 +57,71 @@
                 برای نشان دادن تفاوت خود نسبت به رقبا نیازمند لوگویی خاص ، با کیفیت و از همه مهم تر مربوط به کار خود هستین ، خلاصه بخوام بگم اگه برندتون رو دوست دارید یه لوگوی خوب بهش مدیونین پس... |
                 </p>
                 <div class="header-btn-container">
-                    <button class="btn btn-primary btn-lg badge-pill ml-4">ادامه متن</button>
-                    <button class="btn btn-info btn-lg badge-pill">شروع سفارش</button>
+                    <button class="btn ml-4 purple">ادامه متن</button>
+                    <button class="btn aqua">شروع سفارش</button>
                 </div>
             </div>
         </div>
     </header>
     <div class="section col-12 p-4">
-        <div class="col-12 title-section">
+        <div class="col-12 title-section mb-3">
             <div class="title-container">
                 <p class="title-text">خدمات دایا آرتز</p>
                 <span class="title-underline"></span>
             </div>
-            {{-- <div class="subtitle-container">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique qui quos sint nam temporibus molestiae ab, esse iure quaerat laborum. Corporis, consequuntur qui. Veritatis aliquid iure, exercitationem assumenda rem voluptatem!</p>
-            </div> --}}
+        </div>
+        <div class="subtitle-container">
+            <p class="text-center rtl">با مراجعه به سایت ما ، شما گروه تکمیلی از سفارشات طراحی گرافیک رابا بالاترین کیفیت در اختیار خواهید داشت ...</p>
+        </div>
+        <div class="services-container">
+            <div class="service-container col-12 col-md-4 col-lg-3">
+                <div class="service-item p-4 text-center">
+                    <span class="service-icon"><i class="fab fa-mixer"></i></span>
+                    <h1 class="block w-100 text-center">لوگو</h1>
+                    <h3 class="block w-100 text-center">طراحی لوگو با بالاترین کیفیت</h3>
+                    <button class="btn">سفارش</button>
+                </div>
+            </div>
+            <div class="service-container col-12 col-md-4 col-lg-3">
+                <div class="service-item p-4 text-center">
+                    <span class="service-icon"><i class="fas fa-paste"></i></span>
+                    <h1 class="block w-100 text-center">سربرگ</h1>
+                    <h3 class="block w-100 text-center">طراحی سربرگ رسمی و حرفه ای</h3>
+                    <button class="btn">سفارش</button>
+                </div>
+            </div>
+            <div class="service-container col-12 col-md-4 col-lg-3">
+                <div class="service-item p-4 text-center">
+                    <span class="service-icon"><i class="fas fa-newspaper"></i></span>
+                    <h1 class="block w-100 text-center">کاتالوگ</h1>
+                    <h3 class="block w-100 text-center">کاتالوگ و بروشور حرفه ای</h3>
+                    <button class="btn">سفارش</button>
+                </div>
+            </div>
+            <div class="service-container col-12 col-md-4 col-lg-3">
+                <div class="service-item p-4 text-center">
+                    <span class="service-icon"><i class="fas fa-id-card"></i></span>
+                    <h1 class="block w-100 text-center">کارت ویزیت</h1>
+                    <h3 class="block w-100 text-center">طراحی کارت ویزیت حرفه ای</h3>
+                    <button class="btn">سفارش</button>
+                </div>
+            </div>
+            <div class="service-container col-12 col-md-4 col-lg-3">
+                <div class="service-item p-4 text-center">
+                    <span class="service-icon"><i class="fas fa-briefcase"></i></span>
+                    <h1 class="block w-100 text-center">ست اداری</h1>
+                    <h3 class="block w-100 text-center">ویزیت ، سربرگ ، تقویم و ...</h3>
+                    <button class="btn">سفارش</button>
+                </div>
+            </div>
+            <div class="service-container col-12 col-md-4 col-lg-3">
+                <div class="service-item p-4 text-center">
+                    <span class="service-icon"><i class="fas fa-cart-plus"></i></span>
+                    <h1 class="block w-100 text-center">ترکیبی</h1>
+                    <h3 class="block w-100 text-center">ترکیب خودتو بساز</h3>
+                    <button class="btn">سفارش</button>
+                </div>
+            </div>
         </div>
     </div>
     <div class="section about-section col-12 p-0 mb-2">

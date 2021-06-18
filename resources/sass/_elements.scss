@@ -97,3 +97,62 @@
         color: $eggplant;
     }
 }
+.services-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    .service-container {
+        .service-item {
+            h1 {
+                font-size: 22px;
+                font-weight: bold;
+                margin-top: 14px;
+            }
+            h3 {
+                font-size: 18px;
+                margin-bottom: 18px;
+            }
+            span {
+                background-image: url(/images/item-background.png);
+                font-size: 60px !important;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% 100%;
+                display: inline-block;
+                width: 50%;
+                i {
+                    font-size: 55px;
+                }
+            }
+            button {
+                background: linear-gradient(to right, $aqua 0%, $light-aqua 50%, $aqua-purple 100%);
+                -webkit-appearance: none;
+                background-size: 500% !important;
+                border: none;
+                border-radius: 5rem;
+                box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+                color: #000;
+                cursor: pointer;
+                letter-spacing: .05em;
+                outline: none;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                &:hover {
+                    animation-name: gradient;
+                    -webkit-animation-name: gradient;
+                    animation-duration: 1.3s;
+                    -webkit-animation-duration: 1.3s;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                    -webkit-animation-fill-mode: forwards;
+                }
+            }
+        }
+    }
+}
