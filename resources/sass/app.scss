@@ -1,6 +1,7 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import 'colors';
 @import 'fonts';
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
-@import './colors.scss';
+@import '~bootstrap/scss/bootstrap.scss';
 @import './theme.scss';
-@import '../../node_modules/animate.css/animate.min.css'
+@import '~animate.css/animate.min.css';
+@import 'responsive'
