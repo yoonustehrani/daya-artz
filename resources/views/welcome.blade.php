@@ -176,6 +176,14 @@
                 </div>
             </div>
         </div>
+        <div class="section col-12 p-4 mb-2">
+            <div class="col-12 title-section">
+                <div class="title-container">
+                    <h2 class="title-text">نمونه طراحی های دایا</h2>
+                    <span class="title-underline"></span>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
