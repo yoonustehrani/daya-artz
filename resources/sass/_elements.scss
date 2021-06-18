@@ -195,3 +195,51 @@ span.back-aqua {
         }
     }
 }
+
+.order-section {
+    display: flex;
+    justify-content: center;
+    .order-detail {
+        button {
+            background-color: $purple;
+        }
+        h3 {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        h4 {
+            font-size: 18px;
+        }
+        i.check {
+            color: $green
+        }
+        i.times {
+            color: $red;
+        }
+        h4 {
+            direction: ltr;
+        }
+        span {
+            margin-left: 4px;
+        }
+    }
+    .order-vector {
+        width: 30%;
+        height: 350px;
+        .top--25p {
+            position: relative;
+            top: -25%;
+            img {
+                width: 90% !important;
+            }
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.ml-6p {
+    margin-left: 6%;
+}
