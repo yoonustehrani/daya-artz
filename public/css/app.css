@@ -10054,6 +10054,62 @@ h3 {
   background-color: #010101;
 }
 
+.services-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.services-container .service-container .service-item h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 14px;
+}
+.services-container .service-container .service-item h3 {
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+.services-container .service-container .service-item span {
+  background-image: url(/images/item-background.png);
+  font-size: 60px !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  display: inline-block;
+  width: 50%;
+}
+.services-container .service-container .service-item span i {
+  font-size: 55px;
+}
+.services-container .service-container .service-item button {
+  background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
+  -webkit-appearance: none;
+  background-size: 500% !important;
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  color: #000;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.services-container .service-container .service-item button:hover {
+  animation-name: gradient;
+  -webkit-animation-name: gradient;
+  animation-duration: 1.3s;
+  -webkit-animation-duration: 1.3s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -10095,10 +10151,15 @@ html, body {
 
 h1, h2, h3, h4, h5, h6, p, span, button, a {
   font-family: "IranSansWeb";
+  direction: rtl;
 }
 
 a:hover {
   text-decoration: none;
+}
+
+.rtl {
+  direction: rtl;
 }
 
 .header {
@@ -10312,7 +10373,6 @@ div.header-section div.header-text div.header-btn-container button {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   color: #fff;
   cursor: pointer;
-  font-family: "IranSansWeb";
   letter-spacing: 0.05em;
   outline: none;
   -webkit-tap-highlight-color: transparent;
@@ -10334,7 +10394,7 @@ div.header-section div.header-text div.header-btn-container button:hover {
 
 @-webkit-keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0%;
   }
   100% {
     background-position: 100%;
@@ -10343,7 +10403,7 @@ div.header-section div.header-text div.header-btn-container button:hover {
 
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0%;
   }
   100% {
     background-position: 100%;

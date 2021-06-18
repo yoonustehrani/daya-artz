@@ -25,10 +25,15 @@ html, body {
 
 h1,h2,h3,h4,h5,h6,p,span,button, a {
     font-family: $iran-sans;
+    direction: rtl;
 }
 
 a:hover {
     text-decoration: none;
+}
+
+.rtl {
+    direction: rtl;
 }
 
 .header {
@@ -239,7 +244,6 @@ div.header-section {
                 box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
                 color: $white;
                 cursor: pointer;
-                font-family: $iran-sans;
                 letter-spacing: .05em;
                 outline: none;
                 -webkit-tap-highlight-color: transparent;
@@ -264,7 +268,7 @@ div.header-section {
 
 @keyframes gradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 0%;
     }
     100% {
         background-position: 100%;
