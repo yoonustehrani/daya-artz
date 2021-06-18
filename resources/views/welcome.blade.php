@@ -49,7 +49,7 @@
         <div class="header-section">
             <div class="header-vector">
                 <img src="{{ asset('images/header-vector.svg') }}" alt="header-vector">
-                <div class="triangle animated fadeIn"></div>
+                <div class="triangle"></div>
             </div>
             <div class="header-text p-4">
                 <h1><span>|</span> لوگوی خودتون رو <span>شگفت زده</span> کنید</h1> <br/>
