@@ -57,8 +57,8 @@
                 برای نشان دادن تفاوت خود نسبت به رقبا نیازمند لوگویی خاص ، با کیفیت و از همه مهم تر مربوط به کار خود هستین ، خلاصه بخوام بگم اگه برندتون رو دوست دارید یه لوگوی خوب بهش مدیونین پس... |
                 </p>
                 <div class="header-btn-container">
-                    <button class="btn btn-primary btn-lg badge-pill ml-4">ادامه متن</button>
-                    <button class="btn btn-info btn-lg badge-pill">شروع سفارش</button>
+                    <button class="btn ml-4 purple">ادامه متن</button>
+                    <button class="btn aqua">شروع سفارش</button>
                 </div>
             </div>
         </div>

@@ -10296,3 +10296,56 @@ div.header-section div.header-text div.header-btn-container {
   justify-content: center;
   align-items: center;
 }
+div.header-section div.header-text div.header-btn-container .aqua {
+  background: -webkit-gradient(to right, #78cad2 0%, #fceeb5 50%, #ee786e 100%);
+  background: linear-gradient(to right, #78cad2 0%, #fceeb5 50%, #ee786e 100%);
+}
+div.header-section div.header-text div.header-btn-container .purple {
+  background: -webkit-gradient(to right, #34167C 0%, #C3AFF1 50%, #DC47DE 100%);
+  background: linear-gradient(to right, #34167C 0%, #C3AFF1 50%, #DC47DE 100%);
+}
+div.header-section div.header-text div.header-btn-container button {
+  -webkit-appearance: none;
+  background-size: 500% !important;
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  color: #fff;
+  cursor: pointer;
+  font-family: "IranSansWeb";
+  letter-spacing: 0.05em;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div.header-section div.header-text div.header-btn-container button:hover {
+  animation-name: gradient;
+  -webkit-animation-name: gradient;
+  animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
