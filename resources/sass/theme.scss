@@ -193,8 +193,9 @@ div.header-section {
         }
         .triangle {
             width: 50%;
-            height: 60%;
-            background: linear-gradient(45deg, #F9E7E7 0% 50%, rgba(255, 255, 255, 0) 50% 100%) border-box;
+            height: 0;
+            padding-bottom: 50%;
+            background: linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
             position: absolute;
             left: 0%;
             bottom: 0%;
