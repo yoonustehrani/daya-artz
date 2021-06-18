@@ -1,0 +1,30 @@
+.section, .title-section {
+    float: left;
+}
+
+.title-section {
+    display: flex;
+    justify-content: center;
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        .title-text {
+            display: inline-block;
+            margin: 0 15px;
+            margin-bottom: 10px;
+            padding: 5px;
+            width: fit-content;
+            background-image: url(/images/title-background.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .title-underline {
+            height: 2px;
+            border-radius: 4px;
+            background-color: #010101;
+        }
+    }
+}

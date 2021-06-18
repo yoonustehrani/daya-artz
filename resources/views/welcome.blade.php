@@ -46,9 +46,17 @@
                 <button class="btn-phone mr-3"><i class="fas fa-phone"></i></button>
             </div>
         </nav>
-        <div>
-            
-        </div>
     </header>
+    <div class="section col-12 p-4">
+        <div class="col-12 title-section">
+            <div class="title-container">
+                <p class="title-text">خدمات دایا آرتز</p>
+                <span class="title-underline"></span>
+            </div>
+            {{-- <div class="subtitle-container">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique qui quos sint nam temporibus molestiae ab, esse iure quaerat laborum. Corporis, consequuntur qui. Veritatis aliquid iure, exercitationem assumenda rem voluptatem!</p>
+            </div> --}}
+        </div>
+    </div>
 </body>
 </html>
