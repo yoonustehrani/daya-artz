@@ -13,13 +13,15 @@
             margin: 0 15px;
             margin-bottom: 10px;
             padding: 5px;
-            width: fit-content;
+            width: max-content;
+            min-width: 170px;
             background-image: url(/images/title-background.png);
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100% 100%;
             font-size: 26px;
             font-weight: bold;
+            text-align: center;
         }
         .title-underline {
             height: 2px;
@@ -27,6 +29,11 @@
             background-color: #010101;
         }
     }
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .about-section {
@@ -37,7 +44,7 @@
         height: auto;
         background-image: url(/images/shaped-background.png);
         background-size: cover;
-        background-position: center;
+        background-position: top;
         background-repeat: no-repeat;
         > div {
             height: 100%;
@@ -48,5 +55,45 @@
             }
         }
         // background-attachment: fixed;
+    }
+}
+
+.badge.eggplant, .btn.eggplant {
+    border: 2px solid $eggplant;
+    background: transparent;
+    color: $eggplant;
+    font-size: 18px;
+    font-weight: 100;
+    &:hover, &.active {
+        background-color: $eggplant;
+        color: $white;
+    }
+}
+
+
+.tab-element {
+    ul.tabs-container {
+        display: flex;
+        justify-content: center;
+        li {
+            margin: 0px 5px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .tab-contents .tab-content {
+        display: none;
+        transition: 0.3s;
+        opacity: 0;
+    }
+    .tab-contents .tab-content.active {
+        display: block;
+        animation: ease 0.3s fadeIn;
+        opacity: 1;
+    }
+    .tab-content p {
+        text-align: justify;
+        color: $eggplant;
     }
 }
