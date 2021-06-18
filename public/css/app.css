@@ -10017,6 +10017,68 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.section, .title-section {
+  float: left;
+}
+
+.title-section {
+  display: flex;
+  justify-content: center;
+}
+.title-section .title-container {
+  display: flex;
+  flex-direction: column;
+}
+.title-section .title-container .title-text {
+  display: inline-block;
+  margin: 0 15px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-image: url(/images/title-background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  font-size: 26px;
+  font-weight: bold;
+}
+.title-section .title-container .title-underline {
+  height: 2px;
+  border-radius: 4px;
+  background-color: #010101;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 html, body {
   width: 100%;
   height: 100%;
@@ -10071,6 +10133,7 @@ a:hover {
   justify-content: flex-start;
 }
 .header > nav ul.main-menu li {
+  position: relative;
   list-style: none;
   display: inline-block;
   height: 100%;
@@ -10093,6 +10156,37 @@ a:hover {
 .header > nav ul.main-menu li > a:hover {
   border-color: #78cad2;
   transition: 0.3s;
+}
+.header > nav ul.main-menu ul.submenu {
+  position: absolute;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  transition: 0.3s;
+  display: none;
+  opacity: 0;
+  top: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0px 10px;
+  border-radius: 0 0 5px 5px;
+}
+.header > nav ul.main-menu ul.submenu li {
+  display: block;
+  padding-top: 0px;
+  margin: 2px 0px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.header > nav ul.main-menu ul.submenu li > a {
+  color: #4e27b1;
+  margin: 4px 0px;
+}
+.header > nav ul.main-menu li:hover > ul.submenu {
+  display: block;
+  -webkit-animation: linear 0.3s fadeIn;
+          animation: linear 0.3s fadeIn;
+  opacity: 1;
 }
 .header > nav .last-item {
   position: absolute;
