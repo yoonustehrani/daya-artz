@@ -28,3 +28,25 @@
         }
     }
 }
+
+.about-section {
+    background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+    // height: fit-content;
+    > div {
+        min-height: 300px;
+        height: auto;
+        background-image: url(/images/shaped-background.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        > div {
+            height: 100%;
+            float: left;
+            text-align: center;
+            p {
+                color: $white;
+            }
+        }
+        // background-attachment: fixed;
+    }
+}

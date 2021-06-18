@@ -10050,6 +10050,26 @@ h3 {
   background-color: #010101;
 }
 
+.about-section {
+  background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+}
+.about-section > div {
+  min-height: 300px;
+  height: auto;
+  background-image: url(/images/shaped-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.about-section > div > div {
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+.about-section > div > div p {
+  color: #fff;
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -10091,6 +10111,10 @@ html, body {
 
 h1, h2, h3, h4, h5, h6, p, span, button, a {
   font-family: "IranSansWeb";
+}
+
+p {
+  font-size: 18px;
 }
 
 a:hover {
