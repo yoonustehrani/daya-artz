@@ -10260,12 +10260,12 @@ div.header-section div.header-vector img {
   z-index: 8;
 }
 div.header-section div.header-vector .triangle {
-  width: 40%;
+  width: 50%;
   height: 60%;
   background: linear-gradient(45deg, #F9E7E7 0% 50%, rgba(255, 255, 255, 0) 50% 100%) border-box;
   position: absolute;
-  left: 10%;
-  BOTTOM: 0%;
+  left: 0%;
+  bottom: 0%;
   z-index: 5;
 }
 div.header-section div.header-text {
