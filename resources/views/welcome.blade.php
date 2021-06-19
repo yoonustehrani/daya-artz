@@ -140,24 +140,24 @@
                 <div class="order-vector float-left"><img src="{{ asset('images/speed-order.svg') }}" alt="fast-order"></div>
                 <div class="order-detail float-left">
                     <h3 class="mb-4">سفارش فوری</h3>
-                    <h4 class="mb-2">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <h4 class="mb-2">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
+                    <h4 class="mb-3">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-3">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
+                    <h4 class="mb-3">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
                     <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
                 </div>
             </div>
-            <div class="order-section section w-100 mt-5 ml-6p">
+            <div class="order-section section w-100 ml-6p">
                 <div class="order-detail float-left">
                     <h3 class="mb-4">سفارش تخصصی</h3>
-                    <h4 class="mb-2">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
+                    <h4 class="mb-3">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-3">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-3">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-3">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
                     <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
                 </div>
                 <div class="order-vector float-left">
-                    <div class="top--25p"><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
+                    <div><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
                 </div>
             </div>
         </div>
