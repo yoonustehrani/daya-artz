@@ -400,3 +400,99 @@ span.back-aqua {
         }
     }
 }
+// end daya blog
+
+// footer
+    .footer {
+        background: linear-gradient(20deg, #6232de, #8f60ec, #ac7ff4,);
+        background: -webkit-gradient(20deg, #6232de, #8f60ec, #ac7ff4,);
+        .footer-back {
+            background-image: url(/images/shaped-background.png);
+            background-position: center;
+            background-size: auto;
+            background-repeat: repeat;
+            min-height: 350px;
+            height: auto;
+            > div:first-child {
+                img {
+                    width: 50px;
+                    height: auto;
+                    display: inline-block;
+                }
+                h4 {
+                    display: inline;
+                    font-weight: bold;
+                    font-size: 22px;
+                }
+            }
+            div.footer-info-container {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                float: left;
+                width: 100%;
+                > div {
+                    h4, p, a {
+                        color: #fff;
+                        text-align: right;
+                        direction: rtl;
+                    } 
+                    p, a {
+                        font-size: 16px;
+                    }
+                    a {
+                        cursor: pointer;
+                        transition: 0.3s;
+                        &:hover {
+                            color: $light-aqua;
+                        }
+                    }
+                    h4 {
+                        font-weight: bold;
+                        font-size: 20px;
+                        margin-bottom: 12px;
+                    }
+                    .social-media-container {
+                        i {
+                            font-size: 34px;
+                            color: #fff;
+                            margin-bottom: 10px;
+                            cursor: pointer;
+                            transition: 0.4s;
+                            &:hover {
+                                transform: scale(1.1);
+                                &.fa-instagram {
+                                    color: #c32aa3;
+                                }
+                                &.fa-telegram-plane {
+                                    color: #0088cc;
+                                }
+                                &.fa-whatsapp {
+                                    color: #25d366;
+                                }
+                                &.fa-linkedin-in {
+                                    color: #0a66c2;
+                                }
+                            }
+                        }
+                    }
+                    span {
+                        color: #fff;
+                    }
+                    img {
+                        width: 50px;
+                        height: auto;
+                    }
+                    ul {
+                        list-style-type: none;
+                        li {
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
+            }
+        } 
+    }
+// end footer

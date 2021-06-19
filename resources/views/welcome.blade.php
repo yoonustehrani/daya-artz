@@ -396,6 +396,56 @@
             </div>
         </div>
         <!-- end daya blog -->
+        <!-- footer -->
+            <div class="section w-100 footer">
+                <div class="footer-back w-100">
+                    <div class="float-left col-12 text-center mb-5 mt-4">
+                        <img src="{{ asset('images/daya-white-logo.png') }}" alt="daya-logo">
+                        <h4 class="ml-2 text-light">DAYAARTZ</h4>
+                    </div>
+                    <div class="footer-info-container">
+                        <div class="col-12 col-md-3">
+                            <h4>درباره ما</h4>
+                            <div><p>گروه طراحی دایا متشکل از تیمی با تجربه و حرفه ای در زمینه های طراحی گرافیـکی و تبلیغاتی در تلاش است بستر مناسبی را برای کسانی که نیازمند طراحی یا طراحی با کیفیت و در سطح بین المللی و همچنین درامدزایی برای طراحان حرفه ای و درجه یک کشور ایران ایجاد سازد.</p></div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <h4>لینک های سریع</h4>
+                            <div>
+                                <ul class="text-right p-0">
+                                    <li><a href="#">حساب من</a></li>
+                                    <li><a href="#">سفارش فوری</a></li>
+                                    <li><a href="#">سفارش تخصصی</a></li>
+                                    <li><a href="#">راهنمای سفارشات</a></li>
+                                    <li><a href="#">وبلاگ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <h4>پشتیبانی</h4>
+                            <div>
+                                <ul class="text-right p-0 mb-4">
+                                    <li><a href="#">تماس با ما</a></li>
+                                    <li><a href="#">ارسال تیکت</a></li>
+                                </ul>
+                                <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" alt="zarin-paal" class="float-right ml-2">
+                                <img src="{{ asset('images/gallery/etemad-namad.png') }}" alt="etemead" class="float-right">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <h4>دایا مجازی</h4>
+                            <div class="mb-4">
+                                <div class="social-media-container"><i class="fab fa-instagram"></i><i class="fab fa-telegram-plane ml-4"></i></div>
+                                <div class="social-media-container"><i class="fab fa-linkedin-in"></i><i class="fab fa-whatsapp ml-4"></i></div>
+                            </div>
+                            <span class="ltr">
+                                <i class="far fa-copyright"></i>
+                                Sampi Group. All rights reserved
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- end footer -->
     </div>
 </body>
 </html>

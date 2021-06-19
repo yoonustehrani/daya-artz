@@ -10446,6 +10446,93 @@ span.back-aqua i {
   padding-bottom: 80%;
 }
 
+.footer {
+  background: linear-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
+  background: -webkit-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
+}
+.footer .footer-back {
+  background-image: url(/images/shaped-background.png);
+  background-position: center;
+  background-size: auto;
+  background-repeat: repeat;
+  min-height: 350px;
+  height: auto;
+}
+.footer .footer-back > div:first-child img {
+  width: 50px;
+  height: auto;
+  display: inline-block;
+}
+.footer .footer-back > div:first-child h4 {
+  display: inline;
+  font-weight: bold;
+  font-size: 22px;
+}
+.footer .footer-back div.footer-info-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  float: left;
+  width: 100%;
+}
+.footer .footer-back div.footer-info-container > div h4, .footer .footer-back div.footer-info-container > div p, .footer .footer-back div.footer-info-container > div a {
+  color: #fff;
+  text-align: right;
+  direction: rtl;
+}
+.footer .footer-back div.footer-info-container > div p, .footer .footer-back div.footer-info-container > div a {
+  font-size: 16px;
+}
+.footer .footer-back div.footer-info-container > div a {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer .footer-back div.footer-info-container > div a:hover {
+  color: #D9F0F2;
+}
+.footer .footer-back div.footer-info-container > div h4 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.footer .footer-back div.footer-info-container > div .social-media-container i {
+  font-size: 34px;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.footer .footer-back div.footer-info-container > div .social-media-container i:hover {
+  transform: scale(1.1);
+}
+.footer .footer-back div.footer-info-container > div .social-media-container i:hover.fa-instagram {
+  color: #c32aa3;
+}
+.footer .footer-back div.footer-info-container > div .social-media-container i:hover.fa-telegram-plane {
+  color: #0088cc;
+}
+.footer .footer-back div.footer-info-container > div .social-media-container i:hover.fa-whatsapp {
+  color: #25d366;
+}
+.footer .footer-back div.footer-info-container > div .social-media-container i:hover.fa-linkedin-in {
+  color: #0a66c2;
+}
+.footer .footer-back div.footer-info-container > div span {
+  color: #fff;
+}
+.footer .footer-back div.footer-info-container > div img {
+  width: 50px;
+  height: auto;
+}
+.footer .footer-back div.footer-info-container > div ul {
+  list-style-type: none;
+}
+.footer .footer-back div.footer-info-container > div ul li {
+  margin-bottom: 8px;
+}
+
 html, body {
   width: 100%;
   height: 100%;
