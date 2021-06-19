@@ -10216,6 +10216,9 @@ span.back-aqua i {
   position: relative;
   height: 160%;
 }
+.order-section-container div.background-order {
+  height: 84%;
+}
 .order-section-container .order-section {
   display: flex;
   justify-content: center;
@@ -10249,9 +10252,6 @@ span.back-aqua i {
 .order-section-container .order-section .order-vector .top--25p {
   position: relative;
   top: -25%;
-}
-.order-section-container .order-section .order-vector .top--25p img {
-  width: 90% !important;
 }
 .order-section-container .order-section .order-vector img {
   width: 100%;
