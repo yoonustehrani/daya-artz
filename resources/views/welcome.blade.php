@@ -124,60 +124,65 @@
             </div>
         </div>
     </div>
-    <div class="section col-12">
+    <div class="section col-12 order-section-container">
         <div class="title-section col-12 mb-3">
             <div class="title-container">
                 <p class="title-text">روش های ثبت سفارش در دایا</p>
             </div>
         </div>
-            <div class="order-section section w-100">
-                <div class="order-vector float-left"><img src="{{ asset('images/speed-order.svg') }}" alt="fast-order"></div>
-                <div class="order-detail float-left">
-                    <h3 class="mb-4">سفارش فوری</h3>
-                    <h4 class="mb-2">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <h4 class="mb-2">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
+        <div class="order-section section w-100">
+            <div class="order-vector float-left"><img src="{{ asset('images/speed-order.svg') }}" alt="fast-order"></div>
+            <div class="order-detail float-left">
+                <h3 class="mb-4">سفارش فوری</h3>
+                <h4 class="mb-2">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
+                <h4 class="mb-2">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
+                <h4 class="mb-2">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
+                <h4 class="mb-2">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
+                <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
+            </div>
+        </div>
+        <div class="order-section section w-100 mt-5 ml-6p">
+            <div class="order-detail float-left">
+                <h3 class="mb-4">سفارش تخصصی</h3>
+                <h4 class="mb-2">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
+                <h4 class="mb-2">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
+                <h4 class="mb-2">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
+                <h4 class="mb-2">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
+                <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
+            </div>
+            <div class="order-vector float-left">
+                <div class="top--25p"><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
+            </div>
+        </div>
+        <div class="absolute-contact w-100">
+            <div class="contact-section section w-100">
+                <div class="col-12 col-md-10 offset-md-1 back-aqua"></div>
+                <div class="section contact-info w-100">
+                    <div class="col-10 col-md-2 p-2 text-center">
+                        <span class="back-aqua"><i class="fas fa-phone"></i></span>
+                        <h4>تلفن</h4>
+                        <p class="text-secondary">با شماره گیری تلفن های ثابت زیر سفارش خود را ثبت کنید</p>
+                        <button class="btn btn-gradient ltr">+98 123456789</button>
+                        <button class="btn btn-gradient ltr">021 1234567</button>
+                    </div>
+                    <div class="col-10 col-md-2 p-2 text-center">
+                        <span class="back-aqua"><i class="fas fa-robot"></i></span>
+                        <h4>ربات تلگرام</h4>
+                        <p class="text-secondary">توسط ربات تلگرام ما سفارش خود را ثبت کنید</p>
+                        <button class="btn btn-gradient ltr mt-12-p">@DAYABOT</button>
+                    </div>
+                    <div class="col-10 col-md-2 p-2 text-center">
+                        <span class="back-aqua"><i class="fas fa-mobile"></i></span>
+                        <h4>پیامرسان</h4>
+                        <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
+                        <button class="btn btn-gradient ltr">+98 123456789</button>
+                        <button class="btn btn-gradient ltr">@DAYAADMIN</button>
+                    </div>
                 </div>
             </div>
-            <div class="order-section section w-100 mt-5 ml-6p">
-                <div class="order-detail float-left">
-                    <h3 class="mb-4">سفارش تخصصی</h3>
-                    <h4 class="mb-2">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-2">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
-                </div>
-                <div class="order-vector float-left">
-                    <div class="top--25p"><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
-                </div>
-            </div>
+        </div>
     </div>
 
-    <div class="section contact-info w-100">
-        <div class="col-10 col-md-2 p-2 text-center">
-            <span class="back-aqua"><i class="fas fa-phone"></i></span>
-            <h4>تلفن</h4>
-            <p class="text-secondary">با شماره گیری تلفن های ثابت زیر سفارش خود را ثبت کنید</p>
-            <button class="btn btn-gradient ltr">+98 123456789</button>
-            <button class="btn btn-gradient ltr">021 1234567</button>
-        </div>
-        <div class="col-10 col-md-2 p-2 text-center">
-            <span class="back-aqua"><i class="fas fa-robot"></i></span>
-            <h4>ربات تلگرام</h4>
-            <p class="text-secondary">توسط ربات تلگرام ما سفارش خود را ثبت کنید</p>
-            <button class="btn btn-gradient ltr mt-12-p">@DAYABOT</button>
-        </div>
-        <div class="col-10 col-md-2 p-2 text-center">
-            <span class="back-aqua"><i class="fas fa-mobile"></i></span>
-            <h4>پیامرسان</h4>
-            <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
-            <button class="btn btn-gradient ltr">+98 123456789</button>
-            <button class="btn btn-gradient ltr">@DAYAADMIN</button>
-        </div>
-    </div>
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
             <div class="col-lg-3">

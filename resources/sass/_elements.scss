@@ -162,84 +162,102 @@ span.back-aqua {
     }
 }
 
-.contact-info {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    height: 300px;
-    > div {
-        height: 100%;
-        border: 2px solid $aqua;
-        background-image: url(/images/contact-background.svg);
-        background-position: center;
-        background-size: cover;
-        span {
-            margin-bottom: 15px;
-        }
-        h4 {
-            font-size: 22px;
-            font-weight: bold;
-        }
-        p {
-            font-size: 16px;
-        }
-        button {
-            background: linear-gradient(to right, $light-aqua 0%, $aqua 50%, #9177D1 100%);
-            background: -webkit-gradient(to right, $light-aqua 0%, $aqua 50%, #9177D1 100%);
-            display: block;
-            margin: 0px auto 5px auto;
-        }
-        .mt-12-p {
-            margin-top: 12%;
-        }
-    }
-}
-
-.order-section {
-    display: flex;
-    justify-content: center;
-    .order-detail {
-        button {
-            background-color: $purple;
-        }
-        h3 {
-            font-size: 22px;
-            font-weight: bold;
-        }
-        h4 {
-            font-size: 18px;
-        }
-        i.check {
-            color: $green
-        }
-        i.times {
-            color: $red;
-        }
-        h4 {
-            direction: ltr;
-        }
-        span {
-            margin-left: 4px;
-        }
-    }
-    .order-vector {
-        width: 30%;
-        height: 350px;
-        .top--25p {
-            position: relative;
-            top: -25%;
-            img {
-                width: 90% !important;
+.order-section-container {
+    position: relative;
+    height: 160%;
+    .order-section {
+        display: flex;
+        justify-content: center;
+        .order-detail {
+            button {
+                background-color: $purple;
+            }
+            h3 {
+                font-size: 22px;
+                font-weight: bold;
+            }
+            h4 {
+                font-size: 18px;
+            }
+            i.check {
+                color: $green
+            }
+            i.times {
+                color: $red;
+            }
+            h4 {
+                direction: ltr;
+            }
+            span {
+                margin-left: 4px;
             }
         }
-        img {
-            width: 100%;
-            height: 100%;
+        .order-vector {
+            width: 30%;
+            height: 350px;
+            .top--25p {
+                position: relative;
+                top: -25%;
+                img {
+                    width: 90% !important;
+                }
+            }
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
-}
-
-.ml-6p {
-    margin-left: 6%;
+    
+    .ml-6p {
+        margin-left: 6%;
+    }
+    
+    .contact-section {
+        position: relative;
+        div.back-aqua {
+            height: 200px;
+            background: linear-gradient(45deg, rgba(217, 240, 242, 0.3) 0%, rgba(120, 202, 210, 0.3) 100%);
+            background: -webkit-gradient(45deg, rgba(217, 240, 242, 0.3) 0%, rgba(120, 202, 210, 0.3) 100%);
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 300px;
+            position: absolute;
+            top: 25%;
+            > div {
+                height: 100%;
+                border: 2px solid $aqua;
+                background-image: url(/images/contact-background.svg);
+                background-position: center;
+                background-size: cover;
+                span {
+                    margin-bottom: 15px;
+                }
+                h4 {
+                    font-size: 22px;
+                    font-weight: bold;
+                }
+                p {
+                    font-size: 16px;
+                }
+                button {
+                    background: linear-gradient(to right, $light-aqua 0%, $aqua 50%, #9177D1 100%);
+                    background: -webkit-gradient(to right, $light-aqua 0%, $aqua 50%, #9177D1 100%);
+                    display: block;
+                    margin: 0px auto 5px auto;
+                }
+                .mt-12-p {
+                    margin-top: 12%;
+                }
+            }
+        }
+    }
+    .absolute-contact {
+        position: absolute;
+        bottom: 16%;
+    }
 }

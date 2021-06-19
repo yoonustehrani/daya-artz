@@ -10212,84 +10212,100 @@ span.back-aqua i {
   font-size: 55px;
 }
 
-.contact-info {
+.order-section-container {
+  position: relative;
+  height: 160%;
+}
+.order-section-container .order-section {
+  display: flex;
+  justify-content: center;
+}
+.order-section-container .order-section .order-detail button {
+  background-color: #af3acc;
+}
+.order-section-container .order-section .order-detail h3 {
+  font-size: 22px;
+  font-weight: bold;
+}
+.order-section-container .order-section .order-detail h4 {
+  font-size: 18px;
+}
+.order-section-container .order-section .order-detail i.check {
+  color: #82D177;
+}
+.order-section-container .order-section .order-detail i.times {
+  color: #E03737;
+}
+.order-section-container .order-section .order-detail h4 {
+  direction: ltr;
+}
+.order-section-container .order-section .order-detail span {
+  margin-left: 4px;
+}
+.order-section-container .order-section .order-vector {
+  width: 30%;
+  height: 350px;
+}
+.order-section-container .order-section .order-vector .top--25p {
+  position: relative;
+  top: -25%;
+}
+.order-section-container .order-section .order-vector .top--25p img {
+  width: 90% !important;
+}
+.order-section-container .order-section .order-vector img {
+  width: 100%;
+  height: 100%;
+}
+.order-section-container .ml-6p {
+  margin-left: 6%;
+}
+.order-section-container .contact-section {
+  position: relative;
+}
+.order-section-container .contact-section div.back-aqua {
+  height: 200px;
+  background: linear-gradient(45deg, rgba(217, 240, 242, 0.3) 0%, rgba(120, 202, 210, 0.3) 100%);
+  background: -webkit-gradient(45deg, rgba(217, 240, 242, 0.3) 0%, rgba(120, 202, 210, 0.3) 100%);
+}
+.order-section-container .contact-section .contact-info {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   height: 300px;
+  position: absolute;
+  top: 25%;
 }
-.contact-info > div {
+.order-section-container .contact-section .contact-info > div {
   height: 100%;
   border: 2px solid #78cad2;
   background-image: url(/images/contact-background.svg);
   background-position: center;
   background-size: cover;
 }
-.contact-info > div span {
+.order-section-container .contact-section .contact-info > div span {
   margin-bottom: 15px;
 }
-.contact-info > div h4 {
+.order-section-container .contact-section .contact-info > div h4 {
   font-size: 22px;
   font-weight: bold;
 }
-.contact-info > div p {
+.order-section-container .contact-section .contact-info > div p {
   font-size: 16px;
 }
-.contact-info > div button {
+.order-section-container .contact-section .contact-info > div button {
   background: linear-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
   background: -webkit-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
   display: block;
   margin: 0px auto 5px auto;
 }
-.contact-info > div .mt-12-p {
+.order-section-container .contact-section .contact-info > div .mt-12-p {
   margin-top: 12%;
 }
-
-.order-section {
-  display: flex;
-  justify-content: center;
-}
-.order-section .order-detail button {
-  background-color: #af3acc;
-}
-.order-section .order-detail h3 {
-  font-size: 22px;
-  font-weight: bold;
-}
-.order-section .order-detail h4 {
-  font-size: 18px;
-}
-.order-section .order-detail i.check {
-  color: #82D177;
-}
-.order-section .order-detail i.times {
-  color: #E03737;
-}
-.order-section .order-detail h4 {
-  direction: ltr;
-}
-.order-section .order-detail span {
-  margin-left: 4px;
-}
-.order-section .order-vector {
-  width: 30%;
-  height: 350px;
-}
-.order-section .order-vector .top--25p {
-  position: relative;
-  top: -25%;
-}
-.order-section .order-vector .top--25p img {
-  width: 90% !important;
-}
-.order-section .order-vector img {
-  width: 100%;
-  height: 100%;
-}
-
-.ml-6p {
-  margin-left: 6%;
+.order-section-container .absolute-contact {
+  position: absolute;
+  bottom: 16%;
 }
 
 html, body {
