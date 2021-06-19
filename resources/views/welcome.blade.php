@@ -9,6 +9,7 @@
     <title>Daya Artz</title>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <nav>
             <div class="logo-container">
@@ -63,6 +64,8 @@
             </div>
         </div>
     </header>
+    <!-- end Header -->
+    <!-- Services -->
     <div class="section col-12 p-4">
         <div class="col-12 title-section mb-3">
             <div class="title-container">
@@ -124,6 +127,8 @@
             </div>
         </div>
     </div>
+    <!-- end Services -->
+    <!-- Ordering Methods -->
     <div class="section w-100 order-section-container">
         <div class="background-order col-md-10 offset-md-1 p-0">
             <div class="title-section col-12 mb-3">
@@ -184,7 +189,8 @@
             </div>
         </div>
     </div>
-
+    <!-- end Ordering Methods -->
+    <!-- About Daya -->
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
             <div class="image-box col-xl-2 col-lg-3 col-sm-3 col-12">
@@ -203,6 +209,8 @@
             </div>
         </div>
     </div>
+    <!-- end About Daya -->
+    <!-- About Logo -->
     <div class="section col-12 p-4 mb-2">
         <div class="col-12 title-section">
             <div class="title-container">
@@ -237,6 +245,8 @@
                 </div>
             </div>
         </div>
+        <!-- end About Logo -->
+        <!-- Portfolio -->
         <div class="section col-12 p-4 mb-2">
             <div class="col-12 title-section">
                 <div class="title-container">
@@ -343,6 +353,7 @@
                 </a>
             </div>
         </div>
+        <!-- end Portfolio -->
     </div>
 </body>
 </html>
