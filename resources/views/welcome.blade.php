@@ -215,8 +215,8 @@
                 <ul class="tabs-container col-12 float-left p-0">
                     <li class="tab badge badge-pill eggplant active">لوگو چیست؟</li>
                     <li class="tab badge badge-pill eggplant">انواع لوگو</li>
-                    <li class="tab badge badge-pill eggplant">چرا لوگو</li>
-                    <li class="tab badge badge-pill eggplant">چرا دایا</li>
+                    <li class="tab badge badge-pill eggplant">چرا لوگو؟</li>
+                    <li class="tab badge badge-pill eggplant">چرا دایا؟</li>
                 </ul>
                 <div class="tab-contents col-lg-6 offset-lg-3 col-md-8 offset-md-4 col-12 float-left mt-3">
                     <article class="tab-content active">
@@ -243,6 +243,104 @@
                     <h2 class="title-text">نمونه طراحی های دایا</h2>
                     <span class="title-underline"></span>
                 </div>
+            </div>
+            <div class="col-12 mt-4 float-left portfolio-section p-2">
+                <a href="#">
+                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                    <div class="portfolio-avatar">
+                        <img src="{{ asset('images/gallery/orange-studio-logo.jpg') }}" alt="">
+                    </div>
+                    <div class="portfolio-detail">
+                        <p class="title">استدیو ترنج</p>
+                        <ul>
+                            <li>صنایع دستی</li>
+                            <li>طراحی تخصصی</li>
+                            <li>عناصر مرتبط</li>
+                            <li>رنگ شناسی حرفه ای</li>
+                        </ul>
+                    </div>
+                </div>
+                </a>
+                <a href="#">
+                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                    <div class="portfolio-avatar">
+                        <img src="{{ asset('images/gallery/reverse-logo.jpg') }}" alt="">
+                    </div>
+                    <div class="portfolio-detail">
+                        <p class="title">Reverse Band</p>
+                        <ul>
+                            <li><i class="fas fa-headphones"></i> موسیقی</li>
+                            <li>طراحی تخصصی</li>
+                            <li>عناصر مرتبط</li>
+                            <li>رنگ شناسی حرفه ای</li>
+                        </ul>
+                    </div>
+                </div>
+                </a>
+                <a href="#">
+                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                    <div class="portfolio-avatar">
+                        <img src="{{ asset('images/gallery/elnovel-logo.jpg') }}" alt="">
+                    </div>
+                    <div class="portfolio-detail">
+                        <p class="title">ال ناول</p>
+                        <ul>
+                            <li>داستان و ادبیات <i class="fas fa-book-open"></i></li>
+                            <li>طراحی تخصصی</li>
+                            <li>عناصر مرتبط</li>
+                            <li>رنگ شناسی حرفه ای</li>
+                        </ul>
+                    </div>
+                </div>
+                </a>
+                <a href="#">
+                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                    <div class="portfolio-avatar">
+                        <img src="{{ asset('images/gallery/vispubish-logo.jpg') }}" alt="">
+                    </div>
+                    <div class="portfolio-detail">
+                        <p class="title">ویپوبیش</p>
+                        <ul>
+                            <li>پایگاه مقالات ادبی <i class="fas fa-pen"></i></li>
+                            <li>طراحی تخصصی</li>
+                            <li>عناصر مرتبط</li>
+                            <li>رنگ شناسی حرفه ای</li>
+                        </ul>
+                    </div>
+                </div>
+                </a>
+                <a href="#">
+                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                    <div class="portfolio-avatar">
+                        <img src="{{ asset('images/gallery/sampi-logo.jpg') }}" alt="">
+                    </div>
+                    <div class="portfolio-detail">
+                        <p class="title">Sampi Tech Group</p>
+                        <ul>
+                            <li>استارتاپ استدیو <i class="fas fa-code"></i></li>
+                            <li>طراحی تخصصی</li>
+                            <li>عناصر مرتبط</li>
+                            <li>رنگ شناسی حرفه ای</li>
+                        </ul>
+                    </div>
+                </div>
+                </a>
+                <a href="#">
+                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                    <div class="portfolio-avatar">
+                        <img src="{{ asset('images/gallery/tehran-tejarat-logo.jpg') }}" alt="">
+                    </div>
+                    <div class="portfolio-detail">
+                        <p class="title">تهران تجارت</p>
+                        <ul>
+                            <li>شرکت بازرگانی <i class="fas fa-briefcase"></i></li>
+                            <li>طراحی تخصصی</li>
+                            <li>عناصر مرتبط</li>
+                            <li>رنگ شناسی حرفه ای</li>
+                        </ul>
+                    </div>
+                </div>
+                </a>
             </div>
         </div>
     </div>

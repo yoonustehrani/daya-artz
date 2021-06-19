@@ -10304,6 +10304,64 @@ span.back-aqua i {
   bottom: 16%;
 }
 
+.portfolio-section .portfolio {
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+.portfolio-section .portfolio .portfolio-avatar {
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.portfolio-section .portfolio .portfolio-avatar > img {
+  transition: 0.3s;
+  width: 100%;
+  height: auto;
+}
+.portfolio-section .portfolio .portfolio-detail {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  padding: 15px 20px;
+  padding-top: 25px;
+}
+.portfolio-section .portfolio .portfolio-detail p {
+  float: left;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.portfolio-section .portfolio .portfolio-detail ul {
+  text-align: right;
+  color: #fff;
+  float: left;
+  width: 100%;
+  margin: 0px;
+  padding: 0px 20px;
+}
+.portfolio-section .portfolio:hover .portfolio-avatar img {
+  transition: 0.3s;
+  transform: scale(1.1);
+  filter: grayscale(0.8) blur(4px);
+}
+.portfolio-section .portfolio:hover .portfolio-detail {
+  display: block;
+  -webkit-animation: linear 0.5s fadeIn;
+          animation: linear 0.5s fadeIn;
+  opacity: 1;
+  background-color: rgba(23, 9, 60, 0.5);
+}
+
 html, body {
   width: 100%;
   height: 100%;
