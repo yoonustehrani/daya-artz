@@ -354,6 +354,48 @@
             </div>
         </div>
         <!-- end Portfolio -->
+        <!-- daya blog -->
+        <div class="section w-100">
+            <div class="title-section col-12 mb-3">
+                <div class="title-container">
+                    <h2 class="title-text">دایا بلاگ</h2>
+                    <span class="title-underline"></span>
+                </div>
+            </div>
+            <div class="blog-posts-container w-100 text-center">
+                <div class="blog-post col-12 col-md-3">
+                    <a href="#">
+                        <div class="img-container w-100">
+                            <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
+                            <span>19 <br> خرداد</span>
+                        </div>
+                        <h5>نوشته شده توسط: ویکی پدیا</h5>
+                        <h3 class="block">چگونه لوگوی خوب را بشناسیم</h3>
+                    </a>
+                </div>
+                <div class="blog-post col-12 col-md-3">
+                    <a href="#">
+                        <div class="img-container w-100">
+                            <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
+                            <span>04 <br> تیر</span>
+                        </div>
+                        <h5>نوشته شده توسط: تیم دایا</h5>
+                        <h3 class="block">بهترین لوگوهای جهان</h3>
+                    </a>
+                </div>
+                <div class="blog-post col-12 col-md-3">
+                    <a href="#">
+                        <div class="img-container w-100">
+                            <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
+                            <span>30 <br> مهر</span>
+                        </div>
+                        <h5>نوشته شده توسط: تیم دایا</h5>
+                        <h3 class="block">درباره برندینگ چه میدانید؟</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end daya blog -->
     </div>
 </body>
 </html>
