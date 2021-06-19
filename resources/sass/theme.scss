@@ -38,6 +38,9 @@ a:hover {
 .rtl {
     direction: rtl;
 }
+.ltr {
+    direction: ltr;
+}
 
 .header {
     background: linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de) border-box;
@@ -238,32 +241,6 @@ div.header-section {
             .purple {
                 background: -webkit-gradient(to right, $dark-purple 0%, $light-purple 50%, $pink 100%);
                 background: linear-gradient(to right, $dark-purple 0%, $light-purple 50%, $pink 100%);
-            }
-            button {
-                -webkit-appearance: none;
-                background-size: 500% !important;
-                border: none;
-                border-radius: 5rem;
-                box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-                color: $white;
-                cursor: pointer;
-                letter-spacing: .05em;
-                outline: none;
-                -webkit-tap-highlight-color: transparent;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                &:hover {
-                    animation-name: gradient;
-                    -webkit-animation-name: gradient;
-                    animation-duration: 1.5s;
-                    -webkit-animation-duration: 1.5s;
-                    animation-iteration-count: 1;
-                    -webkit-animation-iteration-count: 1;
-                    animation-fill-mode: forwards;
-                    -webkit-animation-fill-mode: forwards;
-                }
             }
         }
     }

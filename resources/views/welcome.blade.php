@@ -57,8 +57,8 @@
                 برای نشان دادن تفاوت خود نسبت به رقبا نیازمند لوگویی خاص ، با کیفیت و از همه مهم تر مربوط به کار خود هستین ، خلاصه بخوام بگم اگه برندتون رو دوست دارید یه لوگوی خوب بهش مدیونین پس... |
                 </p>
                 <div class="header-btn-container">
-                    <button class="btn ml-4 purple">ادامه متن</button>
-                    <button class="btn aqua">شروع سفارش</button>
+                    <button class="btn btn-gradient ml-4 purple">ادامه متن</button>
+                    <button class="btn btn-gradient aqua">شروع سفارش</button>
                 </div>
             </div>
         </div>
@@ -71,59 +71,120 @@
             </div>
         </div>
         <div class="subtitle-container">
-            <p class="text-center rtl">با مراجعه به سایت ما ، شما گروه تکمیلی از سفارشات طراحی گرافیک رابا بالاترین کیفیت در اختیار خواهید داشت ...</p>
+            <p class="text-center rtl">با مراجعه به سایت ما ، شما گروه تکمیلی از سفارشات طراحی گرافیک را با بالاترین کیفیت در اختیار خواهید داشت ...</p>
         </div>
         <div class="services-container">
             <div class="service-container col-12 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
-                    <span class="service-icon"><i class="fab fa-mixer"></i></span>
+                    <span class="service-icon back-aqua"><i class="fab fa-mixer"></i></span>
                     <h1 class="block w-100 text-center">لوگو</h1>
                     <h3 class="block w-100 text-center">طراحی لوگو با بالاترین کیفیت</h3>
-                    <button class="btn">سفارش</button>
+                    <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-12 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
-                    <span class="service-icon"><i class="fas fa-paste"></i></span>
+                    <span class="service-icon back-aqua"><i class="fas fa-paste"></i></span>
                     <h1 class="block w-100 text-center">سربرگ</h1>
                     <h3 class="block w-100 text-center">طراحی سربرگ رسمی و حرفه ای</h3>
-                    <button class="btn">سفارش</button>
+                    <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-12 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
-                    <span class="service-icon"><i class="fas fa-newspaper"></i></span>
+                    <span class="service-icon back-aqua"><i class="fas fa-newspaper"></i></span>
                     <h1 class="block w-100 text-center">کاتالوگ</h1>
                     <h3 class="block w-100 text-center">کاتالوگ و بروشور حرفه ای</h3>
-                    <button class="btn">سفارش</button>
+                    <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-12 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
-                    <span class="service-icon"><i class="fas fa-id-card"></i></span>
+                    <span class="service-icon back-aqua"><i class="fas fa-id-card"></i></span>
                     <h1 class="block w-100 text-center">کارت ویزیت</h1>
                     <h3 class="block w-100 text-center">طراحی کارت ویزیت حرفه ای</h3>
-                    <button class="btn">سفارش</button>
+                    <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-12 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
-                    <span class="service-icon"><i class="fas fa-briefcase"></i></span>
+                    <span class="service-icon back-aqua"><i class="fas fa-briefcase"></i></span>
                     <h1 class="block w-100 text-center">ست اداری</h1>
                     <h3 class="block w-100 text-center">ویزیت ، سربرگ ، تقویم و ...</h3>
-                    <button class="btn">سفارش</button>
+                    <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-12 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
-                    <span class="service-icon"><i class="fas fa-cart-plus"></i></span>
+                    <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
                     <h1 class="block w-100 text-center">ترکیبی</h1>
                     <h3 class="block w-100 text-center">ترکیب خودتو بساز</h3>
-                    <button class="btn">سفارش</button>
+                    <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="section w-100 order-section-container">
+        <div class="background-order col-md-10 offset-md-1 p-0">
+            <div class="title-section col-12 mb-3">
+                <div class="title-container">
+                    <p class="title-text">روش های ثبت سفارش در دایا</p>
+                </div>
+            </div>
+            <div class="order-section section w-100">
+                <div class="order-vector float-left"><img src="{{ asset('images/speed-order.svg') }}" alt="fast-order"></div>
+                <div class="order-detail float-left">
+                    <h3 class="mb-4">سفارش فوری</h3>
+                    <h4 class="mb-2">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-2">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-2">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
+                    <h4 class="mb-2">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
+                    <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
+                </div>
+            </div>
+            <div class="order-section section w-100 mt-5 ml-6p">
+                <div class="order-detail float-left">
+                    <h3 class="mb-4">سفارش تخصصی</h3>
+                    <h4 class="mb-2">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-2">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-2">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
+                    <h4 class="mb-2">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
+                    <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
+                </div>
+                <div class="order-vector float-left">
+                    <div class="top--25p"><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute-contact w-100">
+            <div class="contact-section section w-100">
+                <div class="col-md-10 offset-md-1 back-aqua"></div>
+                <div class="section contact-info w-100">
+                    <div class="col-10 col-md-2 p-2 text-center">
+                        <span class="back-aqua"><i class="fas fa-phone"></i></span>
+                        <h4>تلفن</h4>
+                        <p class="text-secondary">با شماره گیری تلفن های ثابت زیر سفارش خود را ثبت کنید</p>
+                        <button class="btn btn-gradient ltr">+98 123456789</button>
+                        <button class="btn btn-gradient ltr">021 1234567</button>
+                    </div>
+                    <div class="col-10 col-md-2 p-2 text-center">
+                        <span class="back-aqua"><i class="fas fa-robot"></i></span>
+                        <h4>ربات تلگرام</h4>
+                        <p class="text-secondary">توسط ربات تلگرام ما سفارش خود را ثبت کنید</p>
+                        <button class="btn btn-gradient ltr mt-12-p">@DAYABOT</button>
+                    </div>
+                    <div class="col-10 col-md-2 p-2 text-center">
+                        <span class="back-aqua"><i class="fas fa-mobile"></i></span>
+                        <h4>پیامرسان</h4>
+                        <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
+                        <button class="btn btn-gradient ltr">+98 123456789</button>
+                        <button class="btn btn-gradient ltr">@DAYAADMIN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
             <div class="col-lg-3">
