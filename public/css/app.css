@@ -10105,8 +10105,20 @@ h3 {
   float: left;
   text-align: center;
 }
+.about-section > div > div img {
+  width: auto;
+  height: auto;
+  max-height: 200px;
+  max-width: 100%;
+}
 .about-section > div > div p {
   color: #fff;
+}
+.about-section > div > div.image-box {
+  display: flex;
+  min-height: inherit;
+  align-items: center;
+  justify-content: center;
 }
 
 .badge.eggplant, .btn.eggplant {
@@ -10124,9 +10136,10 @@ h3 {
 .tab-element ul.tabs-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .tab-element ul.tabs-container li {
-  margin: 0px 5px;
+  margin: 5px;
 }
 .tab-element ul.tabs-container li:hover {
   cursor: pointer;
@@ -10352,7 +10365,7 @@ span.back-aqua i {
 .portfolio-section .portfolio:hover .portfolio-avatar img {
   transition: 0.3s;
   transform: scale(1.1);
-  filter: grayscale(0.8) blur(4px);
+  filter: grayscale(1) blur(4px);
 }
 .portfolio-section .portfolio:hover .portfolio-detail {
   display: block;

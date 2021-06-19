@@ -187,10 +187,10 @@
 
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
-            <div class="col-lg-3">
+            <div class="image-box col-xl-2 col-lg-3 col-sm-3 col-12">
                 <img src="{{ asset('images/daya-cyan-logo.png') }}" alt="">
             </div>
-            <div class="col-lg-9 text-right">
+            <div class="col-xl-10 col-lg-9 col-sm-8 col-12 text-right">
                 <p class="title cyan">درباره دایا</p>
                 <p>گروه طراحی دایـا متشکل از تیمی باتجـربه و حرفه ای در زمینه های 
                     طراحـی گرافیـکی و تبلیـغاتی  در تلاش است بـستر مناسبی را برای 
@@ -218,7 +218,7 @@
                     <li class="tab badge badge-pill eggplant">چرا لوگو؟</li>
                     <li class="tab badge badge-pill eggplant">چرا دایا؟</li>
                 </ul>
-                <div class="tab-contents col-lg-6 offset-lg-3 col-md-8 offset-md-4 col-12 float-left mt-3">
+                <div class="tab-contents col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12 float-left mt-3">
                     <article class="tab-content active">
                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
                     </article>

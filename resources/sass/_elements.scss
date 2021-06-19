@@ -46,15 +46,27 @@
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;
+        // background-attachment: fixed;
         > div {
             height: 100%;
             float: left;
             text-align: center;
+            img {
+                width: auto;
+                height: auto;
+                max-height: 200px;
+                max-width: 100%;
+            }
             p {
                 color: $white;
             }
         }
-        // background-attachment: fixed;
+        > div.image-box {
+            display: flex;
+            min-height: inherit;
+            align-items: center;
+            justify-content: center;
+        }
     }
 }
 
@@ -75,8 +87,9 @@
     ul.tabs-container {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         li {
-            margin: 0px 5px;
+            margin: 5px;
             &:hover {
                 cursor: pointer;
             }
@@ -309,7 +322,7 @@ span.back-aqua {
             .portfolio-avatar img {
                 transition: 0.3s;
                 transform: scale(1.1);
-                filter: grayscale(0.8) blur(4px);
+                filter: grayscale(1) blur(4px);
             }
             .portfolio-detail {
                 display: block;
