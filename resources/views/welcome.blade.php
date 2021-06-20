@@ -363,14 +363,14 @@
             <div class="fast-order-section text-center w-100 offset-md-1">
                 <div class="float-left fast-order-form col-12 col-md-5">
                     <form action="#">
-                        <div class="fکاتالوگorm-group"><input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی"></div>
-                        <div class="fکارت ویزیتorm-group"><input type="number" name="fast-order-number" class="input-control" placeholder="شماره تلفن"></div>
+                        <div class="form-group"><input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی"></div>
+                        <div class="form-group"><input type="text" name="fast-order-number" class="form-control" placeholder="شماره تلفن"></div>
                         <div class="order-types w-100">
-                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/xing-logo.png') }}"></span><span class="checkbox-label">لوگو</span></span></label></div>
-                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/') }}"></span><span class="checkbox-label">کاتالوگ</span></span></label></div>
-                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/') }}"></span><span class="checkbox-label">کارت ویزیت</span></span></label></div>
-                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/') }}"></span><span class="checkbox-label">سربرگ</span></span></label></div>
-                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/') }}"></span><span class="checkbox-label">ست اداری</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/brand.svg') }}"></span><span class="checkbox-label">لوگو</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/big-brochure.svg') }}"></span><span class="checkbox-label">کاتالوگ</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/credit-card.svg') }}"></span><span class="checkbox-label">کارت ویزیت</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/paper.svg') }}"></span><span class="checkbox-label">سربرگ</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/office-tools.svg') }}"></span><span class="checkbox-label">ست اداری</span></span></label></div>
                         </div>
                         <div class="form-group"><textarea name="fast-order-description" cols="30" rows="10" class="form-control" placeholder="توضیحات"></textarea></div>
                         <button type="submit" class="btn btn-primary w-100">ثبت سفارش</button>

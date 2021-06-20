@@ -10388,7 +10388,7 @@ div.fast-order-container .fast-order-section .fast-order-form {
   padding: 10px;
   box-shadow: 3px 3px 5px 3px #292b2c;
 }
-div.fast-order-container .fast-order-section .fast-order-form input {
+div.fast-order-container .fast-order-section .fast-order-form input, div.fast-order-container .fast-order-section .fast-order-form textarea {
   text-align: right;
 }
 div.fast-order-container .fast-order-section .fast-order-form div.order-types {
@@ -10453,7 +10453,7 @@ div.fast-order-container .fast-order-section .fast-order-form div.order-types .c
   transition: 0.375s ease;
   color: #494949;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-icon svg {
+div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-icon svg, div.fast-order-container .fast-order-section .fast-order-form div.order-types img {
   width: 3rem;
   height: 3rem;
 }

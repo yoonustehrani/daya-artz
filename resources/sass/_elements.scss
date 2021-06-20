@@ -342,7 +342,7 @@ div.fast-order-container {
             height: 100%;
             padding: 10px;
             box-shadow: 3px 3px 5px 3px $secondary;
-            input {
+            input, textarea {
                 text-align: right;
             }
             div.order-types {
@@ -406,7 +406,7 @@ div.fast-order-container {
                     transition: 0.375s ease;
                     color: #494949;
                 }
-                .checkbox-icon svg {
+                .checkbox-icon svg, img {
                     width: 3rem;
                     height: 3rem;
                 }
