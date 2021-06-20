@@ -436,18 +436,18 @@
     <!-- end daya blog -->
     <!-- footer -->
     <footer class="section w-100 footer">
-        <div class="footer-back w-100">
-            <div class="float-left col-12 text-center mb-5 mt-4">
-                <img src="{{ asset('images/daya-white-logo.png') }}" alt="daya-logo">
-                <h4 class="ml-2 text-light">DAYAARTZ</h4>
+        <div class="footer-content w-100">
+            <div class="float-left col-12 text-center mb-5 mt-4 logo-container">
+                <img src="{{ asset('images/daya-logo-circular.png') }}" alt="daya-logo">
+                <p class="ml-2 text-light">DAYAARTZ</p>
             </div>
-            <div class="footer-info-container">
-                <div class="col-12 col-md-3">
-                    <h4>درباره ما</h4>
+            <div class="col-12 float-left px-3 footer-info-container">
+                <div class="col-lg-3 col-md-4 col-12">
+                    <p class="title">درباره ما</p>
                     <div><p>گروه طراحی دایا متشکل از تیمی با تجربه و حرفه ای در زمینه های طراحی گرافیـکی و تبلیغاتی در تلاش است بستر مناسبی را برای کسانی که نیازمند طراحی یا طراحی با کیفیت و در سطح بین المللی و همچنین درامدزایی برای طراحان حرفه ای و درجه یک کشور ایران ایجاد سازد.</p></div>
                 </div>
-                <div class="col-12 col-md-2">
-                    <h4>لینک های سریع</h4>
+                <div class="col-lg-2 col-md-2 col-12">
+                    <p class="title">لینک های سریع</p>
                     <div>
                         <ul class="text-right p-0">
                             <li><a href="#">حساب من</a></li>
@@ -458,8 +458,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-md-2">
-                    <h4>پشتیبانی</h4>
+                <div class="col-lg-2 col-md-2 col-12">
+                    <p class="title">پشتیبانی</p>
                     <div>
                         <ul class="text-right p-0 mb-4">
                             <li><a href="#">تماس با ما</a></li>
@@ -469,16 +469,22 @@
                         <img src="{{ asset('images/gallery/etemad-namad.png') }}" alt="etemead" class="float-right">
                     </div>
                 </div>
-                <div class="col-12 col-md-2">
-                    <h4>دایا مجازی</h4>
+                <div class="col-lg-3 col-md-4 col-12">
+                    <p class="title">دایا مجازی</p>
                     <div class="mb-4">
-                        <div class="social-media-container"><i class="fab fa-instagram"></i><i class="fab fa-telegram-plane ml-4"></i></div>
-                        <div class="social-media-container"><i class="fab fa-linkedin-in"></i><i class="fab fa-whatsapp ml-4"></i></div>
+                        <div class="social-media-container">
+                            <a href="https://instagram.com/dayaartz"><i class="fab fa-instagram"></i></a>
+                            <a href="https://t.me/dayaartz"><i class="fab fa-telegram-plane ml-4"></i></a>
+                        </div>
+                        <div class="social-media-container">
+                            <a href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/+989015074027"><i class="fab fa-whatsapp ml-4"></i></a>
+                        </div>
                     </div>
-                    <span class="ltr">
+                    <p class="ltr">
                         <i class="far fa-copyright"></i>
                         Sampi Group. All rights reserved
-                    </span>
+                    </p>
                 </div>
             </div>
         </div>
