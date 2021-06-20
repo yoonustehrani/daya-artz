@@ -211,241 +211,278 @@
     </div>
     <!-- end About Daya -->
     <!-- About Logo -->
+    <div class="col-12 title-section">
+        <div class="title-container">
+            <h2 class="title-text">لوگو</h2>
+            <span class="title-underline"></span>
+        </div>
+    </div>
+    <div class="col-12 float-left p-3">
+        <div class="tab-element">
+            <ul class="tabs-container col-12 float-left p-0">
+                <li class="tab badge badge-pill eggplant active">لوگو چیست؟</li>
+                <li class="tab badge badge-pill eggplant">انواع لوگو</li>
+                <li class="tab badge badge-pill eggplant">چرا لوگو؟</li>
+                <li class="tab badge badge-pill eggplant">چرا دایا؟</li>
+            </ul>
+            <div class="tab-contents col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12 float-left mt-3">
+                <article class="tab-content active">
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                </article>
+                <article class="tab-content">
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                </article>
+                <article class="tab-content">
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                </article>
+                <article class="tab-content">
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                </article>
+                <div class="col-12 mt-4 text-center">
+                    <a href="#" class="btn badge-pill eggplant active">همین حالا سفارش دهید !</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end About Logo -->
+    <!-- Portfolio -->
     <div class="section col-12 p-4 mb-2">
         <div class="col-12 title-section">
             <div class="title-container">
-                <h2 class="title-text">لوگو</h2>
+                <h2 class="title-text">نمونه طراحی های دایا</h2>
                 <span class="title-underline"></span>
             </div>
         </div>
-        <div class="col-12 float-left p-3">
-            <div class="tab-element">
-                <ul class="tabs-container col-12 float-left p-0">
-                    <li class="tab badge badge-pill eggplant active">لوگو چیست؟</li>
-                    <li class="tab badge badge-pill eggplant">انواع لوگو</li>
-                    <li class="tab badge badge-pill eggplant">چرا لوگو؟</li>
-                    <li class="tab badge badge-pill eggplant">چرا دایا؟</li>
-                </ul>
-                <div class="tab-contents col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12 float-left mt-3">
-                    <article class="tab-content active">
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                    </article>
-                    <article class="tab-content">
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                    </article>
-                    <article class="tab-content">
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                    </article>
-                    <article class="tab-content">
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                    </article>
-                    <div class="col-12 mt-4 text-center">
-                        <a href="#" class="btn badge-pill eggplant active">همین حالا سفارش دهید !</a>
-                    </div>
+        <div class="col-12 mt-4 float-left portfolio-section p-2">
+            <a href="#">
+            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                <div class="portfolio-avatar">
+                    <img src="{{ asset('images/gallery/orange-studio-logo.jpg') }}" alt="">
+                </div>
+                <div class="portfolio-detail">
+                    <p class="title">استدیو ترنج</p>
+                    <ul>
+                        <li>صنایع دستی</li>
+                        <li>طراحی تخصصی</li>
+                        <li>عناصر مرتبط</li>
+                        <li>رنگ شناسی حرفه ای</li>
+                    </ul>
                 </div>
             </div>
+            </a>
+            <a href="#">
+            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                <div class="portfolio-avatar">
+                    <img src="{{ asset('images/gallery/reverse-logo.jpg') }}" alt="">
+                </div>
+                <div class="portfolio-detail">
+                    <p class="title">Reverse Band</p>
+                    <ul>
+                        <li><i class="fas fa-headphones"></i> موسیقی</li>
+                        <li>طراحی تخصصی</li>
+                        <li>عناصر مرتبط</li>
+                        <li>رنگ شناسی حرفه ای</li>
+                    </ul>
+                </div>
+            </div>
+            </a>
+            <a href="#">
+            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                <div class="portfolio-avatar">
+                    <img src="{{ asset('images/gallery/elnovel-logo.jpg') }}" alt="">
+                </div>
+                <div class="portfolio-detail">
+                    <p class="title">ال ناول</p>
+                    <ul>
+                        <li>داستان و ادبیات <i class="fas fa-book-open"></i></li>
+                        <li>طراحی تخصصی</li>
+                        <li>عناصر مرتبط</li>
+                        <li>رنگ شناسی حرفه ای</li>
+                    </ul>
+                </div>
+            </div>
+            </a>
+            <a href="#">
+            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                <div class="portfolio-avatar">
+                    <img src="{{ asset('images/gallery/vispubish-logo.jpg') }}" alt="">
+                </div>
+                <div class="portfolio-detail">
+                    <p class="title">ویپوبیش</p>
+                    <ul>
+                        <li>پایگاه مقالات ادبی <i class="fas fa-pen"></i></li>
+                        <li>طراحی تخصصی</li>
+                        <li>عناصر مرتبط</li>
+                        <li>رنگ شناسی حرفه ای</li>
+                    </ul>
+                </div>
+            </div>
+            </a>
+            <a href="#">
+            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                <div class="portfolio-avatar">
+                    <img src="{{ asset('images/gallery/sampi-logo.jpg') }}" alt="">
+                </div>
+                <div class="portfolio-detail">
+                    <p class="title">Sampi Tech Group</p>
+                    <ul>
+                        <li>استارتاپ استدیو <i class="fas fa-code"></i></li>
+                        <li>طراحی تخصصی</li>
+                        <li>عناصر مرتبط</li>
+                        <li>رنگ شناسی حرفه ای</li>
+                    </ul>
+                </div>
+            </div>
+            </a>
+            <a href="#">
+            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
+                <div class="portfolio-avatar">
+                    <img src="{{ asset('images/gallery/tehran-tejarat-logo.jpg') }}" alt="">
+                </div>
+                <div class="portfolio-detail">
+                    <p class="title">تهران تجارت</p>
+                    <ul>
+                        <li>شرکت بازرگانی <i class="fas fa-briefcase"></i></li>
+                        <li>طراحی تخصصی</li>
+                        <li>عناصر مرتبط</li>
+                        <li>رنگ شناسی حرفه ای</li>
+                    </ul>
+                </div>
+            </div>
+            </a>
         </div>
-        <!-- end About Logo -->
-        <!-- Portfolio -->
-        <div class="section col-12 p-4 mb-2">
-            <div class="col-12 title-section">
-                <div class="title-container">
-                    <h2 class="title-text">نمونه طراحی های دایا</h2>
-                    <span class="title-underline"></span>
-                </div>
-            </div>
-            <div class="col-12 mt-4 float-left portfolio-section p-2">
-                <a href="#">
-                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                    <div class="portfolio-avatar">
-                        <img src="{{ asset('images/gallery/orange-studio-logo.jpg') }}" alt="">
-                    </div>
-                    <div class="portfolio-detail">
-                        <p class="title">استدیو ترنج</p>
-                        <ul>
-                            <li>صنایع دستی</li>
-                            <li>طراحی تخصصی</li>
-                            <li>عناصر مرتبط</li>
-                            <li>رنگ شناسی حرفه ای</li>
-                        </ul>
-                    </div>
-                </div>
-                </a>
-                <a href="#">
-                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                    <div class="portfolio-avatar">
-                        <img src="{{ asset('images/gallery/reverse-logo.jpg') }}" alt="">
-                    </div>
-                    <div class="portfolio-detail">
-                        <p class="title">Reverse Band</p>
-                        <ul>
-                            <li><i class="fas fa-headphones"></i> موسیقی</li>
-                            <li>طراحی تخصصی</li>
-                            <li>عناصر مرتبط</li>
-                            <li>رنگ شناسی حرفه ای</li>
-                        </ul>
-                    </div>
-                </div>
-                </a>
-                <a href="#">
-                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                    <div class="portfolio-avatar">
-                        <img src="{{ asset('images/gallery/elnovel-logo.jpg') }}" alt="">
-                    </div>
-                    <div class="portfolio-detail">
-                        <p class="title">ال ناول</p>
-                        <ul>
-                            <li>داستان و ادبیات <i class="fas fa-book-open"></i></li>
-                            <li>طراحی تخصصی</li>
-                            <li>عناصر مرتبط</li>
-                            <li>رنگ شناسی حرفه ای</li>
-                        </ul>
-                    </div>
-                </div>
-                </a>
-                <a href="#">
-                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                    <div class="portfolio-avatar">
-                        <img src="{{ asset('images/gallery/vispubish-logo.jpg') }}" alt="">
-                    </div>
-                    <div class="portfolio-detail">
-                        <p class="title">ویپوبیش</p>
-                        <ul>
-                            <li>پایگاه مقالات ادبی <i class="fas fa-pen"></i></li>
-                            <li>طراحی تخصصی</li>
-                            <li>عناصر مرتبط</li>
-                            <li>رنگ شناسی حرفه ای</li>
-                        </ul>
-                    </div>
-                </div>
-                </a>
-                <a href="#">
-                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                    <div class="portfolio-avatar">
-                        <img src="{{ asset('images/gallery/sampi-logo.jpg') }}" alt="">
-                    </div>
-                    <div class="portfolio-detail">
-                        <p class="title">Sampi Tech Group</p>
-                        <ul>
-                            <li>استارتاپ استدیو <i class="fas fa-code"></i></li>
-                            <li>طراحی تخصصی</li>
-                            <li>عناصر مرتبط</li>
-                            <li>رنگ شناسی حرفه ای</li>
-                        </ul>
-                    </div>
-                </div>
-                </a>
-                <a href="#">
-                <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                    <div class="portfolio-avatar">
-                        <img src="{{ asset('images/gallery/tehran-tejarat-logo.jpg') }}" alt="">
-                    </div>
-                    <div class="portfolio-detail">
-                        <p class="title">تهران تجارت</p>
-                        <ul>
-                            <li>شرکت بازرگانی <i class="fas fa-briefcase"></i></li>
-                            <li>طراحی تخصصی</li>
-                            <li>عناصر مرتبط</li>
-                            <li>رنگ شناسی حرفه ای</li>
-                        </ul>
-                    </div>
-                </div>
-                </a>
-            </div>
-        </div>
-        <!-- end Portfolio -->
-        <!-- daya blog -->
-        <div class="section w-100">
-            <div class="title-section col-12 mb-3">
-                <div class="title-container">
-                    <h2 class="title-text">دایا بلاگ</h2>
-                    <span class="title-underline"></span>
-                </div>
-            </div>
-            <div class="blog-posts-container w-100 text-center">
-                <div class="blog-post col-12 col-md-3">
-                    <a href="#">
-                        <div class="img-container w-100">
-                            <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
-                            <span>19 <br> خرداد</span>
-                        </div>
-                        <h5>نوشته شده توسط: ویکی پدیا</h5>
-                        <h3 class="block">چگونه لوگوی خوب را بشناسیم</h3>
-                    </a>
-                </div>
-                <div class="blog-post col-12 col-md-3">
-                    <a href="#">
-                        <div class="img-container w-100">
-                            <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
-                            <span>04 <br> تیر</span>
-                        </div>
-                        <h5>نوشته شده توسط: تیم دایا</h5>
-                        <h3 class="block">بهترین لوگوهای جهان</h3>
-                    </a>
-                </div>
-                <div class="blog-post col-12 col-md-3">
-                    <a href="#">
-                        <div class="img-container w-100">
-                            <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
-                            <span>30 <br> مهر</span>
-                        </div>
-                        <h5>نوشته شده توسط: تیم دایا</h5>
-                        <h3 class="block">درباره برندینگ چه میدانید؟</h3>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- end daya blog -->
-        <!-- footer -->
-            <div class="section w-100 footer">
-                <div class="footer-back w-100">
-                    <div class="float-left col-12 text-center mb-5 mt-4">
-                        <img src="{{ asset('images/daya-white-logo.png') }}" alt="daya-logo">
-                        <h4 class="ml-2 text-light">DAYAARTZ</h4>
-                    </div>
-                    <div class="footer-info-container">
-                        <div class="col-12 col-md-3">
-                            <h4>درباره ما</h4>
-                            <div><p>گروه طراحی دایا متشکل از تیمی با تجربه و حرفه ای در زمینه های طراحی گرافیـکی و تبلیغاتی در تلاش است بستر مناسبی را برای کسانی که نیازمند طراحی یا طراحی با کیفیت و در سطح بین المللی و همچنین درامدزایی برای طراحان حرفه ای و درجه یک کشور ایران ایجاد سازد.</p></div>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <h4>لینک های سریع</h4>
-                            <div>
-                                <ul class="text-right p-0">
-                                    <li><a href="#">حساب من</a></li>
-                                    <li><a href="#">سفارش فوری</a></li>
-                                    <li><a href="#">سفارش تخصصی</a></li>
-                                    <li><a href="#">راهنمای سفارشات</a></li>
-                                    <li><a href="#">وبلاگ</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <h4>پشتیبانی</h4>
-                            <div>
-                                <ul class="text-right p-0 mb-4">
-                                    <li><a href="#">تماس با ما</a></li>
-                                    <li><a href="#">ارسال تیکت</a></li>
-                                </ul>
-                                <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" alt="zarin-paal" class="float-right ml-2">
-                                <img src="{{ asset('images/gallery/etemad-namad.png') }}" alt="etemead" class="float-right">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <h4>دایا مجازی</h4>
-                            <div class="mb-4">
-                                <div class="social-media-container"><i class="fab fa-instagram"></i><i class="fab fa-telegram-plane ml-4"></i></div>
-                                <div class="social-media-container"><i class="fab fa-linkedin-in"></i><i class="fab fa-whatsapp ml-4"></i></div>
-                            </div>
-                            <span class="ltr">
-                                <i class="far fa-copyright"></i>
-                                Sampi Group. All rights reserved
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <!-- end footer -->
     </div>
+    <!-- end Portfolio -->
+    <!-- fast order -->
+    <div class="section fast-order-container w-100">
+        <div class="title-section w-100">
+            <div class="title-container">
+                <h2 class="title-text">سفارش فوری</h2>
+                <span class="title-underline"></span>
+            </div>
+            <div class="fast-order-section text-center w-100 offset-md-1">
+                <div class="float-left fast-order-form col-12 col-md-5">
+                    <form action="#">
+                        <div class="fکاتالوگorm-group"><input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی"></div>
+                        <div class="fکارت ویزیتorm-group"><input type="number" name="fast-order-number" class="input-control" placeholder="شماره تلفن"></div>
+                        <div class="order-types w-100">
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/xing-logo.png') }}"></span><span class="checkbox-label">لوگو</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/') }}"></span><span class="checkbox-label">کاتالوگ</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/') }}"></span><span class="checkbox-label">کارت ویزیت</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/') }}"></span><span class="checkbox-label">سربرگ</span></span></label></div>
+                            <div class="checkbox col-5 col-md-2"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('imges/') }}"></span><span class="checkbox-label">ست اداری</span></span></label></div>
+                        </div>
+                        <div class="form-group"><textarea name="fast-order-description" cols="30" rows="10" class="form-control" placeholder="توضیحات"></textarea></div>
+                        <button type="submit" class="btn btn-primary w-100">ثبت سفارش</button>
+                    </form>
+                </div>
+                <div class="float-left col-12 col-md-5 fast-order-guide">
+                    <h3>فرم سفارش فوری</h3>
+                    <p class="font-20">با پر کردن این فرم و ثبت نوع طراحی کورد نیاز خود منتظر تماس کارشناسان باشید.</p>
+                    <br><br>
+                    <h5 class="font-20">راهنمای ثبت فرم:</h5>
+                    <ul class="font-20">
+                        <li>وارد کردن مشخصات شخصی</li>
+                        <li>وارد کردن شماره تماس در دسترس</li>
+                        <li>انتخاب درسته مورد نیاز برای طراحی</li>
+                    </ul>
+                    <br><br>
+                    <p class="font-18 text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
+            </div>
+        </div>
+    </div>
+    <!-- end fast order -->
+    <!-- daya blog -->
+    <div class="section w-100">
+        <div class="title-section col-12 mb-3">
+            <div class="title-container">
+                <h2 class="title-text">دایا بلاگ</h2>
+                <span class="title-underline"></span>
+            </div>
+        </div>
+        <div class="blog-posts-container w-100 text-center">
+            <div class="blog-post col-12 col-md-3">
+                <a href="#">
+                    <div class="img-container w-100">
+                        <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
+                        <span>19 <br> خرداد</span>
+                    </div>
+                    <h5>نوشته شده توسط: ویکی پدیا</h5>
+                    <h3 class="block">چگونه لوگوی خوب را بشناسیم</h3>
+                </a>
+            </div>
+            <div class="blog-post col-12 col-md-3">
+                <a href="#">
+                    <div class="img-container w-100">
+                        <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
+                        <span>04 <br> تیر</span>
+                    </div>
+                    <h5>نوشته شده توسط: تیم دایا</h5>
+                    <h3 class="block">بهترین لوگوهای جهان</h3>
+                </a>
+            </div>
+            <div class="blog-post col-12 col-md-3">
+                <a href="#">
+                    <div class="img-container w-100">
+                        <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
+                        <span>30 <br> مهر</span>
+                    </div>
+                    <h5>نوشته شده توسط: تیم دایا</h5>
+                    <h3 class="block">درباره برندینگ چه میدانید؟</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end daya blog -->
+    <!-- footer -->
+    <footer class="section w-100 footer">
+        <div class="footer-back w-100">
+            <div class="float-left col-12 text-center mb-5 mt-4">
+                <img src="{{ asset('images/daya-white-logo.png') }}" alt="daya-logo">
+                <h4 class="ml-2 text-light">DAYAARTZ</h4>
+            </div>
+            <div class="footer-info-container">
+                <div class="col-12 col-md-3">
+                    <h4>درباره ما</h4>
+                    <div><p>گروه طراحی دایا متشکل از تیمی با تجربه و حرفه ای در زمینه های طراحی گرافیـکی و تبلیغاتی در تلاش است بستر مناسبی را برای کسانی که نیازمند طراحی یا طراحی با کیفیت و در سطح بین المللی و همچنین درامدزایی برای طراحان حرفه ای و درجه یک کشور ایران ایجاد سازد.</p></div>
+                </div>
+                <div class="col-12 col-md-2">
+                    <h4>لینک های سریع</h4>
+                    <div>
+                        <ul class="text-right p-0">
+                            <li><a href="#">حساب من</a></li>
+                            <li><a href="#">سفارش فوری</a></li>
+                            <li><a href="#">سفارش تخصصی</a></li>
+                            <li><a href="#">راهنمای سفارشات</a></li>
+                            <li><a href="#">وبلاگ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-2">
+                    <h4>پشتیبانی</h4>
+                    <div>
+                        <ul class="text-right p-0 mb-4">
+                            <li><a href="#">تماس با ما</a></li>
+                            <li><a href="#">ارسال تیکت</a></li>
+                        </ul>
+                        <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" alt="zarin-paal" class="float-right ml-2">
+                        <img src="{{ asset('images/gallery/etemad-namad.png') }}" alt="etemead" class="float-right">
+                    </div>
+                </div>
+                <div class="col-12 col-md-2">
+                    <h4>دایا مجازی</h4>
+                    <div class="mb-4">
+                        <div class="social-media-container"><i class="fab fa-instagram"></i><i class="fab fa-telegram-plane ml-4"></i></div>
+                        <div class="social-media-container"><i class="fab fa-linkedin-in"></i><i class="fab fa-whatsapp ml-4"></i></div>
+                    </div>
+                    <span class="ltr">
+                        <i class="far fa-copyright"></i>
+                        Sampi Group. All rights reserved
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
 </body>
 </html>
