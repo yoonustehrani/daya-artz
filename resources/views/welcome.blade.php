@@ -211,7 +211,7 @@
     </div>
     <!-- end About Daya -->
     <!-- About Logo -->
-    <div class="col-12 title-section">
+    <div class="col-12 mt-5 title-section">
         <div class="title-container">
             <h2 class="title-text">لوگو</h2>
             <span class="title-underline"></span>
@@ -364,9 +364,19 @@
         <div class="fast-order-section text-center w-100 offset-md-1">
             <div class="float-left fast-order-form col-12 col-md-5">
                 <form action="#">
-                    <div class="form-group"><input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی"></div>
-                    <div class="form-group"><input type="text" name="fast-order-number" class="form-control" placeholder="شماره تلفن"></div>
-                    <div class="order-types w-100">
+                    <div class="input-group col-md-6 col-12 float-right mb-3">
+                        <input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group col-md-6 col-12 float-right mb-3">
+                        <input type="text" name="fast-order-number" class="form-control" placeholder="شماره تلفن">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                        </div>
+                    </div>
+                    <div class="order-types mb-3 w-100">
                         <div class="checkbox col-5 col-md-4 col-lg-3 col-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/brand.svg') }}"></span><span class="checkbox-label">لوگو</span></span></label></div>
                         <div class="checkbox col-5 col-md-4 col-lg-3 col-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/big-brochure.svg') }}"></span><span class="checkbox-label">کاتالوگ</span></span></label></div>
                         <div class="checkbox col-5 col-md-4 col-lg-3 col-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/credit-card.svg') }}"></span><span class="checkbox-label">کارت ویزیت</span></span></label></div>
