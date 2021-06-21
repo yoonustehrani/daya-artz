@@ -10650,6 +10650,7 @@ footer.footer .footer-content {
   background-repeat: no-repeat;
   min-height: 350px;
   height: auto;
+  float: left;
 }
 footer.footer .footer-content > div.logo-container img {
   width: 40px;
@@ -10946,5 +10947,27 @@ button i.fa-phone {
 @media screen and (max-width: 1240px) {
   .header > nav .last-item {
     left: 2%;
+  }
+}
+@media screen and (max-width: 425px) {
+  footer.footer .footer-content {
+    background-size: unset;
+  }
+
+  footer.footer .footer-content div.footer-info-container > div ul li {
+    display: inline-block;
+  }
+  footer.footer .footer-content div.footer-info-container > div img {
+    float: left !important;
+    margin: 5px;
+  }
+  footer.footer .footer-content div.footer-info-container > div .social-media-rows {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .m-text-center {
+    text-align: center !important;
   }
 }

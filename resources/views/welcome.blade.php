@@ -364,13 +364,13 @@
         <div class="fast-order-section text-center w-100 offset-md-1">
             <div class="float-left fast-order-form col-12 col-md-5">
                 <form action="#">
-                    <div class="input-group col-md-6 col-12 float-right mb-3">
+                    <div class="input-group col-lg-6 col-12 float-right mb-3">
                         <input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
                     </div>
-                    <div class="input-group col-md-6 col-12 float-right mb-3">
+                    <div class="input-group col-lg-6 col-12 float-right mb-3">
                         <input type="text" name="fast-order-number" class="form-control" placeholder="شماره تلفن">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
@@ -482,7 +482,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-12">
                     <p class="title">دایا مجازی</p>
-                    <div class="mb-4">
+                    <div class="mb-4 social-media-rows">
                         <div class="social-media-container">
                             <a href="https://instagram.com/dayaartz"><i class="fab fa-instagram"></i></a>
                             <a href="https://t.me/dayaartz"><i class="fab fa-telegram-plane ml-4"></i></a>
@@ -492,7 +492,7 @@
                             <a href="https://wa.me/+989015074027"><i class="fab fa-whatsapp ml-4"></i></a>
                         </div>
                     </div>
-                    <p class="ltr">
+                    <p class="ltr m-text-center">
                         <i class="far fa-copyright"></i>
                         Sampi Group. All rights reserved
                     </p>

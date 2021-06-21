@@ -12,7 +12,26 @@
 
 // Mobile
 @media screen and (max-width: 425px) {
-    
+    footer.footer .footer-content {
+        background-size: unset;
+    }
+    footer.footer .footer-content div.footer-info-container > div {
+        ul li {
+            display: inline-block;
+        }
+        img {
+            float: left !important;
+            margin: 5px;
+        }
+        .social-media-rows {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+    .m-text-center {
+        text-align: center !important;
+    }
 }
 
 
