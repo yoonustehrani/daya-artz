@@ -23,10 +23,10 @@ a:hover {
 }
 
 .rtl {
-    direction: rtl;
+    direction: rtl !important;
 }
 .ltr {
-    direction: ltr;
+    direction: ltr !important;
 }
 
 @keyframes fadeIn {
