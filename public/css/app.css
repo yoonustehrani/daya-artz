@@ -10031,7 +10031,7 @@ html, body {
   text-align: right;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, button, a, ul, li {
+h1, h2, h3, h4, h5, h6, p, span, button, a, ul, li, input, textarea {
   font-family: "IranSansWeb";
   direction: rtl;
 }
@@ -10431,9 +10431,10 @@ div.fast-order-container .fast-order-section .fast-order-form {
   height: 100%;
   padding: 10px;
   box-shadow: 4px 4px 15px 2px #dcdcdc;
+  border-radius: 5px;
+  padding: 30px 10px;
 }
 div.fast-order-container .fast-order-section .fast-order-form button {
-  width: 80%;
   background-color: #777DD1;
   color: #fff;
 }
