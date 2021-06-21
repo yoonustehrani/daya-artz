@@ -341,7 +341,15 @@ div.fast-order-container {
         .fast-order-form {
             height: 100%;
             padding: 10px;
-            box-shadow: 3px 3px 5px 3px $secondary;
+            box-shadow: 4px 4px 15px 2px #dcdcdc;
+            button {
+                width: 80%;
+                background-color: $aqua-purple;
+                color: #fff;
+                &:hover {
+                    background-color: $dark-purple;
+                }
+            }
             input, textarea {
                 text-align: right;
             }
@@ -405,6 +413,7 @@ div.fast-order-container {
                 .checkbox-icon {
                     transition: 0.375s ease;
                     color: #494949;
+                    margin-bottom: 5px;
                 }
                 .checkbox-icon svg, img {
                     width: 3rem;
@@ -446,22 +455,29 @@ div.fast-order-container {
                 direction: rtl;
             }
             h3 {
-                font-size: 24px;
+                font-size: 30px;
+                font-weight: bold;
             }
             ul {
                 list-style-type: decimal;
             }
-            .font-20 {
-                font-size: 20px;
-                >li {
-                    font-size: 20px;
-                }
-            }
-            .font-18 {
-                font-size: 18px;
-            }
         }
     }
+}
+.font-20 {
+    font-size: 20px;
+    >li {
+        font-size: 20px;
+    }
+}
+.font-18 {
+    font-size: 18px;
+}
+.font-16 {
+    font-size: 16px;
+}
+.silver {
+    color: $silver;
 }
 // end-fast-order
 
