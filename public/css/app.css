@@ -10137,6 +10137,14 @@ a:hover {
   font-weight: bold;
 }
 
+.title-big {
+  font-size: 32px;
+}
+
+.title-bigger {
+  font-size: 36px;
+}
+
 .about-section {
   background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
 }
@@ -10639,6 +10647,56 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   padding-bottom: 80%;
 }
 
+.advantage-section {
+  background-image: linear-gradient(to right, #d0b6f8, #a184ec);
+  min-height: 400px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.advantage-section .advantage-box {
+  padding: 30px 20px;
+}
+.advantage-section .advantage-box > .title {
+  border-right: 5px solid #fff;
+  padding: 10px 15px;
+}
+.advantage-section .advantage-box ul.advantages {
+  padding: 10px 0px;
+  list-style: none;
+}
+.advantage-section .advantage-box ul.advantages li {
+  display: block;
+  float: right;
+  width: 100%;
+  padding: 10px 0;
+}
+.advantage-section .advantage-box ul.advantages li a > i, .advantage-section .advantage-box ul.advantages li a > div {
+  float: right;
+  color: #fff;
+}
+.advantage-section .advantage-box ul.advantages li i.avatar {
+  border: 2px solid #fff;
+  padding: 20px 0px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 40px;
+  width: 80px;
+  height: 80px;
+  transition: 0.3s;
+}
+.advantage-section .advantage-box ul.advantages li a:hover i.avatar {
+  transition: 0.3s;
+  background-color: #fff;
+  color: #17093c;
+}
+.advantage-section .advantage-box ul.advantages li div.description {
+  margin-right: 15px;
+}
+.advantage-section img {
+  transform: scaleX(-1);
+}
+
 footer.footer {
   background-image: linear-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
   background-image: -webkit-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
@@ -10816,6 +10874,7 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
   display: none;
   opacity: 0;
   top: 100%;
+  z-index: 6;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 0px 10px;
   border-radius: 0 0 5px 5px;
