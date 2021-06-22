@@ -10741,13 +10741,20 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
 }
 
 .header {
+  height: 600px;
   background: linear-gradient(50deg, #ffffff 0 26%, #a77cf2 26.09%, #6332de) border-box;
+}
+
+.min-header {
+  background: linear-gradient(to right, #a77cf2, #6332de);
+}
+
+.header, .min-header {
   direction: rtl;
   width: 100%;
   float: left;
-  height: 600px;
 }
-.header > nav {
+.header > nav, .min-header > nav {
   float: right;
   width: 100%;
   padding-left: 50px;
@@ -10755,18 +10762,18 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
   position: relative;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
-.header > nav > .logo-container {
+.header > nav > .logo-container, .min-header > nav > .logo-container {
   width: 70px;
   height: 100%;
   float: right;
   text-align: center;
 }
-.header > nav > .logo-container > img {
+.header > nav > .logo-container > img, .min-header > nav > .logo-container > img {
   width: auto;
   height: 100%;
   padding: 5px;
 }
-.header > nav ul.main-menu {
+.header > nav ul.main-menu, .min-header > nav ul.main-menu {
   width: calc(90% - 70px);
   height: 100%;
   display: flex;
@@ -10775,16 +10782,16 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
   padding-right: 10px !important;
   justify-content: flex-start;
 }
-.header > nav ul.main-menu li {
+.header > nav ul.main-menu li, .min-header > nav ul.main-menu li {
   position: relative;
   list-style: none;
   display: inline-block;
   height: 100%;
   box-sizing: border-box;
-  padding-top: 15px;
+  padding-top: 10px;
   margin: 0 10px;
 }
-.header > nav ul.main-menu li > a {
+.header > nav ul.main-menu li > a, .min-header > nav ul.main-menu li > a {
   width: 100%;
   float: left;
   text-align: center;
@@ -10796,11 +10803,11 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
   transition: 0.3s;
   border-bottom: 2px solid transparent;
 }
-.header > nav ul.main-menu li > a:hover {
+.header > nav ul.main-menu li > a:hover, .min-header > nav ul.main-menu li > a:hover {
   border-color: #78cad2;
   transition: 0.3s;
 }
-.header > nav ul.main-menu ul.submenu {
+.header > nav ul.main-menu ul.submenu, .min-header > nav ul.main-menu ul.submenu {
   position: absolute;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -10813,7 +10820,7 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
   padding: 0px 10px;
   border-radius: 0 0 5px 5px;
 }
-.header > nav ul.main-menu ul.submenu li {
+.header > nav ul.main-menu ul.submenu li, .min-header > nav ul.main-menu ul.submenu li {
   display: block;
   padding-top: 0px;
   margin: 2px 0px;
@@ -10821,17 +10828,17 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
   width: -moz-fit-content;
   width: fit-content;
 }
-.header > nav ul.main-menu ul.submenu li > a {
+.header > nav ul.main-menu ul.submenu li > a, .min-header > nav ul.main-menu ul.submenu li > a {
   color: #4e27b1;
   margin: 4px 0px;
 }
-.header > nav ul.main-menu li:hover > ul.submenu {
+.header > nav ul.main-menu li:hover > ul.submenu, .min-header > nav ul.main-menu li:hover > ul.submenu {
   display: block;
   -webkit-animation: linear 0.3s fadeIn;
           animation: linear 0.3s fadeIn;
   opacity: 1;
 }
-.header > nav .last-item {
+.header > nav .last-item, .min-header > nav .last-item {
   position: absolute;
   left: 8%;
   top: 0px;
@@ -10840,19 +10847,23 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
   display: flex;
   justify-items: flex-end;
 }
-.header > nav .last-item .btn-white, .header > nav .last-item button {
+.header > nav .last-item .btn-white, .header > nav .last-item button, .min-header > nav .last-item .btn-white, .min-header > nav .last-item button {
   font-size: 16px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
-.header > nav .last-item a.white-button {
+.header > nav .last-item a.white-button, .min-header > nav .last-item a.white-button {
   border: 2px solid #ffffff;
   padding: 4px 10px;
   text-align: center;
   float: right;
   font-size: 16px;
   border-radius: 16px;
+}
+
+.min-header .last-item {
+  left: 3% !important;
 }
 
 div.header-section {

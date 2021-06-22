@@ -1,9 +1,14 @@
 .header {
+    height: 600px;
     background: linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de) border-box;
+}
+.min-header {
+    background: linear-gradient(to right, #a77cf2, #6332de);
+}
+.header, .min-header {
     direction: rtl;
     width: 100%;
     float: left;
-    height: 600px;
     > nav {
         float: right;
         width: 100%;
@@ -36,7 +41,7 @@
                 display: inline-block;
                 height: 100%;
                 box-sizing: border-box;
-                padding-top: 15px;
+                padding-top: 10px;
                 margin: 0 10px;
                 > a {
                     width: 100%;
@@ -108,6 +113,10 @@
             }
         }
     }
+}
+
+.min-header .last-item {
+    left: 3% !important;
 }
 
 div.header-section {
