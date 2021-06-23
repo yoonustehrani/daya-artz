@@ -18,10 +18,7 @@
     </div>
 </div>
 <div class="section advantage-section col-12 p-0">
-    <div class="image-box float-left p-0 col-lg-6 col-12">
-        <img src="{{ asset('images/about-us-vector.svg') }}" alt="">
-    </div>
-    <div class="advantage-box float-left col-lg-6 col-12">
+    <div class="advantage-box float-right col-lg-6 col-12">
         <h2 class="title title-bigger text-white left-bordered float-right col-12">مزیت های دایا</h2>
         <ul class="advantages mt-4 float-right">
             <li>
@@ -61,6 +58,9 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="image-box float-right p-0 col-lg-6 col-12">
+        <img src="{{ asset('images/about-us-vector.svg') }}" alt="">
     </div>
 </div>
 <div class="section col-12 p-3 my-4">
