@@ -12,10 +12,13 @@
     <!-- Header -->
     <header class="header">
         <nav>
+            <span class="d-md-none ml-2 mr-2 float-right">
+                <i class="fas fa-bars"></i>
+            </span>
             <div class="logo-container">
                 <img src="{{ asset('images/daya-white-logo.png') }}">
             </div>
-            <ul class="main-menu p-0 m-0">
+            <ul class="main-menu p-0 m-0 d-none d-md-block">
                 <li>
                     <a href="#">خانه</a>
                 </li>
@@ -48,19 +51,19 @@
             </div>
         </nav>
         <div class="header-section">
-            <div class="header-vector">
-                <img src="{{ asset('images/header-vector.svg') }}" alt="header-vector">
-                <div class="triangle"></div>
-            </div>
-            <div class="header-text p-4">
+            <div class="header-text p-4 col-12 col-md-6">
                 <h1><span>|</span> لوگوی خودتون رو <span>شگفت زده</span> کنید</h1> <br/>
                 <p><b>دایا</b> برای ایجاد برتری برند شما اینجاست... <br/>
                 برای نشان دادن تفاوت خود نسبت به رقبا نیازمند لوگویی خاص ، با کیفیت و از همه مهم تر مربوط به کار خود هستین ، خلاصه بخوام بگم اگه برندتون رو دوست دارید یه لوگوی خوب بهش مدیونین پس... |
                 </p>
-                <div class="header-btn-container">
+                <div class="header-btn-container mt-4 mt-md-0">
                     <button class="btn btn-gradient ml-4 purple">ادامه متن</button>
                     <button class="btn btn-gradient aqua">شروع سفارش</button>
                 </div>
+            </div>
+            <div class="header-vector col-12 col-md-6">
+                <img src="{{ asset('images/header-vector.svg') }}" alt="header-vector">
+                <div class="triangle d-none d-md-block"></div>
             </div>
         </div>
     </header>
@@ -77,7 +80,7 @@
             <p class="text-center rtl">با مراجعه به سایت ما ، شما گروه تکمیلی از سفارشات طراحی گرافیک را با بالاترین کیفیت در اختیار خواهید داشت ...</p>
         </div>
         <div class="services-container">
-            <div class="service-container col-12 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fab fa-mixer"></i></span>
                     <h1 class="block w-100 text-center">لوگو</h1>
@@ -85,7 +88,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-12 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-paste"></i></span>
                     <h1 class="block w-100 text-center">سربرگ</h1>
@@ -93,7 +96,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-12 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-newspaper"></i></span>
                     <h1 class="block w-100 text-center">کاتالوگ</h1>
@@ -101,7 +104,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-12 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-id-card"></i></span>
                     <h1 class="block w-100 text-center">کارت ویزیت</h1>
@@ -109,7 +112,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-12 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-briefcase"></i></span>
                     <h1 class="block w-100 text-center">ست اداری</h1>
@@ -117,7 +120,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-12 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
                     <h1 class="block w-100 text-center">ترکیبی</h1>
@@ -130,55 +133,66 @@
     <!-- end Services -->
     <!-- Ordering Methods -->
     <div class="section w-100 order-section-container">
-        <div class="background-order col-md-10 offset-md-1 p-0">
-            <div class="title-section col-12 mb-3">
+        <div class="background-order w-100 p-0">
+            <div class="title-section col-12 mb-5 mb-md-0">
                 <div class="title-container">
                     <p class="title-text">روش های ثبت سفارش در دایا</p>
                 </div>
             </div>
-            <div class="order-section section w-100">
-                <div class="order-vector float-left"><img src="{{ asset('images/speed-order.svg') }}" alt="fast-order"></div>
+            <div class="order-section section col-12">
+                <div class="order-vector float-left">
+                    <img src="{{ asset('images/speed-order.svg') }}" alt="fast-order">
+                </div>
                 <div class="order-detail float-left">
                     <h3 class="mb-4">سفارش فوری</h3>
                     <h4 class="mb-3">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
                     <h4 class="mb-3">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
+                    <div class="order-btn-container mb-5 mr-md-3 mt-lg-4">
+                        <button class="btn order-btn badge-pill badge-info">شروع سفارش</button>
+                    </div>
                 </div>
             </div>
-            <div class="order-section section w-100 ml-6p">
-                <div class="order-detail float-left">
+            <div class="order-section section col-12 ml-8p rtl">
+                <div class="order-vector float-right ml-md-4 w-md-45">
+                    <div><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
+                </div>    
+                <div class="order-detail float-right mr-md-4">
                     <h3 class="mb-4">سفارش تخصصی</h3>
                     <h4 class="mb-3">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <button class="btn badge-pill badge-info mt-4 mr-3">شروع سفارش</button>
-                </div>
-                <div class="order-vector float-left">
-                    <div><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
+                    <div class="order-btn-container-4 mr-md-3 mt-lg-4">
+                        <button class="btn order-btn badge-pill badge-info">شروع سفارش</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- end Ordering Methods -->
+    
+    <!-- contact daya -->
+    <div class="section w-100 mt-5 mb-5">
         <div class="absolute-contact w-100">
             <div class="contact-section section w-100">
-                <div class="col-md-10 offset-md-1 back-aqua"></div>
+                <div class="col-md-10 offset-md-1 back-aqua d-none d-md-block"></div>
                 <div class="section contact-info w-100">
-                    <div class="col-10 col-md-2 p-2 text-center">
+                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-phone"></i></span>
                         <h4>تلفن</h4>
                         <p class="text-secondary">با شماره گیری تلفن های ثابت زیر سفارش خود را ثبت کنید</p>
                         <button class="btn btn-gradient ltr">+98 123456789</button>
                         <button class="btn btn-gradient ltr">021 1234567</button>
                     </div>
-                    <div class="col-10 col-md-2 p-2 text-center">
+                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-robot"></i></span>
                         <h4>ربات تلگرام</h4>
                         <p class="text-secondary">توسط ربات تلگرام ما سفارش خود را ثبت کنید</p>
                         <button class="btn btn-gradient ltr mt-12-p">@DAYABOT</button>
                     </div>
-                    <div class="col-10 col-md-2 p-2 text-center">
+                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-mobile"></i></span>
                         <h4>پیامرسان</h4>
                         <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
@@ -189,7 +203,8 @@
             </div>
         </div>
     </div>
-    <!-- end Ordering Methods -->
+    <!-- end contact daya -->
+    
     <!-- About Daya -->
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
@@ -361,8 +376,21 @@
                 <span class="title-underline"></span>
             </div>
         </div>
-        <div class="fast-order-section text-center w-100 offset-md-1">
-            <div class="float-left fast-order-form col-12 col-md-5">
+        <div class="fast-order-section text-center w-100 col-md-11 col-12">
+            <div class="float-right col-12 col-md-5 mt-md-5 mt-1 fast-order-guide">
+                <h3 class="mb-5">فرم سفارش فوری</h3>
+                <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی کورد نیاز خود منتظر تماس کارشناسان باشید.</p>
+                <br>
+                <h5 class="font-18">راهنمای ثبت فرم:</h5>
+                <ul class="font-18">
+                    <li>وارد کردن مشخصات شخصی</li>
+                    <li>وارد کردن شماره تماس در دسترس</li>
+                    <li>انتخاب درسته مورد نیاز برای طراحی</li>
+                </ul>
+                <br><br>
+                <p class="font-16 text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
+            </div>
+            <div class="float-right fast-order-form col-12 col-md-5">
                 <form action="#">
                     <div class="input-group col-lg-6 col-12 float-right mb-3">
                         <input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی">
@@ -377,28 +405,15 @@
                         </div>
                     </div>
                     <div class="order-types mb-3 w-100">
-                        <div class="checkbox col-5 col-md-4 col-lg-3 col-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/brand.svg') }}"></span><span class="checkbox-label">لوگو</span></span></label></div>
-                        <div class="checkbox col-5 col-md-4 col-lg-3 col-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/big-brochure.svg') }}"></span><span class="checkbox-label">کاتالوگ</span></span></label></div>
-                        <div class="checkbox col-5 col-md-4 col-lg-3 col-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/credit-card.svg') }}"></span><span class="checkbox-label">کارت ویزیت</span></span></label></div>
-                        <div class="checkbox col-5 col-md-4 col-lg-3 col-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/paper.svg') }}"></span><span class="checkbox-label">سربرگ</span></span></label></div>
-                        <div class="checkbox col-5 col-md-4 col-lg-3 col-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/office-tools.svg') }}"></span><span class="checkbox-label">ست اداری</span></span></label></div>
+                        <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/brand.svg') }}"></span><span class="checkbox-label">لوگو</span></span></label></div>
+                        <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/big-brochure.svg') }}"></span><span class="checkbox-label">کاتالوگ</span></span></label></div>
+                        <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/credit-card.svg') }}"></span><span class="checkbox-label">کارت ویزیت</span></span></label></div>
+                        <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/paper.svg') }}"></span><span class="checkbox-label">سربرگ</span></span></label></div>
+                        <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/office-tools.svg') }}"></span><span class="checkbox-label">ست اداری</span></span></label></div>
                     </div>
                     <div class="form-group"><textarea name="fast-order-description" cols="30" rows="10" class="form-control" placeholder="توضیحات"></textarea></div>
                     <button type="submit" class="btn">ثبت سفارش</button>
                 </form>
-            </div>
-            <div class="float-left col-12 col-md-5 mt-5 fast-order-guide">
-                <h3 class="mb-5">فرم سفارش فوری</h3>
-                <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی کورد نیاز خود منتظر تماس کارشناسان باشید.</p>
-                <br>
-                <h5 class="font-18">راهنمای ثبت فرم:</h5>
-                <ul class="font-18">
-                    <li>وارد کردن مشخصات شخصی</li>
-                    <li>وارد کردن شماره تماس در دسترس</li>
-                    <li>انتخاب درسته مورد نیاز برای طراحی</li>
-                </ul>
-                <br><br>
-                <p class="font-16 text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
             </div>
         </div>
     </div>

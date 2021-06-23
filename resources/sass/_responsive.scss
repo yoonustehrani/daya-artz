@@ -1,12 +1,91 @@
-@media screen and (max-width: 1240px) {
-    .header > nav .last-item {
-        left: 2%;
+// md breakpoint (min-width)
+$small-breakpoint: 576px;
+$md-breakpoint: 768px;
+$lg-breakpoint: 992px;
+$xl-breakpoint: 1200px;
+$xl-xl-breakpoint: 1400px;
+
+// medium-screens
+@media screen and (max-width: $lg-breakpoint) and (min-width: $md-breakpoint) {
+    .header > nav {
+        .last-item {
+            left: 2% !important;
+        }
+        ul {
+            width: calc(98% - 70px) !important;
+            li {
+                margin: 0px 2px !important;
+                font-size: 16px !important;
+            }
+        }
+    }
+    .order-section {
+        .order-detail {
+            h3 {
+                font-size: 25px !important;
+            }
+            h4 {
+                font-size: 20px !important;
+            }
+            button.order-btn {
+                font-size: 18px !important;
+            }
+        }
+    }
+}
+
+// medium and above
+@media screen and (min-width: $md-breakpoint) {
+    div.order-section-container {
+        .ml-8p {
+            margin-left: 8% !important;
+        }
+        div.order-btn-container {
+            text-align: right !important;
+        }
+        .order-vector {
+            &.w-md-45 {
+                width: 45% !important;
+            }
+        }
+    }
+}
+
+//large and above
+@media screen and (min-width: $lg-breakpoint) {
+    button.order-btn {
+        font-size: 20px;
     }
 }
 
 // Tablet & Mobile
 @media screen and (max-width: 768px) {
-    
+    div.order-btn-container {
+        text-align: center !important;
+        button.order-btn {
+            font-size: 18px !important;
+        }
+    }
+    .order-section {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        .order-detail {
+            text-align: center !important;
+            h3 {
+                font-size: 30px !important;
+            }
+            h4 {
+                font-size: 18px !important;
+            }
+        }
+    }
+    .order-vector {
+        width: 90% !important;
+    }
+    .order-types {
+        justify-content: center !important;
+    }
 }
 
 
@@ -38,4 +117,14 @@
 // Mobile small
 @media screen and (max-width: 360px) {
     
+}
+
+@media screen and (min-width: 1600px) {
+    .col-xl-xl-2 {
+        flex: 0 0 16.6666666667% !important;
+        max-width: 16.6666666667% !important;
+    }   
+    .order-types {
+        justify-content: space-evenly !important;
+    }
 }

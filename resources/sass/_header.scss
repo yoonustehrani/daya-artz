@@ -1,9 +1,14 @@
 .header {
-    background: linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de) border-box;
+    background: linear-gradient(50deg, #e77cf2, #6332de);
+    background: -webkit-linear-gradient(50deg, #e77cf2, #6332de);
+    @media screen and (min-width: $md-breakpoint) {
+        background: linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
+        background: -webkit-linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
+    }
     direction: rtl;
     width: 100%;
     float: left;
-    height: 600px;
+    min-height: 600px;
     > nav {
         float: right;
         width: 100%;
@@ -86,6 +91,17 @@
                 }
             }
         }
+        span.d-md-none {
+            position: relative;
+            display: inline-block;
+            top: 50%;
+            transform: translateY(-50%);
+            i {
+                color: #ffffff !important;
+                cursor: pointer;
+                font-size: 35px;
+            }
+        }
         .last-item {
             position: absolute;
             left: 8%;
@@ -113,9 +129,13 @@
 div.header-section {
     width: 100%;
     float: left;
+    @media screen and (max-width: $md-breakpoint) {
+        div.header-vector {
+            height: auto !important;
+        }
+    }
     div.header-vector {
         float: left;
-        width: 50%;
         height: 530px;
         position: relative;
         img {
@@ -137,8 +157,16 @@ div.header-section {
     }
     div.header-text {
         float: right;
-        width: 50%;
         height: 100%;
+        @media screen and (max-width: $md-breakpoint) {
+            h1 {
+                font-size: 26px !important;
+            }
+            p {
+                font-size: 20px !important;
+                line-height: 40px !important;
+            }
+        }
         h1 {
             color: #ffffff;
             font-size: 30px;
@@ -150,7 +178,6 @@ div.header-section {
             color: #ffffff;
             font-size: 20px;
             line-height: 65px;
-            line-clamp: 5;
         }
         div.header-btn-container {
             display: flex;
