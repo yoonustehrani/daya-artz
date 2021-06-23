@@ -36,6 +36,14 @@
     font-weight: bold;
 }
 
+.title-big {
+    font-size: 32px;
+}
+
+.title-bigger {
+    font-size: 36px;
+}
+
 .about-section {
     background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
     // height: fit-content;
@@ -545,5 +553,60 @@ div.fast-order-container {
     }
 }
 // end daya blog
+
+
+// ABOUT US
+.advantage-section {
+    background-image: linear-gradient(to right,#d0b6f8, #a184ec);
+    min-height: 400px;
+    height: fit-content;
+    .advantage-box {
+        padding: 30px 20px;
+        > .title {
+            border-right: 5px solid $white;
+            padding: 10px 15px;
+        }
+        ul.advantages {
+            padding: 10px 0px;
+            list-style: none;
+            li {
+                display: block;
+                float: right;
+                width: 100%;
+                padding: 10px 0;
+                a > i, a > div {
+                    float: right;
+                    color: $white;
+                }
+                i.avatar {
+                    border: 2px solid $white;
+                    padding: 20px 0px;
+                    border-radius: 50%;
+                    text-align: center;
+                    font-size: 40px;
+                    width: 80px;
+                    height: 80px;
+                    transition: 0.3s;
+                }
+                a:hover {
+                    i.avatar {
+                        transition: 0.3s;
+                        background-color: $white;
+                        color: $eggplant;
+                    }
+                }
+                div.description {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+    img {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        // position: absolute;
+    }
+}
+// end About us
 
 @import 'footer'
