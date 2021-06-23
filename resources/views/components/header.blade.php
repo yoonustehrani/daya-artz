@@ -1,10 +1,13 @@
 <nav>
+    <span class="d-md-none ml-2 mr-2 float-right">
+        <i class="fas fa-bars"></i>
+    </span>
     <div class="logo-container">
         <img src="{{ asset('images/daya-white-logo.png') }}">
     </div>
-    <ul class="main-menu p-0 m-0">
+    <ul class="main-menu p-0 m-0 d-none d-md-block">
         <li>
-            <a href="{{ route('home') }}">خانه</a>
+            <a href="#">خانه</a>
         </li>
         <li>
             <a href="#">طراحی گرافیک</a>
@@ -26,8 +29,8 @@
             </ul>
         </li>
         <li><a href="#">مقالات</a></li>
-        <li><a href="{{ route('about') }}">درباره ما</a></li>
-        <li><a href="{{ route('contact') }}">تماس با ما</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="#">تماس با ما</a></li>
     </ul>
     <div class="last-item">
         <a href="#" class="btn-white">+‌ سفارش</a>
