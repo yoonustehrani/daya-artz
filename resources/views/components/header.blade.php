@@ -27,7 +27,7 @@
         </li>
         <li><a href="#">مقالات</a></li>
         <li><a href="{{ route('about') }}">درباره ما</a></li>
-        <li><a href="#">تماس با ما</a></li>
+        <li><a href="{{ route('contact') }}">تماس با ما</a></li>
     </ul>
     <div class="last-item">
         <a href="#" class="btn-white">+‌ سفارش</a>
