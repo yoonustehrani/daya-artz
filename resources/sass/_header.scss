@@ -5,10 +5,17 @@
         background: linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
         background: -webkit-linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
     }
+    min-height: 600px;
+}
+
+.min-header {
+    background: linear-gradient(to right, #a77cf2, #6332de);
+}
+
+.header, .min-header {
     direction: rtl;
     width: 100%;
     float: left;
-    min-height: 600px;
     > nav {
         float: right;
         width: 100%;

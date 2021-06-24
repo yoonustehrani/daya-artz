@@ -7,7 +7,7 @@
     </div>
     <ul class="main-menu p-0 m-0 d-none d-md-block">
         <li>
-            <a href="#">خانه</a>
+            <a href="{{ route('home') }}">خانه</a>
         </li>
         <li>
             <a href="#">طراحی گرافیک</a>
@@ -29,8 +29,8 @@
             </ul>
         </li>
         <li><a href="#">مقالات</a></li>
-        <li><a href="#">درباره ما</a></li>
-        <li><a href="#">تماس با ما</a></li>
+        <li><a href="{{ route('about') }}">درباره ما</a></li>
+        <li><a href="{{ route('contact') }}">تماس با ما</a></li>
     </ul>
     <div class="last-item">
         <a href="#" class="btn-white">+‌ سفارش</a>
