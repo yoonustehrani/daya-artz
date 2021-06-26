@@ -10459,7 +10459,10 @@ span.back-aqua i {
 }
 
 .order-section-container div.background-order {
-  height: 84%;
+  float: left;
+  background-image: url(/images/dots-background.png);
+  background-size: contain;
+  background-repeat: repeat;
 }
 .order-section-container .order-section {
   display: flex;
@@ -10522,9 +10525,10 @@ span.back-aqua i {
   height: -moz-fit-content;
   height: fit-content;
   border: 2px solid #78cad2;
-  background-image: url(/images/contact-background.svg);
+  background-image: url(/images/contact-background.png);
   background-position: center;
   background-size: cover;
+  background-repeat: repeat;
 }
 .contact-section .contact-info > div span {
   margin-bottom: 15px;
@@ -10769,6 +10773,12 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
 .blog-posts-container .blog-post a:hover img {
   opacity: 0.5;
 }
+.blog-posts-container .blog-post a:hover p.blog-post-description {
+  color: #2260ff !important;
+}
+.blog-posts-container .blog-post a:hover h3 {
+  color: #6232de;
+}
 .blog-posts-container .blog-post h3, .blog-posts-container .blog-post p, .blog-posts-container .blog-post span {
   text-align: center;
 }
@@ -10777,12 +10787,17 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   font-weight: bold;
   font-size: 24px;
   margin-top: 10px;
+  transition: 0.3s ease-in;
 }
-.blog-posts-container .blog-post p {
+.blog-posts-container .blog-post p.blog-post-source {
   color: #292b2c;
   font-size: 15px;
   margin-top: 8px;
   margin-right: 20%;
+}
+.blog-posts-container .blog-post p.blog-post-description {
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
 }
 .blog-posts-container .blog-post span {
   font-size: 14px;
@@ -10814,6 +10829,7 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   transition: 0.3s ease-in-out;
   cursor: pointer;
   -webkit-transition: 0.3s ease-in-out;
+  border-radius: 6px;
 }
 .blog-posts-container .blog-post .img-container::after {
   content: "";
@@ -10933,7 +10949,7 @@ div.contact-us-first-section div.contact-us-form button:hover {
 
 div.contact-us-section-2 {
   background-image: url("/images/dots-background.png");
-  background-size: auto;
+  background-size: contain;
   background-repeat: repeat;
 }
 div.contact-us-section-2 .title-text {

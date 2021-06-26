@@ -191,7 +191,10 @@ span.back-aqua {
 
 .order-section-container {
     div.background-order {
-        height: 84%;
+        float: left;
+        background-image: url(/images/dots-background.png);
+        background-size: contain;
+        background-repeat: repeat;
     }
     .order-section {
         display: flex;
@@ -252,9 +255,10 @@ span.back-aqua {
         > div {
             height: fit-content;
             border: 2px solid $aqua;
-            background-image: url(/images/contact-background.svg);
+            background-image: url(/images/contact-background.png);
             background-position: center;
             background-size: cover;
+            background-repeat: repeat;
             span {
                 margin-bottom: 15px;
             }
@@ -506,6 +510,12 @@ div.fast-order-container {
                 img {
                     opacity: 0.5;
                 }
+                p.blog-post-description {
+                    color: #2260ff !important;
+                }
+                h3 {
+                    color: #6232de;
+                }
             }
         }
         h3, p, span {
@@ -516,12 +526,17 @@ div.fast-order-container {
             font-weight: bold;
             font-size: 24px;
             margin-top: 10px;
+            transition: 0.3s ease-in;
         }
-        p {
+        p.blog-post-source {
             color: $secondary;
             font-size: 15px;
             margin-top: 8px;
             margin-right: 20%;
+        }
+        p.blog-post-description {
+            font-size: 16px;
+            transition: 0.3s ease-in-out;
         }
         span {
             font-size: 14px;
@@ -550,6 +565,7 @@ div.fast-order-container {
                 transition: 0.3s ease-in-out;
                 cursor: pointer;
                 -webkit-transition: 0.3s ease-in-out;
+                border-radius: 6px;
             }
             &::after {
                 content: "";
@@ -678,7 +694,7 @@ div.contact-us-first-section {
 }
 div.contact-us-section-2 {
     background-image: url("/images/dots-background.png");
-    background-size: auto;
+    background-size: contain;
     background-repeat: repeat;
     .title-text {
         font-size: 35px !important;

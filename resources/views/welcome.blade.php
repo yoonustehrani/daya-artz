@@ -96,7 +96,7 @@
     <!-- Ordering Methods -->
     <div class="section w-100 order-section-container">
         <div class="background-order w-100 p-0">
-            <div class="title-section col-12 mb-5 mb-md-0">
+            <div class="title-section col-12 mb-5 mb-md-0 mt-3">
                 <div class="title-container">
                     <p class="title-text">روش های ثبت سفارش در دایا</p>
                 </div>
@@ -390,8 +390,9 @@
                         <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
                         <span>19 <br> خرداد</span>
                     </div>
-                    <p>نوشته شده توسط: ویکی پدیا</p>
+                    <p class="blog-post-source">نوشته شده توسط: ویکی پدیا</p>
                     <h3 class="block">چگونه لوگوی خوب را بشناسیم</h3>
+                    <p class="blog-post-description text-secondary">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا </p>
                 </a>
             </article>
             <article class="blog-post col-12 col-md-3">
@@ -400,8 +401,9 @@
                         <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
                         <span>04 <br> تیر</span>
                     </div>
-                    <p>نوشته شده توسط: تیم دایا</p>
+                    <p class="blog-post-source">نوشته شده توسط: تیم دایا</p>
                     <h3 class="block">بهترین لوگوهای جهان</h3>
+                    <p class="blog-post-description text-secondary">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا </p>
                 </a>
             </article>
             <article class="blog-post col-12 col-md-3">
@@ -410,8 +412,9 @@
                         <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
                         <span>30 <br> مهر</span>
                     </div>
-                    <p>نوشته شده توسط: تیم دایا</p>
+                    <p class="blog-post-source">نوشته شده توسط: تیم دایا</p>
                     <h3 class="block">درباره برندینگ چه میدانید؟</h3>
+                    <p class="blog-post-description text-secondary">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا </p>
                 </a>
             </article>
         </div>
