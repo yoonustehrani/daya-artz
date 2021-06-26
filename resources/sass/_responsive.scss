@@ -32,6 +32,21 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    div.contact-ways-container {
+        > div {
+            i.contact-way-icon {
+                font-size: 40px !important;
+            }
+            div.address-label {
+                .label-icon {
+                    font-size: 22px !important;
+                }
+                h3 {
+                    font-size: 18px !important;
+                }
+            }
+        }
+    }
 }
 
 // medium and above
@@ -55,6 +70,11 @@ $xl-xl-breakpoint: 1400px;
 @media screen and (min-width: $lg-breakpoint) {
     button.order-btn {
         font-size: 20px;
+    }
+    div.address-label {
+        h3 {
+            font-size: 22px !important;
+        }
     }
 }
 
@@ -86,6 +106,26 @@ $xl-xl-breakpoint: 1400px;
     .order-types {
         justify-content: center !important;
     }
+    .contact-us-first-section {
+        .contact-us-form {
+            position: relative !important;
+            top: 0 !important;
+            right: 0 !important;
+            left: 0 !important;
+            h4 {
+                font-size: 24px !important;
+            }
+        }
+        .background-left {
+            width: 86% !important;
+        }
+        .background-right {
+            top: 2% !important;
+        }
+        .contact-us-vector-1 {
+            top: 2% !important;
+        }
+    }
 }
 
 
@@ -111,6 +151,7 @@ $xl-xl-breakpoint: 1400px;
     .m-text-center {
         text-align: center !important;
     }
+
 }
 
 
@@ -126,5 +167,29 @@ $xl-xl-breakpoint: 1400px;
     }   
     .order-types {
         justify-content: space-evenly !important;
+    }
+}
+
+// medium - 1300px (conntact us page)
+@media screen and (min-width: $md-breakpoint) and (max-width: 1300px) {
+    div.contact-us-first-section {
+        h4 {
+            font-size: 22px !important;
+        }
+        div.background-right {
+            top: 1% !important;
+        }
+        div.contact-us-form {
+            top: 6% !important;
+            input, textarea {
+                font-size: 16px !important;
+            }
+            button {
+                font-size: 16px !important;
+            }
+            textarea {
+                height: 150px !important;
+            }
+        }
     }
 }

@@ -2,6 +2,12 @@
     float: left;
 }
 
+.vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .title-section {
     display: flex;
     justify-content: center;
@@ -613,11 +619,9 @@ div.fast-order-container {
 div.contact-us-first-section {
     position: relative;
     div.contact-us-background {
-        min-height: 900px;
-        > div {
-            position: absolute;
-        }
+        position: relative;
         div.background-left {
+            position: relative;
             top: 0;
             width: 60%;
             img {
@@ -626,6 +630,7 @@ div.contact-us-first-section {
             }
         }
         div.background-right {
+            position: absolute;
             top: 6%;
             right: 8%;
             width: 34%;
@@ -662,10 +667,51 @@ div.contact-us-first-section {
             max-height: 100%;
         }
         button {
-            width: 20%;
+            min-width: 20%;
             font-size: 18px;
             &:hover {
                 background-color: $eggplant;
+            }
+        }
+    }
+}
+div.contact-us-section-2 {
+    background-image: url("/images/dots-background.png");
+    background-size: auto;
+    background-repeat: repeat;
+    .title-text {
+        font-size: 35px !important;
+    }
+    div.contact-ways-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        > div {
+            background-color: $light;
+            box-shadow: 4px 4px 15px 2px #dcdcdc;
+            height: 420px;
+            i.contact-way-icon {
+                font-size: 70px;
+                color: #000;
+            }
+            div.address-label {
+                background-color: $purple-bg;
+                border-radius: 8px;
+                height: 50px;
+                i.label-icon {
+                    font-size: 35px;
+                    color: #000;
+                }
+                span {
+                    color: #000;
+                }
+                h3 {
+                    color: #000;
+                    font-size: 24px;
+                    direction: ltr;
+                }
             }
         }
     }
