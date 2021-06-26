@@ -10769,15 +10769,16 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
 .blog-posts-container .blog-post a:hover img {
   opacity: 0.5;
 }
-.blog-posts-container .blog-post h5, .blog-posts-container .blog-post h3, .blog-posts-container .blog-post span {
+.blog-posts-container .blog-post h3, .blog-posts-container .blog-post p, .blog-posts-container .blog-post span {
   text-align: center;
 }
 .blog-posts-container .blog-post h3 {
+  color: #333333;
   font-weight: bold;
   font-size: 24px;
   margin-top: 10px;
 }
-.blog-posts-container .blog-post h5 {
+.blog-posts-container .blog-post p {
   color: #292b2c;
   font-size: 15px;
   margin-top: 8px;
@@ -11257,12 +11258,13 @@ div.header-section div.header-text {
     font-size: 26px !important;
   }
   div.header-section div.header-text p {
-    font-size: 20px !important;
-    line-height: 40px !important;
+    font-size: 18px !important;
   }
 }
 div.header-section div.header-text h1 {
   color: #ffffff;
+  border-right: 4px solid #78cad2;
+  padding: 5px 10px;
   font-size: 30px;
 }
 div.header-section div.header-text h1 span {
@@ -11270,8 +11272,8 @@ div.header-section div.header-text h1 span {
 }
 div.header-section div.header-text p {
   color: #ffffff;
-  font-size: 20px;
-  line-height: 65px;
+  font-size: 18px;
+  line-height: 3;
 }
 div.header-section div.header-text div.header-btn-container {
   display: flex;

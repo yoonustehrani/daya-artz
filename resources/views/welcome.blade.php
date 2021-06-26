@@ -14,12 +14,12 @@
         @include('components.header')
         <div class="header-section">
             <div class="header-text p-4 col-12 col-md-6">
-                <h1><span>|</span> لوگوی خودتون رو <span>شگفت زده</span> کنید</h1> <br/>
-                <p><b>دایا</b> برای ایجاد برتری برند شما اینجاست... <br/>
-                برای نشان دادن تفاوت خود نسبت به رقبا نیازمند لوگویی خاص ، با کیفیت و از همه مهم تر مربوط به کار خود هستین ، خلاصه بخوام بگم اگه برندتون رو دوست دارید یه لوگوی خوب بهش مدیونین پس... |
-                </p>
+                <h1>لوگوی خودتون رو <span>شگفت زده</span> کنید</h1>
+                <br>
+                <p><b>دایا آرتز</b> ؛ نخستین مرکز طراحی گرافیک با رویکرد استارتاپی<br>
+                تیم طراحی دایا ارائه دهنده خدمات گرافیکی با رویکردی متفاوت است ، در دایا رنگ ها و ترسیمات از زیر ذره بین ایده و مفهوم می گذرند تا به جلایی تازه به هویت برند شما بخشیده شود و پوسته ظاهر و برند فعالیت شما به رنگ هسته ایده و هویت حقیقی اش برسد . دایا آرتز تزریق رنگ ایده هایتان به شخصیت شماست . برای آشنایی بیشتر با عقاید دایا آرتز کلیک کنید </p>
                 <div class="header-btn-container mt-4 mt-md-0">
-                    <button class="btn btn-gradient ml-4 purple">ادامه متن</button>
+                    <button class="btn btn-gradient ml-4 purple">آشنایی بیشتر</button>
                     <button class="btn btn-gradient aqua">شروع سفارش</button>
                 </div>
             </div>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="subtitle-container">
-            <p class="text-center rtl">با مراجعه به سایت ما ، شما گروه تکمیلی از سفارشات طراحی گرافیک را با بالاترین کیفیت در اختیار خواهید داشت ...</p>
+            <p class="text-center rtl">خدمات شش گانه طراحی گرافیک دایا آرتز بر پایه هویت برند شما در بالاترین کیفیت ممکن پیش روی شماست</p>
         </div>
         <div class="services-container">
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
@@ -384,36 +384,36 @@
             </div>
         </div>
         <div class="blog-posts-container w-100 text-center">
-            <div class="blog-post col-12 col-md-3">
+            <article class="blog-post col-12 col-md-3">
                 <a href="#">
                     <div class="img-container w-100">
                         <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
                         <span>19 <br> خرداد</span>
                     </div>
-                    <h5>نوشته شده توسط: ویکی پدیا</h5>
+                    <p>نوشته شده توسط: ویکی پدیا</p>
                     <h3 class="block">چگونه لوگوی خوب را بشناسیم</h3>
                 </a>
-            </div>
-            <div class="blog-post col-12 col-md-3">
+            </article>
+            <article class="blog-post col-12 col-md-3">
                 <a href="#">
                     <div class="img-container w-100">
                         <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
                         <span>04 <br> تیر</span>
                     </div>
-                    <h5>نوشته شده توسط: تیم دایا</h5>
+                    <p>نوشته شده توسط: تیم دایا</p>
                     <h3 class="block">بهترین لوگوهای جهان</h3>
                 </a>
-            </div>
-            <div class="blog-post col-12 col-md-3">
+            </article>
+            <article class="blog-post col-12 col-md-3">
                 <a href="#">
                     <div class="img-container w-100">
                         <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
                         <span>30 <br> مهر</span>
                     </div>
-                    <h5>نوشته شده توسط: تیم دایا</h5>
+                    <p>نوشته شده توسط: تیم دایا</p>
                     <h3 class="block">درباره برندینگ چه میدانید؟</h3>
                 </a>
-            </div>
+            </article>
         </div>
     </div>
     <!-- end daya blog -->
