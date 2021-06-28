@@ -96,7 +96,7 @@
     <!-- Ordering Methods -->
     <div class="section w-100 order-section-container">
         <div class="background-order w-100 p-0">
-            <div class="title-section col-12 mb-5 mb-md-0 mt-3">
+            <div class="title-section col-12 mb-3 mb-md-0 mt-3">
                 <div class="title-container">
                     <p class="title-text">روش های ثبت سفارش در دایا</p>
                 </div>
@@ -120,7 +120,7 @@
                 <div class="order-vector float-right ml-md-4 w-md-45">
                     <div><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
                 </div>    
-                <div class="order-detail float-right mr-md-4">
+                <div class="order-detail float-right mr-md-4 mt-20px">
                     <h3 class="mb-4">سفارش تخصصی</h3>
                     <h4 class="mb-3">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
