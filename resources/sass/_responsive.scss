@@ -6,7 +6,7 @@ $xl-breakpoint: 1200px;
 $xl-xl-breakpoint: 1400px;
 
 // medium-screens
-@media screen and (max-width: $lg-breakpoint) and (min-width: $md-breakpoint) {
+@media screen and (max-width: $lg-breakpoint+1px) and (min-width: $md-breakpoint) {
     .header > nav {
         .last-item {
             left: 2% !important;
@@ -85,7 +85,7 @@ $xl-xl-breakpoint: 1400px;
 }
 
 // Tablet & Mobile
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $md-breakpoint - 1px) {
     div.order-btn-container {
         text-align: center !important;
         button.order-btn {
@@ -209,7 +209,7 @@ $xl-xl-breakpoint: 1400px;
 }
 
 // medium - xl
-@media screen and (min-width: $md-breakpoint) and (max-width: $xl-breakpoint) {
+@media screen and (min-width: $md-breakpoint) and (max-width: $xl-breakpoint+1px) {
     .policy-header {
         height: 400px !important;
     }

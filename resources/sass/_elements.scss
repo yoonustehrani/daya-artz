@@ -767,6 +767,10 @@ div.daya-duties {
                 height: 100%;
             }
         }
+        .privacy-vector {
+            position: relative;
+            top: 20px;
+        }
     }
 }
 // FAQ Accordion
@@ -790,7 +794,7 @@ div.daya-duties {
             margin-bottom: 30px;
             div.question-wrapper {
                 display: flex;
-                flex-direction: row;
+                flex-direction: row-reverse;
                 flex-wrap: nowrap;
                 justify-content: space-between;
                 align-items: center;
