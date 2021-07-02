@@ -10067,6 +10067,11 @@ h3 {
   div.order-section-container .order-vector.w-md-45 {
     width: 45% !important;
   }
+
+  .policy-header .header-vector {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 @media screen and (min-width: 992px) {
   button.order-btn {
@@ -10130,6 +10135,10 @@ h3 {
   .mt-20px {
     margin-top: 20px !important;
   }
+
+  .policy-header .header-vector {
+    top: -30%;
+  }
 }
 @media screen and (max-width: 425px) {
   footer.footer .footer-content {
@@ -10181,6 +10190,22 @@ h3 {
   }
   div.contact-us-first-section div.contact-us-form textarea {
     height: 150px !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .policy-header {
+    height: 400px !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .policy-header {
+    height: 550px !important;
+  }
+  .policy-header h2 {
+    font-size: 34px !important;
+  }
+  .policy-header p {
+    font-size: 24px !important;
   }
 }
 html, body {
@@ -10284,6 +10309,10 @@ a:hover {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.relative {
+  position: relative !important;
 }
 
 .title-section {
@@ -11133,6 +11162,84 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
   margin-left: 5px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+div.daya-duties .duty-item {
+  margin-bottom: 25px;
+}
+div.daya-duties .duty-item p {
+  color: #000;
+  font-size: 18px;
+  text-align: right;
+  margin-bottom: 0 !important;
+}
+div.daya-duties .duty-vector-text .customer-vector {
+  height: 400px;
+}
+div.daya-duties .duty-vector-text .customer-vector img {
+  width: 100%;
+  height: 100%;
+}
+
+.FAQ-section {
+  background: linear-gradient(135deg, #a77cf2 #8f4eff);
+  background: -webkit-linear-gradient(135deg, #a77cf2, #8f4eff);
+  border-right: 2px solid #18093c;
+}
+.FAQ-section h4.faq-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+}
+.FAQ-section .accordion-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.FAQ-section .accordion-container div.item-wrapper {
+  margin-bottom: 30px;
+}
+.FAQ-section .accordion-container div.item-wrapper div.question-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #17093c;
+  border-radius: 8px;
+  padding: 8px;
+}
+.FAQ-section .accordion-container div.item-wrapper div.question-wrapper h4 {
+  color: #fff;
+  font-size: 20px;
+  display: inline;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+}
+.FAQ-section .accordion-container div.item-wrapper div.question-wrapper span {
+  cursor: pointer;
+}
+.FAQ-section .accordion-container div.item-wrapper div.question-wrapper span i {
+  color: #fff;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.FAQ-section .accordion-container div.item-wrapper .answer {
+  text-align: right;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.FAQ-section .accordion-container div.item-wrapper ul.answer {
+  list-style-type: decimal;
+}
+
 .header {
   background: linear-gradient(50deg, #e77cf2, #6332de);
   background: -webkit-linear-gradient(50deg, #e77cf2, #6332de);
@@ -11147,6 +11254,7 @@ footer.footer .footer-content div.footer-info-container > div ul li:before {
 
 .min-header {
   background: linear-gradient(to right, #a77cf2, #6332de);
+  background: -webkit-linear-gradient(to right, #a77cf2, #6332de);
 }
 
 .header, .min-header {
@@ -11287,10 +11395,22 @@ div.header-section {
     height: auto !important;
   }
 }
+div.header-section .triangle {
+  width: 50%;
+  height: 0;
+  padding-bottom: 50%;
+  background: linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+  background: -webkit-linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  z-index: 5;
+}
 div.header-section div.header-vector {
   float: left;
   height: 530px;
   position: relative;
+  z-index: 8;
 }
 div.header-section div.header-vector img {
   width: 100%;
@@ -11298,41 +11418,36 @@ div.header-section div.header-vector img {
   position: relative;
   z-index: 8;
 }
-div.header-section div.header-vector .triangle {
-  width: 50%;
-  height: 0;
-  padding-bottom: 50%;
-  background: linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
-  position: absolute;
-  left: 0%;
-  bottom: 0%;
-  z-index: 5;
-}
 div.header-section div.header-text {
   float: right;
   height: 100%;
 }
 @media screen and (max-width: 768px) {
-  div.header-section div.header-text h1 {
+  div.header-section div.header-text h1, div.header-section div.header-text h2 {
     font-size: 26px !important;
   }
   div.header-section div.header-text p {
     font-size: 18px !important;
   }
 }
-div.header-section div.header-text h1 {
+div.header-section div.header-text h1, div.header-section div.header-text h2 {
   color: #ffffff;
   border-right: 4px solid #78cad2;
   padding: 5px 10px;
   font-size: 30px;
 }
-div.header-section div.header-text h1 span {
+div.header-section div.header-text h1 span, div.header-section div.header-text h2 a, div.header-section div.header-text p a {
   color: #78cad2;
 }
 div.header-section div.header-text p {
   color: #ffffff;
   font-size: 18px;
   line-height: 3;
+}
+div.header-section div.header-text p span {
+  border-left: 4px solid #78cad2;
+  display: inline-block;
+  height: 100%;
 }
 div.header-section div.header-text div.header-btn-container {
   display: flex;
@@ -11346,6 +11461,36 @@ div.header-section div.header-text div.header-btn-container .aqua {
 div.header-section div.header-text div.header-btn-container .purple {
   background: -webkit-gradient(to right, #34167C 0%, #201e23 50%, #DC47DE 100%);
   background: linear-gradient(to right, #34167C 0%, #201e23 50%, #DC47DE 100%);
+}
+
+.policy-header {
+  position: relative;
+}
+.policy-header .triangle {
+  width: 20% !important;
+  height: 100% !important;
+  padding-bottom: 0 !important;
+  background: linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
+  background: -webkit-linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
+}
+.policy-header .header-vector {
+  height: auto !important;
+  position: relative;
+}
+.policy-header .header-vector img {
+  width: 100%;
+  height: 100%;
+}
+.policy-header .header-vector img.ruels {
+  position: relative !important;
+  z-index: 6;
+}
+.policy-header .header-vector img.rules-back {
+  position: absolute !important;
+  z-index: 4;
+  opacity: 0.6;
+  top: 0;
+  right: 0;
 }
 
 .btn-white {

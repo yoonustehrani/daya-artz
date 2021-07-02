@@ -10,6 +10,7 @@
 
 .min-header {
     background: linear-gradient(to right, #a77cf2, #6332de);
+    background: -webkit-linear-gradient(to right, #a77cf2, #6332de);
 }
 
 .header, .min-header {
@@ -146,51 +147,58 @@ div.header-section {
             height: auto !important;
         }
     }
+    .triangle {
+        width: 50%;
+        height: 0;
+        padding-bottom: 50%;
+        background: linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+        background: -webkit-linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+        position: absolute;
+        left: 0%;
+        bottom: 0%;
+        z-index: 5;
+    }
     div.header-vector {
         float: left;
         height: 530px;
         position: relative;
+        z-index: 8;
         img {
             width: 100%;
             height: 100%;
             position: relative;
             z-index: 8;
         }
-        .triangle {
-            width: 50%;
-            height: 0;
-            padding-bottom: 50%;
-            background: linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
-            position: absolute;
-            left: 0%;
-            bottom: 0%;
-            z-index: 5;
-        }
     }
     div.header-text {
         float: right;
         height: 100%;
         @media screen and (max-width: $md-breakpoint) {
-            h1 {
+            h1, h2 {
                 font-size: 26px !important;
             }
             p {
                 font-size: 18px !important;
             }
         }
-        h1 {
+        h1, h2 {
             color: #ffffff;
             border-right: 4px solid $aqua;
             padding: 5px 10px;
             font-size: 30px;
         }
-        h1 span {
+        h1 span, h2 a, p a {
             color: $aqua;
         }
         p {
             color: #ffffff;
             font-size: 18px;
             line-height: 3;
+            span {
+                border-left: 4px solid $aqua;
+                display: inline-block;
+                height: 100%;
+            }
         }
         div.header-btn-container {
             display: flex;
@@ -204,6 +212,36 @@ div.header-section {
                 background: -webkit-gradient(to right, $dark-purple 0%, $light-purple 50%, $pink 100%);
                 background: linear-gradient(to right, $dark-purple 0%, $light-purple 50%, $pink 100%);
             }
+        }
+    }
+}
+
+.policy-header {
+    position: relative;
+    .triangle {
+        width: 20% !important;
+        height: 100% !important;
+        padding-bottom: 0 !important;
+        background: linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
+        background: -webkit-linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
+    }
+    .header-vector {
+        height: auto !important;
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        img.ruels {
+            position: relative !important;
+            z-index: 6;
+        }
+        img.rules-back {
+            position: absolute !important;
+            z-index: 4;
+            opacity: 0.6;
+            top: 0;
+            right: 0;
         }
     }
 }
