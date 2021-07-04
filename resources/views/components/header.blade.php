@@ -28,7 +28,7 @@
                 <li><a href="#3">زیرمجموعه خیلــــــــی طولانی</a></li>
             </ul>
         </li>
-        <li><a href="#">مقالات</a></li>
+        <li><a href="{{ route('blog.index') }}">مقالات</a></li>
         <li><a href="{{ route('about') }}">درباره ما</a></li>
         <li><a href="{{ route('contact') }}">تماس با ما</a></li>
     </ul>

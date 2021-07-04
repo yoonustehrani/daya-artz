@@ -1,0 +1,15 @@
+.search-box {
+    button.btn-search {
+        color: $white !important;
+        background-color: $horny-eggplant !important;
+        transition: 0.3s;
+        &:hover {
+            color: $milk !important;
+            background-color: $eggplant !important;
+            transition: 0.3s;
+        }
+    }
+    input {
+        color: $eggplant !important;
+    }
+}

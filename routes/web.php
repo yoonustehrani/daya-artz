@@ -18,3 +18,4 @@ Route::view('/', 'welcome')->name('home');
 Route::view('about', 'about')->name('about');
 Route::view('contact', 'contact')->name('contact');
 Route::view('policy', 'policy')->name('policy');
+Route::view('blog', 'blog')->name('blog.index');

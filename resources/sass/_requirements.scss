@@ -46,6 +46,24 @@ a:hover {
     direction: ltr !important;
 }
 
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.title-big {
+    font-size: 32px;
+}
+
+.title-bigger {
+    font-size: 36px;
+}
+
+.description {
+    font-size: 16px;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

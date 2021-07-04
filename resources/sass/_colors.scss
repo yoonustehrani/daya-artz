@@ -1,4 +1,6 @@
 $white: #ffffff;
+$milk: #dfdfdf;
+$coal: #333333;
 $text-color: #ebe7fa;
 $eggplant: #17093c;
 $aqua: #78cad2;
@@ -12,9 +14,6 @@ $light-purple: #201e23;
 $pink: #DC47DE;
 $light-aqua: #D9F0F2;
 $aqua-purple: #777DD1;
-.cyan {
-    color: #9ed6d3 !important;
-}
 $green: #82D177;
 $red: #E03737;
 $purple: #af3acc;
@@ -23,3 +22,16 @@ $secondary: #292b2c;
 $silver: #C0C0C0;
 $light: #F1F0F8;
 $purple-bg: #DED8F2;
+$horny-eggplant: #6332df;
+.eggplant {
+    color: $eggplant !important;
+}
+.eggplant-light {
+    color: $horny-eggplant !important;
+}
+.cyan {
+    color: #9ed6d3 !important;
+}
+.bg-milk {
+    background-color: $milk;
+}

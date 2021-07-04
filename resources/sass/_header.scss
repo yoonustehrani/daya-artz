@@ -214,6 +214,18 @@ div.header-section {
             }
         }
     }
+    div.header-title {
+        display: flex;
+        align-items: center;
+        .title {
+            font-size: 84px;
+            color: $aqua;
+            text-shadow: none;
+            span {
+                color: $peach;
+            }
+        }
+    }
 }
 
 .policy-header {

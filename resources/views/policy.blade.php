@@ -1,20 +1,20 @@
 @extends('layouts.page')
 
 @section('header')
-    <!-- Policy Header -->
-    <div class="header-section policy-header">
-        <div class="header-text p-4 col-12 col-md-7">
-            <h2>قوانین و مقررات <a href="{{ route('home') }}">دایا آرتز</a></h2>
-            <br>
-            <p>تیم طراحی لوگو و خدمات گرافیکی <a href="{{ route('home') }}">دایا آرتز</a> در چارچوب های اخلاقی جمهوری اسلامی ایران و تابع انجمن صنفی طراحان گرافیک ایران است که اصول حرفه و متود های کیفی جهانی را سرلوح فعالیت های خود قرار داده است.</p>
-        </div>
-        <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
-            <img src="{{ asset('images/rules.svg') }}" alt="rules vector" class="rules">
-            <img src="{{ asset('images/rules-back.svg') }}" alt="rules-back" class="rules-back">
-        </div>
-        <div class="triangle d-none d-md-block"></div>
+<!-- Policy Header -->
+<div class="header-section policy-header">
+    <div class="header-text p-4 col-12 col-md-7">
+        <h2>قوانین و مقررات <a href="{{ route('home') }}">دایا آرتز</a></h2>
+        <br>
+        <p>تیم طراحی لوگو و خدمات گرافیکی <a href="{{ route('home') }}">دایا آرتز</a> در چارچوب های اخلاقی جمهوری اسلامی ایران و تابع انجمن صنفی طراحان گرافیک ایران است که اصول حرفه و متود های کیفی جهانی را سرلوح فعالیت های خود قرار داده است.</p>
     </div>
-    <!-- end Policy Header -->
+    <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
+        <img src="{{ asset('images/rules.svg') }}" alt="rules vector" class="rules">
+        <img src="{{ asset('images/rules-back.svg') }}" alt="rules-back" class="rules-back">
+    </div>
+    <div class="triangle d-none d-md-block"></div>
+</div>
+<!-- end Policy Header -->
 @endsection
 
 @section('content')
