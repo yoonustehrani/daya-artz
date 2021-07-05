@@ -166,6 +166,61 @@
         </div>
     </div>
     <!-- end contact daya -->
+
+    <!-- progress bars -->
+    <div class="section w-100 progress-bar-section mb-4">
+        <div class="progress-bar-container col-6 col-md-2">
+            <figure class="chart-two animate">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-background"/>
+                    <circle class="circle-foreground"/>
+                </svg>
+                <figcaption>percentage</figcaption>
+            </figure>   
+            <span>سفارش تلفنی</span>
+        </div>
+        <div class="progress-bar-container col-6 col-md-2">
+            <figure class="chart-two animate">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-background"/>
+                    <circle class="circle-foreground"/>
+                </svg>
+                <figcaption>percentage</figcaption>
+            </figure>   
+            <span>سفارش ربات تلگرام</span>
+        </div>
+        <div class="progress-bar-container col-6 col-md-2">
+            <figure class="chart-two animate">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-background"/>
+                    <circle class="circle-foreground"/>
+                </svg>
+                <figcaption>percentage</figcaption>
+            </figure>   
+            <span>سفارش فوری</span>
+        </div>
+        <div class="progress-bar-container col-6 col-md-2">
+            <figure class="chart-two animate">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-background"/>
+                    <circle class="circle-foreground"/>
+                </svg>
+                <figcaption>percentage</figcaption>
+            </figure>   
+            <span>سفارش تخصصی</span>
+        </div>
+        <div class="progress-bar-container col-6 col-md-2">
+            <figure class="chart-two animate">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-background"/>
+                    <circle class="circle-foreground"/>
+                </svg>
+                <figcaption>percentage</figcaption>
+            </figure>   
+            <span>سفارش پیامرسان</span>
+        </div>
+    </div>
+    <!-- end progress bars -->
     
     <!-- About Daya -->
     <div class="section about-section col-12 p-0 mb-2">
