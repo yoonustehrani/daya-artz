@@ -31,7 +31,7 @@
     </div>
     <div class="blog-posts-container w-100 text-center">
         <article class="blog-post col-12 col-md-3">
-            <a href="#">
+            <a href="{{ route('blog.show', ['title' => 'چگونه لوگوی خوب را بشناسیم']) }}">
                 <div class="img-container w-100">
                     <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
                     <span>19 <br> خرداد</span>
@@ -42,7 +42,7 @@
             </a>
         </article>
         <article class="blog-post col-12 col-md-3">
-            <a href="#">
+            <a href="{{ route('blog.show', ['title' => 'بهترین لوگوهای جهان']) }}">
                 <div class="img-container w-100">
                     <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
                     <span>04 <br> تیر</span>
@@ -53,7 +53,7 @@
             </a>
         </article>
         <article class="blog-post col-12 col-md-3">
-            <a href="#">
+            <a href="{{ route('blog.show', ['title' => 'درباره برندینگ چه میدانید؟']) }}">
                 <div class="img-container w-100">
                     <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
                     <span>30 <br> مهر</span>
