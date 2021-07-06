@@ -11394,7 +11394,7 @@ div.daya-duties .duty-vector-text .privacy-vector {
 
 div.post-info-section {
   position: relative;
-  height: 200px;
+  height: 250px;
 }
 div.post-info-section div.post-info-container {
   height: 80%;
@@ -11406,9 +11406,9 @@ div.post-info-section div.post-info-container {
 }
 div.post-info-section div.post-info-container h2 {
   color: #fff;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
-  border-right: 2px solid #fff;
+  border-right: 3px solid #fff;
   text-align: center;
 }
 div.post-info-section div.post-info-container .post-info-flex {

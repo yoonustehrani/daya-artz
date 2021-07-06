@@ -8,12 +8,12 @@
 @section('content')
     <div class="section col-12 col-md-8 post-info-section mt-5">
         <div class="post-info-container vertical-centerlize p-4">
-            <h2 class="horizontal-centerlize mb-2 pr-2">{{ $title }}</h2>
+            <h2 class="horizontal-centerlize mb-4 pr-2">{{ $title }}</h2>
             <div class="post-info-flex">
-                <span class="col-6 mb-4 pr-1">تاریخ انتشار: </span>
-                <span class="col-6 mb-4 pr-1">دسته موضوع: </span>
-                <span class="col-6 mb-4 pr-1">نویسنده: </span>
-                <span class="col-6 mb-4 pr-1">مدت زمان مطالعه: </span>
+                <span class="col-6 mb-4 pr-2">دسته موضوع: </span>
+                <span class="col-6 mb-4 pr-2">تاریخ انتشار: </span>
+                <span class="col-6 mb-4 pr-2">مدت زمان مطالعه: </span>
+                <span class="col-6 mb-4 pr-2">نویسنده: </span>
             </div>
         </div>
         <!-- <div class="post-info-cover">

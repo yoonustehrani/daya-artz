@@ -962,7 +962,7 @@ $labelData: '';
 }
 div.post-info-section {
     position: relative;
-    height: 200px;
+    height: 250px;
     div.post-info-container {
         height: 80%;       
         width: calc(100%-200px);
@@ -972,9 +972,9 @@ div.post-info-section {
         z-index: 5;
         h2 {
             color: #fff;
-            font-size: 22px;
+            font-size: 26px;
             font-weight: bold;
-            border-right: 2px solid #fff;
+            border-right: 3px solid #fff;
             text-align: center;
         }
         .post-info-flex {
