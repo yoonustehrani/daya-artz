@@ -10,7 +10,7 @@
             <a href="{{ route('home') }}">خانه</a>
         </li>
         <li>
-            <a href="#">طراحی گرافیک</a>
+            <a href="{{ route('services.index') }}">طراحی گرافیک</a>
             <ul class="submenu">
                 <li><a href="#">زیرمجموعه 1</a></li>
                 <li><a href="#">زیرمجموعه 2</a></li>
