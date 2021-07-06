@@ -27,7 +27,7 @@
         </div>
         <div class="recommand-section col-12 col-md-4 float-left text-center">
             <div class="recommand-vector-container col-12">
-                <img src="{{ asset('images/recommanded-post.png') }}" alt="">
+                <img src="{{ asset('images/recommanded-post.svg') }}" alt="">
             </div>
             <h4>پست های پیشنهادی شما</h4>
             <div class="recommanded-posts col-12 float-left">
