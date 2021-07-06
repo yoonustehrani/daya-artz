@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 
-Route::view('about', 'about')->name('about');
-Route::view('contact', 'contact')->name('contact');
-Route::view('policy', 'policy')->name('policy');
-Route::view('blog', 'blog')->name('blog.index');
+Route::view('about', 'pages.about')->name('about');
+Route::view('contact', 'pages.contact')->name('contact');
+Route::view('policy', 'pages.policy')->name('policy');
+Route::view('services', 'pages.services.index')->name('services.index');
+Route::view('blog', 'pages.posts.index')->name('blog.index');
 Route::get('blog/{title}', function($title) {
-    return view('post', compact('title'));
+    return view('pages.posts.show', compact('title'));
 })->name('blog.show');

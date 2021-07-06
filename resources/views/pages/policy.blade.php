@@ -25,7 +25,7 @@
             <h3 class="title-text w-100 m-0">تعهدات و سیاست های دایا آرتز در قبال مشتریان و کارفرمایان</h3>
         </div>
     </div>
-    <div class="daya-duties w-100">
+    <div class="daya-duties col-lg-10 offset-lg-1 col-12">
         <div class="duty-item col-12">
             <p class="bold">1- آیا تیم دایا آرتز در جهت حفظ اطلاعات کارفرمایان حقوقی و حقیقی مسئول است؟</p>
             <p>بله کاملا ، رعایت حقوق معنوی و حفظ کرامت کارفرما از اصول اخلاقیست. تیم نوین طراحی گرافیک دایا آرتز مسئول حفاظت از اطلاعات مشتریان است و نسبت به صیانت از حقوق مشتریان کاملا متعهد می شود.</p>
@@ -126,7 +126,7 @@
 <!-- end FAQ accordion 1 -->
 
 <!-- Customer duties -->
-<div class="section w-100 mt-5">
+<div class="section col-lg-10 offset-lg-1 col-12 mt-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h3 class="title-text w-100 m-0">تعهدات و امتیازات مشتریان عزیز</h3>
@@ -224,7 +224,7 @@
 <!-- end FAQ accordion 2 -->
 
 <!-- rules -->
-<div class="section w-100 mt-5 mb-5">
+<div class="section col-lg-10 offset-lg-1 col-12 mt-5 mb-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h3 class="title-text w-100 m-0">قوانین مشترک و تبصره های روند سفارش و طراحی</h3>
