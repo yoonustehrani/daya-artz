@@ -11380,6 +11380,127 @@ div.daya-duties .duty-vector-text .privacy-vector {
     stroke-dashoffset: 0;
   }
 }
+.vertical-centerlize {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.horizontal-centerlize {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.post-info-section {
+  position: relative;
+  height: 200px;
+}
+div.post-info-section div.post-info-container {
+  height: 80%;
+  width: calc(100%-200px);
+  border-radius: 8px;
+  background-color: #17093c;
+  position: relative;
+  z-index: 5;
+}
+div.post-info-section div.post-info-container h2 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  border-right: 2px solid #fff;
+  text-align: center;
+}
+div.post-info-section div.post-info-container .post-info-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+div.post-info-section div.post-info-container .post-info-flex span {
+  color: #fff;
+  font-size: 20px;
+  border-right: 2px solid #fff;
+  padding-right: 4px;
+  display: inline-block;
+}
+div.post-info-section div.post-info-cover {
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  right: 5%;
+  height: 100%;
+  width: 200px;
+  box-shadow: -2px -2px 6px 4px rgba(99, 50, 223, 0.25);
+}
+div.post-info-section div.post-info-cover img {
+  width: 100%;
+  height: 100%;
+}
+
+div.post-main-section div.post-main-text h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+div.post-main-section div.post-main-text p {
+  font-size: 20px;
+  color: #000;
+}
+div.post-main-section div.recommand-section {
+  padding: 8px;
+  background-color: #18093c;
+  border-radius: 6px;
+}
+div.post-main-section div.recommand-section div.recommand-vector-container {
+  position: relative;
+  background-image: url("/images/recommanded-post-back.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+div.post-main-section div.recommand-section > h4 {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+div.post-main-section div.recommand-section div.recommanded-posts > div.post-item {
+  position: relative;
+  height: 100px;
+}
+div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-cover {
+  height: 100%;
+  width: 100px;
+  position: absolute;
+  right: 5%;
+  top: 0;
+  z-index: 6;
+  box-shadow: -2px -2px 6px 4px rgba(99, 50, 223, 0.25);
+}
+div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-cover img {
+  width: 100%;
+  height: 100%;
+}
+div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info {
+  position: relative;
+  z-index: 5;
+  width: calc(100%-100px);
+  height: 80%;
+  background-color: #6332df;
+  border-radius: 6px;
+}
+div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span {
+  color: #fff;
+  text-align: right;
+}
+div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-title {
+  font-size: 20px;
+}
+div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-date {
+  font-size: 18px;
+}
+
 .header {
   background: linear-gradient(50deg, #e77cf2, #6332de);
   background: -webkit-linear-gradient(50deg, #e77cf2, #6332de);
