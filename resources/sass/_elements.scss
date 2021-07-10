@@ -172,15 +172,17 @@ input.eggplant {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    animation-duration: 1.3s;
+    -webkit-animation-duration: 1.3s;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-name: regradient;
+    -webkit-animation-name: regradient;
     &:hover {
-        animation-name: gradient;
-        -webkit-animation-name: gradient;
-        animation-duration: 1.3s;
-        -webkit-animation-duration: 1.3s;
-        animation-iteration-count: 1;
-        -webkit-animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-        -webkit-animation-fill-mode: forwards;
+        animation-name: gradient !important;
+        -webkit-animation-name: gradient !important;
     }
 }
 
@@ -960,12 +962,16 @@ $labelData: '';
     margin-left: auto;
     margin-right: auto;
 }
+.horizontal-centerlize-w {
+    margin-left: auto;
+    margin-right: auto;
+}
 div.post-info-section {
     position: relative;
     height: 250px;
     div.post-info-container {
         height: 80%;       
-        width: calc(100%-200px);
+        width: calc(100% - 250px);
         border-radius: 8px;
         background-color: $eggplant;
         position: relative;
@@ -983,6 +989,7 @@ div.post-info-section {
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: flex-start;
+            margin-right: 5%;
             span {
                 color: #fff;
                 font-size: 20px;
@@ -998,20 +1005,25 @@ div.post-info-section {
         top: 0;
         right: 5%;
         height: 100%;
-        width: 200px;
-        box-shadow: -2px -2px 6px 4px rgba(99, 50, 223, 0.25);
+        width: 250px;
+        box-shadow: -2px -2px 8px 4px rgba(99, 50, 223, 0.25);
         img {
             width: 100%;
             height: 100%;
         }
     }
 }
+.aqua {
+    background: -webkit-gradient(to right, $aqua 0%, $sand 50%, $horny-eggplant 100%);
+    background: linear-gradient(to right, $aqua 0%, $sand 50%, $horny-eggplant 100%);
+}
 div.post-main-section {
     div.post-main-text {
         h2 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
             color: #000;
+            margin-bottom: 25px;
         }
         p {
             font-size: 20px;
@@ -1023,16 +1035,30 @@ div.post-main-section {
         background-color: $dark-blue;
         border-radius: 6px;
         div.recommand-vector-container {
+            margin-left: auto;
+            margin-right: auto;
             position: relative;
             background-image: url("/images/recommanded-post-back.svg");
             background-position: center;
             background-repeat: no-repeat;
-            background-size: auto;
+            background-size: contain;
+            width: 64%;
+            height: 230px;
+            > img {
+                width: 70%;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 4%;
+            }
         }
         > h4 {
             color: #fff;
-            font-size: 20px;
+            font-size: 24px;
             text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         div.recommanded-posts {
             > div.post-item {
@@ -1042,7 +1068,7 @@ div.post-main-section {
                     height: 100%;
                     width: 100px;
                     position: absolute;
-                    right: 5%;
+                    right: 2%;
                     top: 0;
                     z-index: 6;
                     box-shadow: -2px -2px 6px 4px rgba(99, 50, 223, 0.25);
@@ -1054,21 +1080,29 @@ div.post-main-section {
                 div.recommand-post-info {
                     position: relative;
                     z-index: 5;
-                    width: calc(100%-100px);
+                    width: calc(100% - 100px);
                     height: 80%;
                     background-color: $horny-eggplant;
                     border-radius: 6px;
                     span {
                         color: #fff;
                         text-align: right;
+                        margin-right: 3%;
                     }
                     span.recommand-post-title {
                         font-size: 20px;
+                        display: block;
                     }
                     span.recommand-post-date {
                         font-size: 18px;
+                        display: block;
                     }
                 }
+            }
+        }
+        .recommand-btn {
+            button {
+                font-weight: bold;
             }
         }
     }

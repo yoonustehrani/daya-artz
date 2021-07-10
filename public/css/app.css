@@ -10151,6 +10151,48 @@ h3 {
   .policy-header .header-vector {
     top: -30%;
   }
+
+  .post-info-section {
+    height: initial !important;
+    position: static !important;
+    float: left !important;
+  }
+  .post-info-section div.post-info-container {
+    height: auto !important;
+    width: 100% !important;
+    position: static !important;
+    transform: inherit !important;
+  }
+  .post-info-section div.post-info-container .post-info-flex {
+    margin-right: 0 !important;
+  }
+  .post-info-section div.post-info-container .post-info-flex span {
+    font-size: 18px;
+  }
+  .post-info-section div.post-info-cover {
+    position: relative !important;
+    width: 100% !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+  }
+  .post-info-section div.post-info-cover > img {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  .post-info-section div.post-info-cover::after {
+    display: block;
+    content: "";
+    padding-bottom: 100%;
+  }
 }
 @media screen and (max-width: 425px) {
   footer.footer .footer-content {
@@ -10330,6 +10372,22 @@ a:hover {
     background-position: 100%;
   }
 }
+@-webkit-keyframes regradient {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+@keyframes regradient {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
 .section, .title-section {
   float: left;
 }
@@ -10498,16 +10556,18 @@ input.eggplant:focus {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-.btn-gradient:hover {
-  animation-name: gradient;
-  -webkit-animation-name: gradient;
   animation-duration: 1.3s;
   -webkit-animation-duration: 1.3s;
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
+  animation-name: regradient;
+  -webkit-animation-name: regradient;
+}
+.btn-gradient:hover {
+  animation-name: gradient !important;
+  -webkit-animation-name: gradient !important;
 }
 
 span.back-aqua {
@@ -11392,13 +11452,18 @@ div.daya-duties .duty-vector-text .privacy-vector {
   margin-right: auto;
 }
 
+.horizontal-centerlize-w {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 div.post-info-section {
   position: relative;
   height: 250px;
 }
 div.post-info-section div.post-info-container {
   height: 80%;
-  width: calc(100%-200px);
+  width: calc(100% - 250px);
   border-radius: 8px;
   background-color: #17093c;
   position: relative;
@@ -11417,6 +11482,7 @@ div.post-info-section div.post-info-container .post-info-flex {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  margin-right: 5%;
 }
 div.post-info-section div.post-info-container .post-info-flex span {
   color: #fff;
@@ -11431,18 +11497,24 @@ div.post-info-section div.post-info-cover {
   top: 0;
   right: 5%;
   height: 100%;
-  width: 200px;
-  box-shadow: -2px -2px 6px 4px rgba(99, 50, 223, 0.25);
+  width: 250px;
+  box-shadow: -2px -2px 8px 4px rgba(99, 50, 223, 0.25);
 }
 div.post-info-section div.post-info-cover img {
   width: 100%;
   height: 100%;
 }
 
+.aqua {
+  background: -webkit-gradient(to right, #78cad2 0%, #fceeb5 50%, #6332df 100%);
+  background: linear-gradient(to right, #78cad2 0%, #fceeb5 50%, #6332df 100%);
+}
+
 div.post-main-section div.post-main-text h2 {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   color: #000;
+  margin-bottom: 25px;
 }
 div.post-main-section div.post-main-text p {
   font-size: 20px;
@@ -11454,16 +11526,30 @@ div.post-main-section div.recommand-section {
   border-radius: 6px;
 }
 div.post-main-section div.recommand-section div.recommand-vector-container {
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   background-image: url("/images/recommanded-post-back.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: contain;
+  width: 64%;
+  height: 230px;
+}
+div.post-main-section div.recommand-section div.recommand-vector-container > img {
+  width: 70%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 4%;
 }
 div.post-main-section div.recommand-section > h4 {
   color: #fff;
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item {
   position: relative;
@@ -11473,7 +11559,7 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
   height: 100%;
   width: 100px;
   position: absolute;
-  right: 5%;
+  right: 2%;
   top: 0;
   z-index: 6;
   box-shadow: -2px -2px 6px 4px rgba(99, 50, 223, 0.25);
@@ -11485,7 +11571,7 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info {
   position: relative;
   z-index: 5;
-  width: calc(100%-100px);
+  width: calc(100% - 100px);
   height: 80%;
   background-color: #6332df;
   border-radius: 6px;
@@ -11493,12 +11579,18 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span {
   color: #fff;
   text-align: right;
+  margin-right: 3%;
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-title {
   font-size: 20px;
+  display: block;
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-date {
   font-size: 18px;
+  display: block;
+}
+div.post-main-section div.recommand-section .recommand-btn button {
+  font-weight: bold;
 }
 
 .header {
