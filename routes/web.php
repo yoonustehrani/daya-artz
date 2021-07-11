@@ -19,6 +19,9 @@ Route::view('about', 'pages.about')->name('about');
 Route::view('contact', 'pages.contact')->name('contact');
 Route::view('policy', 'pages.policy')->name('policy');
 Route::view('services', 'pages.services.index')->name('services.index');
+Route::get('services/{service}', function($service) {
+    return view('pages.services.show', compact('service'));
+})->name('services.show');
 Route::view('blog', 'pages.posts.index')->name('blog.index');
 Route::get('blog/{title}', function($title) {
     return view('pages.posts.show', compact('title'));
