@@ -19,8 +19,8 @@
                 <p><b>دایا آرتز</b> ؛ نخستین مرکز طراحی گرافیک با رویکرد استارتاپی<br>
                 تیم طراحی دایا ارائه دهنده خدمات گرافیکی با رویکردی متفاوت است ، در دایا رنگ ها و ترسیمات از زیر ذره بین ایده و مفهوم می گذرند تا به جلایی تازه به هویت برند شما بخشیده شود و پوسته ظاهر و برند فعالیت شما به رنگ هسته ایده و هویت حقیقی اش برسد . دایا آرتز تزریق رنگ ایده هایتان به شخصیت شماست . برای آشنایی بیشتر با عقاید دایا آرتز کلیک کنید </p>
                 <div class="header-btn-container mt-4 mt-md-0">
-                    <button class="btn btn-gradient ml-4 purple">آشنایی بیشتر</button>
-                    <button class="btn btn-gradient aqua">شروع سفارش</button>
+                    <button class="btn btn-gradient ml-4 bg-purple">آشنایی بیشتر</button>
+                    <button class="btn btn-gradient bg-aqua">شروع سفارش</button>
                 </div>
             </div>
             <div class="header-vector col-12 col-md-6">

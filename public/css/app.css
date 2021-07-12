@@ -10068,6 +10068,10 @@ h3 {
   div.contact-ways-container > div div.address-label h3 {
     font-size: 18px !important;
   }
+
+  .recommand-vector-container img {
+    width: 90% !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
@@ -10193,6 +10197,13 @@ h3 {
     content: "";
     padding-bottom: 100%;
   }
+
+  .recommand-vector-container {
+    width: 80% !important;
+  }
+  .recommand-vector-container img {
+    width: 220px !important;
+  }
 }
 @media screen and (max-width: 425px) {
   footer.footer .footer-content {
@@ -10215,6 +10226,18 @@ h3 {
   .m-text-center {
     text-align: center !important;
   }
+
+  .recommand-vector-container img {
+    width: 200px !important;
+  }
+
+  .recommand-post-title {
+    font-size: 16px !important;
+  }
+
+  .recommand-post-date {
+    font-size: 16px !important;
+  }
 }
 @media screen and (min-width: 1600px) {
   .col-xl-xl-2 {
@@ -10224,6 +10247,18 @@ h3 {
 
   .order-types {
     justify-content: space-evenly !important;
+  }
+
+  .recommand-vector-container {
+    height: 300px !important;
+  }
+  .recommand-vector-container img {
+    width: 56% !important;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .recommand-vector-container img {
+    width: 80% !important;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1300px) {
@@ -11505,7 +11540,7 @@ div.post-info-section div.post-info-cover img {
   height: 100%;
 }
 
-.aqua {
+.bg-aqua {
   background: -webkit-gradient(to right, #78cad2 0%, #fceeb5 50%, #6332df 100%);
   background: linear-gradient(to right, #78cad2 0%, #fceeb5 50%, #6332df 100%);
 }
@@ -11519,6 +11554,7 @@ div.post-main-section div.post-main-text h2 {
 div.post-main-section div.post-main-text p {
   font-size: 20px;
   color: #000;
+  text-align: justify;
 }
 div.post-main-section div.recommand-section {
   padding: 8px;
@@ -11537,7 +11573,7 @@ div.post-main-section div.recommand-section div.recommand-vector-container {
   height: 230px;
 }
 div.post-main-section div.recommand-section div.recommand-vector-container > img {
-  width: 70%;
+  width: 90%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -11582,8 +11618,9 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
   margin-right: 3%;
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-title {
-  font-size: 20px;
+  font-size: 18px;
   display: block;
+  letter-spacing: -1px;
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-date {
   font-size: 18px;
@@ -11591,6 +11628,11 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
 }
 div.post-main-section div.recommand-section .recommand-btn button {
   font-weight: bold;
+}
+
+div.blog-post-end img {
+  width: 100%;
+  height: auto;
 }
 
 .header {
@@ -11807,11 +11849,11 @@ div.header-section div.header-text div.header-btn-container {
   justify-content: center;
   align-items: center;
 }
-div.header-section div.header-text div.header-btn-container .aqua {
+div.header-section div.header-text div.header-btn-container .bg-aqua {
   background: -webkit-gradient(to right, #78cad2 0%, #fceeb5 50%, #ee786e 100%);
   background: linear-gradient(to right, #78cad2 0%, #fceeb5 50%, #ee786e 100%);
 }
-div.header-section div.header-text div.header-btn-container .purple {
+div.header-section div.header-text div.header-btn-container .bg-purple {
   background: -webkit-gradient(to right, #34167C 0%, #201e23 50%, #DC47DE 100%);
   background: linear-gradient(to right, #34167C 0%, #201e23 50%, #DC47DE 100%);
 }
