@@ -75,7 +75,7 @@
                 display: none;
                 opacity: 0;
                 top: 100%;
-                z-index: 6;
+                z-index: 99;
                 background-color: rgba(255,255,255,0.9);
                 padding: 0px 10px;
                 border-radius: 0 0 5px 5px;
@@ -228,7 +228,7 @@ div.header-section {
     }
 }
 
-.policy-header {
+.policy-header, .service-benefits-section {
     position: relative;
     .triangle {
         width: 20% !important;

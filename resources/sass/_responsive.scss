@@ -190,6 +190,13 @@ $xl-xl-breakpoint: 1400px;
             width: 220px !important;
         }
     }
+    div.service-benefits-section {
+        height: auto !important;
+        .header-vector {
+            top: 0 !important;
+            transform: initial !important;
+        }
+    }
 }
 
 
@@ -287,6 +294,9 @@ $xl-xl-breakpoint: 1400px;
 @media screen and (min-width: $md-breakpoint) and (max-width: $xl-breakpoint+1px) {
     .policy-header {
         height: 400px !important;
+    }
+    div.service-benefits-section {
+        height: 500px !important;
     }
 }
 
