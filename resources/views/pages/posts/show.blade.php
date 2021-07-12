@@ -23,13 +23,13 @@
         </div>
     </div>
 
-    <div class="section col-12 post-main-section mt-5">
-        <div class="recommand-section col-md-4 float-left text-center p-4 mr-4 mt-4 d-none d-md-block">
+    <div class="section w-100 post-main-section mt-5 p-3">
+        <div class="recommand-section col-md-5 col-lg-4 float-left text-center p-3 p-lg-4 mr-4 mt-4 d-none d-md-block">
             <div class="recommand-vector-container col-12">
                 <img src="{{ asset('images/recommanded-post.png') }}" alt="">
             </div>
             <h4>پست های پیشنهادی شما</h4>
-            <div class="recommanded-posts col-12 float-left">
+            <div class="recommanded-posts w-100 float-left">
                 <div class="post-item mb-4 w-100">
                     <div class="recommand-post-cover"><img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt=""></div>
                     <div class="recommand-post-info vertical-centerlize p-2">
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="recommand-btn w-100 text-center mt-1">
-                <button class="btn btn-gradient aqua">دیگر پست ها</button>
+                <button class="btn btn-gradient bg-aqua">دیگر پست ها</button>
             </div>
         </div>    
         <div class="post-main-text">
@@ -62,35 +62,38 @@
         </div>
         <div class="recommand-section col-12 float-left text-center p-4 mt-4 d-md-none">
             <div class="recommand-vector-container col-12">
-                <img src="{{ asset('images/recommanded-post.svg') }}" alt="">
+                <img src="{{ asset('images/recommanded-post.png') }}" alt="">
             </div>
             <h4>پست های پیشنهادی شما</h4>
-            <div class="recommanded-posts col-12 float-left">
+            <div class="recommanded-posts w-100 float-left">
                 <div class="post-item mb-4 w-100">
                     <div class="recommand-post-cover"><img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt=""></div>
                     <div class="recommand-post-info vertical-centerlize p-2">
-                        <span class="recommand-post-title mb-1">با گران ترین لوگوی جهان آشنا شوید !</span>
+                        <span class="recommand-post-title">با گران ترین لوگوی جهان آشنا شوید !</span>
                         <span class="recommand-post-date">شهریور ۹۹</span>
                     </div>
                 </div>
                 <div class="post-item mb-4 w-100">
                     <div class="recommand-post-cover"><img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt=""></div>
                     <div class="recommand-post-info vertical-centerlize p-2">
-                        <span class="recommand-post-title mb-1">با گران ترین لوگوی جهان آشنا شوید !</span>
+                        <span class="recommand-post-title">با گران ترین لوگوی جهان آشنا شوید !</span>
                         <span class="recommand-post-date">شهریور ۹۹</span>
                     </div>
                 </div>
                 <div class="post-item mb-4 w-100">
                     <div class="recommand-post-cover"><img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt=""></div>
                     <div class="recommand-post-info vertical-centerlize p-2">
-                        <span class="recommand-post-title mb-1">با گران ترین لوگوی جهان آشنا شوید !</span>
+                        <span class="recommand-post-title">با گران ترین لوگوی جهان آشنا شوید !</span>
                         <span class="recommand-post-date">شهریور ۹۹</span>
                     </div>
                 </div>
             </div>
             <div class="recommand-btn w-100 text-center mt-1">
-                <button class="btn btn-gradient aqua">دیگر پست ها</button>
+                <button class="btn btn-gradient bg-aqua">دیگر پست ها</button>
             </div>
         </div>  
+    </div>
+    <div class="section col-12 col-md-10 offset-md-1 blog-post-end mt-2">
+        <img src="{{ asset('images/blog-post-end.svg') }}" alt="people-shaking-hands">
     </div>
 @endsection

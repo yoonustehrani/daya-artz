@@ -204,11 +204,11 @@ div.header-section {
             display: flex;
             justify-content: center;
             align-items: center;
-            .aqua {
+            .bg-aqua {
                 background: -webkit-gradient(to right, $aqua 0%, $sand 50%, $peach 100%);
                 background: linear-gradient(to right, $aqua 0%, $sand 50%, $peach 100%);
             }
-            .purple {
+            .bg-purple {
                 background: -webkit-gradient(to right, $dark-purple 0%, $light-purple 50%, $pink 100%);
                 background: linear-gradient(to right, $dark-purple 0%, $light-purple 50%, $pink 100%);
             }
