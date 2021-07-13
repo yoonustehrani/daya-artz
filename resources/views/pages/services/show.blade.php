@@ -42,40 +42,62 @@
             </div>
         </div>
         <div class="step-container p-rel mb-xl-5">
-            <div class="step-item t-0 l-0 ">
-                <div class="step-shape step-1">
+            <div class="step-item t-0 l-0 step-1">
+                <div class="step-shape">
                     <span class="step-index">01</span>
                     <span class="step-icon"><i class="fas fa-bullseye"></i></span>
                 </div>
                 <div class="match-line"></div>
             </div>
-            <div class="step-item b-0 l-25">
-                <div class="step-shape step-2">
+            <div class="step-item b-0 l-25 step-2">
+                <div class="step-shape">
                     <span class="step-index">02</span>
                     <span class="step-icon"><i class="fas fa-handshake"></i></span>
                 </div>
                 <div class="match-line count-clock"></div>
             </div>
-            <div class="step-item t-0 l-50">
-                <div class="step-shape step-3">
+            <div class="step-item t-0 l-50 step-3">
+                <div class="step-shape">
                     <span class="step-index">03</span>
                     <span class="step-icon"><i class="fas fa-dollar-sign"></i></span>
                 </div>
                 <div class="match-line"></div>
             </div>
-            <div class="step-item b-0 l-75">
-                <div class="step-shape step-4">
+            <div class="step-item b-0 l-75 step-4">
+                <div class="step-shape">
                     <span class="step-index">04</span>
                     <span class="step-icon"><i class="fas fa-cog"></i></span>
                 </div>
                 <div class="match-line count-clock"></div>
             </div>
-            <div class="step-item t-0 r-0">
-                <div class="step-shape step-5">
+            <div class="step-item t-0 r-0 step-5">
+                <div class="step-shape">
                     <span class="step-index">05</span>
                     <span class="step-icon"><i class="fas fa-check-square"></i></span>
                 </div>
+            </div>
         </div>
+        <div class="steps-info-container w-100 mb-5">
+            <div class="step-info step-1 step-info-b">
+                <h4>ثبت سفارش</h4>
+                <p>ایجاد سفارش از طریق روش های ثبت سفارش درج شده در صفحه ، روش های ثبت سفارش دایا آرتز.</p>
+            </div>
+            <div class="step-info step-2 step-info-t">
+                <h4>ثبت سفارش</h4>
+                <p>ایجاد سفارش از طریق روش های ثبت سفارش درج شده در صفحه ، روش های ثبت سفارش دایا آرتز.</p>
+            </div>
+            <div class="step-info step-3 step-info-b">
+                <h4>ثبت سفارش</h4>
+                <p>ایجاد سفارش از طریق روش های ثبت سفارش درج شده در صفحه ، روش های ثبت سفارش دایا آرتز.</p>
+            </div>
+            <div class="step-info step-4 step-info-t">
+                <h4>ثبت سفارش</h4>
+                <p>ایجاد سفارش از طریق روش های ثبت سفارش درج شده در صفحه ، روش های ثبت سفارش دایا آرتز.</p>
+            </div>
+            <div class="step-info step-5 step-info-b">
+                <h4>ثبت سفارش</h4>
+                <p>ایجاد سفارش از طریق روش های ثبت سفارش درج شده در صفحه ، روش های ثبت سفارش دایا آرتز.</p>
+            </div>
         </div>
     </div>
     <!-- order steps -->

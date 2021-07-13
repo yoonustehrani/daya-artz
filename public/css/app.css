@@ -10309,6 +10309,11 @@ h3 {
     font-size: 24px !important;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .step-info-t {
+    bottom: 60px !important;
+  }
+}
 html, body {
   width: 100%;
   height: 100%;
@@ -11728,51 +11733,6 @@ div.step-container div.step-shape::after {
   display: block;
   padding-bottom: 100%;
 }
-div.step-container .step-1 {
-  border-right: 6px solid #d5bfe9;
-  border-bottom: 6px solid #d5bfe9;
-  box-shadow: 45px 45px 50px -15px #d5bfe9;
-  background: #f5fbff;
-}
-div.step-container .step-1 i, div.step-container .step-1 .step-index {
-  color: #d5bfe9;
-}
-div.step-container .step-2 {
-  border-right: 6px solid #ad80db;
-  border-bottom: 6px solid #ad80db;
-  box-shadow: 45px 45px 50px -15px #ad80db;
-  background-color: #f6f5ff;
-}
-div.step-container .step-2 i, div.step-container .step-2 .step-index {
-  color: #ad80db;
-}
-div.step-container .step-3 {
-  border-right: 6px solid #854bc4;
-  border-bottom: 6px solid #854bc4;
-  box-shadow: 45px 45px 50px -15px #854bc4;
-  background-color: #f5f0fa;
-}
-div.step-container .step-3 i, div.step-container .step-3 .step-index {
-  color: #854bc4;
-}
-div.step-container .step-4 {
-  border-right: 6px solid #61368c;
-  border-bottom: 6px solid #61368c;
-  box-shadow: 45px 45px 50px -15px #61368c;
-  background-color: #fff5f9;
-}
-div.step-container .step-4 i, div.step-container .step-4 .step-index {
-  color: #61368c;
-}
-div.step-container .step-5 {
-  border-right: 6px solid #351a60;
-  border-bottom: 6px solid #351a60;
-  box-shadow: 45px 45px 50px -15px #351a60;
-  background-color: #fff5f9;
-}
-div.step-container .step-5 i, div.step-container .step-5 .step-index {
-  color: #351a60;
-}
 div.step-container .match-line {
   position: absolute;
   width: calc(22vw);
@@ -11810,6 +11770,112 @@ div.step-container .step-item {
   perspective-origin: top;
   width: 150px;
   height: 150px;
+}
+
+.step-1 div:first-child {
+  border-right: 6px solid #d5bfe9;
+  border-bottom: 6px solid #d5bfe9;
+  box-shadow: 45px 45px 50px -15px #d5bfe9;
+  background: #f5fbff;
+}
+.step-1 i, .step-1 .step-index, .step-1 h4, .step-1 p {
+  color: #d5bfe9;
+}
+.step-1 h4 {
+  border-color: #d5bfe9;
+}
+
+.step-2 div:first-child {
+  border-right: 6px solid #ad80db;
+  border-bottom: 6px solid #ad80db;
+  box-shadow: 45px 45px 50px -15px #ad80db;
+  background-color: #f6f5ff;
+}
+.step-2 i, .step-2 .step-index, .step-2 h4, .step-2 p {
+  color: #ad80db;
+}
+.step-2 h4 {
+  border-color: #ad80db;
+}
+
+.step-3 div:first-child {
+  border-right: 6px solid #854bc4;
+  border-bottom: 6px solid #854bc4;
+  box-shadow: 45px 45px 50px -15px #854bc4;
+  background-color: #f5f0fa;
+}
+.step-3 i, .step-3 .step-index, .step-3 h4, .step-3 p {
+  color: #854bc4;
+}
+.step-3 h4 {
+  border-color: #854bc4;
+}
+
+.step-4 div:first-child {
+  border-right: 6px solid #61368c;
+  border-bottom: 6px solid #61368c;
+  box-shadow: 45px 45px 50px -15px #61368c;
+  background-color: #fff5f9;
+}
+.step-4 i, .step-4 .step-index, .step-4 h4, .step-4 p {
+  color: #61368c;
+}
+.step-4 h4 {
+  border-color: #61368c;
+}
+
+.step-5 div:first-child {
+  border-right: 6px solid #351a60;
+  border-bottom: 6px solid #351a60;
+  box-shadow: 45px 45px 50px -15px #351a60;
+  background-color: #fff5f9;
+}
+.step-5 i, .step-5 .step-index, .step-5 h4, .step-5 p {
+  color: #351a60;
+}
+.step-5 h4 {
+  border-color: #351a60;
+}
+
+.steps-info-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.steps-info-container .step-info {
+  text-align: right;
+  position: relative;
+  width: 15%;
+  right: 2%;
+}
+.steps-info-container .step-info h4 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom-width: 3px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-top-width: 0px;
+  border-style: solid;
+  margin-left: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.steps-info-container .step-info p {
+  font-size: 16px;
+  line-height: unset !important;
+}
+
+.step-info-b {
+  bottom: 200px;
+}
+
+.step-info-t {
+  bottom: 0px;
 }
 
 .header {

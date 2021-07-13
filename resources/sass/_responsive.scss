@@ -312,3 +312,10 @@ $xl-xl-breakpoint: 1400px;
         }
     }
 }
+
+// lg - xxl;
+@media screen and (min-width: $md-breakpoint) and (max-width: $xl-breakpoint) {
+    .step-info-t {
+        bottom: 60px !important;
+    }
+}
