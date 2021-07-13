@@ -41,20 +41,41 @@
                 <h4 class="title-text">روند سفارش</h4>
             </div>
         </div>
-        <div class="step-container p-rel">
-            <div class="step-shape t-0 l-0">
+        <div class="step-container p-rel mb-xl-5">
+            <div class="step-item t-0 l-0 ">
+                <div class="step-shape step-1">
+                    <span class="step-index">01</span>
+                    <span class="step-icon"><i class="fas fa-bullseye"></i></span>
+                </div>
                 <div class="match-line"></div>
             </div>
-            <div class="step-shape b-0 l-25">
-                {{-- <div class="match-line count-clock"></div> --}}
+            <div class="step-item b-0 l-25">
+                <div class="step-shape step-2">
+                    <span class="step-index">02</span>
+                    <span class="step-icon"><i class="fas fa-handshake"></i></span>
+                </div>
+                <div class="match-line count-clock"></div>
             </div>
-            <div class="step-shape t-0 l-50">
+            <div class="step-item t-0 l-50">
+                <div class="step-shape step-3">
+                    <span class="step-index">03</span>
+                    <span class="step-icon"><i class="fas fa-dollar-sign"></i></span>
+                </div>
                 <div class="match-line"></div>
             </div>
-            <div class="step-shape b-0 l-75">
-                {{-- <div class="match-line count-clock"></div> --}}
+            <div class="step-item b-0 l-75">
+                <div class="step-shape step-4">
+                    <span class="step-index">04</span>
+                    <span class="step-icon"><i class="fas fa-cog"></i></span>
+                </div>
+                <div class="match-line count-clock"></div>
             </div>
-            <div class="step-shape t-0 r-0"></div>
+            <div class="step-item t-0 r-0">
+                <div class="step-shape step-5">
+                    <span class="step-index">05</span>
+                    <span class="step-icon"><i class="fas fa-check-square"></i></span>
+                </div>
+        </div>
         </div>
     </div>
     <!-- order steps -->
