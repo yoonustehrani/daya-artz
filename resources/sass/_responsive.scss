@@ -197,6 +197,93 @@ $xl-xl-breakpoint: 1400px;
             transform: initial !important;
         }
     }
+    .dotted-background {
+        background-size: cover !important;
+    }
+    // service steps
+    .step-container {
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        flex-wrap: nowrap !important;
+        height: 1000px !important;
+        width: 100% !important;
+        position: static !important;
+        .step-item {
+            position: relative !important;
+            transform: none !important;
+            width: 100px !important;
+            height: 100px !important;
+            left: 0 !important;
+            right: 0 !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            margin: 0 !important;
+            margin-bottom: 80px !important;
+            .step-shape {
+                position: static !important;
+                transform: rotateX(45deg) rotateZ(45deg) perspective(1000px) !important;
+                width: 100px !important;
+                height: 100px !important;
+                transform-style: preserve-3d !important;
+                perspective-origin: top !important;
+                box-shadow: none !important;
+                float: left !important;
+                .step-index {
+                    transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
+                    font-size: 28px !important;
+                } 
+            }      
+            .match-line {
+                transform: translateY(-50%) rotateZ(90deg) !important;
+                transform-origin: left;
+                height: 12px !important;
+                left: 50% !important;
+                top: 50% !important;
+                width: calc(1000px / 5) !important;
+                background-color: rgba(99, 50, 223, 0.2) !important;
+            }
+        }
+        .step-1 {
+            z-index: 20 !important;
+        }
+        .step-2 {
+            z-index: 18 !important;
+        }
+        .step-3 {
+            z-index: 16 !important;
+        }
+        .step-4 {
+            z-index: 14 !important;
+        }
+        .step-5 {
+            z-index: 12 !important;
+        }
+        .step-info {
+            width: calc(100vw - 100px) !important;
+            right: unset !important;
+            left: 70% !important;
+            position: relative !important;
+            bottom: 0 !important;
+            h4 {
+                font-size: 20px !important;
+                font-weight: bold;
+                padding-bottom: 5px;
+                border-bottom-width: 3px;
+                border-right-width: 0px;
+                border-left-width: 0px;
+                border-top-width: 0px;
+                border-style: solid;
+                margin-left: auto;
+                width: fit-content;
+            }
+            p {
+                font-size: 16px !important;
+                line-height: 1.5 !important;
+            }
+        }
+    }
+    //end service steps
 }
 
 
@@ -264,6 +351,10 @@ $xl-xl-breakpoint: 1400px;
             width: 80% !important;
         }
     }
+    .steps-info-container {
+        bottom: 0px !important;
+        margin-bottom: 40px !important;
+    }
 }
 
 // medium - 1300px (conntact us page)
@@ -313,9 +404,51 @@ $xl-xl-breakpoint: 1400px;
     }
 }
 
-// lg - xxl;
-@media screen and (min-width: $md-breakpoint) and (max-width: $xl-breakpoint) {
+// xl;
+@media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint) {
     .step-info-t {
         bottom: 60px !important;
+    }
+}
+
+// lg 
+@media screen and (min-width: $md-breakpoint) and (max-width: $lg-breakpoint) {
+    .step-info-t {
+        bottom: 100px !important;
+    }
+    .step-info-b {
+        bottom: 230px !important;
+    }
+    .step-info {
+        h4 {
+            font-size: 20px !important;
+        }
+    }
+    .step-item {
+        width: 100px !important;
+        height: 100px !important;
+        .step-shape {
+            width: 100px !important;
+            height: 100px !important;
+        }
+        .step-index {
+            font-size: 25px !important;
+            transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
+        }
+    }
+    .steps-info-container {
+        margin-bottom: -80px !important;
+    }
+    .b-0 {
+        bottom: 80px !important;
+    }
+    .l-25 {
+        left: 300px !important;
+    }
+    .l-75 {
+        margin-left: 590px !important;
+    }
+    .match-line {
+        height: 12px !important;
     }
 }

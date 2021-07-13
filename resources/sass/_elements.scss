@@ -1172,16 +1172,17 @@ div.step-container {
     }
     .t-0 {
         top: 0%;
+        transform: rotateX(45deg) rotateZ(45deg) perspective(1000px);
     }
     .b-0 {
         bottom: 50px;
-        transform: rotateX(45deg) rotateZ(45deg) perspective(1000px) translateX(calc(((1500px - 100vw) / -3) + 16px)) !important;
+        transform: rotateX(45deg) rotateZ(45deg) perspective(1000px) translateX(calc(((1500px - 100vw) / -3) + 16px));
     }
     .l-25 {
         left: 284px;
     }
     .l-50 {
-        transform: rotateX(45deg) rotateZ(45deg) perspective(1000px) !important;
+        transform: rotateX(45deg) rotateZ(45deg) perspective(1000px);
     }
     .l-75 {
         margin-left: 570px;
@@ -1199,7 +1200,7 @@ div.step-container {
     }
     .match-line {
         position: absolute;
-        width: calc(22vw);
+        width: 22vw;
         height: 20px;
         background-color: #f5f5f5;
         left: 103%;
@@ -1229,7 +1230,6 @@ div.step-container {
     }
     .step-item {
         position: absolute;
-        transform: rotateX(45deg) rotateZ(45deg) perspective(1000px);
         transform-style: preserve-3d;
         perspective-origin: top;
         width: 150px;
@@ -1340,6 +1340,6 @@ div.step-container {
     bottom: 200px;
 }
 .step-info-t {
-    bottom: 0px;
+    bottom: 40px;
 }
 // end service
