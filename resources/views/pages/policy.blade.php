@@ -76,42 +76,42 @@
 <div class="section w-100 FAQ-section mt-5">
     <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
     <div class="accordion-container p-4">
-        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1">
+        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1 mr-md-0 mr-lg-1">
             <div class="question-wrapper">
                 <h4>چگونه سفارش را ثبت کنیم؟</h4>
                 <span><i class="fas fa-minus"></i></span>
             </div>
             <p class="answer">سفارش هارو میتونید به دو روش تخصصی و فوری ثبت کنید ، برای اطلاعات بیشتر میتونید به صفحه راهنمای ثبت سفارش مراجعه کنید.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1">
+        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1 mr-md-0 mr-lg-1">
             <div class="question-wrapper">
                 <h4>تفاوت سفارش فوری با تخصصی چیست؟</h4>
                 <span><i class="fas fa-minus"></i></span>
             </div>
             <p class="answer">در سفارش فوری با پر کردن فرم همکاران ما با شما تماس خواهند گرفت ، در سفارش تخصصی با پر کردن فرم ها سفارش خود را ثبت خواهید کرد.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1">
+        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1 mr-md-0 mr-lg-1">
             <div class="question-wrapper">
                 <h4>ثبت سفارش تخصصی چگونه است؟</h4>
                 <span><i class="fas fa-minus"></i></span>
             </div>
             <p class="answer">با انتخاب کردن تعرفه مورد نظر خود که در سه بسته تقسیم بندی شده ، منتظر ارسال اتود های مورد نظر خود که در بازه زمانی ۱۵ الی ۲۰ روزه می باشد ، باشید.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1">
+        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1 mr-md-0 mr-lg-1">
             <div class="question-wrapper">
                 <h4>چگونه به دایا اعتماد کنیم؟</h4>
                 <span><i class="fas fa-minus"></i></span>
             </div>
             <p class="answer">گروه طراحی دایا قدرت گرفته شده از تیم بزرگ سمپی با شماره ثبت ۳۲۳۵۰۵۰ و دارای نشان اعتماد و درگاه پرداخت زرین پال است.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1">
+        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1 mr-md-0 mr-lg-1">
             <div class="question-wrapper">
                 <h4>شرایط ثبت سفارش چیست؟</h4>
                 <span><i class="fas fa-minus"></i></span>
             </div>
             <p class="answer">مطالعه دقیق شرایط و ظوابط و سپس تعرفه های سفارش ، پر کردن فرم درخواست سفارش و در انتها پرداخت مبلغ یا بیعانه بر اساس نوع سفارش</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1">
+        <div class="item-wrapper col-12 col-md-6 col-lg-3 mr-1 mr-md-0 mr-lg-1">
             <div class="question-wrapper">
                 <h4>روش های پرداخت چیست؟</h4>
                 <span><i class="fas fa-minus"></i></span>
