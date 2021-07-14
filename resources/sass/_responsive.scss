@@ -66,6 +66,9 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .matcher-line {
+        width: calc(18% / 2) !important;
+    }
 }
 
 // medium and above
@@ -84,7 +87,7 @@ $xl-xl-breakpoint: 1400px;
         }
     }
     .policy-header {
-        .header-vector {
+        .header-vector, .services-vector {
             top: 50%;
             transform: translateY(-50%);
         }
@@ -93,6 +96,9 @@ $xl-xl-breakpoint: 1400px;
         .background-left {
             width: 45% !important;
         }
+    }
+    .services-header {
+        height: 400px !important;
     }
 }
 
@@ -316,6 +322,12 @@ $xl-xl-breakpoint: 1400px;
             width: 62% !important;
         }
     }
+    .services-header {
+        height: auto !important;
+    }
+    .group-name {
+        margin-top: 30px !important;
+    }
 }
 
 
@@ -421,7 +433,7 @@ $xl-xl-breakpoint: 1400px;
 // medium - xl
 @media screen and (min-width: $md-breakpoint) and (max-width: $xl-breakpoint+1px) {
     .policy-header {
-        height: 400px !important;
+        height: 400px;
     }
     div.service-benefits-section {
         height: 500px !important;
@@ -431,7 +443,7 @@ $xl-xl-breakpoint: 1400px;
 // xl and above
 @media screen and (min-width: $xl-breakpoint) {
     .policy-header {
-        height: 550px !important;
+        height: 550px;
         h2 {
             font-size: 34px !important;
         }

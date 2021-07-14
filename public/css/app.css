@@ -10083,6 +10083,10 @@ h3 {
     font-size: 14px !important;
     letter-spacing: -1px !important;
   }
+
+  .matcher-line {
+    width: calc(18% / 2) !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
@@ -10095,13 +10099,17 @@ h3 {
     width: 45% !important;
   }
 
-  .policy-header .header-vector {
+  .policy-header .header-vector, .policy-header .services-vector {
     top: 50%;
     transform: translateY(-50%);
   }
 
   .daya-guide .background-left {
     width: 45% !important;
+  }
+
+  .services-header {
+    height: 400px !important;
   }
 }
 @media screen and (min-width: 992px) {
@@ -10327,6 +10335,14 @@ h3 {
   .daya-guide .background-left {
     width: 62% !important;
   }
+
+  .services-header {
+    height: auto !important;
+  }
+
+  .group-name {
+    margin-top: 30px !important;
+  }
 }
 @media screen and (max-width: 425px) {
   footer.footer .footer-content {
@@ -10415,7 +10431,7 @@ h3 {
 }
 @media screen and (min-width: 768px) and (max-width: 1201px) {
   .policy-header {
-    height: 400px !important;
+    height: 400px;
   }
 
   div.service-benefits-section {
@@ -10424,7 +10440,7 @@ h3 {
 }
 @media screen and (min-width: 1200px) {
   .policy-header {
-    height: 550px !important;
+    height: 550px;
   }
   .policy-header h2 {
     font-size: 34px !important;
@@ -10665,6 +10681,7 @@ a:hover {
 
 .about-section {
   background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+  background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
 }
 .about-section > div {
   min-height: 300px;
@@ -11388,6 +11405,24 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   color: #17093c !important;
 }
 
+.search-box-services {
+  direction: ltr !important;
+}
+.search-box-services button.btn-search {
+  color: white !important;
+  background-color: #18093c;
+  transition: 0.3s;
+}
+.search-box-services button.btn-search:hover {
+  background-color: #6332df !important;
+  transition: 0.3s;
+}
+.search-box-services input {
+  border: 3px solid #18093c;
+  border-left-width: 0px;
+  color: #18093c !important;
+}
+
 footer.footer {
   background-image: linear-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
   background-image: -webkit-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
@@ -11501,9 +11536,6 @@ div.daya-duties .duty-item p {
   font-size: 18px;
   text-align: right;
   margin-bottom: 0 !important;
-}
-div.daya-duties .duty-vector-text .customer-vector {
-  height: 400px;
 }
 div.daya-duties .duty-vector-text .customer-vector img {
   width: 100%;
@@ -12199,6 +12231,119 @@ div.step-container .step-item {
   background: -webkit-gradient(45deg, rgba(214, 244, 249, 0.3) 0%, rgba(168, 252, 239, 0.3) 100%) !important;
 }
 
+.services-header .header-vector {
+  height: 350px !important;
+}
+.services-header .header-vector img.rules {
+  width: 78% !important;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.services-groups-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  position: relative;
+  flex-wrap: wrap;
+}
+.services-groups-container > div.group-item {
+  text-align: center;
+}
+.services-groups-container > div.group-item .computer-container {
+  background-image: url(/images/icon-background-purple.png);
+  font-size: 60px !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+.services-groups-container > div.group-item .computer-container i.computer-icon {
+  font-size: 150px;
+}
+.services-groups-container > div.group-item .computer-container i.inside-computer {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 40px;
+}
+.services-groups-container > div.group-item .group-name {
+  color: #18093c;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+.services-groups-container .matcher-line {
+  width: calc(24% / 2);
+  height: 10px;
+  background-color: #000000;
+  position: absolute;
+  top: 25%;
+}
+.services-groups-container .match-line-2 {
+  left: 27%;
+}
+.services-groups-container .match-line-1 {
+  left: 61%;
+}
+
+.bg-purple-gr {
+  background: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+  background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+}
+
+div.main-services-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+div.main-services-container > div.main-service {
+  width: 40%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 1px #c2c2c2;
+}
+div.main-services-container > div.main-service .icon-container {
+  float: right;
+}
+div.main-services-container > div.main-service .icon-container span {
+  margin-bottom: 30px;
+}
+div.main-services-container > div.main-service .icon-container span i {
+  font-size: 60px;
+  color: #000;
+}
+div.main-services-container > div.main-service .icon-container h2 {
+  font-weight: bold;
+}
+div.main-services-container > div.main-service .info-container {
+  text-align: center;
+}
+div.main-services-container > div.main-service .info-container h3 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+div.main-services-container > div.main-service .info-container p {
+  margin-bottom: 20px;
+}
+div.main-services-container > div.main-service .info-container div.button-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 .header {
   background: linear-gradient(50deg, #e77cf2, #6332de);
   background: -webkit-linear-gradient(50deg, #e77cf2, #6332de);
@@ -12445,7 +12590,7 @@ div.header-section div.header-title .title span {
   background: -webkit-linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
 }
 .policy-header .header-vector, .service-benefits-section .header-vector {
-  height: auto !important;
+  height: auto;
   position: relative;
 }
 .policy-header .header-vector img, .service-benefits-section .header-vector img {

@@ -13,3 +13,21 @@
         color: $eggplant !important;
     }
 }
+.search-box-services {
+    direction: ltr !important;
+    button.btn-search {
+        color: white !important;
+        background-color: $dark-blue;
+        transition: 0.3s;
+        &:hover {
+            background-color: $horny-eggplant !important;
+            transition: 0.3s;
+        }
+    }
+    input {
+        border: 3px solid $dark-blue;
+        border-left-width: 0px;
+        color: $dark-blue !important;
+        
+    }
+}
