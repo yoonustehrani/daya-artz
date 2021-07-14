@@ -1343,3 +1343,36 @@ div.step-container {
     bottom: 40px;
 }
 // end service
+// start order 1
+.start-order-section {
+    background-image: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+    background-image: -webkit-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+    .start-order-1 {
+        background-image: url(/images/shaped-background.png);
+        background-size: cover;
+        height: auto;
+        background-position: top;
+        background-repeat: no-repeat;
+        text-align: center;
+        h4 {
+            color: white;
+            font-size: 35px;
+            line-height: 1.5;
+            border-top: 0;
+            border-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+            padding-right: 24px;
+            padding-left: 24px;
+            background-origin: padding-box;
+            background: linear-gradient(to right, white 3px, rgba(0,0,0,0) 3px 9px, white 9px 13px, transparent 13px), linear-gradient(to left, white 3px, rgba(0,0,0,0) 3px 9px, white 9px 13px, transparent 13px);
+            background: -webkit-linear-gradient(to right, white 3px, rgba(0,0,0,0) 3px 9px, w2ite 9px 13px, tra2sparent 13px), -webkit-linear-gradient(to left, white 3px, rgba(0,0,0,0) 3p2 9px, white 9px 12px, transparent 13px);
+            text-shadow: 2px 2px 0px $aqua;
+        }
+        button {
+            font-size: 22px;
+        }
+    }
+}
+// end start order 1

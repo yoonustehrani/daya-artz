@@ -10258,7 +10258,7 @@ h3 {
     height: 12px !important;
     left: 50% !important;
     top: 50% !important;
-    width: calc(1000px / 5) !important;
+    width: calc(838px / 5) !important;
     background-color: rgba(99, 50, 223, 0.2) !important;
   }
   .step-container .step-1 {
@@ -10300,6 +10300,13 @@ h3 {
   .step-container .step-info p {
     font-size: 16px !important;
     line-height: 1.5 !important;
+  }
+
+  .start-order-1 h4 {
+    font-size: 26px !important;
+  }
+  .start-order-1 button {
+    font-size: 20px !important;
   }
 }
 @media screen and (max-width: 425px) {
@@ -12016,6 +12023,40 @@ div.step-container .step-item {
 
 .step-info-t {
   bottom: 40px;
+}
+
+.start-order-section {
+  background-image: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+  background-image: -webkit-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+}
+.start-order-section .start-order-1 {
+  background-image: url(/images/shaped-background.png);
+  background-size: cover;
+  height: auto;
+  background-position: top;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.start-order-section .start-order-1 h4 {
+  color: white;
+  font-size: 35px;
+  line-height: 1.5;
+  border-top: 0;
+  border-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-right: 24px;
+  padding-left: 24px;
+  background-origin: padding-box;
+  background: linear-gradient(to right, white 3px, rgba(0, 0, 0, 0) 3px 9px, white 9px 13px, transparent 13px), linear-gradient(to left, white 3px, rgba(0, 0, 0, 0) 3px 9px, white 9px 13px, transparent 13px);
+  background: -webkit-linear-gradient(to right, white 3px, rgba(0, 0, 0, 0) 3px 9px, w2ite 9px 13px, tra2sparent 13px), -webkit-linear-gradient(to left, white 3px, rgba(0, 0, 0, 0) 3p2 9px, white 9px 12px, transparent 13px);
+  text-shadow: 2px 2px 0px #78cad2;
+}
+.start-order-section .start-order-1 button {
+  font-size: 22px;
 }
 
 .header {
