@@ -95,7 +95,7 @@
     <!-- end Services -->
     <!-- Ordering Methods -->
     <div class="section w-100 order-section-container">
-        <div class="background-order w-100 p-0">
+        <div class="background-order dotted-background w-100 p-0">
             <div class="title-section col-12 mb-3 mb-md-0 mt-3">
                 <div class="title-container">
                     <p class="title-text">روش های ثبت سفارش در دایا</p>
@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div class="order-section section col-12 ml-8p rtl">
-                <div class="order-vector float-right ml-md-4 w-md-45">
+                <div class="order-vector float-right ml-md-4">
                     <div><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
                 </div>    
                 <div class="order-detail float-right mr-md-4 mt-20px">
@@ -126,8 +126,8 @@
                     <h4 class="mb-3">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <div class="order-btn-container-4 mr-md-3 mt-lg-4">
-                        <button class="btn order-btn badge-pill badge-info">شروع سفارش</button>
+                    <div class="order-btn-container mr-md-3 mt-lg-4">
+                        <button class="btn order-btn badge-pill badge-info mb-2 mb-md-0">شروع سفارش</button>
                     </div>
                 </div>
             </div>

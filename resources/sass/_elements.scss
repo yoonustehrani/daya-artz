@@ -144,12 +144,12 @@ input.eggplant {
     .service-container {
         .service-item {
             h1 {
-                font-size: 22px;
+                font-size: 20px;
                 font-weight: bold;
                 margin-top: 14px;
             }
             h3 {
-                font-size: 18px;
+                font-size: 16px;
                 margin-bottom: 18px;
             }
             button {
@@ -205,9 +205,6 @@ span.back-aqua {
 .order-section-container {
     div.background-order {
         float: left;
-        background-image: url(/images/dots-background.png);
-        background-size: contain;
-        background-repeat: repeat;
     }
     .order-section {
         display: flex;
@@ -219,11 +216,11 @@ span.back-aqua {
                 background-color: $purple;
             }
             h3 {
-                font-size: 35px;
+                font-size: 28px;
                 font-weight: bold;
             }
             h4 {
-                font-size: 25px;
+                font-size: 20px;
             }
             i.check {
                 color: $green
@@ -239,11 +236,17 @@ span.back-aqua {
             }
         }
         .order-vector {
-            width: 40%;
+            width: 500px;
             height: auto;
             img {
                 width: 100%;
                 height: auto;
+            }
+        }
+        .order-btn-container {
+            text-align: right;
+            .order-btn {
+                font-size: 20px;
             }
         }
     }

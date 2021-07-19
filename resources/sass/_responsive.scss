@@ -19,19 +19,6 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
-    .order-section {
-        .order-detail {
-            h3 {
-                font-size: 25px !important;
-            }
-            h4 {
-                font-size: 20px !important;
-            }
-            button.order-btn {
-                font-size: 24px !important;
-            }
-        }
-    }
     div.contact-ways-container {
         > div {
             i.contact-way-icon {
@@ -69,6 +56,17 @@ $xl-xl-breakpoint: 1400px;
     .matcher-line {
         width: calc(18% / 2) !important;
     }
+    .order-btn {
+        font-size: 18px !important;
+    }
+    .order-detail {
+        h3 {
+            font-size: 24px !important;
+        }
+        h4 {
+            font-size: 18px !important;
+        }
+    }
 }
 
 // medium and above
@@ -76,9 +74,6 @@ $xl-xl-breakpoint: 1400px;
     div.order-section-container {
         .ml-8p {
             margin-left: 8% !important;
-        }
-        div.order-btn-container {
-            text-align: right !important;
         }
         .order-vector {
             &.w-md-45 {
@@ -104,9 +99,6 @@ $xl-xl-breakpoint: 1400px;
 
 //large and above
 @media screen and (min-width: $lg-breakpoint) {
-    button.order-btn {
-        font-size: 20px;
-    }
     div.address-label {
         h3 {
             font-size: 22px !important;
@@ -118,7 +110,7 @@ $xl-xl-breakpoint: 1400px;
 @media screen and (max-width: $md-breakpoint - 1px) {
     div.order-btn-container {
         text-align: center !important;
-        button.order-btn {
+        .order-btn {
             font-size: 18px !important;
         }
     }
@@ -129,7 +121,7 @@ $xl-xl-breakpoint: 1400px;
         .order-detail {
             text-align: center !important;
             h3 {
-                font-size: 30px !important;
+                font-size: 24px !important;
             }
             h4 {
                 font-size: 18px !important;
@@ -374,7 +366,15 @@ $xl-xl-breakpoint: 1400px;
 
 // Mobile small
 @media screen and (max-width: 360px) {
-
+    .service-item {
+        h1 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 14px;
+        }
+        h3 {
+            font-size: 14px;
+        }
 }
 
 @media screen and (min-width: 1600px) {

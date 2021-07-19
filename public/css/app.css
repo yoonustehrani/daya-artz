@@ -10049,16 +10049,6 @@ h3 {
     font-size: 16px !important;
   }
 
-  .order-section .order-detail h3 {
-    font-size: 25px !important;
-  }
-  .order-section .order-detail h4 {
-    font-size: 20px !important;
-  }
-  .order-section .order-detail button.order-btn {
-    font-size: 24px !important;
-  }
-
   div.contact-ways-container > div i.contact-way-icon {
     font-size: 40px !important;
   }
@@ -10087,13 +10077,21 @@ h3 {
   .matcher-line {
     width: calc(18% / 2) !important;
   }
+
+  .order-btn {
+    font-size: 18px !important;
+  }
+
+  .order-detail h3 {
+    font-size: 24px !important;
+  }
+  .order-detail h4 {
+    font-size: 18px !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
     margin-left: 8% !important;
-  }
-  div.order-section-container div.order-btn-container {
-    text-align: right !important;
   }
   div.order-section-container .order-vector.w-md-45 {
     width: 45% !important;
@@ -10113,10 +10111,6 @@ h3 {
   }
 }
 @media screen and (min-width: 992px) {
-  button.order-btn {
-    font-size: 20px;
-  }
-
   div.address-label h3 {
     font-size: 22px !important;
   }
@@ -10125,7 +10119,7 @@ h3 {
   div.order-btn-container {
     text-align: center !important;
   }
-  div.order-btn-container button.order-btn {
+  div.order-btn-container .order-btn {
     font-size: 18px !important;
   }
 
@@ -10138,7 +10132,7 @@ h3 {
     text-align: center !important;
   }
   .order-section .order-detail h3 {
-    font-size: 30px !important;
+    font-size: 24px !important;
   }
   .order-section .order-detail h4 {
     font-size: 18px !important;
@@ -10769,12 +10763,12 @@ input.eggplant:focus {
   align-items: center;
 }
 .services-container .service-container .service-item h1 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   margin-top: 14px;
 }
 .services-container .service-container .service-item h3 {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 18px;
 }
 .services-container .service-container .service-item button {
@@ -10842,11 +10836,11 @@ span.back-aqua i {
   background-color: #af3acc;
 }
 .order-section-container .order-section .order-detail h3 {
-  font-size: 35px;
+  font-size: 28px;
   font-weight: bold;
 }
 .order-section-container .order-section .order-detail h4 {
-  font-size: 25px;
+  font-size: 20px;
 }
 .order-section-container .order-section .order-detail i.check {
   color: #82D177;
@@ -10861,12 +10855,18 @@ span.back-aqua i {
   margin-left: 8px;
 }
 .order-section-container .order-section .order-vector {
-  width: 40%;
+  width: 500px;
   height: auto;
 }
 .order-section-container .order-section .order-vector img {
   width: 100%;
   height: auto;
+}
+.order-section-container .order-section .order-btn-container {
+  text-align: right;
+}
+.order-section-container .order-section .order-btn-container .order-btn {
+  font-size: 20px;
 }
 
 .contact-section {
