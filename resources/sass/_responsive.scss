@@ -69,6 +69,9 @@ $xl-xl-breakpoint: 1400px;
     .matcher-line {
         width: calc(18% / 2) !important;
     }
+    .main-service {
+        width: 48% !important;
+    }
 }
 
 // medium and above
@@ -327,6 +330,22 @@ $xl-xl-breakpoint: 1400px;
     }
     .group-name {
         margin-top: 30px !important;
+    }
+    .main-service {
+        width: 90% !important;
+        .icon-container {
+            float: none !important;
+            margin-right: auto;
+            margin-left: auto;
+            position: static !important;
+            span {
+                margin-bottom: 15px !important;
+            }
+            margin-bottom: 25px !important;
+        }
+        .info-container {
+            width: 100% !important;
+        }
     }
 }
 

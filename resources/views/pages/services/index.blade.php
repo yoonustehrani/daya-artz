@@ -71,19 +71,8 @@
         </div>
     </div>
     <div class="main-services-container w-100">
-        <div class="col-12 col-md-5 mr-4 main-service">
-            <div class="icon-container"><span class="back-aqua"><i class="fas fa-plus"></i></span><h2>سربرگ</h2></div>
-            <div class="info-container">
-                <h3>طراحی سربرگ رسمی و حرفه ای</h3>
-                <p>سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
-                <div class="button-container">
-                    <button class="btn btn-gradient mr-2">سفارش</button>
-                    <button class="btn badge-pill">ادامه متن</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-5 mr-4 main-service">
-            <div class="icon-container"><span class="back-aqua"><i class="fas fa-plus"></i></span><h2>لوگو</h2></div>
+        <div class="main-service">
+            <div class="icon-container"><span class="back-aqua"><i class="fab fa-d-and-d"></i></span><h2>لوگو</h2></div>
             <div class="info-container">
                 <h3>طراحی لوگو با بالاترین کیفیت</h3>
                 <p>لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف ، باور و هسته فعالیت شماست</p>
@@ -93,10 +82,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-5 mr-4 main-service">
-            <div class="icon-container"><span class="back-aqua"><i class="fas fa-plus"></i></span><h2>کارت ویزیت</h2></div>
+        <div class="main-service">
+            <div class="icon-container"><span class="back-aqua"><i class="fas fa-scroll"></i></span><h2>سربرگ</h2></div>
             <div class="info-container">
-                <h3>انواع کارت ویزیت های ساده و خاص</h3>
+                <h3>طراحی سربرگ رسمی و حرفه ای</h3>
                 <p>سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
@@ -104,8 +93,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-5 mr-4 main-service">
-            <div class="icon-container"><span class="back-aqua"><i class="fas fa-plus"></i></span><h2>کاتالوگ</h2></div>
+        <div class="main-service">
+            <div class="icon-container"><span class="back-aqua"><i class="fas fa-book-open"></i></span><h2>کاتالوگ</h2></div>
             <div class="info-container">
                 <h3>بهترین باز خورد ها با کاتالوگ های خاص</h3>
                 <p>کاتالوگ مهم ترین ابزار برای تبلیغ و انتشار تبلیغات فروش یک محصول است. انتقال صحیح به مشتریان از مهم ترین ارمغان های کاتالوگ است</p>
@@ -115,22 +104,33 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-5 mr-4 main-service">
-            <div class="icon-container"><span class="back-aqua"><i class="fas fa-plus"></i></span><h2>ترکیبی</h2></div>
+        <div class="main-service">
+            <div class="icon-container"><span class="back-aqua"><i class="fas fa-address-card"></i></span><h2>کارت ویزیت</h2></div>
             <div class="info-container">
-                <h3>ترکیب خود را بسازید</h3>
-                <p>اگه نیاز به طراحی های متنوع در بخش عا و خدمات مختلف هستید ، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
+                <h3>انواع کارت ویزیت های ساده و خاص</h3>
+                <p>سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-5 mr-4 main-service">
-            <div class="icon-container"><span class="back-aqua"><i class="fas fa-plus"></i></span><h2>ست اداری</h2></div>
+        <div class="main-service">
+            <div class="icon-container"><span class="back-aqua"><i class="fas fa-mail-bulk"></i></span><h2>ست اداری</h2></div>
             <div class="info-container">
                 <h3>ویزیت ، سربرگ ، تقویم و سررسید ، خودکار و ...</h3>
                 <p>لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند ، و وابسته به هدف و نوع متقاضیان انتخاب می شود</p>
+                <div class="button-container">
+                    <button class="btn btn-gradient mr-2">سفارش</button>
+                    <button class="btn badge-pill">ادامه متن</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-service">
+            <div class="icon-container"><span class="back-aqua"><i class="fas fa-plus-circle"></i></span><h2>ترکیبی</h2></div>
+            <div class="info-container">
+                <h3>ترکیب خود را بسازید</h3>
+                <p>اگه نیاز به طراحی های متنوع در بخش عا و خدمات مختلف هستید ، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
