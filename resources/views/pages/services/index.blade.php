@@ -140,4 +140,171 @@
     </div>
 </div>
 <!-- end main services -->
+<!-- guide section -->
+<div class="section contact-us-first-section daya-guide w-100 text-center mb-4">
+    <div class="title-section mb-5 w-100">
+        <div class="title-container">
+            <h2 class="title-text">راهنمای دایا</h2>
+        </div>
+    </div>
+    <div class="contact-us-background w-100">
+        <div class="background-left">
+            <img src="{{ asset('images/contact-us-background-2.png') }}" alt="">
+        </div>
+        <div class="background-right">
+            <img src="{{ asset('images/contact-us-background-1.png') }}" alt="">
+        </div>
+        <div class="contact-us-vector-1 col-12 col-md-7 p-md-0">
+            <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="">
+        </div>
+    </div>
+    <div class="contact-us-form col-12 col-md-5 mt-0 mb-md-0">
+        <h4 class="mb-3 mb-md-2 mb-lg-4">به راهنمایی احتیاج داری؟</h4>
+        <form action="#">
+            <div class="input-group mb-2 mb-lg-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
+            <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>
+            <button class="float-left btn btn-dark">ارسال پیام</button>
+        </form>
+    </div>
+</div>
+<!-- end guide section -->
+<!-- other services -->
+<div class="section w-100 mt-5 mb-5">
+    <div class="title-section w-100 mb-4">
+        <div class="title-container">
+            <h2 class="title-text">دیگر خدمات دایا</h2>
+        </div>
+    </div>
+    <div class="other-services-container w-100">
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>بنر تبلیغاتی</h2>
+            <h3>طراحی بنر دیجیتالی و چاپی</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>بروشور</h2>
+            <h3>طراحی انواع بروشور ها</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>تراکت</h2>
+            <h3>طراحی تراکت در انواع سایز و مدل</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>اسلایدر وب سایت</h2>
+            <h3>طراحی اسلایدر های حرفه ای</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>منو رستوران و کافی شاپ</h2>
+            <h3>منو های خاص و شکیل</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>صفحات مجازی</h2>
+            <h3>طراحی قالب ، کاور ،‌پروفایل و ...</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>پاکت نامه</h2>
+            <h3>پاکت های نامه رسمی و فانتزی</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>بیلبورد</h2>
+            <h3>طراحی انواع بیلبورد و استند و استرابورد</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>موزیک</h2>
+            <h3>کاور ، تم آلبوم و ...</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>تقویم</h2>
+            <h3>طراحی انواع تقویم و سررسید</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>فاکتور</h2>
+            <h3>طراحی انواع فاکتور های خاص و اداری</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>جلذ کتاب</h2>
+            <h3>جلد انواع کتاب ، مجلات و ...</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <h2>بسته بندی</h2>
+            <h3>بسته بندی های ساده و خاص</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+    </div>
+</div>
+<!-- end other services -->
+<!-- fast order -->
+<div class="section fast-order-container w-100 mb-5">
+    <div class="title-section w-100 mb-5">
+        <div class="title-container">
+            <h2 class="title-text">سفارش فوری</h2>
+            <span class="title-underline"></span>
+        </div>
+    </div>
+    <div class="fast-order-section text-center w-100 col-md-11 col-12">
+        <div class="float-right col-12 col-md-5 mt-md-6 ml-md-4 mt-1 fast-order-guide">
+            <h3 class="mb-5">فرم سفارش فوری</h3>
+            <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی کورد نیاز خود منتظر تماس کارشناسان باشید.</p>
+            <br>
+            <h5 class="font-18">راهنمای ثبت فرم:</h5>
+            <ul class="font-18">
+                <li>وارد کردن مشخصات شخصی</li>
+                <li>وارد کردن شماره تماس در دسترس</li>
+                <li>انتخاب درسته مورد نیاز برای طراحی</li>
+            </ul>
+            <br><br>
+            <p class="font-16 text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
+        </div>
+        <div class="float-right fast-order-form col-12 col-md-5">
+            <form action="#">
+                <div class="input-group col-lg-6 col-12 float-right mb-3">
+                    <input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                </div>
+                <div class="input-group col-lg-6 col-12 float-right mb-3">
+                    <input type="text" name="fast-order-number" class="form-control" placeholder="شماره تلفن">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                    </div>
+                </div>
+                <div class="order-types mb-3 w-100">
+                    <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/brand.svg') }}"></span><span class="checkbox-label">لوگو</span></span></label></div>
+                    <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/big-brochure.svg') }}"></span><span class="checkbox-label">کاتالوگ</span></span></label></div>
+                    <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/credit-card.svg') }}"></span><span class="checkbox-label">کارت ویزیت</span></span></label></div>
+                    <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/paper.svg') }}"></span><span class="checkbox-label">سربرگ</span></span></label></div>
+                    <div class="checkbox col-5 col-md-4 col-xl-xl-2 p-0"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/office-tools.svg') }}"></span><span class="checkbox-label">ست اداری</span></span></label></div>
+                </div>
+                <div class="form-group"><textarea name="fast-order-description" cols="30" rows="10" class="form-control" placeholder="توضیحات"></textarea></div>
+                <button type="submit" class="btn">ثبت سفارش</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- end fast order -->
 @endsection

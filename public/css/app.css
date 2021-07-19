@@ -10091,6 +10091,10 @@ h3 {
   .main-service {
     width: 48% !important;
   }
+
+  .other-service {
+    width: 30% !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
@@ -10363,6 +10367,10 @@ h3 {
   }
   .main-service .info-container {
     width: 100% !important;
+  }
+
+  .other-service {
+    width: 90% !important;
   }
 }
 @media screen and (max-width: 425px) {
@@ -12394,6 +12402,38 @@ div.main-services-container > div.main-service .info-container div.button-contai
 }
 div.main-services-container > div.main-service .info-container div.button-container button:nth-child(2):hover {
   background-color: #777DD1;
+}
+
+div.other-services-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+div.other-services-container > div.other-service {
+  background-color: white;
+  box-shadow: 0px 0px 10px 1px #c2c2c2;
+  text-align: center;
+  padding: 10px;
+  width: 22%;
+  margin: 20px 1% 20px 1%;
+}
+div.other-services-container > div.other-service span {
+  margin-bottom: 10px;
+  background-size: contain !important;
+}
+div.other-services-container > div.other-service h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+div.other-services-container > div.other-service h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+div.other-services-container > div.other-service button {
+  background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
+  background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
 }
 
 .header {

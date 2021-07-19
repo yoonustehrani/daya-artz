@@ -72,6 +72,9 @@ $xl-xl-breakpoint: 1400px;
     .main-service {
         width: 48% !important;
     }
+    .other-service {
+        width: 30% !important;
+    }
 }
 
 // medium and above
@@ -346,6 +349,9 @@ $xl-xl-breakpoint: 1400px;
         .info-container {
             width: 100% !important;
         }
+    }
+    .other-service {
+        width: 90% !important;
     }
 }
 

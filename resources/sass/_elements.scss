@@ -1653,4 +1653,37 @@ div.main-services-container {
     }
 } 
 // endmain services 
+// other services
+div.other-services-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    > div.other-service {
+        background-color: white;
+        box-shadow: 0px 0px 10px 1px #c2c2c2;
+        text-align: center;
+        padding: 10px;
+        width: 22%;
+        margin: 20px 1% 20px 1%;
+        span {
+            margin-bottom: 10px;
+            background-size: contain !important;
+        }
+        h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        button {
+            background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
+            background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
+        }
+    }
+}
+// end other services
 // services page 
