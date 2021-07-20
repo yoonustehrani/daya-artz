@@ -10867,8 +10867,8 @@ button.silver-progress-button {
   background: line;
   color: white;
   transition-duration: 0.5s;
-  background: linear-gradient(to right, #7371FC 0%, #D9F0F2 50%, #645E9D 100%);
-  background: -webkit-gradient(to right, #7371FC 0%, #D9F0F2 50%, #645E9D 100%);
+  background: linear-gradient(to right, #7371FC 0%, #D9F0F2 50%, #540D8B 100%);
+  background: -webkit-gradient(to right, #7371FC 0%, #D9F0F2 50%, #540D8B 100%);
 }
 
 button.silver-progress-button p {
