@@ -189,6 +189,74 @@ input.eggplant {
     }
 }
 
+button.silver-progress-button {
+    font-size: 18px;
+    padding: 0px 50px;
+    border-radius: 22.5px;
+    font-family: sans-serif;
+    position: relative;
+    background: line;
+    color: white;
+    transition-duration: 0.5s;
+    background: linear-gradient(to right, #7371FC 0%, #D9F0F2 50%, #645E9D 100%);
+    background: -webkit-gradient(to right, #7371FC 0%, #D9F0F2 50%, #645E9D 100%);
+}
+
+button.silver-progress-button p {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    opacity: 1;
+}
+
+button.silver-progress-button > span {
+    transition: 0.5s;
+    position: absolute;
+    right: -1px;
+    left: unset;
+    top: 0;
+    font-size: 25px;
+    height: 100%;
+    width: 45px;
+    border-radius: 50%;
+    font-weight: bold;
+    background-color: #CDC1FF;
+    color: #fff;
+}
+
+
+button.silver-progress-button:hover {
+    cursor: pointer;
+}
+
+button.silver-progress-button:hover > span {
+    animation: linear 0.5s button-handler-move;
+    color: #7371FC;
+    right: calc(100% - 44px);
+}
+
+button.silver-progress-button > p.before {
+    animation: ease-in 1s fadeIn;
+    display: flex;
+    opacity: 1;
+    color: #fff;
+}
+button.silver-progress-button p.after {
+    display: none;
+    opacity: 0;
+    color: #fff;
+}
+button.silver-progress-button:hover > p.before {
+    transition: 1s;
+    display: none;
+    opacity: 0;
+}
+button.silver-progress-button:hover > p.after {
+    animation: ease-in 1s fadeIn forwards;
+    display: inline;
+}
+
 span.back-aqua {
     background-image: url(/images/item-background.png);
     font-size: 60px !important;

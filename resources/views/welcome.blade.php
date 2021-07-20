@@ -112,7 +112,11 @@
                     <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
                     <h4 class="mb-3">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
                     <div class="order-btn-container mb-5 mr-md-3 mt-lg-4">
-                        <button class="btn order-btn badge-pill badge-info">شروع سفارش</button>
+                    <button class="btn btn-gradient silver-progress-button">
+                        <p class="before">شروع سفارش</p>
+                        <p class="after">سفارش دهید</p>
+                        <span class="handler">&LeftArrow;</span>
+                    </button>
                     </div>
                 </div>
             </div>
