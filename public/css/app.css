@@ -10829,6 +10829,16 @@ input.eggplant:focus {
   background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ml-7p {
+  margin-left: 7%;
+}
+
 .btn-gradient {
   -webkit-appearance: none;
   background-size: 500% !important;
@@ -10854,21 +10864,42 @@ input.eggplant:focus {
   -webkit-animation-name: regradient;
 }
 .btn-gradient:hover {
-  animation-name: gradient !important;
-  -webkit-animation-name: gradient !important;
+  animation-name: gradient;
+  -webkit-animation-name: gradient;
 }
 
 button.silver-progress-button {
+  width: 208px;
   font-size: 18px;
   padding: 0px 50px;
   border-radius: 22.5px;
   font-family: sans-serif;
   position: relative;
-  background: line;
   color: white;
   transition-duration: 0.5s;
   background: linear-gradient(to right, #7371FC 0%, #D9F0F2 50%, #540D8B 100%);
   background: -webkit-gradient(to right, #7371FC 0%, #D9F0F2 50%, #540D8B 100%);
+  background-size: 500% !important;
+}
+
+button.reverse {
+  animation-name: gradient !important;
+  -webkit-animation-name: gradient !important;
+  background-size: 500% !important;
+}
+button.reverse > span {
+  left: -1px !important;
+  right: unset !important;
+}
+button.reverse:hover {
+  animation-name: regradient !important;
+  -webkit-animation-name: regradient !important;
+}
+button.reverse:hover > span {
+  -webkit-animation: linear 0.5s button-handler-move backwards !important;
+          animation: linear 0.5s button-handler-move backwards !important;
+  color: #540D8B !important;
+  left: calc(100% - 44px) !important;
 }
 
 button.silver-progress-button p {
@@ -10888,7 +10919,7 @@ button.silver-progress-button > span {
   font-size: 25px;
   height: 100%;
   width: 45px;
-  border-radius: 50%;
+  border-radius: 50px;
   font-weight: bold;
   background-color: #CDC1FF;
   color: #fff;
@@ -10955,15 +10986,15 @@ span.back-aqua i {
   margin-top: auto;
   margin-bottom: auto;
 }
-.order-section-container .order-section .order-detail button {
-  background-color: #af3acc;
-}
 .order-section-container .order-section .order-detail h3 {
   font-size: 28px;
   font-weight: bold;
 }
 .order-section-container .order-section .order-detail h4 {
   font-size: 20px;
+}
+.order-section-container .order-section .order-detail h4 span {
+  margin-left: 8px;
 }
 .order-section-container .order-section .order-detail i.check {
   color: #82D177;
@@ -10973,9 +11004,6 @@ span.back-aqua i {
 }
 .order-section-container .order-section .order-detail h4 {
   direction: ltr;
-}
-.order-section-container .order-section .order-detail span {
-  margin-left: 8px;
 }
 .order-section-container .order-section .order-vector {
   width: 500px;

@@ -112,17 +112,17 @@
                     <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
                     <h4 class="mb-3">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
                     <div class="order-btn-container mb-5 mr-md-3 mt-lg-4">
-                    <button class="btn btn-gradient silver-progress-button">
-                        <p class="before">شروع سفارش</p>
-                        <p class="after">سفارش دهید</p>
-                        <span class="handler">&LeftArrow;</span>
-                    </button>
+                        <button class="btn btn-gradient silver-progress-button">
+                            <p class="before">شروع سفارش</p>
+                            <p class="after">سفارش دهید</p>
+                            <span class="handler flex-center"><i class="fas fa-hand-point-left"></i></span>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="order-section section col-12 ml-8p rtl">
+            <div class="order-section section col-12 ml-7p rtl">
                 <div class="order-vector float-right ml-md-4">
-                    <div><img src="{{ asset('images/pro-order.svg') }}" alt="pro-order"></div>
+                    <img src="{{ asset('images/pro-order.svg') }}" alt="pro-order">
                 </div>    
                 <div class="order-detail float-right mr-md-4 mt-20px">
                     <h3 class="mb-4">سفارش تخصصی</h3>
@@ -131,7 +131,11 @@
                     <h4 class="mb-3">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
                     <div class="order-btn-container mr-md-3 mt-lg-4">
-                        <button class="btn order-btn badge-pill badge-info mb-2 mb-md-0">شروع سفارش</button>
+                        <button class="btn btn-gradient silver-progress-button reverse">
+                            <p class="before">شروع سفارش</p>
+                            <p class="after">سفارش دهید</p>
+                            <span class="handler flex-center"><i class="fas fa-hand-point-right"></i></span>
+                        </button>
                     </div>
                 </div>
             </div>

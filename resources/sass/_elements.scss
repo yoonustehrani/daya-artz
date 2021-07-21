@@ -160,6 +160,16 @@ input.eggplant {
     }
 }
 
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ml-7p {
+    margin-left: 7%;
+}
+
 .btn-gradient {
     -webkit-appearance: none;
     background-size: 500% !important;
@@ -184,22 +194,42 @@ input.eggplant {
     animation-name: regradient;
     -webkit-animation-name: regradient;
     &:hover {
-        animation-name: gradient !important;
-        -webkit-animation-name: gradient !important;
+        animation-name: gradient;
+        -webkit-animation-name: gradient;
     }
 }
 
 button.silver-progress-button {
+    width: 208px;
     font-size: 18px;
     padding: 0px 50px;
     border-radius: 22.5px;
     font-family: sans-serif;
     position: relative;
-    background: line;
     color: white;
     transition-duration: 0.5s;
     background: linear-gradient(to right, #7371FC 0%, #D9F0F2 50%, #540D8B 100%);
     background: -webkit-gradient(to right, #7371FC 0%, #D9F0F2 50%, #540D8B 100%);
+    background-size: 500% !important;
+}
+
+button.reverse {
+    animation-name: gradient !important;
+    -webkit-animation-name: gradient !important;
+    background-size: 500% !important;
+    > span {
+        left: -1px !important;
+        right: unset !important;
+    }
+    &:hover {
+        animation-name: regradient !important;
+        -webkit-animation-name: regradient !important;
+        > span {
+            animation: linear 0.5s button-handler-move backwards !important;
+            color: #540D8B !important;
+            left: calc(100% - 44px) !important;
+        }
+    }
 }
 
 button.silver-progress-button p {
@@ -219,7 +249,7 @@ button.silver-progress-button > span {
     font-size: 25px;
     height: 100%;
     width: 45px;
-    border-radius: 50%;
+    border-radius: 50px;
     font-weight: bold;
     background-color: #CDC1FF;
     color: #fff;
@@ -280,15 +310,15 @@ span.back-aqua {
         .order-detail {
             margin-top: auto;
             margin-bottom: auto;
-            button {
-                background-color: $purple;
-            }
             h3 {
                 font-size: 28px;
                 font-weight: bold;
             }
             h4 {
                 font-size: 20px;
+                span {
+                    margin-left: 8px;
+                }
             }
             i.check {
                 color: $green
@@ -298,9 +328,6 @@ span.back-aqua {
             }
             h4 {
                 direction: ltr;
-            }
-            span {
-                margin-left: 8px;
             }
         }
         .order-vector {
