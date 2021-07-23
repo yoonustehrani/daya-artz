@@ -134,6 +134,10 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .image-box {
+        min-height: unset !important;
+        align-items: flex-start !important;
+    }
     .order-vector {
         width: 90% !important;
     }
@@ -421,7 +425,7 @@ $xl-xl-breakpoint: 1400px;
     }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1800px) {
     .col-xl-xl-2 {
         flex: 0 0 16.6666666667% !important;
         max-width: 16.6666666667% !important;

@@ -265,8 +265,8 @@
             <span class="title-underline"></span>
         </div>
     </div>
-    <div class="fast-order-section text-center w-100 col-md-11 col-12">
-        <div class="float-right col-12 col-md-5 mt-md-6 ml-md-4 mt-1 fast-order-guide">
+    <div class="fast-order-section text-center w-100">
+        <div class="col-12 col-md-6 col-lg-5 col-xl-5 mt-1 fast-order-guide">
             <h3 class="mb-5">فرم سفارش فوری</h3>
             <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی کورد نیاز خود منتظر تماس کارشناسان باشید.</p>
             <br>
@@ -279,7 +279,7 @@
             <br><br>
             <p class="font-16 text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
         </div>
-        <div class="float-right fast-order-form col-12 col-md-5">
+        <div class="fast-order-form col-12 col-md-6 col-lg-5 col-xl-4">
             <form action="#">
                 <div class="input-group col-lg-6 col-12 float-right mb-3">
                     <input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی">

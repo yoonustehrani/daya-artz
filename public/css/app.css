@@ -10146,6 +10146,11 @@ h3 {
     font-size: 18px !important;
   }
 
+  .image-box {
+    min-height: unset !important;
+    align-items: flex-start !important;
+  }
+
   .order-vector {
     width: 90% !important;
   }
@@ -10433,7 +10438,7 @@ h3 {
     font-size: 18px !important;
   }
 }
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1800px) {
   .col-xl-xl-2 {
     flex: 0 0 16.6666666667% !important;
     max-width: 16.6666666667% !important;
@@ -10901,7 +10906,7 @@ button.silver-progress-button {
   background: linear-gradient(to right, #7371FC 0%, #18093c 50%, #540D8B 100%);
   background: -webkit-gradient(to right, #7371FC 0%, #18093c 50%, #540D8B 100%);
   background-size: 500% !important;
-  box-shadow: inset 2px 2px 6px #c0c0c0 !important;
+  box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.4) inset !important;
 }
 
 button.reverse {
@@ -11151,6 +11156,15 @@ span.back-aqua i {
 div.fast-order-container {
   min-height: 500px;
   height: auto;
+}
+div.fast-order-container .fast-order-section {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
 }
 div.fast-order-container .fast-order-section .fast-order-form {
   height: 100%;
