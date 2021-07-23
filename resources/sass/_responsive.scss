@@ -66,6 +66,7 @@ $xl-xl-breakpoint: 1400px;
         h4 {
             font-size: 18px !important;
         }
+    }
     .main-service {
         width: 48% !important;
     }
@@ -344,6 +345,9 @@ $xl-xl-breakpoint: 1400px;
     .other-service {
         width: 90% !important;
     }
+    .order-section {
+        margin-left: 0 !important;
+    }
 }
 
 
@@ -399,6 +403,22 @@ $xl-xl-breakpoint: 1400px;
         h3 {
             font-size: 14px;
         }
+    }
+    .progress-bar-container {
+        figure {
+            width: 130px !important;
+            height: 130px !important;
+            figcaption::after {
+                font-size: 2rem;
+            }
+        }
+        .chart-two svg .circle-background, .chart-two svg .circle-foreground {
+            r: 57px
+        }
+        span {
+            font-size: 18px !important;
+        }
+    }
 }
 
 @media screen and (min-width: 1600px) {
@@ -524,4 +544,4 @@ $xl-xl-breakpoint: 1400px;
     .match-line {
         height: 12px !important;
     }
-}}}
+}

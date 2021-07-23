@@ -99,6 +99,7 @@
             <div class="title-section col-12 mb-3 mb-md-0 mt-3">
                 <div class="title-container">
                     <p class="title-text">روش های ثبت سفارش در دایا</p>
+                    <span class="title-underline"></span>
                 </div>
             </div>
             <div class="order-section section col-12">
@@ -147,22 +148,22 @@
     <div class="section w-100 mt-5 mb-5">
         <div class="absolute-contact w-100">
             <div class="contact-section section w-100">
-                <div class="col-md-10 offset-md-1 back-aqua d-none d-md-block"></div>
+                <div class="col-md-11 back-aqua d-none d-md-block"></div>
                 <div class="section contact-info w-100">
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
+                    <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-phone"></i></span>
                         <h4>تلفن</h4>
                         <p class="text-secondary">با شماره گیری تلفن های ثابت زیر سفارش خود را ثبت کنید</p>
                         <button class="btn btn-gradient ltr">+98 123456789</button>
                         <button class="btn btn-gradient ltr">021 1234567</button>
                     </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
+                    <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-robot"></i></span>
                         <h4>ربات تلگرام</h4>
                         <p class="text-secondary">توسط ربات تلگرام ما سفارش خود را ثبت کنید</p>
                         <button class="btn btn-gradient ltr mt-12-p">@DAYABOT</button>
                     </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
+                    <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-mobile"></i></span>
                         <h4>پیامرسان</h4>
                         <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
@@ -177,17 +178,17 @@
 
     <!-- progress bars -->
     <div class="section w-100 progress-bar-section mb-4">
-        <div class="progress-bar-container col-6 col-md-2">
+        <div class="progress-bar-container col-6 col-md-3 col-lg-2">
             <figure class="chart-two animate">
                 <svg role="img" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-background"/>
                     <circle class="circle-foreground"/>
                 </svg>
-                <figcaption>percentage</figcaption>
+                <figcaption></figcaption>
             </figure>   
             <span>سفارش تلفنی</span>
         </div>
-        <div class="progress-bar-container col-6 col-md-2">
+        <div class="progress-bar-container col-6 col-md-3 col-lg-2">
             <figure class="chart-two animate">
                 <svg role="img" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-background"/>
@@ -197,7 +198,7 @@
             </figure>   
             <span>سفارش ربات تلگرام</span>
         </div>
-        <div class="progress-bar-container col-6 col-md-2">
+        <div class="progress-bar-container col-6 col-md-3 col-lg-2">
             <figure class="chart-two animate">
                 <svg role="img" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-background"/>
@@ -207,7 +208,7 @@
             </figure>   
             <span>سفارش فوری</span>
         </div>
-        <div class="progress-bar-container col-6 col-md-2">
+        <div class="progress-bar-container col-6 col-md-3 col-lg-2">
             <figure class="chart-two animate">
                 <svg role="img" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-background"/>
@@ -217,7 +218,7 @@
             </figure>   
             <span>سفارش تخصصی</span>
         </div>
-        <div class="progress-bar-container col-6 col-md-2">
+        <div class="progress-bar-container col-6 col-md-3 col-lg-2">
             <figure class="chart-two animate">
                 <svg role="img" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-background"/>
