@@ -10046,6 +10046,8 @@ h3 {
   }
   .header > nav ul li {
     margin: 0px 2px !important;
+  }
+  .header > nav ul li a {
     font-size: 16px !important;
   }
 
@@ -10057,10 +10059,6 @@ h3 {
   }
   div.contact-ways-container > div div.address-label h3 {
     font-size: 18px !important;
-  }
-
-  .recommand-vector-container img {
-    width: 90% !important;
   }
 
   .order-ways-section .contact-info h4 {
@@ -10095,6 +10093,51 @@ h3 {
 
   .other-service {
     width: 30% !important;
+  }
+
+  .step-info-t {
+    bottom: 100px !important;
+  }
+
+  .step-info-b {
+    bottom: 230px !important;
+  }
+
+  .step-info h4 {
+    font-size: 20px !important;
+  }
+
+  .step-item {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .step-item .step-shape {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .step-item .step-index {
+    font-size: 25px !important;
+    transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
+  }
+
+  .steps-info-container {
+    margin-bottom: -80px !important;
+  }
+
+  .b-0 {
+    bottom: 80px !important;
+  }
+
+  .l-25 {
+    left: 300px !important;
+  }
+
+  .l-75 {
+    margin-left: 590px !important;
+  }
+
+  .match-line {
+    height: 12px !important;
   }
 }
 @media screen and (min-width: 768px) {
@@ -10186,6 +10229,14 @@ h3 {
     top: -30%;
   }
 
+  .recommand-post-title {
+    font-size: 16px !important;
+  }
+
+  .recommand-post-date {
+    font-size: 16px !important;
+  }
+
   .post-info-section {
     height: initial !important;
     position: static !important;
@@ -10201,7 +10252,7 @@ h3 {
     margin-right: 0 !important;
   }
   .post-info-section div.post-info-container .post-info-flex span {
-    font-size: 18px;
+    font-size: 16px !important;
   }
   .post-info-section div.post-info-cover {
     position: relative !important;
@@ -10228,11 +10279,18 @@ h3 {
     padding-bottom: 100%;
   }
 
-  .recommand-vector-container {
-    width: 80% !important;
+  .post-main-text p {
+    font-size: 16px !important;
   }
-  .recommand-vector-container img {
-    width: 220px !important;
+
+  div.post-item {
+    height: 100px !important;
+  }
+  div.post-item div.recommand-post-cover {
+    width: 100px !important;
+  }
+  div.post-item div.recommand-post-info {
+    width: calc(100% - 100px) !important;
   }
 
   div.service-benefits-section {
@@ -10398,18 +10456,6 @@ h3 {
     text-align: center !important;
   }
 
-  .recommand-vector-container img {
-    width: 200px !important;
-  }
-
-  .recommand-post-title {
-    font-size: 16px !important;
-  }
-
-  .recommand-post-date {
-    font-size: 16px !important;
-  }
-
   .daya-guide .background-left {
     width: 46% !important;
   }
@@ -10447,19 +10493,8 @@ h3 {
   .order-types {
     justify-content: space-evenly !important;
   }
-
-  .recommand-vector-container {
-    height: 300px !important;
-  }
-  .recommand-vector-container img {
-    width: 56% !important;
-  }
 }
 @media screen and (min-width: 1400px) {
-  .recommand-vector-container img {
-    width: 80% !important;
-  }
-
   .steps-info-container {
     bottom: 0px !important;
     margin-bottom: 40px !important;
@@ -10493,6 +10528,14 @@ h3 {
   div.service-benefits-section {
     height: 500px !important;
   }
+
+  .recommand-post-title {
+    font-size: 16px !important;
+  }
+
+  .recommand-post-date {
+    font-size: 16px !important;
+  }
 }
 @media screen and (min-width: 1200px) {
   .policy-header {
@@ -10508,52 +10551,6 @@ h3 {
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   .step-info-t {
     bottom: 60px !important;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 992px) {
-  .step-info-t {
-    bottom: 100px !important;
-  }
-
-  .step-info-b {
-    bottom: 230px !important;
-  }
-
-  .step-info h4 {
-    font-size: 20px !important;
-  }
-
-  .step-item {
-    width: 100px !important;
-    height: 100px !important;
-  }
-  .step-item .step-shape {
-    width: 100px !important;
-    height: 100px !important;
-  }
-  .step-item .step-index {
-    font-size: 25px !important;
-    transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
-  }
-
-  .steps-info-container {
-    margin-bottom: -80px !important;
-  }
-
-  .b-0 {
-    bottom: 80px !important;
-  }
-
-  .l-25 {
-    left: 300px !important;
-  }
-
-  .l-75 {
-    margin-left: 590px !important;
-  }
-
-  .match-line {
-    height: 12px !important;
   }
 }
 html, body {
@@ -11965,7 +11962,7 @@ div.post-main-section div.post-main-text h2 {
   margin-bottom: 25px;
 }
 div.post-main-section div.post-main-text p {
-  font-size: 20px;
+  font-size: 18px;
   color: #000;
   text-align: justify;
 }
@@ -11982,12 +11979,11 @@ div.post-main-section div.recommand-section div.recommand-vector-container {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 64%;
-  height: 230px;
+  width: 250px;
+  height: auto;
 }
 div.post-main-section div.recommand-section div.recommand-vector-container > img {
-  width: 90%;
-  position: absolute;
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
   top: 4%;
@@ -12002,11 +11998,11 @@ div.post-main-section div.recommand-section > h4 {
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item {
   position: relative;
-  height: 100px;
+  height: 130px;
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-cover {
   height: 100%;
-  width: 100px;
+  width: 130px;
   position: absolute;
   right: 2%;
   top: 0;
@@ -12020,7 +12016,7 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info {
   position: relative;
   z-index: 5;
-  width: calc(100% - 100px);
+  width: calc(100% - 130px);
   height: 80%;
   background-color: #6332df;
   border-radius: 6px;
@@ -12031,7 +12027,7 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
   margin-right: 3%;
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-title {
-  font-size: 18px;
+  font-size: 20px;
   display: block;
   letter-spacing: -1px;
 }
@@ -12814,8 +12810,12 @@ div.header-section div.header-text div.header-btn-container .bg-aqua {
   background: linear-gradient(to right, #78cad2 0%, #fceeb5 50%, #ee786e 100%);
 }
 div.header-section div.header-text div.header-btn-container .bg-purple {
-  background: -webkit-gradient(to right, #34167C 0%, #201e23 50%, #DC47DE 100%);
-  background: linear-gradient(to right, #34167C 0%, #201e23 50%, #DC47DE 100%);
+  background-color: #18093c;
+  transition: 0.5s;
+  color: white;
+}
+div.header-section div.header-text div.header-btn-container .bg-purple:hover {
+  background-color: #777DD1;
 }
 div.header-section div.header-title {
   display: flex;

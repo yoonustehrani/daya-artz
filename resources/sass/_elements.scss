@@ -1139,7 +1139,7 @@ div.post-main-section {
             margin-bottom: 25px;
         }
         p {
-            font-size: 20px;
+            font-size: 18px;
             color: #000;
             text-align: justify;
         }
@@ -1156,11 +1156,10 @@ div.post-main-section {
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
-            width: 64%;
-            height: 230px;
+            width: 250px;
+            height: auto;
             > img {
-                width: 90%;
-                position: absolute;
+                position: relative;
                 left: 50%;
                 transform: translateX(-50%);
                 top: 4%;
@@ -1177,10 +1176,10 @@ div.post-main-section {
         div.recommanded-posts {
             > div.post-item {
                 position: relative;
-                height: 100px;
+                height: 130px;
                 div.recommand-post-cover {
                     height: 100%;
-                    width: 100px;
+                    width: 130px;
                     position: absolute;
                     right: 2%;
                     top: 0;
@@ -1194,7 +1193,7 @@ div.post-main-section {
                 div.recommand-post-info {
                     position: relative;
                     z-index: 5;
-                    width: calc(100% - 100px);
+                    width: calc(100% - 130px);
                     height: 80%;
                     background-color: $horny-eggplant;
                     border-radius: 6px;
@@ -1204,7 +1203,7 @@ div.post-main-section {
                         margin-right: 3%;
                     }
                     span.recommand-post-title {
-                        font-size: 18px;
+                        font-size: 20px;
                         display: block;
                         letter-spacing: -1px;
                     }

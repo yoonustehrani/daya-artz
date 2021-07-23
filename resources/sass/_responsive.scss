@@ -15,7 +15,9 @@ $xl-xl-breakpoint: 1400px;
             width: calc(98% - 70px) !important;
             li {
                 margin: 0px 2px !important;
-                font-size: 16px !important;
+                a {
+                    font-size: 16px !important;
+                }
             }
         }
     }
@@ -32,11 +34,6 @@ $xl-xl-breakpoint: 1400px;
                     font-size: 18px !important;
                 }
             }
-        }
-    }
-    .recommand-vector-container {
-        img {
-            width: 90% !important;
         }
     }
     .order-ways-section {
@@ -72,6 +69,44 @@ $xl-xl-breakpoint: 1400px;
     }
     .other-service {
         width: 30% !important;
+    }
+    .step-info-t {
+        bottom: 100px !important;
+    }
+    .step-info-b {
+        bottom: 230px !important;
+    }
+    .step-info {
+        h4 {
+            font-size: 20px !important;
+        }
+    }
+    .step-item {
+        width: 100px !important;
+        height: 100px !important;
+        .step-shape {
+            width: 100px !important;
+            height: 100px !important;
+        }
+        .step-index {
+            font-size: 25px !important;
+            transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
+        }
+    }
+    .steps-info-container {
+        margin-bottom: -80px !important;
+    }
+    .b-0 {
+        bottom: 80px !important;
+    }
+    .l-25 {
+        left: 300px !important;
+    }
+    .l-75 {
+        margin-left: 590px !important;
+    }
+    .match-line {
+        height: 12px !important;
     }
 }
 
@@ -172,6 +207,12 @@ $xl-xl-breakpoint: 1400px;
             top: -30%;
         }
     }
+    .recommand-post-title {
+        font-size: 16px !important;
+    }
+    .recommand-post-date {
+        font-size: 16px !important;
+    }
     .post-info-section {
         height: initial !important;
         position: static !important;
@@ -184,7 +225,7 @@ $xl-xl-breakpoint: 1400px;
             .post-info-flex {
                 margin-right: 0 !important;
                 span {
-                    font-size: 18px;
+                    font-size: 16px !important;
                 }
             }
         }
@@ -211,10 +252,18 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
-    .recommand-vector-container {
-        width: 80% !important;
-        img {
-            width: 220px !important;
+    .post-main-text {
+        p{
+            font-size: 16px !important;
+        }
+    }
+    div.post-item {
+        height: 100px !important;
+        div.recommand-post-cover {
+            width: 100px !important;
+        }
+        div.recommand-post-info {
+            width: calc(100% - 100px) !important;
         }
     }
     div.service-benefits-section {
@@ -377,17 +426,6 @@ $xl-xl-breakpoint: 1400px;
     .m-text-center {
         text-align: center !important;
     }
-    .recommand-vector-container {
-        img {
-            width: 200px !important;
-        }
-    }
-    .recommand-post-title {
-        font-size: 16px !important;
-    }
-    .recommand-post-date {
-        font-size: 16px !important;
-    }
     .daya-guide {
         .background-left {
             width: 46% !important;
@@ -433,21 +471,10 @@ $xl-xl-breakpoint: 1400px;
     .order-types {
         justify-content: space-evenly !important;
     }
-    .recommand-vector-container {
-        height: 300px !important;
-        img {
-            width: 56% !important;
-        }
-    }
 }
 
 // xl-xl and above
 @media screen and (min-width: $xl-xl-breakpoint) {
-    .recommand-vector-container {
-        img {
-            width: 80% !important;
-        }
-    }
     .steps-info-container {
         bottom: 0px !important;
         margin-bottom: 40px !important;
@@ -486,6 +513,12 @@ $xl-xl-breakpoint: 1400px;
     div.service-benefits-section {
         height: 500px !important;
     }
+    .recommand-post-title {
+        font-size: 16px !important;
+    }
+    .recommand-post-date {
+        font-size: 16px !important;
+    }
 }
 
 // xl and above
@@ -505,47 +538,5 @@ $xl-xl-breakpoint: 1400px;
 @media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint) {
     .step-info-t {
         bottom: 60px !important;
-    }
-}
-
-// lg 
-@media screen and (min-width: $md-breakpoint) and (max-width: $lg-breakpoint) {
-    .step-info-t {
-        bottom: 100px !important;
-    }
-    .step-info-b {
-        bottom: 230px !important;
-    }
-    .step-info {
-        h4 {
-            font-size: 20px !important;
-        }
-    }
-    .step-item {
-        width: 100px !important;
-        height: 100px !important;
-        .step-shape {
-            width: 100px !important;
-            height: 100px !important;
-        }
-        .step-index {
-            font-size: 25px !important;
-            transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
-        }
-    }
-    .steps-info-container {
-        margin-bottom: -80px !important;
-    }
-    .b-0 {
-        bottom: 80px !important;
-    }
-    .l-25 {
-        left: 300px !important;
-    }
-    .l-75 {
-        margin-left: 590px !important;
-    }
-    .match-line {
-        height: 12px !important;
     }
 }
