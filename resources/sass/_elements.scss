@@ -209,9 +209,10 @@ button.silver-progress-button {
     position: relative;
     color: white;
     transition-duration: 0.5s;
-    background: linear-gradient(to right, #7371FC 0%, #D9F0F2 50%, #540D8B 100%);
-    background: -webkit-gradient(to right, #7371FC 0%, #D9F0F2 50%, #540D8B 100%);
+    background: linear-gradient(to right, #7371FC 0%, #18093c 50%, #540D8B 100%);
+    background: -webkit-gradient(to right, #7371FC 0%, #18093c 50%, #540D8B 100%);
     background-size: 500% !important;
+    box-shadow: inset 2px 2px 6px #c0c0c0 !important;
 }
 
 button.reverse {
