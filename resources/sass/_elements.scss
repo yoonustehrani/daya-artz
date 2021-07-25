@@ -167,8 +167,8 @@ input.eggplant {
     justify-content: center !important;
 }
 
-.ml-7p {
-    margin-left: 7%;
+.ml-6p {
+    margin-left: 6%;
 }
 
 .btn-gradient {
@@ -466,7 +466,7 @@ div.fast-order-container {
     height: auto;
     .fast-order-section {
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: row-reverse ;
         justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
@@ -1103,12 +1103,25 @@ div.post-info-section {
             justify-content: space-between;
             align-items: flex-start;
             margin-right: 5%;
-            span {
-                color: #fff;
-                font-size: 20px;
-                border-right: 2px solid #fff;
-                padding-right: 4px;
-                display: inline-block;
+            > div {
+                direction: rtl;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: right;
+                align-items: center;
+                span:first-child {
+                    border-right: 2px solid #fff;
+                    padding-right: 8px;
+                }
+                span:nth-child(2) {
+                    margin-right: 10px;
+                }
+                span {
+                    color: #fff;
+                    font-size: 20px;
+                    display: inline-block;
+                }
             }
         }
     }
@@ -1205,7 +1218,6 @@ div.post-main-section {
                     span.recommand-post-title {
                         font-size: 20px;
                         display: block;
-                        letter-spacing: -1px;
                     }
                     span.recommand-post-date {
                         font-size: 18px;

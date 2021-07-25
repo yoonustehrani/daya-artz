@@ -36,6 +36,12 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .post-info-flex {
+        span {
+            font-size: 15px !important;
+            width: inherit !important;
+        }
+    }
     .order-ways-section {
         .contact-info {
             h4 {

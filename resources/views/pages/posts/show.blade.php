@@ -11,10 +11,10 @@
             <div class="post-info-container vertical-centerlize p-4">
                 <h2 class="horizontal-centerlize mb-4 pr-2">{{ $title }}</h2>
                 <div class="post-info-flex">
-                    <span class="col-12 col-md-6 mb-4 pr-2">دسته موضوع: </span>
-                    <span class="col-12 col-md-6 mb-4 pr-2">تاریخ انتشار: </span>
-                    <span class="col-12 col-md-6 mb-4 pr-2">مدت زمان مطالعه: </span>
-                    <span class="col-12 col-md-6 mb-4 pr-2">نویسنده: </span>
+                    <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2"><span>دسته موضوع: </span> <span>طراحی گرافیک</span></div>
+                    <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2"><span>تاریخ انتشار: </span> <span>۲۰ شهریور ۱۴۰۰</span></div>
+                    <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2"><span>مدت زمان مطالعه: </span> <span>۱۰ دقیقه</span></div>
+                    <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2"><span>نویسنده: </span> <span>دانیال طهرانیم</span></div>
                 </div>
             </div>
             <div class="post-info-cover float-left mt-2 mt-md-0">
@@ -24,7 +24,7 @@
     </div>
 
     <div class="section w-100 post-main-section mt-5 p-2 p-md-5">
-        <div class="recommand-section col-md-5 col-lg-4 float-left p-3 p-lg-4 mr-4 mt-4 mb-2 d-none d-md-block">
+        <div class="recommand-section col-md-6 col-lg-5 col-xl-4 float-left p-3 p-lg-4 mr-4 mt-4 mb-2 d-none d-md-block">
             <div class="recommand-vector-container col-12">
                 <img src="{{ asset('images/recommanded-post.png') }}" alt="">
             </div>

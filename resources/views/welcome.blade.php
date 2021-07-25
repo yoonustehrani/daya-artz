@@ -121,7 +121,7 @@
                     </div>
                 </div>
             </div>
-            <div class="order-section section col-12 ml-7p rtl">
+            <div class="order-section section col-12 ml-6p rtl">
                 <div class="order-vector float-right ml-md-4">
                     <img src="{{ asset('images/pro-order.svg') }}" alt="pro-order">
                 </div>    
@@ -398,7 +398,7 @@
             </div>
         </div>
         <div class="fast-order-section text-center w-100">
-            <div class="col-12 col-md-6 col-lg-5 ml-lg-4 col-xl-5 mt-1 fast-order-guide">
+            <div class="col-12 col-md-6 col-lg-5 ml-lg-4 col-xl-5 mt-4 fast-order-guide">
                 <h3 class="mb-5">فرم سفارش فوری</h3>
                 <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی کورد نیاز خود منتظر تماس کارشناسان باشید.</p>
                 <br>

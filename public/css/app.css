@@ -10061,6 +10061,11 @@ h3 {
     font-size: 18px !important;
   }
 
+  .post-info-flex span {
+    font-size: 15px !important;
+    width: inherit !important;
+  }
+
   .order-ways-section .contact-info h4 {
     font-size: 18px !important;
   }
@@ -10858,8 +10863,8 @@ input.eggplant:focus {
   justify-content: center !important;
 }
 
-.ml-7p {
-  margin-left: 7%;
+.ml-6p {
+  margin-left: 6%;
 }
 
 .btn-gradient {
@@ -11929,11 +11934,24 @@ div.post-info-section div.post-info-container .post-info-flex {
   align-items: flex-start;
   margin-right: 5%;
 }
-div.post-info-section div.post-info-container .post-info-flex span {
+div.post-info-section div.post-info-container .post-info-flex > div {
+  direction: rtl;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: right;
+  align-items: center;
+}
+div.post-info-section div.post-info-container .post-info-flex > div span:first-child {
+  border-right: 2px solid #fff;
+  padding-right: 8px;
+}
+div.post-info-section div.post-info-container .post-info-flex > div span:nth-child(2) {
+  margin-right: 10px;
+}
+div.post-info-section div.post-info-container .post-info-flex > div span {
   color: #fff;
   font-size: 20px;
-  border-right: 2px solid #fff;
-  padding-right: 4px;
   display: inline-block;
 }
 div.post-info-section div.post-info-cover {
@@ -12029,7 +12047,6 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-title {
   font-size: 20px;
   display: block;
-  letter-spacing: -1px;
 }
 div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-date {
   font-size: 18px;
