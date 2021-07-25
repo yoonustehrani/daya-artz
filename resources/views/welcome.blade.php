@@ -116,7 +116,7 @@
                         <button class="btn btn-gradient silver-progress-button">
                             <p class="before">شروع سفارش</p>
                             <p class="after">سفارش دهید</p>
-                            <span class="handler flex-center"><i class="fas fa-hand-point-left"></i></span>
+                            <span class="handler flex-center"><i class="fas fa-hand-point-left r-180"></i></span>
                         </button>
                     </div>
                 </div>

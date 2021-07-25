@@ -255,6 +255,10 @@ button.silver-progress-button > span {
     font-weight: bold;
     background-color: #CDC1FF;
     color: #fff;
+    i {
+        transform: rotateZ(0deg);
+        transition: 0.5s;
+    }
 }
 
 
@@ -262,10 +266,20 @@ button.silver-progress-button:hover {
     cursor: pointer;
 }
 
-button.silver-progress-button:hover > span {
-    animation: linear 0.5s button-handler-move;
-    color: #7371FC;
-    right: calc(100% - 44px);
+button.silver-progress-button:hover {
+    > span {
+        animation: linear 0.5s button-handler-move;
+        color: #7371FC;
+        right: calc(100% - 44px);
+        i {
+            animation: rotate180 0.5s ease-out;
+            transform: rotateZ(180deg);
+        }
+        i.r-180 {
+            animation: rotate-180 0.5s linear !important;
+            transform: rotateZ(-180deg) !important;
+        }
+    }
 }
 
 button.silver-progress-button > p.before {
@@ -433,6 +447,7 @@ span.back-aqua {
                 color: $white;
                 text-align: center;
                 margin-bottom: 5px;
+                line-height: 2rem;
             }
             ul {
                 text-align: right;
@@ -441,6 +456,7 @@ span.back-aqua {
                 width: 100%;
                 margin: 0px;
                 padding: 0px 20px;
+                font-size: 14px;
             }
         }
         &:hover {

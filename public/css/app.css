@@ -10197,6 +10197,18 @@ h3 {
     font-size: 18px !important;
   }
 
+  .title {
+    font-size: 19px !important;
+  }
+
+  .portfolio-detail {
+    padding: 10px 10px !important;
+  }
+  .portfolio-detail p {
+    line-height: 1.5rem !important;
+    font-size: 16px !important;
+  }
+
   .order-section {
     flex-direction: column !important;
     align-items: center !important;
@@ -10514,6 +10526,13 @@ h3 {
   .m-text-center {
     text-align: center !important;
   }
+
+  .portfolio-detail p {
+    font-size: 14px !important;
+  }
+  .portfolio-detail ul {
+    font-size: 10px !important;
+  }
 }
 @media screen and (max-width: 360px) {
   .service-item h1 {
@@ -10537,6 +10556,17 @@ h3 {
   }
   .progress-bar-container span {
     font-size: 18px !important;
+  }
+
+  .portfolio-detail {
+    padding: 5px 5px !important;
+  }
+  .portfolio-detail p {
+    font-size: 14px !important;
+    line-height: 1.3rem;
+  }
+  .portfolio-detail ul {
+    font-size: 8px !important;
   }
 }
 @media screen and (min-width: 1800px) {
@@ -10766,6 +10796,38 @@ a:hover {
   }
   100% {
     right: calc(100% - 44px);
+  }
+}
+@-webkit-keyframes rotate180 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+@keyframes rotate180 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+@-webkit-keyframes rotate-180 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-180deg);
+  }
+}
+@keyframes rotate-180 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-180deg);
   }
 }
 .section, .title-section {
@@ -11021,6 +11083,10 @@ button.silver-progress-button > span {
   background-color: #CDC1FF;
   color: #fff;
 }
+button.silver-progress-button > span i {
+  transform: rotateZ(0deg);
+  transition: 0.5s;
+}
 
 button.silver-progress-button:hover {
   cursor: pointer;
@@ -11031,6 +11097,16 @@ button.silver-progress-button:hover > span {
           animation: linear 0.5s button-handler-move;
   color: #7371FC;
   right: calc(100% - 44px);
+}
+button.silver-progress-button:hover > span i {
+  -webkit-animation: rotate180 0.5s ease-out;
+          animation: rotate180 0.5s ease-out;
+  transform: rotateZ(180deg);
+}
+button.silver-progress-button:hover > span i.r-180 {
+  -webkit-animation: rotate-180 0.5s linear !important;
+          animation: rotate-180 0.5s linear !important;
+  transform: rotateZ(-180deg) !important;
 }
 
 button.silver-progress-button > p.before {
@@ -11201,6 +11277,7 @@ span.back-aqua i {
   color: #fff;
   text-align: center;
   margin-bottom: 5px;
+  line-height: 2rem;
 }
 .portfolio-section .portfolio .portfolio-detail ul {
   text-align: right;
@@ -11209,6 +11286,7 @@ span.back-aqua i {
   width: 100%;
   margin: 0px;
   padding: 0px 20px;
+  font-size: 14px;
 }
 .portfolio-section .portfolio:hover .portfolio-avatar img {
   transition: 0.3s;

@@ -101,3 +101,22 @@ a:hover {
         right: calc(100% - 44px);
     }
 }
+
+@keyframes rotate180 {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
+
+@keyframes rotate-180 {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(-180deg);
+    }
+}
+
