@@ -171,7 +171,7 @@
 </div>
 <!-- end guide section -->
 <!-- other services -->
-<div class="section w-100 mt-3 mb-5">
+<div class="section w-100 mt-3 mt-md-5 mb-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h2 class="title-text">دیگر خدمات دایا</h2>
@@ -179,79 +179,79 @@
     </div>
     <div class="other-services-container w-100">
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-ad"></i></span>
             <h2>بنر تبلیغاتی</h2>
             <h3>طراحی بنر دیجیتالی و چاپی</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-map"></i></span>
             <h2>بروشور</h2>
             <h3>طراحی انواع بروشور ها</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-sticky-note"></i></span>
             <h2>تراکت</h2>
             <h3>طراحی تراکت در انواع سایز و مدل</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-image"></i></span>
             <h2>اسلایدر وب سایت</h2>
             <h3>طراحی اسلایدر های حرفه ای</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fab fa-elementor"></i></span>
             <h2>منو رستوران و کافی شاپ</h2>
             <h3>منو های خاص و شکیل</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fab fa-instagram"></i></span>
             <h2>صفحات مجازی</h2>
             <h3>طراحی قالب ، کاور ،‌پروفایل و ...</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-envelope"></i></span>
             <h2>پاکت نامه</h2>
             <h3>پاکت های نامه رسمی و فانتزی</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-images"></i></span>
             <h2>بیلبورد</h2>
             <h3>طراحی انواع بیلبورد و استند و استرابورد</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-guitar"></i></span>
             <h2>موزیک</h2>
             <h3>کاور ، تم آلبوم و ...</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-calendar-check"></i></span>
             <h2>تقویم</h2>
             <h3>طراحی انواع تقویم و سررسید</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-receipt"></i></span>
             <h2>فاکتور</h2>
             <h3>طراحی انواع فاکتور های خاص و اداری</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
-            <h2>جلذ کتاب</h2>
+            <span class="back-aqua"><i class="fas fa-book-open"></i></span>
+            <h2>جلد کتاب</h2>
             <h3>جلد انواع کتاب ، مجلات و ...</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-plus"></i></span>
+            <span class="back-aqua"><i class="fas fa-box"></i></span>
             <h2>بسته بندی</h2>
             <h3>بسته بندی های ساده و خاص</h3>
             <button class="btn btn-gradient">سفارش</button>
