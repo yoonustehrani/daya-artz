@@ -10584,6 +10584,15 @@ h3 {
     bottom: 0px !important;
     margin-bottom: 40px !important;
   }
+
+  p {
+    font-size: 36px !important;
+    line-height: 6rem !important;
+  }
+
+  ul {
+    font-size: 26px !important;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1201px) {
   .policy-header {
@@ -10614,6 +10623,14 @@ h3 {
   }
 }
 @media screen and (min-width: 1200px) {
+  .portfolio-detail p {
+    font-size: 18px !important;
+    line-height: 1.5rem !important;
+  }
+  .portfolio-detail ul {
+    font-size: 16px !important;
+  }
+
   .policy-header {
     height: 550px;
   }
@@ -11067,6 +11084,8 @@ button.silver-progress-button p {
   align-items: center;
   height: 100%;
   opacity: 1;
+  font-size: 18px !important;
+  line-height: initial !important;
 }
 
 button.silver-progress-button > span {

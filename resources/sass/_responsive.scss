@@ -569,6 +569,13 @@ $xl-xl-breakpoint: 1400px;
         bottom: 0px !important;
         margin-bottom: 40px !important;
     }
+    p {
+        font-size: 36px !important;
+        line-height: 6rem !important;
+    }
+    ul {
+        font-size: 26px !important;
+    }
 }
 
 // medium - xl
@@ -600,6 +607,15 @@ $xl-xl-breakpoint: 1400px;
 
 // xl and above
 @media screen and (min-width: $xl-breakpoint) {
+    .portfolio-detail {
+        p {
+            font-size: 18px !important;
+            line-height: 1.5rem !important;
+        }
+        ul {
+            font-size: 16px !important;
+        }
+    }
     .policy-header {
         height: 550px;
         h2 {
