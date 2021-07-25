@@ -10038,16 +10038,16 @@ h3 {
   }
 }
 @media screen and (max-width: 993px) and (min-width: 768px) {
-  .header > nav .last-item {
+  .header > nav .last-item, .min-header > nav .last-item {
     left: 2% !important;
   }
-  .header > nav ul {
+  .header > nav ul.main-menu, .min-header > nav ul.main-menu {
     width: calc(98% - 70px) !important;
   }
-  .header > nav ul li {
+  .header > nav ul.main-menu li, .min-header > nav ul.main-menu li {
     margin: 0px 2px !important;
   }
-  .header > nav ul li a {
+  .header > nav ul.main-menu li a, .min-header > nav ul.main-menu li a {
     font-size: 16px !important;
   }
 
@@ -10059,6 +10059,10 @@ h3 {
   }
   div.contact-ways-container > div div.address-label h3 {
     font-size: 18px !important;
+  }
+
+  .contact-us-first-section.mb-4 .contact-us-form {
+    top: 14% !important;
   }
 
   .post-info-flex span {
@@ -10100,16 +10104,26 @@ h3 {
     width: 30% !important;
   }
 
-  .step-info-t {
-    bottom: 100px !important;
+  .step-info {
+    width: 140px !important;
   }
-
-  .step-info-b {
-    bottom: 230px !important;
-  }
-
   .step-info h4 {
-    font-size: 20px !important;
+    font-size: 16px !important;
+  }
+  .step-info p {
+    font-size: 14px !important;
+  }
+
+  .l-75 .step-info {
+    transform: translateX(calc(((2640px - 100vw) / -4) + 285px)) translateY(calc(((2640px - 100vw) / -6) + 220px)) !important;
+  }
+
+  .l-25 .step-info {
+    transform: translateX(calc(((2640px - 100vw) / -4) + 268px)) translateY(calc(((2640px - 100vw) / -6) + 220px)) !important;
+  }
+
+  .t-0 .step-info {
+    right: -10% !important;
   }
 
   .step-item {
@@ -10125,8 +10139,8 @@ h3 {
     transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
   }
 
-  .steps-info-container {
-    margin-bottom: -80px !important;
+  .step-container {
+    margin-bottom: 6% !important;
   }
 
   .b-0 {
@@ -10144,6 +10158,14 @@ h3 {
   .match-line {
     height: 12px !important;
   }
+
+  .match-line-1 {
+    left: 29% !important;
+  }
+
+  .match-line-2 {
+    left: 62% !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
@@ -10156,10 +10178,6 @@ h3 {
   .policy-header .header-vector, .policy-header .services-vector {
     top: 50%;
     transform: translateY(-50%);
-  }
-
-  .daya-guide .background-left {
-    width: 45% !important;
   }
 
   .services-header {
@@ -10207,23 +10225,49 @@ h3 {
     justify-content: center !important;
   }
 
+  .contact-us-first-section div.contact-us-background {
+    height: auto !important;
+  }
   .contact-us-first-section .contact-us-form {
     position: relative !important;
     top: 0 !important;
     right: 0 !important;
     left: 0 !important;
+    width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
   }
   .contact-us-first-section .contact-us-form h4 {
-    font-size: 24px !important;
+    font-size: 20px !important;
+  }
+  .contact-us-first-section .contact-us-form input, .contact-us-first-section .contact-us-form textarea {
+    font-size: 16px !important;
+  }
+  .contact-us-first-section .contact-us-form button {
+    font-size: 16px !important;
   }
   .contact-us-first-section .background-left {
-    width: 86% !important;
+    width: 100% !important;
   }
   .contact-us-first-section .background-right {
     top: 2% !important;
   }
   .contact-us-first-section .contact-us-vector-1 {
     top: 2% !important;
+    width: 100%;
+  }
+
+  div.contact-ways-container > div {
+    height: auto !important;
+  }
+  div.contact-ways-container > div i.contact-way-icon {
+    font-size: 40px !important;
+  }
+  div.contact-ways-container > div div.address-label .label-icon {
+    font-size: 25px !important;
+  }
+  div.contact-ways-container > div div.address-label h3 {
+    font-size: 18px !important;
   }
 
   .mt-20px {
@@ -10318,6 +10362,21 @@ h3 {
     height: 1000px !important;
     width: 100% !important;
     position: static !important;
+    margin-bottom: auto !important;
+  }
+  .step-container .step-item-container {
+    width: 100% !important;
+    position: relative !important;
+    left: 0 !important;
+    bottom: unset !important;
+    top: unset !important;
+    right: unset !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
   }
   .step-container .step-item {
     position: relative !important;
@@ -10370,28 +10429,19 @@ h3 {
     z-index: 12 !important;
   }
   .step-container .step-info {
-    width: calc(100vw - 100px) !important;
-    right: unset !important;
-    left: 70% !important;
     position: relative !important;
-    bottom: 0 !important;
+    width: calc(100% - 120px) !important;
+    right: 0 !important;
+    bottom: unset !important;
+    left: unset !important;
+    top: unset !important;
+    transform: none !important;
+    margin: 0 !important;
   }
   .step-container .step-info h4 {
     font-size: 20px !important;
-    font-weight: bold;
-    padding-bottom: 5px;
-    border-bottom-width: 3px;
-    border-right-width: 0px;
-    border-left-width: 0px;
-    border-top-width: 0px;
-    border-style: solid;
-    margin-left: auto;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
   }
   .step-container .step-info p {
-    font-size: 16px !important;
     line-height: 1.5 !important;
   }
 
@@ -10402,16 +10452,12 @@ h3 {
     font-size: 20px !important;
   }
 
-  .daya-guide .background-left {
-    width: 62% !important;
-  }
-
   .services-header {
     height: auto !important;
   }
 
   .group-name {
-    margin-top: 30px !important;
+    margin-top: 10px !important;
   }
 
   .main-service {
@@ -10438,6 +10484,14 @@ h3 {
   .order-section {
     margin-left: 0 !important;
   }
+
+  .title-bigger {
+    font-size: 30px !important;
+  }
+
+  .search-box-services button, .search-box-services input {
+    font-size: 16px !important;
+  }
 }
 @media screen and (max-width: 425px) {
   footer.footer .footer-content {
@@ -10459,10 +10513,6 @@ h3 {
 
   .m-text-center {
     text-align: center !important;
-  }
-
-  .daya-guide .background-left {
-    width: 46% !important;
   }
 }
 @media screen and (max-width: 360px) {
@@ -10505,26 +10555,6 @@ h3 {
     margin-bottom: 40px !important;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1300px) {
-  div.contact-us-first-section h4 {
-    font-size: 22px !important;
-  }
-  div.contact-us-first-section div.background-right {
-    top: 1% !important;
-  }
-  div.contact-us-first-section div.contact-us-form {
-    top: 6% !important;
-  }
-  div.contact-us-first-section div.contact-us-form input, div.contact-us-first-section div.contact-us-form textarea {
-    font-size: 16px !important;
-  }
-  div.contact-us-first-section div.contact-us-form button {
-    font-size: 16px !important;
-  }
-  div.contact-us-first-section div.contact-us-form textarea {
-    height: 150px !important;
-  }
-}
 @media screen and (min-width: 768px) and (max-width: 1201px) {
   .policy-header {
     height: 400px;
@@ -10541,6 +10571,17 @@ h3 {
   .recommand-post-date {
     font-size: 16px !important;
   }
+
+  div.contact-us-background {
+    height: 435px !important;
+  }
+
+  div.contact-us-form h4 {
+    font-size: 22px !important;
+  }
+  div.contact-us-form input, div.contact-us-form textarea, div.contact-us-form button {
+    font-size: 16px !important;
+  }
 }
 @media screen and (min-width: 1200px) {
   .policy-header {
@@ -10552,10 +10593,37 @@ h3 {
   .policy-header p {
     font-size: 24px !important;
   }
+
+  .step-container {
+    margin-bottom: 16% !important;
+  }
+  .step-container .step-2 .step-index, .step-container .step-4 .step-index {
+    transform: rotateY(68deg) rotateZ(-90deg) translateY(-156%) translateX(-114%) translateZ(-150px) perspective(1000px) !important;
+  }
 }
 @media screen and (min-width: 992px) and (max-width: 1200px) {
-  .step-info-t {
-    bottom: 60px !important;
+  .contact-us-first-section.mb-4 .contact-us-form {
+    top: 8% !important;
+  }
+
+  .step-container {
+    margin-bottom: 8% !important;
+  }
+
+  .l-25 .step-info, .l-75 .step-info {
+    transform: translateX(calc(((2640px - 100vw) / -4) + 310px)) translateY(calc(((2640px - 100vw) / -6) + 230px)) !important;
+  }
+
+  .step-info {
+    width: 140px !important;
+  }
+  .step-info h4 {
+    font-size: 20px !important;
+  }
+
+  .t-0 .step-info {
+    right: 8% !important;
+    margin-top: 12% !important;
   }
 }
 html, body {
@@ -11444,42 +11512,61 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   transform: scaleX(-1);
 }
 
+.daya-guide div.contact-us-background {
+  height: 470px;
+}
+.daya-guide div.contact-us-form {
+  top: 8%;
+  width: 40%;
+}
+
+div.contact-us-first-section.mb-4 div.contact-us-background {
+  height: 570px;
+}
+div.contact-us-first-section.mb-4 div.contact-us-form {
+  top: 22%;
+  width: 45%;
+}
+
 div.contact-us-first-section {
   position: relative;
 }
 div.contact-us-first-section div.contact-us-background {
   position: relative;
+  width: auto;
 }
 div.contact-us-first-section div.contact-us-background div.background-left {
   position: relative;
   top: 0;
-  width: 60%;
+  height: 100%;
+  width: 75%;
 }
 div.contact-us-first-section div.contact-us-background div.background-left img {
+  height: 100%;
   width: 100%;
-  height: auto;
 }
 div.contact-us-first-section div.contact-us-background div.background-right {
   position: absolute;
   top: 6%;
   right: 8%;
-  width: 34%;
+  height: 100%;
+  width: auto;
 }
 div.contact-us-first-section div.contact-us-background div.background-right img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 div.contact-us-first-section div.contact-us-vector-1 {
   position: absolute;
   top: 11%;
+  height: 100%;
+  width: auto;
 }
 div.contact-us-first-section div.contact-us-vector-1 img {
-  width: 100%;
-  height: auto;
+  height: 100%;
 }
 div.contact-us-first-section div.contact-us-form {
   position: absolute;
-  top: 22%;
   right: 2%;
 }
 div.contact-us-first-section div.contact-us-form h4 {
@@ -12108,6 +12195,54 @@ div.step-container {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 12%;
+}
+div.step-container .step-item-container {
+  position: absolute;
+}
+div.step-container .step-item-container.t-0 {
+  top: 0%;
+  transform: none !important;
+}
+div.step-container .step-item-container.t-0 .step-info {
+  right: 0%;
+  margin-top: 15%;
+}
+div.step-container .step-item-container.b-0 {
+  bottom: 50px;
+  transform: none !important;
+}
+div.step-container .step-item-container.l-75 .step-info {
+  transform: translateX(calc(((2640px - 100vw) / -4) + 260px)) translateY(calc(((2640px - 100vw) / -6) + 230px));
+}
+div.step-container .step-item-container.l-25 .step-info {
+  transform: translateX(calc(((2640px - 100vw) / -4) + 245px)) translateY(calc(((2640px - 100vw) / -6) + 230px));
+}
+div.step-container .step-item-container .step-info {
+  position: absolute;
+  width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+div.step-container .step-item-container .step-info h4 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom-width: 3px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-top-width: 0px;
+  border-style: solid;
+  margin-left: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+div.step-container .step-item-container .step-info p {
+  font-size: 16px;
+  line-height: unset !important;
 }
 div.step-container .l-0 {
   left: 0%;
@@ -12116,11 +12251,9 @@ div.step-container .r-0 {
   right: 0%;
 }
 div.step-container .t-0 {
-  top: 0%;
   transform: rotateX(45deg) rotateZ(45deg) perspective(1000px);
 }
 div.step-container .b-0 {
-  bottom: 50px;
   transform: rotateX(45deg) rotateZ(45deg) perspective(1000px) translateX(calc(((1500px - 100vw) / -3) + 16px));
 }
 div.step-container .l-25 {
@@ -12174,7 +12307,6 @@ div.step-container .step-index {
   transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-150px) perspective(1000px);
 }
 div.step-container .step-item {
-  position: absolute;
   transform-style: preserve-3d;
   perspective-origin: top;
   width: 150px;
@@ -12244,47 +12376,6 @@ div.step-container .step-item {
 }
 .step-5 h4 {
   border-color: #351a60;
-}
-
-.steps-info-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-}
-.steps-info-container .step-info {
-  text-align: right;
-  position: relative;
-  width: 15%;
-  right: 2%;
-}
-.steps-info-container .step-info h4 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom-width: 3px;
-  border-right-width: 0px;
-  border-left-width: 0px;
-  border-top-width: 0px;
-  border-style: solid;
-  margin-left: auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.steps-info-container .step-info p {
-  font-size: 16px;
-  line-height: unset !important;
-}
-
-.step-info-b {
-  bottom: 200px;
-}
-
-.step-info-t {
-  bottom: 40px;
 }
 
 .start-order-section {

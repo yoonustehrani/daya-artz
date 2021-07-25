@@ -757,42 +757,64 @@ div.fast-order-container {
 }
 // end About us
 
+.daya-guide {
+    div.contact-us-background {
+        height: 470px;
+    }
+    div.contact-us-form {
+        top: 8%;
+        width: 40%;
+    }
+}
+
 // contact us page
+div.contact-us-first-section.mb-4 {
+    div.contact-us-background {
+        height: 570px;
+    }
+    div.contact-us-form {
+        top: 22%;
+        width: 45%;
+    }
+}
 div.contact-us-first-section {
     position: relative;
     div.contact-us-background {
         position: relative;
+        width: auto;
         div.background-left {
             position: relative;
             top: 0;
-            width: 60%;
+            height: 100%;
+            width: 75%;
             img {
+                height: 100%;
                 width: 100%;
-                height: auto;
             }
         }
         div.background-right {
             position: absolute;
             top: 6%;
             right: 8%;
-            width: 34%;
+            height: 100%;
+            width: auto;
             img {
-                width: 100%;
-                height: auto;
+                width: auto;
+                height: 100%;
             }
         }
     }
     div.contact-us-vector-1 {
         position: absolute;
         top: 11%;
+        height: 100%;
+        width: auto;
         img {
-            width: 100%;
-            height: auto;
+            height: 100%;
         }
     }
     div.contact-us-form {
         position: absolute;
-        top: 22%;
         right: 2%;
         h4 {
           text-align: right;  
@@ -1288,6 +1310,54 @@ div.step-container {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 12%;
+    .step-item-container {
+        position: absolute;
+        &.t-0 {
+            top: 0%;
+            transform: none !important;
+            .step-info {
+                right: 0%;
+                margin-top: 15%;
+            }
+        }
+        &.b-0 {
+            bottom: 50px;
+            transform: none !important;
+        }
+        &.l-75 {
+            .step-info {
+                transform: translateX(calc(((2640px - 100vw) / -4) + 260px)) translateY(calc(((2640px - 100vw) / -6) + 230px));
+            }
+        }
+        &.l-25 {
+            .step-info {
+                transform: translateX(calc(((2640px - 100vw) / -4) + 245px)) translateY(calc(((2640px - 100vw) / -6) + 230px));
+            }
+        }
+        .step-info {
+            position: absolute;
+            width: 200px;
+            height: fit-content;
+            h4 {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                border-bottom-width: 3px;
+                border-right-width: 0px;
+                border-left-width: 0px;
+                border-top-width: 0px;
+                border-style: solid;
+                margin-left: auto;
+                width: fit-content;
+            }
+            p {
+                font-size: 16px;
+                line-height: unset !important;
+            }
+        }
+    }
     .l-0 {
         left: 0%;
     }
@@ -1295,11 +1365,9 @@ div.step-container {
         right: 0%;
     }
     .t-0 {
-        top: 0%;
         transform: rotateX(45deg) rotateZ(45deg) perspective(1000px);
     }
     .b-0 {
-        bottom: 50px;
         transform: rotateX(45deg) rotateZ(45deg) perspective(1000px) translateX(calc(((1500px - 100vw) / -3) + 16px));
     }
     .l-25 {
@@ -1353,7 +1421,6 @@ div.step-container {
         transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-150px) perspective(1000px);
     }
     .step-item {
-        position: absolute;
         transform-style: preserve-3d;
         perspective-origin: top;
         width: 150px;
@@ -1429,42 +1496,6 @@ div.step-container {
     h4 {
         border-color: #351a60;
     }
-}
-.steps-info-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
-    .step-info {
-        text-align: right;
-        position: relative;
-        width: 15%;
-        right: 2%;
-        h4 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom-width: 3px;
-            border-right-width: 0px;
-            border-left-width: 0px;
-            border-top-width: 0px;
-            border-style: solid;
-            margin-left: auto;
-            width: fit-content;
-        }
-        p {
-            font-size: 16px;
-            line-height: unset !important;
-        }
-    }
-}
-.step-info-b {
-    bottom: 200px;
-}
-.step-info-t {
-    bottom: 40px;
 }
 // end service
 // start order 1

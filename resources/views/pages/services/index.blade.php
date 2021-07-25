@@ -64,7 +64,7 @@
 </div>
 <!-- end search section -->
 <!-- main services section -->
-<div class="section w-100 mt-5 mb-5">
+<div class="section w-100 mt-5 mb-0 mb-md-3">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h2 class="title-text">خدمات اصلی دایا آرتز</h2>
@@ -141,35 +141,37 @@
 </div>
 <!-- end main services -->
 <!-- guide section -->
-<div class="section contact-us-first-section daya-guide w-100 text-center mb-4">
-    <div class="title-section mb-5 w-100">
+<div class="section w-100 text-center mb-4 daya-guide">
+    <div class="title-section w-100">
         <div class="title-container">
             <h2 class="title-text">راهنمای دایا</h2>
         </div>
     </div>
-    <div class="contact-us-background w-100">
-        <div class="background-left">
-            <img src="{{ asset('images/contact-us-background-2.png') }}" alt="">
+    <div class="section contact-us-first-section w-100 text-center">
+        <div class="contact-us-background w-100">
+            <div class="background-left">
+                <img src="{{ asset('images/contact-us-background-2.png') }}" alt="">
+            </div>
+            <div class="background-right">
+                <img src="{{ asset('images/contact-us-background-1.png') }}" alt="">
+            </div>
+            <div class="contact-us-vector-1">
+                <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="">
+            </div>
         </div>
-        <div class="background-right">
-            <img src="{{ asset('images/contact-us-background-1.png') }}" alt="">
+        <div class="contact-us-form">
+            <h4 class="mb-3 mb-md-2 mb-md-4">به راهنمایی احتیاج داری</h4>
+            <form action="#">
+                <div class="input-group mb-2 mb-md-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
+                <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>
+                <button class="float-left btn btn-dark">ارسال پیام</button>
+            </form>
         </div>
-        <div class="contact-us-vector-1 col-12 col-md-7 p-md-0">
-            <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="">
-        </div>
-    </div>
-    <div class="contact-us-form col-12 col-md-5 mt-0 mb-md-0">
-        <h4 class="mb-3 mb-md-2 mb-lg-4">به راهنمایی احتیاج داری؟</h4>
-        <form action="#">
-            <div class="input-group mb-2 mb-lg-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
-            <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>
-            <button class="float-left btn btn-dark">ارسال پیام</button>
-        </form>
     </div>
 </div>
 <!-- end guide section -->
 <!-- other services -->
-<div class="section w-100 mt-5 mb-5">
+<div class="section w-100 mt-3 mb-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h2 class="title-text">دیگر خدمات دایا</h2>
