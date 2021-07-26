@@ -16,5 +16,6 @@
     <footer class="section w-100 footer">
         @include('components.footer')
     </footer>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

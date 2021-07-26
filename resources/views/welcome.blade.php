@@ -1,36 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+@extends('layouts.default')
+@section('head')
     <title>Daya Artz</title>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        @include('components.header')
-        <div class="header-section">
-            <div class="header-text p-4 col-12 col-md-6">
-                <h1>لوگوی خودتون رو <span>شگفت زده</span> کنید</h1>
-                <br>
-                <p><b>دایا آرتز</b> ؛ نخستین مرکز طراحی گرافیک با رویکرد استارتاپی<br>
-                تیم طراحی دایا ارائه دهنده خدمات گرافیکی با رویکردی متفاوت است ، در دایا رنگ ها و ترسیمات از زیر ذره بین ایده و مفهوم می گذرند تا به جلایی تازه به هویت برند شما بخشیده شود و پوسته ظاهر و برند فعالیت شما به رنگ هسته ایده و هویت حقیقی اش برسد . دایا آرتز تزریق رنگ ایده هایتان به شخصیت شماست . برای آشنایی بیشتر با عقاید دایا آرتز کلیک کنید </p>
-                <div class="header-btn-container mt-4 mt-md-0">
-                    <button class="btn badge-pill bg-purple ml-4">آشنایی بیشتر</button>
-                    <button class="btn btn-gradient bg-aqua">شروع سفارش</button>
-                </div>
-            </div>
-            <div class="header-vector col-12 col-md-6">
-                <img src="{{ asset('images/header-vector.svg') }}" alt="header-vector">
-                <div class="triangle d-none d-md-block"></div>
+@endsection
+<!-- Header -->
+@section('header')
+    <div class="header-section">
+        <div class="header-text p-4 col-12 col-md-6">
+            <h1>لوگوی خودتون رو <span>شگفت زده</span> کنید</h1>
+            <br>
+            <p><b>دایا آرتز</b> ؛ نخستین مرکز طراحی گرافیک با رویکرد استارتاپی<br>
+            تیم طراحی دایا ارائه دهنده خدمات گرافیکی با رویکردی متفاوت است ، در دایا رنگ ها و ترسیمات از زیر ذره بین ایده و مفهوم می گذرند تا به جلایی تازه به هویت برند شما بخشیده شود و پوسته ظاهر و برند فعالیت شما به رنگ هسته ایده و هویت حقیقی اش برسد . دایا آرتز تزریق رنگ ایده هایتان به شخصیت شماست . برای آشنایی بیشتر با عقاید دایا آرتز کلیک کنید </p>
+            <div class="header-btn-container mt-4 mt-md-0">
+                <button class="btn badge-pill bg-purple ml-4">آشنایی بیشتر</button>
+                <button class="btn btn-gradient bg-aqua">شروع سفارش</button>
             </div>
         </div>
-    </header>
-    <!-- end Header -->
-    <!-- Services -->
+        <div class="header-vector col-12 col-md-6">
+            <img src="{{ asset('images/header-vector.svg') }}" alt="header-vector">
+            <div class="triangle d-none d-md-block"></div>
+        </div>
+    </div>
+@endsection
+<!-- end Header -->
+@section('content')
+<!-- Services -->
     <div class="section col-12 p-4">
         <div class="col-12 title-section mb-3">
             <div class="title-container">
@@ -93,6 +86,7 @@
         </div>
     </div>
     <!-- end Services -->
+
     <!-- Ordering Methods -->
     <div class="section w-100 order-section-container">
         <div class="background-order dotted-background w-100 p-0">
@@ -111,7 +105,7 @@
                     <h4 class="mb-3">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <h4 class="mb-3">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
+                    <h4 class="mb-4">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
                     <div class="order-btn-container mb-5 mr-md-3 mt-lg-4">
                         <button class="btn btn-gradient silver-progress-button">
                             <p class="before">شروع سفارش</p>
@@ -130,7 +124,7 @@
                     <h4 class="mb-3">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
                     <h4 class="mb-3">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-3">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
+                    <h4 class="mb-4">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
                     <div class="order-btn-container mr-md-3 mt-lg-4">
                         <button class="btn btn-gradient silver-progress-button reverse">
                             <p class="before">شروع سفارش</p>
@@ -143,7 +137,7 @@
         </div>
     </div>
     <!-- end Ordering Methods -->
-    
+
     <!-- contact daya -->
     <div class="section w-100 mt-5 mb-5">
         <div class="absolute-contact w-100">
@@ -230,7 +224,7 @@
         </div>
     </div>
     <!-- end progress bars -->
-    
+
     <!-- About Daya -->
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
@@ -246,6 +240,7 @@
         </div>
     </div>
     <!-- end About Daya -->
+
     <!-- About Logo -->
     <div class="col-12 mt-5 title-section">
         <div class="title-container">
@@ -281,6 +276,7 @@
         </div>
     </div>
     <!-- end About Logo -->
+
     <!-- Portfolio -->
     <div class="section col-12 p-4 mb-2">
         <div class="col-12 title-section">
@@ -389,6 +385,7 @@
         </div>
     </div>
     <!-- end Portfolio -->
+
     <!-- fast order -->
     <div class="section fast-order-container w-100 mb-5">
         <div class="title-section w-100 mb-5">
@@ -439,6 +436,7 @@
         </div>
     </div>
     <!-- end fast order -->
+
     <!-- daya blog -->
     <div class="section w-100">
         <div class="title-section col-12 mb-3">
@@ -484,10 +482,4 @@
         </div>
     </div>
     <!-- end daya blog -->
-    <!-- footer -->
-    <footer class="section w-100 footer">
-        @include('components.footer')
-    </footer>
-    <!-- end footer -->
-</body>
-</html>
+@endsection

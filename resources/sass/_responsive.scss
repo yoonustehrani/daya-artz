@@ -576,6 +576,16 @@ $xl-xl-breakpoint: 1400px;
     ul {
         font-size: 26px !important;
     }
+    .portfolio-detail {
+        padding: 15px 15px !important;
+        p {
+            font-size: 22px !important;
+            line-height: 2rem !important;
+        }
+        ul {
+            font-size: 20px !important;
+        }
+    }
 }
 
 // medium - xl
@@ -605,17 +615,23 @@ $xl-xl-breakpoint: 1400px;
     }
 }
 
-// xl and above
-@media screen and (min-width: $xl-breakpoint) {
+// xl
+@media screen and (min-width: $xl-breakpoint) and (max-width: $xl-xl-breakpoint) {
     .portfolio-detail {
+        padding: 15px 15px !important;
         p {
             font-size: 18px !important;
             line-height: 1.5rem !important;
+            margin-bottom: 15px;
         }
         ul {
-            font-size: 16px !important;
+            font-size: 14px !important;
         }
     }
+}
+
+// xl and above
+@media screen and (min-width: $xl-breakpoint) {
     .policy-header {
         height: 550px;
         h2 {

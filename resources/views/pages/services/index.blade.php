@@ -245,7 +245,7 @@
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-book-open"></i></span>
+            <span class="back-aqua"><i class="fas fa-book"></i></span>
             <h2>جلد کتاب</h2>
             <h3>جلد انواع کتاب ، مجلات و ...</h3>
             <button class="btn btn-gradient">سفارش</button>

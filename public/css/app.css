@@ -10593,6 +10593,17 @@ h3 {
   ul {
     font-size: 26px !important;
   }
+
+  .portfolio-detail {
+    padding: 15px 15px !important;
+  }
+  .portfolio-detail p {
+    font-size: 22px !important;
+    line-height: 2rem !important;
+  }
+  .portfolio-detail ul {
+    font-size: 20px !important;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1201px) {
   .policy-header {
@@ -10622,15 +10633,20 @@ h3 {
     font-size: 16px !important;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  .portfolio-detail {
+    padding: 15px 15px !important;
+  }
   .portfolio-detail p {
     font-size: 18px !important;
     line-height: 1.5rem !important;
+    margin-bottom: 15px;
   }
   .portfolio-detail ul {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
-
+}
+@media screen and (min-width: 1200px) {
   .policy-header {
     height: 550px;
   }
