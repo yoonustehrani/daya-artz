@@ -1,7 +1,18 @@
 <nav>
-    <span class="d-md-none ml-2 mr-2 float-right">
+    <span class="d-md-none ml-2 mr-2 float-right" id="menu-toggle">
         <i class="fas fa-bars"></i>
+        <i class="fas fa-times op-0"></i>
     </span>
+    <div class="menu d-md-none">
+        <ul class="menu-items-container">
+            <li><img src="{{ asset('images/daya-logo-circular.png') }}"> DAYAARTZ</li>
+            <li>صفحه اصلی</li>
+            <li>سفارش</li>
+            <li>وبلاگ</li>
+            <li>درباره ما</li>
+            <li>تماس با ما</li>
+        </ul>
+    </div>
     <div class="logo-container">
         <img src="{{ asset('images/daya-white-logo.png') }}">
     </div>
