@@ -10065,6 +10065,10 @@ h3 {
     top: 14% !important;
   }
 
+  .fast-order-section {
+    width: 96% !important;
+  }
+
   .post-info-flex span {
     font-size: 15px !important;
     width: inherit !important;
@@ -10589,15 +10593,6 @@ h3 {
     margin-bottom: 40px !important;
   }
 
-  p {
-    font-size: 36px !important;
-    line-height: 6rem !important;
-  }
-
-  ul {
-    font-size: 26px !important;
-  }
-
   .portfolio-detail {
     padding: 15px 15px !important;
   }
@@ -10607,10 +10602,6 @@ h3 {
   }
   .portfolio-detail ul {
     font-size: 20px !important;
-  }
-
-  .fast-order-guide {
-    line-height: 4rem !important;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1201px) {
@@ -11355,11 +11346,11 @@ div.fast-order-container {
   height: auto;
 }
 div.fast-order-container .fast-order-section {
-  width: 96%;
+  width: 100%;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;

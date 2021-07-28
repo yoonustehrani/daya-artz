@@ -43,6 +43,9 @@ $xl-xl-breakpoint: 1400px;
             top: 14% !important;
         }
     }
+    .fast-order-section {
+        width: 96% !important;
+    }
     .post-info-flex {
         span {
             font-size: 15px !important;
@@ -572,13 +575,6 @@ $xl-xl-breakpoint: 1400px;
         bottom: 0px !important;
         margin-bottom: 40px !important;
     }
-    p {
-        font-size: 36px !important;
-        line-height: 6rem !important;
-    }
-    ul {
-        font-size: 26px !important;
-    }
     .portfolio-detail {
         padding: 15px 15px !important;
         p {
@@ -588,9 +584,6 @@ $xl-xl-breakpoint: 1400px;
         ul {
             font-size: 20px !important;
         }
-    }
-    .fast-order-guide {
-        line-height: 4rem !important;
     }
 }
 

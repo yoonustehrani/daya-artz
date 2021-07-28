@@ -483,11 +483,11 @@ div.fast-order-container {
     min-height: 500px;
     height: auto;
     .fast-order-section {
-        width: 96%;
+        width: 100%;
         display: flex;
         flex-direction: row-reverse ;
         justify-content: center;
-        align-items: flex-start;
+        align-items: stretch;
         flex-wrap: wrap;
         margin-left: auto;
         margin-right: auto;
