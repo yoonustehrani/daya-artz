@@ -267,7 +267,7 @@
             <span class="title-underline"></span>
         </div>
     </div>
-    <div class="fast-order-section text-center w-100">
+    <div class="fast-order-section text-center">
         <div class="col-12 col-md-6 col-lg-5 ml-lg-4 col-xl-5 mt-1 fast-order-guide">
             <h3 class="mb-5">فرم سفارش فوری</h3>
             <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی کورد نیاز خود منتظر تماس کارشناسان باشید.</p>
