@@ -101,6 +101,7 @@
             }
         }
         span.d-md-none {
+            width: 30px;
             position: relative;
             display: inline-block;
             top: 50%;
@@ -114,10 +115,10 @@
                 color: #ffffff !important;
                 cursor: pointer;
                 font-size: 35px;
-                transition: 1s;
+                transition: 1.4s;
                 opacity: 1;
                 display: inline;
-                animation: fadeIn 0.6s ease-out;
+                animation: fadeIn 1s ease-in;
             }
         }
         .last-item {
@@ -277,8 +278,9 @@ div.header-section {
     width: 90vw;
     height: 100vh;
     z-index: 20;
-    background-color: $light;
+    background: linear-gradient(to right bottom, #4568DC, #B06AB3);
     transition: 1s;
+    opacity: 0;
     .menu-items-container {
         display: flex;
         flex-direction: column;
@@ -292,8 +294,13 @@ div.header-section {
         li {
             padding: 14px 0px;
             font-weight: bold;
-            font-size: 18px;
-            color: $purple;
+            font-size: 20px;
+            color: #ffffff;
+            a {
+                font-weight: bold;
+                font-size: 18px;
+                color: #ffffff;
+            }
         }
         li:nth-child(1) {
             display: flex;
@@ -305,11 +312,55 @@ div.header-section {
                 margin-right: 6px;
             }
         }
+        li.has-sub {
+            > a {   
+                &::after {
+                    border-right: 8px solid #fff;
+                    border-bottom: 8px solid transparent;
+                    border-top: 8px solid transparent;
+                    transition: 0.5s;
+                    vertical-align: middle;
+                    content: "";
+                    display: inline-flex;
+                    margin-right: 15px;
+                    transform-origin: right;
+                }
+            }
+            .submenu-m {
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                text-align: right;
+                list-style-type: none;
+                overflow-y: auto;
+                display: none;
+                padding: 0;
+                li {
+                    padding: 10px 0px;
+                    a {
+                        font-weight: bold;
+                        font-size: 18px;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+        li.has-sub.open {
+            > a {
+                &::after {
+                    transform: rotateZ(-90deg);
+                }
+            }
+            .submenu-m {
+                display: flex;
+            }
+        }
     }
 }
 .menu.open {
     right: 0;
     top: 0;
+    opacity: 0.96;
 }
 .over-h {
     overflow-y: hidden !important;

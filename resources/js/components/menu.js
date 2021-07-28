@@ -4,4 +4,7 @@ $(document).ready(function() {
         $("body").toggleClass("over-h")
         $(".fa-bars, .fa-times").toggleClass("op-0")
     })
+    $(".has-sub").click(function() {
+        $(this).toggleClass("open")
+    })
 })

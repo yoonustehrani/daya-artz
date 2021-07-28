@@ -6,11 +6,25 @@
     <div class="menu d-md-none">
         <ul class="menu-items-container">
             <li><img src="{{ asset('images/daya-logo-circular.png') }}"> DAYAARTZ</li>
-            <li>صفحه اصلی</li>
-            <li>سفارش</li>
-            <li>وبلاگ</li>
-            <li>درباره ما</li>
-            <li>تماس با ما</li>
+            <li>
+                <a href="">صفحه اصلی</a>
+            </li>
+            <li class="has-sub">
+                <a href="#">سفارش</a>
+                <ul class="submenu-m">
+                    <li class="animated flipInX"><a href="">سفارش تخصصی</a></li>
+                    <li class="animated flipInX"><a href="">سفارش فوری</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">وبلاگ</a>
+            </li>
+            <li>
+                <a href="">درباره ما</a>
+            </li>
+            <li>
+                <a href="">تماس با ما</a>
+            </li>
         </ul>
     </div>
     <div class="logo-container">
