@@ -10245,6 +10245,10 @@ h3 {
     justify-content: center !important;
   }
 
+  .blog-post {
+    margin: 30px 0px !important;
+  }
+
   .contact-us-first-section div.contact-us-background {
     height: auto !important;
   }
@@ -11504,15 +11508,21 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   color: #C0C0C0;
 }
 
+.swiper-wrapper {
+  height: auto !important;
+}
+
 .blog-posts-container {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
 }
 .blog-posts-container .blog-post {
   position: relative;
-  margin: 30px 5px 30px 5px;
+  margin: 30px 5px;
 }
 .blog-posts-container .blog-post a {
   cursor: pointer;
