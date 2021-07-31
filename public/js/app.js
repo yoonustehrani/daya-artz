@@ -1890,8 +1890,123 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ "./resources/js/components/menu.js");
 /* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_menu__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./swiper */ "./resources/js/components/swiper.js");
+/* harmony import */ var _logo_fade__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logo-fade */ "./resources/js/components/logo-fade.js");
+/* harmony import */ var _logo_fade__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_logo_fade__WEBPACK_IMPORTED_MODULE_2__);
 
 
+
+
+/***/ }),
+
+/***/ "./resources/js/components/logo-fade.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/logo-fade.js ***!
+  \**********************************************/
+/***/ (() => {
+
+if ($(".portfolio-section")) {
+  // here we get send get req by ajax and get the items (paginated)
+  var items = [{
+    href: "#",
+    img_src: "images/gallery/orange-studio-logo.jpg",
+    title: "استودیو ترنج",
+    icon_class: "fa fa-brush",
+    properties: ["صنایع دستی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/reverse-logo.jpg",
+    title: "Reverse Band",
+    icon_class: "fas fa-headphones",
+    properties: ["موسیقی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/elnovel-logo.jpg",
+    title: "الناول",
+    icon_class: "fas fa-book-open",
+    properties: ["داستان و ادبیات", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/vispubish-logo.jpg",
+    title: "ویسپوپیش",
+    icon_class: "fas fa-pen",
+    properties: ["پایگاه مقالات ادبی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/sampi-logo.jpg",
+    title: "Sampi Tech Group",
+    icon_class: "fas fa-code",
+    properties: ["استارتاپ استودیو", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/tehran-tejarat-logo.jpg",
+    title: "تهران تجارت",
+    icon_class: "fas fa-briefcase",
+    properties: ["شرکت بازرگانی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/reverse-logo.jpg",
+    title: "Reverse Band",
+    icon_class: "fas fa-headphones",
+    properties: ["موسیقی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/orange-studio-logo.jpg",
+    title: "استودیو ترنج",
+    icon_class: "fa fa-brush",
+    properties: ["صنایع دستی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/vispubish-logo.jpg",
+    title: "ویسپوپیش",
+    icon_class: "fas fa-pen",
+    properties: ["پایگاه مقالات ادبی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/elnovel-logo.jpg",
+    title: "الناول",
+    icon_class: "fas fa-book-open",
+    properties: ["داستان و ادبیات", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/tehran-tejarat-logo.jpg",
+    title: "تهران تجارت",
+    icon_class: "fas fa-briefcase",
+    properties: ["شرکت بازرگانی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }, {
+    href: "#",
+    img_src: "images/gallery/sampi-logo.jpg",
+    title: "Sampi Tech Group",
+    icon_class: "fas fa-code",
+    properties: ["استارتاپ استودیو", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
+  }];
+  $(".portfolio-section").each(function (index) {
+    var item_index = 0;
+    var interval_time;
+    $(this).children().each(function (i) {
+      var _this = this;
+
+      interval_time = 5000;
+      setTimeout(function () {
+        setInterval(function () {
+          $(_this).children(".portfolio").toggleClass("fadeIn fadeOut");
+          setTimeout(function () {
+            $(_this).find("img").attr('src', items[item_index].img_src);
+            $(_this).find(".title").html(items[item_index].title);
+            $(_this).find("div.portfolio-detail > ul").children("li").each(function (list_item) {
+              $(this).html(items[item_index].properties[list_item]);
+
+              if (list_item === 0) {
+                $(this).html("".concat(items[item_index].properties[list_item], " <i class=\"").concat(items[item_index].icon_class, "\"></i>"));
+              }
+            });
+            $(_this).children(".portfolio").toggleClass("fadeIn fadeOut");
+            item_index + 1 === items.length ? item_index = 0 : item_index += 1;
+          }, 1000);
+        }, interval_time);
+      }, i * 150);
+    });
+  });
+}
 
 /***/ }),
 

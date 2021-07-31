@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <!-- first-section -->
+<!-- first-section -->
     <div class="section col-12 mt-4 service-first-section dotted-background">
         <div class="title-section w-100">
             <div class="title-container">
@@ -17,8 +17,8 @@
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
         </h4>
     </div>
-    <!-- end first-section -->
-    <!-- sevices benefits -->
+<!-- end first-section -->
+<!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height">
         <div class="header-text p-3 col-12 col-md-7">
             <h4>مزیت های دایا ...</h2>
@@ -33,8 +33,8 @@
         </div>
         <div class="triangle d-none d-md-block"></div>
     </div>
-    <!-- end sevices benefits -->
-    <!-- order steps -->
+<!-- end sevices benefits -->
+<!-- order steps -->
     <div class="section col-12 dotted-background">
         <div class="title-section mb-5 mt-4 w-100">
             <div class="title-container">
@@ -108,123 +108,19 @@
             </div>
         </div>
     </div> 
-    <!-- end order steps -->
-    <!-- start order 1 -->
+<!-- end order steps -->
+<!-- start order 1 -->
     <div class="section w-100 start-order-section">
         <div class="start-order-1 w-100 p-5">
             <h4>برای شروع روند سفارش کلیک کنید</h4>
             <button class="btn btn-dark badge-pill mt-4">شروع سفارش</button>
         </div>
     </div>
-    <!-- end start order 1 -->
-    <!-- logo sample -->
-    <div class="section w-100 p-4 mb-2">
-        <div class="col-12 title-section">
-            <div class="title-container">
-                <h2 class="title-text">نمونه لوگوها</h2>
-            </div>
-        </div>
-        <div class="col-12 mt-4 float-left portfolio-section p-2">
-            <a href="#">
-            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                <div class="portfolio-avatar">
-                    <img src="{{ asset('images/gallery/orange-studio-logo.jpg') }}" alt="">
-                </div>
-                <div class="portfolio-detail">
-                    <p class="title">استدیو ترنج</p>
-                    <ul>
-                        <li>صنایع دستی</li>
-                        <li>طراحی تخصصی</li>
-                        <li>عناصر مرتبط</li>
-                        <li>رنگ شناسی حرفه ای</li>
-                    </ul>
-                </div>
-            </div>
-            </a>
-            <a href="#">
-            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                <div class="portfolio-avatar">
-                    <img src="{{ asset('images/gallery/reverse-logo.jpg') }}" alt="">
-                </div>
-                <div class="portfolio-detail">
-                    <p class="title">Reverse Band</p>
-                    <ul>
-                        <li><i class="fas fa-headphones"></i> موسیقی</li>
-                        <li>طراحی تخصصی</li>
-                        <li>عناصر مرتبط</li>
-                        <li>رنگ شناسی حرفه ای</li>
-                    </ul>
-                </div>
-            </div>
-            </a>
-            <a href="#">
-            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                <div class="portfolio-avatar">
-                    <img src="{{ asset('images/gallery/elnovel-logo.jpg') }}" alt="">
-                </div>
-                <div class="portfolio-detail">
-                    <p class="title">ال ناول</p>
-                    <ul>
-                        <li>داستان و ادبیات <i class="fas fa-book-open"></i></li>
-                        <li>طراحی تخصصی</li>
-                        <li>عناصر مرتبط</li>
-                        <li>رنگ شناسی حرفه ای</li>
-                    </ul>
-                </div>
-            </div>
-            </a>
-            <a href="#">
-            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                <div class="portfolio-avatar">
-                    <img src="{{ asset('images/gallery/vispubish-logo.jpg') }}" alt="">
-                </div>
-                <div class="portfolio-detail">
-                    <p class="title">ویپوبیش</p>
-                    <ul>
-                        <li>پایگاه مقالات ادبی <i class="fas fa-pen"></i></li>
-                        <li>طراحی تخصصی</li>
-                        <li>عناصر مرتبط</li>
-                        <li>رنگ شناسی حرفه ای</li>
-                    </ul>
-                </div>
-            </div>
-            </a>
-            <a href="#">
-            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                <div class="portfolio-avatar">
-                    <img src="{{ asset('images/gallery/sampi-logo.jpg') }}" alt="">
-                </div>
-                <div class="portfolio-detail">
-                    <p class="title">Sampi Tech Group</p>
-                    <ul>
-                        <li>استارتاپ استدیو <i class="fas fa-code"></i></li>
-                        <li>طراحی تخصصی</li>
-                        <li>عناصر مرتبط</li>
-                        <li>رنگ شناسی حرفه ای</li>
-                    </ul>
-                </div>
-            </div>
-            </a>
-            <a href="#">
-            <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0">
-                <div class="portfolio-avatar">
-                    <img src="{{ asset('images/gallery/tehran-tejarat-logo.jpg') }}" alt="">
-                </div>
-                <div class="portfolio-detail">
-                    <p class="title">تهران تجارت</p>
-                    <ul>
-                        <li>شرکت بازرگانی <i class="fas fa-briefcase"></i></li>
-                        <li>طراحی تخصصی</li>
-                        <li>عناصر مرتبط</li>
-                        <li>رنگ شناسی حرفه ای</li>
-                    </ul>
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
-    <!-- end logo sample -->
-    <!-- order packs -->
+<!-- end start order 1 -->
+<!-- logo sample -->
+    @include('components.portfolio')
+<!-- end logo sample -->
+<!-- order packs -->
     <div class="section w-100 order-packs-section mb-5">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
@@ -277,8 +173,8 @@
             </div>
         </div>
     </div>
-    <!-- end order packs -->
-    <!-- contact ways -->
+<!-- end order packs -->
+<!-- contact ways -->
     <div class="section w-100 mt-5 mb-5 order-ways-section">
         <div class="title-section mb-5 w-100">
             <div class="title-container">
@@ -325,8 +221,8 @@
             </div>
         </div>
     </div>
-    <!-- end contact ways -->
-    <!-- guide section -->
+<!-- end contact ways -->
+<!-- guide section -->
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
@@ -355,8 +251,8 @@
             </div>
         </div>
     </div>
-    <!-- end guide section -->
-    <!-- FAQ accordion 1 -->
+<!-- end guide section -->
+<!-- FAQ accordion 1 -->
     <div class="section w-100 FAQ-section mt-5">
         <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
         <div class="accordion-container p-4">
@@ -407,8 +303,8 @@
             </div>
         </div>
     </div>
-    <!-- end FAQ accordion 1 -->
-    <!-- daya blog -->
+<!-- end FAQ accordion 1 -->
+<!-- daya blog -->
     @include('components.blog-suggestion')
-    <!-- end daya blog -->
+<!-- end daya blog -->
 @endsection
