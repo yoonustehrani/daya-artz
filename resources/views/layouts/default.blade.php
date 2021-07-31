@@ -16,6 +16,9 @@
     <footer class="section w-100 footer">
         @include('components.footer')
     </footer>
+    <script>
+        APP_PATH = "{{ asset('/') }}"
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>

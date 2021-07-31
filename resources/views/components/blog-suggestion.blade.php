@@ -1,4 +1,4 @@
-<div class="section w-100">
+<div class="section w-100 mt-5">
     <div class="title-section col-12 mb-3">
         <div class="title-container">
             <h2 class="title-text">دایا بلاگ</h2>

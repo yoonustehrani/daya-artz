@@ -117,9 +117,9 @@
         </div>
     </div>
 <!-- end start order 1 -->
-<!-- logo sample -->
+<!-- Portfolio -->
     @include('components.portfolio')
-<!-- end logo sample -->
+<!-- end Portfolio -->
 <!-- order packs -->
     <div class="section w-100 order-packs-section mb-5">
         <div class="title-section w-100 mb-4">

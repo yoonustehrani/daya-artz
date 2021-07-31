@@ -3,7 +3,7 @@ if ($(".portfolio-section")) {
     let items = [
         {
             href: "#",
-            img_src: "images/gallery/orange-studio-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/orange-studio-logo.jpg`,
             title: "استودیو ترنج",
             icon_class: "fa fa-brush",
             properties: [
@@ -15,7 +15,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/reverse-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/reverse-logo.jpg`,
             title: "Reverse Band",
             icon_class: "fas fa-headphones",
             properties: [
@@ -27,7 +27,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/elnovel-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/elnovel-logo.jpg`,
             title: "الناول",
             icon_class: "fas fa-book-open",
             properties: [
@@ -39,7 +39,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/vispubish-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/vispubish-logo.jpg`,
             title: "ویسپوپیش",
             icon_class: "fas fa-pen",
             properties: [
@@ -51,7 +51,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/sampi-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/sampi-logo.jpg`,
             title: "Sampi Tech Group",
             icon_class: "fas fa-code",
             properties: [
@@ -63,7 +63,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/tehran-tejarat-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/tehran-tejarat-logo.jpg`,
             title: "تهران تجارت",
             icon_class: "fas fa-briefcase",
             properties: [
@@ -75,7 +75,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/reverse-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/reverse-logo.jpg`,
             title: "Reverse Band",
             icon_class: "fas fa-headphones",
             properties: [
@@ -87,7 +87,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/orange-studio-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/orange-studio-logo.jpg`,
             title: "استودیو ترنج",
             icon_class: "fa fa-brush",
             properties: [
@@ -99,7 +99,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/vispubish-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/vispubish-logo.jpg`,
             title: "ویسپوپیش",
             icon_class: "fas fa-pen",
             properties: [
@@ -111,7 +111,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/elnovel-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/elnovel-logo.jpg`,
             title: "الناول",
             icon_class: "fas fa-book-open",
             properties: [
@@ -123,7 +123,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/tehran-tejarat-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/tehran-tejarat-logo.jpg`,
             title: "تهران تجارت",
             icon_class: "fas fa-briefcase",
             properties: [
@@ -135,7 +135,7 @@ if ($(".portfolio-section")) {
         },
         {
             href: "#",
-            img_src: "images/gallery/sampi-logo.jpg",
+            img_src: `${APP_PATH}images/gallery/sampi-logo.jpg`,
             title: "Sampi Tech Group",
             icon_class: "fas fa-code",
             properties: [
@@ -167,7 +167,7 @@ if ($(".portfolio-section")) {
                         $(this).children(".portfolio").toggleClass("fadeIn fadeOut")
                         item_index + 1 === items.length ? item_index = 0 : item_index += 1  
                     }, 1000)
-                }, interval_time);
+                }, interval_time)
             }, i*150);
         })
     })

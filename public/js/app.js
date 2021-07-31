@@ -1908,73 +1908,73 @@ if ($(".portfolio-section")) {
   // here we get send get req by ajax and get the items (paginated)
   var items = [{
     href: "#",
-    img_src: "images/gallery/orange-studio-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/orange-studio-logo.jpg"),
     title: "استودیو ترنج",
     icon_class: "fa fa-brush",
     properties: ["صنایع دستی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/reverse-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/reverse-logo.jpg"),
     title: "Reverse Band",
     icon_class: "fas fa-headphones",
     properties: ["موسیقی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/elnovel-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/elnovel-logo.jpg"),
     title: "الناول",
     icon_class: "fas fa-book-open",
     properties: ["داستان و ادبیات", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/vispubish-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/vispubish-logo.jpg"),
     title: "ویسپوپیش",
     icon_class: "fas fa-pen",
     properties: ["پایگاه مقالات ادبی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/sampi-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/sampi-logo.jpg"),
     title: "Sampi Tech Group",
     icon_class: "fas fa-code",
     properties: ["استارتاپ استودیو", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/tehran-tejarat-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/tehran-tejarat-logo.jpg"),
     title: "تهران تجارت",
     icon_class: "fas fa-briefcase",
     properties: ["شرکت بازرگانی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/reverse-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/reverse-logo.jpg"),
     title: "Reverse Band",
     icon_class: "fas fa-headphones",
     properties: ["موسیقی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/orange-studio-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/orange-studio-logo.jpg"),
     title: "استودیو ترنج",
     icon_class: "fa fa-brush",
     properties: ["صنایع دستی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/vispubish-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/vispubish-logo.jpg"),
     title: "ویسپوپیش",
     icon_class: "fas fa-pen",
     properties: ["پایگاه مقالات ادبی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/elnovel-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/elnovel-logo.jpg"),
     title: "الناول",
     icon_class: "fas fa-book-open",
     properties: ["داستان و ادبیات", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/tehran-tejarat-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/tehran-tejarat-logo.jpg"),
     title: "تهران تجارت",
     icon_class: "fas fa-briefcase",
     properties: ["شرکت بازرگانی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
     href: "#",
-    img_src: "images/gallery/sampi-logo.jpg",
+    img_src: "".concat(APP_PATH, "images/gallery/sampi-logo.jpg"),
     title: "Sampi Tech Group",
     icon_class: "fas fa-code",
     properties: ["استارتاپ استودیو", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
