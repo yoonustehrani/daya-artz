@@ -121,7 +121,7 @@
     @include('components.portfolio')
 <!-- end Portfolio -->
 <!-- order packs -->
-    <div class="section w-100 order-packs-section mb-5">
+    <div class="section w-100 order-packs-section">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
                 <h2 class="title-text">خدمات طراحی لوگو</h2>

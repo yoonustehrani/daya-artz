@@ -11087,6 +11087,7 @@ button.reverse {
   animation-name: gradient !important;
   -webkit-animation-name: gradient !important;
   background-size: 500% !important;
+  height: 45px !important;
 }
 button.reverse > span {
   left: -1px !important;
