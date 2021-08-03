@@ -1907,72 +1907,84 @@ __webpack_require__.r(__webpack_exports__);
 if ($(".portfolio-section")) {
   // here we get send get req by ajax and get the items (paginated)
   var items = [{
+    id: 1,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/orange-studio-logo.jpg"),
     title: "استودیو ترنج",
     icon_class: "fa fa-brush",
     properties: ["صنایع دستی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 2,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/reverse-logo.jpg"),
     title: "Reverse Band",
     icon_class: "fas fa-headphones",
     properties: ["موسیقی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 3,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/elnovel-logo.jpg"),
     title: "الناول",
     icon_class: "fas fa-book-open",
     properties: ["داستان و ادبیات", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 4,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/vispubish-logo.jpg"),
     title: "ویسپوپیش",
     icon_class: "fas fa-pen",
     properties: ["پایگاه مقالات ادبی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 5,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/sampi-logo.jpg"),
     title: "Sampi Tech Group",
     icon_class: "fas fa-code",
     properties: ["استارتاپ استودیو", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 6,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/tehran-tejarat-logo.jpg"),
     title: "تهران تجارت",
     icon_class: "fas fa-briefcase",
     properties: ["شرکت بازرگانی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 7,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/reverse-logo.jpg"),
     title: "Reverse Band",
     icon_class: "fas fa-headphones",
     properties: ["موسیقی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 8,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/orange-studio-logo.jpg"),
     title: "استودیو ترنج",
     icon_class: "fa fa-brush",
     properties: ["صنایع دستی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 9,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/vispubish-logo.jpg"),
     title: "ویسپوپیش",
     icon_class: "fas fa-pen",
     properties: ["پایگاه مقالات ادبی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 10,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/elnovel-logo.jpg"),
     title: "الناول",
     icon_class: "fas fa-book-open",
     properties: ["داستان و ادبیات", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 11,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/tehran-tejarat-logo.jpg"),
     title: "تهران تجارت",
     icon_class: "fas fa-briefcase",
     properties: ["شرکت بازرگانی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }, {
+    id: 12,
     href: "#",
     img_src: "".concat(APP_PATH, "images/gallery/sampi-logo.jpg"),
     title: "Sampi Tech Group",
@@ -1991,6 +2003,7 @@ if ($(".portfolio-section")) {
           if ($(_this).children(".portfolio:hover").length === 0) {
             $(_this).children(".portfolio").toggleClass("fadeIn fadeOut");
             setTimeout(function () {
+              $(_this).attr("item_id", items[item_index].id);
               $(_this).find("img").attr('src', items[item_index].img_src);
               $(_this).find(".title").html(items[item_index].title);
               $(_this).find("div.portfolio-detail > ul").children("li").each(function (list_item) {
@@ -2001,11 +2014,16 @@ if ($(".portfolio-section")) {
                 }
               });
               $(_this).children(".portfolio").toggleClass("fadeIn fadeOut");
-              item_index + 1 === items.length ? item_index = 0 : item_index += 1;
+              item_index + 1 === items.length ? item_index = 0 : item_index += 1; // this code is used to avoid duplicate logos when one is hovered
+
+              if ($(".portfolio:hover").length === 1 && Number($(".portfolio:hover")[0].parentNode.attributes.item_id.nodeValue) === items[item_index].id) {
+                item_index + 1 === items.length ? item_index = 0 : item_index += 1;
+              } // end
+
             }, 1000);
           }
         }, interval_time);
-      }, i * 150);
+      }, i * 170);
     });
   });
 }
@@ -2019,10 +2037,19 @@ if ($(".portfolio-section")) {
 /***/ (() => {
 
 $(document).ready(function () {
-  $("#menu-toggle").click(function () {
-    $(".menu").toggleClass("open");
+  function toggle_menu() {
+    $(".menu-container").toggleClass("open");
     $("body").toggleClass("over-h");
-    $(".fa-bars, .fa-times").toggleClass("op-0");
+    $(".fa-bars").toggleClass("op-0");
+  }
+
+  $("#menu-open, #menu-close").click(function () {
+    toggle_menu();
+  });
+  $("body").on("click", function (e) {
+    if ($(".menu-container").hasClass("open") && e.target.id !== "m-menu" && e.target.id !== "menu-open" && $(e.target).closest("#menu-open").length === 0 && $(e.target).closest("#m-menu").length === 0) {
+      toggle_menu();
+    }
   });
   $(".has-sub").click(function () {
     $(this).toggleClass("open");

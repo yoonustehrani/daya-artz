@@ -202,6 +202,7 @@ input.eggplant {
 
 button.silver-progress-button {
     width: 208px;
+    height: 45px !important;
     font-size: 18px;
     padding: 5px 50px;
     border-radius: 22.5px;
@@ -219,7 +220,6 @@ button.reverse {
     animation-name: gradient !important;
     -webkit-animation-name: gradient !important;
     background-size: 500% !important;
-    height: 45px !important;
     > span {
         left: -1px !important;
         right: unset !important;
