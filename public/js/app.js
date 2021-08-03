@@ -1983,13 +1983,6 @@ if ($(".portfolio-section")) {
     title: "تهران تجارت",
     icon_class: "fas fa-briefcase",
     properties: ["شرکت بازرگانی", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
-  }, {
-    id: 12,
-    href: "#",
-    img_src: "".concat(APP_PATH, "images/gallery/sampi-logo.jpg"),
-    title: "Sampi Tech Group",
-    icon_class: "fas fa-code",
-    properties: ["استارتاپ استودیو", "طراحی تخصصی", "عناصر مرتبط", "رنگ شناسی حرفه ای"]
   }];
   $(".portfolio-section").each(function (index) {
     var item_index = 0;

@@ -119,7 +119,7 @@ if ($(".portfolio-section")) {
             ]
         },
         {
-        id: 10,
+            id: 10,
             href: "#",
             img_src: `${APP_PATH}images/gallery/elnovel-logo.jpg`,
             title: "الناول",
@@ -132,7 +132,7 @@ if ($(".portfolio-section")) {
             ]
         },
         {
-        id: 11,
+            id: 11,
             href: "#",
             img_src: `${APP_PATH}images/gallery/tehran-tejarat-logo.jpg`,
             title: "تهران تجارت",
@@ -144,19 +144,6 @@ if ($(".portfolio-section")) {
                 "رنگ شناسی حرفه ای"
             ]
         },
-        {
-        id: 12,
-            href: "#",
-            img_src: `${APP_PATH}images/gallery/sampi-logo.jpg`,
-            title: "Sampi Tech Group",
-            icon_class: "fas fa-code",
-            properties: [
-                "استارتاپ استودیو",
-                "طراحی تخصصی",
-                "عناصر مرتبط",
-                "رنگ شناسی حرفه ای"
-            ]
-        }
     ]
 
     $(".portfolio-section").each(function(index) {
