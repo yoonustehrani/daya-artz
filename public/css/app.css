@@ -11986,10 +11986,10 @@ div.daya-duties .duty-vector-text .privacy-vector {
 }
 .FAQ-section .accordion-container div.item-wrapper div.question-wrapper h4 {
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   display: inline;
   margin-bottom: 0;
-  letter-spacing: -1px;
+  line-height: 1.5;
 }
 .FAQ-section .accordion-container div.item-wrapper div.question-wrapper span {
   cursor: pointer;
@@ -12003,7 +12003,7 @@ div.daya-duties .duty-vector-text .privacy-vector {
 .FAQ-section .accordion-container div.item-wrapper .answer {
   text-align: right;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   margin-top: 10px;
 }
 .FAQ-section .accordion-container div.item-wrapper ul.answer {

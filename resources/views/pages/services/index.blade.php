@@ -171,7 +171,7 @@
 </div>
 <!-- end guide section -->
 <!-- other services -->
-<div class="section w-100 mt-3 mt-md-5 mb-5">
+<div class="section w-100 mt-3 mt-md-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h2 class="title-text">دیگر خدمات دایا</h2>

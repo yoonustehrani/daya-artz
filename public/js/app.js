@@ -1879,6 +1879,20 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/accordion.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/accordion.js ***!
+  \**********************************************/
+/***/ (() => {
+
+$(".question-wrapper").find(".fa-minus, .fa-plus").on("click", function () {
+  $(this).toggleClass("d-none");
+  $(this).siblings(".fas").toggleClass('d-none');
+  $(this).parents(".question-wrapper").siblings("p").toggleClass("d-none");
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/index.js":
 /*!******************************************!*\
   !*** ./resources/js/components/index.js ***!
@@ -1894,6 +1908,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _logo_fade__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_logo_fade__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _item_info__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./item-info */ "./resources/js/components/item-info.js");
 /* harmony import */ var _item_info__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_item_info__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./accordion */ "./resources/js/components/accordion.js");
+/* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_accordion__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 

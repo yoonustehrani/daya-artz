@@ -13,7 +13,7 @@
         @yield('header')
     </header>
     @yield('content')
-    <footer class="section w-100 footer">
+    <footer class="section w-100 footer mt-5">
         @include('components.footer')
     </footer>
     <script>
