@@ -59,7 +59,7 @@
                 <div class="step-item b-0 step-2">
                     <div class="step-shape">
                         <span class="step-index">02</span>
-                        <span class="step-icon"><i class="fas fa-handshake"></i></span>
+                        <span class="step-icon"><i class="fas fa-dollar-sign"></i></span>
                     </div>
                     <div class="match-line count-clock"></div>
                 </div>
@@ -72,7 +72,7 @@
                 <div class="step-item t-0 l-50 step-3">
                     <div class="step-shape">
                         <span class="step-index">03</span>
-                        <span class="step-icon"><i class="fas fa-dollar-sign"></i></span>
+                        <span class="step-icon"><i class="fas fa-handshake"></i></span>
                     </div>
                     <div class="match-line"></div>
                 </div>

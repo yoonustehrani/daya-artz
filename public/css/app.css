@@ -12941,7 +12941,7 @@ div.other-services-container > div.other-service button {
     opacity: 1;
   }
 }
-.header > nav span.d-md-none, .min-header > nav span.d-md-none {
+.header > nav span#menu-open, .min-header > nav span#menu-open {
   width: 30px;
   position: relative;
   display: inline-block;
@@ -12949,10 +12949,10 @@ div.other-services-container > div.other-service button {
   transform: translateY(-50%);
   z-index: 19;
 }
-.header > nav span.d-md-none .op-0, .min-header > nav span.d-md-none .op-0 {
+.header > nav span#menu-open .op-0, .min-header > nav span#menu-open .op-0 {
   opacity: 0;
 }
-.header > nav span.d-md-none i, .min-header > nav span.d-md-none i {
+.header > nav span#menu-open i, .min-header > nav span#menu-open i {
   color: #ffffff !important;
   cursor: pointer;
   font-size: 35px;
@@ -13124,6 +13124,22 @@ div.header-section div.header-title .title span {
     transition: 1s;
     opacity: 0;
   }
+  .menu-container .top-logo {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px !important;
+    color: #ffffff;
+    width: 100%;
+    margin-top: 15px;
+  }
+  .menu-container .top-logo img {
+    margin-right: 16px;
+    width: 50px;
+    height: auto;
+  }
   .menu-container ul.menu-items-container {
     flex-direction: column;
     justify-content: flex-start;
@@ -13133,6 +13149,7 @@ div.header-section div.header-title .title span {
     padding-right: 0px;
     list-style-type: none;
     margin-top: 0%;
+    height: 100%;
   }
   .menu-container ul.menu-items-container > li {
     transition: 0.5s;
@@ -13157,19 +13174,6 @@ div.header-section div.header-title .title span {
     font-size: 18px;
     color: #fff;
     margin-left: 18px;
-  }
-  .menu-container ul.menu-items-container li:nth-child(1) {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px !important;
-  }
-  .menu-container ul.menu-items-container li:nth-child(1) img {
-    margin-right: 16px;
-    width: 50px;
-    height: auto;
   }
   .menu-container ul.menu-items-container li.has-sub > a::after {
     border-right: 8px solid #fff;

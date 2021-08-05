@@ -590,7 +590,7 @@ $xl-xl-breakpoint: 1400px;
     }
 }
 
-// medium - xl
+// medium - xl 
 @media screen and (min-width: $md-breakpoint) and (max-width: $xl-breakpoint+1px) {
     .policy-header {
         height: 400px;

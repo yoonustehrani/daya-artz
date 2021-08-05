@@ -1892,9 +1892,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./swiper */ "./resources/js/components/swiper.js");
 /* harmony import */ var _logo_fade__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logo-fade */ "./resources/js/components/logo-fade.js");
 /* harmony import */ var _logo_fade__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_logo_fade__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _item_info__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./item-info */ "./resources/js/components/item-info.js");
+/* harmony import */ var _item_info__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_item_info__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
+
+
+/***/ }),
+
+/***/ "./resources/js/components/item-info.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/item-info.js ***!
+  \**********************************************/
+/***/ (() => {
+
+$(".tab").on("click", function () {
+  var item_index = $(this).index();
+  $(".tab.active").removeClass("active");
+  $(".tab-content.active").removeClass("active");
+  $(this).addClass("active");
+  $(".tab-content").each(function (i) {
+    if (item_index === i) {
+      $(this).addClass("active");
+    }
+  });
+});
 
 /***/ }),
 

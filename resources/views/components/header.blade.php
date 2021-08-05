@@ -10,8 +10,8 @@
             <i id="menu-close" class="fas fa-times"></i>
             <span class="login-btn"><i class="far fa-user-circle"></i>ورود به حساب </span>
         </div>
+        <span class="top-logo d-md-none"><img src="{{ asset('images/daya-logo-circular.png') }}"> DAYAARTZ</span>
         <ul class="main-menu menu-items-container p-md-0 m-md-0">
-            <li class="d-md-none"><img src="{{ asset('images/daya-logo-circular.png') }}"> DAYAARTZ</li>
             <li>
                 <a href="{{ route('home') }}"><i class="d-md-none fas fa-home"></i> خانه</a>
             </li>
