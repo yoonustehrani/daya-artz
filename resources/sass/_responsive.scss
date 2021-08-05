@@ -175,6 +175,11 @@ $xl-xl-breakpoint: 1400px;
             font-size: 22px !important;
         }
     }
+    .item-wrapper {
+        width: 30% !important;
+        flex: unset !important;
+        max-width: unset !important;
+    }
 }
 
 // Tablet & Mobile

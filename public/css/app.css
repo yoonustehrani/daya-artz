@@ -10192,6 +10192,12 @@ h3 {
   div.address-label h3 {
     font-size: 22px !important;
   }
+
+  .item-wrapper {
+    width: 30% !important;
+    flex: unset !important;
+    max-width: unset !important;
+  }
 }
 @media screen and (max-width: 767px) {
   div.order-btn-container {
@@ -11986,7 +11992,7 @@ div.daya-duties .duty-vector-text .privacy-vector {
 }
 .FAQ-section .accordion-container div.item-wrapper div.question-wrapper h4 {
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   display: inline;
   margin-bottom: 0;
   line-height: 1.5;
