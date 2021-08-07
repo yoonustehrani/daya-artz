@@ -1885,10 +1885,33 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   \**********************************************/
 /***/ (() => {
 
-$(".question-wrapper").find(".fa-minus, .fa-plus").on("click", function () {
-  $(this).toggleClass("d-none");
-  $(this).siblings(".fas").toggleClass('d-none');
-  $(this).parents(".question-wrapper").siblings(".answer").toggleClass("d-none");
+$(".question-wrapper").on("click", function () {
+  $(this).find(".fa-plus, .fa-minus").toggleClass("d-none");
+  $(this).siblings(".answer").toggleClass("d-none");
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/animation.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/animation.js ***!
+  \**********************************************/
+/***/ (() => {
+
+var inViewport = function inViewport(entries, observer) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting && !entry.target.classList.value.includes("is-inViewport")) {
+      entry.target.classList.add("is-inViewport", entry.isIntersecting);
+    }
+  });
+};
+
+var Obs = new IntersectionObserver(inViewport);
+var obsOptions = {}; // Attach observer to every [data-inviewport] element:
+
+var ELs_inViewport = document.querySelectorAll('[data-inviewport]');
+ELs_inViewport.forEach(function (EL) {
+  Obs.observe(EL, obsOptions);
 });
 
 /***/ }),
@@ -1910,6 +1933,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _item_info__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_item_info__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./accordion */ "./resources/js/components/accordion.js");
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_accordion__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _animation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./animation */ "./resources/js/components/animation.js");
+/* harmony import */ var _animation__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_animation__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 

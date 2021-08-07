@@ -965,6 +965,7 @@ div.daya-duties {
                 background-color: $eggplant;
                 border-radius: 8px;
                 padding: 8px;
+                cursor: pointer;
                 h4 {
                     color: #fff;
                     font-size: 18px;
@@ -1014,17 +1015,61 @@ div.daya-duties {
     }
 }
 $configs: (
-	chart-two: (
-		svgSize: 170px,
-		percentage: 50,
+    chart-one: (
+		percentage: 10,
+        svgSize: 170px,
+		strokeWidth: 15px,
+		backgroundColor: $dark-purple,
+		foregroundColor: $aqua-purple,
+		labelColor: #000,
+		labelFontSize: 2.5rem,
+		duration: 2s,
+		animationDelay: 0s
+    ),
+    chart-two: (
+        percentage: 20,
+        svgSize: 170px,
+		strokeWidth: 15px,
+		backgroundColor: $dark-purple,
+		foregroundColor: $aqua-purple,
+		labelColor: #000,
+		labelFontSize: 2.5rem,
+		duration: 2s,
+		animationDelay: 0s
+    ),
+    chart-three: (
+        percentage: 30,
+        svgSize: 170px,
+		strokeWidth: 15px,
+		backgroundColor: $dark-purple,
+		foregroundColor: $aqua-purple,
+		labelColor: #000,
+		labelFontSize: 2.5rem,
+		duration: 2s,
+		animationDelay: 0s
+    ),
+    chart-four: (
+        percentage: 15,
+        svgSize: 170px,
+		strokeWidth: 15px,
+		backgroundColor: $dark-purple,
+		foregroundColor: $aqua-purple,
+		labelColor: #000,
+		labelFontSize: 2.5rem,
+		duration: 2s,
+		animationDelay: 0s
+    ),
+    chart-five: (
+        percentage: 25,
+        svgSize: 170px,
 		strokeWidth: 15px,
 		backgroundColor: $dark-purple,
 		foregroundColor: $aqua-purple,
 		labelColor: #000,
 		labelFontSize: 2.5rem,
 		duration: 3s,
-		animationDelay: 1s
-	),
+		animationDelay: 0s
+    ),
 );
 
 $pi: 3.14;
@@ -1046,7 +1091,7 @@ $labelData: '';
         margin-left: auto;
         margin-right: auto;
 		
-		&.animate {
+		&.animate.is-inViewport {
 			svg .circle-foreground {
 				animation: offset map-get($param, duration) ease-in-out forwards;
 				animation-delay: map-get($param, animationDelay);

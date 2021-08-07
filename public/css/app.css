@@ -11989,6 +11989,7 @@ div.daya-duties .duty-vector-text .privacy-vector {
   background-color: #17093c;
   border-radius: 8px;
   padding: 8px;
+  cursor: pointer;
 }
 .FAQ-section .accordion-container div.item-wrapper div.question-wrapper h4 {
   color: #fff;
@@ -12032,6 +12033,77 @@ div.daya-duties .duty-vector-text .privacy-vector {
   font-size: 22px;
 }
 
+.chart-one {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 15px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.chart-one.animate.is-inViewport svg .circle-foreground {
+  -webkit-animation: offset 2s ease-in-out forwards;
+          animation: offset 2s ease-in-out forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.chart-one.animate.is-inViewport figcaption:after {
+  -webkit-animation: chart-one-label 2s steps(10) forwards;
+          animation: chart-one-label 2s steps(10) forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.chart-one svg {
+  width: 100%;
+  height: 100%;
+}
+.chart-one svg .circle-background, .chart-one svg .circle-foreground {
+  r: 77.5px;
+  cx: 50%;
+  cy: 50%;
+  fill: none;
+  stroke: #34167C;
+  stroke-width: 15px;
+}
+.chart-one svg .circle-foreground {
+  stroke: #777DD1;
+  stroke-dasharray: 48.67px 486.7px;
+  stroke-dashoffset: 48.67px;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+}
+.chart-one figcaption {
+  display: inline-block;
+  width: 100%;
+  height: 2.5rem;
+  overflow: hidden;
+  text-align: center;
+  color: #000;
+  position: absolute;
+  top: calc(50% - 1.25rem);
+  left: 0;
+  font-size: 0;
+}
+.chart-one figcaption:after {
+  display: inline-block;
+  content: "0%\a 1%\a 2%\a 3%\a 4%\a 5%\a 6%\a 7%\a 8%\a 9%\a 10%\a 11%\a 12%\a 13%\a 14%\a 15%\a 16%\a 17%\a 18%\a 19%\a 20%\a 21%\a 22%\a 23%\a 24%\a 25%\a 26%\a 27%\a 28%\a 29%\a 30%\a 31%\a 32%\a 33%\a 34%\a 35%\a 36%\a 37%\a 38%\a 39%\a 40%\a 41%\a 42%\a 43%\a 44%\a 45%\a 46%\a 47%\a 48%\a 49%\a 50%\a 51%\a 52%\a 53%\a 54%\a 55%\a 56%\a 57%\a 58%\a 59%\a 60%\a 61%\a 62%\a 63%\a 64%\a 65%\a 66%\a 67%\a 68%\a 69%\a 70%\a 71%\a 72%\a 73%\a 74%\a 75%\a 76%\a 77%\a 78%\a 79%\a 80%\a 81%\a 82%\a 83%\a 84%\a 85%\a 86%\a 87%\a 88%\a 89%\a 90%\a 91%\a 92%\a 93%\a 94%\a 95%\a 96%\a 97%\a 98%\a 99%\a 100%\a";
+  white-space: pre;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+
+@-webkit-keyframes chart-one-label {
+  100% {
+    transform: translateY(-25rem);
+  }
+}
+
+@keyframes chart-one-label {
+  100% {
+    transform: translateY(-25rem);
+  }
+}
 .chart-two {
   width: 170px;
   height: 170px;
@@ -12040,17 +12112,17 @@ div.daya-duties .duty-vector-text .privacy-vector {
   margin-left: auto;
   margin-right: auto;
 }
-.chart-two.animate svg .circle-foreground {
-  -webkit-animation: offset 3s ease-in-out forwards;
-          animation: offset 3s ease-in-out forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+.chart-two.animate.is-inViewport svg .circle-foreground {
+  -webkit-animation: offset 2s ease-in-out forwards;
+          animation: offset 2s ease-in-out forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
 }
-.chart-two.animate figcaption:after {
-  -webkit-animation: chart-two-label 3s steps(50) forwards;
-          animation: chart-two-label 3s steps(50) forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+.chart-two.animate.is-inViewport figcaption:after {
+  -webkit-animation: chart-two-label 2s steps(20) forwards;
+          animation: chart-two-label 2s steps(20) forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
 }
 .chart-two svg {
   width: 100%;
@@ -12066,8 +12138,8 @@ div.daya-duties .duty-vector-text .privacy-vector {
 }
 .chart-two svg .circle-foreground {
   stroke: #777DD1;
-  stroke-dasharray: 243.35px 486.7px;
-  stroke-dashoffset: 243.35px;
+  stroke-dasharray: 97.34px 486.7px;
+  stroke-dashoffset: 97.34px;
   stroke-linecap: round;
   transform-origin: 50% 50%;
   transform: rotate(-90deg);
@@ -12094,13 +12166,226 @@ div.daya-duties .duty-vector-text .privacy-vector {
 
 @-webkit-keyframes chart-two-label {
   100% {
-    transform: translateY(-125rem);
+    transform: translateY(-50rem);
   }
 }
 
 @keyframes chart-two-label {
   100% {
-    transform: translateY(-125rem);
+    transform: translateY(-50rem);
+  }
+}
+.chart-three {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 15px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.chart-three.animate.is-inViewport svg .circle-foreground {
+  -webkit-animation: offset 2s ease-in-out forwards;
+          animation: offset 2s ease-in-out forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.chart-three.animate.is-inViewport figcaption:after {
+  -webkit-animation: chart-three-label 2s steps(30) forwards;
+          animation: chart-three-label 2s steps(30) forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.chart-three svg {
+  width: 100%;
+  height: 100%;
+}
+.chart-three svg .circle-background, .chart-three svg .circle-foreground {
+  r: 77.5px;
+  cx: 50%;
+  cy: 50%;
+  fill: none;
+  stroke: #34167C;
+  stroke-width: 15px;
+}
+.chart-three svg .circle-foreground {
+  stroke: #777DD1;
+  stroke-dasharray: 146.01px 486.7px;
+  stroke-dashoffset: 146.01px;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+}
+.chart-three figcaption {
+  display: inline-block;
+  width: 100%;
+  height: 2.5rem;
+  overflow: hidden;
+  text-align: center;
+  color: #000;
+  position: absolute;
+  top: calc(50% - 1.25rem);
+  left: 0;
+  font-size: 0;
+}
+.chart-three figcaption:after {
+  display: inline-block;
+  content: "0%\a 1%\a 2%\a 3%\a 4%\a 5%\a 6%\a 7%\a 8%\a 9%\a 10%\a 11%\a 12%\a 13%\a 14%\a 15%\a 16%\a 17%\a 18%\a 19%\a 20%\a 21%\a 22%\a 23%\a 24%\a 25%\a 26%\a 27%\a 28%\a 29%\a 30%\a 31%\a 32%\a 33%\a 34%\a 35%\a 36%\a 37%\a 38%\a 39%\a 40%\a 41%\a 42%\a 43%\a 44%\a 45%\a 46%\a 47%\a 48%\a 49%\a 50%\a 51%\a 52%\a 53%\a 54%\a 55%\a 56%\a 57%\a 58%\a 59%\a 60%\a 61%\a 62%\a 63%\a 64%\a 65%\a 66%\a 67%\a 68%\a 69%\a 70%\a 71%\a 72%\a 73%\a 74%\a 75%\a 76%\a 77%\a 78%\a 79%\a 80%\a 81%\a 82%\a 83%\a 84%\a 85%\a 86%\a 87%\a 88%\a 89%\a 90%\a 91%\a 92%\a 93%\a 94%\a 95%\a 96%\a 97%\a 98%\a 99%\a 100%\a";
+  white-space: pre;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+
+@-webkit-keyframes chart-three-label {
+  100% {
+    transform: translateY(-75rem);
+  }
+}
+
+@keyframes chart-three-label {
+  100% {
+    transform: translateY(-75rem);
+  }
+}
+.chart-four {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 15px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.chart-four.animate.is-inViewport svg .circle-foreground {
+  -webkit-animation: offset 2s ease-in-out forwards;
+          animation: offset 2s ease-in-out forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.chart-four.animate.is-inViewport figcaption:after {
+  -webkit-animation: chart-four-label 2s steps(15) forwards;
+          animation: chart-four-label 2s steps(15) forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.chart-four svg {
+  width: 100%;
+  height: 100%;
+}
+.chart-four svg .circle-background, .chart-four svg .circle-foreground {
+  r: 77.5px;
+  cx: 50%;
+  cy: 50%;
+  fill: none;
+  stroke: #34167C;
+  stroke-width: 15px;
+}
+.chart-four svg .circle-foreground {
+  stroke: #777DD1;
+  stroke-dasharray: 73.005px 486.7px;
+  stroke-dashoffset: 73.005px;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+}
+.chart-four figcaption {
+  display: inline-block;
+  width: 100%;
+  height: 2.5rem;
+  overflow: hidden;
+  text-align: center;
+  color: #000;
+  position: absolute;
+  top: calc(50% - 1.25rem);
+  left: 0;
+  font-size: 0;
+}
+.chart-four figcaption:after {
+  display: inline-block;
+  content: "0%\a 1%\a 2%\a 3%\a 4%\a 5%\a 6%\a 7%\a 8%\a 9%\a 10%\a 11%\a 12%\a 13%\a 14%\a 15%\a 16%\a 17%\a 18%\a 19%\a 20%\a 21%\a 22%\a 23%\a 24%\a 25%\a 26%\a 27%\a 28%\a 29%\a 30%\a 31%\a 32%\a 33%\a 34%\a 35%\a 36%\a 37%\a 38%\a 39%\a 40%\a 41%\a 42%\a 43%\a 44%\a 45%\a 46%\a 47%\a 48%\a 49%\a 50%\a 51%\a 52%\a 53%\a 54%\a 55%\a 56%\a 57%\a 58%\a 59%\a 60%\a 61%\a 62%\a 63%\a 64%\a 65%\a 66%\a 67%\a 68%\a 69%\a 70%\a 71%\a 72%\a 73%\a 74%\a 75%\a 76%\a 77%\a 78%\a 79%\a 80%\a 81%\a 82%\a 83%\a 84%\a 85%\a 86%\a 87%\a 88%\a 89%\a 90%\a 91%\a 92%\a 93%\a 94%\a 95%\a 96%\a 97%\a 98%\a 99%\a 100%\a";
+  white-space: pre;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+
+@-webkit-keyframes chart-four-label {
+  100% {
+    transform: translateY(-37.5rem);
+  }
+}
+
+@keyframes chart-four-label {
+  100% {
+    transform: translateY(-37.5rem);
+  }
+}
+.chart-five {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 15px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.chart-five.animate.is-inViewport svg .circle-foreground {
+  -webkit-animation: offset 3s ease-in-out forwards;
+          animation: offset 3s ease-in-out forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.chart-five.animate.is-inViewport figcaption:after {
+  -webkit-animation: chart-five-label 3s steps(25) forwards;
+          animation: chart-five-label 3s steps(25) forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.chart-five svg {
+  width: 100%;
+  height: 100%;
+}
+.chart-five svg .circle-background, .chart-five svg .circle-foreground {
+  r: 77.5px;
+  cx: 50%;
+  cy: 50%;
+  fill: none;
+  stroke: #34167C;
+  stroke-width: 15px;
+}
+.chart-five svg .circle-foreground {
+  stroke: #777DD1;
+  stroke-dasharray: 121.675px 486.7px;
+  stroke-dashoffset: 121.675px;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+}
+.chart-five figcaption {
+  display: inline-block;
+  width: 100%;
+  height: 2.5rem;
+  overflow: hidden;
+  text-align: center;
+  color: #000;
+  position: absolute;
+  top: calc(50% - 1.25rem);
+  left: 0;
+  font-size: 0;
+}
+.chart-five figcaption:after {
+  display: inline-block;
+  content: "0%\a 1%\a 2%\a 3%\a 4%\a 5%\a 6%\a 7%\a 8%\a 9%\a 10%\a 11%\a 12%\a 13%\a 14%\a 15%\a 16%\a 17%\a 18%\a 19%\a 20%\a 21%\a 22%\a 23%\a 24%\a 25%\a 26%\a 27%\a 28%\a 29%\a 30%\a 31%\a 32%\a 33%\a 34%\a 35%\a 36%\a 37%\a 38%\a 39%\a 40%\a 41%\a 42%\a 43%\a 44%\a 45%\a 46%\a 47%\a 48%\a 49%\a 50%\a 51%\a 52%\a 53%\a 54%\a 55%\a 56%\a 57%\a 58%\a 59%\a 60%\a 61%\a 62%\a 63%\a 64%\a 65%\a 66%\a 67%\a 68%\a 69%\a 70%\a 71%\a 72%\a 73%\a 74%\a 75%\a 76%\a 77%\a 78%\a 79%\a 80%\a 81%\a 82%\a 83%\a 84%\a 85%\a 86%\a 87%\a 88%\a 89%\a 90%\a 91%\a 92%\a 93%\a 94%\a 95%\a 96%\a 97%\a 98%\a 99%\a 100%\a";
+  white-space: pre;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+
+@-webkit-keyframes chart-five-label {
+  100% {
+    transform: translateY(-62.5rem);
+  }
+}
+
+@keyframes chart-five-label {
+  100% {
+    transform: translateY(-62.5rem);
   }
 }
 @-webkit-keyframes offset {
