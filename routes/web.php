@@ -26,3 +26,4 @@ Route::view('blog', 'pages.posts.index')->name('blog.index');
 Route::get('blog/{title}', function($title) {
     return view('pages.posts.show', compact('title'));
 })->name('blog.show');
+Route::view('portfolio/{title}', 'pages.portfolio')->name('portfolio.show');
