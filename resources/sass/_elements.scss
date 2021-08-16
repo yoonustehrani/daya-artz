@@ -1907,3 +1907,167 @@ div.other-services-container {
 }
 // end other services
 // services page 
+
+// porfolio-page
+.vertical-centralize {
+    display: flex !important;
+    align-items: center !important;
+}
+.section-guide {
+    background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+    background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+    text-align: center;
+    position: fixed;
+    margin: 150px 0 0 40px;
+    padding: 30px 0 30px;
+    > h4 {
+        color: white;
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+    ul {
+        list-style-type: none !important;
+        li {
+            color: white;
+            font-size: 20px;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span:nth-child(1) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 80px;
+                    height: 2px;
+                    background-color: white;
+                    margin-right: 10px;
+                }
+            }
+            span:nth-child(2) {
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                background-color: white;
+                display: grid;
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 80px;
+                    height: 2px;
+                    background-color: white;
+                    transform: rotateZ(90deg);
+                    margin: 68px 0 5px 0;
+                }
+            }
+        }
+    }
+}
+.sample-images-slider {
+    width: 45%;
+    div.showing-image {
+        position: relative;
+        width: 100%;
+        > img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: 4px 4px 8px #b5bfd9;
+        }
+        &::after {
+            content: "";
+            display: block;
+            padding-bottom: 90%;
+        }
+    }
+    .small-items-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        margin-top: 30px;
+        div {
+            position: relative;
+            width: 20%;
+            margin: 0px 10px 0px 10px;
+            box-shadow: 4px 4px 8px #b5bfd9;
+            img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+                transition: 0.5s;
+                cursor: pointer;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+            &::after {
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+            }
+        }
+        span {
+            display: flex;
+            align-items: center;
+            margin: 0px 5px 0px 5px;
+            i {
+                font-size: 50px;
+                color: #CDC1FF;
+                cursor: pointer;
+                transition: 0.5s;
+                &:hover {
+                    color: #8f60ec;
+                }
+            }
+        }
+    }
+}
+.sample-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    float: right;
+    > h3 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    ul {
+        list-style-type: none !important;
+        li {
+            color: #000;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 2.5;
+            h3, span {
+                font-weight: normal;
+                color: $gray;
+                display: inline;
+                font-size: 22px;
+                i {
+                    font-size: 30px;
+                    color: #d5bfe9;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+// end portfolio-page

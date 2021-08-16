@@ -29,8 +29,17 @@
     </div>
 </div>
 <!-- end contact us form and vector -->
+<!-- contact us text -->
+<div class="col-12 col-md-10 offset-md-1 float-left mt-md-5 text-center">
+    <p class="font-20">
+        تیم طراحی گرافیک دایا آرتز در مقام یک پلتفرم هنری متعهد شده است که پشتیبان کارفرمایان و متقاضیان سرویس های طراحی گرافیک به بهترین شکل ممکن باشد . مشاورین و مدیران ارشد تکریم مشتریان آماده به خدمت و دریافت پیشنهادات و انتقادات شما و برطرف سازی مشکلات و نیاز های تمامی شما عزیزان هستند.
+        <br>
+        مسئولین پاسخ و رسیدگی به امور مشتریان گرامی در دو نوبت صبح از ساعت ۸ تا ۱۲ و نوبت عصر از ساعت ۱۶ تا ۲۰ برخط و انلاین می باشند.
+    </p>
+</div>
+<!-- end cintact us text -->
 <!-- contact ways and vector -->
-<div class="section w-100 text-center contact-us-section-2">
+<div class="section w-100 text-center contact-us-section-2 mt-md-2">
     <div class="title-section w-100 mb-5">
         <div class="title-container">
             <h3 class="title-text">راه های ارتباطی</h3>

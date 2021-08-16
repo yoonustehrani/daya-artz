@@ -110,12 +110,7 @@
     </div> 
 <!-- end order steps -->
 <!-- start order 1 -->
-    <div class="section w-100 start-order-section">
-        <div class="start-order-1 w-100 p-5">
-            <h4>برای شروع روند سفارش کلیک کنید</h4>
-            <button class="btn btn-dark badge-pill mt-4">شروع سفارش</button>
-        </div>
-    </div>
+    @include('components.start-order')
 <!-- end start order 1 -->
 <!-- Portfolio -->
     @include('components.portfolio')
@@ -158,7 +153,7 @@
                 <button class="btn btn-info badge-pill">ثبت سفارش</button>
             </div>
             <div class="order-card card-3 col-12 col-md-4 col-xl-3">
-                <h4 class="card-title">یاقوت</h4>
+                <h4 class="card-title">زمرد</h4>
                 <div class="card-price-container"><span class="card-price font-24 bold">5.</span><span class="card-price font-20">500</span><span class="font-16 ltr card-price">/میلیون تومان</span></div>
                 <ul class="card-options">
                     <li>ارائه ۲ اتود <span>تایپوگرافی</span></li>
