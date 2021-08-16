@@ -1918,15 +1918,24 @@ div.other-services-container {
     background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
     text-align: center;
     position: fixed;
-    margin: 150px 0 0 40px;
-    padding: 30px 0 30px;
+    margin: 90px 0 0 40px;
+    padding: 12px 0 12px;
+    z-index: 100;
+    height: calc(100vh - 105px);
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     > h4 {
         color: white;
-        font-size: 22px;
-        margin-bottom: 30px;
+        font-size: 35px;
     }
     ul {
         list-style-type: none !important;
+        padding: 0;
+        margin: 0;
         li {
             color: white;
             font-size: 20px;
@@ -1934,18 +1943,11 @@ div.other-services-container {
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 11.9vh;
             span:nth-child(1) {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                &::after {
-                    content: "";
-                    display: block;
-                    width: 80px;
-                    height: 2px;
-                    background-color: white;
-                    margin-right: 10px;
-                }
+                color: white;
+                font-size: 20px;
+                width: 150px;
             }
             span:nth-child(2) {
                 width: 20px;
@@ -1953,14 +1955,36 @@ div.other-services-container {
                 border-radius: 100%;
                 background-color: white;
                 display: grid;
-                &::before {
+                margin-right: 80px;
+                align-items: center;
+                &::after {
                     content: "";
-                    display: inline-block;
+                    display: block;
                     width: 80px;
                     height: 2px;
                     background-color: white;
-                    transform: rotateZ(90deg);
-                    margin: 68px 0 5px 0;
+                    margin-right: 10px;
+                    transform: rotateZ(180deg);
+                    transform-origin: right;
+                }
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 8vh;
+                    height: 2px;
+                    background-color: white;
+                    transform: rotateZ(-90deg);
+                    margin: 29px 10px 5px 0;
+                    transform-origin: right;
+                    position: absolute;
+                }
+            }
+        }
+        li:last-child {
+            margin-bottom: 0 !important;
+            span:nth-child(2) {
+                &::before {
+                    display: none !important;
                 }
             }
         }

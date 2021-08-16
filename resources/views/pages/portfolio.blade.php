@@ -10,11 +10,11 @@
     <h4>راهنمای صفحه</h4>
     <ul>
         <li><span>شخصات کلی لوگو</span> <span></span></li>
-        <li>درباره مشتری</li>
-        <li>جزئیات سفارش</li>
-        <li>شروع ثبت سفارش</li>
-        <li>راهنمای دایا</li>
-        <li>طرح های مشابه</li>
+        <li><span>درباره مشتری</span> <span></span></li>
+        <li><span>جزئیات سفارش</span> <span></span></li>
+        <li><span>شروع ثبت سفارش</span> <span></span></li>
+        <li><span>راهنمای دایا</span> <span></span></li>
+        <li><span>طرح های مشابه</span> <span></span></li>
     </ul>
 </div>
 <!-- end section guide -->

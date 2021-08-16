@@ -13130,16 +13130,25 @@ div.other-services-container > div.other-service button {
   background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
   text-align: center;
   position: fixed;
-  margin: 150px 0 0 40px;
-  padding: 30px 0 30px;
+  margin: 90px 0 0 40px;
+  padding: 12px 0 12px;
+  z-index: 100;
+  height: calc(100vh - 105px);
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.section-guide::-webkit-scrollbar {
+  display: none;
 }
 .section-guide > h4 {
   color: white;
-  font-size: 22px;
-  margin-bottom: 30px;
+  font-size: 35px;
 }
 .section-guide ul {
   list-style-type: none !important;
+  padding: 0;
+  margin: 0;
 }
 .section-guide ul li {
   color: white;
@@ -13148,19 +13157,12 @@ div.other-services-container > div.other-service button {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 11.9vh;
 }
 .section-guide ul li span:nth-child(1) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.section-guide ul li span:nth-child(1)::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 2px;
-  background-color: white;
-  margin-right: 10px;
+  color: white;
+  font-size: 20px;
+  width: 150px;
 }
 .section-guide ul li span:nth-child(2) {
   width: 20px;
@@ -13168,15 +13170,35 @@ div.other-services-container > div.other-service button {
   border-radius: 100%;
   background-color: white;
   display: grid;
+  margin-right: 80px;
+  align-items: center;
 }
-.section-guide ul li span:nth-child(2)::before {
+.section-guide ul li span:nth-child(2)::after {
   content: "";
-  display: inline-block;
+  display: block;
   width: 80px;
   height: 2px;
   background-color: white;
-  transform: rotateZ(90deg);
-  margin: 68px 0 5px 0;
+  margin-right: 10px;
+  transform: rotateZ(180deg);
+  transform-origin: right;
+}
+.section-guide ul li span:nth-child(2)::before {
+  content: "";
+  display: block;
+  width: 8vh;
+  height: 2px;
+  background-color: white;
+  transform: rotateZ(-90deg);
+  margin: 29px 10px 5px 0;
+  transform-origin: right;
+  position: absolute;
+}
+.section-guide ul li:last-child {
+  margin-bottom: 0 !important;
+}
+.section-guide ul li:last-child span:nth-child(2)::before {
+  display: none !important;
 }
 
 .sample-images-slider {
