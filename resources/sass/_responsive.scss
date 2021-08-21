@@ -143,6 +143,54 @@ $xl-xl-breakpoint: 1400px;
     .match-line-2 {
         left: 62% !important;
     }
+    .sample-info {
+        h3 {
+            font-size: 22px !important;
+        }
+        ul {
+            li {
+                font-size: 18px !important;
+                h3, span {
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
+    .small-items-container {
+        div {
+            margin: 0 4px 0 4px !important;
+        }
+    }
+    .detail-box {
+        li {
+            h4 {
+                font-size: 18px !important;
+                span {
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
+    .process-timeline {
+        > div {
+            width: 90% !important;
+            span {
+                font-size: 16px !important;
+            }
+        }
+        .icons-container {
+            > span {
+                border: 8px solid !important;
+                &::before {
+                    border-right: 5px solid transparent !important;
+                    border-left:  5px solid transparent !important;
+                    border-top: 15px solid !important;
+                    top: calc(100% + 5px) !important;
+                }
+            }
+
+        }
+    }
 }
 
 // medium and above
@@ -492,6 +540,35 @@ $xl-xl-breakpoint: 1400px;
             font-size: 16px !important;
         }
     }
+    .sample-images-slider {
+        width: 100% !important;
+    }
+    .sample-info {
+        width: 100% !important;
+        text-align: center !important;
+        align-items: center !important;
+        h3 {
+            font-size: 24px !important;
+        }
+        ul {
+            li {
+                font-size: 20px !important;
+                h3, span {
+                    font-size: 18px !important;
+                }
+            }
+        }
+    }
+    .detail-box {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        li {
+            h4 {
+                margin-bottom: 30px !important;
+            }
+        }
+    }
 }
 
 
@@ -565,6 +642,14 @@ $xl-xl-breakpoint: 1400px;
             font-size: 8px !important;
         }
     }
+    .small-items-container {
+        div {
+            margin: 0 4px 0 4px !important;
+        }
+        i {
+            font-size: 45px !important;
+        }
+    }
 }
 
 @media screen and (min-width: 1800px) {
@@ -591,6 +676,24 @@ $xl-xl-breakpoint: 1400px;
         }
         ul {
             font-size: 20px !important;
+        }
+    }
+    .sample-info {
+        h3 {
+            font-size: 2.2vw !important;
+        }
+        ul {
+            li {
+                font-size: 1.7vw !important;
+                h3, span {
+                    font-size: 1.4vw !important;
+                }
+            }
+        }
+    }
+    .small-items-container {
+        i {
+            font-size: 5vw !important;
         }
     }
 }
@@ -683,6 +786,26 @@ $xl-xl-breakpoint: 1400px;
         .step-info {
             right: 8% !important;
             margin-top: 12% !important;
+        }
+    }
+    .process-timeline {
+        > div {
+            width: 90% !important;
+            span {
+                font-size: 16px !important;
+            }
+        }
+        .icons-container {
+            > span {
+                border: 12px solid !important;
+                &::before {
+                    border-right: 10px solid transparent !important;
+                    border-left:  10px solid transparent !important;
+                    border-top: 20px solid !important;
+                    top: calc(100% + 10px) !important;
+                }
+            }
+
         }
     }
 }

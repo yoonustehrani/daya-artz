@@ -18,6 +18,7 @@
         </h4>
     </div>
 <!-- end first-section -->
+
 <!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height">
         <div class="header-text p-3 col-12 col-md-7">
@@ -34,6 +35,7 @@
         <div class="triangle d-none d-md-block"></div>
     </div>
 <!-- end sevices benefits -->
+
 <!-- order steps -->
     <div class="section col-12 dotted-background">
         <div class="title-section mb-5 mt-4 w-100">
@@ -109,12 +111,15 @@
         </div>
     </div> 
 <!-- end order steps -->
+
 <!-- start order 1 -->
     @include('components.start-order')
 <!-- end start order 1 -->
+
 <!-- Portfolio -->
     @include('components.portfolio')
 <!-- end Portfolio -->
+
 <!-- order packs -->
     <div class="section w-100 order-packs-section">
         <div class="title-section w-100 mb-4">
@@ -169,6 +174,7 @@
         </div>
     </div>
 <!-- end order packs -->
+
 <!-- contact ways -->
     <div class="section w-100 mt-5 mb-5 order-ways-section">
         <div class="title-section mb-5 w-100">
@@ -217,6 +223,7 @@
         </div>
     </div>
 <!-- end contact ways -->
+
 <!-- guide section -->
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
@@ -247,6 +254,7 @@
         </div>
     </div>
 <!-- end guide section -->
+
 <!-- FAQ accordion 1 -->
     <div class="section w-100 FAQ-section mt-5">
         <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
@@ -317,6 +325,7 @@
         </div>
     </div>
 <!-- end FAQ accordion 1 -->
+
 <!-- daya blog -->
     @include('components.blog-suggestion')
 <!-- end daya blog -->

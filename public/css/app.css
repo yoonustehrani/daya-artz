@@ -10170,6 +10170,43 @@ h3 {
   .match-line-2 {
     left: 62% !important;
   }
+
+  .sample-info h3 {
+    font-size: 22px !important;
+  }
+  .sample-info ul li {
+    font-size: 18px !important;
+  }
+  .sample-info ul li h3, .sample-info ul li span {
+    font-size: 16px !important;
+  }
+
+  .small-items-container div {
+    margin: 0 4px 0 4px !important;
+  }
+
+  .detail-box li h4 {
+    font-size: 18px !important;
+  }
+  .detail-box li h4 span {
+    font-size: 16px !important;
+  }
+
+  .process-timeline > div {
+    width: 90% !important;
+  }
+  .process-timeline > div span {
+    font-size: 16px !important;
+  }
+  .process-timeline .icons-container > span {
+    border: 8px solid !important;
+  }
+  .process-timeline .icons-container > span::before {
+    border-right: 5px solid transparent !important;
+    border-left: 5px solid transparent !important;
+    border-top: 15px solid !important;
+    top: calc(100% + 5px) !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
@@ -10522,6 +10559,34 @@ h3 {
   .search-box-services button, .search-box-services input {
     font-size: 16px !important;
   }
+
+  .sample-images-slider {
+    width: 100% !important;
+  }
+
+  .sample-info {
+    width: 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+  .sample-info h3 {
+    font-size: 24px !important;
+  }
+  .sample-info ul li {
+    font-size: 20px !important;
+  }
+  .sample-info ul li h3, .sample-info ul li span {
+    font-size: 18px !important;
+  }
+
+  .detail-box {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+  .detail-box li h4 {
+    margin-bottom: 30px !important;
+  }
 }
 @media screen and (max-width: 425px) {
   footer.footer .footer-content {
@@ -10586,6 +10651,13 @@ h3 {
   .portfolio-detail ul {
     font-size: 8px !important;
   }
+
+  .small-items-container div {
+    margin: 0 4px 0 4px !important;
+  }
+  .small-items-container i {
+    font-size: 45px !important;
+  }
 }
 @media screen and (min-width: 1800px) {
   .col-xl-xl-2 {
@@ -10612,6 +10684,20 @@ h3 {
   }
   .portfolio-detail ul {
     font-size: 20px !important;
+  }
+
+  .sample-info h3 {
+    font-size: 2.2vw !important;
+  }
+  .sample-info ul li {
+    font-size: 1.7vw !important;
+  }
+  .sample-info ul li h3, .sample-info ul li span {
+    font-size: 1.4vw !important;
+  }
+
+  .small-items-container i {
+    font-size: 5vw !important;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1201px) {
@@ -10696,6 +10782,22 @@ h3 {
   .t-0 .step-info {
     right: 8% !important;
     margin-top: 12% !important;
+  }
+
+  .process-timeline > div {
+    width: 90% !important;
+  }
+  .process-timeline > div span {
+    font-size: 16px !important;
+  }
+  .process-timeline .icons-container > span {
+    border: 12px solid !important;
+  }
+  .process-timeline .icons-container > span::before {
+    border-right: 10px solid transparent !important;
+    border-left: 10px solid transparent !important;
+    border-top: 20px solid !important;
+    top: calc(100% + 10px) !important;
   }
 }
 html, body {
@@ -13126,14 +13228,16 @@ div.other-services-container > div.other-service button {
 }
 
 .section-guide {
-  background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
-  background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+  background: linear-gradient(to bottom right, rgba(172, 127, 244, 0.8), rgba(143, 96, 236, 0.8), rgba(98, 50, 222, 0.8));
+  background: linear-gradient(to bottom right, rgba(172, 127, 244, 0.8), rgba(143, 96, 236, 0.8), rgba(98, 50, 222, 0.8));
+  box-shadow: 2px 2px 15px 0px #6232de;
+  border-radius: 2%;
   text-align: center;
   position: fixed;
   margin: 90px 0 0 40px;
   padding: 12px 0 12px;
   z-index: 100;
-  height: calc(100vh - 105px);
+  max-height: calc(100vh - 120px);
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -13143,7 +13247,7 @@ div.other-services-container > div.other-service button {
 }
 .section-guide > h4 {
   color: white;
-  font-size: 35px;
+  font-size: 28px;
 }
 .section-guide ul {
   list-style-type: none !important;
@@ -13157,42 +13261,62 @@ div.other-services-container > div.other-service button {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 11.9vh;
+  height: calc((100vh - 220px)/6);
+  cursor: pointer;
+}
+.section-guide ul li:hover span:nth-child(1) {
+  font-weight: bold;
+  transform: scale(1.1);
+}
+.section-guide ul li:hover span:nth-child(2) {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 .section-guide ul li span:nth-child(1) {
   color: white;
   font-size: 20px;
   width: 150px;
+  transition: 0.5s;
 }
 .section-guide ul li span:nth-child(2) {
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  background-color: white;
+  background-color: transparent;
+  border: 2px solid white;
   display: grid;
   margin-right: 80px;
   align-items: center;
+  transition: 0.5s;
 }
 .section-guide ul li span:nth-child(2)::after {
   content: "";
   display: block;
-  width: 80px;
+  width: 72px;
   height: 2px;
   background-color: white;
   margin-right: 10px;
+  left: 10px;
+  position: relative;
   transform: rotateZ(180deg);
   transform-origin: right;
 }
 .section-guide ul li span:nth-child(2)::before {
   content: "";
   display: block;
-  width: 8vh;
+  width: calc((100vh - 400px)/6);
   height: 2px;
   background-color: white;
   transform: rotateZ(-90deg);
-  margin: 29px 10px 5px 0;
+  margin: 24px 8px 5px 0;
   transform-origin: right;
   position: absolute;
+}
+.section-guide ul li.current span:nth-child(1) {
+  font-weight: bold !important;
+  transform: scale(1.1) !important;
+}
+.section-guide ul li.current span:nth-child(2) {
+  background-color: white !important;
 }
 .section-guide ul li:last-child {
   margin-bottom: 0 !important;
@@ -13202,7 +13326,7 @@ div.other-services-container > div.other-service button {
 }
 
 .sample-images-slider {
-  width: 45%;
+  width: 50%;
 }
 .sample-images-slider div.showing-image {
   position: relative;
@@ -13280,11 +13404,13 @@ div.other-services-container > div.other-service button {
 }
 
 .sample-info {
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: baseline;
+  align-items: center;
   float: right;
+  padding: 2%;
 }
 .sample-info > h3 {
   font-size: 30px;
@@ -13309,6 +13435,155 @@ div.other-services-container > div.other-service button {
   font-size: 30px;
   color: #d5bfe9;
   margin-left: 5px;
+}
+
+.portfolio-order-detail {
+  background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+  background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+  text-align: center;
+}
+.portfolio-order-detail h4 {
+  color: white;
+  font-weight: bold;
+}
+.portfolio-order-detail .detail-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+.portfolio-order-detail .detail-box li {
+  flex: 33.33333%;
+}
+.portfolio-order-detail .detail-box li h4 {
+  margin-bottom: 35px;
+  font-size: 20px;
+  color: white;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-right: 10px;
+  border-right: 2px solid white;
+  line-height: 1.6;
+  text-align: right;
+}
+.portfolio-order-detail .detail-box li h4 span {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.process-timeline > div {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  margin-top: 50px;
+}
+.process-timeline > div > span {
+  display: inline-block;
+  width: 8%;
+  margin: 0 6% 0 6%;
+}
+.process-timeline .icons-container > span {
+  border: 15px solid;
+  border-radius: 100%;
+  background-color: white;
+  position: relative;
+}
+.process-timeline .icons-container > span i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  font-size: 3vw;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.process-timeline .icons-container > span:nth-child(1) {
+  border-color: #d5bfe9 !important;
+}
+.process-timeline .icons-container > span:nth-child(1)::before {
+  border-top-color: #d5bfe9 !important;
+}
+.process-timeline .icons-container > span:nth-child(2) {
+  border-color: #ad80db !important;
+}
+.process-timeline .icons-container > span:nth-child(2)::before {
+  border-top-color: #ad80db !important;
+}
+.process-timeline .icons-container > span:nth-child(3) {
+  border-color: #854bc4 !important;
+}
+.process-timeline .icons-container > span:nth-child(3)::before {
+  border-top-color: #854bc4 !important;
+}
+.process-timeline .icons-container > span:nth-child(4) {
+  border-color: #61368c !important;
+}
+.process-timeline .icons-container > span:nth-child(4)::before {
+  border-top-color: #61368c !important;
+}
+.process-timeline .icons-container > span:nth-child(5) {
+  border-color: #351a60 !important;
+}
+.process-timeline .icons-container > span:nth-child(5)::before {
+  border-top-color: #351a60 !important;
+}
+.process-timeline .icons-container > span::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.process-timeline .icons-container > span::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-top: 25px solid;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 50%;
+  transform: translateX(50%);
+  box-sizing: 0;
+  z-index: -2;
+}
+.process-timeline .dates-line {
+  border-radius: 20px;
+  background: linear-gradient(to right, #d5bfe9 20%, #ad80db 40%, #854bc4 60%, #61368c 80%, #351a60 100%);
+  background: -webkit-linear-gradient(to right, #d5bfe9 20%, #ad80db 40%, #854bc4 60%, #61368c 80%, #351a60 100%);
+}
+.process-timeline .dates-line span {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+.process-timeline .levels-container > span {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+}
+.process-timeline .levels-container > span i {
+  font-size: 2vw;
+  margin-bottom: 20px;
 }
 
 .header {
