@@ -225,6 +225,11 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .section-guide-container {
+        &.close {
+            top: 70vh;
+        }
+    }
 }
 
 //large and above
@@ -665,7 +670,7 @@ $xl-xl-breakpoint: 1400px;
         width: 90% !important;
         &.close {
             margin: 90px 0% 0 2% !important;
-            top: 74vh !important;
+            top: 74vh;
             padding-left: 0 !important;
         }
         &.open {
@@ -803,6 +808,16 @@ $xl-xl-breakpoint: 1400px;
     .dates-line {
         > span {
             font-size: 18px !important;
+        }
+    }
+    .section-guide-container {
+        &.close {
+            top: 70vh !important;
+        }
+        #guide-toggler {
+            i {
+                font-size: 50px !important;
+            }
         }
     }
 }

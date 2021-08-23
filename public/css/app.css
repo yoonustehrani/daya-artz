@@ -10228,6 +10228,10 @@ h3 {
   .process-timeline .levels-container span {
     font-size: 18px;
   }
+
+  .section-guide-container.close {
+    top: 70vh;
+  }
 }
 @media screen and (min-width: 992px) {
   div.address-label h3 {
@@ -10679,7 +10683,7 @@ h3 {
   }
   .section-guide-container.close {
     margin: 90px 0% 0 2% !important;
-    top: 74vh !important;
+    top: 74vh;
     padding-left: 0 !important;
   }
   .section-guide-container.open {
@@ -10796,6 +10800,13 @@ h3 {
 
   .dates-line > span {
     font-size: 18px !important;
+  }
+
+  .section-guide-container.close {
+    top: 70vh !important;
+  }
+  .section-guide-container #guide-toggler i {
+    font-size: 50px !important;
   }
 }
 @media screen and (min-width: 1800px) {
@@ -13391,7 +13402,6 @@ div.other-services-container > div.other-service button {
   height: fit-content;
   display: flex;
   align-items: flex-end;
-  top: 70vh;
 }
 .section-guide-container.close .section-guide {
   display: none;
