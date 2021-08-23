@@ -274,6 +274,19 @@ div.header-section {
             right: 0;
         }
     }
+    ul {
+        list-style-type: none !important;
+        li {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            h3, p {
+                font-weight: normal;
+                font-size: 20px;
+                display: inline;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: $md-breakpoint - 1px) {
@@ -282,7 +295,7 @@ div.header-section {
         right: -100%;
         width: 90vw;
         height: 100vh;
-        z-index: 20;
+        z-index: 26;
         background: linear-gradient(to right bottom, #4568DC, #B06AB3);
         transition: 1s;
         opacity: 0;
