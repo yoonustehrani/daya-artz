@@ -5,7 +5,7 @@
     <div class="logo-container">
         <img src="{{ asset('images/daya-white-logo.png') }}">
     </div>
-    <div id="m-menu" class="menu-container">
+    <div id="m-menu" class="menu-container h-100">
         <div class="menu-header p-3 d-md-none">
             <i id="menu-close" class="fas fa-times"></i>
             <span class="login-btn"><i class="far fa-user-circle"></i>ورود به حساب </span>
