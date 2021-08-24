@@ -27,3 +27,8 @@ Route::get('blog/{title}', function($title) {
     return view('pages.posts.show', compact('title'));
 })->name('blog.show');
 Route::view('portfolio/{title}', 'pages.portfolio')->name('portfolio.show');
+
+// Auth::routes(['register' => false]);
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
