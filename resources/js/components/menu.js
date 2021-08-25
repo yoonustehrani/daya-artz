@@ -1,6 +1,19 @@
 $(document).ready(function() {
+    let is_open
     function toggle_menu() {
-        $(".menu-container").toggleClass("open")
+        is_open = $(".menu-container").hasClass("open")
+        if (is_open) {
+            $(".menu-container").toggleClass("open")
+            setTimeout(() => {
+                $(".menu-container").addClass("d-none")
+            }, 1000);
+        } else {
+            $(".menu-container").removeClass("d-none")
+            setTimeout(() => {
+                $(".menu-container").toggleClass("open")
+
+            }, 0);
+        }
         $("body").toggleClass("over-h")
         $(".fa-bars").toggleClass("op-0")
     }

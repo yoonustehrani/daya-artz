@@ -2099,8 +2099,23 @@ if ($(".portfolio-section")) {
 /***/ (() => {
 
 $(document).ready(function () {
+  var is_open;
+
   function toggle_menu() {
-    $(".menu-container").toggleClass("open");
+    is_open = $(".menu-container").hasClass("open");
+
+    if (is_open) {
+      $(".menu-container").toggleClass("open");
+      setTimeout(function () {
+        $(".menu-container").addClass("d-none");
+      }, 1000);
+    } else {
+      $(".menu-container").removeClass("d-none");
+      setTimeout(function () {
+        $(".menu-container").toggleClass("open");
+      }, 0);
+    }
+
     $("body").toggleClass("over-h");
     $(".fa-bars").toggleClass("op-0");
   }

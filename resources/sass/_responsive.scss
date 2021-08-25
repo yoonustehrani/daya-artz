@@ -9,16 +9,22 @@ $xl-xl-breakpoint: 1400px;
 @media screen and (max-width: $lg-breakpoint+1px) and (min-width: $md-breakpoint) {
     .header, .min-header {
         > nav {
-            .last-item {
-                left: 2% !important;
-            }
-            ul.main-menu {
-                width: calc(98% - 70px) !important;
-                li {
-                    margin: 0px 2px !important;
-                    a {
-                        font-size: 16px !important;
+            padding-left: 10px !important;
+            .menu-container {
+                width: calc(100% - 212px) !important;
+                ul.main-menu {
+                    li {
+                        margin: 0px 2px !important;
+                        a {
+                            font-size: 16px !important;
+                        }
                     }
+                }
+            }
+            .last-item {
+                width: 132px !important;
+                a {
+                    font-size: 14px !important;
                 }
             }
         }

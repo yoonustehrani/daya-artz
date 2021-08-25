@@ -10038,17 +10038,23 @@ h3 {
   }
 }
 @media screen and (max-width: 993px) and (min-width: 768px) {
-  .header > nav .last-item, .min-header > nav .last-item {
-    left: 2% !important;
+  .header > nav, .min-header > nav {
+    padding-left: 10px !important;
   }
-  .header > nav ul.main-menu, .min-header > nav ul.main-menu {
-    width: calc(98% - 70px) !important;
+  .header > nav .menu-container, .min-header > nav .menu-container {
+    width: calc(100% - 212px) !important;
   }
-  .header > nav ul.main-menu li, .min-header > nav ul.main-menu li {
+  .header > nav .menu-container ul.main-menu li, .min-header > nav .menu-container ul.main-menu li {
     margin: 0px 2px !important;
   }
-  .header > nav ul.main-menu li a, .min-header > nav ul.main-menu li a {
+  .header > nav .menu-container ul.main-menu li a, .min-header > nav .menu-container ul.main-menu li a {
     font-size: 16px !important;
+  }
+  .header > nav .last-item, .min-header > nav .last-item {
+    width: 132px !important;
+  }
+  .header > nav .last-item a, .min-header > nav .last-item a {
+    font-size: 14px !important;
   }
 
   div.contact-ways-container > div i.contact-way-icon {
@@ -13826,7 +13832,6 @@ div.other-services-container > div.other-service button {
   width: 100%;
   padding-left: 50px;
   height: 70px;
-  position: relative;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 .header > nav > .logo-container, .min-header > nav > .logo-container {
@@ -13841,9 +13846,14 @@ div.other-services-container > div.other-service button {
   padding: 5px;
 }
 @media screen and (min-width: 768px) {
-  .header > nav div.menu-container ul, .min-header > nav div.menu-container ul {
-    width: calc(90% - 70px);
+  .header > nav div.menu-container, .min-header > nav div.menu-container {
+    width: calc(100% - 220px);
     height: 100%;
+    display: inline-block;
+  }
+  .header > nav div.menu-container ul, .min-header > nav div.menu-container ul {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     box-sizing: border-box;
@@ -13933,13 +13943,12 @@ div.other-services-container > div.other-service button {
           animation: fadeIn 1s ease-in;
 }
 .header > nav .last-item, .min-header > nav .last-item {
-  position: absolute;
-  left: 8%;
-  top: 0px;
   height: 100%;
+  width: 140px;
   padding-top: 15px;
   display: flex;
   justify-items: flex-end;
+  float: left;
 }
 .header > nav .last-item .btn-white, .header > nav .last-item button, .min-header > nav .last-item .btn-white, .min-header > nav .last-item button {
   font-size: 16px;
@@ -14101,7 +14110,7 @@ div.header-section div.header-title .title span {
     position: absolute;
     right: -100%;
     width: 90vw;
-    height: 100vh;
+    height: 100%;
     z-index: 26;
     background: linear-gradient(to right bottom, #4568DC, #B06AB3);
     transition: 1s;
@@ -14117,6 +14126,7 @@ div.header-section div.header-title .title span {
     color: #ffffff;
     width: 100%;
     margin-top: 15px;
+    height: 70px;
   }
   .menu-container .top-logo img {
     margin-right: 16px;
@@ -14132,7 +14142,7 @@ div.header-section div.header-title .title span {
     padding-right: 0px;
     list-style-type: none;
     margin-top: 0%;
-    height: 100%;
+    height: calc(100% - 155px);
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -14219,6 +14229,7 @@ div.header-section div.header-title .title span {
     flex-wrap: nowrap;
     padding-left: 1%;
     padding-right: 1%;
+    height: 70px;
   }
   .menu-header i {
     font-size: 35px;

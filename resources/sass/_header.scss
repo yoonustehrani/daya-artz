@@ -22,7 +22,6 @@
         width: 100%;
         padding-left: 50px;
         height: 70px;
-        position: relative;
         border-bottom: 2px solid rgba(255,255,255,0.1);
         > .logo-container {
             width: 70px;
@@ -37,9 +36,12 @@
         }
         @media screen and (min-width: $md-breakpoint) {
             div.menu-container {
+                width: calc(100% - 220px);
+                height: 100%;
+                display: inline-block;
                 ul {
-                    width: calc(90% - 70px);
                     height: 100%;
+                    width: 100%;
                     display: flex;
                     flex-flow: row wrap;
                     box-sizing: border-box;
@@ -126,13 +128,12 @@
             }
         }
         .last-item {
-            position: absolute;
-            left: 8%;
-            top: 0px;
             height: 100%;
+            width: 140px;
             padding-top: 15px;
             display: flex;
             justify-items: flex-end;
+            float: left;
             .btn-white, button {
                 font-size: 16px;
                 height: fit-content;
@@ -294,7 +295,7 @@ div.header-section {
         position: absolute;
         right: -100%;
         width: 90vw;
-        height: 100vh;
+        height: 100%;
         z-index: 26;
         background: linear-gradient(to right bottom, #4568DC, #B06AB3);
         transition: 1s;
@@ -309,6 +310,7 @@ div.header-section {
             color: #ffffff;
             width: 100%;
             margin-top: 15px;
+            height: 70px;
             img {
                 margin-right: 16px;
                 width: 50px;
@@ -324,7 +326,7 @@ div.header-section {
             padding-right: 0px;
             list-style-type: none;
             margin-top: 0%;
-            height: 100%;
+            height: calc(100% - 155px);
             -ms-overflow-style: none;
             scrollbar-width: none;
             &::-webkit-scrollbar {
@@ -414,6 +416,7 @@ div.header-section {
         flex-wrap: nowrap;
         padding-left: 1%;
         padding-right: 1%;
+        height: 70px;
         i {
             font-size: 35px;
             color: #fff;
