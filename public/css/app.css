@@ -14133,6 +14133,11 @@ div.header-section div.header-title .title span {
     list-style-type: none;
     margin-top: 0%;
     height: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .menu-container ul.menu-items-container::-webkit-scrollbar {
+    display: none;
   }
   .menu-container ul.menu-items-container > li {
     transition: 0.5s;
