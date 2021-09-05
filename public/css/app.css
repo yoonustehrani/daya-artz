@@ -11147,6 +11147,37 @@ a:hover {
   position: relative !important;
 }
 
+.btn-white {
+  border: 2px solid #ffffff !important;
+  border-radius: 16px;
+  padding: 5px 10px !important;
+  transition: 0.3s;
+  color: #ebe7fa;
+}
+.btn-white:hover {
+  transition: 0.3s;
+  background-color: #ffffff;
+  color: #a87df2 !important;
+}
+
+button > i {
+  margin-top: 5px;
+}
+button i.fa-phone {
+  transform: rotate(90deg);
+}
+
+.btn-phone {
+  border-radius: 100%;
+  border: none;
+}
+.btn-phone:hover {
+  box-shadow: 0 0 2px 1px #333;
+}
+.btn-phone i {
+  padding: 5px;
+}
+
 .title-section {
   display: flex;
   justify-content: center;
@@ -14250,35 +14281,4 @@ div.header-section div.header-title .title span {
 }
 .over-h {
   overflow-y: hidden !important;
-}
-
-.btn-white {
-  border: 2px solid #ffffff !important;
-  border-radius: 16px;
-  padding: 5px 10px !important;
-  transition: 0.3s;
-  color: #ebe7fa;
-}
-.btn-white:hover {
-  transition: 0.3s;
-  background-color: #ffffff;
-  color: #a87df2 !important;
-}
-
-button > i {
-  margin-top: 5px;
-}
-button i.fa-phone {
-  transform: rotate(90deg);
-}
-
-.btn-phone {
-  border-radius: 100%;
-  border: none;
-}
-.btn-phone:hover {
-  box-shadow: 0 0 2px 1px #333;
-}
-.btn-phone i {
-  padding: 5px;
 }
