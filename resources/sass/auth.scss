@@ -1,0 +1,99 @@
+.auth-container {
+    float: left;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+    .login-bg {
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        background-image: url("/images/footer-background.png");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        > div {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: inherit;
+        }
+        .change-form {
+            h2, p, button {
+                margin: 20px 0 20px 0;
+            }
+            h2 {
+                font-size: 26px;
+                color: #fff;
+                direction: ltr;
+                font-weight: bold;
+            }
+            p {
+                font-size: 18px;
+                color: #fff;
+            }
+            button {
+                width: 40%;
+                background-color: #fff;
+                color: #8f60ec;
+            }
+        }
+        .login-form {
+            background-color: #fff;
+            h2 {
+                color: #8f60ec;
+                font-size: 26px;
+                font-weight: bold;
+            }
+            .login-icons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                span {
+                    cursor: pointer;
+                    i {
+                        transition: 0.3s;
+                        padding: 10px;
+                        border-radius: 100%;
+                        color: $gray;
+                        font-size: 25px;
+                        box-shadow: 2px 2px 4px 0px #dfdfdf;
+                        &.fa-google {
+                            &:hover {
+                                background-color: #db3236;
+                                color: #fff;
+                            }
+                        }
+                        &.fa-linkedin-in {
+                            &:hover {
+                                background-color: #0077b5;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            p.gray {
+                font-size: 16px;
+                color: $gray;
+            }
+            p.forgot-ps {
+                font-size: 20px;
+                color: #fff;
+            }
+            button {
+                background-color: #6232de;
+                color: #fff;
+                width: 40%;
+            }
+            h2, .login-icons, button {
+                margin: 20px 0 20px 0;
+            } 
+            div.form-group, p {
+                margin: 10px 0 10px 0;
+            }
+        }
+    }
+}
