@@ -14385,12 +14385,6 @@ div.header-section div.header-title .title span {
   width: 400px;
   position: relative;
 }
-.auth-container .login-bg .change-form > div .welcome, .auth-container .login-bg .change-form > div .enter {
-  right: 0%;
-}
-.auth-container .login-bg .change-form > div .hey, .auth-container .login-bg .change-form > div .register {
-  left: 0%;
-}
 .auth-container .login-bg .change-form > div button {
   font-size: 26px;
   width: 40%;
@@ -14462,7 +14456,7 @@ div.header-section div.header-title .title span {
 .auth-container .login-bg .login-form button:hover {
   background-color: #6232de;
 }
-.auth-container .login-bg .login-form h2, .auth-container .login-bg .login-form .login-icons, .auth-container .login-bg .login-form button {
+.auth-container .login-bg .login-form h2, .auth-container .login-bg .login-form .login-icons, .auth-container .login-bg .login-form button, .auth-container .login-bg .login-form a {
   margin: 20px 0 20px 0;
 }
 .auth-container .login-bg .login-form div.input-group, .auth-container .login-bg .login-form p {
@@ -14470,4 +14464,12 @@ div.header-section div.header-title .title span {
 }
 .auth-container .login-bg .login-form div.input-group {
   width: 35% !important;
+}
+.auth-container .login-bg .login-form a.forgot-ps {
+  font-size: 18px;
+  color: #808080;
+  transition: 0.3s;
+}
+.auth-container .login-bg .login-form a.forgot-ps:hover {
+  color: #000;
 }

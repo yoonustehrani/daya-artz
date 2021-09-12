@@ -72,12 +72,6 @@
                     width: 400px;
                     position: relative;
                 }
-                .welcome, .enter {
-                    right: 0%;
-                }
-                .hey, .register {
-                    left: 0%;
-                }
                 button {
                     font-size: 26px;
                     width: 40%;
@@ -154,7 +148,7 @@
                     background-color: #6232de;
                 }
             }
-            h2, .login-icons, button {
+            h2, .login-icons, button, a {
                 margin: 20px 0 20px 0;
             } 
             div.input-group, p {
@@ -162,6 +156,14 @@
             }
             div.input-group {
                 width: 35% !important;
+            }
+            a.forgot-ps {
+                font-size: 18px;
+                color: $gray;
+                transition: 0.3s;
+                &:hover {
+                    color: #000;
+                }
             }
         }
     }

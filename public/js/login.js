@@ -28,7 +28,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
@@ -58,11 +58,13 @@ var Login = /*#__PURE__*/function (_Component) {
       signup: {
         user_name: "",
         email: "",
+        phone_number: "",
         password: "",
         rep_password: ""
       },
       login: {
         user_name: "",
+        phone_number: "",
         password: ""
       },
       isLoggingIn: false
@@ -87,14 +89,19 @@ var Login = /*#__PURE__*/function (_Component) {
         setTimeout(function () {
           _this.changeSectionRef.current.classList.remove("width-change");
 
-          $(".change-form").find("button")[0].classList.toggle("fadeIn");
+          $(".change-form").find("button")[0].classList.toggle("heartBeat");
         }, 1500);
         setTimeout(function () {
           $(".change-form").find("h2, p").each(function () {
             this.classList.toggle("d-none");
           });
-          $(".change-form").find("button")[0].classList.toggle("fadeIn");
+          $(".change-form").find("button")[0].classList.toggle("heartBeat");
           $(".change-form").find("button")[0].innerHTML = _this.state.isLoggingIn ? "ثبت نام" : "ورود";
+          $(".login-form").find("h2")[0].innerHTML = _this.state.isLoggingIn ? "ورود به دایا" : "ثبت نام در دایا";
+          $(".login-form").find("button")[0].innerHTML = _this.state.isLoggingIn ? "ورود" : "ثبت نام";
+          $(".login-form").find(".input-group, .forget-ps").each(function () {
+            this.classList.toggle("d-none");
+          });
         }, 500);
       });
     });
@@ -121,16 +128,16 @@ var Login = /*#__PURE__*/function (_Component) {
               className: "change-form ".concat(isLoggingIn ? "bg-p-100" : "right-60"),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-                  className: "animated flash welcome",
+                  className: "animated flash",
                   children: "!\u062E\u0648\u0634 \u0622\u0645\u062F\u06CC\u062F"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                  className: "animated flash enter",
+                  className: "animated flash",
                   children: "\u0627\u06AF\u0631 \u062F\u0631 \u062D\u0627\u0644 \u062D\u0627\u0636\u0631 \u062F\u0627\u062E\u0644 \u062F\u0627\u06CC\u0627 \u062D\u0633\u0627\u0628 \u062F\u0627\u0631\u06CC\u062F \u0628\u0627 \u0632\u062F\u0646 \u062F\u06A9\u0645\u0647 \u0632\u06CC\u0631 \u0648\u0627\u0631\u062F \u0635\u0641\u062D\u0647 \u0648\u0631\u0648\u062F \u0634\u0648\u06CC\u062F ..."
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-                  className: "animated flash hey d-none",
+                  className: "animated flash d-none",
                   children: "!\u0633\u0644\u0627\u0645 \u062F\u0648\u0633\u062A \u0639\u0632\u06CC\u0632"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                  className: "animated flash register d-none",
+                  className: "animated flash d-none",
                   children: "\u0627\u06AF\u0647 \u0647\u0646\u0648\u0632 \u062B\u0628\u062A \u0646\u0627\u0645 \u0646\u06A9\u0631\u062F\u06CC \u0645\u06CC\u062A\u0648\u0646\u06CC \u0628\u0627 \u0632\u062F\u0646 \u062F\u06A9\u0645\u0647 \u0632\u06CC\u0631 \u062B\u0628\u062A \u0646\u0627\u0645 \u062F\u0631 \u062F\u0627\u06CC\u0627 \u0631\u0648 \u0622\u063A\u0627\u0632 \u06A9\u0646\u06CC ..."
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                   onClick: this.changeSection.bind(this),
@@ -225,6 +232,44 @@ var Login = /*#__PURE__*/function (_Component) {
                     })
                   })
                 })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "input-group d-none",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  type: "text",
+                  className: "form-control",
+                  value: login.user_name,
+                  placeholder: "\u0627\u06CC\u0645\u06CC\u0644 \u06CC\u0627 \u0646\u0627\u0645 \u06A9\u0627\u0631\u0628\u0631\u06CC",
+                  onChange: this.onChangeField.bind(this, "user_name", "login")
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "input-group-append",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                    className: "input-group-text",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+                      className: "fas fa-user"
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "input-group d-none",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  type: "password",
+                  className: "form-control",
+                  value: login.password,
+                  placeholder: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631",
+                  onChange: this.onChangeField.bind(this, "password", "login")
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "input-group-append",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                    className: "input-group-text",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+                      className: "fas fa-lock"
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                href: "#",
+                className: "forgot-ps",
+                children: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u062E\u0648\u062F\u062A\u0648\u0646 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u06A9\u0631\u062F\u06CC\u062F\u061F"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                 className: "btn btn-lg badge-pill ",
                 children: "\u062B\u0628\u062A \u0646\u0627\u0645"
@@ -29744,7 +29789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var react_el = document.getElementById("login-react");
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_login__WEBPACK_IMPORTED_MODULE_2__.default, {}), react_el);
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_login__WEBPACK_IMPORTED_MODULE_2__["default"], {}), react_el);
 })();
 
 /******/ })()
