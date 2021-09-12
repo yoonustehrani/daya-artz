@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthContext from '../context/AutrhContext';
 import Login from '../Pages/Login';
+import UserAreaHandler from './UserAreaHandler';
 
 class UserArea extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class UserArea extends Component {
         return (
             <AuthContext.Provider value={this.state.user}>
                 {this.state.user 
-                ? <div>Hello</div>
+                ? <UserAreaHandler />
                 : <Login />
                 }
             </AuthContext.Provider>
