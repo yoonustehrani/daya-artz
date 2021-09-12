@@ -4,7 +4,7 @@ export default class UserAreaHandler extends Component {
     render() {
         return (
             <div>
-                hello
+                <p>hello</p>
             </div>
         )
     }
