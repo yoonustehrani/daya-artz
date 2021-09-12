@@ -47,14 +47,10 @@ var Dashboard = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Dashboard);
 
-  function Dashboard(props) {
-    var _this;
-
+  function Dashboard() {
     _classCallCheck(this, Dashboard);
 
-    _this = _super.call(this, props);
-    console.log(_context_AutrhContext__WEBPACK_IMPORTED_MODULE_1__["default"].displayName);
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(Dashboard, [{
@@ -527,7 +523,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var UserAreaHandler = /*#__PURE__*/function (_Component) {
   _inherits(UserAreaHandler, _Component);
 
@@ -542,12 +537,7 @@ var UserAreaHandler = /*#__PURE__*/function (_Component) {
   _createClass(UserAreaHandler, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "float-left text-left",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-          children: "hello"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
-      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {});
     }
   }]);
 
