@@ -90,7 +90,7 @@ var Login = /*#__PURE__*/function (_Component) {
           _this.changeSectionRef.current.classList.remove("width-change");
 
           $(".change-form").find("button")[0].classList.toggle("heartBeat");
-          $(".daya-logo").find("img")[0].classList.toggle("flash");
+          $(".daya-logo").find("img")[0].classList.toggle("tada");
         }, 1500);
         setTimeout(function () {
           $(".change-form").find("h2, p").each(function () {
@@ -103,9 +103,9 @@ var Login = /*#__PURE__*/function (_Component) {
           $(".login-form").find(".input-group, .forget-ps").each(function () {
             this.classList.toggle("d-none");
           });
-          $(".daya-logo").find("span")[0].classList.toggle("purple-cl");
-          $(".daya-logo").find("img")[0].src = _this.state.isLoggingIn ? "".concat(APP_PATH, "images/daya-cyan-logo.png") : "".concat(APP_PATH, "images/daya-logo-circular.png");
-          $(".daya-logo").find("img")[0].classList.toggle("flash");
+          $(".daya-logo")[0].classList.toggle("purple-cl");
+          $(".daya-logo").find("img")[0].src = _this.state.isLoggingIn ? "".concat(APP_PATH, "images/daya-white-logo.png") : "".concat(APP_PATH, "images/daya-logo-circular.png");
+          $(".daya-logo").find("img")[0].classList.toggle("tada");
         }, 500);
       });
     });
