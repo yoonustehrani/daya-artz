@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import Dashboard from '../Pages/Dashboard'
 
 export default class UserAreaHandler extends Component {
     render() {
         return (
             <div>
-                <p>hello</p>
+                {/* Todo Router */}
             </div>
         )
     }

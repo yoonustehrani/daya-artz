@@ -7,7 +7,10 @@ class UserArea extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            user: null
+            user: {
+                email: "yoonustehrani@example.com",
+                name: "Yoonus"
+            }
         }
     }
     render() {
