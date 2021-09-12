@@ -121,3 +121,15 @@ a:hover {
         transform: rotateZ(-180deg);
     }
 }
+
+@keyframes width-change {
+    0% {
+        width: 40%;
+    }
+    50% {
+        width: 50%;
+    }
+    100% {
+        width: 40%;
+    }
+}

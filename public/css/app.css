@@ -11133,6 +11133,28 @@ a:hover {
     transform: rotateZ(-180deg);
   }
 }
+@-webkit-keyframes width-change {
+  0% {
+    width: 40%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 40%;
+  }
+}
+@keyframes width-change {
+  0% {
+    width: 40%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 40%;
+  }
+}
 .section, .title-section {
   float: left;
 }
@@ -11145,6 +11167,37 @@ a:hover {
 
 .relative {
   position: relative !important;
+}
+
+.btn-white {
+  border: 2px solid #ffffff !important;
+  border-radius: 16px;
+  padding: 5px 10px !important;
+  transition: 0.3s;
+  color: #ebe7fa;
+}
+.btn-white:hover {
+  transition: 0.3s;
+  background-color: #ffffff;
+  color: #a87df2 !important;
+}
+
+button > i {
+  margin-top: 5px;
+}
+button i.fa-phone {
+  transform: rotate(90deg);
+}
+
+.btn-phone {
+  border-radius: 100%;
+  border: none;
+}
+.btn-phone:hover {
+  box-shadow: 0 0 2px 1px #333;
+}
+.btn-phone i {
+  padding: 5px;
 }
 
 .title-section {
@@ -14252,33 +14305,171 @@ div.header-section div.header-title .title span {
   overflow-y: hidden !important;
 }
 
-.btn-white {
-  border: 2px solid #ffffff !important;
-  border-radius: 16px;
-  padding: 5px 10px !important;
+.auth-container {
+  float: left;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+}
+.auth-container .login-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.auth-container .login-bg > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.auth-container .login-bg .right-40 {
+  right: 40% !important;
+}
+.auth-container .login-bg .right-60 {
+  right: 60% !important;
+}
+.auth-container .login-bg .bg-p-100 {
+  background-position: 100% !important;
+}
+.auth-container .login-bg .bg-p-100 > div {
+  background-position: 100% !important;
+}
+.auth-container .login-bg .width-change {
+  -webkit-animation-name: width-change;
+          animation-name: width-change;
+}
+.auth-container .login-bg .change-form {
+  transition: 1.5s;
+  z-index: 10;
+  right: 0;
+  background: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+  width: 40%;
+  background-size: 250%;
+  background-position: 0%;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+.auth-container .login-bg .change-form > div {
+  transition: 1.5s;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/footer-background.png");
+  background-size: cover;
+  background-position: 0%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: inherit;
+}
+.auth-container .login-bg .change-form > div h2, .auth-container .login-bg .change-form > div p, .auth-container .login-bg .change-form > div button {
+  margin: 20px 0 20px 0;
+  transition: 500ms;
+}
+.auth-container .login-bg .change-form > div h2 {
+  font-size: 30px;
+  color: #fff;
+  direction: ltr;
+  font-weight: bold;
+  position: relative;
+}
+.auth-container .login-bg .change-form > div p {
+  font-size: 20px;
+  color: #fff;
+  width: 400px;
+  position: relative;
+}
+.auth-container .login-bg .change-form > div button {
+  font-size: 26px;
+  width: 40%;
+  background-color: #fff;
+  color: #8f60ec;
+  transition: 0.5s;
+}
+.auth-container .login-bg .change-form > div button:hover {
+  color: #fff;
+  background-color: #8f60ec;
+}
+.auth-container .login-bg .login-form {
+  width: 60%;
+  background-color: #fff;
+  transition: 1.5s;
+  z-index: 9;
+  right: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: inherit;
+}
+.auth-container .login-bg .login-form h2 {
+  color: #8f60ec;
+  font-size: 30px;
+  font-weight: bold;
+}
+.auth-container .login-bg .login-form .login-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth-container .login-bg .login-form .login-icons span {
+  cursor: pointer;
+  margin: 0 4px 0 4px;
+}
+.auth-container .login-bg .login-form .login-icons span i {
   transition: 0.3s;
-  color: #ebe7fa;
-}
-.btn-white:hover {
-  transition: 0.3s;
-  background-color: #ffffff;
-  color: #a87df2 !important;
-}
-
-button > i {
-  margin-top: 5px;
-}
-button i.fa-phone {
-  transform: rotate(90deg);
-}
-
-.btn-phone {
+  padding: 10px;
   border-radius: 100%;
-  border: none;
+  color: #808080;
+  font-size: 25px;
+  box-shadow: 2px 2px 4px 0px #dfdfdf;
 }
-.btn-phone:hover {
-  box-shadow: 0 0 2px 1px #333;
+.auth-container .login-bg .login-form .login-icons span i.fa-google:hover {
+  background-color: #db3236;
+  color: #fff;
 }
-.btn-phone i {
-  padding: 5px;
+.auth-container .login-bg .login-form .login-icons span i.fa-linkedin-in:hover {
+  background-color: #0077b5;
+  color: #fff;
+}
+.auth-container .login-bg .login-form p.gray {
+  font-size: 16px;
+  color: #808080;
+}
+.auth-container .login-bg .login-form p.forgot-ps {
+  font-size: 20px;
+  color: #fff;
+}
+.auth-container .login-bg .login-form button {
+  background-color: #8f60ec;
+  color: #fff;
+  width: 40%;
+  transition: 0.5s;
+}
+.auth-container .login-bg .login-form button:hover {
+  background-color: #6232de;
+}
+.auth-container .login-bg .login-form h2, .auth-container .login-bg .login-form .login-icons, .auth-container .login-bg .login-form button, .auth-container .login-bg .login-form a {
+  margin: 20px 0 20px 0;
+}
+.auth-container .login-bg .login-form div.input-group, .auth-container .login-bg .login-form p {
+  margin: 10px 0 10px 0;
+}
+.auth-container .login-bg .login-form div.input-group {
+  width: 35% !important;
+}
+.auth-container .login-bg .login-form a.forgot-ps {
+  font-size: 18px;
+  color: #808080;
+  transition: 0.3s;
+}
+.auth-container .login-bg .login-form a.forgot-ps:hover {
+  color: #000;
 }
