@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,9 @@ Route::get('blog/{title}', function($title) {
     return view('pages.posts.show', compact('title'));
 })->name('blog.show');
 Route::view('portfolio/{title}', 'pages.portfolio')->name('portfolio.show');
-
+Route::view('userarea/{path?}', function(Request $request) {
+    return $request->url();
+})->where('path', '.*');
 // Auth::routes(['register' => false]);
 Auth::routes();
 
