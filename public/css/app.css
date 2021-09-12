@@ -14336,8 +14336,13 @@ div.header-section div.header-title .title span {
   color: #fff;
   transition: 1s;
 }
-.auth-container .login-bg .daya-logo span.purple-cl {
+.auth-container .login-bg .daya-logo.purple-cl span {
   color: #777DD1 !important;
+}
+.auth-container .login-bg .daya-logo.purple-cl img {
+  border-radius: 100%;
+  padding: 5px;
+  background-color: #777DD1;
 }
 .auth-container .login-bg > div {
   position: absolute;
