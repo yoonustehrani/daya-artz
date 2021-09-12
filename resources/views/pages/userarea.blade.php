@@ -9,6 +9,10 @@
 </head>
 <body>
     <div id="main"></div>
+    <script>
+        APP_PATH = "{{ asset('/') }}"
+    </script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/userarea.js') }}"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ const src = {
     res: {
         js: "resources/js/",
         sass: "resources/sass/",
-        react: "resources/js/react/"
+        react: "resources/js/react/Pages"
     },
     pub: {
         js: "public/js/",
@@ -27,5 +27,6 @@ var { res, pub } = src
 mix.disableNotifications()
 
 // mix.js( res.js + 'app.js', pub.js)
-//     .sass( res.sass + 'app.scss', pub.css)
-mix.js(res.js + "userarea.js", pub.js).react();
+mix.js(res.js + "userarea.js", pub.js).react()
+    .sass( res.sass + 'app.scss', pub.css);
+
