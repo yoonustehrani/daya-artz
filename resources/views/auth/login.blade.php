@@ -9,6 +9,10 @@
 </head>
 <body>
     <div id="login-react"></div>
+    <script>
+        APP_PATH = "{{ asset('/') }}"
+    </script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset("js/login.js") }}"></script>
 </body>
 </html>
