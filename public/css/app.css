@@ -14320,6 +14320,25 @@ div.header-section div.header-title .title span {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.auth-container .login-bg .daya-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 12;
+}
+.auth-container .login-bg .daya-logo img {
+  width: 50px;
+  height: 50px;
+}
+.auth-container .login-bg .daya-logo span {
+  margin-left: 10px;
+  font-size: 18px;
+  color: #fff;
+  transition: 1s;
+}
+.auth-container .login-bg .daya-logo span.purple-cl {
+  color: #777DD1 !important;
+}
 .auth-container .login-bg > div {
   position: absolute;
   top: 0;

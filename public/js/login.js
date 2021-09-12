@@ -90,6 +90,7 @@ var Login = /*#__PURE__*/function (_Component) {
           _this.changeSectionRef.current.classList.remove("width-change");
 
           $(".change-form").find("button")[0].classList.toggle("heartBeat");
+          $(".daya-logo").find("img")[0].classList.toggle("flash");
         }, 1500);
         setTimeout(function () {
           $(".change-form").find("h2, p").each(function () {
@@ -102,6 +103,9 @@ var Login = /*#__PURE__*/function (_Component) {
           $(".login-form").find(".input-group, .forget-ps").each(function () {
             this.classList.toggle("d-none");
           });
+          $(".daya-logo").find("span")[0].classList.toggle("purple-cl");
+          $(".daya-logo").find("img")[0].src = _this.state.isLoggingIn ? "".concat(APP_PATH, "images/daya-cyan-logo.png") : "".concat(APP_PATH, "images/daya-logo-circular.png");
+          $(".daya-logo").find("img")[0].classList.toggle("flash");
         }, 500);
       });
     });
@@ -123,7 +127,16 @@ var Login = /*#__PURE__*/function (_Component) {
           className: "auth-container",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "login-bg",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: "daya-logo",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                className: "animated",
+                src: APP_PATH + "images/daya-logo-circular.png",
+                alt: "daya-logo"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                children: "DAYA-ARTZ"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
               ref: this.changeSectionRef,
               className: "change-form ".concat(isLoggingIn ? "bg-p-100" : "right-60"),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

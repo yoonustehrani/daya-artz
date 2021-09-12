@@ -39,6 +39,7 @@ export default class Login extends Component {
             setTimeout(() => {
                 this.changeSectionRef.current.classList.remove("width-change")
                 $(".change-form").find("button")[0].classList.toggle("heartBeat")
+                $(".daya-logo").find("img")[0].classList.toggle("flash")
             }, 1500);
 
             setTimeout(() => {
@@ -52,6 +53,9 @@ export default class Login extends Component {
                 $(".login-form").find(".input-group, .forget-ps").each(function() {
                     this.classList.toggle("d-none")
                 })
+                $(".daya-logo").find("span")[0].classList.toggle("purple-cl")
+                $(".daya-logo").find("img")[0].src = this.state.isLoggingIn ? `${APP_PATH}images/daya-cyan-logo.png` : `${APP_PATH}images/daya-logo-circular.png`
+                $(".daya-logo").find("img")[0].classList.toggle("flash")
             }, 500)
         })
     }
@@ -62,6 +66,10 @@ export default class Login extends Component {
             <div>
                 <div className="auth-container">
                     <div className="login-bg">
+                        <div className="daya-logo">
+                            <img className="animated" src={APP_PATH + "images/daya-logo-circular.png"} alt="daya-logo" />
+                            <span>DAYA-ARTZ</span>
+                        </div>
                         <div ref={this.changeSectionRef} className={`change-form ${isLoggingIn ? "bg-p-100" : "right-60"}`}>
                             <div>
                                 <h2 className="animated flash">!خوش آمدید</h2>
