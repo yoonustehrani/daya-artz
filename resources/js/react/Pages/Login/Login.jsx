@@ -1,28 +1,33 @@
 import React, { Component } from 'react'
+import AuthContext from '../../context/AutrhContext';
+import { Link } from 'react-router-dom'
 
-export default class Login extends Component {
+class Login extends Component {
     constructor(props) {
         super(props);
         this.changeSectionRef = React.createRef()
         this.formRef = React.createRef()
-    }
-    
-    state = {
-        signup: {
-            user_name: "",
-            email: "",
-            phone_number: "",
-            password: "",
-            rep_password: ""
-        },
-        login: {
-            user_name: "",
-            phone_number: "",
-            password: ""
-        },
-        isLoggingIn: false
+        this.state = {
+            signup: {
+                user_name: "",
+                email: "",
+                phone_number: "",
+                password: "",
+                rep_password: ""
+            },
+            login: {
+                user_name: "",
+                phone_number: "",
+                password: ""
+            },
+            isLoggingIn: false
+        }
     }
 
+    componentDidMount() {
+        document.title = "Login"
+    }
+    
     onChangeField = (field, type, e) => {
         e.persist()
         this.setState(prevState => ({
@@ -62,14 +67,20 @@ export default class Login extends Component {
 
     render() {
         let {signup, login, isLoggingIn} = this.state
+        if (this.context.user) {
+            let {from} = this.props.location.state || { from: { pathname: "/" } };
+            this.props.history.replace(from)
+        }
         return (
             <div>
                 <div className="auth-container">
                     <div className="login-bg">
-                        <div className="daya-logo">
-                            <img className="animated" src={APP_PATH + "images/daya-logo-circular.png"} alt="daya-logo" />
-                            <span>DAYA-ARTZ</span>
-                        </div>
+                        <Link to="/">
+                            <div className="daya-logo">
+                                <img className="animated" src={APP_PATH + "images/daya-logo-circular.png"} alt="daya-logo" />
+                                <span>DAYA-ARTZ</span>
+                            </div>
+                        </Link>
                         <div ref={this.changeSectionRef} className={`change-form ${isLoggingIn ? "bg-p-100" : "right-60"}`}>
                             <div>
                                 <h2 className="animated flash">!خوش آمدید</h2>
@@ -119,3 +130,7 @@ export default class Login extends Component {
         )
     }
 }
+
+Login.contextType = AuthContext
+
+export default Login
