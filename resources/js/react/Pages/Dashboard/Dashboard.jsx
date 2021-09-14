@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import AuthContext from '../../context/AutrhContext';
 
 class Dashboard extends Component {
+    componentDidMount() {
+        document.title = "Dashboard"
+    }
     render() {
         return (
             <div>
