@@ -196,6 +196,18 @@ $xl-xl-breakpoint: 1400px;
 
         }
     }
+    .daya-logo {
+        top: 15px !important;
+        left: 15px !important;
+        img {
+            width: 30px !important;
+            height: 30px !important;
+        }
+        span {
+            font-size: 16px !important;
+            margin-left: 5px !important;
+        }
+    }
 }
 
 // medium and above
@@ -683,6 +695,17 @@ $xl-xl-breakpoint: 1400px;
             margin: 90px 5% 0 5% !important;
         }
     }
+    .daya-logo {
+        top: 10px !important;
+        left: 10px !important;
+        img {
+            width: 30px !important;
+            height: 30px !important;
+        }
+        span {
+            font-size: 16px !important;
+        }
+    }
 }
 
 // tablet
@@ -897,6 +920,12 @@ $xl-xl-breakpoint: 1400px;
         }
         input, textarea, button {
             font-size: 16px !important;
+        }
+    }
+    div.change-form {
+        button {
+            top: 75% !important;
+            font-size: 20px !important;
         }
     }
 }

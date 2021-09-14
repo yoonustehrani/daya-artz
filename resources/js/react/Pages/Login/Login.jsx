@@ -1,12 +1,7 @@
+
 import React, { Component } from 'react'
 
 export default class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.changeSectionRef = React.createRef()
-        this.formRef = React.createRef()
-    }
-    
     state = {
         signup: {
             user_name: "",
@@ -34,28 +29,32 @@ export default class Login extends Component {
         this.setState(prevState => ({
             isLoggingIn: !prevState.isLoggingIn
         }), () => {
-            this.changeSectionRef.current.classList.toggle("width-change")
-            
+            $(".change-form").addClass("width-change")
+            $(".change-form").find("button").addClass(`${this.state.isLoggingIn ? "bounceOutLeft" : "bounceOutRight"}`)
             setTimeout(() => {
-                this.changeSectionRef.current.classList.remove("width-change")
-                $(".change-form").find("button")[0].classList.toggle("heartBeat")
+                $(".change-form").removeClass("width-change")
                 $(".daya-logo").find("img")[0].classList.toggle("tada")
+                $(".change-form").find("button").removeClass("bounceInRight bounceInLeft bounceOutLeft bounceOutRight")
             }, 1500);
 
             setTimeout(() => {
                 $(".change-form").find("h2, p").each(function() {
                     this.classList.toggle("d-none")
                 })
-                $(".change-form").find("button")[0].classList.toggle("heartBeat")
                 $(".change-form").find("button")[0].innerHTML = this.state.isLoggingIn ? "ثبت نام" : "ورود"
                 $(".login-form").find("h2")[0].innerHTML = this.state.isLoggingIn ? "ورود به دایا" : "ثبت نام در دایا"
                 $(".login-form").find("button")[0].innerHTML = this.state.isLoggingIn ? "ورود" : "ثبت نام"
-                $(".login-form").find(".input-group, .forget-ps").each(function() {
+                $(".change-form").find("button").toggleClass(`${this.state.isLoggingIn ? "bounceOutLeft bounceInRight" : "bounceOutRight bounceInLeft"}`)
+                $(".login-form").find(".input-group, .forgot-ps").each(function() {
                     this.classList.toggle("d-none")
                 })
                 $(".daya-logo")[0].classList.toggle("purple-cl")
                 $(".daya-logo").find("img")[0].src = this.state.isLoggingIn ? `${APP_PATH}images/daya-white-logo.png` : `${APP_PATH}images/daya-logo-circular.png`
                 $(".daya-logo").find("img")[0].classList.toggle("tada")
+                $(".change-form-content").toggleClass("left-20 right-20")
+                $(".change-form-content").find("h2, p").each(function() {
+                    $(this).toggleClass("d-none")
+                })
             }, 500)
         })
     }
@@ -70,16 +69,18 @@ export default class Login extends Component {
                             <img className="animated" src={APP_PATH + "images/daya-logo-circular.png"} alt="daya-logo" />
                             <span>DAYA-ARTZ</span>
                         </div>
-                        <div ref={this.changeSectionRef} className={`change-form ${isLoggingIn ? "bg-p-100" : "right-60"}`}>
+                        <div className={`change-form ${isLoggingIn ? "bg-p-100 right-60" : ""}`}>
                             <div>
-                                <h2 className="animated flash">!خوش آمدید</h2>
-                                <p className="animated flash">اگر در حال حاضر داخل دایا حساب دارید با زدن دکمه زیر وارد صفحه ورود شوید ...</p>
-                                <h2 className="animated flash d-none">!سلام دوست عزیز</h2>
-                                <p className="animated flash d-none">اگه هنوز ثبت نام نکردی میتونی با زدن دکمه زیر ثبت نام در دایا رو آغاز کنی ...</p>
                                 <button onClick={this.changeSection.bind(this)} className="btn btn-lg badge-pill animated">ورود</button>
                             </div>
                         </div>
-                        <div ref={this.formRef} className={`login-form ${isLoggingIn ? "right-40" : ""}`}>
+                        <div className="change-form-content left-20">
+                            <h2 className="">!خوش آمدید</h2>
+                            <p className="">اگر در حال حاضر داخل دایا حساب دارید با زدن دکمه زیر وارد صفحه ورود شوید ...</p>
+                            <h2 className="d-none">!سلام دوست عزیز</h2>
+                            <p className="d-none">اگه هنوز ثبت نام نکردی میتونی با زدن دکمه زیر ثبت نام در دایا رو آغاز کنی ...</p>
+                        </div>
+                        <div className={`login-form ${isLoggingIn ? "right-40" : ""}`}>
                             <h2>ثبت نام در دایا</h2>
                             <div className="login-icons">
                                 <span><i className="fab fa-google"></i></span>
@@ -110,7 +111,7 @@ export default class Login extends Component {
                                 <input type="password" className="form-control" value={login.password} placeholder="رمز عبور" onChange={this.onChangeField.bind(this, "password", "login")} />
                                 <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
                             </div>
-                            <a href="#" className="forgot-ps">رمز عبور خودتون رو فراموش کردید؟</a>
+                            <a href="#" className="forgot-ps d-none">رمز عبور خودتون رو فراموش کردید؟</a>
                             <button className="btn btn-lg badge-pill ">ثبت نام</button>
                         </div>
                     </div>

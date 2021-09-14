@@ -10210,6 +10210,19 @@ h3 {
     border-top: 15px solid !important;
     top: calc(100% + 5px) !important;
   }
+
+  .daya-logo {
+    top: 15px !important;
+    left: 15px !important;
+  }
+  .daya-logo img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .daya-logo span {
+    font-size: 16px !important;
+    margin-left: 5px !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
@@ -10695,6 +10708,18 @@ h3 {
   .section-guide-container.open {
     margin: 90px 5% 0 5% !important;
   }
+
+  .daya-logo {
+    top: 10px !important;
+    left: 10px !important;
+  }
+  .daya-logo img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .daya-logo span {
+    font-size: 16px !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -10882,6 +10907,11 @@ h3 {
   }
   div.contact-us-form input, div.contact-us-form textarea, div.contact-us-form button {
     font-size: 16px !important;
+  }
+
+  div.change-form button {
+    top: 75% !important;
+    font-size: 20px !important;
   }
 }
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
@@ -11135,24 +11165,24 @@ a:hover {
 }
 @-webkit-keyframes width-change {
   0% {
-    width: 40%;
+    width: 36%;
   }
   50% {
     width: 50%;
   }
   100% {
-    width: 40%;
+    width: 36%;
   }
 }
 @keyframes width-change {
   0% {
-    width: 40%;
+    width: 36%;
   }
   50% {
     width: 50%;
   }
   100% {
-    width: 40%;
+    width: 36%;
   }
 }
 .section, .title-section {
@@ -14319,6 +14349,8 @@ div.header-section div.header-title .title span {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  align-items: stretch;
 }
 .auth-container .login-bg .daya-logo {
   position: absolute;
@@ -14344,16 +14376,17 @@ div.header-section div.header-title .title span {
   padding: 5px;
   background-color: #777DD1;
 }
-.auth-container .login-bg > div {
-  position: absolute;
+.auth-container .login-bg > div.change-form, .auth-container .login-bg div.login-form {
+  position: relative;
   top: 0;
   bottom: 0;
+  right: 0;
 }
 .auth-container .login-bg .right-40 {
-  right: 40% !important;
+  right: 36% !important;
 }
 .auth-container .login-bg .right-60 {
-  right: 60% !important;
+  right: -64% !important;
 }
 .auth-container .login-bg .bg-p-100 {
   background-position: 100% !important;
@@ -14365,12 +14398,54 @@ div.header-section div.header-title .title span {
   -webkit-animation-name: width-change;
           animation-name: width-change;
 }
+.auth-container .login-bg .change-form-content {
+  position: absolute;
+  top: 25%;
+  transform: translateY(-50%);
+  width: 36%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+.auth-container .login-bg .change-form-content.left-20 {
+  left: 18%;
+  transform: translateX(-50%);
+}
+.auth-container .login-bg .change-form-content.right-20 {
+  right: 18%;
+  transform: translateX(50%);
+}
+.auth-container .login-bg .change-form-content h2 {
+  font-size: 30px;
+  color: #fff;
+  direction: ltr;
+  font-weight: bold;
+  position: relative;
+}
+.auth-container .login-bg .change-form-content p {
+  font-size: 20px;
+  color: #fff;
+  width: 80%;
+  position: relative;
+}
+.auth-container .login-bg .change-form-content h2, .auth-container .login-bg .change-form-content p, .auth-container .login-bg .change-form-content button {
+  margin: 20px 0 20px 0;
+  transition: 500ms;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-animation-direction: 500ms !important;
+          animation-direction: 500ms !important;
+}
 .auth-container .login-bg .change-form {
   transition: 1.5s;
   z-index: 10;
   right: 0;
   background: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
-  width: 40%;
+  width: 36%;
   background-size: 250%;
   background-position: 0%;
   -webkit-animation-duration: 1.5s;
@@ -14386,42 +14461,34 @@ div.header-section div.header-title .title span {
   background-size: cover;
   background-position: 0%;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: inherit;
+  text-align: center;
 }
 .auth-container .login-bg .change-form > div h2, .auth-container .login-bg .change-form > div p, .auth-container .login-bg .change-form > div button {
   margin: 20px 0 20px 0;
   transition: 500ms;
-}
-.auth-container .login-bg .change-form > div h2 {
-  font-size: 30px;
-  color: #fff;
-  direction: ltr;
-  font-weight: bold;
-  position: relative;
-}
-.auth-container .login-bg .change-form > div p {
-  font-size: 20px;
-  color: #fff;
-  width: 400px;
-  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .auth-container .login-bg .change-form > div button {
+  position: relative;
   font-size: 26px;
   width: 40%;
   background-color: #fff;
   color: #8f60ec;
   transition: 0.5s;
+  top: 62%;
+  -webkit-animation-duration: 750ms !important;
+          animation-duration: 750ms !important;
+  box-shadow: none !important;
 }
 .auth-container .login-bg .change-form > div button:hover {
   color: #fff;
   background-color: #8f60ec;
 }
 .auth-container .login-bg .login-form {
-  width: 60%;
+  width: 64%;
   background-color: #fff;
   transition: 1.5s;
   z-index: 9;
