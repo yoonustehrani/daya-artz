@@ -42,6 +42,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Dashboard = /*#__PURE__*/function (_Component) {
   _inherits(Dashboard, _Component);
 
@@ -216,7 +217,9 @@ var Login = /*#__PURE__*/function (_Component) {
   _createClass(Login, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.title = "Login";
+      if (!this.context.user) {
+        document.title = "Login";
+      }
     }
   }, {
     key: "render",
@@ -227,14 +230,8 @@ var Login = /*#__PURE__*/function (_Component) {
           isLoggingIn = _this$state.isLoggingIn;
 
       if (this.context.user) {
-        var _ref2 = this.props.location.state || {
-          from: {
-            pathname: "/"
-          }
-        },
-            from = _ref2.from;
-
-        this.props.history.replace(from);
+        this.props.history.goBack();
+        return null;
       }
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -517,13 +514,18 @@ var UserArea = /*#__PURE__*/function (_Component) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
               exact: true,
               path: "/",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
                     to: "/dashboard",
                     children: "Dashboard"
                   })
-                })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+                    to: "/login",
+                    children: "Login"
+                  })
+                })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_router_PrivateRoute__WEBPACK_IMPORTED_MODULE_3__["default"], {
               exact: true,

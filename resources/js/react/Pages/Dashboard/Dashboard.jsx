@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthContext from '../../context/AutrhContext';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
     componentDidMount() {

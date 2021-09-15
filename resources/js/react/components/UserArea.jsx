@@ -23,6 +23,7 @@ class UserArea extends Component {
                         <Route exact path="/">
                         <ul>
                             <li><Link to="/dashboard">Dashboard</Link></li>
+                            <li><Link to="/login">Login</Link></li>
                         </ul>
                         </Route>
                         <PrivateRoute exact={true} path="/dashboard">

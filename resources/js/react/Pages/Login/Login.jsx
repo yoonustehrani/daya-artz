@@ -25,7 +25,9 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        document.title = "Login"
+        if (! this.context.user) {
+            document.title = "Login"
+        }
     }
     
     onChangeField = (field, type, e) => {
@@ -68,8 +70,8 @@ class Login extends Component {
     render() {
         let {signup, login, isLoggingIn} = this.state
         if (this.context.user) {
-            let {from} = this.props.location.state || { from: { pathname: "/" } };
-            this.props.history.replace(from)
+            this.props.history.goBack()
+            return null
         }
         return (
             <div>
