@@ -1,7 +1,8 @@
-@import '~@fortawesome/fontawesome-free/css/all.min.css';
-@import 'colors';
-@import 'fonts';
-@import '~bootstrap/scss/bootstrap.scss';
-@import 'responsive';
-@import './theme.scss';
-@import '~animate.css/animate.min.css';
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

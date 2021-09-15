@@ -11,22 +11,5 @@ const mix = require('laravel-mix');
  |
  */
 
-const src = {
-    res: {
-        js: "resources/js/",
-        sass: "resources/sass/",
-        react: "resources/js/react/Pages"
-    },
-    pub: {
-        js: "public/js/",
-        css: "public/css/"
-    }
-}
-var { res, pub } = src
-
-mix.disableNotifications()
-
-// mix.js( res.js + 'app.js', pub.js)
-mix.js(res.js + "userarea.js", pub.js).react()
-    .sass( res.sass + 'app.scss', pub.css);
-
+mix.react('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css');

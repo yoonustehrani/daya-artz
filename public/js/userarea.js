@@ -147,16 +147,12 @@ var Login = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Login);
 
-  function Login() {
+  function Login(props) {
     var _this;
 
     _classCallCheck(this, Login);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "onChangeField", function (field, type, e) {
       e.persist();
@@ -201,8 +197,6 @@ var Login = /*#__PURE__*/function (_Component) {
       });
     });
 
-<<<<<<< HEAD
-=======
     _this.changeSectionRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
     _this.formRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
     _this.state = {
@@ -220,7 +214,6 @@ var Login = /*#__PURE__*/function (_Component) {
       },
       isLoggingIn: false
     };
->>>>>>> 8d0a80502f8e55b1fd43c9385d487f7160bc9b84
     return _this;
   }
 
@@ -249,21 +242,6 @@ var Login = /*#__PURE__*/function (_Component) {
           className: "auth-container",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "login-bg",
-<<<<<<< HEAD
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "daya-logo",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-                className: "animated",
-                src: APP_PATH + "images/daya-logo-circular.png",
-                alt: "daya-logo"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                children: "DAYA-ARTZ"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "change-form ".concat(isLoggingIn ? "bg-p-100 right-60" : ""),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-=======
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
               to: "/",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -279,47 +257,29 @@ var Login = /*#__PURE__*/function (_Component) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               ref: this.changeSectionRef,
               className: "change-form ".concat(isLoggingIn ? "bg-p-100" : "right-60"),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-                  className: "animated flash",
-                  children: "!\u062E\u0648\u0634 \u0622\u0645\u062F\u06CC\u062F"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  className: "animated flash",
-                  children: "\u0627\u06AF\u0631 \u062F\u0631 \u062D\u0627\u0644 \u062D\u0627\u0636\u0631 \u062F\u0627\u062E\u0644 \u062F\u0627\u06CC\u0627 \u062D\u0633\u0627\u0628 \u062F\u0627\u0631\u06CC\u062F \u0628\u0627 \u0632\u062F\u0646 \u062F\u06A9\u0645\u0647 \u0632\u06CC\u0631 \u0648\u0627\u0631\u062F \u0635\u0641\u062D\u0647 \u0648\u0631\u0648\u062F \u0634\u0648\u06CC\u062F ..."
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-                  className: "animated flash d-none",
-                  children: "!\u0633\u0644\u0627\u0645 \u062F\u0648\u0633\u062A \u0639\u0632\u06CC\u0632"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  className: "animated flash d-none",
-                  children: "\u0627\u06AF\u0647 \u0647\u0646\u0648\u0632 \u062B\u0628\u062A \u0646\u0627\u0645 \u0646\u06A9\u0631\u062F\u06CC \u0645\u06CC\u062A\u0648\u0646\u06CC \u0628\u0627 \u0632\u062F\u0646 \u062F\u06A9\u0645\u0647 \u0632\u06CC\u0631 \u062B\u0628\u062A \u0646\u0627\u0645 \u062F\u0631 \u062F\u0627\u06CC\u0627 \u0631\u0648 \u0622\u063A\u0627\u0632 \u06A9\u0646\u06CC ..."
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
->>>>>>> 8d0a80502f8e55b1fd43c9385d487f7160bc9b84
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                   onClick: this.changeSection.bind(this),
                   className: "btn btn-lg badge-pill animated",
                   children: "\u0648\u0631\u0648\u062F"
                 })
               })
-<<<<<<< HEAD
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "change-form-content left-20",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
                 className: "",
                 children: "!\u062E\u0648\u0634 \u0622\u0645\u062F\u06CC\u062F"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                 className: "",
                 children: "\u0627\u06AF\u0631 \u062F\u0631 \u062D\u0627\u0644 \u062D\u0627\u0636\u0631 \u062F\u0627\u062E\u0644 \u062F\u0627\u06CC\u0627 \u062D\u0633\u0627\u0628 \u062F\u0627\u0631\u06CC\u062F \u0628\u0627 \u0632\u062F\u0646 \u062F\u06A9\u0645\u0647 \u0632\u06CC\u0631 \u0648\u0627\u0631\u062F \u0635\u0641\u062D\u0647 \u0648\u0631\u0648\u062F \u0634\u0648\u06CC\u062F ..."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
                 className: "d-none",
                 children: "!\u0633\u0644\u0627\u0645 \u062F\u0648\u0633\u062A \u0639\u0632\u06CC\u0632"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                 className: "d-none",
                 children: "\u0627\u06AF\u0647 \u0647\u0646\u0648\u0632 \u062B\u0628\u062A \u0646\u0627\u0645 \u0646\u06A9\u0631\u062F\u06CC \u0645\u06CC\u062A\u0648\u0646\u06CC \u0628\u0627 \u0632\u062F\u0646 \u062F\u06A9\u0645\u0647 \u0632\u06CC\u0631 \u062B\u0628\u062A \u0646\u0627\u0645 \u062F\u0631 \u062F\u0627\u06CC\u0627 \u0631\u0648 \u0622\u063A\u0627\u0632 \u06A9\u0646\u06CC ..."
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-=======
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              ref: this.formRef,
->>>>>>> 8d0a80502f8e55b1fd43c9385d487f7160bc9b84
               className: "login-form ".concat(isLoggingIn ? "right-40" : ""),
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
                 children: "\u062B\u0628\u062A \u0646\u0627\u0645 \u062F\u0631 \u062F\u0627\u06CC\u0627"
@@ -541,13 +501,9 @@ var UserArea = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-<<<<<<< HEAD
-      user: null
-=======
       auth: {
         user: null
       }
->>>>>>> 8d0a80502f8e55b1fd43c9385d487f7160bc9b84
     };
     return _this;
   }
