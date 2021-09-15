@@ -10,13 +10,9 @@ class UserArea extends Component {
     constructor(props) {
         super(props)
         this.state = {
-<<<<<<< HEAD
-            user: null
-=======
             auth: {
                 user: null
             }
->>>>>>> 8d0a80502f8e55b1fd43c9385d487f7160bc9b84
         }
     }
     render() {

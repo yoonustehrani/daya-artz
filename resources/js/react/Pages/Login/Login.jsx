@@ -3,23 +3,6 @@ import React, { Component } from 'react'
 import AuthContext from '../../context/AutrhContext';
 import { Link } from 'react-router-dom'
 
-<<<<<<< HEAD
-export default class Login extends Component {
-    state = {
-        signup: {
-            user_name: "",
-            email: "",
-            phone_number: "",
-            password: "",
-            rep_password: ""
-        },
-        login: {
-            user_name: "",
-            phone_number: "",
-            password: ""
-        },
-        isLoggingIn: false
-=======
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +23,6 @@ class Login extends Component {
             },
             isLoggingIn: false
         }
->>>>>>> 8d0a80502f8e55b1fd43c9385d487f7160bc9b84
     }
 
     componentDidMount() {
@@ -100,13 +82,6 @@ class Login extends Component {
             <div>
                 <div className="auth-container">
                     <div className="login-bg">
-<<<<<<< HEAD
-                        <div className="daya-logo">
-                            <img className="animated" src={APP_PATH + "images/daya-logo-circular.png"} alt="daya-logo" />
-                            <span>DAYA-ARTZ</span>
-                        </div>
-                        <div className={`change-form ${isLoggingIn ? "bg-p-100 right-60" : ""}`}>
-=======
                         <Link to="/">
                             <div className="daya-logo">
                                 <img className="animated" src={APP_PATH + "images/daya-logo-circular.png"} alt="daya-logo" />
@@ -114,7 +89,6 @@ class Login extends Component {
                             </div>
                         </Link>
                         <div ref={this.changeSectionRef} className={`change-form ${isLoggingIn ? "bg-p-100" : "right-60"}`}>
->>>>>>> 8d0a80502f8e55b1fd43c9385d487f7160bc9b84
                             <div>
                                 <button onClick={this.changeSection.bind(this)} className="btn btn-lg badge-pill animated">ورود</button>
                             </div>
