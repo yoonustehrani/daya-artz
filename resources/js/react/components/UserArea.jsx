@@ -11,22 +11,24 @@ class UserArea extends Component {
         super(props)
         this.state = {
             auth: {
-                user: null
+                user: null,
+                setLogoutTime: time => {
+                    window.setTimeout(this.logUserOut, time * 1000)
+                }
             }
         }
     }
+
+    logUserOut = () => {
+        console.log('user is out');
+    }
+    
     render() {
         return (
             <AuthContext.Provider value={this.state.auth}>
                 <BrowserRouter basename="/userarea">
                     <Switch>
-                        <Route exact path="/">
-                        <ul>
-                            <li><Link to="/dashboard">Dashboard</Link></li>
-                            <li><Link to="/login">Login</Link></li>
-                        </ul>
-                        </Route>
-                        <PrivateRoute exact={true} path="/dashboard">
+                        <PrivateRoute exact={true} path="/">
                             <Dashboard />
                         </PrivateRoute>
                         <Route exact path="/login" component={Login}></Route>

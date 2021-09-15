@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import AuthContext from '../../context/AutrhContext';
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 class Login extends Component {
     constructor(props) {
@@ -72,6 +73,18 @@ class Login extends Component {
         })
     }
 
+    handleLogin = () => {  
+        if (this.state.isLoggingIn) {
+            let { user_name, password } = this.state.login
+            axios.post('http://localhost/api/v2/login', {email: user_name, password: password}).then(res => {
+                let {user, token} = res.data
+                localStorage.setItem('userAccessToken', `${token.type} ${token.accessToken}`)
+                // Logout the user
+                this.context.setLogoutTime(token.expires_in)
+            })
+        }
+    }
+
     render() {
         let {signup, login, isLoggingIn} = this.state
         if (this.context.user) {
@@ -129,7 +142,7 @@ class Login extends Component {
                                 <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
                             </div>
                             <a href="#" className="forgot-ps d-none">رمز عبور خودتون رو فراموش کردید؟</a>
-                            <button className="btn btn-lg badge-pill ">ثبت نام</button>
+                            <button className="btn btn-lg badge-pill " onClick={this.handleLogin}>ثبت نام</button>
                         </div>
                     </div>
                 </div>
