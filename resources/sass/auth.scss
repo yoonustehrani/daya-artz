@@ -11,6 +11,8 @@
         background-position: top;
         background-repeat: no-repeat;
         background-size: cover;
+        display: flex;
+        align-items: stretch;
         .daya-logo {
             position: absolute;
             top: 20px;
@@ -37,17 +39,17 @@
                 }
             }
         }
-        > div {
-            position: absolute;
+        > div.change-form, div.login-form {
+            position: relative;
             top: 0;
             bottom: 0;
+            right: 0;
         }
         .right-40 {
-            right: 40% !important;
+            right: 36% !important;
         }
         .right-60 {
-            right: 60% !important;
-
+            right: -64% !important;
         }
         .bg-p-100 {
             background-position: 100% !important;
@@ -58,12 +60,50 @@
         .width-change {
             animation-name: width-change;
         }
+        .change-form-content {
+            position: absolute;
+            top: 25%;
+            transform: translateY(-50%);
+            width: 36%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+            &.left-20 {
+                left: 18%;
+                transform: translateX(-50%);
+            }
+            &.right-20 {
+                right: 18%;
+                transform: translateX(50%);
+            }
+            h2 {
+                font-size: 30px;
+                color: #fff;
+                direction: ltr;
+                font-weight: bold;
+                position: relative;
+            }
+            p {
+                font-size: 20px;
+                color: #fff;
+                width: 80%;
+                position: relative;
+            }
+            h2, p, button {
+                margin: 20px 0 20px 0;
+                transition: 500ms;
+                user-select: none;
+                animation-direction: 500ms !important;
+            }
+        }
         .change-form {
             transition: 1.5s;
             z-index: 10;
             right: 0;
             background: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
-            width: 40%;
+            width: 36%;
             background-size: 250%;
             background-position: 0%;
             animation-duration: 1.5s;
@@ -76,34 +116,22 @@
                 background-size: cover;
                 background-position: 0%;
                 background-repeat: no-repeat;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                min-height: inherit;
+                text-align: center;
                 h2, p, button {
                     margin: 20px 0 20px 0;
                     transition: 500ms;
-                }
-                h2 {
-                    font-size: 30px;
-                    color: #fff;
-                    direction: ltr;
-                    font-weight: bold;
-                    position: relative;
-                }
-                p {
-                    font-size: 20px;
-                    color: #fff;
-                    width: 400px;
-                    position: relative;
+                    user-select: none;
                 }
                 button {
+                    position: relative;
                     font-size: 26px;
                     width: 40%;
                     background-color: #fff;
                     color: #8f60ec;
                     transition: 0.5s;
+                    top: 62%;
+                    animation-duration: 750ms !important;
+                    box-shadow: none !important;
                     &:hover {
                         color: #fff;
                         background-color: #8f60ec;
@@ -112,7 +140,7 @@
             }
         }
         .login-form {
-            width: 60%;
+            width: 64%;
             background-color: #fff;
             transition: 1.5s;
             z-index: 9;
