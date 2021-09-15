@@ -82,13 +82,11 @@ class Login extends Component {
             <div>
                 <div className="auth-container">
                     <div className="login-bg">
-                        <Link to="/">
-                            <div className="daya-logo">
-                                <img className="animated" src={APP_PATH + "images/daya-logo-circular.png"} alt="daya-logo" />
-                                <span>DAYA-ARTZ</span>
-                            </div>
+                        <Link to="/" className="daya-logo ltr">
+                            <img className="animated" src={APP_PATH + "images/daya-logo-circular.png"} alt="daya-logo" />
+                            <span>DAYA-ARTZ</span>
                         </Link>
-                        <div ref={this.changeSectionRef} className={`change-form ${isLoggingIn ? "bg-p-100" : "right-60"}`}>
+                        <div ref={this.changeSectionRef} className={`change-form ${isLoggingIn ? "bg-p-100 right-60" : ""}`}>
                             <div>
                                 <button onClick={this.changeSection.bind(this)} className="btn btn-lg badge-pill animated">ورود</button>
                             </div>
