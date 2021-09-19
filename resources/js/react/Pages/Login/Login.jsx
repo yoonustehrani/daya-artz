@@ -3,6 +3,15 @@ import React, { Component } from 'react'
 import AuthContext from '../../context/AutrhContext';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import HttpClient from '../../../services/HttpClient'
+import { getCookie } from '../../../services/CookieService'
+
+const httpService = new HttpClient({
+    baseURL: "http://localhost/",
+    headers: {
+        'X-XSRF-TOKEN': getCookie('XSRF-TOKEN')
+    }
+})
 
 class Login extends Component {
     constructor(props) {
@@ -74,15 +83,9 @@ class Login extends Component {
     }
 
     handleLogin = () => {  
-        if (this.state.isLoggingIn) {
-            let { user_name, password } = this.state.login
-            axios.post('http://localhost/api/v2/login', {email: user_name, password: password}).then(res => {
-                let {user, token} = res.data
-                localStorage.setItem('userAccessToken', `${token.type} ${token.accessToken}`)
-                // Logout the user
-                this.context.setLogoutTime(token.expires_in)
-            })
-        }
+        httpService.get('api/v1/hello').then(res => {
+            console.log(res.data);
+        })
     }
 
     render() {

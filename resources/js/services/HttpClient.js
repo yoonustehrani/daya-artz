@@ -3,8 +3,7 @@ import axios from "axios";
 export default class HttpClient
 {
     constructor(config = {}) {
-        let client = axios.create(config)
-        this.Http = client
+        this.Http = axios.create(config)
     }
     get = (url, config = null) => {
         return this.Http.get(url, config)
