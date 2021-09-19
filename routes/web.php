@@ -16,13 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-    $user = User::first();
-    event(new UserRegistered($user));
-    return $user;
-});
+// Route::get('/', function() {
+//     $user = User::first();
+//     // $verification = "";
+//     // return $user->generateVerificationCode('verify_phone', generate_code(), false, 2);
+//     // event(new UserRegistered($user));
+//     return $user;
+// });
 
-// Route::view('/', 'welcome')->name('home');
+Route::view('/', 'welcome')->name('home');
 
 Route::view('about', 'pages.about')->name('about');
 Route::view('contact', 'pages.contact')->name('contact');

@@ -46,6 +46,10 @@ class VerificationNotification extends Notification
                     ->line('Thank you for using our application!');
     }
 
+    public function toSms($notifiable)
+    {
+        
+    }
     
     /**
      * Get the array representation of the notification.

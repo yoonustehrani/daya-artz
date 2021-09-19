@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Traits\VerifyCodeTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use Notifiable, VerifyCodeTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -40,5 +41,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function verification_codes()
     {
         return $this->hasMany(VerificationCode::class);
+    }
+
+    public function sms_verification_codes()
+    {
+        return $this->verification_codes()->where('sent_by','sms');
+    }
+
+    public function email_verification_codes()
+    {
+        return $this->verification_codes()->where('sent_by','sms');
     }
 }
