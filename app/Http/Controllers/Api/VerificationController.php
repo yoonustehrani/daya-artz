@@ -11,6 +11,10 @@ class VerificationController extends Controller
     {
         $request->user();
     }
+    public function resendEmail(Request $request)
+    {
+
+    }
     public function verifyPhoneNumber(Request $request)
     {
 

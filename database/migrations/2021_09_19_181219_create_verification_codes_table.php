@@ -21,7 +21,7 @@ class CreateVerificationCodesTable extends Migration
             $table->enum('sent_by', ['email', 'sms']);
             $table->timestamp('expires_at');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('user')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
