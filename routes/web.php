@@ -45,3 +45,9 @@ Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('test', function () {
+    $user = User::find(2);
+    event(new UserRegistered($user));
+    return $user;
+});

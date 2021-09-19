@@ -48,7 +48,8 @@ class VerificationNotification extends Notification
 
     public function toSms($notifiable)
     {
-        
+        $verification = $notifiable->generateVerificationCode('verify_phone', generate_code(), false, 2);
+        \Log::alert("the verification code for user is {$verification->code}");
     }
     
     /**
