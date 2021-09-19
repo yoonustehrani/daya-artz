@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Broadcasting\SMSChannel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -32,18 +33,14 @@ class VerificationNotification extends Notification
         return $this->via;
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
     public function toMail($notifiable)
     {
+        $verification_url = $notifiable->generateVerificationUrl();
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('تایید آدرس ایمیل')
+                    ->line('برای تایید آدرس ایمیل خود روی دکمه زیر کلیک کنید')
+                    ->action('تایید آدرس ایمیل', $verification_url)
+                    ->line('اگر شما اکانتی در وب سایت ما نساخته اید ، این ایمیل را نادیده بگیرید.');
     }
 
     public function toSms($notifiable)

@@ -18,11 +18,13 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('login', 'LoginController@login')->middleware('guest');
-
-Route::prefix('userarea')->middleware('auth:sanctum')->group(function() {
+Route::post('login', 'LoginController@login')->name('login')->middleware('guest');
+// Route::prefix('verification')->name('verification.')->group(function() { // ->middleware('auth:sanctum')
     
-});
+// });
+// Route::prefix('userarea')->middleware('auth:sanctum')->group(function() {
+    
+// });
 // Route::get('/',function() {
 //     return ['hello'];
 // })->middleware('auth:sanctum');

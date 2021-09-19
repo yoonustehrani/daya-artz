@@ -2,8 +2,12 @@
 
 use App\Events\UserRegistered;
 use App\User;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\UnauthorizedException;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,16 +42,47 @@ Route::get('blog/{title}', function($title) {
     return view('pages.posts.show', compact('title'));
 })->name('blog.show');
 Route::view('portfolio/{title}', 'pages.portfolio')->name('portfolio.show');
-Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*');
-// Auth::routes(['register' => false]);
+Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('userarea');
+// Auth::routes([
+//     'register' => false,
+//     // 'login' => false,
+//     'verify' => true
+// ]);
 // Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
+    $user = User::findOrFail($id);
+    if (! hash_equals($hash, sha1($user->email))) {
+        abort(401);
+    }
+    if ($user->hasVerifiedEmail()) {
+        return 'email is already verified';
+    }
+    if ($user->markEmailAsVerified()) {
+        # run event for user
+    }
+    return redirect()->to(route('userarea'));
+})->middleware('signed')->name('verification.email.verify');
+
 Route::get('test', function () {
-    $user = User::find(2);
-    event(new UserRegistered($user));
-    return $user;
+    // $user = User::find(1);
+    
+    // return route('verification.email.verify', ['id' => $user->getKey(), 'hash' => sha1($user->email)]);
+    // $notif = VerifyEmail::toMailUsing(function($notifiable, $verificationUrl) {
+    //     return (new MailMessage)
+    //                 ->subject('تایید آدرس ایمیل')
+    //                 ->line('برای تایید آدرس ایمیل خود روی دکمه زیر کلیک کنید')
+    //                 ->action('تایید آدرس ایمیل', $verificationUrl)
+    //                 ->line('اگر شما اکانتی در وب سایت ما نساخته اید ، این ایمیل را نادیده بگیرید.');
+    // });
+    // return $user->getKey();
+    // event(new UserRegistered($user));
+
+    // dd($user);
+    // return $user;
 });
