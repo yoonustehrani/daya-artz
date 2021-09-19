@@ -2,6 +2,8 @@
 
 namespace App\Listeners;
 
+use App\Broadcasting\SMSChannel;
+use App\Notifications\VerificationNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -27,10 +29,10 @@ class SendVerificationNotification
     {
         \Log::alert("event listener handle method for user#{$event->user->id}");
         if ($event->user->email && ! $event->user->email_verified_at) {
-            # send desired notification
+            $event->user->notify(new VerificationNotification());
             \Log::info("user should verify by email");
         } else if ($event->user->phone_number && ! $event->user->phone_verified) {
-            # send desired notification
+            $event->user->notify(new VerificationNotification([SMSChannel::class]));
             \Log::info("user should verify by sms");
         }
     }
