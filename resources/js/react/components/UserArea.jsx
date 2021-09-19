@@ -12,15 +12,8 @@ class UserArea extends Component {
         this.state = {
             auth: {
                 user: null,
-                setLogoutTime: time => {
-                    window.setTimeout(this.logUserOut, time * 1000)
-                }
             }
         }
-    }
-
-    logUserOut = () => {
-        console.log('user is out');
     }
     
     render() {
