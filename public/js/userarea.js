@@ -1983,12 +1983,33 @@ var Login = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Login);
 
-  function Login(props) {
+  function Login() {
     var _this;
 
     _classCallCheck(this, Login);
 
-    _this = _super.call(this, props);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      signup: {
+        user_name: "",
+        email: "",
+        phone_number: "",
+        password: "",
+        rep_password: ""
+      },
+      login: {
+        user_name: "",
+        phone_number: "",
+        password: ""
+      },
+      isLoggingIn: false,
+      login_method: "email"
+    });
 
     _defineProperty(_assertThisInitialized(_this), "onChangeField", function (field, type, e) {
       e.persist();
@@ -2004,32 +2025,66 @@ var Login = /*#__PURE__*/function (_Component) {
           isLoggingIn: !prevState.isLoggingIn
         };
       }, function () {
-        $(".change-form").addClass("width-change");
-        $(".change-form").find("button").addClass("".concat(_this.state.isLoggingIn ? "bounceOutLeft" : "bounceOutRight"));
+        var isLoggingIn = _this.state.isLoggingIn;
+        $(".change-form").each(function () {
+          $(this).addClass("width-change");
+          $(this).find("button").addClass("".concat(isLoggingIn ? "bounceOutLeft" : "bounceOutRight"));
+
+          if (window.innerWidth < 768) {
+            $(".input-group").each(function () {
+              !$(this).hasClass("d-none") && !$(this).parent(".email-phone-container")[0] ? $(this).addClass("zoomOut") : "";
+            });
+            $(".forgot-ps").addClass("flipOutX");
+          }
+        });
         setTimeout(function () {
-          $(".change-form").removeClass("width-change");
-          $(".daya-logo").find("img")[0].classList.toggle("tada");
-          $(".change-form").find("button").removeClass("bounceInRight bounceInLeft bounceOutLeft bounceOutRight");
-        }, 1500);
-        setTimeout(function () {
-          $(".change-form").find("h2, p").each(function () {
-            this.classList.toggle("d-none");
+          $(".change-form").each(function () {
+            $(this).find("h2, p").each(function () {
+              $(this).toggleClass("d-none");
+            });
+            $(this).find("button")[0].innerHTML = isLoggingIn ? "ثبت نام" : "ورود";
+            $(this).find("button").toggleClass("".concat(isLoggingIn ? "bounceOutLeft bounceInRight" : "bounceOutRight bounceInLeft"));
           });
-          $(".change-form").find("button")[0].innerHTML = _this.state.isLoggingIn ? "ثبت نام" : "ورود";
-          $(".login-form").find("h2")[0].innerHTML = _this.state.isLoggingIn ? "ورود به دایا" : "ثبت نام در دایا";
-          $(".login-form").find("button")[0].innerHTML = _this.state.isLoggingIn ? "ورود" : "ثبت نام";
-          $(".change-form").find("button").toggleClass("".concat(_this.state.isLoggingIn ? "bounceOutLeft bounceInRight" : "bounceOutRight bounceInLeft"));
-          $(".login-form").find(".input-group, .forgot-ps").each(function () {
-            this.classList.toggle("d-none");
+          $(".login-form").each(function () {
+            $(this).find("h2")[0].innerHTML = isLoggingIn ? "ورود به دایا" : "ثبت نام در دایا";
+            $(this).find("button")[0].innerHTML = isLoggingIn ? "ورود" : "ثبت نام";
+            $(this).find(".input-group, .forgot-ps").each(function () {
+              !$(this).parent(".email-phone-container")[0] ? $(this).toggleClass("d-none") : "";
+            });
+
+            if (window.innerWidth < 768) {
+              $(".input-group").each(function () {
+                !$(this).hasClass("d-none") && !$(this).parent(".email-phone-container")[0] ? $(this).addClass("zoomIn") : "";
+              });
+              $(".forgot-ps").toggleClass("flipOutX flipInX");
+            }
           });
-          $(".daya-logo")[0].classList.toggle("purple-cl");
-          $(".daya-logo").find("img")[0].src = _this.state.isLoggingIn ? "".concat(APP_PATH, "images/daya-white-logo.png") : "".concat(APP_PATH, "images/daya-logo-circular.png");
-          $(".daya-logo").find("img")[0].classList.toggle("tada");
-          $(".change-form-content").toggleClass("left-20 right-20");
-          $(".change-form-content").find("h2, p").each(function () {
-            $(this).toggleClass("d-none");
+          $(".daya-logo").each(function () {
+            $(this).toggleClass("purple-cl");
+            $(this).find("img")[0].src = isLoggingIn ? "".concat(APP_PATH, "images/daya-white-logo.png") : "".concat(APP_PATH, "images/daya-logo-circular.png");
+            $(this).find("img").toggleClass("tada");
+          });
+          $(".change-form-content").each(function () {
+            $(this).toggleClass("left-20 right-20");
+            $(this).find("h2, p").each(function () {
+              $(this).toggleClass("d-none");
+            });
           });
         }, 500);
+        setTimeout(function () {
+          $(".change-form").each(function () {
+            $(this).removeClass("width-change");
+            $(this).find("button").removeClass("bounceInRight bounceInLeft bounceOutLeft bounceOutRight");
+          });
+          $(".daya-logo").find("img").toggleClass("tada");
+
+          if (window.innerWidth < 768) {
+            $(".input-group").each(function () {
+              $(this).removeClass("zoomIn, zoomOut");
+            });
+            $(".forgot-ps").removeClass("flipInX");
+          }
+        }, 1500);
       });
     });
 
@@ -2052,32 +2107,49 @@ var Login = /*#__PURE__*/function (_Component) {
       }
     });
 
-    _this.changeSectionRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
-    _this.formRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
-    _this.state = {
-      signup: {
-        user_name: "",
-        email: "",
-        phone_number: "",
-        password: "",
-        rep_password: ""
-      },
-      login: {
-        user_name: "",
-        phone_number: "",
-        password: ""
-      },
-      isLoggingIn: false
-    };
+    _defineProperty(_assertThisInitialized(_this), "changeLoginMethod", function () {
+      _this.setState(function (prevState) {
+        return {
+          login_method: prevState.login_method === "email" ? "phone" : "email"
+        };
+      }, function () {
+        $(".input-group.animated").addClass("headShake");
+        $(".gray.animated").each(function () {
+          var _this2 = this;
+
+          $(this).addClass("flipInY");
+          $(this).find("i")[1].classList.toggle("fa-mobile");
+          $(this).find("i")[1].classList.toggle("fa-at");
+          setTimeout(function () {
+            $(_this2).removeClass("flipInY");
+          }, 1000);
+        });
+      });
+    });
+
     return _this;
   }
 
   _createClass(Login, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if (!this.context.user) {
-        document.title = "Login";
-      }
+      var formatState = function formatState(state) {
+        if (!state.id) {
+          return state.text;
+        }
+
+        var baseUrl = "".concat(APP_PATH, "images/world-icons/");
+        var $state = $("<span class=\"span-option\"><img src=".concat(baseUrl + state.id.toLowerCase() + ".svg", " class=\"img-flag\"/>").concat(state.text, "</span>"));
+        return $state;
+      };
+
+      var select2_config = {
+        templateResult: formatState,
+        width: "100%",
+        dir: "rtl"
+      };
+      $("#register-country-select").select2(select2_config);
+      $("#login-country-select").select2(select2_config);
     }
   }, {
     key: "render",
@@ -2085,7 +2157,8 @@ var Login = /*#__PURE__*/function (_Component) {
       var _this$state = this.state,
           signup = _this$state.signup,
           login = _this$state.login,
-          isLoggingIn = _this$state.isLoggingIn;
+          isLoggingIn = _this$state.isLoggingIn,
+          login_method = _this$state.login_method;
 
       if (this.context.user) {
         this.props.history.goBack();
@@ -2101,15 +2174,18 @@ var Login = /*#__PURE__*/function (_Component) {
               to: "/",
               className: "daya-logo ltr",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                className: "animated",
+                className: "animated d-md-inline d-none",
                 src: APP_PATH + "images/daya-logo-circular.png",
+                alt: "daya-logo"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                className: "animated d-md-none",
+                src: APP_PATH + "images/daya-white-logo.png",
                 alt: "daya-logo"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                 children: "DAYA-ARTZ"
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              ref: this.changeSectionRef,
-              className: "change-form ".concat(isLoggingIn ? "bg-p-100 right-60" : ""),
+              className: "change-form d-md-block d-none ".concat(isLoggingIn ? "bg-p-100 right-60" : ""),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                   onClick: this.changeSection.bind(this),
@@ -2118,7 +2194,7 @@ var Login = /*#__PURE__*/function (_Component) {
                 })
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "change-form-content left-20",
+              className: "change-form-content left-20 d-md-flex d-none",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
                 className: "",
                 children: "!\u062E\u0648\u0634 \u0622\u0645\u062F\u06CC\u062F"
@@ -2147,11 +2223,16 @@ var Login = /*#__PURE__*/function (_Component) {
                     className: "fab fa-linkedin-in"
                   })
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-                className: "gray",
-                children: "\u0628\u0627\u0627\u0633\u062A\u0641\u0627\u062F\u0647 \u0627\u0632 \u0627\u06A9\u0627\u0646\u062A \u0627\u06CC\u0645\u06CC\u0644 \u0634\u0645\u0627:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+                className: "gray animated mb-2",
+                onClick: this.changeLoginMethod.bind(this),
+                children: [login_method === "email" ? "با استفاده از اکانت ایمیل شما:" : "با استفاده از شماره موبایل:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                  className: "fas fa-long-arrow-alt-left mr-1"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                  className: "fas fa-mobile mr-1"
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "input-group",
+                className: "input-group animated",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                   type: "text",
                   value: signup.user_name,
@@ -2168,24 +2249,62 @@ var Login = /*#__PURE__*/function (_Component) {
                   })
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "input-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                  type: "email",
-                  value: signup.email,
-                  className: "form-control",
-                  placeholder: "\u0627\u06CC\u0645\u06CC\u0644",
-                  onChange: this.onChangeField.bind(this, "email", "signup")
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: "input-group-append",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                    className: "input-group-text",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-                      className: "fas fa-at"
+                className: "email-phone-container input-group animated",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "input-group animated ".concat(login_method === "email" ? "" : "d-none"),
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    type: "email",
+                    value: signup.email,
+                    className: "form-control",
+                    placeholder: "\u0627\u06CC\u0645\u06CC\u0644",
+                    onChange: this.onChangeField.bind(this, "email", "signup")
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "input-group-append",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "input-group-text",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                        className: "fas fa-at"
+                      })
                     })
-                  })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "input-group animated ".concat(login_method === "phone" ? "" : "d-none"),
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "input-group-prepend",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "country_codes_holder",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+                        id: "register-country-select",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                          value: "iran",
+                          children: "+98"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                          value: "united-states",
+                          children: "+1"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                          value: "united-kingdom",
+                          children: "+356"
+                        })]
+                      })
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    type: "text",
+                    value: signup.phone_number,
+                    className: "form-control ltr",
+                    placeholder: "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06CC\u0644",
+                    onChange: this.onChangeField.bind(this, "phone_number", "signup")
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "input-group-append",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "input-group-text",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                        className: "fas fa-mobile"
+                      })
+                    })
+                  })]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "input-group",
+                className: "input-group animated",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                   type: "password",
                   value: signup.password,
@@ -2202,7 +2321,7 @@ var Login = /*#__PURE__*/function (_Component) {
                   })
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "input-group",
+                className: "input-group animated",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                   type: "password",
                   value: signup.rep_password,
@@ -2219,24 +2338,62 @@ var Login = /*#__PURE__*/function (_Component) {
                   })
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "input-group d-none",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                  type: "text",
-                  className: "form-control",
-                  value: login.user_name,
-                  placeholder: "\u0627\u06CC\u0645\u06CC\u0644 \u06CC\u0627 \u0646\u0627\u0645 \u06A9\u0627\u0631\u0628\u0631\u06CC",
-                  onChange: this.onChangeField.bind(this, "user_name", "login")
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: "input-group-append",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                    className: "input-group-text",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-                      className: "fas fa-user"
+                className: "email-phone-container input-group animated d-none",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "input-group animated ".concat(login_method === "email" ? "" : "d-none"),
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    type: "text",
+                    className: "form-control",
+                    value: login.user_name,
+                    placeholder: "\u0627\u06CC\u0645\u06CC\u0644 \u06CC\u0627 \u0646\u0627\u0645 \u06A9\u0627\u0631\u0628\u0631\u06CC",
+                    onChange: this.onChangeField.bind(this, "user_name", "login")
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "input-group-append",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "input-group-text",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                        className: "fas fa-user"
+                      })
                     })
-                  })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "input-group animated ".concat(login_method === "phone" ? "" : "d-none"),
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "input-group-prepend",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "country_codes_holder",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+                        id: "login-country-select",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                          value: "iran",
+                          children: "+98"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                          value: "united-states",
+                          children: "+1"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                          value: "united-kingdom",
+                          children: "+356"
+                        })]
+                      })
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    type: "text",
+                    value: login.phone_number,
+                    className: "form-control ltr",
+                    placeholder: "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06CC\u0644",
+                    onChange: this.onChangeField.bind(this, "phone_number", "login")
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "input-group-append",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "input-group-text",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                        className: "fas fa-mobile"
+                      })
+                    })
+                  })]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "input-group d-none",
+                className: "input-group d-none animated",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                   type: "password",
                   className: "form-control",
@@ -2254,12 +2411,16 @@ var Login = /*#__PURE__*/function (_Component) {
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                 href: "#",
-                className: "forgot-ps d-none",
+                className: "forgot-ps animated d-none",
                 children: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u062E\u0648\u062F\u062A\u0648\u0646 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u06A9\u0631\u062F\u06CC\u062F\u061F"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                 className: "btn btn-lg badge-pill ",
                 onClick: this.handleLogin,
                 children: "\u062B\u0628\u062A \u0646\u0627\u0645"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "change-form-mobile d-md-none mt-2",
+                onClick: this.changeSection.bind(this),
+                children: isLoggingIn ? "حساب کاربری ندارید! کلیک کنید" : "حساب کاربری دایا دارید! برای ورود کلیک کنید"
               })]
             })]
           })
@@ -2578,30 +2739,6 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_components_withAuthRoute__WEBPACK_IMPORTED_MODULE_1__["default"])(PrivateRoute));
-
-/***/ }),
-
-/***/ "./resources/js/userarea.js":
-/*!**********************************!*\
-  !*** ./resources/js/userarea.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./react/components/UserArea */ "./resources/js/react/components/UserArea.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var elem = document.getElementById('main');
-
-if (elem) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__["default"], {}), elem);
-}
 
 /***/ }),
 
@@ -3856,19 +3993,6 @@ function createReactContext(defaultValue, calculateChangedBits) {
 var index = react__WEBPACK_IMPORTED_MODULE_0__.createContext || createReactContext;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (index);
-
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -36281,42 +36405,7 @@ function _setPrototypeOf(o, p) {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -36369,68 +36458,29 @@ function _setPrototypeOf(o, p) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/userarea": 0,
-/******/ 			"css/app": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkIds[i]] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/userarea.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!**********************************!*\
+  !*** ./resources/js/userarea.js ***!
+  \**********************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./react/components/UserArea */ "./resources/js/react/components/UserArea.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var elem = document.getElementById('main');
+
+if (elem) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__["default"], {}), elem);
+}
+})();
+
 /******/ })()
 ;
