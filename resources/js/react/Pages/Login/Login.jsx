@@ -9,7 +9,8 @@ import { getCookie } from '../../../services/CookieService'
 const httpService = new HttpClient({
     baseURL: "http://localhost/",
     headers: {
-        'X-XSRF-TOKEN': getCookie('XSRF-TOKEN')
+        'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
+        'Accept': 'application/json'
     }
 })
 
@@ -82,9 +83,11 @@ class Login extends Component {
         })
     }
 
-    handleLogin = () => {  
-        httpService.get('api/v1/hello').then(res => {
-            console.log(res.data);
+    handleLogin = () => {
+        httpService.post('login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
+            httpService.get('api/v1/user').then(res => {
+                console.log(res.data);
+            })
         })
     }
 

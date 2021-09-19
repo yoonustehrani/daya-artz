@@ -1984,7 +1984,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var httpService = new _services_HttpClient__WEBPACK_IMPORTED_MODULE_3__["default"]({
   baseURL: "http://localhost/",
   headers: {
-    'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_4__.getCookie)('XSRF-TOKEN')
+    'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_4__.getCookie)('XSRF-TOKEN'),
+    'Accept': 'application/json'
   }
 });
 
@@ -2044,8 +2045,13 @@ var Login = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleLogin", function () {
-      httpService.get('api/v1/hello').then(function (res) {
-        console.log(res.data);
+      httpService.post('login', {
+        email: 'yoonustehrani28@gmail.com',
+        password: 'uss828487'
+      }).then(function (res) {
+        httpService.get('api/v1/user').then(function (res) {
+          console.log(res.data);
+        });
       });
     });
 
