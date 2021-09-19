@@ -18,13 +18,25 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::post('login', 'LoginController@login')->middleware('guest');
 
-
-Route::get('hello', function() {
-    return response()->json([
-        'message' => 'hello'
-    ]);
+Route::prefix('userarea')->middleware('auth:sanctum')->group(function() {
+    
 });
+// Route::get('/',function() {
+//     return ['hello'];
+// })->middleware('auth:sanctum');
+// Route::prefix('userarea')
+
+// Route::post('login')
+
+// Route::get('user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
+
+
+// Route::get('hello', function() {
+//     return response()->json([
+//         'message' => 'hello'
+//     ]);
+// });

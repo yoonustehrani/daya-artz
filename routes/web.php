@@ -30,7 +30,7 @@ Route::get('blog/{title}', function($title) {
 Route::view('portfolio/{title}', 'pages.portfolio')->name('portfolio.show');
 Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*');
 // Auth::routes(['register' => false]);
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
