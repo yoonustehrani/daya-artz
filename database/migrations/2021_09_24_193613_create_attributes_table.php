@@ -19,7 +19,7 @@ class CreateAttributesTable extends Migration
             $table->string('type', 15);
             $table->boolean('effects_on_price')->default(false);
             $table->integer('price')->default(0);
-            $table->json('details')->default('[]');
+            $table->json('details')->default(json_encode("[]"));
         });
     }
 

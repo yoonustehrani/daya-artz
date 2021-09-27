@@ -1,5 +1,6 @@
 <?php
 
+use App\Company;
 use App\Events\UserRegistered;
 use App\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
@@ -70,19 +71,7 @@ Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
 })->middleware('signed')->name('verification.email.verify');
 
 Route::get('test', function () {
-    // $user = User::find(1);
-    
-    // return route('verification.email.verify', ['id' => $user->getKey(), 'hash' => sha1($user->email)]);
-    // $notif = VerifyEmail::toMailUsing(function($notifiable, $verificationUrl) {
-    //     return (new MailMessage)
-    //                 ->subject('تایید آدرس ایمیل')
-    //                 ->line('برای تایید آدرس ایمیل خود روی دکمه زیر کلیک کنید')
-    //                 ->action('تایید آدرس ایمیل', $verificationUrl)
-    //                 ->line('اگر شما اکانتی در وب سایت ما نساخته اید ، این ایمیل را نادیده بگیرید.');
-    // });
-    // return $user->getKey();
-    // event(new UserRegistered($user));
-
-    // dd($user);
-    // return $user;
+    $company = Company::first();
+    $company->load('business_type', 'product_type');
+    return $company;
 });
