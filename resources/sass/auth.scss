@@ -146,11 +146,14 @@
             z-index: 9;
             right: 0;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             min-height: inherit;
+            > div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: inherit;
+            }
             h2 {
                 color: #8f60ec;
                 font-size: 30px;
@@ -288,6 +291,6 @@
     color: #8f60ec;
     transition: 0.3s;
     &:hover {
-        color: #8f60ec;
+        color: #6232de;
     }
 }

@@ -1,0 +1,6 @@
+// authentication
+export const SHIFT_AUTH_STATE = "SHIFT_AUTH_STATE"
+export const SHIFT_AUTH_INPUT = "SHIFT_AUTH_INPUT"
+export const CHANGE_LOGIN_METHOD = "CHANGE_LOGIN_METHOD"
+export const CHANGE_INPUT = "CHANGE_INPUT"
+export const HANDLE_LOGIN = "HANDLE_LOGIN"

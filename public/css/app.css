@@ -14518,6 +14518,9 @@ div.header-section div.header-title .title span {
   z-index: 9;
   right: 0;
   text-align: center;
+  min-height: inherit;
+}
+.auth-container .login-bg .login-form > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14660,5 +14663,5 @@ div.header-section div.header-title .title span {
   transition: 0.3s;
 }
 .change-form-mobile:hover {
-  color: #8f60ec;
+  color: #6232de;
 }
