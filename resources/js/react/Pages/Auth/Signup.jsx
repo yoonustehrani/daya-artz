@@ -7,7 +7,7 @@ class Signup extends Component {
     }
     
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, handleLogin, signup, login_method, user_name, email, phone_number, password, rep_password } = this.props
+        let { changeLoginMethod, changeSection, onChangeField, handleLogin, signup, login_method } = this.props, { user_name, email, phone_number, password, rep_password } = signup
         return (
             <div>
                 <h2>ثبت نام در دایا</h2>
@@ -50,7 +50,7 @@ class Signup extends Component {
                 <div className="input-group">
                     <input type="password" value={rep_password} className="form-control" placeholder="تکرار رمز عبور" onChange={onChangeField.bind(this, "signup", "rep_passowrd")} />
                     <div className="input-group-append"><span className="input-group-text"><i className="fas fa-redo"></i></span></div>
-                </div> 
+                </div>
                 <button className="btn btn-lg badge-pill " onClick={handleLogin}>ثبت نام</button>
                 <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this)}>برای ورود به دایا کلیک کنید!</span>
             </div>

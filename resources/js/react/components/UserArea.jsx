@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Auth from '../Pages/Login';
 // import UserAreaHandler from './UserAreaHandler';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../router/PrivateRoute';
 import Dashboard from '../Pages/Dashboard';
+import Auth from '../Pages/Auth';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from '../redux/reducers';
@@ -14,14 +14,14 @@ class UserArea extends Component {
     render() {
         return (
             <Provider store={this.store}>
-                <BrowserRouter basename="/userarea">
+                <Router basename="/userarea">
                     <Switch>
                         <PrivateRoute exact={true} path="/">
                             <Dashboard />
                         </PrivateRoute>
                         <Route exact path="/login" component={Auth}></Route>
                     </Switch>
-                </BrowserRouter>
+                </Router>
             </Provider>
         );
     }

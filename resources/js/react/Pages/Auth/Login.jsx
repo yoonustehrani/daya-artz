@@ -7,7 +7,7 @@ class Login extends Component {
     }
 
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, login, login_method, handleLogin, user_name, phone_number, password } = this.props
+        let { changeLoginMethod, changeSection, onChangeField, login, login_method, handleLogin } = this.props, { user_name, phone_number, password } = login
         return (
             <div>
                 <h2>ورود به دایا</h2>

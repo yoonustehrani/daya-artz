@@ -12,16 +12,14 @@ class Dashboard extends Component {
 
         return (
             <div>
-                {(user) => (
-                    <p>Welcome {user.name} !</p>
-                )}
+                <p>Welcome {user.name} !</p>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    user: state.loginReducer.auth.user
+    user: state.auth.user
 })
 
 export default connect(mapStateToProps)(Dashboard);
