@@ -10,4 +10,8 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

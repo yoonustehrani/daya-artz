@@ -29,8 +29,8 @@ class CreateCompaniesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('business_type_id')->references('id')->on('definitions')->nullOnDelete()->cascadeOnUpdate();
             $table->foreign('product_type_id')->references('id')->on('definitions')->nullOnDelete()->cascadeOnUpdate();
-            $table->softDeletes('deleted_at');
-            $table->timestamps();   
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 

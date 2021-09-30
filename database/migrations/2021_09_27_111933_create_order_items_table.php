@@ -18,14 +18,16 @@ class CreateOrderItemsTable extends Migration
             $table->foreignId('order_id');
             $table->unsignedInteger('service_id');
             $table->unsignedInteger('service_plan_id');
+            $table->unsignedInteger('company_id')->nullable();
             $table->string('status', 20);
             $table->bigInteger('price');
             $table->timestamp('expires_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('service_id')->references('id')->on('services')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('service_id')->references('id')->on('services')->nullOnDelete()->cascadeOnUpdate();
             $table->foreign('service_plan_id')->references('id')->on('service_plans')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreign('company_id')->references('id')->on('companies')->nullOnDelete()->cascadeOnUpdate();
         });
     }
 
