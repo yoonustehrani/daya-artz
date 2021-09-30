@@ -35,7 +35,7 @@
             <p class="text-center rtl">خدمات شش گانه طراحی گرافیک دایا آرتز بر پایه هویت برند شما در بالاترین کیفیت ممکن پیش روی شماست</p>
         </div>
         <div class="services-container">
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fab fa-mixer"></i></span>
                     <h1 class="block w-100 text-center">لوگو</h1>
@@ -43,7 +43,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-paste"></i></span>
                     <h1 class="block w-100 text-center">سربرگ</h1>
@@ -51,7 +51,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-newspaper"></i></span>
                     <h1 class="block w-100 text-center">کاتالوگ</h1>
@@ -59,7 +59,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-id-card"></i></span>
                     <h1 class="block w-100 text-center">کارت ویزیت</h1>
@@ -67,7 +67,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-briefcase"></i></span>
                     <h1 class="block w-100 text-center">ست اداری</h1>
@@ -75,7 +75,7 @@
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3">
+            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
                     <h1 class="block w-100 text-center">ترکیبی</h1>
@@ -96,7 +96,7 @@
                     <span class="title-underline"></span>
                 </div>
             </div>
-            <div class="order-section section col-12">
+            <div class="order-section float-left col-xl-5 offset-xl-1 mt-xl-5 col-12">
                 <div class="order-vector float-left">
                     <img src="{{ asset('images/speed-order.svg') }}" alt="fast-order">
                 </div>
@@ -115,7 +115,8 @@
                     </div>
                 </div>
             </div>
-            <div class="order-section section col-12 ml-6p rtl">
+            <div class="order-section float-left col-xl-7 offset-xl-5 col-12 rtl">
+                {{-- ml-6p --}}
                 <div class="order-vector float-right ml-md-4">
                     <img src="{{ asset('images/pro-order.svg') }}" alt="pro-order">
                 </div>    

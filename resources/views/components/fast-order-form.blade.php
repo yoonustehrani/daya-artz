@@ -8,7 +8,7 @@
     <div class="fast-order-section text-center">
         <div class="col-12 col-md-6 col-lg-5 ml-lg-4 col-xl-5 mt-4 fast-order-guide">
             <h3 class="mb-5">فرم سفارش فوری</h3>
-            <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی کورد نیاز خود منتظر تماس کارشناسان باشید.</p>
+            <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی مورد نیاز خود منتظر تماس کارشناسان باشید.</p>
             <br>
             <h5 class="font-18">راهنمای ثبت فرم:</h5>
             <ul class="font-18">
