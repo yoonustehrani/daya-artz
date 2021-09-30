@@ -53,7 +53,7 @@ Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('us
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
