@@ -2783,7 +2783,24 @@ var UserArea = /*#__PURE__*/function (_Component) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
           basename: "/userarea",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Switch, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_router_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+              path: "/test",
+              children: function children(_ref) {
+                var history = _ref.history,
+                    location = _ref.location,
+                    match = _ref.match;
+                console.log(history);
+                console.log(location);
+                console.log(match);
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+                  style: {
+                    "float": 'left',
+                    padding: '5px'
+                  },
+                  children: "test"
+                });
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_router_PrivateRoute__WEBPACK_IMPORTED_MODULE_1__["default"], {
               exact: true,
               path: "/",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Pages_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"], {})
