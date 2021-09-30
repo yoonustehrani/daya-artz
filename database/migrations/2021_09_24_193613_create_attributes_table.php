@@ -17,8 +17,10 @@ class CreateAttributesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type', 15);
+            $table->enum('group', ['form-field', 'add-on'])->default('form-field');
             $table->boolean('effects_on_price')->default(false);
-            $table->integer('price')->default(0);
+            $table->integer('effect_value')->default(0);
+            $table->enum('effect_type', ['price', 'percent', 'none'])->default('none');
             $table->json('details')->default(json_encode("[]"));
         });
     }

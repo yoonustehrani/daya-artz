@@ -18,6 +18,8 @@ class CreateServiceAttributeTable extends Migration
             $table->unsignedInteger('attribute_id');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('page')->default(1);
+            $table->integer('order')->default(1);
         });
     }
 
