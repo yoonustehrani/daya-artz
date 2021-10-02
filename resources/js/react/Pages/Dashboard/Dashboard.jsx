@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import AuthContext from '../../context/AutrhContext';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
     componentDidMount() {
         document.title = "Dashboard"
     }
+
     render() {
+        let {user} = this.props
+
         return (
             <div>
-                <AuthContext.Consumer>
-                    {(user) => (
-                        <p>Welcome {user.name} !</p>
-                    )}
-                </AuthContext.Consumer>
+                <p>Welcome {user.name} !</p>
             </div>
         );
     }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => ({
+    user: state.auth.user
+})
+
+export default connect(mapStateToProps)(Dashboard);
