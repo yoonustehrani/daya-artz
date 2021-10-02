@@ -1,9 +1,11 @@
 import {
+    APP_READY,
     HANDLE_LOGIN,
 } from "../actions/actionTypes"
 
 var stateCopy, defaultState = {
-    user: null
+    user: null,
+    loading: true
 }
 
 const copyState = (state) => {
@@ -16,7 +18,9 @@ const loginReducer = (state = defaultState, action) => {
         case HANDLE_LOGIN:
             stateCopy.user = action.loginInfo
             return stateCopy
-    
+        case APP_READY:
+            stateCopy.loading = false
+            return stateCopy
         default:
             return state;
     }
