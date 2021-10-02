@@ -19,7 +19,8 @@ class CreateOrderItemsTable extends Migration
             $table->unsignedInteger('service_id');
             $table->unsignedInteger('service_plan_id');
             $table->unsignedInteger('company_id')->nullable();
-            $table->string('status', 20);
+            $table->string('status', 20); // TO BE DISCUSSED
+            $table->text('status_info')->nullable();
             $table->bigInteger('price');
             $table->timestamp('expires_at')->nullable();
             $table->softDeletes();

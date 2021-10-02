@@ -27,6 +27,8 @@ class CreateOrdersTable extends Migration
                 'telegram bot',
                 'messanger'
             ]);
+            $table->string('status', 20); // ->default(''); TO BE DESCUSSED
+            $table->text('status_info')->nullable();
             $table->text('description')->nullable();
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('company_id')->nullable();
