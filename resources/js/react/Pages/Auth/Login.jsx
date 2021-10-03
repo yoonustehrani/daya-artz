@@ -44,7 +44,7 @@ class Login extends Component {
                     <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
                 </div>
                 <a href="#" className="forgot-ps">رمز عبور خودتون رو فراموش کردید؟</a>  
-                <button className="btn btn-lg badge-pill " onClick={handleLogin}>ورود</button>
+                <button className="btn btn-lg badge-pill " type="button" onClick={handleLogin}>ورود</button>
                 <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this)}>برای ساخت حساب کلیک کنید!</span>              
             </div>
         );

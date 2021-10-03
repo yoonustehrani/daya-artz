@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { logOut } from '../../redux/actions';
 
 class Dashboard extends Component {
     componentDidMount() {
@@ -9,11 +10,10 @@ class Dashboard extends Component {
 
     render() {
         let {user} = this.props
-
         return (
-            <div>
-                <p>Welcome {user.name} !</p>
-            </div>
+            <center>
+                <h3>Welcome To Dashboard ! <button onClick={() => this.props.dispatch(logOut)}>Logout</button> </h3>
+            </center>
         );
     }
 }

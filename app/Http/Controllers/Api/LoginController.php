@@ -14,7 +14,7 @@ class LoginController extends Controller
     protected $username;
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->only('login');
     }
     public function login(Request $request)
     {
@@ -25,7 +25,7 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
         if ($this->attemptLogin($this->credentials($request))) {
-            return response()->json(['okay' => true, 'message' => 'Login Successful']);
+            return response()->json(['okay' => true, 'message' => 'Login Successful', 'user' => Auth::user()]);
         }
         // if fail should be run
         $this->incrementLoginAttempts($request);
@@ -69,5 +69,15 @@ class LoginController extends Controller
     public function username()
     {
         return $this->username;
+    }
+    public function logout(Request $request)
+    {
+        if (Auth::check()) {
+            $request->session()->invalidate();
+    
+            $request->session()->regenerateToken();
+            return ['ok' => true];
+        }
+        return ['ok' => false];
     }
 }

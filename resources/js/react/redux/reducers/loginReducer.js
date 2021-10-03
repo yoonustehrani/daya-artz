@@ -1,7 +1,8 @@
 import {
-    APP_READY,
-    HANDLE_LOGIN,
-} from "../actions/actionTypes"
+    APP_STATUS_CHANGED,
+    USER_LOGGED_IN,
+    USER_LOGGED_OUT
+} from "../actionTypes"
 
 var stateCopy, defaultState = {
     user: null,
@@ -15,11 +16,14 @@ const copyState = (state) => {
 const loginReducer = (state = defaultState, action) => {
     copyState(state)
     switch (action.type) {
-        case HANDLE_LOGIN:
-            stateCopy.user = action.loginInfo
+        case USER_LOGGED_IN:
+            stateCopy.user = action.payload
             return stateCopy
-        case APP_READY:
-            stateCopy.loading = false
+        case USER_LOGGED_OUT:
+            stateCopy.user = null
+            return stateCopy
+        case APP_STATUS_CHANGED:
+            stateCopy.loading = action.payload
             return stateCopy
         default:
             return state;

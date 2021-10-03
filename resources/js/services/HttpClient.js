@@ -8,13 +8,13 @@ export default class HttpClient
     get = (url, config = null) => {
         return this.Http.get(url, config)
     }
-    post = (url, params, config = null) => {
+    post = (url, params = {}, config = null) => {
         return this.Http.post(url, params, config)
     }
-    put = (url, params, config = null) => {
+    put = (url, params = {}, config = null) => {
         return this.Http.put(url, params, config)
     }
-    patch = (url, params, config = null) => {
+    patch = (url, params = {}, config = null) => {
         return this.Http.patch(url, params, config)
     }
     delete = (url, config = null) => {

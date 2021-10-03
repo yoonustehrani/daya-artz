@@ -1,16 +1,14 @@
-
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios';
+import { Link, Redirect } from 'react-router-dom'
 import HttpClient from '../../../services/HttpClient'
 import { getCookie } from '../../../services/CookieService'
 import Login from './Login'
 import Signup from './Signup'
 import { connect } from 'react-redux';
-import { handleLogin } from '../../redux/actions';
+import { logUserIn } from '../../redux/actions';
 
 const httpService = new HttpClient({
-    baseURL: "http://localhost/",
+    baseURL: "http://localhost/api/v1/",
     headers: {
         'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
         'Accept': 'application/json'
@@ -50,7 +48,7 @@ class Auth extends Component {
             templateResult: this.formatState,
             width: "100%",
             dir: "rtl"
-        }   
+        }
     }
 
     componentDidMount() {
@@ -123,15 +121,11 @@ class Auth extends Component {
     }
 
     handleLogin = () => {
-        let { handleLogin, history, location } = this.props, { from } = location.state || { from: { pathname: "/" } };
-        console.log(from);
-        // httpService.post('login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
-        //     httpService.get('api/v1/user').then(res => {
-        //         console.log(res.data);
-        //     })
-        // })
-        handleLogin({name: "amir"})
-        history.replace(from)
+        let { authLogin } = this.props;
+        httpService.post('login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
+            let user = res.data
+            authLogin(user)
+        })
     }
 
     changeLoginMethod = () => {
@@ -152,10 +146,13 @@ class Auth extends Component {
     }
     
     render() {
-        let {signup, login, login_method, state, isLoggingIn, user} = this.state
+        let {signup, login, login_method, state, isLoggingIn} = this.state
+        let { user, location } = this.props
         if (user) {
-            this.props.history.goBack()
-            return null
+            let { from } = location.state || { from: { pathname: "/" } }
+            return (
+                <Redirect to={from}/>
+            )
         }
         return (
             <div>
@@ -193,7 +190,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    handleLogin: loginInfo => dispatch(handleLogin(loginInfo)),
+    authLogin: user => dispatch(logUserIn(user)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth)

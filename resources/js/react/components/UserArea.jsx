@@ -22,14 +22,11 @@ class UserArea extends Component {
         return (
             <Router basename="/userarea">
                 <Switch>
-                    <Route path="/test" children={({history, location, match}) => {
-                        console.log(history);
-                        console.log(location);
-                        console.log(match);
-                        return <h1 style={{ float: 'left', padding: '5px' }}>test</h1>
-                    }}/>
                     <PrivateRoute exact={true} path="/">
                         <Dashboard />
+                    </PrivateRoute>
+                    <PrivateRoute path="/sampi">
+                        <center><h3>Hello Person !</h3></center>
                     </PrivateRoute>
                     <Route exact path="/login" component={Auth}></Route>
                 </Switch>
