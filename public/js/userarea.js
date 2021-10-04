@@ -2340,12 +2340,13 @@ var Background = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this$props = this.props,
           state = _this$props.state,
-          changeSection = _this$props.changeSection;
+          changeSection = _this$props.changeSection,
+          history = _this$props.history;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "change-form d-md-block d-none ".concat(state === "login" ? "bg-p-100 right-60" : ""),
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-            onClick: changeSection.bind(this),
+            onClick: changeSection.bind(this, history),
             className: "btn btn-lg badge-pill animated"
           })
         })
@@ -2413,6 +2414,12 @@ var DayaLogo = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(DayaLogo, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var path = this.props.path;
+      path === "/auth/login" ? $(".daya-logo").addClass("purple-cl") : null;
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
@@ -2910,6 +2917,7 @@ var httpService = new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default
     'Accept': 'application/json'
   }
 });
+var route_regex = /[^/]*$/;
 
 var AuthRoute = /*#__PURE__*/function (_Component) {
   _inherits(AuthRoute, _Component);
@@ -2931,7 +2939,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "changeSection", function () {
+    _defineProperty(_assertThisInitialized(_this), "changeSection", function (history, replace) {
       var state = _this.state.state;
       $(".change-form").each(function () {
         $(this).addClass("width-change");
@@ -2966,6 +2974,8 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         if (window.screen.width < 768) {
           $(".login-form").toggleClass("zoomOut zoomIn");
         }
+
+        history.replaca("/auth/".concat(replace));
       }, 500);
       setTimeout(function () {
         $(".change-form").each(function () {
@@ -3041,7 +3051,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         phone_number: "",
         password: ""
       },
-      state: _this.props.location.pathname === "/auth/login" ? "login" : 'signup',
+      state: route_regex.exec(_this.props.location.pathname)[0],
       login_method: "email"
     };
     return _this;
@@ -3087,9 +3097,12 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
             className: "auth-container",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "login-bg",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_9__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                path: props.location.pathname
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_8__["default"], {
                 state: state,
                 path: props.location.pathname,
+                history: props.history,
                 changeSection: _this3.changeSection
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_10__["default"], {
                 path: props.location.pathname

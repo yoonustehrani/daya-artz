@@ -20,6 +20,7 @@ const httpService = new HttpClient({
         'Accept': 'application/json'
     }
 })
+const route_regex = /[^/]*$/
 
 class AuthRoute extends Component {
     constructor(props) {
@@ -37,7 +38,7 @@ class AuthRoute extends Component {
                 phone_number: "",
                 password: ""
             },
-            state: this.props.location.pathname === "/auth/login" ? "login" : 'signup',
+            state: route_regex.exec(this.props.location.pathname)[0],
             login_method: "email",
         }
 
@@ -53,7 +54,7 @@ class AuthRoute extends Component {
         }))
     }
 
-    changeSection = () => {
+    changeSection = (history, replace) => {
         let { state } = this.state
 
         $(".change-form").each(function() {
@@ -87,7 +88,7 @@ class AuthRoute extends Component {
             if (window.screen.width < 768) {
                 $(".login-form").toggleClass("zoomOut zoomIn")
             }
-
+            history.replaca(`/auth/${replace}`)
         }, 500)
 
         setTimeout(() => {
@@ -152,8 +153,8 @@ class AuthRoute extends Component {
             <Route path="/auth" children={(props) => (
                 <div className="auth-container">
                     <div className="login-bg">
-                        <DayaLogo />
-                        <Background state={state} path={props.location.pathname} changeSection={this.changeSection} />
+                        <DayaLogo path={props.location.pathname} />
+                        <Background state={state} path={props.location.pathname} history={props.history} changeSection={this.changeSection} />
                         <Welcome path={props.location.pathname} />
                         <div className={`login-form animated ${state === 'login' ? "right-40" : ""}`}>
                             <Switch>

@@ -6,11 +6,11 @@ class Background extends Component {
         path === "/auth/login" ? $(elem).html("ثبت نام") : $(elem).html("ورود")
     }
     render() {
-        let { state, changeSection } = this.props
+        let { state, changeSection, history } = this.props
         return (
             <div className={`change-form d-md-block d-none ${state === "login" ? "bg-p-100 right-60" : ""}`}>
                 <div>
-                    <button  onClick={changeSection.bind(this)} className="btn btn-lg badge-pill animated"></button>
+                    <button  onClick={changeSection.bind(this, history, )} className="btn btn-lg badge-pill animated"></button>
                 </div>
             </div>
         );

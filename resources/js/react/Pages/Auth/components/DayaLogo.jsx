@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class DayaLogo extends Component {
+    componentDidMount() {
+        let { path } = this.props
+        path === "/auth/login" ? $(".daya-logo").addClass("purple-cl") : null
+    }
+    
     render() {
         return (
             <Link to="/" className="daya-logo ltr">
