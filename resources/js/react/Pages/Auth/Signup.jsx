@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { state_select } from '../../../components/select2'
 
 class Signup extends Component {
-
+    
     componentDidMount() {
-        $("#register-country-select").select2(this.props.select2Config)
+        $("#register-country-select").select2(state_select.config)
     }
     
     render() {

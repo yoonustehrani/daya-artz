@@ -14400,7 +14400,7 @@ div.header-section div.header-title .title span {
   padding: 5px;
   background-color: #777DD1;
 }
-.auth-container .login-bg > div.change-form, .auth-container .login-bg div.login-form {
+.auth-container .login-bg div.change-form, .auth-container .login-bg div.login-form {
   position: relative;
   top: 0;
   bottom: 0;
@@ -14526,6 +14526,8 @@ div.header-section div.header-title .title span {
   justify-content: center;
   align-items: center;
   min-height: inherit;
+  width: 100%;
+  height: 100%;
 }
 .auth-container .login-bg .login-form h2 {
   color: #8f60ec;

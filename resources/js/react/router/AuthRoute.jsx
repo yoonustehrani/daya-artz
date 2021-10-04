@@ -1,13 +1,17 @@
-
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
 import axios from 'axios';
-import HttpClient from '../../../services/HttpClient'
-import { getCookie } from '../../../services/CookieService'
-import Login from './Login'
-import Signup from './Signup'
+import HttpClient from '../../services/HttpClient'
+import { getCookie } from '../../services/CookieService'
+// Redux
 import { connect } from 'react-redux';
-import { handleLogin } from '../../redux/actions';
+import { handleLogin } from '../redux/actions';
+// custom components
+import Login from '../Pages/Auth/Login';
+import Signup from '../Pages/Auth/Signup';
+import Background from '../Pages/Auth/components/Background';
+import DayaLogo from '../Pages/Auth/components/DayaLogo';
+import Welcome from '../Pages/Auth/components/Welcome';
 
 const httpService = new HttpClient({
     baseURL: "http://localhost/",
@@ -17,7 +21,7 @@ const httpService = new HttpClient({
     }
 })
 
-class Auth extends Component {
+class AuthRoute extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,33 +37,12 @@ class Auth extends Component {
                 phone_number: "",
                 password: ""
             },
-            state: "signup",
+            state: this.props.location.pathname === "/auth/login" ? "login" : 'signup',
             login_method: "email",
-            isLoggingIn: false
         }
-        this.formatState = (state) => {
-            if(!state.id) {
-                return state.text
-            }
-            let baseUrl = `${APP_PATH}images/world-icons/`
-            let $state = $(
-            `<span class="span-option"><img src=${baseUrl + state.id.toLowerCase() + ".svg"} class="img-flag"/>${state.text}</span>`)
-            return $state
-        }
-        this.select2_config = {
-            templateResult: this.formatState,
-            width: "100%",
-            dir: "rtl"
-        }   
+
     }
 
-    componentDidMount() {
-        let { user } = this.props
-        if (!user) {
-            document.title = "Login"
-        }
-    }
-    
     onChangeField = (fieldType, field, e) => {
         e.persist()
         this.setState(prevState => ({
@@ -72,6 +55,7 @@ class Auth extends Component {
 
     changeSection = () => {
         let { state } = this.state
+
         $(".change-form").each(function() {
             $(this).addClass("width-change")
             $(this).find("button").addClass(`${state === "signup" ? "bounceOutLeft" : "bounceOutRight"}`)
@@ -103,9 +87,7 @@ class Auth extends Component {
             if (window.screen.width < 768) {
                 $(".login-form").toggleClass("zoomOut zoomIn")
             }
-            this.setState(prevState => ({
-                isLoggingIn: !prevState.isLoggingIn
-            }))
+
         }, 500)
 
         setTimeout(() => {
@@ -124,7 +106,6 @@ class Auth extends Component {
 
     handleLogin = () => {
         let { handleLogin, history, location } = this.props, { from } = location.state || { from: { pathname: "/" } };
-        console.log(from);
         // httpService.post('login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
         //     httpService.get('api/v1/user').then(res => {
         //         console.log(res.data);
@@ -150,41 +131,45 @@ class Auth extends Component {
             })
         }, 0);
     }
-    
+
+    componentDidMount() {
+        let { user, location } = this.props
+        if (!user) {
+            document.title = "Login"
+            this.setState(prevState => ({
+                state: location.pathname === "/auth/login" ? "login" : "signup"
+            }))
+        }
+    }
+
     render() {
-        let {signup, login, login_method, state, isLoggingIn, user} = this.state
+        let {signup, login, login_method, state, user} = this.state
         if (user) {
             this.props.history.goBack()
             return null
         }
         return (
-            <div>
+            <Route path="/auth" children={(props) => (
                 <div className="auth-container">
                     <div className="login-bg">
-                        <Link to="/" className="daya-logo ltr">
-                            <img className="animated d-md-inline d-none" src={APP_PATH + "images/daya-white-logo.png"} alt="daya-logo" />
-                            <img className="animated d-md-none" src={APP_PATH + "images/daya-white-logo.png"} alt="daya-logo" />
-                            <span>DAYA-ARTZ</span>
-                        </Link>
-                        <div className={`change-form d-md-block d-none ${state === "login" ? "bg-p-100 right-60" : ""}`}>
-                            <div>
-                                <button onClick={this.changeSection.bind(this)} className="btn btn-lg badge-pill animated">ورود</button>
-                            </div>
-                        </div>
-                        <div className="change-form-content left-20 d-md-flex d-none">
-                            <h2 className="">!خوش آمدید</h2>
-                            <p className="">اگر در حال حاضر داخل دایا حساب دارید با زدن دکمه زیر وارد صفحه ورود شوید ...</p>
-                            <h2 className="d-none">!سلام دوست عزیز</h2>
-                            <p className="d-none">اگه هنوز ثبت نام نکردی میتونی با زدن دکمه زیر ثبت نام در دایا رو آغاز کنی ...</p>
-                        </div>
+                        <DayaLogo />
+                        <Background state={state} path={props.location.pathname} changeSection={this.changeSection} />
+                        <Welcome path={props.location.pathname} />
                         <div className={`login-form animated ${state === 'login' ? "right-40" : ""}`}>
-                            { !isLoggingIn && <Signup changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} signup={signup} login_method={login_method} select2Config={this.select2_config} />}
-                            { isLoggingIn && <Login changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} login={login} login_method={login_method} select2Config={this.select2_config} />}
+                            <Switch>
+                                <Route exact path={`${props.match.path}/signup`} children={({history, location, match}) => (
+                                    <Signup history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} signup={signup} login_method={login_method} select2Config={this.select2_config} />
+                                )} />
+
+                                <Route exact path={`${props.match.path}/login`} children={({history, location, match}) => (
+                                    <Login history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} login={login} login_method={login_method} select2Config={this.select2_config} />
+                                )} />
+                            </Switch>
                         </div>
                     </div>
                 </div>
-            </div>
-        )
+            )} />
+        );
     }
 }
 
@@ -196,4 +181,4 @@ const mapDispatchToProps = (dispatch) => ({
     handleLogin: loginInfo => dispatch(handleLogin(loginInfo)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth)
+export default connect(mapStateToProps, mapDispatchToProps)(AuthRoute)
