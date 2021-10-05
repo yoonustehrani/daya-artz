@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import {render} from 'react-dom'
 import UserArea from './react/components/UserArea'
 import { Provider } from 'react-redux';
 import store from './react/redux/store';
@@ -9,7 +9,7 @@ const elem = document.getElementById('main')
 
 if (elem) {
     store.dispatch(checkAuth);
-    ReactDOM.render(
+    render(
         <Provider store={store}>
             <UserArea />
         </Provider>,

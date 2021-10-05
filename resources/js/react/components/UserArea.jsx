@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../router/PrivateRoute';
 import Dashboard from '../Pages/Dashboard';
 import Auth from '../Pages/Auth';
+import Spinner from 'react-activity/dist/Spinner'
 
 function mapStateToProps(state) {
     return {
@@ -13,12 +14,8 @@ function mapStateToProps(state) {
 
 class UserArea extends Component {
     render() {
-        let { loadingApp } = this.props;
-        if (loadingApp) {
-            return (
-                <center><h1 style={{ direction: 'ltr', marginTop: '50px' }}>App is Loading ...</h1></center>
-            )
-        }
+        if (this.props.loadingApp)
+            return <center className="centered-by-translate"><Spinner color="#8F60EC" size={72} speed={0.8} animating={true} /></center>
         return (
             <Router basename="/userarea">
                 <Switch>
