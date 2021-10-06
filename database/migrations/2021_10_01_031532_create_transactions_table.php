@@ -15,10 +15,21 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('bill_id');
+            $table->bigInteger('amount');
+            $table->enum('status', [
+                'validated',
+                'approved',
+                'canceled',
+                'pending'
+            ])->default('pending');
+            $table->string('transaction_id');
             $table->string('provider');
+            $table->foreignId('user_id');
+            $table->uuid('bill_id');
+            $table->json('details')->nullable();  
             $table->timestamps();
             $table->foreign('bill_id')->references('id')->on('bills')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

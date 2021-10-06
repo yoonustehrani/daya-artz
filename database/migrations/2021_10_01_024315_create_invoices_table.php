@@ -18,6 +18,7 @@ class CreateInvoicesTable extends Migration
             $table->morphs('invoiceable');
             $table->bigInteger('amount');
             $table->unsignedInteger('payment_rule_id');
+            $table->boolean('paid')->default(false);
             $table->timestamps();
             // $table->foreign('');
             $table->foreign('payment_rule_id')->references('id')->on('payment_rules')->cascadeOnDelete()->cascadeOnUpdate();

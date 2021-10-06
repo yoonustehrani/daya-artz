@@ -16,7 +16,12 @@ class CreateBillsTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->bigInteger('amount');
-            $table->boolean('active');
+            $table->string('title')->nullable();
+            $table->enum('status', [
+                'active',
+                'inactive',
+                'paid'
+            ]);
             $table->unsignedBigInteger('invoice_id');
             $table->timestamps();
             $table->foreign('invoice_id')->references('id')->on('invoices')->cascadeOnDelete()->cascadeOnUpdate();
