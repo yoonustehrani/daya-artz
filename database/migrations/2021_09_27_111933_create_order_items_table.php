@@ -19,9 +19,10 @@ class CreateOrderItemsTable extends Migration
             $table->unsignedInteger('service_id')->nullable();
             $table->unsignedInteger('service_plan_id')->nullable();
             $table->unsignedInteger('company_id')->nullable();
+            $table->foreignId('offer_id')->nullable();
             $table->string('status', 20); // TO BE DISCUSSED
             $table->text('status_info')->nullable();
-            $table->bigInteger('price');
+            $table->bigInteger('price')->default(0);
             $table->timestamp('expires_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
@@ -29,6 +30,7 @@ class CreateOrderItemsTable extends Migration
             $table->foreign('service_id')->references('id')->on('services')->nullOnDelete()->cascadeOnUpdate();
             $table->foreign('service_plan_id')->references('id')->on('service_plans')->nullOnDelete()->cascadeOnUpdate();
             $table->foreign('company_id')->references('id')->on('companies')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreign('offer_id')->references('id')->on('offers')->nullOnDelete()->cascadeOnUpdate();
         });
     }
 

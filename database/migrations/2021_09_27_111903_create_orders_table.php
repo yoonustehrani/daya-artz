@@ -32,6 +32,7 @@ class CreateOrdersTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('company_id')->nullable();
+            $table->foreignId('offer_id')->nullable();
             // $table->timestamp('opened_at')->nullable();
             // $table->unsignedInteger('opened_by')->nullable();
             $table->json('details')->default(json_encode(json_decode('[]')));
@@ -39,6 +40,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('company_id')->references('id')->on('companies')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreign('offer_id')->references('id')->on('offers')->nullOnDelete()->cascadeOnUpdate();
             // $table->foreign('opened_by')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
