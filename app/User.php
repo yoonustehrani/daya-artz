@@ -52,4 +52,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->verification_codes()->where('sent_by','sms');
     }
+
+    public function offers()
+    {
+        return $this->morphToMany(Offer::class, 'offerable')->where('expires_at', '>', now())->withPivot(['max_attempts', 'attempts']);
+    }
+
+    // public function available_offers()
+    // {
+    //     return $this->offers()->wherePivot('');
+    // }
 }

@@ -34,7 +34,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('company_id')->nullable();
             // $table->timestamp('opened_at')->nullable();
             // $table->unsignedInteger('opened_by')->nullable();
-            $table->json('details')->default(json_encode('[]'));
+            $table->json('details')->default(json_encode(json_decode('[]')));
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();

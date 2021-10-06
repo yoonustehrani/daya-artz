@@ -18,6 +18,7 @@ class CreateServicesTable extends Migration
             $table->integer('parent_id')->nullable();
             $table->string('title', 60);
             $table->string('slug');
+            $table->string('group', 60);
             $table->integer('price')->nullable();
             $table->text('description')->nullable();
             $table->longText('content')->nullable();

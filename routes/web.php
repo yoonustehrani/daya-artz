@@ -71,7 +71,11 @@ Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
 })->middleware('signed')->name('verification.email.verify');
 
 Route::get('test', function () {
-    $company = Company::first();
-    $company->load('business_type', 'product_type');
-    return $company;
+    // $json_string = '{"name": "yoonus", "age": 18}';
+    // dd(json_decode($json_string));
+    $offers = App\Offer::limit(3)->get();
+    return $offers;
+    // $company = Company::first();
+    // $company->load('business_type', 'product_type');
+    // return $company;
 });

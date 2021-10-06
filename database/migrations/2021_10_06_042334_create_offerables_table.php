@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaymentRulesTable extends Migration
+class CreateOfferablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreatePaymentRulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('payment_rules', function (Blueprint $table) {
-            $table->increments('id');
-            $table->morphs('payable');
-            $table->json('details')->default(json_encode(json_decode('[]')));
+        Schema::create('offerables', function (Blueprint $table) {
+            $table->foreignId('offer_id');
+            $table->morphs('offerable');
+            $table->integer('max_attempts')->default(1);
+            $table->integer('attempts')->default(0);
         });
     }
 
@@ -27,6 +28,6 @@ class CreatePaymentRulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_rules');
+        Schema::dropIfExists('offerables');
     }
 }

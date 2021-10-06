@@ -22,4 +22,8 @@ class Service extends Model
     {
         return $this->hasMany(ServicePlan::class);
     }
+    public function offers()
+    {
+        return $this->morphToMany(Offer::class, 'offerable')->where('expires_at', '>', now())->withPivot(['max_attempts', 'attempts']);
+    }
 }
