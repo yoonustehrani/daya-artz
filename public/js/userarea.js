@@ -2705,7 +2705,7 @@ var DayaLogo = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var state = this.props.state;
-      state === "login" || state === "forgePassword" ? $(".daya-logo").addClass("purple-cl") : null;
+      state === "login" || state === "forgetPassword" ? $(".daya-logo").addClass("purple-cl") : null;
     }
   }, {
     key: "render",
@@ -3440,78 +3440,54 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
                 exact: true,
                 path: "/auth/signup",
-                children: function children(_ref3) {
-                  var history = _ref3.history,
-                      location = _ref3.location,
-                      match = _ref3.match;
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                    history: history,
-                    location: location,
-                    match: match,
+                children: function children(props) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], _objectSpread(_objectSpread({}, props), {}, {
                     changeLoginMethod: _this4.changeLoginMethod,
                     changeSection: _this4.changeSection,
                     onChangeField: _this4.onChangeField,
                     handleLogin: _this4.handleLogin,
                     fields_info: signup,
                     login_method: login_method
-                  });
+                  }));
                 }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
                 exact: true,
                 path: "/auth/login",
-                children: function children(_ref4) {
-                  var history = _ref4.history,
-                      location = _ref4.location,
-                      match = _ref4.match;
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], {
-                    history: history,
-                    location: location,
-                    match: match,
+                children: function children(props) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, props), {}, {
                     changeLoginMethod: _this4.changeLoginMethod,
                     changeSection: _this4.changeSection,
                     onChangeField: _this4.onChangeField,
                     handleLogin: _this4.handleLogin,
                     fields_info: login,
                     login_method: login_method
-                  });
+                  }));
                 }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
                 exact: true,
                 path: "/auth/forgetPassword",
-                children: function children(_ref5) {
-                  var history = _ref5.history,
-                      location = _ref5.location,
-                      match = _ref5.match;
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_ForgetPassword__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                    history: history,
-                    location: location,
-                    match: match,
+                children: function children(props) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_ForgetPassword__WEBPACK_IMPORTED_MODULE_8__["default"], _objectSpread(_objectSpread({}, props), {}, {
                     changeLoginMethod: _this4.changeLoginMethod,
                     changeSection: _this4.changeSection,
                     onChangeField: _this4.onChangeField,
                     handleLogin: _this4.handleLogin,
                     fields_info: forgetPassword,
                     login_method: login_method
-                  });
+                  }));
                 }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
                 exact: true,
                 path: "/auth/signupConfirm",
-                children: function children(_ref6) {
-                  var history = _ref6.history,
-                      location = _ref6.location,
-                      match = _ref6.match;
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_SignupConfirm__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                    history: history,
-                    location: location,
-                    match: match,
+                children: function children(props) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_SignupConfirm__WEBPACK_IMPORTED_MODULE_9__["default"], _objectSpread(_objectSpread({}, props), {}, {
                     changeLoginMethod: _this4.changeLoginMethod,
                     changeSection: _this4.changeSection,
                     onChangeField: _this4.onChangeField,
                     handleLogin: _this4.handleLogin,
                     fields_info: signupConfirm,
                     login_method: login_method
-                  });
+                  }));
                 }
               })]
             })

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class DayaLogo extends Component {
     componentDidMount() {
         let { state } = this.props
-        state === "login" || state === "forgePassword" ? $(".daya-logo").addClass("purple-cl") : null
+        state === "login" || state === "forgetPassword" ? $(".daya-logo").addClass("purple-cl") : null
     }
     
     render() {

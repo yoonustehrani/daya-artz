@@ -179,20 +179,20 @@ class AuthRoute extends Component {
                         <Welcome state={state} />
                         <div className={`login-form animated ${state === 'login' || state === "forgetPassword" ? "right-40" : ""}`}>
                             <Switch>
-                                <Route exact path={`/auth/signup`} children={({history, location, match}) => (
-                                    <Signup history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={signup} login_method={login_method} />
+                                <Route exact path={`/auth/signup`} children={(props) => (
+                                    <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={signup} login_method={login_method} />
                                 )} />
 
-                                <Route exact path={`/auth/login`} children={({history, location, match}) => (
-                                    <Login history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />
+                                <Route exact path={`/auth/login`} children={(props) => (
+                                    <Login {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />
                                 )} />
 
-                                <Route exact path={`/auth/forgetPassword`} children={({history, location, match}) => (
-                                    <ForgetPassword history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
+                                <Route exact path={`/auth/forgetPassword`} children={(props) => (
+                                    <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
                                 )} />
 
-                                <Route exact path={`/auth/signupConfirm`} children={({history, location, match}) => (
-                                    <SignupConfirm history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={signupConfirm} login_method={login_method} />
+                                <Route exact path={`/auth/signupConfirm`} children={(props) => (
+                                    <SignupConfirm {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={signupConfirm} login_method={login_method} />
                                 )} />
                                 
                             </Switch>
