@@ -9,7 +9,8 @@ class PrivateRoutes extends Component {
             <div>
                 <PrivateRoute exact={true} path="/">
                     <Dashboard />
-                </PrivateRoute>                
+                </PrivateRoute>    
+
             </div>
         );
     }

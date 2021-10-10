@@ -46,7 +46,7 @@ class Login extends Component {
                 </div>
                 <Link to="/auth/forgetPassword" className="forgot-ps">رمز عبور خودتون رو فراموش کردید؟</Link>  
                 <button className="btn btn-lg badge-pill " onClick={handleLogin}>ورود</button>
-                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history)}>برای ساخت حساب کلیک کنید!</span>              
+                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, false)}>برای ساخت حساب کلیک کنید!</span>              
             </div>
         );
     }

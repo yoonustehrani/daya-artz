@@ -2210,7 +2210,7 @@ var Login = /*#__PURE__*/function (_Component) {
           children: "\u0648\u0631\u0648\u062F"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "change-form-mobile d-md-none mt-2",
-          onClick: changeSection.bind(this, history),
+          onClick: changeSection.bind(this, history, false),
           children: "\u0628\u0631\u0627\u06CC \u0633\u0627\u062E\u062A \u062D\u0633\u0627\u0628 \u06A9\u0644\u06CC\u06A9 \u06A9\u0646\u06CC\u062F!"
         })]
       });
@@ -2431,7 +2431,7 @@ var Signup = /*#__PURE__*/function (_Component) {
           children: "\u062B\u0628\u062A \u0646\u0627\u0645"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "change-form-mobile d-md-none mt-2",
-          onClick: changeSection.bind(this, history),
+          onClick: changeSection.bind(this, history, false),
           children: "\u0628\u0631\u0627\u06CC \u0648\u0631\u0648\u062F \u0628\u0647 \u062F\u0627\u06CC\u0627 \u06A9\u0644\u06CC\u06A9 \u06A9\u0646\u06CC\u062F!"
         })]
       });

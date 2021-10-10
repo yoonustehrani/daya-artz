@@ -53,7 +53,7 @@ class Signup extends Component {
                     <div className="input-group-append"><span className="input-group-text"><i className="fas fa-redo"></i></span></div>
                 </div>
                 <button className="btn btn-lg badge-pill " onClick={handleLogin}>ثبت نام</button>
-                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history)}>برای ورود به دایا کلیک کنید!</span>
+                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, false)}>برای ورود به دایا کلیک کنید!</span>
             </div>
         );
     }
