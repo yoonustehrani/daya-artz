@@ -13,7 +13,9 @@ class UserArea extends Component {
             <Provider store={store}>
                 <Router basename="/userarea">
                     <Switch>
-                        <AuthRoute />
+                        <Route path="/auth">
+                            {(props) => (<AuthRoute {...props} />)}
+                        </Route>
                         <PrivateRoutes />
                     </Switch>
                 </Router>

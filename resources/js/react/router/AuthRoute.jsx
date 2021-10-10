@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import axios from 'axios';
 import HttpClient from '../../services/HttpClient'
 import { getCookie } from '../../services/CookieService'
 // Redux
 import { connect } from 'react-redux';
 import { handleLogin } from '../redux/actions';
-// custom components
+// Routes
 import Login from '../Pages/Auth/Login';
 import Signup from '../Pages/Auth/Signup';
+import ForgetPassword from '../Pages/Auth/ForgetPassword';
+import SignupConfirm from '../Pages/Auth/SignupConfirm';
+// custom components
 import Background from '../Pages/Auth/components/Background';
 import DayaLogo from '../Pages/Auth/components/DayaLogo';
 import Welcome from '../Pages/Auth/components/Welcome';
@@ -38,10 +41,16 @@ class AuthRoute extends Component {
                 phone_number: "",
                 password: ""
             },
-            state: route_regex.exec(this.props.location.pathname)[0],
+            forgetPassword: {
+                phone_number: "",
+                email: ""
+            },
+            signupConfirm : {
+                code: ""
+            },
+            state: route_regex.exec(this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(this.props.location.pathname)[0],
             login_method: "email",
         }
-
     }
 
     onChangeField = (fieldType, field, e) => {
@@ -54,26 +63,30 @@ class AuthRoute extends Component {
         }))
     }
 
-    changeSection = (history, replace) => {
-        let { state } = this.state
-
-        $(".change-form").each(function() {
-            $(this).addClass("width-change")
-            $(this).find("button").addClass(`${state === "signup" ? "bounceOutLeft" : "bounceOutRight"}`)
-        })
-        if (window.screen.width < 768) {
-            setTimeout(() => {
+    changeSection = (history, newState) => {
+        let { state } = this.state, replaca = newState ? newState : state === "signup" || state === "signupConfirm" ? "login" : "signup" 
+        setTimeout(() => {
+            $(".change-form").each(function() {
+                $(this).addClass("width-change")
+                $(this).find("button").addClass(`${state === "signup" || state === "signupConfirm" ? "bounceOutLeft" : "bounceOutRight"}`)
+            })
+            if (window.screen.width < 768) {
                 $(".login-form").addClass("zoomOut")
-            }, 0)
-        }
+            }
+        }, 0)
 
         setTimeout(() => {
             $(".change-form").each(function() {
                 $(this).find("h2, p").each(function() {
                     $(this).toggleClass("d-none")
                 })
-                $(this).find("button")[0].innerHTML = state === "signup" ? "ثبت نام" : "ورود"
-                $(this).find("button").toggleClass(`${state === "signup" ? "bounceOutLeft bounceInRight" : "bounceOutRight bounceInLeft"}`)
+                if(state === "signup" || state === "signupConfirm") {
+                    $(this).find("button")[0].innerHTML = "ثبت نام"
+                    $(this).find("button").toggleClass("bounceOutLeft bounceInRight")
+                } else {
+                    $(this).find("button")[0].innerHTML = "ورود"
+                    $(this).find("button").toggleClass("bounceOutRight bounceInLeft")
+                }
             })
             $(".daya-logo").each(function() {
                 $(this).toggleClass("purple-cl")
@@ -88,7 +101,7 @@ class AuthRoute extends Component {
             if (window.screen.width < 768) {
                 $(".login-form").toggleClass("zoomOut zoomIn")
             }
-            history.replaca(`/auth/${replace}`)
+            history.push(`/auth/${replaca}`)
         }, 500)
 
         setTimeout(() => {
@@ -101,17 +114,12 @@ class AuthRoute extends Component {
         }, 1500);
 
         this.setState(prevState => ({
-            state: prevState.state === "login" ? "signup" : "login"
+            state: replaca
         }))
     }
 
     handleLogin = () => {
         let { handleLogin, history, location } = this.props, { from } = location.state || { from: { pathname: "/" } };
-        // httpService.post('login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
-        //     httpService.get('api/v1/user').then(res => {
-        //         console.log(res.data);
-        //     })
-        // })
         handleLogin({name: "amir"})
         history.replace(from)
     }
@@ -134,42 +142,67 @@ class AuthRoute extends Component {
     }
 
     componentDidMount() {
-        let { user, location } = this.props
+        let { user } = this.props
         if (!user) {
-            document.title = "Login"
-            this.setState(prevState => ({
-                state: location.pathname === "/auth/login" ? "login" : "signup"
-            }))
+            document.title =  "authentication"
         }
+        // for handling back or forward browser button
+        this.props.history.block((location, action) => {
+            if (action === "POP") {
+                let current_loc = route_regex.exec(location.pathname)[0], { state } = this.state, { history } = this.props
+                if(((state === "login" || state === "forgetPassword") && (current_loc === "signup" || current_loc === "signupConfirm")) || ((state === "signup" || state === "signupConfirm") && (current_loc === "login" || current_loc === "forgetPassword"))) {
+                    this.changeSection(history, current_loc)
+                } else {
+                    return true
+                }
+                return false
+            }  
+            return true
+        })
+
     }
 
     render() {
-        let {signup, login, login_method, state, user} = this.state
+        let {signup, login, forgetPassword, signupConfirm, login_method, state, user} = this.state, { history, location, match } = this.props
         if (user) {
-            this.props.history.goBack()
+            history.goBack()
             return null
         }
+        
         return (
-            <Route path="/auth" children={(props) => (
+            location.pathname !== "/auth"
+            ? (
                 <div className="auth-container">
                     <div className="login-bg">
-                        <DayaLogo path={props.location.pathname} />
-                        <Background state={state} path={props.location.pathname} history={props.history} changeSection={this.changeSection} />
-                        <Welcome path={props.location.pathname} />
-                        <div className={`login-form animated ${state === 'login' ? "right-40" : ""}`}>
+                        <DayaLogo state={state} />
+                        <Background state={state} history={history} changeSection={this.changeSection} />
+                        <Welcome state={state} />
+                        <div className={`login-form animated ${state === 'login' || state === "forgetPassword" ? "right-40" : ""}`}>
                             <Switch>
-                                <Route exact path={`${props.match.path}/signup`} children={({history, location, match}) => (
-                                    <Signup history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} signup={signup} login_method={login_method} select2Config={this.select2_config} />
+                                <Route exact path={`/auth/signup`} children={({history, location, match}) => (
+                                    <Signup history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={signup} login_method={login_method} />
                                 )} />
 
-                                <Route exact path={`${props.match.path}/login`} children={({history, location, match}) => (
-                                    <Login history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} login={login} login_method={login_method} select2Config={this.select2_config} />
+                                <Route exact path={`/auth/login`} children={({history, location, match}) => (
+                                    <Login history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />
                                 )} />
+
+                                <Route exact path={`/auth/forgetPassword`} children={({history, location, match}) => (
+                                    <ForgetPassword history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
+                                )} />
+
+                                <Route exact path={`/auth/signupConfirm`} children={({history, location, match}) => (
+                                    <SignupConfirm history={history} location={location} match={match} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={signupConfirm} login_method={login_method} />
+                                )} />
+                                
                             </Switch>
                         </div>
                     </div>
                 </div>
-            )} />
+            )
+            : (
+                <Redirect to={{ pathname: "/auth/login", state: {from: location} }} />
+            )
         );
     }
 }

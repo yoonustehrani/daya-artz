@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 class DayaLogo extends Component {
     componentDidMount() {
-        let { path } = this.props
-        path === "/auth/login" ? $(".daya-logo").addClass("purple-cl") : null
+        let { state } = this.props
+        state === "login" || state === "forgePassword" ? $(".daya-logo").addClass("purple-cl") : null
     }
     
     render() {

@@ -9,7 +9,6 @@ class Dashboard extends Component {
 
     render() {
         let {user} = this.props
-
         return (
             <div>
                 <p>Welcome {user.name} !</p>

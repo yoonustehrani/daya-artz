@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class welcome extends Component {
     componentDidMount() {
-        let { path } = this.props, elements = $(".change-form-content").find("h2, p")
+        let { state } = this.props, elements = $(".change-form-content").find("h2, p")
         elements.map((i, elem) => {
-            if (path === "/auth/signup") {
+            if ((state === "signup" || state === "signupConfirm") && i > 1) {
                 $(".change-form-content").addClass("left-20")
-                i > 1 ? $(elem).addClass("d-none") : null
-            } else if (path === "/auth/login") {
+                $(elem).addClass("d-none")
+            } else if ((state === "login" || state === "forgetPassword") && i < 2) {
                 $(".change-form-content").addClass("right-20")
-                i < 2 ? $(elem).addClass("d-none") : null
+                $(elem).addClass("d-none")
             }
         })
     }

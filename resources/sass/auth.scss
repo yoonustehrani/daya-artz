@@ -161,6 +161,10 @@
                 font-size: 30px;
                 font-weight: bold;
             }
+            p {
+                color: #777DD1;
+                width: 60%;
+            }
             .login-icons {
                 display: flex;
                 justify-content: center;
@@ -292,6 +296,7 @@
     font-size: 18px;
     color: #8f60ec;
     transition: 0.3s;
+    cursor: pointer;
     &:hover {
         color: #6232de;
     }

@@ -1845,14 +1845,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "state_select": () => (/* binding */ state_select)
 /* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var state_select = function state_select() {
-  _classCallCheck(this, state_select);
-
-  _defineProperty(this, "format", function (state) {
+var state_select = {
+  templateResult: function templateResult(state) {
     if (!state.id) {
       return state.text;
     }
@@ -1860,14 +1854,182 @@ var state_select = function state_select() {
     var baseUrl = "".concat(APP_PATH, "images/world-icons/");
     var $state = $("<span class=\"span-option\"><img src=".concat(baseUrl + state.id.toLowerCase() + ".svg", " class=\"img-flag\"/>").concat(state.text, "</span>"));
     return $state;
-  });
-
-  _defineProperty(this, "config", {
-    templateResult: format,
-    width: "100%",
-    dir: "rtl"
-  });
+  },
+  width: "100%",
+  dir: "rtl"
 };
+
+/***/ }),
+
+/***/ "./resources/js/react/Pages/Auth/ForgetPassword.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/react/Pages/Auth/ForgetPassword.jsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _components_select2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/select2 */ "./resources/js/components/select2.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+var ForgetPassword = /*#__PURE__*/function (_Component) {
+  _inherits(ForgetPassword, _Component);
+
+  var _super = _createSuper(ForgetPassword);
+
+  function ForgetPassword() {
+    var _this;
+
+    _classCallCheck(this, ForgetPassword);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "checkCode", function () {});
+
+    return _this;
+  }
+
+  _createClass(ForgetPassword, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      $("#forget_pass_select").select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          changeLoginMethod = _this$props.changeLoginMethod,
+          changeSection = _this$props.changeSection,
+          onChangeField = _this$props.onChangeField,
+          handleLogin = _this$props.handleLogin,
+          fields_info = _this$props.fields_info,
+          login_method = _this$props.login_method,
+          phone_number = fields_info.phone_number,
+          email = fields_info.email;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          children: "\u0641\u0631\u0627\u0645\u0648\u0634\u06CC \u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          className: "mb-4",
+          children: "\u0628\u0627 \u0648\u0627\u0631\u062F \u06A9\u0631\u062F\u0646 \u0622\u062F\u0631\u0633 \u0627\u06CC\u0645\u06CC\u0644 \u0648 \u06CC\u0627 \u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646 \u062E\u0648\u062F \u0645\u06CC\u062A\u0648\u0627\u0646\u06CC\u062F \u062D\u0633\u0627\u0628 \u062E\u0648\u062F \u0631\u0627 \u0628\u0627\u0632\u06CC\u0627\u0628\u06CC \u06A9\u0646\u06CC\u062F!"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+          className: "gray mb-2 animated",
+          onClick: changeLoginMethod.bind(this),
+          children: [login_method === "email" ? "با استفاده از شماره تلفن" : "با استفاده از اکانت ایمیل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-long-arrow-alt-left mr-1"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-mobile mr-1"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "email-phone-container input-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "input-group animated ".concat(login_method === "email" ? "" : "d-none"),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "email",
+              value: email,
+              className: "form-control",
+              placeholder: "\u0627\u06CC\u0645\u06CC\u0644",
+              onChange: onChangeField.bind(this, "signupConfirm", "email")
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "input-group-append",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "input-group-text",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                  className: "fas fa-at"
+                })
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "input-group animated ".concat(login_method === "phone" ? "" : "d-none"),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "input-group-prepend",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "country_codes_holder",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                  id: "forget_pass_select",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    value: "iran",
+                    children: "+98"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    value: "united-states",
+                    children: "+1"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    value: "united-kingdom",
+                    children: "+356"
+                  })]
+                })
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "text",
+              value: phone_number,
+              className: "form-control ltr",
+              placeholder: "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06CC\u0644",
+              onChange: onChangeField.bind(this, "signupConfirm", "phone_number")
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "input-group-append",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "input-group-text",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                  className: "fas fa-mobile"
+                })
+              })
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "btn btn-lg badge-pill ",
+          onClick: this.checkCode.bind(this),
+          children: "\u0627\u0631\u0633\u0627\u0644 \u06A9\u062F"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          to: "/auth/login",
+          className: "change-form-mobile mt-2",
+          children: "\u0628\u0631\u0627\u06CC \u0648\u0631\u0648\u062F \u0628\u0647 \u062F\u0627\u06CC\u0627 \u06A9\u0644\u06CC\u06A9 \u06A9\u0646\u06CC\u062F!"
+        })]
+      });
+    }
+  }]);
+
+  return ForgetPassword;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForgetPassword);
 
 /***/ }),
 
@@ -1883,6 +2045,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _components_select2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/select2 */ "./resources/js/components/select2.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1912,6 +2075,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Login = /*#__PURE__*/function (_Component) {
   _inherits(Login, _Component);
 
@@ -1926,7 +2090,7 @@ var Login = /*#__PURE__*/function (_Component) {
   _createClass(Login, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      $("#login-country-select").select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select.config);
+      $("#login-country-select").select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
     }
   }, {
     key: "render",
@@ -1935,12 +2099,13 @@ var Login = /*#__PURE__*/function (_Component) {
           changeLoginMethod = _this$props.changeLoginMethod,
           changeSection = _this$props.changeSection,
           onChangeField = _this$props.onChangeField,
-          login = _this$props.login,
+          fields_info = _this$props.fields_info,
           login_method = _this$props.login_method,
           handleLogin = _this$props.handleLogin,
-          user_name = login.user_name,
-          phone_number = login.phone_number,
-          password = login.password;
+          history = _this$props.history,
+          user_name = fields_info.user_name,
+          phone_number = fields_info.phone_number,
+          password = fields_info.password;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           children: "\u0648\u0631\u0648\u062F \u0628\u0647 \u062F\u0627\u06CC\u0627"
@@ -1958,7 +2123,7 @@ var Login = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
           className: "gray mb-2 animated",
           onClick: changeLoginMethod.bind(this),
-          children: [login_method === "email" ? "با استفاده از اکانت ایمیل شما:" : "با استفاده از شماره موبایل:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          children: [login_method === "email" ? "با استفاده از شماره تلفن" : "با استفاده از اکانت ایمیل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-long-arrow-alt-left mr-1"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-mobile mr-1"
@@ -2035,8 +2200,8 @@ var Login = /*#__PURE__*/function (_Component) {
               })
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-          href: "#",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          to: "/auth/forgetPassword",
           className: "forgot-ps",
           children: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u062E\u0648\u062F\u062A\u0648\u0646 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u06A9\u0631\u062F\u06CC\u062F\u061F"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
@@ -2045,7 +2210,7 @@ var Login = /*#__PURE__*/function (_Component) {
           children: "\u0648\u0631\u0648\u062F"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "change-form-mobile d-md-none mt-2",
-          onClick: changeSection.bind(this),
+          onClick: changeSection.bind(this, history),
           children: "\u0628\u0631\u0627\u06CC \u0633\u0627\u062E\u062A \u062D\u0633\u0627\u0628 \u06A9\u0644\u06CC\u06A9 \u06A9\u0646\u06CC\u062F!"
         })]
       });
@@ -2114,7 +2279,7 @@ var Signup = /*#__PURE__*/function (_Component) {
   _createClass(Signup, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      $("#register-country-select").select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select.config);
+      $("#register-country-select").select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
     }
   }, {
     key: "render",
@@ -2124,13 +2289,14 @@ var Signup = /*#__PURE__*/function (_Component) {
           changeSection = _this$props.changeSection,
           onChangeField = _this$props.onChangeField,
           handleLogin = _this$props.handleLogin,
-          signup = _this$props.signup,
+          fields_info = _this$props.fields_info,
           login_method = _this$props.login_method,
-          user_name = signup.user_name,
-          email = signup.email,
-          phone_number = signup.phone_number,
-          password = signup.password,
-          rep_password = signup.rep_password;
+          history = _this$props.history,
+          user_name = fields_info.user_name,
+          email = fields_info.email,
+          phone_number = fields_info.phone_number,
+          password = fields_info.password,
+          rep_password = fields_info.rep_password;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           children: "\u062B\u0628\u062A \u0646\u0627\u0645 \u062F\u0631 \u062F\u0627\u06CC\u0627"
@@ -2148,7 +2314,7 @@ var Signup = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
           className: "gray mb-2 animated",
           onClick: changeLoginMethod.bind(this),
-          children: [login_method === "email" ? "با استفاده از اکانت ایمیل شما:" : "با استفاده از شماره موبایل:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          children: [login_method === "email" ? "با استفاده از شماره تلفن" : "با استفاده از اکانت ایمیل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-long-arrow-alt-left mr-1"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-mobile mr-1"
@@ -2265,7 +2431,7 @@ var Signup = /*#__PURE__*/function (_Component) {
           children: "\u062B\u0628\u062A \u0646\u0627\u0645"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "change-form-mobile d-md-none mt-2",
-          onClick: changeSection.bind(this),
+          onClick: changeSection.bind(this, history),
           children: "\u0628\u0631\u0627\u06CC \u0648\u0631\u0648\u062F \u0628\u0647 \u062F\u0627\u06CC\u0627 \u06A9\u0644\u06CC\u06A9 \u06A9\u0646\u06CC\u062F!"
         })]
       });
@@ -2276,6 +2442,128 @@ var Signup = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Signup);
+
+/***/ }),
+
+/***/ "./resources/js/react/Pages/Auth/SignupConfirm.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/react/Pages/Auth/SignupConfirm.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var SignupConfirm = /*#__PURE__*/function (_Component) {
+  _inherits(SignupConfirm, _Component);
+
+  var _super = _createSuper(SignupConfirm);
+
+  function SignupConfirm() {
+    var _this;
+
+    _classCallCheck(this, SignupConfirm);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "goToSignup", function () {
+      var history = _this.props.history;
+      history.push("/auth/signup");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "checkCode", function () {});
+
+    return _this;
+  }
+
+  _createClass(SignupConfirm, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          changeLoginMethod = _this$props.changeLoginMethod,
+          changeSection = _this$props.changeSection,
+          onChangeField = _this$props.onChangeField,
+          handleLogin = _this$props.handleLogin,
+          fields_info = _this$props.fields_info,
+          login_method = _this$props.login_method,
+          code = fields_info.code;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+          children: "\u0627\u062A\u0645\u0627\u0645 \u067E\u0631\u0648\u0633\u0647 \u062B\u0628\u062A \u0646\u0627\u0645"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          children: "\u0628\u0627 \u0648\u0627\u0631\u062F \u06A9\u0631\u062F\u0646 \u06A9\u062F \u0627\u0631\u0633\u0627\u0644 \u0634\u062F\u0647 \u0628\u0647 \u0627\u06CC\u0645\u06CC\u0644 \u06CC\u0627 \u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646 \u062E\u0648\u062F\u060C \u067E\u0631\u0648\u0633\u0647 \u062B\u0628\u062A \u0646\u0627\u0645 \u062E\u0648\u062F \u0631\u0627 \u0646\u0647\u0627\u06CC\u06CC \u06A9\u0646\u06CC\u062F \u0648 \u0627\u0632 \u062A\u0645\u0627\u0645\u06CC \u062E\u062F\u0645\u0627\u062A \u062F\u0627\u06CC\u0627 \u0628\u0647\u0631\u0647 \u0645\u0646\u062F \u0634\u0648\u06CC\u062F."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "input-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "text",
+            value: code,
+            className: "form-control",
+            placeholder: "\u06A9\u062F \u0627\u0631\u0633\u0627\u0644\u06CC",
+            onChange: onChangeField.bind(this, "signupConfirm", "code")
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "input-group-append",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "input-group-text",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+                className: "fas fa-user"
+              })
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          className: "btn btn-lg badge-pill ",
+          onClick: this.checkCode.bind(this),
+          children: "\u0646\u0647\u0627\u06CC\u06CC \u0633\u0627\u0632\u06CC"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+          to: "/auth/signup",
+          className: "change-form-mobile mt-2",
+          children: "\u0628\u0631\u0627\u06CC \u0633\u0627\u062E\u062A \u062D\u0633\u0627\u0628 \u06A9\u0644\u06CC\u06A9 \u06A9\u0646\u06CC\u062F!"
+        })]
+      });
+    }
+  }]);
+
+  return SignupConfirm;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SignupConfirm);
 
 /***/ }),
 
@@ -2331,9 +2619,9 @@ var Background = /*#__PURE__*/function (_Component) {
   _createClass(Background, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var path = this.props.path,
+      var state = this.props.state,
           elem = $(".change-form").find("button");
-      path === "/auth/login" ? $(elem).html("ثبت نام") : $(elem).html("ورود");
+      state === "login" || state === "forgetPassword" ? $(elem).html("ثبت نام") : $(elem).html("ورود");
     }
   }, {
     key: "render",
@@ -2343,10 +2631,10 @@ var Background = /*#__PURE__*/function (_Component) {
           changeSection = _this$props.changeSection,
           history = _this$props.history;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "change-form d-md-block d-none ".concat(state === "login" ? "bg-p-100 right-60" : ""),
+        className: "change-form d-md-block d-none ".concat(state === "login" || state === 'forgetPassword' ? "bg-p-100 right-60" : ""),
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-            onClick: changeSection.bind(this, history),
+            onClick: changeSection.bind(this, history, false),
             className: "btn btn-lg badge-pill animated"
           })
         })
@@ -2416,8 +2704,8 @@ var DayaLogo = /*#__PURE__*/function (_Component) {
   _createClass(DayaLogo, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var path = this.props.path;
-      path === "/auth/login" ? $(".daya-logo").addClass("purple-cl") : null;
+      var state = this.props.state;
+      state === "login" || state === "forgePassword" ? $(".daya-logo").addClass("purple-cl") : null;
     }
   }, {
     key: "render",
@@ -2500,15 +2788,15 @@ var welcome = /*#__PURE__*/function (_Component) {
   _createClass(welcome, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var path = this.props.path,
+      var state = this.props.state,
           elements = $(".change-form-content").find("h2, p");
       elements.map(function (i, elem) {
-        if (path === "/auth/signup") {
+        if ((state === "signup" || state === "signupConfirm") && i > 1) {
           $(".change-form-content").addClass("left-20");
-          i > 1 ? $(elem).addClass("d-none") : null;
-        } else if (path === "/auth/login") {
+          $(elem).addClass("d-none");
+        } else if ((state === "login" || state === "forgetPassword") && i < 2) {
           $(".change-form-content").addClass("right-20");
-          i < 2 ? $(elem).addClass("d-none") : null;
+          $(elem).addClass("d-none");
         }
       });
     }
@@ -2657,6 +2945,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2707,7 +3001,12 @@ var UserArea = /*#__PURE__*/function (_Component) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.BrowserRouter, {
           basename: "/userarea",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_router_AuthRoute__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+              path: "/auth",
+              children: function children(props) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_router_AuthRoute__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, props));
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
           })
         })
       });
@@ -2853,7 +3152,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/HttpClient */ "./resources/js/services/HttpClient.js");
@@ -2862,10 +3161,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../redux/actions */ "./resources/js/react/redux/actions/index.js");
 /* harmony import */ var _Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Pages/Auth/Login */ "./resources/js/react/Pages/Auth/Login.jsx");
 /* harmony import */ var _Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Pages/Auth/Signup */ "./resources/js/react/Pages/Auth/Signup.jsx");
-/* harmony import */ var _Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/Auth/components/Background */ "./resources/js/react/Pages/Auth/components/Background.jsx");
-/* harmony import */ var _Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Pages/Auth/components/DayaLogo */ "./resources/js/react/Pages/Auth/components/DayaLogo.jsx");
-/* harmony import */ var _Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Pages/Auth/components/Welcome */ "./resources/js/react/Pages/Auth/components/Welcome.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Pages_Auth_ForgetPassword__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/Auth/ForgetPassword */ "./resources/js/react/Pages/Auth/ForgetPassword.jsx");
+/* harmony import */ var _Pages_Auth_SignupConfirm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Pages/Auth/SignupConfirm */ "./resources/js/react/Pages/Auth/SignupConfirm.jsx");
+/* harmony import */ var _Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Pages/Auth/components/Background */ "./resources/js/react/Pages/Auth/components/Background.jsx");
+/* harmony import */ var _Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Pages/Auth/components/DayaLogo */ "./resources/js/react/Pages/Auth/components/DayaLogo.jsx");
+/* harmony import */ var _Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Pages/Auth/components/Welcome */ "./resources/js/react/Pages/Auth/components/Welcome.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -2901,9 +3202,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  // Redux
 
 
+ // Routes
+
+
+
+
  // custom components
-
-
 
 
 
@@ -2939,26 +3243,32 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "changeSection", function (history, replace) {
-      var state = _this.state.state;
-      $(".change-form").each(function () {
-        $(this).addClass("width-change");
-        $(this).find("button").addClass("".concat(state === "signup" ? "bounceOutLeft" : "bounceOutRight"));
-      });
+    _defineProperty(_assertThisInitialized(_this), "changeSection", function (history, newState) {
+      var state = _this.state.state,
+          replaca = newState ? newState : state === "signup" || state === "signupConfirm" ? "login" : "signup";
+      setTimeout(function () {
+        $(".change-form").each(function () {
+          $(this).addClass("width-change");
+          $(this).find("button").addClass("".concat(state === "signup" || state === "signupConfirm" ? "bounceOutLeft" : "bounceOutRight"));
+        });
 
-      if (window.screen.width < 768) {
-        setTimeout(function () {
+        if (window.screen.width < 768) {
           $(".login-form").addClass("zoomOut");
-        }, 0);
-      }
-
+        }
+      }, 0);
       setTimeout(function () {
         $(".change-form").each(function () {
           $(this).find("h2, p").each(function () {
             $(this).toggleClass("d-none");
           });
-          $(this).find("button")[0].innerHTML = state === "signup" ? "ثبت نام" : "ورود";
-          $(this).find("button").toggleClass("".concat(state === "signup" ? "bounceOutLeft bounceInRight" : "bounceOutRight bounceInLeft"));
+
+          if (state === "signup" || state === "signupConfirm") {
+            $(this).find("button")[0].innerHTML = "ثبت نام";
+            $(this).find("button").toggleClass("bounceOutLeft bounceInRight");
+          } else {
+            $(this).find("button")[0].innerHTML = "ورود";
+            $(this).find("button").toggleClass("bounceOutRight bounceInLeft");
+          }
         });
         $(".daya-logo").each(function () {
           $(this).toggleClass("purple-cl");
@@ -2975,7 +3285,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           $(".login-form").toggleClass("zoomOut zoomIn");
         }
 
-        history.replaca("/auth/".concat(replace));
+        history.push("/auth/".concat(replaca));
       }, 500);
       setTimeout(function () {
         $(".change-form").each(function () {
@@ -2988,7 +3298,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
       _this.setState(function (prevState) {
         return {
-          state: prevState.state === "login" ? "signup" : "login"
+          state: replaca
         };
       });
     });
@@ -3003,12 +3313,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           pathname: "/"
         }
       },
-          from = _ref2.from; // httpService.post('login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
-      //     httpService.get('api/v1/user').then(res => {
-      //         console.log(res.data);
-      //     })
-      // })
-
+          from = _ref2.from;
 
       handleLogin({
         name: "amir"
@@ -3051,7 +3356,14 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         phone_number: "",
         password: ""
       },
-      state: route_regex.exec(_this.props.location.pathname)[0],
+      forgetPassword: {
+        phone_number: "",
+        email: ""
+      },
+      signupConfirm: {
+        code: ""
+      },
+      state: route_regex.exec(_this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(_this.props.location.pathname)[0],
       login_method: "email"
     };
     return _this;
@@ -3060,100 +3372,157 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
   _createClass(AuthRoute, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this$props2 = this.props,
-          user = _this$props2.user,
-          location = _this$props2.location;
+      var _this3 = this;
+
+      var user = this.props.user;
 
       if (!user) {
-        document.title = "Login";
-        this.setState(function (prevState) {
-          return {
-            state: location.pathname === "/auth/login" ? "login" : "signup"
-          };
-        });
-      }
+        document.title = "authentication";
+      } // for handling back or forward browser button
+
+
+      this.props.history.block(function (location, action) {
+        if (action === "POP") {
+          var current_loc = route_regex.exec(location.pathname)[0],
+              state = _this3.state.state,
+              history = _this3.props.history;
+
+          if ((state === "login" || state === "forgetPassword") && (current_loc === "signup" || current_loc === "signupConfirm") || (state === "signup" || state === "signupConfirm") && (current_loc === "login" || current_loc === "forgetPassword")) {
+            _this3.changeSection(history, current_loc);
+          } else {
+            return true;
+          }
+
+          return false;
+        }
+
+        return true;
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var _this$state = this.state,
           signup = _this$state.signup,
           login = _this$state.login,
+          forgetPassword = _this$state.forgetPassword,
+          signupConfirm = _this$state.signupConfirm,
           login_method = _this$state.login_method,
           state = _this$state.state,
-          user = _this$state.user;
+          user = _this$state.user,
+          _this$props2 = this.props,
+          history = _this$props2.history,
+          location = _this$props2.location,
+          match = _this$props2.match;
 
       if (user) {
-        this.props.history.goBack();
+        history.goBack();
         return null;
       }
 
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-        path: "/auth",
-        children: function children(props) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-            className: "auth-container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-              className: "login-bg",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                path: props.location.pathname
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                state: state,
-                path: props.location.pathname,
-                history: props.history,
-                changeSection: _this3.changeSection
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_10__["default"], {
-                path: props.location.pathname
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                className: "login-form animated ".concat(state === 'login' ? "right-40" : ""),
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Switch, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-                    exact: true,
-                    path: "".concat(props.match.path, "/signup"),
-                    children: function children(_ref3) {
-                      var history = _ref3.history,
-                          location = _ref3.location,
-                          match = _ref3.match;
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                        history: history,
-                        location: location,
-                        match: match,
-                        changeLoginMethod: _this3.changeLoginMethod,
-                        changeSection: _this3.changeSection,
-                        onChangeField: _this3.onChangeField,
-                        handleLogin: _this3.handleLogin,
-                        signup: signup,
-                        login_method: login_method,
-                        select2Config: _this3.select2_config
-                      });
-                    }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-                    exact: true,
-                    path: "".concat(props.match.path, "/login"),
-                    children: function children(_ref4) {
-                      var history = _ref4.history,
-                          location = _ref4.location,
-                          match = _ref4.match;
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], {
-                        history: history,
-                        location: location,
-                        match: match,
-                        changeLoginMethod: _this3.changeLoginMethod,
-                        changeSection: _this3.changeSection,
-                        onChangeField: _this3.onChangeField,
-                        handleLogin: _this3.handleLogin,
-                        login: login,
-                        login_method: login_method,
-                        select2Config: _this3.select2_config
-                      });
-                    }
-                  })]
-                })
+      return location.pathname !== "/auth" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+        className: "auth-container",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+          className: "login-bg",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            state: state
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_10__["default"], {
+            state: state,
+            history: history,
+            changeSection: this.changeSection
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_12__["default"], {
+            state: state
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "login-form animated ".concat(state === 'login' || state === "forgetPassword" ? "right-40" : ""),
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Switch, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+                exact: true,
+                path: "/auth/signup",
+                children: function children(_ref3) {
+                  var history = _ref3.history,
+                      location = _ref3.location,
+                      match = _ref3.match;
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                    history: history,
+                    location: location,
+                    match: match,
+                    changeLoginMethod: _this4.changeLoginMethod,
+                    changeSection: _this4.changeSection,
+                    onChangeField: _this4.onChangeField,
+                    handleLogin: _this4.handleLogin,
+                    fields_info: signup,
+                    login_method: login_method
+                  });
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+                exact: true,
+                path: "/auth/login",
+                children: function children(_ref4) {
+                  var history = _ref4.history,
+                      location = _ref4.location,
+                      match = _ref4.match;
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                    history: history,
+                    location: location,
+                    match: match,
+                    changeLoginMethod: _this4.changeLoginMethod,
+                    changeSection: _this4.changeSection,
+                    onChangeField: _this4.onChangeField,
+                    handleLogin: _this4.handleLogin,
+                    fields_info: login,
+                    login_method: login_method
+                  });
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+                exact: true,
+                path: "/auth/forgetPassword",
+                children: function children(_ref5) {
+                  var history = _ref5.history,
+                      location = _ref5.location,
+                      match = _ref5.match;
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_ForgetPassword__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                    history: history,
+                    location: location,
+                    match: match,
+                    changeLoginMethod: _this4.changeLoginMethod,
+                    changeSection: _this4.changeSection,
+                    onChangeField: _this4.onChangeField,
+                    handleLogin: _this4.handleLogin,
+                    fields_info: forgetPassword,
+                    login_method: login_method
+                  });
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+                exact: true,
+                path: "/auth/signupConfirm",
+                children: function children(_ref6) {
+                  var history = _ref6.history,
+                      location = _ref6.location,
+                      match = _ref6.match;
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Pages_Auth_SignupConfirm__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                    history: history,
+                    location: location,
+                    match: match,
+                    changeLoginMethod: _this4.changeLoginMethod,
+                    changeSection: _this4.changeSection,
+                    onChangeField: _this4.onChangeField,
+                    handleLogin: _this4.handleLogin,
+                    fields_info: signupConfirm,
+                    login_method: login_method
+                  });
+                }
               })]
             })
-          });
+          })]
+        })
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Redirect, {
+        to: {
+          pathname: "/auth/login",
+          state: {
+            from: location
+          }
         }
       });
     }
@@ -3241,22 +3610,20 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
           exact = _this$props.exact,
           children = _this$props.children,
           user = _this$props.user;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
-          path: path,
-          exact: exact,
-          render: function render(_ref) {
-            var location = _ref.location;
-            return user ? children : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
-              to: {
-                pathname: "/auth",
-                state: {
-                  from: location
-                }
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
+        path: path,
+        exact: exact,
+        render: function render(_ref) {
+          var location = _ref.location;
+          return user ? children : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
+            to: {
+              pathname: "/auth",
+              state: {
+                from: location
               }
-            });
-          }
-        })
+            }
+          });
+        }
       });
     }
   }]);
@@ -3312,7 +3679,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
  // custom components
-
 
 
 

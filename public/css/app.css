@@ -10740,6 +10740,9 @@ h3 {
   .login-form .input-group {
     width: 90% !important;
   }
+  .login-form p {
+    width: 100% !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -14534,6 +14537,10 @@ div.header-section div.header-title .title span {
   font-size: 30px;
   font-weight: bold;
 }
+.auth-container .login-bg .login-form p {
+  color: #777DD1;
+  width: 60%;
+}
 .auth-container .login-bg .login-form .login-icons {
   display: flex;
   justify-content: center;
@@ -14663,6 +14670,7 @@ div.header-section div.header-title .title span {
   font-size: 18px;
   color: #8f60ec;
   transition: 0.3s;
+  cursor: pointer;
 }
 .change-form-mobile:hover {
   color: #6232de;

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { state_select } from '../../../components/select2'
 
 class Login extends Component {
-
     componentDidMount() {
-       $("#login-country-select").select2(state_select.config)
+        $("#login-country-select").select2(state_select)
     }
-
+    
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, login, login_method, handleLogin } = this.props, { user_name, phone_number, password } = login
+        let { changeLoginMethod, changeSection, onChangeField, fields_info, login_method, handleLogin, history } = this.props, { user_name, phone_number, password } = fields_info
         return (
             <div>
                 <h2>ورود به دایا</h2>
@@ -17,7 +17,7 @@ class Login extends Component {
                     <span><i className="fab fa-linkedin-in"></i></span>
                 </div>
                 <span className="gray mb-2 animated" onClick={changeLoginMethod.bind(this)}>
-                    {login_method === "email" ? "با استفاده از اکانت ایمیل شما:" : "با استفاده از شماره موبایل:"}
+                    {login_method === "email" ? "با استفاده از شماره تلفن" : "با استفاده از اکانت ایمیل"}
                     <i className="fas fa-long-arrow-alt-left mr-1"></i>
                     <i className="fas fa-mobile mr-1"></i>
                 </span>
@@ -44,9 +44,9 @@ class Login extends Component {
                     <input type="password" className="form-control" value={password} placeholder="رمز عبور" onChange={onChangeField.bind(this, "login", "password")} />
                     <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
                 </div>
-                <a href="#" className="forgot-ps">رمز عبور خودتون رو فراموش کردید؟</a>  
+                <Link to="/auth/forgetPassword" className="forgot-ps">رمز عبور خودتون رو فراموش کردید؟</Link>  
                 <button className="btn btn-lg badge-pill " onClick={handleLogin}>ورود</button>
-                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this)}>برای ساخت حساب کلیک کنید!</span>              
+                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history)}>برای ساخت حساب کلیک کنید!</span>              
             </div>
         );
     }
