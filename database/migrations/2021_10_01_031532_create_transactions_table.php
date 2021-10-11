@@ -24,7 +24,7 @@ class CreateTransactionsTable extends Migration
             ])->default('pending');
             $table->string('transaction_id');
             $table->string('provider');
-            $table->foreignId('user_id');
+            $table->unsignedInteger('user_id');
             $table->uuid('bill_id');
             $table->json('details')->nullable();  
             $table->timestamps();
