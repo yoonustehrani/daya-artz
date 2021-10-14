@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 // custom components
-import PrivateRoutes from '../router/PrivateRoutes';
 import AuthRoute from '../router/AuthRoute';
+import Layout from '../Pages/Private/Layout';
 
 class UserArea extends Component {
     render() {
@@ -16,7 +16,7 @@ class UserArea extends Component {
                         <Route path="/auth">
                             {(props) => (<AuthRoute {...props} />)}
                         </Route>
-                        <PrivateRoutes />
+                        <Layout />
                     </Switch>
                 </Router>
             </Provider>

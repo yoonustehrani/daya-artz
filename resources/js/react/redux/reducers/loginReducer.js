@@ -3,7 +3,7 @@ import {
 } from "../actions/actionTypes"
 
 var stateCopy, defaultState = {
-    user: null
+    user: {name: 'Amir'}
 }
 
 const copyState = (state) => {

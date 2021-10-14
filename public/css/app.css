@@ -12201,11 +12201,11 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   color: #18093c !important;
 }
 
-footer.footer {
+.footer {
   background-image: linear-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
   background-image: -webkit-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
 }
-footer.footer .footer-content {
+.footer .footer-content {
   background-image: url(/images/footer-background.png);
   background-position: bottom;
   background-size: 100% auto;
@@ -12214,41 +12214,41 @@ footer.footer .footer-content {
   height: auto;
   float: left;
 }
-footer.footer .footer-content > div.logo-container img {
+.footer .footer-content > div.logo-container img {
   width: 40px;
   height: auto;
   display: inline-block;
 }
-footer.footer .footer-content > div.logo-container p {
+.footer .footer-content > div.logo-container p {
   display: inline;
   font-weight: bold;
   font-size: 18px;
 }
-footer.footer .footer-content div.footer-info-container {
+.footer .footer-content div.footer-info-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   direction: rtl;
 }
-footer.footer .footer-content div.footer-info-container > div .title {
+.footer .footer-content div.footer-info-container > div .title {
   font-size: 22px;
 }
-footer.footer .footer-content div.footer-info-container > div h4, footer.footer .footer-content div.footer-info-container > div p, footer.footer .footer-content div.footer-info-container > div a {
+.footer .footer-content div.footer-info-container > div h4, .footer .footer-content div.footer-info-container > div p, .footer .footer-content div.footer-info-container > div a {
   color: #fff;
   text-align: right;
   direction: rtl;
 }
-footer.footer .footer-content div.footer-info-container > div p, footer.footer .footer-content div.footer-info-container > div a {
+.footer .footer-content div.footer-info-container > div p, .footer .footer-content div.footer-info-container > div a {
   font-size: 16px;
 }
-footer.footer .footer-content div.footer-info-container > div a {
+.footer .footer-content div.footer-info-container > div a {
   cursor: pointer;
   transition: 0.3s;
 }
-footer.footer .footer-content div.footer-info-container > div a:hover {
+.footer .footer-content div.footer-info-container > div a:hover {
   color: #17093c;
 }
-footer.footer .footer-content div.footer-info-container > div .social-media-container i {
+.footer .footer-content div.footer-info-container > div .social-media-container i {
   font-size: 30px;
   color: #fff;
   margin: 0px 5px 10px 5px;
@@ -12261,40 +12261,40 @@ footer.footer .footer-content div.footer-info-container > div .social-media-cont
   border: 2px solid #fcfbfe;
   border-radius: 100%;
 }
-footer.footer .footer-content div.footer-info-container > div .social-media-container i.fa-telegram-plane {
+.footer .footer-content div.footer-info-container > div .social-media-container i.fa-telegram-plane {
   padding-left: 4px;
 }
-footer.footer .footer-content div.footer-info-container > div .social-media-container i:hover.fa-instagram {
+.footer .footer-content div.footer-info-container > div .social-media-container i:hover.fa-instagram {
   background-color: #c32aa3;
   border-color: #c32aa3;
 }
-footer.footer .footer-content div.footer-info-container > div .social-media-container i:hover.fa-telegram-plane {
+.footer .footer-content div.footer-info-container > div .social-media-container i:hover.fa-telegram-plane {
   background-color: #0088cc;
   border-color: #0088cc;
 }
-footer.footer .footer-content div.footer-info-container > div .social-media-container i:hover.fa-whatsapp {
+.footer .footer-content div.footer-info-container > div .social-media-container i:hover.fa-whatsapp {
   background-color: #25d366;
   border-color: #25d366;
   color: #dfdfdf;
 }
-footer.footer .footer-content div.footer-info-container > div .social-media-container i:hover.fa-linkedin-in {
+.footer .footer-content div.footer-info-container > div .social-media-container i:hover.fa-linkedin-in {
   background-color: #0a66c2;
   border-color: #0a66c2;
 }
-footer.footer .footer-content div.footer-info-container > div span {
+.footer .footer-content div.footer-info-container > div span {
   color: #fff;
 }
-footer.footer .footer-content div.footer-info-container > div img {
+.footer .footer-content div.footer-info-container > div img {
   width: 50px;
   height: auto;
 }
-footer.footer .footer-content div.footer-info-container > div ul {
+.footer .footer-content div.footer-info-container > div ul {
   list-style-type: none;
 }
-footer.footer .footer-content div.footer-info-container > div ul li {
+.footer .footer-content div.footer-info-container > div ul li {
   margin-bottom: 8px;
 }
-footer.footer .footer-content div.footer-info-container > div ul li:before {
+.footer .footer-content div.footer-info-container > div ul li:before {
   content: "";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -14674,4 +14674,166 @@ div.header-section div.header-title .title span {
 }
 .change-form-mobile:hover {
   color: #6232de;
+}
+
+.user-area-layout-container {
+  width: 100%;
+  height: auto;
+}
+.user-area-layout-container .top-background {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+  background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+}
+.user-area-layout-container .user-area-panel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  height: 650px;
+  margin-top: -100px;
+}
+.user-area-layout-container .user-area-panel > div {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.25);
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar {
+  width: 22%;
+  padding: 20px 10px 5px 10px;
+  text-align: center;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar .user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 180px;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar .user-info .user-avatar {
+  width: 100px;
+  height: 100px;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar .user-info .user-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar .user-info p {
+  color: #000;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar .user-info span {
+  font-size: 15px;
+  color: #808080;
+  margin: 0;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar a.home-link {
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
+  color: #78cad2;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar a.home-link:hover {
+  color: #6332df;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: right;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0px;
+  list-style-type: none;
+  margin-top: 10px;
+  height: calc(100% - 255px);
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container::-webkit-scrollbar {
+  width: 8px;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+  background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li {
+  transition: 0.5s;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li a {
+  padding: 20px 25px 20px 0px;
+  font-size: 18px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: #8f60ec;
+  width: 100%;
+  display: inline-block;
+  font-weight: normal;
+  transition: 0.5s;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li a i {
+  font-size: 18px;
+  color: #8f60ec;
+  margin-left: 18px;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li a:hover {
+  background-color: #f8e5ff;
+  font-weight: bold;
+  transform: scale(1.1);
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub > a::after {
+  border-right: 8px solid #8f60ec;
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid transparent;
+  transition: 0.5s;
+  vertical-align: middle;
+  content: "";
+  display: inline-flex;
+  margin-right: 15px;
+  transform-origin: right;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub .submenu-m {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: right;
+  list-style-type: none;
+  overflow-y: auto;
+  display: none;
+  padding-right: 50px;
+  font: 16px !important;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub .submenu-m li {
+  padding: 10px 0px;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  -webkit-animation-name: flipInX;
+          animation-name: flipInX;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub .submenu-m li a {
+  font-size: 18px;
+  color: #000;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub.open > a::after {
+  transform: rotateZ(-90deg);
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub.open .submenu-m {
+  display: flex;
+}
+.user-area-layout-container .user-area-panel .main-content-container {
+  width: 78%;
+  margin-right: 25px;
+  padding: 20px;
 }
