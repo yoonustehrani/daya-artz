@@ -30,4 +30,15 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'rayganSMS' => [
+        'url' => [
+            'base' => 'http://smspanel.Trez.ir/',
+            'otp' => 'SendMessageWithCode.ashx'
+        ],
+        'auth' => [
+            'Username' => 'yoonustehrani',
+            'Password' => 'uss828487'
+        ]
+    ]
+
 ];

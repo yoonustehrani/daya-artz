@@ -2,6 +2,8 @@
 
 namespace App\Http\Utils;
 
+use GuzzleHttp\Client;
+
 class SMS
 {
     public $to;
@@ -9,8 +11,12 @@ class SMS
     public $text;
     public $template;
     public $params;
+    private $config;
+    private $baseurl;
     public function __construct()
     {
+        $this->config = config('services.rayganSMS.auth');
+        $this->baseurl = config('services.rayganSMS.url.base');
         return $this;
     }
     public function from($line_number)
@@ -34,33 +40,39 @@ class SMS
         $this->params = $params;
         return $this;
     }
-    protected function sendSimple()
+    public function sendAuth(string $message)
     {
-        // return \GhasedakSMS::SendSimple($this->to,$this->text,$this->from);
+        if ($this->to && $message) {
+            $config = array_merge($this->config, [
+                'Mobile' => $this->to,
+                'Message' => $message 
+            ]);
+            $url = $this->baseurl . config('services.rayganSMS.url.otp');
+            $response_code = (int) $this->requestHttp($url, $config);
+            if ($response_code > 2000) {
+                return ['okay' => true];
+            }
+        }
     }
-    protected function sendPattern($params)
-    {
-        // return \GhasedakSMS::verify($this->to, 1, $this->template, $params);
-    }
+    // private function sendPattern($params)
+    // {
+    //     // return \GhasedakSMS::verify($this->to, 1, $this->template, $params);
+    // }
     public function send()
     {
-        // if ($this->to) {
-        //     try {
-        //         if ($this->from && $this->text) {
-        //             return $this->sendSimple();
-        //         } elseif ($this->template && $this->params) {
-        //             return $this->sendPattern($this->params);
-        //         }
-        //         return null;
-        //     }
-        //     catch(\Ghasedak\Exceptions\ApiException $e){
-        //         \Log::error('Ghasedak ApiException: ' . $e->errorMessage());
-        //         throw $e->errorMessage();
-        //     }
-        //     catch(\Ghasedak\Exceptions\HttpException $e){
-        //         \Log::error('Ghasedak HttpException: ' . $e->errorMessage());
-        //         throw $e->errorMessage();
-        //     }
-        // }
+        
+    }
+    private function requestHttp($url, $params)
+    {
+        try {
+            $response = (new Client())->request('POST', $url, [
+                'form_params' => $params
+            ]);
+            if ($response->getStatusCode() === 200) { 
+                return $response->getBody()->getContents();
+            }
+        } catch (\Exception $err) {
+            throw $err;
+        }
     }
 }

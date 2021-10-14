@@ -1,15 +1,12 @@
 <?php
 
-use App\Company;
-use App\Events\UserRegistered;
+use App\Broadcasting\SMSChannel;
+use App\Http\Utils\SMS;
+use App\Notifications\VerificationNotification;
 use App\User;
-use Illuminate\Auth\Notifications\VerifyEmail;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\UnauthorizedException;
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,11 +68,59 @@ Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
 })->middleware('signed')->name('verification.email.verify');
 
 Route::get('test', function () {
+    $user = User::first();
+    $user->notifyNow(new VerificationNotification([SMSChannel::class]));
+    return $user;
+    // return $code;
+    // dd($sms);
+    // $client = new Client([
+    //     'verify' => false,
+    // ]);
+    // try {
+    //     $url = "http://smspanel.Trez.ir/SendMessageWithCode.ashx";
+    //     $response = $client->request('POST', $url, [
+    //         'form_params' => [
+    //             'Username' => 'yoonustehrani',
+    //             'Password' => 'uss828487',
+    //             'Mobile' => '09150013422',
+    //             'Message' => 'سلام کد : 1382'
+    //         ]
+    //     ]);
+    //     if ($response->getStatusCode() === 200) {
+    //         $code = (int) $response->getBody()->getContents();
+    //         if ($code > 2000) {
+    //             return 'Sent';
+    //         } else {
+    //             \Log::alert("RayganSMS ERROR : CODE_{$code}");
+    //         }
+    //         // dd($content);
+    //     }
+    // } catch (Exception $err) {
+    //     return $err->getMessage();
+    // }
+    // return ['error' => 'Error'];
+    // if ($response->getStatusCode()) {
+    //     # code...
+    // }
+    // $response = $client->request('POST', $url, [
+    //     'form_params' => [
+    //         'fullname' => 'Yoonus Tehrani'
+    //     ]
+    // ]);
+    // return $response->getBody();
+    // if ($response->getStatusCode() < 400) {
+    //     return $response->getBody()->getContents();
+    // }
     // $json_string = '{"name": "yoonus", "age": 18}';
     // dd(json_decode($json_string));
-    $offers = App\Offer::limit(3)->get();
-    return $offers;
+    // $offers = App\Offer::limit(3)->get();
+    // return $offers;
     // $company = Company::first();
     // $company->load('business_type', 'product_type');
     // return $company;
+});
+
+Route::get('testme', function () {
+    return 'hello';
+    // return $request;
 });

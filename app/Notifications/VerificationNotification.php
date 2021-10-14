@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Broadcasting\SMSChannel;
+use App\Http\Utils\SMS;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -46,7 +47,7 @@ class VerificationNotification extends Notification
     public function toSms($notifiable)
     {
         $verification = $notifiable->generateVerificationCode('verify_phone', generate_code(), false, 2);
-        \Log::alert("the verification code for user is {$verification->code}");
+        (new SMS())->to($notifiable->phone_number)->sendAuth("کد احراز هویت : {$verification->code}");
     }
     
     /**
