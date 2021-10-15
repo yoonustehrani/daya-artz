@@ -38,13 +38,13 @@ class PrivateRoutes extends Component {
                     subroutes: [
                         {
                             path: '/profile/brand/test',
-                            exact: true,
-                            Component: Dashboard,
+                            exact: false,
+                            Component: () => (<h3>test</h3>),
                             subroutes: [
                                 {
                                     path: '/profile/brand/test/kir',
                                     exact: false,
-                                    Component: Dashboard,
+                                    Component: () => (<h3>kir</h3>),
                                 },
                                 
                                 {
