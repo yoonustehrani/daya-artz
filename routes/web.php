@@ -68,6 +68,8 @@ Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
 })->middleware('signed')->name('verification.email.verify');
 
 Route::get('test', function () {
+    $user = User::find(2);
+    $user->notifyNow(new VerificationNotification([SMSChannel::class]));
     // $json_string = '{"name": "yoonus", "age": 18}';
     // dd(json_decode($json_string));
     // $offers = App\Offer::limit(3)->get();

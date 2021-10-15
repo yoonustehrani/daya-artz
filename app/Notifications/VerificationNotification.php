@@ -47,7 +47,7 @@ class VerificationNotification extends Notification
     public function toSms($notifiable)
     {
         $verification = $notifiable->generateVerificationCode('verify_phone', generate_code(), false, 2);
-        // (new SMS())->to($notifiable->phone_number)->sendAuth("کد احراز هویت : {$verification->code}");
+        (new SMS())->to($notifiable->phone_number)->sendAuth("کد احراز هویت : {$verification->code}");
     }
     
     /**
