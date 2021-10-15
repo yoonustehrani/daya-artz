@@ -10229,6 +10229,41 @@ h3 {
   .login-form div.input-group {
     width: 60% !important;
   }
+
+  .user-area-panel {
+    height: 550px !important;
+  }
+
+  .user-area-sidebar {
+    width: 28% !important;
+    padding: 20px 0px 5px 0px !important;
+  }
+  .user-area-sidebar .user-info {
+    height: 140px !important;
+  }
+  .user-area-sidebar .user-avatar {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .user-area-sidebar p {
+    font-size: 16px !important;
+  }
+  .user-area-sidebar span {
+    font-size: 14px !important;
+  }
+  .user-area-sidebar ul.menu-items-container {
+    height: calc(100% - 215px);
+  }
+  .user-area-sidebar ul.menu-items-container a {
+    font-size: 13px !important;
+    padding: 15px 15px !important;
+  }
+  .user-area-sidebar ul.menu-items-container a i {
+    font-size: 12px !important;
+  }
+  .user-area-sidebar ul.menu-items-container ul.submenu-m {
+    padding-right: 25px !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
@@ -10743,6 +10778,61 @@ h3 {
   .login-form p {
     width: 100% !important;
   }
+
+  .top-background {
+    height: 40px !important;
+    padding: 10px;
+    display: table;
+  }
+  .top-background i {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .user-area-panel {
+    height: auto !important;
+    position: static !important;
+    margin-top: 0 !important;
+    display: initial !important;
+    padding: 0 !important;
+  }
+  .user-area-panel > div {
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .user-area-sidebar {
+    padding: 10px !important;
+    width: 90% !important;
+    position: absolute;
+    right: -100%;
+    top: 0 !important;
+    height: 100% !important;
+    z-index: 26;
+    transition: 1s;
+    opacity: 0;
+  }
+  .user-area-sidebar i#menu-close {
+    font-size: 30px;
+    color: #854bc4;
+    cursor: pointer;
+  }
+  .user-area-sidebar .menu-items-container {
+    height: calc(100% - 270px) !important;
+  }
+  .user-area-sidebar a.home-link {
+    padding: 10px;
+  }
+
+  .user-area-sidebar.open {
+    right: 0 !important;
+    opacity: 1 !important;
+  }
+
+  .main-content-container {
+    width: 100% !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -10949,6 +11039,10 @@ h3 {
   .portfolio-detail ul {
     font-size: 14px !important;
   }
+
+  .user-area-sidebar {
+    width: 20% !important;
+  }
 }
 @media screen and (min-width: 1200px) {
   .policy-header {
@@ -11008,6 +11102,19 @@ h3 {
 
   .login-form div.input-group {
     width: 50% !important;
+  }
+
+  .user-area-sidebar {
+    width: 24% !important;
+  }
+  .user-area-sidebar a {
+    font-size: 14px !important;
+  }
+  .user-area-sidebar a i {
+    font-size: 16px !important;
+  }
+  .user-area-sidebar ul.submenu-m {
+    padding-right: 30px !important;
   }
 }
 html, body {
@@ -14696,6 +14803,7 @@ div.header-section div.header-title .title span {
   align-items: stretch;
   height: 650px;
   margin-top: -100px;
+  padding: 0 10px 0 10px;
 }
 .user-area-layout-container .user-area-panel > div {
   background-color: #fff;
@@ -14775,7 +14883,12 @@ div.header-section div.header-title .title span {
   padding: 0 10px;
 }
 .user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li a {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   padding: 20px 15px;
+  cursor: pointer;
   font-size: 16px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -14796,9 +14909,9 @@ div.header-section div.header-title .title span {
   transform: scale(1.1);
 }
 .user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub > a::after {
-  border-right: 8px solid #8f60ec;
-  border-bottom: 8px solid transparent;
-  border-top: 8px solid transparent;
+  border-right: 5px solid #8f60ec;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
   transition: 0.5s;
   vertical-align: middle;
   content: "";
@@ -14825,8 +14938,12 @@ div.header-section div.header-title .title span {
           animation-name: flipInX;
 }
 .user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub .submenu-m li a {
-  font-size: 18px;
-  color: #000;
+  padding: 0;
+}
+.user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub .submenu-m li a:hover {
+  color: #6232de;
+  background: none !important;
+  transform: none !important;
 }
 .user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub.open > a::after {
   transform: rotateZ(-90deg);

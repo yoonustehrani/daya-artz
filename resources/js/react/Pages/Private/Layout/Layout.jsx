@@ -12,7 +12,7 @@ class Layout extends Component {
             <PrivateRoute exact={false} path="/">
                 <div className="user-area-layout-container">
                     <TopBackground />
-                    <div className="user-area-panel col-12">
+                    <div className="user-area-panel">
                         <div className="main-content-container">
                             <PrivateRoutes />
                         </div>   

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Archive extends Component {
+class RegisterInfo extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class Archive extends Component {
     }
 }
 
-export default Archive;
+export default RegisterInfo;

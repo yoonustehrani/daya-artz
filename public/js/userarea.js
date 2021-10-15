@@ -2984,73 +2984,26 @@ var Finance = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/react/Pages/Private/Finance/Subroutes/General/GeneralInvoiceInfo.jsx":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Finance/Subroutes/General/GeneralInvoiceInfo.jsx ***!
-  \*******************************************************************************************/
+/***/ "./resources/js/react/Pages/Private/Finance/index.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Finance/index.js ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* reexport safe */ _Finance__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _Finance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Finance */ "./resources/js/react/Pages/Private/Finance/Finance.jsx");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var GeneralInvoiceInfo = /*#__PURE__*/function (_Component) {
-  _inherits(GeneralInvoiceInfo, _Component);
-
-  var _super = _createSuper(GeneralInvoiceInfo);
-
-  function GeneralInvoiceInfo() {
-    _classCallCheck(this, GeneralInvoiceInfo);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(GeneralInvoiceInfo, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
-    }
-  }]);
-
-  return GeneralInvoiceInfo;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GeneralInvoiceInfo);
 
 /***/ }),
 
-/***/ "./resources/js/react/Pages/Private/Finance/Subroutes/invoices/Invoice.jsx":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Finance/Subroutes/invoices/Invoice.jsx ***!
-  \*********************************************************************************/
+/***/ "./resources/js/react/Pages/Private/Finance/invoices/Invoice.jsx":
+/*!***********************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Finance/invoices/Invoice.jsx ***!
+  \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3110,10 +3063,10 @@ var Invoice = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/react/Pages/Private/Finance/Subroutes/invoices/Invoices.jsx":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Finance/Subroutes/invoices/Invoices.jsx ***!
-  \**********************************************************************************/
+/***/ "./resources/js/react/Pages/Private/Finance/invoices/Invoices.jsx":
+/*!************************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Finance/invoices/Invoices.jsx ***!
+  \************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3170,22 +3123,6 @@ var Invoices = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Invoices);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Finance/index.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Finance/index.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _Finance__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _Finance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Finance */ "./resources/js/react/Pages/Private/Finance/Finance.jsx");
-
 
 /***/ }),
 
@@ -3259,7 +3196,7 @@ var Layout = /*#__PURE__*/function (_Component) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "user-area-layout-container",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TopBackground__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "user-area-panel col-12",
+            className: "user-area-panel",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "main-content-container",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_4__["default"], {})
@@ -3530,8 +3467,12 @@ var sidebar = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "user-area-sidebar",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        id: "m-menu",
+        className: "user-area-sidebar d-none d-md-inline-block",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          id: "menu-close",
+          className: "fas fa-times float-right d-md-none"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "user-info",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "user-avatar",
@@ -3549,38 +3490,88 @@ var sidebar = /*#__PURE__*/function (_Component) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
               to: "/dashboard",
+              className: "link",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
                 className: "fas fa-columns"
               }), "\u062F\u0627\u0634\u0628\u0648\u0631\u062F"]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              to: "/profile",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            className: "has-sub",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+              to: "#profile",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
                 className: "fas fa-id-card"
               }), "\u0645\u0634\u062E\u0635\u0627\u062A \u0645\u0634\u062A\u0631\u06CC"]
-            })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+              className: "submenu-m",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                  to: "/brandInfo",
+                  className: "link",
+                  children: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0628\u0631\u0646\u062F/\u0634\u0631\u06A9\u062A"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                  to: "/registerInfo",
+                  className: "link",
+                  children: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u062B\u0628\u062A \u0646\u0627\u0645"
+                })
+              })]
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
               to: "/orders",
+              className: "link",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
                 className: "fas fa-hand-pointer"
               }), "\u067E\u06CC\u06AF\u06CC\u0631\u06CC \u0633\u0641\u0627\u0631\u0634\u0627\u062A"]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              to: "/finance",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            className: "has-sub",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+              to: "#finance",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
                 className: "fas fa-hand-holding-usd"
               }), "\u0627\u0645\u0648\u0631 \u0645\u0627\u0644\u06CC"]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              to: "/tickets",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+              className: "submenu-m",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                  to: "/finance",
+                  className: "link",
+                  children: "\u0641\u0627\u06A9\u062A\u0648\u0631 \u0648 \u0633\u0631\u0631\u0633\u06CC\u062F \u0647\u0627"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                  to: "/finance/invoices",
+                  className: "link",
+                  children: "\u062C\u0632\u0626\u06CC\u0627\u062A \u0641\u0627\u06A9\u062A\u0648\u0631 \u0647\u0627"
+                })
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            className: "has-sub",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+              to: "#",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
                 className: "fas fa-headset"
               }), "\u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC"]
-            })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+              className: "submenu-m",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                  to: "/ticekts/new",
+                  className: "link",
+                  children: "\u0627\u0631\u0633\u0627\u0644 \u062A\u06CC\u06A9\u062A"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                  to: "/ticekts",
+                  className: "link",
+                  children: "\u0622\u0631\u0634\u06CC\u0648 \u062A\u06CC\u06A9\u062A \u0647\u0627"
+                })
+              })]
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
           href: APP_PATH,
@@ -3653,7 +3644,11 @@ var TopBackground = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "top-background"
+        className: "top-background",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          id: "menu-open",
+          className: "float-right d-md-none fas fa-bars"
+        })
       });
     }
   }]);
@@ -3678,6 +3673,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Layout */ "./resources/js/react/Pages/Private/Layout/Layout.jsx");
 
+
+/***/ }),
+
+/***/ "./resources/js/react/Pages/Private/Orders/Order.jsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Orders/Order.jsx ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var Order = /*#__PURE__*/function (_Component) {
+  _inherits(Order, _Component);
+
+  var _super = _createSuper(Order);
+
+  function Order() {
+    _classCallCheck(this, Order);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Order, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
+    }
+  }]);
+
+  return Order;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
 
 /***/ }),
 
@@ -3744,69 +3802,6 @@ var Orders = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/react/Pages/Private/Orders/Subroutes/Order/Order.jsx":
-/*!***************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Orders/Subroutes/Order/Order.jsx ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var Order = /*#__PURE__*/function (_Component) {
-  _inherits(Order, _Component);
-
-  var _super = _createSuper(Order);
-
-  function Order() {
-    _classCallCheck(this, Order);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Order, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
-    }
-  }]);
-
-  return Order;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
-
-/***/ }),
-
 /***/ "./resources/js/react/Pages/Private/Orders/index.js":
 /*!**********************************************************!*\
   !*** ./resources/js/react/Pages/Private/Orders/index.js ***!
@@ -3823,78 +3818,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/react/Pages/Private/Profile/Profile.jsx":
-/*!**************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Profile.jsx ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var Profile = /*#__PURE__*/function (_Component) {
-  _inherits(Profile, _Component);
-
-  var _super = _createSuper(Profile);
-
-  function Profile() {
-    _classCallCheck(this, Profile);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Profile, [{
-    key: "render",
-    value: function render() {
-      var children = this.props.children;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-          children: "Profile"
-        })
-      });
-    }
-  }]);
-
-  return Profile;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Profile);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/Subroutes/Brand/BrandInfo.jsx":
-/*!********************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Subroutes/Brand/BrandInfo.jsx ***!
-  \********************************************************************************/
+/***/ "./resources/js/react/Pages/Private/Profile/BrandInfo.jsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Profile/BrandInfo.jsx ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3943,9 +3870,7 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
   _createClass(BrandInfo, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        children: "BRAND INFO"
-      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
     }
   }]);
 
@@ -3956,10 +3881,10 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/react/Pages/Private/Profile/Subroutes/General/GeneralInfo.jsx":
-/*!************************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Subroutes/General/GeneralInfo.jsx ***!
-  \************************************************************************************/
+/***/ "./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx":
+/*!*******************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3994,179 +3919,35 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var GeneralInfo = /*#__PURE__*/function (_Component) {
-  _inherits(GeneralInfo, _Component);
+var RegisterInfo = /*#__PURE__*/function (_Component) {
+  _inherits(RegisterInfo, _Component);
 
-  var _super = _createSuper(GeneralInfo);
+  var _super = _createSuper(RegisterInfo);
 
-  function GeneralInfo() {
-    _classCallCheck(this, GeneralInfo);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(GeneralInfo, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        children: "GENERAL INFO"
-      });
-    }
-  }]);
-
-  return GeneralInfo;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GeneralInfo);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/index.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/index.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _Profile__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _Profile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Profile */ "./resources/js/react/Pages/Private/Profile/Profile.jsx");
-
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Tickets/Subroutes/Archive/Archive.jsx":
-/*!********************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Tickets/Subroutes/Archive/Archive.jsx ***!
-  \********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var Archive = /*#__PURE__*/function (_Component) {
-  _inherits(Archive, _Component);
-
-  var _super = _createSuper(Archive);
-
-  function Archive() {
-    _classCallCheck(this, Archive);
+  function RegisterInfo() {
+    _classCallCheck(this, RegisterInfo);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Archive, [{
+  _createClass(RegisterInfo, [{
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
     }
   }]);
 
-  return Archive;
+  return RegisterInfo;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Archive);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegisterInfo);
 
 /***/ }),
 
-/***/ "./resources/js/react/Pages/Private/Tickets/Subroutes/Archive/Ticket.jsx":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Tickets/Subroutes/Archive/Ticket.jsx ***!
-  \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var Ticket = /*#__PURE__*/function (_Component) {
-  _inherits(Ticket, _Component);
-
-  var _super = _createSuper(Ticket);
-
-  function Ticket() {
-    _classCallCheck(this, Ticket);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Ticket, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
-    }
-  }]);
-
-  return Ticket;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ticket);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Tickets/Subroutes/New Ticket/NewTicket.jsx":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Tickets/Subroutes/New Ticket/NewTicket.jsx ***!
-  \*************************************************************************************/
+/***/ "./resources/js/react/Pages/Private/Tickets/NewTicket.jsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Tickets/NewTicket.jsx ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4223,6 +4004,69 @@ var NewTicket = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NewTicket);
+
+/***/ }),
+
+/***/ "./resources/js/react/Pages/Private/Tickets/Ticket.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Tickets/Ticket.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var Ticket = /*#__PURE__*/function (_Component) {
+  _inherits(Ticket, _Component);
+
+  var _super = _createSuper(Ticket);
+
+  function Ticket() {
+    _classCallCheck(this, Ticket);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Ticket, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
+    }
+  }]);
+
+  return Ticket;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ticket);
 
 /***/ }),
 
@@ -5011,23 +4855,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Pages/Private/Dashboard */ "./resources/js/react/Pages/Private/Dashboard/index.js");
-/* harmony import */ var _Pages_Private_Profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Pages/Private/Profile */ "./resources/js/react/Pages/Private/Profile/index.js");
-/* harmony import */ var _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Pages/Private/Orders */ "./resources/js/react/Pages/Private/Orders/index.js");
-/* harmony import */ var _Pages_Private_Tickets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/Private/Tickets */ "./resources/js/react/Pages/Private/Tickets/index.js");
-/* harmony import */ var _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Pages/Private/Finance */ "./resources/js/react/Pages/Private/Finance/index.js");
-/* harmony import */ var _Pages_Private_Profile_Subroutes_Brand_BrandInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Pages/Private/Profile/Subroutes/Brand/BrandInfo */ "./resources/js/react/Pages/Private/Profile/Subroutes/Brand/BrandInfo.jsx");
-/* harmony import */ var _Pages_Private_Profile_Subroutes_General_GeneralInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Pages/Private/Profile/Subroutes/General/GeneralInfo */ "./resources/js/react/Pages/Private/Profile/Subroutes/General/GeneralInfo.jsx");
-/* harmony import */ var _Pages_Private_Orders_Subroutes_Order_Order__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/Private/Orders/Subroutes/Order/Order */ "./resources/js/react/Pages/Private/Orders/Subroutes/Order/Order.jsx");
-/* harmony import */ var _Pages_Private_Finance_Subroutes_General_GeneralInvoiceInfo__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Pages/Private/Finance/Subroutes/General/GeneralInvoiceInfo */ "./resources/js/react/Pages/Private/Finance/Subroutes/General/GeneralInvoiceInfo.jsx");
-/* harmony import */ var _Pages_Private_Finance_Subroutes_invoices_Invoices__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Pages/Private/Finance/Subroutes/invoices/Invoices */ "./resources/js/react/Pages/Private/Finance/Subroutes/invoices/Invoices.jsx");
-/* harmony import */ var _Pages_Private_Finance_Subroutes_invoices_Invoice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Pages/Private/Finance/Subroutes/invoices/Invoice */ "./resources/js/react/Pages/Private/Finance/Subroutes/invoices/Invoice.jsx");
-/* harmony import */ var _Pages_Private_Tickets_Subroutes_Archive_Archive__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Pages/Private/Tickets/Subroutes/Archive/Archive */ "./resources/js/react/Pages/Private/Tickets/Subroutes/Archive/Archive.jsx");
-/* harmony import */ var _Pages_Private_Tickets_Subroutes_Archive_Ticket__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Pages/Private/Tickets/Subroutes/Archive/Ticket */ "./resources/js/react/Pages/Private/Tickets/Subroutes/Archive/Ticket.jsx");
-/* harmony import */ var _Pages_Private_Tickets_Subroutes_New_Ticket_NewTicket__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Pages/Private/Tickets/Subroutes/New Ticket/NewTicket */ "./resources/js/react/Pages/Private/Tickets/Subroutes/New Ticket/NewTicket.jsx");
-/* harmony import */ var _RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./RouteWithSubRoutes */ "./resources/js/react/router/RouteWithSubRoutes.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Pages/Private/Orders */ "./resources/js/react/Pages/Private/Orders/index.js");
+/* harmony import */ var _Pages_Private_Tickets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Pages/Private/Tickets */ "./resources/js/react/Pages/Private/Tickets/index.js");
+/* harmony import */ var _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/Private/Finance */ "./resources/js/react/Pages/Private/Finance/index.js");
+/* harmony import */ var _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Pages/Private/Profile/BrandInfo */ "./resources/js/react/Pages/Private/Profile/BrandInfo.jsx");
+/* harmony import */ var _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Pages/Private/Profile/RegisterInfo */ "./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx");
+/* harmony import */ var _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Pages/Private/Orders/Order */ "./resources/js/react/Pages/Private/Orders/Order.jsx");
+/* harmony import */ var _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/Private/Tickets/Ticket */ "./resources/js/react/Pages/Private/Tickets/Ticket.jsx");
+/* harmony import */ var _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Pages/Private/Tickets/NewTicket */ "./resources/js/react/Pages/Private/Tickets/NewTicket.jsx");
+/* harmony import */ var _Pages_Private_Finance_invoices_Invoices__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Pages/Private/Finance/invoices/Invoices */ "./resources/js/react/Pages/Private/Finance/invoices/Invoices.jsx");
+/* harmony import */ var _Pages_Private_Finance_invoices_Invoice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Pages/Private/Finance/invoices/Invoice */ "./resources/js/react/Pages/Private/Finance/invoices/Invoice.jsx");
+/* harmony import */ var _RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./RouteWithSubRoutes */ "./resources/js/react/router/RouteWithSubRoutes.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5059,11 +4900,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
  // SubRoutes
-
-
-
-
 
 
 
@@ -5095,88 +4933,45 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
       exact: true,
       Component: _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"]
     }, {
-      path: '/profile',
-      exact: false,
-      Component: _Pages_Private_Profile__WEBPACK_IMPORTED_MODULE_2__["default"],
-      subroutes: [{
-        path: '/profile/brand',
-        exact: false,
-        Component: _Pages_Private_Profile_Subroutes_Brand_BrandInfo__WEBPACK_IMPORTED_MODULE_6__["default"],
-        subroutes: [{
-          path: '/profile/brand/test',
-          exact: false,
-          Component: function Component() {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h3", {
-              children: "test"
-            });
-          },
-          subroutes: [{
-            path: '/profile/brand/test/kir',
-            exact: false,
-            Component: function Component() {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h3", {
-                children: "kir"
-              });
-            }
-          }, {
-            path: '/profile/brand/test/kos',
-            exact: true,
-            Component: function Component() {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h3", {
-                children: "kos"
-              });
-            }
-          }]
-        }]
-      }, {
-        path: '/profile/general',
-        exact: true,
-        Component: _Pages_Private_Profile_Subroutes_General_GeneralInfo__WEBPACK_IMPORTED_MODULE_7__["default"]
-      }]
+      path: '/brandInfo',
+      exact: true,
+      Component: _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_5__["default"]
+    }, {
+      path: '/registerInfo',
+      exact: true,
+      Component: _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_6__["default"]
+    }, {
+      path: '/orders/:orderId',
+      exact: true,
+      Component: _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_7__["default"]
     }, {
       path: '/orders',
       exact: false,
-      Component: _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_3__["default"],
-      subroutes: [{
-        path: '/orders/:orderId',
-        exact: true,
-        Component: _Pages_Private_Orders_Subroutes_Order_Order__WEBPACK_IMPORTED_MODULE_8__["default"]
-      }]
+      Component: _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_2__["default"]
+    }, {
+      path: '/finance/invoices/:invoiceId',
+      exact: true,
+      Component: _Pages_Private_Finance_invoices_Invoice__WEBPACK_IMPORTED_MODULE_11__["default"]
+    }, {
+      path: '/finance/invoices',
+      exact: true,
+      Component: _Pages_Private_Finance_invoices_Invoices__WEBPACK_IMPORTED_MODULE_10__["default"]
     }, {
       path: '/finance',
-      exact: false,
-      Component: _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_5__["default"],
-      subroutes: [{
-        path: '/finance/general',
-        exact: true,
-        Component: _Pages_Private_Finance_Subroutes_General_GeneralInvoiceInfo__WEBPACK_IMPORTED_MODULE_9__["default"]
-      }, {
-        path: '/finance/invoices',
-        exact: true,
-        Component: _Pages_Private_Finance_Subroutes_invoices_Invoices__WEBPACK_IMPORTED_MODULE_10__["default"],
-        subroutes: [{
-          path: '/finance/invoices/:invoiceId',
-          exact: true,
-          Component: _Pages_Private_Finance_Subroutes_invoices_Invoice__WEBPACK_IMPORTED_MODULE_11__["default"]
-        }]
-      }]
+      exact: true,
+      Component: _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_4__["default"]
+    }, {
+      path: '/tickets/new',
+      exact: true,
+      Component: _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_9__["default"]
+    }, {
+      path: '/tickets/:ticketId',
+      exact: true,
+      Component: _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_8__["default"]
     }, {
       path: '/tickets',
-      exact: false,
-      Component: _Pages_Private_Tickets__WEBPACK_IMPORTED_MODULE_4__["default"],
-      subroutes: [{
-        path: '/tickets/archive',
-        exact: true,
-        Component: _Pages_Private_Tickets_Subroutes_Archive_Archive__WEBPACK_IMPORTED_MODULE_12__["default"]
-      }, {
-        path: '/tickets/:ticketId',
-        exact: true,
-        Component: _Pages_Private_Tickets_Subroutes_Archive_Ticket__WEBPACK_IMPORTED_MODULE_13__["default"]
-      }, {
-        path: '/tickets/new',
-        exact: true,
-        Component: _Pages_Private_Tickets_Subroutes_New_Ticket_NewTicket__WEBPACK_IMPORTED_MODULE_14__["default"]
-      }]
+      exact: true,
+      Component: _Pages_Private_Tickets__WEBPACK_IMPORTED_MODULE_3__["default"]
     }]);
 
     return _this;
@@ -5186,13 +4981,13 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       var routes = this.routes;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Switch, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Switch, {
         children: routes.map(function (mainRoute, i) {
           var path = mainRoute.path,
               exact = mainRoute.exact,
               Component = mainRoute.Component,
               subroutes = mainRoute.subroutes;
-          return (0,_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_15__["default"])(path, exact, Component, subroutes, i);
+          return (0,_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_12__["default"])(path, exact, Component, subroutes, i);
         })
       });
     }

@@ -16,7 +16,8 @@
         justify-content: center;
         align-items: stretch;
         height: 650px;
-        margin-top: -100px;        
+        margin-top: -100px;    
+        padding: 0 10px 0 10px;    
         > div {
             background-color: #fff;
             border-radius: 6px;
@@ -92,7 +93,9 @@
                     transition: 0.5s;
                     padding: 0 10px;
                     a {
+                        user-select: none;
                         padding: 20px 15px;
+                        cursor: pointer;
                         font-size: 16px;
                         height: fit-content;
                         color: #8f60ec;
@@ -114,9 +117,9 @@
                 li.has-sub {
                     > a {   
                         &::after {
-                            border-right: 8px solid #8f60ec;
-                            border-bottom: 8px solid transparent;
-                            border-top: 8px solid transparent;
+                            border-right: 5px solid #8f60ec;
+                            border-bottom: 5px solid transparent;
+                            border-top: 5px solid transparent;
                             transition: 0.5s;
                             vertical-align: middle;
                             content: "";
@@ -140,8 +143,12 @@
                             backface-visibility: visible;
                             animation-name: flipInX;
                             a {
-                                font-size: 18px;
-                                color: #000;
+                                padding: 0;
+                                &:hover {
+                                color: #6232de;
+                                background: none !important;
+                                transform: none !important;
+                               } 
                             }
                         }
                     }

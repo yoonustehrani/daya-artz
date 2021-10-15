@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class GeneralInvoiceInfo extends Component {
+class BrandInfo extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class GeneralInvoiceInfo extends Component {
     }
 }
 
-export default GeneralInvoiceInfo;
+export default BrandInfo;
