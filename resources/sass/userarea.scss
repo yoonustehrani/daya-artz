@@ -1,11 +1,13 @@
 .user-area-layout-container {
     width: 100%;
     height: auto;
+    float: left;
+    background-color: #f6f6f6;
     .top-background {
         width: 100%;
         height: 200px;
-        background: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
-        background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+        background: linear-gradient(to right bottom, #ac7ff4, #8f60ec);
+        // background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
     }
     .user-area-panel {
         display: flex;
@@ -18,10 +20,10 @@
         > div {
             background-color: #fff;
             border-radius: 6px;
-            box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.25);
+            box-shadow: 2px 4px 3px 0 rgb(0 0 0 / 10%);
         }
         .user-area-sidebar {
-            width: 22%;
+            width: 18%;
             padding: 20px 10px 5px 10px;
             text-align: center;
             .user-info {
@@ -54,7 +56,7 @@
                 }
             }
             a.home-link {
-                font-size: 18px;
+                font-size: 14px;
                 cursor: pointer;
                 transition: 0.5s;
                 color: $aqua;
@@ -88,9 +90,10 @@
                 }
                 li {
                     transition: 0.5s;
+                    padding: 0 10px;
                     a {
-                        padding: 20px 25px 20px 0px;
-                        font-size: 18px;
+                        padding: 20px 15px;
+                        font-size: 16px;
                         height: fit-content;
                         color: #8f60ec;
                         width: 100%;
@@ -100,11 +103,10 @@
                         i {
                             font-size: 18px;
                             color: #8f60ec;
-                            margin-left: 18px;
+                            margin-left: 10px;
                         }
                         &:hover {
                             background-color: #f8e5ff;
-                            font-weight: bold;
                             transform: scale(1.1);
                         }
                     }

@@ -14,9 +14,6 @@ class UserArea extends Component {
                 <Router basename="/userarea">
                     <Switch>
                         <Route path="/auth" component={AuthRoute}/>
-                        {/* <Route path="/auth">
-                            {(props) => (<AuthRoute {...props} />)}
-                        </Route> */}
                         <Layout />
                     </Switch>
                 </Router>
