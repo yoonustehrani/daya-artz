@@ -2885,11 +2885,9 @@ var Dashboard = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          user = _this$props.user,
-          children = _this$props.children;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        children: ["DASHBOARD", children]
+      var user = this.props.user;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: "DASHBOARD"
       });
     }
   }]);
@@ -3945,7 +3943,6 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
   _createClass(BrandInfo, [{
     key: "render",
     value: function render() {
-      var children = this.props.children;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         children: "BRAND INFO"
       });
@@ -5115,12 +5112,20 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
         Component: _Pages_Private_Profile_Subroutes_Brand_BrandInfo__WEBPACK_IMPORTED_MODULE_6__["default"],
         subroutes: [{
           path: '/profile/brand/test',
-          exact: true,
-          Component: _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"],
+          exact: false,
+          Component: function Component() {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h3", {
+              children: "test"
+            });
+          },
           subroutes: [{
             path: '/profile/brand/test/kir',
             exact: false,
-            Component: _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"]
+            Component: function Component() {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h3", {
+                children: "kir"
+              });
+            }
           }, {
             path: '/profile/brand/test/kos',
             exact: true,
