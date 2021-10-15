@@ -1,4 +1,4 @@
-import React, { Children, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -8,11 +8,10 @@ class Dashboard extends Component {
     }
 
     render() {
-        let {user, children} = this.props
+        let {user} = this.props
         return (
             <div>
                 DASHBOARD
-                {children}
             </div>
         );
     }

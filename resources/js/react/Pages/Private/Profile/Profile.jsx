@@ -1,13 +1,11 @@
-import React, { Children, Component } from 'react';
-import { Switch } from 'react-router-dom';
+import React, { Component } from 'react';
 
 class Profile extends Component {
     render() {
         let { children } = this.props
         return (
             <div>
-                <p>Profile</p>   
-                {children}          
+                <p>Profile</p>  
             </div>
         );
     }
