@@ -6,7 +6,7 @@ import {
 
 var stateCopy, defaultState = {
     loading: true,
-    user: false
+    user: null
 }
 
 const copyState = (state) => {

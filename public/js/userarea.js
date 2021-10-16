@@ -6034,7 +6034,7 @@ __webpack_require__.r(__webpack_exports__);
 var stateCopy,
     defaultState = {
   loading: true,
-  user: false
+  user: null
 };
 
 var copyState = function copyState(state) {
@@ -6256,13 +6256,16 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleLogin", function () {
       var authLogin = _this.props.authLogin;
-      var user = {
-        name: 'yoonus'
-      };
-      authLogin(user); // httpService.post('/login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
-      //     let user = res.data
-      //     authLogin(user)
-      // })
+      var _this$state$login = _this.state.login,
+          user_name = _this$state$login.user_name,
+          password = _this$state$login.password;
+      httpService.post('/login', {
+        email: user_name,
+        password: password
+      }).then(function (res) {
+        var user = res.data.user;
+        authLogin(user);
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "changeLoginMethod", function () {
@@ -6369,8 +6372,6 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         },
             from = _ref2.from;
 
-        console.log(from);
-        return null;
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Redirect, {
           to: from
         });
@@ -6554,7 +6555,7 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
             }
           }) : children : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
             to: {
-              pathname: "/auth",
+              pathname: "/auth/login",
               state: {
                 from: location
               }
