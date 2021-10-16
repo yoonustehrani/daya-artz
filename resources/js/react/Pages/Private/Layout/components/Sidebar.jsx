@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { logOut } from '../../../../redux/actions'
 
 class Sidebar extends Component {
     render() {
@@ -61,6 +63,9 @@ class Sidebar extends Component {
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a onClick={() => this.props.dispatch(logOut)} href="#logout"><i className="fas fa-power-off"></i>خروج</a>
+                    </li>
                 </ul>
                 <a href={APP_PATH} className="home-link"><i className="fas fa-link"></i> http://dayaartz.com</a>
             </div>
@@ -68,4 +73,4 @@ class Sidebar extends Component {
     }
 }
 
-export default Sidebar;
+export default connect()(Sidebar);

@@ -14591,10 +14591,6 @@ div.header-section div.header-title .title span {
   width: 36%;
   background-size: 250%;
   background-position: 0%;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
 }
 .auth-container .login-bg .change-form > div {
   transition: 1.5s;
