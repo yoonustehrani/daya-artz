@@ -6034,7 +6034,7 @@ __webpack_require__.r(__webpack_exports__);
 var stateCopy,
     defaultState = {
   loading: true,
-  user: true
+  user: false
 };
 
 var copyState = function copyState(state) {
