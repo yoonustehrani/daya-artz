@@ -6034,9 +6034,7 @@ __webpack_require__.r(__webpack_exports__);
 var stateCopy,
     defaultState = {
   loading: true,
-  user: {
-    name: 'Amir'
-  }
+  user: true
 };
 
 var copyState = function copyState(state) {
@@ -6168,7 +6166,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var httpService = new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  baseURL: "http://localhost/",
+  baseURL: "http://localhost/api/v1",
   headers: {
     'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_3__.getCookie)('XSRF-TOKEN'),
     'Accept': 'application/json'
@@ -6258,7 +6256,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleLogin", function () {
       var authLogin = _this.props.authLogin;
-      httpService.post('login', {
+      httpService.post('/login', {
         email: 'yoonustehrani28@gmail.com',
         password: 'uss828487'
       }).then(function (res) {
@@ -6364,8 +6362,18 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           match = _this$props.match;
 
       if (user) {
-        history.goBack();
+        var _ref2 = location.state || {
+          from: {
+            pathname: "/"
+          }
+        },
+            from = _ref2.from;
+
+        console.log(from);
         return null;
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Redirect, {
+          to: from
+        });
       }
 
       return location.pathname !== "/auth" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {

@@ -17,7 +17,7 @@ import DayaLogo from '../Pages/Auth/components/DayaLogo';
 import Welcome from '../Pages/Auth/components/Welcome';
 
 const httpService = new HttpClient({
-    baseURL: "http://localhost/",
+    baseURL: "http://localhost/api/v1",
     headers: {
         'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
         'Accept': 'application/json'
@@ -120,7 +120,7 @@ class AuthRoute extends Component {
 
     handleLogin = () => {
         let { authLogin } = this.props;
-        httpService.post('login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
+        httpService.post('/login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
             let user = res.data
             authLogin(user)
         })
@@ -173,8 +173,12 @@ class AuthRoute extends Component {
     render() {
         let {signup, login, forgetPassword, signupConfirm, login_method, state, user} = this.state, { history, location, match } = this.props
         if (user) {
-            history.goBack()
+            let { from } = location.state || { from: { pathname: "/" } }
+            console.log(from);
             return null
+            return (
+                <Redirect to={from}/>
+            )
         }
         
         return (
