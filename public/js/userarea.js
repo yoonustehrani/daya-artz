@@ -1374,7 +1374,7 @@ function isAsyncThunkAction() {
 // src/index.ts
 (0,immer__WEBPACK_IMPORTED_MODULE_2__.enableES5)();
 
-//# sourceMappingURL=redux-toolkit.esm.js.map
+//# sourceMappingURL=module.js.map
 
 /***/ }),
 
@@ -6034,7 +6034,7 @@ __webpack_require__.r(__webpack_exports__);
 var stateCopy,
     defaultState = {
   loading: true,
-  user: true
+  user: false
 };
 
 var copyState = function copyState(state) {
@@ -6256,13 +6256,13 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleLogin", function () {
       var authLogin = _this.props.authLogin;
-      httpService.post('/login', {
-        email: 'yoonustehrani28@gmail.com',
-        password: 'uss828487'
-      }).then(function (res) {
-        var user = res.data;
-        authLogin(user);
-      });
+      var user = {
+        name: 'yoonus'
+      };
+      authLogin(user); // httpService.post('/login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
+      //     let user = res.data
+      //     authLogin(user)
+      // })
     });
 
     _defineProperty(_assertThisInitialized(_this), "changeLoginMethod", function () {
