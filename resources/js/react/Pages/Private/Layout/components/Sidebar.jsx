@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class sidebar extends Component {
+class Sidebar extends Component {
     render() {
         return (
             <div id="m-menu" className="user-area-sidebar d-none d-md-inline-block">
@@ -68,4 +68,4 @@ class sidebar extends Component {
     }
 }
 
-export default sidebar;
+export default Sidebar;

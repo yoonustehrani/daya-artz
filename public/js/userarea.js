@@ -1374,7 +1374,7 @@ function isAsyncThunkAction() {
 // src/index.ts
 (0,immer__WEBPACK_IMPORTED_MODULE_2__.enableES5)();
 
-//# sourceMappingURL=module.js.map
+//# sourceMappingURL=redux-toolkit.esm.js.map
 
 /***/ }),
 
@@ -4957,18 +4957,18 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var sidebar = /*#__PURE__*/function (_Component) {
-  _inherits(sidebar, _Component);
+var Sidebar = /*#__PURE__*/function (_Component) {
+  _inherits(Sidebar, _Component);
 
-  var _super = _createSuper(sidebar);
+  var _super = _createSuper(Sidebar);
 
-  function sidebar() {
-    _classCallCheck(this, sidebar);
+  function Sidebar() {
+    _classCallCheck(this, Sidebar);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(sidebar, [{
+  _createClass(Sidebar, [{
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -5116,10 +5116,10 @@ var sidebar = /*#__PURE__*/function (_Component) {
     }
   }]);
 
-  return sidebar;
+  return Sidebar;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sidebar);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sidebar);
 
 /***/ }),
 

@@ -2133,6 +2133,7 @@ $(document).ready(function () {
     }
   });
   $(".has-sub").click(function (e) {
+    console.log('hey');
     $(e.target).closest(".submenu-m").length === 0 ? $(this).toggleClass("open") : null;
   });
 });
