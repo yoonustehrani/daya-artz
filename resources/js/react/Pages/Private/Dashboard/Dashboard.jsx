@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logOut } from '../../redux/actions';
+import { logOut } from '../../../redux/actions';
 
 class Dashboard extends Component {
     componentDidMount() {

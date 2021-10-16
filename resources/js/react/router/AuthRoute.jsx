@@ -5,7 +5,7 @@ import HttpClient from '../../services/HttpClient'
 import { getCookie } from '../../services/CookieService'
 // Redux
 import { connect } from 'react-redux';
-import { handleLogin } from '../redux/actions';
+import { logUserIn } from '../redux/actions';
 // Routes
 import Login from '../Pages/Auth/Login';
 import Signup from '../Pages/Auth/Signup';
@@ -119,10 +119,18 @@ class AuthRoute extends Component {
     }
 
     handleLogin = () => {
-        let { handleLogin, history, location } = this.props, { from } = location.state || { from: { pathname: "/" } };
-        handleLogin({name: "amir"})
-        history.replace(from)
+        let { authLogin } = this.props;
+        httpService.post('login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
+            let user = res.data
+            authLogin(user)
+        })
     }
+
+    // handleLogin = () => {
+    //     let { handleLogin, history, location } = this.props, { from } = location.state || { from: { pathname: "/" } };
+    //     handleLogin({name: "amir"})
+    //     history.replace(from)
+    // }
 
     changeLoginMethod = () => {
         this.setState(prevState => ({
@@ -212,7 +220,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    handleLogin: loginInfo => dispatch(handleLogin(loginInfo)),
+    authLogin: user => dispatch(logUserIn(user)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthRoute)
