@@ -9,7 +9,7 @@ class PrivateRoute extends Component {
         return (
             <Route path={path} exact={exact} render={({location}) => (user
                 ? location.pathname === "/" ? <Redirect to={{ pathname: "/dashboard", state: {from: location} }} /> : children
-                : <Redirect to={{ pathname: "/auth", state: {from: location} }} />
+                : <Redirect to={{ pathname: "/auth/login", state: {from: location} }} />
             )
             }
             />

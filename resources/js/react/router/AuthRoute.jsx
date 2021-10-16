@@ -120,19 +120,12 @@ class AuthRoute extends Component {
 
     handleLogin = () => {
         let { authLogin } = this.props;
-        let user = {name: 'yoonus'};
-        authLogin(user)
-        // httpService.post('/login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
-        //     let user = res.data
-        //     authLogin(user)
-        // })
+        let {user_name, password} = this.state.login;
+        httpService.post('/login', {email: user_name, password: password}).then(res => {
+            let {user} = res.data
+            authLogin(user)
+        })
     }
-
-    // handleLogin = () => {
-    //     let { handleLogin, history, location } = this.props, { from } = location.state || { from: { pathname: "/" } };
-    //     handleLogin({name: "amir"})
-    //     history.replace(from)
-    // }
 
     changeLoginMethod = () => {
         this.setState(prevState => ({
@@ -174,12 +167,10 @@ class AuthRoute extends Component {
 
     render() {
         let {signup, login, forgetPassword, signupConfirm, login_method, state} = this.state, { history, location, match, user } = this.props
+
         if (user) {
             let { from } = location.state || { from: { pathname: "/" } }
-            return null
-            return (
-                <Redirect to={from}/>
-            )
+            return <Redirect to={from}/>
         }
         
         return (
@@ -213,9 +204,7 @@ class AuthRoute extends Component {
                     </div>
                 </div>
             )
-            : (
-                <Redirect to={{ pathname: "/auth/login", state: {from: location} }} />
-            )
+            : <Redirect to={{ pathname: "/auth/login", state: {from: location} }} />
         );
     }
 }
