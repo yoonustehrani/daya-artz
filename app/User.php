@@ -57,7 +57,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->morphToMany(Offer::class, 'offerable')->where('expires_at', '>', now())->withPivot(['max_attempts', 'attempts']);
     }
-
+    public function customer()
+    {
+        return $this->hasOne(Customer::class);
+    }
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
     // public function available_offers()
     // {
     //     return $this->offers()->wherePivot('');

@@ -36,7 +36,7 @@ Route::post('logout', 'LoginController@logout')->name('logout')->middleware('aut
 // Route::post('login')
 
 Route::get('user', function (Request $request) {
-    return $request->user();
+    return $request->user()->load('customer', 'company');
 })->middleware('auth:sanctum');
 
 
