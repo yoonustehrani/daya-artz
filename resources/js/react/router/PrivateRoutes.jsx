@@ -13,6 +13,9 @@ import Ticket from '../Pages/Private/Tickets/Ticket';
 import NewTicket from '../Pages/Private/Tickets/NewTicket';
 import Invoices from '../Pages/Private/Finance/invoices/Invoices';
 import Invoice from '../Pages/Private/Finance/invoices/Invoice';
+import TicketsFaq from '../Pages/Private/Tickets/TicketsFaq';
+import PreInvoices from '../Pages/Private/Finance/invoices/PreInvoices';
+import PreInvoice from '../Pages/Private/Finance/invoices/PreInvoice';
 // Route component
 import RouteWithSubRoutes from './RouteWithSubRoutes';
 
@@ -49,6 +52,16 @@ class PrivateRoutes extends Component {
             Component: Invoice
         },
         {
+            path: '/finance/pre-invoices/:pre-invoiceId',
+            exact: true,
+            Component: PreInvoice
+        },
+        {
+            path: '/finance/pre-invoices',
+            exact: true,
+            Component: PreInvoices
+        },
+        {
             path: '/finance/invoices',
             exact: true,
             Component: Invoices,
@@ -62,6 +75,11 @@ class PrivateRoutes extends Component {
             path: '/tickets/new',
             exact: true,
             Component: NewTicket
+        },
+        {
+            path: '/ticekts/faq',
+            exact: true,
+            Component: TicketsFaq
         },
         {
             path: '/tickets/:ticketId',

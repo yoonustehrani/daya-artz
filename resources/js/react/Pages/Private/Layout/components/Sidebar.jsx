@@ -22,17 +22,28 @@ class sidebar extends Component {
                             <li><Link to="/registerInfo" className="link">اطلاعات ثبت نام</Link></li>
                         </ul>
                     </li>
-                    <li>
-                        <Link to="/orders" className="link"><i className="fas fa-hand-pointer"></i>پیگیری سفارشات</Link>
+                    <li className="has-sub">
+                        <a href="#orders"><i className="fas fa-hand-pointer"></i>سفارشات</a>
+                        <ul className="submenu-m">
+                            <li>
+                                <Link to="/orders" className="link">لیست سفارش ها</Link>
+                            </li>
+                            <li>
+                                <Link to="/orders/new" className="link">سفارش جدید</Link>
+                            </li>
+                        </ul>
                     </li>
                     <li className="has-sub">
                         <a to="#finance"><i className="fas fa-hand-holding-usd"></i>امور مالی</a>
                         <ul className="submenu-m">
                             <li>
-                                <Link to="/finance" className="link">فاکتور و سررسید ها</Link>
+                                <Link to="/finance" className="link">آمار کلی</Link>
                             </li>
                             <li>
-                                <Link to="/finance/invoices" className="link">جزئیات فاکتور ها</Link>
+                                <Link to="/finance/invoices" className="link">فاکتور ها</Link>
+                            </li>
+                            <li>
+                                <Link to="finance/preInvoices" className="link">پیش فاکتور ها</Link>
                             </li>
                         </ul>
                     </li>
@@ -40,10 +51,13 @@ class sidebar extends Component {
                         <a to="#"><i className="fas fa-headset"></i>پشتیبانی</a>
                         <ul className="submenu-m">
                             <li>
-                                <Link to="/ticekts/new" className="link">ارسال تیکت</Link>
+                                <Link to="/ticekts/new" className="link">درخواست های پشتیبانی</Link>
                             </li>
                             <li>
-                                <Link to="/ticekts" className="link">آرشیو تیکت ها</Link>
+                                <Link to="/ticekts" className="link">ثبت درخواست پشتیبانی</Link>
+                            </li>
+                            <li>
+                                <Link to="/tickets/faq" className="link">سوالات متداول</Link>
                             </li>
                         </ul>
                     </li>
