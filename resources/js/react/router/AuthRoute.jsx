@@ -176,7 +176,6 @@ class AuthRoute extends Component {
         let {signup, login, forgetPassword, signupConfirm, login_method, state} = this.state, { history, location, match, user } = this.props
         if (user) {
             let { from } = location.state || { from: { pathname: "/" } }
-            console.log(from);
             return null
             return (
                 <Redirect to={from}/>

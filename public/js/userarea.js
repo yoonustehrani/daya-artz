@@ -6369,7 +6369,6 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         },
             from = _ref2.from;
 
-        console.log(from);
         return null;
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Redirect, {
           to: from
