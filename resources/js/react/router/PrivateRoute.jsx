@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 class PrivateRoute extends Component {
     render() {
-        let {path, children, user} = this.props
+        let {path, children, user, exact} = this.props
         return (
             <Route path={path} exact={exact} render={({location}) => (user
                 ? location.pathname === "/" ? <Redirect to={{ pathname: "/dashboard", state: {from: location} }} /> : children

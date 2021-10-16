@@ -5756,11 +5756,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _router_AuthRoute__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router/AuthRoute */ "./resources/js/react/router/AuthRoute.jsx");
-/* harmony import */ var _Pages_Private_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Pages/Private/Layout */ "./resources/js/react/Pages/Private/Layout/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _router_AuthRoute__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../router/AuthRoute */ "./resources/js/react/router/AuthRoute.jsx");
+/* harmony import */ var _Pages_Private_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Pages/Private/Layout */ "./resources/js/react/Pages/Private/Layout/index.js");
+/* harmony import */ var react_activity_dist_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-activity/dist/Spinner */ "./node_modules/react-activity/dist/Spinner/index.js");
+/* harmony import */ var react_activity_dist_Spinner__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_activity_dist_Spinner__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5784,7 +5787,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
+
  // custom components
+
 
 
 
@@ -5811,22 +5816,22 @@ var UserArea = /*#__PURE__*/function (_Component) {
   _createClass(UserArea, [{
     key: "render",
     value: function render() {
-      if (this.props.loadingApp) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("center", {
+      if (this.props.loadingApp) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("center", {
         className: "centered-by-translate",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Spinner, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)((react_activity_dist_Spinner__WEBPACK_IMPORTED_MODULE_5___default()), {
           color: "#8F60EC",
           size: 72,
           speed: 0.8,
           animating: true
         })
       });
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.BrowserRouter, {
         basename: "/userarea",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Switch, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
             path: "/auth",
-            component: _router_AuthRoute__WEBPACK_IMPORTED_MODULE_1__["default"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Private_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+            component: _router_AuthRoute__WEBPACK_IMPORTED_MODULE_2__["default"]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Pages_Private_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
         })
       });
     }
@@ -5835,7 +5840,7 @@ var UserArea = /*#__PURE__*/function (_Component) {
   return UserArea;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (connect(mapStateToProps)(UserArea));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps)(UserArea));
 
 /***/ }),
 
@@ -6525,7 +6530,8 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
       var _this$props = this.props,
           path = _this$props.path,
           children = _this$props.children,
-          user = _this$props.user;
+          user = _this$props.user,
+          exact = _this$props.exact;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
         path: path,
         exact: exact,
@@ -9215,6 +9221,192 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
+
+/***/ }),
+
+/***/ "./node_modules/react-activity/dist/Spinner/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-activity/dist/Spinner/index.js ***!
+  \***********************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+	else {}
+})(this, function(__WEBPACK_EXTERNAL_MODULE__297__) {
+return /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 438:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_647__) => {
+
+
+// EXPORTS
+__nested_webpack_require_647__.d(__webpack_exports__, {
+  "Z": () => (/* reexport */ ActivityIndicator_ActivityIndicator)
+});
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_647__(297);
+// EXTERNAL MODULE: ./src/shared/getRelativeTime.ts
+var getRelativeTime = __nested_webpack_require_647__(531);
+;// CONCATENATED MODULE: ./src/shared/ActivityIndicator/ActivityIndicator.tsx
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+var ActivityIndicator = function (_a) {
+    var style = _a.style, _b = _a.size, size = _b === void 0 ? 16 : _b, _c = _a.speed, speed = _c === void 0 ? 1 : _c, defaultAnimationDuration = _a.defaultAnimationDuration, color = _a.color, className = _a.className, _d = _a.animating, animating = _d === void 0 ? true : _d, children = _a.children;
+    if (!animating) {
+        return null;
+    }
+    var animationDuration = (0,getRelativeTime/* getRelativeTime */.n)(speed, defaultAnimationDuration);
+    return (external_react_.createElement("div", { "data-testid": "rai-activity-indicator", className: "rai-container " + className, style: __assign({ color: color, fontSize: size + "px", animationDuration: animationDuration }, style) }, children));
+};
+/* harmony default export */ const ActivityIndicator_ActivityIndicator = (ActivityIndicator);
+
+;// CONCATENATED MODULE: ./src/shared/ActivityIndicator/index.ts
+
+
+
+/***/ }),
+
+/***/ 531:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_2447__) => {
+
+/* harmony export */ __nested_webpack_require_2447__.d(__webpack_exports__, {
+/* harmony export */   "n": () => (/* binding */ getRelativeTime)
+/* harmony export */ });
+var getRelativeTime = function (speed, delay) {
+    return (1 / speed) * delay + "s";
+};
+
+
+/***/ }),
+
+/***/ 297:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__297__;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_3047__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_3047__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__nested_webpack_require_3047__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__nested_webpack_require_3047__.o(definition, key) && !__nested_webpack_require_3047__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__nested_webpack_require_3047__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nested_webpack_require_3047__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+// ESM COMPAT FLAG
+__nested_webpack_require_3047__.r(__webpack_exports__);
+
+// EXPORTS
+__nested_webpack_require_3047__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Spinner_Spinner)
+});
+
+;// CONCATENATED MODULE: ./src/Spinner/Spinner.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_3047__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_3047__(438);
+;// CONCATENATED MODULE: ./src/Spinner/Spinner.tsx
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+
+var Spinner = function (props) {
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-spinner", defaultAnimationDuration: 0.6 }, props),
+        external_react_.createElement("div", { className: "rai-spinner-outer" }),
+        external_react_.createElement("div", { className: "rai-spinner-inner" })));
+};
+/* harmony default export */ const Spinner_Spinner = (Spinner);
+
+;// CONCATENATED MODULE: ./src/Spinner/index.ts
+
+
+})();
+
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});
 
 /***/ }),
 
@@ -44031,7 +44223,7 @@ function _setPrototypeOf(o, p) {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
