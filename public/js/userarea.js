@@ -6355,11 +6355,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           signupConfirm = _this$state.signupConfirm,
           login_method = _this$state.login_method,
           state = _this$state.state,
-          user = _this$state.user,
           _this$props = this.props,
           history = _this$props.history,
           location = _this$props.location,
-          match = _this$props.match;
+          match = _this$props.match,
+          user = _this$props.user;
 
       if (user) {
         var _ref2 = location.state || {

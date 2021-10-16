@@ -171,7 +171,7 @@ class AuthRoute extends Component {
     }
 
     render() {
-        let {signup, login, forgetPassword, signupConfirm, login_method, state, user} = this.state, { history, location, match } = this.props
+        let {signup, login, forgetPassword, signupConfirm, login_method, state} = this.state, { history, location, match, user } = this.props
         if (user) {
             let { from } = location.state || { from: { pathname: "/" } }
             console.log(from);
