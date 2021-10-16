@@ -5,8 +5,8 @@ import {
 } from "../actionTypes"
 
 var stateCopy, defaultState = {
-    user: null,
-    loading: true
+    loading: true,
+    user: {name: 'Amir'}
 }
 
 const copyState = (state) => {

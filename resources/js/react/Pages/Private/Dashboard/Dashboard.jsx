@@ -11,9 +11,9 @@ class Dashboard extends Component {
     render() {
         let {user} = this.props
         return (
-            <center>
-                <h3>Welcome To Dashboard ! <button onClick={() => this.props.dispatch(logOut)}>Logout</button> </h3>
-            </center>
+            <div>
+                DASHBOARD
+            </div>
         );
     }
 }

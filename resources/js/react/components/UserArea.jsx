@@ -1,33 +1,25 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import PrivateRoute from '../router/PrivateRoute';
-import Dashboard from '../Pages/Dashboard';
-import Auth from '../Pages/Auth';
-import Spinner from 'react-activity/dist/Spinner'
-
-function mapStateToProps(state) {
-    return {
-        loadingApp: state.auth.loading
-    };
-}
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// Redux
+import { Provider } from 'react-redux';
+import store from '../redux/store';
+// custom components
+import AuthRoute from '../router/AuthRoute';
+import Layout from '../Pages/Private/Layout';
 
 class UserArea extends Component {
     render() {
         if (this.props.loadingApp)
             return <center className="centered-by-translate"><Spinner color="#8F60EC" size={72} speed={0.8} animating={true} /></center>
         return (
-            <Router basename="/userarea">
-                <Switch>
-                    <PrivateRoute exact={true} path="/">
-                        <Dashboard />
-                    </PrivateRoute>
-                    <PrivateRoute path="/sampi">
-                        <center><h3>Hello Person !</h3></center>
-                    </PrivateRoute>
-                    <Route exact path="/login" component={Auth}></Route>
-                </Switch>
-            </Router>
+            <Provider store={store}>
+                <Router basename="/userarea">
+                    <Switch>
+                        <Route path="/auth" component={AuthRoute}/>
+                        <Layout />
+                    </Switch>
+                </Router>
+            </Provider>
         );
     }
 }

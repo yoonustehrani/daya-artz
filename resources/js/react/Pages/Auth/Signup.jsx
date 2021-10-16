@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { state_select } from '../../../components/select2'
 
 class Signup extends Component {
-
+    
     componentDidMount() {
-        $("#register-country-select").select2(this.props.select2Config)
+        $("#register-country-select").select2(state_select)
     }
     
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, handleLogin, signup, login_method } = this.props, { user_name, email, phone_number, password, rep_password } = signup
+        let { changeLoginMethod, changeSection, onChangeField, handleLogin, fields_info, login_method, history } = this.props, { user_name, email, phone_number, password, rep_password } = fields_info
         return (
             <div>
                 <h2>ثبت نام در دایا</h2>
@@ -16,7 +17,7 @@ class Signup extends Component {
                     <span><i className="fab fa-linkedin-in"></i></span>
                 </div>
                 <span className="gray mb-2 animated" onClick={changeLoginMethod.bind(this)}>
-                    {login_method === "email" ? "با استفاده از اکانت ایمیل شما:" : "با استفاده از شماره موبایل:"}
+                    {login_method === "email" ? "با استفاده از شماره تلفن" : "با استفاده از اکانت ایمیل"}
                     <i className="fas fa-long-arrow-alt-left mr-1"></i>
                     <i className="fas fa-mobile mr-1"></i>
                 </span>
@@ -52,7 +53,7 @@ class Signup extends Component {
                     <div className="input-group-append"><span className="input-group-text"><i className="fas fa-redo"></i></span></div>
                 </div>
                 <button className="btn btn-lg badge-pill " onClick={handleLogin}>ثبت نام</button>
-                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this)}>برای ورود به دایا کلیک کنید!</span>
+                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, false)}>برای ورود به دایا کلیک کنید!</span>
             </div>
         );
     }
