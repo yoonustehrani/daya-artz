@@ -1374,7 +1374,7 @@ function isAsyncThunkAction() {
 // src/index.ts
 (0,immer__WEBPACK_IMPORTED_MODULE_2__.enableES5)();
 
-//# sourceMappingURL=module.js.map
+//# sourceMappingURL=redux-toolkit.esm.js.map
 
 /***/ }),
 
