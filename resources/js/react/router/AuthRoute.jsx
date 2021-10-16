@@ -120,10 +120,12 @@ class AuthRoute extends Component {
 
     handleLogin = () => {
         let { authLogin } = this.props;
-        httpService.post('/login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
-            let user = res.data
-            authLogin(user)
-        })
+        let user = {name: 'yoonus'};
+        authLogin(user)
+        // httpService.post('/login', {email: 'yoonustehrani28@gmail.com', password: 'uss828487'}).then(res => {
+        //     let user = res.data
+        //     authLogin(user)
+        // })
     }
 
     // handleLogin = () => {
