@@ -17,7 +17,7 @@ import DayaLogo from '../Pages/Auth/components/DayaLogo';
 import Welcome from '../Pages/Auth/components/Welcome';
 
 const httpService = new HttpClient({
-    baseURL: "http://localhost/api/v1",
+    baseURL: "http://localhost/api/v1/auth",
     headers: {
         'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
         'Accept': 'application/json'
@@ -30,11 +30,10 @@ class AuthRoute extends Component {
         super(props);
         this.state = {
             signup: {
-                user_name: "",
                 email: "",
                 phone_number: "",
                 password: "",
-                rep_password: ""
+                password_confirmation: ""
             },
             login: {
                 user_name: "",
@@ -118,7 +117,8 @@ class AuthRoute extends Component {
         }))
     }
 
-    handleLogin = () => {
+    handleLogin = (e) => {
+        e.preventDefault();
         let { authLogin } = this.props;
         let {user_name, password} = this.state.login;
         httpService.post('/login', {email: user_name, password: password}).then(res => {
@@ -127,6 +127,18 @@ class AuthRoute extends Component {
         })
     }
 
+    handleRegister = (e) => {
+        e.preventDefault();
+        let {email, phone_number, password, password_confirmation} = this.state.signup
+        let payload = this.state.login_method == "email" ? {email, password, password_confirmation} : {phone_number, password, password_confirmation};
+        let param = {redirect_after: `/auth/validation/email${this.state.login_method}`}
+        httpService.post('/register', payload, {params: param}).then(res => {
+            console.log(res.data);
+            // let {user} = res.data
+            // authLogin(user)
+        })
+        // console.log(request_query);
+    }
     changeLoginMethod = () => {
         this.setState(prevState => ({
             login_method: prevState.login_method === "email" ? "phone" : "email"
@@ -184,7 +196,7 @@ class AuthRoute extends Component {
                         <div className={`login-form animated ${state === 'login' || state === "forgetPassword" ? "right-40" : ""}`}>
                             <Switch>
                                 <Route exact path={`/auth/signup`} children={(props) => (
-                                    <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={signup} login_method={login_method} />
+                                    <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />
                                 )} />
 
                                 <Route exact path={`/auth/login`} children={(props) => (

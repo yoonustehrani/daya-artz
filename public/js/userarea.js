@@ -1374,7 +1374,7 @@ function isAsyncThunkAction() {
 // src/index.ts
 (0,immer__WEBPACK_IMPORTED_MODULE_2__.enableES5)();
 
-//# sourceMappingURL=redux-toolkit.esm.js.map
+//# sourceMappingURL=module.js.map
 
 /***/ }),
 
@@ -3505,86 +3505,90 @@ var Login = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-mobile mr-1"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "email-phone-container input-group",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+          onSubmit: handleLogin,
+          className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "input-group animated ".concat(login_method === "email" ? "" : "d-none"),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              className: "form-control",
-              value: user_name,
-              placeholder: "\u0627\u06CC\u0645\u06CC\u0644 \u06CC\u0627 \u0646\u0627\u0645 \u06A9\u0627\u0631\u0628\u0631\u06CC",
-              onChange: onChangeField.bind(this, "login", "user_name")
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "input-group-append",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "input-group-text",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                  className: "fas fa-user"
+            className: "email-phone-container input-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "input-group animated ".concat(login_method === "email" ? "" : "d-none"),
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "text",
+                className: "form-control",
+                value: user_name,
+                placeholder: "\u0627\u06CC\u0645\u06CC\u0644 \u06CC\u0627 \u0646\u0627\u0645 \u06A9\u0627\u0631\u0628\u0631\u06CC",
+                onChange: onChangeField.bind(this, "login", "user_name")
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "input-group-append",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "input-group-text",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                    className: "fas fa-user"
+                  })
                 })
-              })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "input-group animated ".concat(login_method === "phone" ? "" : "d-none"),
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "input-group-prepend",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "country_codes_holder",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                    id: "login-country-select",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                      value: "iran",
+                      children: "+98"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                      value: "united-states",
+                      children: "+1"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                      value: "united-kingdom",
+                      children: "+356"
+                    })]
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "text",
+                value: phone_number,
+                className: "form-control ltr",
+                placeholder: "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06CC\u0644",
+                onChange: onChangeField.bind(this, "login", "phone_number")
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "input-group-append",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "input-group-text",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                    className: "fas fa-mobile"
+                  })
+                })
+              })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "input-group animated ".concat(login_method === "phone" ? "" : "d-none"),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "input-group-prepend",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "country_codes_holder",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-                  id: "login-country-select",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "iran",
-                    children: "+98"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "united-states",
-                    children: "+1"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "united-kingdom",
-                    children: "+356"
-                  })]
-                })
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: phone_number,
-              className: "form-control ltr",
-              placeholder: "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06CC\u0644",
-              onChange: onChangeField.bind(this, "login", "phone_number")
+            className: "input-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "password",
+              className: "form-control",
+              value: password,
+              placeholder: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631",
+              onChange: onChangeField.bind(this, "login", "password")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "input-group-append",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                 className: "input-group-text",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                  className: "fas fa-mobile"
+                  className: "fas fa-lock"
                 })
               })
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "btn btn-lg badge-pill",
+            type: "submit",
+            children: "\u0648\u0631\u0648\u062F"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+            to: "/auth/forgetPassword",
+            className: "forgot-ps",
+            children: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u062E\u0648\u062F\u062A\u0648\u0646 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u06A9\u0631\u062F\u06CC\u062F\u061F"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "input-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "password",
-            className: "form-control",
-            value: password,
-            placeholder: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631",
-            onChange: onChangeField.bind(this, "login", "password")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "input-group-append",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "input-group-text",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-lock"
-              })
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-          to: "/auth/forgetPassword",
-          className: "forgot-ps",
-          children: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u062E\u0648\u062F\u062A\u0648\u0646 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u06A9\u0631\u062F\u06CC\u062F\u061F"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "btn btn-lg badge-pill ",
-          onClick: handleLogin,
-          children: "\u0648\u0631\u0648\u062F"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "change-form-mobile d-md-none mt-2",
           onClick: changeSection.bind(this, history, false),
@@ -3665,15 +3669,14 @@ var Signup = /*#__PURE__*/function (_Component) {
           changeLoginMethod = _this$props.changeLoginMethod,
           changeSection = _this$props.changeSection,
           onChangeField = _this$props.onChangeField,
-          handleLogin = _this$props.handleLogin,
+          handleRegister = _this$props.handleRegister,
           fields_info = _this$props.fields_info,
           login_method = _this$props.login_method,
           history = _this$props.history,
-          user_name = fields_info.user_name,
           email = fields_info.email,
           phone_number = fields_info.phone_number,
           password = fields_info.password,
-          rep_password = fields_info.rep_password;
+          password_confirmation = fields_info.password_confirmation;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           children: "\u062B\u0628\u062A \u0646\u0627\u0645 \u062F\u0631 \u062F\u0627\u06CC\u0627"
@@ -3696,116 +3699,105 @@ var Signup = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-mobile mr-1"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "input-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "text",
-            value: user_name,
-            className: "form-control",
-            placeholder: "\u0646\u0627\u0645 \u06A9\u0627\u0631\u0628\u0631\u06CC",
-            onChange: onChangeField.bind(this, "signup", "user_name")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "input-group-append",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "input-group-text",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-user"
-              })
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "email-phone-container input-group",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+          onSubmit: handleRegister,
+          className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "input-group animated ".concat(login_method === "email" ? "" : "d-none"),
+            className: "email-phone-container input-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "input-group animated ".concat(login_method === "email" ? "" : "d-none"),
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "email",
+                value: email,
+                className: "form-control",
+                placeholder: "\u0627\u06CC\u0645\u06CC\u0644",
+                onChange: onChangeField.bind(this, "signup", "email")
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "input-group-append",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "input-group-text",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                    className: "fas fa-at"
+                  })
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "input-group animated ".concat(login_method === "phone" ? "" : "d-none"),
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "input-group-prepend",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "country_codes_holder",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                    id: "register-country-select",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                      value: "iran",
+                      children: "+98"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                      value: "united-states",
+                      children: "+1"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                      value: "united-kingdom",
+                      children: "+356"
+                    })]
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "text",
+                value: phone_number,
+                className: "form-control ltr",
+                placeholder: "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06CC\u0644",
+                onChange: onChangeField.bind(this, "signup", "phone_number")
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "input-group-append",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "input-group-text",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                    className: "fas fa-mobile"
+                  })
+                })
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "input-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "email",
-              value: email,
+              type: "password",
+              value: password,
+              name: "password",
               className: "form-control",
-              placeholder: "\u0627\u06CC\u0645\u06CC\u0644",
-              onChange: onChangeField.bind(this, "signup", "email")
+              placeholder: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631",
+              onChange: onChangeField.bind(this, "signup", "password")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "input-group-append",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                 className: "input-group-text",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                  className: "fas fa-at"
+                  className: "fas fa-lock"
                 })
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "input-group animated ".concat(login_method === "phone" ? "" : "d-none"),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "input-group-prepend",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "country_codes_holder",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-                  id: "register-country-select",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "iran",
-                    children: "+98"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "united-states",
-                    children: "+1"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "united-kingdom",
-                    children: "+356"
-                  })]
-                })
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: phone_number,
-              className: "form-control ltr",
-              placeholder: "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06CC\u0644",
-              onChange: onChangeField.bind(this, "signup", "phone_number")
+            className: "input-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "password",
+              value: password_confirmation,
+              name: "password_confirmation",
+              className: "form-control",
+              placeholder: "\u062A\u06A9\u0631\u0627\u0631 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631",
+              onChange: onChangeField.bind(this, "signup", "password_confirmation")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "input-group-append",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                 className: "input-group-text",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                  className: "fas fa-mobile"
+                  className: "fas fa-redo"
                 })
               })
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "btn btn-lg badge-pill",
+            type: "submit",
+            children: "\u062B\u0628\u062A \u0646\u0627\u0645"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "input-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "password",
-            value: password,
-            className: "form-control",
-            placeholder: "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631",
-            onChange: onChangeField.bind(this, "signup", "passowrd")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "input-group-append",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "input-group-text",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-lock"
-              })
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "input-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "password",
-            value: rep_password,
-            className: "form-control",
-            placeholder: "\u062A\u06A9\u0631\u0627\u0631 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631",
-            onChange: onChangeField.bind(this, "signup", "rep_passowrd")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "input-group-append",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "input-group-text",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-redo"
-              })
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "btn btn-lg badge-pill ",
-          onClick: handleLogin,
-          children: "\u062B\u0628\u062A \u0646\u0627\u0645"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "change-form-mobile d-md-none mt-2",
           onClick: changeSection.bind(this, history, false),
@@ -3858,8 +3850,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -3871,24 +3861,9 @@ var SignupConfirm = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(SignupConfirm);
 
   function SignupConfirm() {
-    var _this;
-
     _classCallCheck(this, SignupConfirm);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "goToSignup", function () {
-      var history = _this.props.history;
-      history.push("/auth/signup");
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "checkCode", function () {});
-
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(SignupConfirm, [{
@@ -5909,7 +5884,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var httpService = new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  baseURL: "http://localhost/api/v1/",
+  baseURL: "http://localhost/api/v1",
   headers: {
     'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_3__.getCookie)('XSRF-TOKEN'),
     'Accept': 'application/json'
@@ -5943,7 +5918,7 @@ var checkAuth = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return httpService.get('user').then(function (res) {
+            return httpService.get('/auth/user').then(function (res) {
               dispatch(logUserIn(res.data));
             })["catch"](function (error) {
               if (error.response) {
@@ -5986,7 +5961,7 @@ var logOut = /*#__PURE__*/function () {
 
             dispatch(changeAppStatus(true));
             _context2.next = 4;
-            return httpService.post('logout', {}).then(function (res) {
+            return httpService.post('/auth/logout', {}).then(function (res) {
               if (res.data.ok) {
                 dispatch(logUserOut());
               }
@@ -6182,7 +6157,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var httpService = new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  baseURL: "http://localhost/api/v1",
+  baseURL: "http://localhost/api/v1/auth",
   headers: {
     'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_3__.getCookie)('XSRF-TOKEN'),
     'Accept': 'application/json'
@@ -6270,7 +6245,8 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleLogin", function () {
+    _defineProperty(_assertThisInitialized(_this), "handleLogin", function (e) {
+      e.preventDefault();
       var authLogin = _this.props.authLogin;
       var _this$state$login = _this.state.login,
           user_name = _this$state$login.user_name,
@@ -6282,6 +6258,33 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         var user = res.data.user;
         authLogin(user);
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleRegister", function (e) {
+      e.preventDefault();
+      var _this$state$signup = _this.state.signup,
+          email = _this$state$signup.email,
+          phone_number = _this$state$signup.phone_number,
+          password = _this$state$signup.password,
+          password_confirmation = _this$state$signup.password_confirmation;
+      var payload = _this.state.login_method == "email" ? {
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation
+      } : {
+        phone_number: phone_number,
+        password: password,
+        password_confirmation: password_confirmation
+      };
+      var param = {
+        redirect_after: "/auth/validation/email".concat(_this.state.login_method)
+      };
+      httpService.post('/register', payload, {
+        params: param
+      }).then(function (res) {
+        console.log(res.data); // let {user} = res.data
+        // authLogin(user)
+      }); // console.log(request_query);
     });
 
     _defineProperty(_assertThisInitialized(_this), "changeLoginMethod", function () {
@@ -6308,11 +6311,10 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
     _this.state = {
       signup: {
-        user_name: "",
         email: "",
         phone_number: "",
         password: "",
-        rep_password: ""
+        password_confirmation: ""
       },
       login: {
         user_name: "",
@@ -6416,7 +6418,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                     changeLoginMethod: _this4.changeLoginMethod,
                     changeSection: _this4.changeSection,
                     onChangeField: _this4.onChangeField,
-                    handleLogin: _this4.handleLogin,
+                    handleRegister: _this4.handleRegister,
                     fields_info: signup,
                     login_method: login_method
                   }));

@@ -18,14 +18,21 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::prefix('auth')->name('auth.')->group(function() {
+    Route::post('login', 'LoginController@login')->name('login'); // ->middleware('guest')
+    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth:sanctum');
+    Route::post('register', 'RegisterController@register')->name('register');
+    Route::get('user', function (Request $request) {
+        return $request->user()->load('customer', 'company');
+    })->name('user')->middleware('auth:sanctum');
+});
 
 
-Route::post('login', 'LoginController@login')->name('login')->middleware('guest');
-Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth:sanctum');
+
 // Route::prefix('verification')->name('verification.')->group(function() { // ->middleware('auth:sanctum')
     
 // });
-// Route::prefix('userarea')->middleware('auth:sanctum')->group(function() {
+// Route::prefix('userarea')->middleware('auth:sanctum')->prefix('userarea')->group(function() {
     
 // });
 // Route::get('/',function() {
@@ -35,9 +42,7 @@ Route::post('logout', 'LoginController@logout')->name('logout')->middleware('aut
 
 // Route::post('login')
 
-Route::get('user', function (Request $request) {
-    return $request->user()->load('customer', 'company');
-})->middleware('auth:sanctum');
+
 
 
 // Route::get('hello', function() {

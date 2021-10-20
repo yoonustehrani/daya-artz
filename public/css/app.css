@@ -10227,7 +10227,7 @@ h3 {
     margin-left: 5px !important;
   }
 
-  .login-form div.input-group {
+  .login-form form {
     width: 60% !important;
   }
 
@@ -10773,7 +10773,7 @@ h3 {
     left: 0 !important;
     right: 0 !important;
   }
-  .login-form .input-group {
+  .login-form form {
     width: 90% !important;
   }
   .login-form p {
@@ -11101,7 +11101,7 @@ h3 {
     top: calc(100% + 10px) !important;
   }
 
-  .login-form div.input-group {
+  .login-form form {
     width: 50% !important;
   }
 
@@ -14709,7 +14709,7 @@ div.header-section div.header-title .title span {
 .auth-container .login-bg .login-form div.input-group, .auth-container .login-bg .login-form p {
   margin: 10px 0 10px 0;
 }
-.auth-container .login-bg .login-form div.input-group {
+.auth-container .login-bg .login-form form {
   width: 35%;
 }
 .auth-container .login-bg .login-form .email-phone-container > div {

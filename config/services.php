@@ -39,6 +39,6 @@ return [
             'Username' => 'yoonustehrani',
             'Password' => 'uss828487'
         ]
-    ]
-
+    ],
+    'sms' => ['active' => false]
 ];

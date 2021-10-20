@@ -21,31 +21,34 @@ class Login extends Component {
                     <i className="fas fa-long-arrow-alt-left mr-1"></i>
                     <i className="fas fa-mobile mr-1"></i>
                 </span>
-                <div className="email-phone-container input-group">
-                    <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
-                            <input type="text" className="form-control" value={user_name} placeholder="ایمیل یا نام کاربری" onChange={onChangeField.bind(this, "login", "user_name")} />
-                            <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>
-                    </div>
-                    <div className={`input-group animated ${login_method === "phone"  ? "" : "d-none"}`}>
-                        <div className="input-group-prepend">
-                            <span className="country_codes_holder">
-                                <select id="login-country-select">
-                                    <option value="iran">+98</option>
-                                    <option value="united-states">+1</option>
-                                    <option value="united-kingdom">+356</option>
-                                </select>
-                            </span>
+                <form onSubmit={handleLogin} className="form-group">
+                    <div className="email-phone-container input-group">
+                        <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
+                                <input type="text" className="form-control" value={user_name} placeholder="ایمیل یا نام کاربری" onChange={onChangeField.bind(this, "login", "user_name")} />
+                                <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>
                         </div>
-                        <input type="text" value={phone_number} className="form-control ltr" placeholder="شماره موبایل" onChange={onChangeField.bind(this, "login", "phone_number")} />
-                        <div className="input-group-append"><span className="input-group-text"><i className="fas fa-mobile"></i></span></div>
+                        <div className={`input-group animated ${login_method === "phone"  ? "" : "d-none"}`}>
+                            <div className="input-group-prepend">
+                                <span className="country_codes_holder">
+                                    <select id="login-country-select">
+                                        <option value="iran">+98</option>
+                                        <option value="united-states">+1</option>
+                                        <option value="united-kingdom">+356</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <input type="text" value={phone_number} className="form-control ltr" placeholder="شماره موبایل" onChange={onChangeField.bind(this, "login", "phone_number")} />
+                            <div className="input-group-append"><span className="input-group-text"><i className="fas fa-mobile"></i></span></div>
+                        </div>
                     </div>
-                </div>
-                <div className="input-group">
-                    <input type="password" className="form-control" value={password} placeholder="رمز عبور" onChange={onChangeField.bind(this, "login", "password")} />
-                    <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
-                </div>
-                <Link to="/auth/forgetPassword" className="forgot-ps">رمز عبور خودتون رو فراموش کردید؟</Link>  
-                <button className="btn btn-lg badge-pill " onClick={handleLogin}>ورود</button>
+                    <div className="input-group">
+                        <input type="password" className="form-control" value={password} placeholder="رمز عبور" onChange={onChangeField.bind(this, "login", "password")} />
+                        <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
+                    </div>
+                    <button className="btn btn-lg badge-pill" type="submit">ورود</button>
+                    <br />
+                    <Link to="/auth/forgetPassword" className="forgot-ps">رمز عبور خودتون رو فراموش کردید؟</Link>
+                </form>
                 <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, false)}>برای ساخت حساب کلیک کنید!</span>              
             </div>
         );
