@@ -1,7 +1,8 @@
 import {
     APP_STATUS_CHANGED,
     USER_LOGGED_IN,
-    USER_LOGGED_OUT
+    USER_LOGGED_OUT,
+    USER_VERIFIED_PHONE
 } from "./actionTypes";
 import HttpClient from "../../services/HttpClient";
 import { getCookie } from "../../services/CookieService";
@@ -16,6 +17,7 @@ const httpService = new HttpClient({
 
 const logUserIn = user => ({ type: USER_LOGGED_IN, payload: user })
 const logUserOut = () => ({ type: USER_LOGGED_OUT })
+const verifyUserPhone = () => ({type: USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: APP_STATUS_CHANGED, payload: !! status })
 
 const checkAuth = async (dispatch, getState) => {
@@ -48,5 +50,6 @@ const logOut = async (dispatch, getState) => {
 export {
     logUserIn,
     checkAuth,
-    logOut
+    logOut,
+    verifyUserPhone
 }

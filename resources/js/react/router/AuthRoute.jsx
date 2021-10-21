@@ -5,16 +5,19 @@ import HttpClient from '../../services/HttpClient'
 import { getCookie } from '../../services/CookieService'
 // Redux
 import { connect } from 'react-redux';
-import { logUserIn } from '../redux/actions';
+import { logUserIn, verifyUserPhone } from '../redux/actions';
 // Routes
 import Login from '../Pages/Auth/Login';
 import Signup from '../Pages/Auth/Signup';
 import ForgetPassword from '../Pages/Auth/ForgetPassword';
-import SignupConfirm from '../Pages/Auth/SignupConfirm';
 // custom components
 import Background from '../Pages/Auth/components/Background';
 import DayaLogo from '../Pages/Auth/components/DayaLogo';
 import Welcome from '../Pages/Auth/components/Welcome';
+import GuestMiddleware from '../components/GuestMiddleware';
+import PrivateRoute from './PrivateRoute';
+import EmailValidation from '../Pages/Auth/EmailValidation';
+import PhoneValidation from '../Pages/Auth/PhoneValidation';
 
 const httpService = new HttpClient({
     baseURL: "http://localhost/api/v1/auth",
@@ -44,7 +47,7 @@ class AuthRoute extends Component {
                 phone_number: "",
                 email: ""
             },
-            signupConfirm : {
+            validation : {
                 code: ""
             },
             state: route_regex.exec(this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(this.props.location.pathname)[0],
@@ -131,14 +134,29 @@ class AuthRoute extends Component {
         e.preventDefault();
         let {email, phone_number, password, password_confirmation} = this.state.signup
         let payload = this.state.login_method == "email" ? {email, password, password_confirmation} : {phone_number, password, password_confirmation};
-        let param = {redirect_after: `/auth/validation/email${this.state.login_method}`}
-        httpService.post('/register', payload, {params: param}).then(res => {
-            console.log(res.data);
-            // let {user} = res.data
-            // authLogin(user)
+        httpService.post('/register', payload).then(res => {
+            let {user, okay} = res.data
+            if (okay) {
+                this.props.authLogin(user)
+            }
         })
-        // console.log(request_query);
     }
+
+    checkCodeForPhoneValidation = (e) => {
+        e.preventDefault();
+        let {code} = this.state.validation;
+        if (code.length === 6) {
+            httpService.post('/verification/phone/verify', {code}).then(res => {
+                let {okay, verified} = res.data;
+                if (verified) {
+                    this.props.verifyPhone()
+                }
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    }
+
     changeLoginMethod = () => {
         this.setState(prevState => ({
             login_method: prevState.login_method === "email" ? "phone" : "email"
@@ -178,16 +196,12 @@ class AuthRoute extends Component {
     }
 
     render() {
-        let {signup, login, forgetPassword, signupConfirm, login_method, state} = this.state, { history, location, match, user } = this.props
-
-        if (user) {
-            let { from } = location.state || { from: { pathname: "/" } }
-            return <Redirect to={from}/>
-        }
-        
+        let {signup, login, forgetPassword, validation, login_method, state} = this.state, { history, location, match, user } = this.props
         return (
             location.pathname !== "/auth"
             ? (
+                <>
+                <GuestMiddleware exception={['/auth/verification/email/', '/auth/verification/phone/']} location={location}/>
                 <div className="auth-container">
                     <div className="login-bg">
                         <DayaLogo state={state} />
@@ -206,15 +220,17 @@ class AuthRoute extends Component {
                                 <Route exact path={`/auth/forgetPassword`} children={(props) => (
                                     <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
                                 )} />
-
-                                <Route exact path={`/auth/signupConfirm`} children={(props) => (
-                                    <SignupConfirm {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={signupConfirm} login_method={login_method} />
-                                )} />
-                                
+                                <PrivateRoute exact={true} path="/auth/verification/email">
+                                    <EmailValidation user={user}/>
+                                </PrivateRoute>
+                                <PrivateRoute exact={true} path="/auth/verification/phone">
+                                    <PhoneValidation user={user} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
+                                </PrivateRoute>
                             </Switch>
                         </div>
                     </div>
                 </div>
+                </>
             )
             : <Redirect to={{ pathname: "/auth/login", state: {from: location} }} />
         );
@@ -227,6 +243,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     authLogin: user => dispatch(logUserIn(user)),
+    verifyPhone: () => dispatch(verifyUserPhone())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthRoute)

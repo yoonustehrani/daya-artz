@@ -17,6 +17,17 @@ class VerificationController extends Controller
     }
     public function verifyPhoneNumber(Request $request)
     {
-
+        $request->validate([
+            'code' => 'required|string|numeric|digits:6'
+        ]);
+        $user = $request->user();
+        $verification = $user->sms_verification_codes()->latest()->first();
+        if ($verification && $verification->code) {
+            if ($verification->code == $request->input('code')) {
+                $user->phone_verified = true;
+                return ['okay' => true, 'verified' => $user->save()]; //  && $verification->delete()
+            }
+        }
+        return ['okay' => false, 'verified' => !! $user->phone_verified];
     }
 }

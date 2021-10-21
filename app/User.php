@@ -40,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function verification_codes()
     {
-        return $this->hasMany(VerificationCode::class);
+        return $this->hasMany(VerificationCode::class)->where('expires_at', '>', now());
     }
 
     public function sms_verification_codes()

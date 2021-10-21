@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 
 class PhoneValidation extends Component {  
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, handleLogin, fields_info, login_method } = this.props, { code } = fields_info
-        return (
+        let { onChangeField, code, checkCode, user } = this.props
+        return user.phone_number && user.phone_verified
+        ? <Redirect to="/dashboard"/>
+        : (
             <div>
                 <h2>تایید شماره تلفن</h2>
                 <p>جهت تکمیل فرآیند ثبت نام لازم است کد احراز هویت ارسال شده به شماره تلفن خود را در کادر زیر وارد کنید</p>
-                <div className="input-group">
-                    <input type="text" value={code} className="form-control" placeholder="کد ارسالی" onChange={onChangeField.bind(this, "signupConfirm", "code")}/>
-                    <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>
-                </div>
-                
+                <form onSubmit={checkCode}>
+                    <div className="input-group">
+                        <input type="text" maxLength={6} value={code} className="form-control text-left ltr" placeholder="کد ارسالی" onChange={onChangeField.bind(this, "validation", "code")}/>
+                    </div>
+                    <button disabled={code.length < 6} className="btn btn-lg badge-pill" type="submit">ارسال</button>
+                </form>
             </div>
         );
     }

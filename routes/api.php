@@ -25,13 +25,14 @@ Route::prefix('auth')->name('auth.')->group(function() {
     Route::get('user', function (Request $request) {
         return $request->user()->load('customer', 'company');
     })->name('user')->middleware('auth:sanctum');
+    Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
+        Route::post('phone/verify', 'VerificationController@verifyPhoneNumber')->name('phone.verify');
+        // Route::post('phone/resend')
+        // Route::post('email/resend');
+    });
 });
 
 
-
-// Route::prefix('verification')->name('verification.')->group(function() { // ->middleware('auth:sanctum')
-    
-// });
 // Route::prefix('userarea')->middleware('auth:sanctum')->prefix('userarea')->group(function() {
     
 // });

@@ -16,15 +16,13 @@ class RegisterController extends Controller
     }
     public function register(Request $request)
     {   
-        return $request->toArray();
-        return $request->query('redirect_after');
         $this->username = $this->getDesiredUsernameKey(array_keys($request->toArray()));
         $this->validateRegister($request);
         $user = $this->create($this->credentials($request));
         \Auth::guard()->login($user);
         event(new UserRegistered($user));
         return response()->json([
-            'okay' => true, 'message' => 'Registered Successfully', 'user' => $user, 'redirect' => $request->query('redirect_after')
+            'okay' => true, 'message' => 'Registered Successfully', 'user' => $user
         ]);
     }
     public function credentials(Request $request)

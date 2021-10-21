@@ -1,7 +1,8 @@
 import {
     APP_STATUS_CHANGED,
     USER_LOGGED_IN,
-    USER_LOGGED_OUT
+    USER_LOGGED_OUT,
+    USER_VERIFIED_PHONE
 } from "../actionTypes"
 
 var stateCopy, defaultState = {
@@ -21,6 +22,12 @@ const loginReducer = (state = defaultState, action) => {
             return stateCopy
         case USER_LOGGED_OUT:
             stateCopy.user = null
+            return stateCopy
+        case USER_VERIFIED_PHONE:
+            stateCopy.user = {
+                ...stateCopy.user,
+                phone_verified: true
+            }
             return stateCopy
         case APP_STATUS_CHANGED:
             stateCopy.loading = action.payload

@@ -48,6 +48,7 @@ class VerificationNotification extends Notification
     {
         $verification = $notifiable->generateVerificationCode('verify_phone', generate_code(), false, 2);
         if (!! config('services.sms.active')) {
+            \Log::critical("verification code is: {$verification->code}");
             (new SMS())->to($notifiable->phone_number)->sendAuth("کد احراز هویت : {$verification->code}");
         }
     }
