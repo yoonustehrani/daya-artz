@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,12 +28,28 @@ Route::prefix('auth')->name('auth.')->group(function() {
     })->name('user')->middleware('auth:sanctum');
     Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
         Route::post('phone/verify', 'VerificationController@verifyPhoneNumber')->name('phone.verify');
-        // Route::post('phone/resend')
-        // Route::post('email/resend');
+        Route::put('phone/edit', function (Request $request) {
+            $request->validate([
+                'phone_number' => 'required|string|regex:/^9[0-9]{9}$/|unique:users'
+            ]);
+            $user = $request->user();
+            abort_if($user->phone_verified, 422, "Phone already verified");
+            $user->phone_number = $request->input('phone_number');
+            return ['okay' => $user->save()];
+        });
+        Route::put('email/edit', function (Request $request) {
+            $request->validate([
+                'email' => 'required|email:filter,dns|unique:users'
+            ]);
+            $user = $request->user();
+            abort_if(!! $user->email_verified_at, 422, "email already verified");
+            $user->phone_verified = $request->input('email');
+            return ['okay' => $user->save()];
+        });
+        Route::post('phone/resend', 'VerificationController@resendSmsCode');
+        Route::post('email/resend', 'VerificationController@resendEmail');
     });
 });
-
-
 // Route::prefix('userarea')->middleware('auth:sanctum')->prefix('userarea')->group(function() {
     
 // });

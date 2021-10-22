@@ -5,7 +5,7 @@ import HttpClient from '../../services/HttpClient'
 import { getCookie } from '../../services/CookieService'
 // Redux
 import { connect } from 'react-redux';
-import { logUserIn, verifyUserPhone } from '../redux/actions';
+import { logUserIn, verifyUserPhone, changePhoneNumber } from '../redux/actions';
 // Routes
 import Login from '../Pages/Auth/Login';
 import Signup from '../Pages/Auth/Signup';
@@ -123,8 +123,9 @@ class AuthRoute extends Component {
     handleLogin = (e) => {
         e.preventDefault();
         let { authLogin } = this.props;
-        let {user_name, password} = this.state.login;
-        httpService.post('/login', {email: user_name, password: password}).then(res => {
+        let {email, phone_number, password} = this.state.login;
+        let payload = this.state.login_method == "email" ? {email, password} : {phone_number, password};
+        httpService.post('/login', payload).then(res => {
             let {user} = res.data
             authLogin(user)
         })
@@ -142,6 +143,13 @@ class AuthRoute extends Component {
         })
     }
 
+    handleEdit = (type, payload) => (
+        httpService.put(`/verification/${type == 'phone' ? 'phone' : 'email'}/edit`, payload)
+    )
+
+    handleResend = (type) => (
+        httpService.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
+    )
     checkCodeForPhoneValidation = (e) => {
         e.preventDefault();
         let {code} = this.state.validation;
@@ -221,10 +229,10 @@ class AuthRoute extends Component {
                                     <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
                                 )} />
                                 <PrivateRoute exact={true} path="/auth/verification/email">
-                                    <EmailValidation user={user}/>
+                                    <EmailValidation user={user} handleResend={this.handleResend} handleEdit={this.handleEdit}/>
                                 </PrivateRoute>
                                 <PrivateRoute exact={true} path="/auth/verification/phone">
-                                    <PhoneValidation user={user} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
+                                    <PhoneValidation user={user} handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation} handleEdit={this.handleEdit} changePhoneNumber={this.props.changePhoneNumber}/>
                                 </PrivateRoute>
                             </Switch>
                         </div>
@@ -243,7 +251,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     authLogin: user => dispatch(logUserIn(user)),
-    verifyPhone: () => dispatch(verifyUserPhone())
+    verifyPhone: () => dispatch(verifyUserPhone()),
+    changePhoneNumber: phone_number => dispatch(changePhoneNumber(phone_number))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthRoute)

@@ -209,7 +209,7 @@ $xl-xl-breakpoint: 1400px;
         }
     }
     .login-form {
-        form {
+        form.default-style {
             width: 60% !important;
         }
     }
@@ -1120,7 +1120,7 @@ $xl-xl-breakpoint: 1400px;
         }
     }
     .login-form {
-        form {
+        form.default-style {
             width: 50% !important;
         }
     }

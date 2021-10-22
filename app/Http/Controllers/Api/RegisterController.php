@@ -54,7 +54,7 @@ class RegisterController extends Controller
     {
         $variable_rules = [
             'email' => 'required|email:filter,dns|unique:users',
-            'phone_number' => '',
+            'phone_number' => 'required|string|regex:/^9[0-9]{9}$/|unique:users',
         ];
         return $request->validate([
             $this->username() => $variable_rules[$this->username()],

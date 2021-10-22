@@ -8,7 +8,7 @@ class Login extends Component {
     }
     
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, fields_info, login_method, handleLogin, history } = this.props, { user_name, phone_number, password } = fields_info
+        let { changeLoginMethod, changeSection, onChangeField, fields_info, login_method, handleLogin, history } = this.props, { email, phone_number, password } = fields_info
         return (
             <div>
                 <h2>ورود به دایا</h2>
@@ -21,10 +21,10 @@ class Login extends Component {
                     <i className="fas fa-long-arrow-alt-left mr-1"></i>
                     <i className="fas fa-mobile mr-1"></i>
                 </span>
-                <form onSubmit={handleLogin} className="form-group">
+                <form onSubmit={handleLogin} className="form-group default-style">
                     <div className="email-phone-container input-group">
                         <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
-                                <input type="text" className="form-control" value={user_name} placeholder="ایمیل یا نام کاربری" onChange={onChangeField.bind(this, "login", "user_name")} />
+                                <input type="text" className="form-control" value={email} placeholder="ایمیل یا نام کاربری" onChange={onChangeField.bind(this, "login", "email")} />
                                 <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>
                         </div>
                         <div className={`input-group animated ${login_method === "phone"  ? "" : "d-none"}`}>

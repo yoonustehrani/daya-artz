@@ -42,7 +42,7 @@ class LoginController extends Controller
     {
         $variable_rules = [
             'email' => 'required|email:filter',
-            'phone_number' => '',
+            'phone_number' => 'required|string|regex:/^9[0-9]{9}$/',
         ];
         return $request->validate([
             $this->username() => $variable_rules[$this->username()],

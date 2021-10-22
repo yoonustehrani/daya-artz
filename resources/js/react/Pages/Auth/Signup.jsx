@@ -21,7 +21,7 @@ class Signup extends Component {
                     <i className="fas fa-long-arrow-alt-left mr-1"></i>
                     <i className="fas fa-mobile mr-1"></i>
                 </span>
-                <form onSubmit={handleRegister} className="form-group">
+                <form onSubmit={handleRegister} className="form-group default-style">
                     <div className="email-phone-container input-group">
                         <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
                             <input type="email" value={email} className="form-control" placeholder="ایمیل" onChange={onChangeField.bind(this, "signup", "email")}/>
