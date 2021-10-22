@@ -3250,8 +3250,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3274,6 +3276,11 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
 
 
 
@@ -3284,26 +3291,161 @@ var EmailValidation = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(EmailValidation);
 
-  function EmailValidation() {
+  function EmailValidation(props) {
+    var _this;
+
     _classCallCheck(this, EmailValidation);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "setResendTime", function (time) {
+      clearInterval(_this.interval);
+
+      _this.setState({
+        resendIn: time
+      }, function () {
+        _this.interval = setInterval(function () {
+          if (_this.state.resendIn <= 0) {
+            clearInterval(_this.interval);
+          } else {
+            _this.setState(function (prevState) {
+              return {
+                resendIn: prevState.resendIn - 1
+              };
+            });
+          }
+        }, 1000);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleEdit", function (e) {
+      e.preventDefault();
+      var _this$props = _this.props,
+          handleEdit = _this$props.handleEdit,
+          editEmail = _this$props.editEmail; // send http request here
+
+      handleEdit("email", {
+        email: _this.state.email
+      }).then(function (res) {
+        if (res.data.okay) {
+          _this.setState({
+            edit: false
+          });
+
+          editEmail(_this.state.email);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleResend", function () {
+      var handleResend = _this.props.handleResend;
+      handleResend('email').then(function (res) {
+        var _res$data = res.data,
+            okay = _res$data.okay,
+            left_attempts = _res$data.left_attempts,
+            next_attempt_in_seconds = _res$data.next_attempt_in_seconds;
+
+        _this.setResendTime(next_attempt_in_seconds);
+
+        _this.setState({
+          left_attempts: left_attempts
+        });
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    });
+
+    _this.state = {
+      resendIn: 0,
+      resend: true,
+      left_attempts: 3,
+      edit: false,
+      email: props.user.email
+    };
+    _this.interval = null;
+    return _this;
   }
 
   _createClass(EmailValidation, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setResendTime(10);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.interval);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$props$user = this.props.user,
-          email = _this$props$user.email,
-          email_verified_at = _this$props$user.email_verified_at;
-      return email && email_verified_at ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_2__.Redirect, {
+      var _this2 = this;
+
+      var user = this.props.user;
+      return user.email && user.email_verified_at ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_4__.Redirect, {
         to: "/dashboard"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-          children: "\u062A\u0627\u06CC\u06CC\u062F \u0622\u062F\u0631\u0633 \u0627\u06CC\u0645\u06CC\u0644"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
-          children: ["\u0644\u0637\u0641\u0627 \u0628\u0631\u0627\u06CC \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06CC \u062D\u0633\u0627\u0628 \u06A9\u0627\u0631\u0628\u0631\u06CC \u062E\u0648\u062F \u0627\u06CC\u0645\u06CC\u0644 \u0627\u0631\u0633\u0627\u0644 \u0634\u062F\u0647 \u0628\u0647 \u0622\u062F\u0631\u0633 ", this.props.user.email, " \u0631\u0627 \u0686\u06A9 \u06A9\u0646\u06CC\u062F", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "\u0628\u0627 \u06A9\u0644\u06CC\u06A9 \u06A9\u0631\u062F\u0646 \u0631\u0648\u06CC \u062F\u06A9\u0645\u0647 \u06CC\u0627 \u0644\u06CC\u0646\u06A9 \u0642\u0631\u0627\u0631 \u062F\u0627\u062F\u0647 \u0634\u062F\u0647 \u062F\u0631 \u062F\u0627\u062E\u0644 \u0627\u06CC\u0645\u06CC\u0644\u06CC \u06A9\u0647 \u0627\u0632 \u0633\u0645\u062A \u0645\u0627 \u0628\u0631\u0627\u06CC\u062A\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0634\u062F\u0647 \u0645\u06CC \u062A\u0648\u0627\u0646\u06CC\u062F \u062D\u0633\u0627\u0628 \u06A9\u0627\u0631\u0628\u0631\u06CC \u062A\u0627\u0646 \u0631\u0627 \u0641\u0639\u0627\u0644 \u06A9\u0646\u06CC\u062F"]
-        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: !this.state.edit ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+            children: "\u062A\u0627\u06CC\u06CC\u062F \u0622\u062F\u0631\u0633 \u0627\u06CC\u0645\u06CC\u0644"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            children: ["\u0644\u0637\u0641\u0627 \u0628\u0631\u0627\u06CC \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06CC \u062D\u0633\u0627\u0628 \u06A9\u0627\u0631\u0628\u0631\u06CC \u062E\u0648\u062F \u0627\u06CC\u0645\u06CC\u0644 \u0627\u0631\u0633\u0627\u0644 \u0634\u062F\u0647 \u0628\u0647 \u0622\u062F\u0631\u0633 ", user.email, " \u0631\u0627 \u0686\u06A9 \u06A9\u0646\u06CC\u062F", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u0628\u0627 \u06A9\u0644\u06CC\u06A9 \u06A9\u0631\u062F\u0646 \u0631\u0648\u06CC \u062F\u06A9\u0645\u0647 \u06CC\u0627 \u0644\u06CC\u0646\u06A9 \u0642\u0631\u0627\u0631 \u062F\u0627\u062F\u0647 \u0634\u062F\u0647 \u062F\u0631 \u062F\u0627\u062E\u0644 \u0627\u06CC\u0645\u06CC\u0644\u06CC \u06A9\u0647 \u0627\u0632 \u0633\u0645\u062A \u0645\u0627 \u0628\u0631\u0627\u06CC\u062A\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0634\u062F\u0647 \u0645\u06CC \u062A\u0648\u0627\u0646\u06CC\u062F \u062D\u0633\u0627\u0628 \u06A9\u0627\u0631\u0628\u0631\u06CC \u062A\u0627\u0646 \u0631\u0627 \u0641\u0639\u0627\u0644 \u06A9\u0646\u06CC\u062F"]
+          }), this.state.left_attempts > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            disabled: this.state.resendIn > 0,
+            onClick: this.handleResend,
+            className: "btn btn-lg",
+            children: this.state.resendIn > 0 ? this.state.resendIn : "ارسال مجدد ایمیل"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            className: "text-right mt-5 text-small",
+            children: ["\u0622\u062F\u0631\u0633 \u0627\u06CC\u0645\u06CC\u0644 ", user.email, " \u0627\u0634\u062A\u0628\u0627\u0647 \u0627\u0633\u062A \u061F ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+              onClick: function onClick() {
+                return _this2.setState({
+                  edit: true
+                });
+              },
+              href: "#edit",
+              children: "\u0648\u06CC\u0631\u0627\u06CC\u0634"
+            })]
+          })]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+            children: "\u0648\u06CC\u0631\u0627\u06CC\u0634 \u0627\u06CC\u0645\u06CC\u0644"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
+            onSubmit: this.handleEdit,
+            className: "form-group w-50",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "input-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "input-group-prepend",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                  className: "btn btn-def m-0 w-auto btn-success",
+                  type: "submit",
+                  children: "\u0648\u06CC\u0631\u0627\u06CC\u0634"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                type: "text",
+                className: "form-control text-left ltr",
+                value: this.state.email,
+                onChange: function onChange(e) {
+                  return _this2.setState({
+                    email: e.target.value
+                  });
+                }
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "btn btn-def btn-outline-secondary",
+            type: "button",
+            onClick: function onClick() {
+              return _this2.setState({
+                edit: false
+              });
+            },
+            children: "\u0628\u0627\u0632\u06AF\u0634\u062A"
+          })]
+        })
       });
     }
   }]);
@@ -3311,7 +3453,21 @@ var EmailValidation = /*#__PURE__*/function (_Component) {
   return EmailValidation;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EmailValidation);
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    user: state.auth.user
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    editEmail: function editEmail(email) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.changeEmail)(email));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(EmailValidation));
 
 /***/ }),
 
@@ -3694,8 +3850,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/actions */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3719,6 +3877,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -3777,9 +3937,12 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleEdit", function (e) {
-      e.preventDefault(); // send http request here
+      e.preventDefault();
+      var _this$props = _this.props,
+          handleEdit = _this$props.handleEdit,
+          editPhone = _this$props.editPhone; // send http request here
 
-      _this.props.handleEdit("phone", {
+      handleEdit("phone", {
         phone_number: _this.state.phone_number
       }).then(function (res) {
         if (res.data.okay) {
@@ -3787,12 +3950,11 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
             edit: false
           });
 
-          _this.props.changePhoneNumber(_this.state.phone_number);
+          editPhone(_this.state.phone_number);
         }
       })["catch"](function (err) {
         return console.log(err);
       }); // then set the edit state false
-
     });
 
     _this.state = {
@@ -3809,7 +3971,7 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
   _createClass(PhoneValidation, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.setResendTime(35);
+      this.setResendTime(10);
     }
   }, {
     key: "componentWillUnmount",
@@ -3821,40 +3983,39 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var _this$props = this.props,
-          onChangeField = _this$props.onChangeField,
-          code = _this$props.code,
-          checkCode = _this$props.checkCode,
-          user = _this$props.user,
-          changePhoneNumber = _this$props.changePhoneNumber;
-      return user.phone_number && user.phone_verified ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_2__.Redirect, {
+      var _this$props2 = this.props,
+          onChangeField = _this$props2.onChangeField,
+          code = _this$props2.code,
+          checkCode = _this$props2.checkCode,
+          user = _this$props2.user;
+      return user.phone_number && user.phone_verified ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_4__.Redirect, {
         to: "/dashboard"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-        children: !this.state.edit ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: !this.state.edit ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
             children: "\u062A\u0627\u06CC\u06CC\u062F \u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
             children: "\u062C\u0647\u062A \u062A\u06A9\u0645\u06CC\u0644 \u0641\u0631\u0622\u06CC\u0646\u062F \u062B\u0628\u062A \u0646\u0627\u0645 \u0644\u0627\u0632\u0645 \u0627\u0633\u062A \u06A9\u062F \u0627\u062D\u0631\u0627\u0632 \u0647\u0648\u06CC\u062A \u0627\u0631\u0633\u0627\u0644 \u0634\u062F\u0647 \u0628\u0647 \u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646 \u062E\u0648\u062F \u0631\u0627 \u062F\u0631 \u06A9\u0627\u062F\u0631 \u0632\u06CC\u0631 \u0648\u0627\u0631\u062F \u06A9\u0646\u06CC\u062F"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
             onSubmit: checkCode,
             className: "form-group",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "input-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                 type: "text",
                 maxLength: 6,
                 value: code,
                 className: "form-control text-left ltr",
                 placeholder: "\u06A9\u062F \u0627\u0631\u0633\u0627\u0644\u06CC",
                 onChange: onChangeField.bind(this, "validation", "code")
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "input-group-append",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                   disabled: code.length < 6,
                   className: "btn btn-def btn-primary m-0 w-auto",
                   type: "submit",
                   children: "\u062A\u0627\u06CC\u06CC\u062F"
-                }), this.state.left_attempts > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                }), this.state.left_attempts > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                   disabled: this.state.resendIn > 0,
                   onClick: this.handleResend,
                   className: "btn m-0 w-auto",
@@ -3862,8 +4023,8 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
                 })]
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
-            children: ["\u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646 ", user.phone_number, " \u0627\u0634\u062A\u0628\u0627\u0647 \u0627\u0633\u062A \u061F ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            children: ["\u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646 ", user.phone_number, " \u0627\u0634\u062A\u0628\u0627\u0647 \u0627\u0633\u062A \u061F ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
               onClick: function onClick() {
                 return _this2.setState({
                   edit: true
@@ -3873,22 +4034,22 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
               children: "\u0648\u06CC\u0631\u0627\u06CC\u0634"
             })]
           })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
             children: "\u0648\u06CC\u0631\u0627\u06CC\u0634 \u062A\u0644\u0641\u0646 \u0647\u0645\u0631\u0627\u0647"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
             onSubmit: this.handleEdit,
             className: "form-group",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "input-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "input-group-prepend",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                   className: "btn btn-def m-0 w-auto btn-success",
                   type: "submit",
                   children: "\u0648\u06CC\u0631\u0627\u06CC\u0634"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                 type: "text",
                 className: "form-control text-left ltr",
                 value: this.state.phone_number,
@@ -3899,7 +4060,7 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
                 }
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             className: "btn btn-def btn-outline-secondary",
             type: "button",
             onClick: function onClick() {
@@ -3917,7 +4078,21 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
   return PhoneValidation;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PhoneValidation);
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    user: state.auth.user
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    editPhone: function editPhone(phone_number) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.changePhoneNumber)(phone_number));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(PhoneValidation));
 
 /***/ }),
 
@@ -6154,6 +6329,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "USER_LOGGED_OUT": () => (/* binding */ USER_LOGGED_OUT),
 /* harmony export */   "USER_VERIFIED_PHONE": () => (/* binding */ USER_VERIFIED_PHONE),
 /* harmony export */   "USER_PHONE_NUMBER_CHANGED": () => (/* binding */ USER_PHONE_NUMBER_CHANGED),
+/* harmony export */   "USER_EMAIL_CHANGED": () => (/* binding */ USER_EMAIL_CHANGED),
 /* harmony export */   "APP_STATUS_CHANGED": () => (/* binding */ APP_STATUS_CHANGED)
 /* harmony export */ });
 // authentication
@@ -6161,6 +6337,7 @@ var USER_LOGGED_IN = "auth/userLoggedin";
 var USER_LOGGED_OUT = "auth/userLoggedOut";
 var USER_VERIFIED_PHONE = "auth/userVerifiedPhoneNumber";
 var USER_PHONE_NUMBER_CHANGED = "auth/userChangedPhoneNumber";
+var USER_EMAIL_CHANGED = "auth/userChangedEmail";
 var APP_STATUS_CHANGED = "auth/appStatusChanged";
 
 
@@ -6179,7 +6356,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "checkAuth": () => (/* binding */ checkAuth),
 /* harmony export */   "logOut": () => (/* binding */ logOut),
 /* harmony export */   "verifyUserPhone": () => (/* binding */ verifyUserPhone),
-/* harmony export */   "changePhoneNumber": () => (/* binding */ changePhoneNumber)
+/* harmony export */   "changePhoneNumber": () => (/* binding */ changePhoneNumber),
+/* harmony export */   "changeEmail": () => (/* binding */ changeEmail)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -6233,6 +6411,13 @@ var changePhoneNumber = function changePhoneNumber(phone_number) {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__.USER_PHONE_NUMBER_CHANGED,
     payload: phone_number
+  };
+};
+
+var changeEmail = function changeEmail(email) {
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__.USER_EMAIL_CHANGED,
+    payload: email
   };
 };
 
@@ -6386,6 +6571,12 @@ var loginReducer = function loginReducer() {
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_PHONE_NUMBER_CHANGED:
       stateCopy.user = _objectSpread(_objectSpread({}, stateCopy.user), {}, {
         phone_number: action.payload
+      });
+      return stateCopy;
+
+    case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_EMAIL_CHANGED:
+      stateCopy.user = _objectSpread(_objectSpread({}, stateCopy.user), {}, {
+        email: action.payload
       });
       return stateCopy;
 
@@ -6827,7 +7018,6 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                   exact: true,
                   path: "/auth/verification/email",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_EmailValidation__WEBPACK_IMPORTED_MODULE_14__["default"], {
-                    user: user,
                     handleResend: this.handleResend,
                     handleEdit: this.handleEdit
                   })
@@ -6835,13 +7025,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                   exact: true,
                   path: "/auth/verification/phone",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_PhoneValidation__WEBPACK_IMPORTED_MODULE_15__["default"], {
-                    user: user,
                     handleResend: this.handleResend,
                     code: validation.code,
                     onChangeField: this.onChangeField,
                     checkCode: this.checkCodeForPhoneValidation,
-                    handleEdit: this.handleEdit,
-                    changePhoneNumber: this.props.changePhoneNumber
+                    handleEdit: this.handleEdit
                   })
                 })]
               })
@@ -6875,9 +7063,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     verifyPhone: function verifyPhone() {
       return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.verifyUserPhone)());
-    },
-    changePhoneNumber: function changePhoneNumber(phone_number) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.changePhoneNumber)(phone_number));
     }
   };
 };

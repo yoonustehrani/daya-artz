@@ -43,7 +43,7 @@ Route::prefix('auth')->name('auth.')->group(function() {
             ]);
             $user = $request->user();
             abort_if(!! $user->email_verified_at, 422, "email already verified");
-            $user->phone_verified = $request->input('email');
+            $user->email = $request->input('email');
             return ['okay' => $user->save()];
         });
         Route::post('phone/resend', 'VerificationController@resendSmsCode');

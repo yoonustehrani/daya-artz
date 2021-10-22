@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import { changePhoneNumber } from '../../redux/actions';
 
 class PhoneValidation extends Component {
     constructor(props) {
@@ -14,7 +16,7 @@ class PhoneValidation extends Component {
         this.interval = null
     }
     componentDidMount() {
-        this.setResendTime(35)
+        this.setResendTime(10)
     }
     componentWillUnmount() {
         clearInterval(this.interval)
@@ -45,18 +47,19 @@ class PhoneValidation extends Component {
     }
     handleEdit = (e) => {
         e.preventDefault()
+        let {handleEdit, editPhone} = this.props;
         // send http request here
-        this.props.handleEdit("phone", {phone_number: this.state.phone_number}).then(res => {
+        handleEdit("phone", {phone_number: this.state.phone_number}).then(res => {
             if (res.data.okay) {
                 this.setState({edit: false})
-                this.props.changePhoneNumber(this.state.phone_number)
+                editPhone(this.state.phone_number)
                 
             }
         }).catch(err => console.log(err))
         // then set the edit state false
     }
     render() {
-        let { onChangeField, code, checkCode, user, changePhoneNumber } = this.props
+        let { onChangeField, code, checkCode, user } = this.props
         return user.phone_number && user.phone_verified
         ? <Redirect to="/dashboard"/>
         : (
@@ -99,4 +102,12 @@ class PhoneValidation extends Component {
     }
 }
 
-export default PhoneValidation;
+const mapStateToProps = state => ({
+    user: state.auth.user
+})
+
+const mapDispatchToProps = dispatch => ({
+    editPhone: phone_number => dispatch(changePhoneNumber(phone_number))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneValidation);

@@ -5,7 +5,7 @@ import HttpClient from '../../services/HttpClient'
 import { getCookie } from '../../services/CookieService'
 // Redux
 import { connect } from 'react-redux';
-import { logUserIn, verifyUserPhone, changePhoneNumber } from '../redux/actions';
+import { logUserIn, verifyUserPhone } from '../redux/actions';
 // Routes
 import Login from '../Pages/Auth/Login';
 import Signup from '../Pages/Auth/Signup';
@@ -143,13 +143,9 @@ class AuthRoute extends Component {
         })
     }
 
-    handleEdit = (type, payload) => (
-        httpService.put(`/verification/${type == 'phone' ? 'phone' : 'email'}/edit`, payload)
-    )
+    handleEdit = (type, payload) => httpService.put(`/verification/${type == 'phone' ? 'phone' : 'email'}/edit`, payload)
 
-    handleResend = (type) => (
-        httpService.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
-    )
+    handleResend = (type) => httpService.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
     checkCodeForPhoneValidation = (e) => {
         e.preventDefault();
         let {code} = this.state.validation;
@@ -229,10 +225,10 @@ class AuthRoute extends Component {
                                     <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
                                 )} />
                                 <PrivateRoute exact={true} path="/auth/verification/email">
-                                    <EmailValidation user={user} handleResend={this.handleResend} handleEdit={this.handleEdit}/>
+                                    <EmailValidation handleResend={this.handleResend} handleEdit={this.handleEdit}/>
                                 </PrivateRoute>
                                 <PrivateRoute exact={true} path="/auth/verification/phone">
-                                    <PhoneValidation user={user} handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation} handleEdit={this.handleEdit} changePhoneNumber={this.props.changePhoneNumber}/>
+                                    <PhoneValidation handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation} handleEdit={this.handleEdit}/>
                                 </PrivateRoute>
                             </Switch>
                         </div>
@@ -252,7 +248,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     authLogin: user => dispatch(logUserIn(user)),
     verifyPhone: () => dispatch(verifyUserPhone()),
-    changePhoneNumber: phone_number => dispatch(changePhoneNumber(phone_number))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthRoute)
