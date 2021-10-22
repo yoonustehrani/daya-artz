@@ -16,7 +16,7 @@ class PhoneValidation extends Component {
         this.interval = null
     }
     componentDidMount() {
-        this.setResendTime(10)
+        this.setResendTime(60)
     }
     componentWillUnmount() {
         clearInterval(this.interval)

@@ -3371,7 +3371,7 @@ var EmailValidation = /*#__PURE__*/function (_Component) {
   _createClass(EmailValidation, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.setResendTime(10);
+      this.setResendTime(60);
     }
   }, {
     key: "componentWillUnmount",
@@ -3971,7 +3971,7 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
   _createClass(PhoneValidation, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.setResendTime(10);
+      this.setResendTime(60);
     }
   }, {
     key: "componentWillUnmount",
