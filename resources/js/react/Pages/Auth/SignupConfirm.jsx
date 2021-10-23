@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class SignupConfirm extends Component {
-    goToSignup = () => {
-        let {history} = this.props
-        history.push("/auth/signup")
-    }
-
-    checkCode = () => {
-
-    }
-
     render() {
         let { changeLoginMethod, changeSection, onChangeField, handleLogin, fields_info, login_method } = this.props, { code } = fields_info
 
@@ -23,7 +14,7 @@ class SignupConfirm extends Component {
                     <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>
                 </div>
                 <button className="btn btn-lg badge-pill " onClick={this.checkCode.bind(this)}>نهایی سازی</button>
-                <Link to="/auth/signup" className="change-form-mobile mt-2">برای ساخت حساب کلیک کنید!</Link>              
+                <Link to="/auth/signup" className="change-form-mobile mt-2">برای ساخت حساب کلیک کنید!</Link>
             </div>
         );
     }

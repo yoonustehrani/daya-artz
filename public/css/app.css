@@ -10227,7 +10227,7 @@ h3 {
     margin-left: 5px !important;
   }
 
-  .login-form div.input-group {
+  .login-form form.default-style {
     width: 60% !important;
   }
 
@@ -10777,7 +10777,7 @@ h3 {
     left: 0 !important;
     right: 0 !important;
   }
-  .login-form .input-group {
+  .login-form form {
     width: 90% !important;
   }
   .login-form p {
@@ -11117,7 +11117,7 @@ h3 {
     top: calc(100% + 10px) !important;
   }
 
-  .login-form div.input-group {
+  .login-form form.default-style {
     width: 50% !important;
   }
 
@@ -11172,6 +11172,10 @@ cite::before {
 p {
   font-size: 18px;
   line-height: 2;
+}
+
+.text-small {
+  font-size: 14px;
 }
 
 a:hover {
@@ -14714,13 +14718,13 @@ div.header-section div.header-title .title span {
   font-size: 20px;
   color: #fff;
 }
-.auth-container .login-bg .login-form button {
+.auth-container .login-bg .login-form button:not(.btn-def) {
   background-color: #8f60ec;
   color: #fff;
   width: 40%;
   transition: 0.5s;
 }
-.auth-container .login-bg .login-form button:hover {
+.auth-container .login-bg .login-form button:not(.btn-def):hover {
   background-color: #6232de;
 }
 .auth-container .login-bg .login-form h2, .auth-container .login-bg .login-form .login-icons, .auth-container .login-bg .login-form button, .auth-container .login-bg .login-form a {
@@ -14729,7 +14733,7 @@ div.header-section div.header-title .title span {
 .auth-container .login-bg .login-form div.input-group, .auth-container .login-bg .login-form p {
   margin: 10px 0 10px 0;
 }
-.auth-container .login-bg .login-form div.input-group {
+.auth-container .login-bg .login-form form.default-style {
   width: 35%;
 }
 .auth-container .login-bg .login-form .email-phone-container > div {

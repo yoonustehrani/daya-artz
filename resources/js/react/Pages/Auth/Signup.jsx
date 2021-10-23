@@ -8,7 +8,7 @@ class Signup extends Component {
     }
     
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, handleLogin, fields_info, login_method, history } = this.props, { user_name, email, phone_number, password, rep_password } = fields_info
+        let { changeLoginMethod, changeSection, onChangeField, handleRegister, fields_info, login_method, history } = this.props, { email, phone_number, password, password_confirmation } = fields_info
         return (
             <div>
                 <h2>ثبت نام در دایا</h2>
@@ -21,38 +21,36 @@ class Signup extends Component {
                     <i className="fas fa-long-arrow-alt-left mr-1"></i>
                     <i className="fas fa-mobile mr-1"></i>
                 </span>
-                <div className="input-group">
-                    <input type="text" value={user_name} className="form-control" placeholder="نام کاربری" onChange={onChangeField.bind(this, "signup", "user_name")}/>
-                    <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>
-                </div>
-                <div className="email-phone-container input-group">
-                    <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
-                        <input type="email" value={email} className="form-control" placeholder="ایمیل" onChange={onChangeField.bind(this, "signup", "email")}/>
-                        <div className="input-group-append"><span className="input-group-text"><i className="fas fa-at"></i></span></div>
-                    </div>
-                    <div className={`input-group animated ${login_method === "phone" ? "" : "d-none"}`}>
-                        <div className="input-group-prepend">
-                            <span className="country_codes_holder">
-                                <select id="register-country-select">
-                                    <option value="iran">+98</option>
-                                    <option value="united-states">+1</option>
-                                    <option value="united-kingdom">+356</option>
-                                </select>
-                            </span>
+                <form onSubmit={handleRegister} className="form-group default-style">
+                    <div className="email-phone-container input-group">
+                        <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
+                            <input type="email" value={email} className="form-control" placeholder="ایمیل" onChange={onChangeField.bind(this, "signup", "email")}/>
+                            <div className="input-group-append"><span className="input-group-text"><i className="fas fa-at"></i></span></div>
                         </div>
-                        <input type="text" value={phone_number} className="form-control ltr" placeholder="شماره موبایل" onChange={onChangeField.bind(this, "signup", "phone_number")} />
-                        <div className="input-group-append"><span className="input-group-text"><i className="fas fa-mobile"></i></span></div>
+                        <div className={`input-group animated ${login_method === "phone" ? "" : "d-none"}`}>
+                            <div className="input-group-prepend">
+                                <span className="country_codes_holder">
+                                    <select id="register-country-select">
+                                        <option value="iran">+98</option>
+                                        <option value="united-states">+1</option>
+                                        <option value="united-kingdom">+356</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <input type="text" value={phone_number} className="form-control ltr" placeholder="شماره موبایل" onChange={onChangeField.bind(this, "signup", "phone_number")} />
+                            <div className="input-group-append"><span className="input-group-text"><i className="fas fa-mobile"></i></span></div>
+                        </div>
                     </div>
-                </div>
-                <div className="input-group">
-                    <input type="password" value={password} className="form-control" placeholder="رمز عبور" onChange={onChangeField.bind(this, "signup", "passowrd")} />
-                    <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
-                </div>
-                <div className="input-group">
-                    <input type="password" value={rep_password} className="form-control" placeholder="تکرار رمز عبور" onChange={onChangeField.bind(this, "signup", "rep_passowrd")} />
-                    <div className="input-group-append"><span className="input-group-text"><i className="fas fa-redo"></i></span></div>
-                </div>
-                <button className="btn btn-lg badge-pill " onClick={handleLogin}>ثبت نام</button>
+                    <div className="input-group">
+                        <input type="password" value={password} name="password" className="form-control" placeholder="رمز عبور" onChange={onChangeField.bind(this, "signup", "password")} />
+                        <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
+                    </div>
+                    <div className="input-group">
+                        <input type="password" value={password_confirmation} name="password_confirmation" className="form-control" placeholder="تکرار رمز عبور" onChange={onChangeField.bind(this, "signup", "password_confirmation")} />
+                        <div className="input-group-append"><span className="input-group-text"><i className="fas fa-redo"></i></span></div>
+                    </div>
+                    <button className="btn btn-lg badge-pill" type="submit">ثبت نام</button>
+                </form>
                 <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, false)}>برای ورود به دایا کلیک کنید!</span>
             </div>
         );
