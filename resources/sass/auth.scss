@@ -257,32 +257,23 @@
     margin-right: 5px;
 }
 .country_codes_holder {
-    option {
-        direction: ltr;
+    .select2-container {
+        float: left !important;
+        width: 100% !important;
+        height: 100% !important;
     }
-}
-.country_codes_holder .select2-container {
-    float: left !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-.country_codes_holder .select2-selection {
-    height: 100% !important;
-    display: flex;
-    align-items: center;
-    span {
-        direction: ltr;
+    .select2-selection {
+        height: 100% !important;
+        display: flex;
+        align-items: center;
+        span {
+            direction: ltr;
+        }
     }
-}
-.country_codes_holder .select2-selection__arrow {
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-}
-.select2-container {
-    width: auto !important;
-}
-.select2-dropdown {
-    width: inherit !important;
+    .select2-selection__arrow {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
 }
 .span-option {
     display: flex;

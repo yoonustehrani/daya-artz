@@ -9,5 +9,11 @@ export const state_select = {
         return $state
     },
     width: "100%",
-    dir: "rtl"
+    dir: "rtl",
+    dropdownAutoWidth: true,
 }   
+
+export const normal = {
+    width: "100%",
+    dir: "rtl",
+}

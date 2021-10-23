@@ -18,10 +18,10 @@ class Sidebar extends Component {
                         <Link to="/dashboard" className="link"><i className="fas fa-columns"></i>داشبورد</Link>
                     </li>
                     <li className="has-sub">
-                        <a to="#profile"><i className="fas fa-id-card"></i>مشخصات مشتری</a>
+                        <a to="#profile"><i className="fas fa-id-card"></i>حساب کاربری</a>
                         <ul className="submenu-m">
-                            <li><Link to="/brandInfo" className="link">اطلاعات برند/شرکت</Link></li>
-                            <li><Link to="/registerInfo" className="link">اطلاعات ثبت نام</Link></li>
+                            <li><Link to="/registerInfo" className="link">اطلاعات فردی</Link></li>
+                            <li><Link to="/brandInfo" className="link">مشخصات کسب و کار</Link></li>
                         </ul>
                     </li>
                     <li className="has-sub">
@@ -45,12 +45,21 @@ class Sidebar extends Component {
                                 <Link to="/finance/invoices" className="link">فاکتور ها</Link>
                             </li>
                             <li>
-                                <Link to="finance/preInvoices" className="link">پیش فاکتور ها</Link>
+                                <Link to="/finance/pre_invoices" className="link">پیش فاکتور ها</Link>
+                            </li>
+                            <li>
+                                <Link to="/finance/bills" className="link">صورت حساب ها</Link>
+                            </li>
+                            <li>
+                                <Link to="/finance/transactions" className="link">تراکنش ها</Link>
+                            </li>
+                            <li>
+                                <Link to="/finance/discounts" className="link">کوپن تخفیف</Link>
                             </li>
                         </ul>
                     </li>
                     <li className="has-sub">
-                        <a to="#"><i className="fas fa-headset"></i>پشتیبانی</a>
+                        <a to="#tickets"><i className="fas fa-headset"></i>پشتیبانی</a>
                         <ul className="submenu-m">
                             <li>
                                 <Link to="/ticekts/new" className="link">درخواست های پشتیبانی</Link>
@@ -60,6 +69,17 @@ class Sidebar extends Component {
                             </li>
                             <li>
                                 <Link to="/tickets/faq" className="link">سوالات متداول</Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li className="has-sub">
+                        <a href="#contracts"><i className="fas fa-file-signature"></i> قرارداد ها</a>
+                        <ul className="submenu-m">
+                            <li>
+                                <Link to="/contracts" className="link">قرارداد های من</Link>
+                            </li>
+                            <li>
+                                <Link to="/contract_sample" className="link">نمونه قرارداد ها</Link>
                             </li>
                         </ul>
                     </li>

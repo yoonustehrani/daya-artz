@@ -246,6 +246,9 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .state-code {
+        width: 28% !important;
+    }
 }
 
 // medium and above
@@ -833,6 +836,9 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .state-code {
+        width: 20% !important;
+    }
 }
 
 
@@ -884,6 +890,9 @@ $xl-xl-breakpoint: 1400px;
                 font-size: 20px;
             }
         }
+    }
+    .state-code {
+        width: 26% !important;
     }
 }
 
@@ -1071,6 +1080,9 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .state-code {
+        width: 18% !important;
+    }
 }
 
 // lg;
@@ -1135,5 +1147,8 @@ $xl-xl-breakpoint: 1400px;
         ul.submenu-m {
             padding-right: 30px !important;
         }
+    }
+    .state-code {
+        width: 26% !important;
     }
 }
