@@ -13,7 +13,8 @@ export const state_select = {
     dropdownAutoWidth: true,
 }   
 
-export const normal = {
+export const normal = (placeholder="") => ({
     width: "100%",
     dir: "rtl",
-}
+    placeholder: placeholder
+})

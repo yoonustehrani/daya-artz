@@ -3237,9 +3237,13 @@ var state_select = {
   dir: "rtl",
   dropdownAutoWidth: true
 };
-var normal = {
-  width: "100%",
-  dir: "rtl"
+var normal = function normal() {
+  var placeholder = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  return {
+    width: "100%",
+    dir: "rtl",
+    placeholder: placeholder
+  };
 };
 
 /***/ }),
@@ -6229,22 +6233,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/react/redux/actions.js");
-/* harmony import */ var _Components_TextInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/TextInput */ "./resources/js/react/Pages/Private/Profile/Components/TextInput.jsx");
-/* harmony import */ var _Components_Select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/Select */ "./resources/js/react/Pages/Private/Profile/Components/Select.jsx");
-/* harmony import */ var _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/PhoneInput */ "./resources/js/react/Pages/Private/Profile/Components/PhoneInput.jsx");
-/* harmony import */ var _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/ColorPicker */ "./resources/js/react/Pages/Private/Profile/Components/ColorPicker.jsx");
-/* harmony import */ var _Components_Textarea__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/Textarea */ "./resources/js/react/Pages/Private/Profile/Components/Textarea.jsx");
-/* harmony import */ var _Components_Radio__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/Radio */ "./resources/js/react/Pages/Private/Profile/Components/Radio.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/TextInput */ "./resources/js/react/Pages/Private/Profile/Components/TextInput.jsx");
+/* harmony import */ var _Components_Select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/Select */ "./resources/js/react/Pages/Private/Profile/Components/Select.jsx");
+/* harmony import */ var _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/PhoneInput */ "./resources/js/react/Pages/Private/Profile/Components/PhoneInput.jsx");
+/* harmony import */ var _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/ColorPicker */ "./resources/js/react/Pages/Private/Profile/Components/ColorPicker.jsx");
+/* harmony import */ var _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/Textarea */ "./resources/js/react/Pages/Private/Profile/Components/Textarea.jsx");
+/* harmony import */ var _Components_Radio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/Radio */ "./resources/js/react/Pages/Private/Profile/Components/Radio.jsx");
+/* harmony import */ var _ProfileLayout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ProfileLayout */ "./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6268,10 +6265,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
- // redux
-
-
  // components
 
 
@@ -6288,53 +6281,56 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(BrandInfo);
 
-  function BrandInfo(props) {
+  function BrandInfo() {
     var _this;
 
     _classCallCheck(this, BrandInfo);
 
-    _this = _super.call(this, props);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _defineProperty(_assertThisInitialized(_this), "updateInfo", function () {
-      var updateCompanyInfo = _this.props.updateCompanyInfo;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post('', data).then(function (res) {
-        var user = res.data;
-        updateCompanyInfo(user);
-      });
-    });
+    _this = _super.call.apply(_super, [this].concat(args));
 
-    _this.state = {
-      user: _this.props.user
-    };
-    var company = _this.state.user.company;
-    _this.fields = [{
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_4__["default"],
+    _defineProperty(_assertThisInitialized(_this), "fields", [{
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "عنوان برند",
-      value: company === null || company === void 0 ? void 0 : company.title
+      path: "company.title"
     }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_4__["default"],
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "عنوان انگلیسی برند",
-      value: company === null || company === void 0 ? void 0 : company.title_en
+      path: "company.title_en"
     }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_4__["default"],
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "تگ لاین یا شعار",
-      value: company === null || company === void 0 ? void 0 : company.details.tagline
+      path: "company.details.tagline"
     }, {
-      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_6__["default"],
+      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_3__["default"],
       title: "شماره تلفن",
       type: "telephone",
-      value: company === null || company === void 0 ? void 0 : company.phone_number
+      path: "company.phone_number"
     }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_4__["default"],
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "آدرس وب سایت",
-      value: company === null || company === void 0 ? void 0 : company.website
+      path: "company.website"
     }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_4__["default"],
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "آدرس",
-      value: company === null || company === void 0 ? void 0 : company.address
+      path: "company.address"
     }, {
-      component: _Components_Select__WEBPACK_IMPORTED_MODULE_5__["default"],
+      component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
+      title: "معرفی کسب و کار",
+      placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
+      path: "company.intro"
+    }, {
+      component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
+      title: "توصیف عقاید و چهارچوب های سازمانی",
+      placeHolder: "",
+      path: "company.details.policy"
+    }, {
+      component: _Components_Select__WEBPACK_IMPORTED_MODULE_2__["default"],
       title: "نوع کسب و کار",
+      placeholder: "نوع کسب و کار خود را از میان گزینه های موجود انتخاب کنید",
       options: [{
         value: "service",
         text: "خدمات"
@@ -6345,9 +6341,9 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
         value: "other",
         text: "..."
       }],
-      value: company === null || company === void 0 ? void 0 : company.business_type
+      path: "company.business_type"
     }, {
-      component: _Components_Radio__WEBPACK_IMPORTED_MODULE_9__["default"],
+      component: _Components_Radio__WEBPACK_IMPORTED_MODULE_6__["default"],
       title: "شیوه بازار یابی",
       name: "market_type",
       options: [{
@@ -6357,49 +6353,22 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
         id: "modern",
         text: "مدرن"
       }],
-      value: company === null || company === void 0 ? void 0 : company.marketType
+      path: "company.marketType"
     }, {
-      component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_8__["default"],
-      title: "معرفی کسب و کار",
-      placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
-      value: company === null || company === void 0 ? void 0 : company.intro
-    }, {
-      component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_8__["default"],
-      title: "توصیف عقاید و چهارچوب های سازمانی",
-      placeHolder: "",
-      value: company === null || company === void 0 ? void 0 : company.details.policy
-    }, {
-      component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_7__["default"],
+      component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
       title: "رنگ سازمانی",
-      value: company === null || company === void 0 ? void 0 : company.details.color
-    }];
-    return _this;
-  } // changeInfo = () => {
-  //     this.setState(prevState => ({
-  //         user: {
-  //             company: {},
-  //             ...prevState.user
-  //         }
-  //     }))
-  // }
+      path: "company.details.color"
+    }]);
 
+    return _this;
+  }
 
   _createClass(BrandInfo, [{
     key: "render",
     value: function render() {
-      var user = this.props.user;
-      console.log(user);
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        children: [this.fields.map(function (field, i) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(field.component, _objectSpread({}, field), i);
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "eggplant-btn col-12 col-md-2",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "btn btn-lg",
-            onClick: this.updateInfo.bind(this),
-            children: "\u062B\u0628\u062A"
-          })
-        })]
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        fields: this.fields,
+        title: "\u0645\u0634\u062E\u0635\u0627\u062A \u06A9\u0633\u0628 \u0648 \u06A9\u0627\u0631"
       });
     }
   }]);
@@ -6407,21 +6376,7 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
   return BrandInfo;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    user: state.auth.user
-  };
-};
-
-var mapDispathToProps = function mapDispathToProps(dispatch) {
-  return {
-    updateCompanyInfo: function updateCompanyInfo(Info) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.logUserIn)(Info));
-    }
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps)(BrandInfo));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BrandInfo);
 
 /***/ }),
 
@@ -6480,13 +6435,22 @@ var ColorPicker = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this$props = this.props,
           title = _this$props.title,
-          value = _this$props.value;
+          value = _this$props.value,
+          path = _this$props.path,
+          onChangeHandler = _this$props.onChangeHandler;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "color-picker-container field-item mr-md-3",
+        className: "field-item col-12 col-md-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
           children: [title, ":"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-          type: "color"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "input-group",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "color",
+            value: value,
+            onChange: function onChange(e) {
+              return onChangeHandler(path, e.target.value);
+            }
+          })
         })]
       });
     }
@@ -6535,6 +6499,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -6546,15 +6512,52 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(PhoneInput);
 
   function PhoneInput() {
+    var _this;
+
     _classCallCheck(this, PhoneInput);
 
-    return _super.apply(this, arguments);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      type: ""
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "changephoneType", function () {
+      _this.setState(function (prevState) {
+        return {
+          type: prevState.type === "cellphone" ? "telephone" : "cellphone"
+        };
+      });
+
+      setTimeout(function () {
+        $(".input-group.animated").addClass("headShake");
+        $(".gray.animated").each(function () {
+          var _this2 = this;
+
+          $(this).addClass("flipInY");
+          $(this).find("i")[1].classList.toggle("fa-mobile");
+          $(this).find("i")[1].classList.toggle("fa-at");
+          setTimeout(function () {
+            $(_this2).removeClass("flipInY");
+          }, 1000);
+        });
+      }, 0);
+    });
+
+    return _this;
   }
 
   _createClass(PhoneInput, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       $("#country-select").select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
+      this.setState({
+        type: this.props.type !== "both" ? this.props.type : "cellphone"
+      });
     }
   }, {
     key: "render",
@@ -6562,11 +6565,21 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
       var _this$props = this.props,
           value = _this$props.value,
           title = _this$props.title,
+          path = _this$props.path,
+          onChangeHandler = _this$props.onChangeHandler,
           type = _this$props.type;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
           children: [title, ":"]
+        }), this.props.type === "both" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+          className: "gray mb-2 animated",
+          onClick: this.changephoneType.bind(this),
+          children: [type === "cellphone" ? "با استفاده از شماره موبایل" : "با استفاده از شماره تلفن ثابت", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-long-arrow-alt-left mr-1"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-mobile mr-1"
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "input-group ltr",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -6595,7 +6608,10 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
             type: "tel",
             value: value,
             className: "form-control ltr",
-            placeholder: type === "cellphone" ? "شماره موبایل" : "شماره تلفن"
+            placeholder: type === "cellphone" ? "شماره موبایل" : "شماره تلفن",
+            onChange: function onChange(e) {
+              return onChangeHandler(path, e.target.value);
+            }
           })]
         })]
       });
@@ -6666,9 +6682,12 @@ var Radio = /*#__PURE__*/function (_Component) {
           title = _this$props.title,
           value = _this$props.value,
           options = _this$props.options,
-          name = _this$props.name;
+          name = _this$props.name,
+          path = _this$props.path,
+          onChangeHandler = _this$props.onChangeHandler;
+      console.log(value);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "field-item col-12 col-md-6",
+        className: "field-item col-12 col-md-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
           children: [title, ":"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -6682,8 +6701,11 @@ var Radio = /*#__PURE__*/function (_Component) {
                 type: "radio",
                 className: "form-check-input",
                 id: id,
-                checked: value === id,
-                name: name
+                defaultChecked: value === id,
+                name: name,
+                onChange: function onChange(e) {
+                  return onChangeHandler(path, e.target.id);
+                }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
                 htmlFor: id,
                 className: "form-check-label mr-1",
@@ -6762,29 +6784,45 @@ var Select = /*#__PURE__*/function (_Component) {
   _createClass(Select, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      $(this.select2Ref.current).select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.normal);
+      var _this$props = this.props,
+          onChangeHandler = _this$props.onChangeHandler,
+          path = _this$props.path,
+          placeholder = _this$props.placeholder;
+      $(this.select2Ref.current).select2((0,_components_select2__WEBPACK_IMPORTED_MODULE_1__.normal)(placeholder));
+      $(this.select2Ref.current).on("select2:select", function (e) {
+        onChangeHandler(path, e.target.value);
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          options = _this$props.options,
-          title = _this$props.title;
+      var _this$props2 = this.props,
+          options = _this$props2.options,
+          title = _this$props2.title,
+          value = _this$props2.value,
+          onChangeHandler = _this$props2.onChangeHandler,
+          path = _this$props2.path;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
           children: [title, ":"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "input-group",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("select", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
             className: "form-control",
             ref: this.select2Ref,
-            children: options.map(function (option, i) {
+            value: value,
+            onChange: function onChange(e) {
+              return onChangeHandler(path, e.target.value);
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+              value: ""
+            }), options.map(function (option, i) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                 value: option.value,
                 children: option.text
               }, i);
-            })
+            })]
           })
         })]
       });
@@ -6853,7 +6891,11 @@ var TextInput = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this$props = this.props,
           value = _this$props.value,
-          title = _this$props.title;
+          title = _this$props.title,
+          onChangeHandler = _this$props.onChangeHandler,
+          path = _this$props.path,
+          _this$props$type = _this$props.type,
+          type = _this$props$type === void 0 ? "text" : _this$props$type;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
@@ -6861,9 +6903,12 @@ var TextInput = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "text",
+            type: type,
             className: "form-control",
-            value: value
+            value: value,
+            onChange: function onChange(e) {
+              return onChangeHandler(path, e.target.value);
+            }
           })
         })]
       });
@@ -6932,7 +6977,9 @@ var Textarea = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this$props = this.props,
           title = _this$props.title,
-          value = _this$props.value;
+          value = _this$props.value,
+          onChangeHandler = _this$props.onChangeHandler,
+          path = _this$props.path;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
@@ -6940,7 +6987,11 @@ var Textarea = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
-            className: "form-control"
+            className: "form-control",
+            value: value,
+            onChange: function onChange(e) {
+              return onChangeHandler(path, e.target.value);
+            }
           })
         })]
       });
@@ -6951,6 +7002,162 @@ var Textarea = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Textarea);
+
+/***/ }),
+
+/***/ "./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+ // redux
+
+
+
+
+
+
+var ProfileLayout = /*#__PURE__*/function (_Component) {
+  _inherits(ProfileLayout, _Component);
+
+  var _super = _createSuper(ProfileLayout);
+
+  function ProfileLayout(props) {
+    var _this;
+
+    _classCallCheck(this, ProfileLayout);
+
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "changeInfo", function (path, value) {
+      var _this$state;
+
+      var keys = path.split("."),
+          _ref = (_this$state = _this.state) !== null && _this$state !== void 0 ? _this$state : {},
+          user = _ref.user;
+
+      var lastKey = keys.pop();
+      var lastObj = keys.reduce(function (user, key) {
+        return user[key] = user[key] || {};
+      }, user);
+      lastObj[lastKey] = value;
+
+      _this.setState({
+        user: user
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "updateInfo", function () {
+      var updateInfo = _this.props.updateInfo,
+          user = _this.state.user;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post('', user).then(function (res) {
+        var user = res.data;
+        updateInfo(user);
+      });
+    });
+
+    _this.state = {
+      user: _this.props.user
+    };
+    return _this;
+  }
+
+  _createClass(ProfileLayout, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          fields = _this$props.fields,
+          title = _this$props.title,
+          user = this.state.user;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          className: "form-title",
+          children: title
+        }), fields.map(function (field, i) {
+          var _lastObj$last_key;
+
+          var keys = field.path.split("."),
+              last_key = keys.pop(),
+              lastObj = keys.reduce(function (user, key) {
+            return user[key] = user[key] || {};
+          }, _objectSpread({}, user));
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(field.component, _objectSpread({
+            onChangeHandler: _this2.changeInfo,
+            value: (_lastObj$last_key = lastObj[last_key]) !== null && _lastObj$last_key !== void 0 ? _lastObj$last_key : ""
+          }, field), i);
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "eggplant-btn col-12",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "btn btn-lg col-12 col-md-2",
+            onClick: this.updateInfo.bind(this),
+            children: "\u062B\u0628\u062A"
+          })
+        })]
+      });
+    }
+  }]);
+
+  return ProfileLayout;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    user: state.auth.user
+  };
+};
+
+var mapDispathToProps = function mapDispathToProps(dispatch) {
+  return {
+    updateInfo: function updateInfo(Info) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.logUserIn)(Info));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps, mapDispathToProps)(ProfileLayout));
 
 /***/ }),
 
@@ -6966,7 +7173,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/TextInput */ "./resources/js/react/Pages/Private/Profile/Components/TextInput.jsx");
+/* harmony import */ var _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/PhoneInput */ "./resources/js/react/Pages/Private/Profile/Components/PhoneInput.jsx");
+/* harmony import */ var _ProfileLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProfileLayout */ "./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6989,6 +7199,12 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+ // components
+
+
+
 
 
 
@@ -6998,15 +7214,61 @@ var RegisterInfo = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(RegisterInfo);
 
   function RegisterInfo() {
+    var _this;
+
     _classCallCheck(this, RegisterInfo);
 
-    return _super.apply(this, arguments);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "fields", [{
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+      title: "نام",
+      path: "customer.firstname"
+    }, {
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+      title: "نام خانوادگی",
+      path: "customer.lastname"
+    }, {
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+      title: "ایمیل",
+      path: "email",
+      type: "email"
+    }, {
+      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
+      title: "شماره موبایل",
+      type: "cellphone",
+      path: "phone_number"
+    }, {
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+      title: "رمزعبور جدید",
+      path: "",
+      type: "password"
+    }, {
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+      title: "تایید رمزعبور",
+      path: "",
+      type: "password"
+    }, {
+      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
+      title: "شماره تلفن (جهت پاسخگویی)",
+      path: "customer.phone_number",
+      type: "cellphone"
+    }]);
+
+    return _this;
   }
 
   _createClass(RegisterInfo, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        fields: this.fields,
+        title: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0641\u0631\u062F\u06CC"
+      });
     }
   }]);
 

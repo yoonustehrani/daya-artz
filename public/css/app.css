@@ -14991,15 +14991,28 @@ div.header-section div.header-title .title span {
   border-radius: 10px;
   background-color: #DED8F2;
 }
+.user-area-layout-container .user-area-panel .main-content-container .center-table {
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+.user-area-layout-container .user-area-panel .main-content-container .form-title {
+  font-size: 20px;
+  float: right;
+  margin-top: 20px;
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+}
 .user-area-layout-container .user-area-panel .main-content-container .field-item {
   direction: rtl;
   float: right;
-  margin-bottom: 40px;
+  margin-top: 40px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .field-item > span {
   margin-right: 5px;
   direction: rtl;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 .user-area-layout-container .user-area-panel .main-content-container .field-item > div {
@@ -15020,8 +15033,8 @@ div.header-section div.header-title .title span {
   margin-right: 15px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .eggplant-btn {
-  position: static;
-  padding: 30px 15px 30px 0;
+  padding: 30px;
+  float: right;
 }
 .user-area-layout-container .user-area-panel .main-content-container .eggplant-btn button {
   background-color: #6332df;
