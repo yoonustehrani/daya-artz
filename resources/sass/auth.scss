@@ -194,18 +194,6 @@
                     }
                 }
             }
-            .gray {
-                font-size: 16px;
-                color: $gray;
-                cursor: pointer;
-                transition: 0.3s;
-                display: flex;
-                align-items: center;
-                flex-wrap: nowrap;
-                &:hover {
-                    color: #000;
-                }
-            }
             p.forgot-ps {
                 font-size: 20px;
                 color: #fff;
@@ -225,7 +213,7 @@
             div.input-group, p {
                 margin: 10px 0 10px 0;
             }
-            form.default-style {
+            .default-style {
                 width: 35%;
             }
             .email-phone-container {
@@ -290,5 +278,17 @@
     cursor: pointer;
     &:hover {
         color: #6232de;
+    }
+}
+.gray {
+    font-size: 16px;
+    color: $gray;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    &:hover {
+        color: #000;
     }
 }

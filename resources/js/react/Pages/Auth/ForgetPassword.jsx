@@ -22,7 +22,7 @@ class ForgetPassword extends Component {
                     <i className="fas fa-long-arrow-alt-left mr-1"></i>
                     <i className="fas fa-mobile mr-1"></i>
                 </span>
-                <div className="email-phone-container input-group">
+                <div className="email-phone-container input-group default-style">
                     <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
                         <input type="email" value={email} className="form-control" placeholder="ایمیل" onChange={onChangeField.bind(this, "signupConfirm", "email")}/>
                         <div className="input-group-append"><span className="input-group-text"><i className="fas fa-at"></i></span></div>

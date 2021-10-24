@@ -28,7 +28,7 @@ class BrandInfo extends Component {
         {
             component: PhoneInput,
             title: "شماره تلفن",
-            type: "telephone",
+            phone_type: "telephone",
             path: "company.phone_number"
         },
         {

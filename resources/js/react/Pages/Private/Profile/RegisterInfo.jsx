@@ -25,8 +25,8 @@ class RegisterInfo extends Component {
         {
             component: PhoneInput,
             title: "شماره موبایل",
-            type: "cellphone",
-            path: "phone_number"
+            path: "phone_number",
+            phone_type: "cellphone",
         },
         {
             component: TextInput,
@@ -44,7 +44,7 @@ class RegisterInfo extends Component {
             component: PhoneInput,
             title: "شماره تلفن (جهت پاسخگویی)",
             path: "customer.phone_number",
-            type: "cellphone"
+            phone_type: "both"
         },
     ]   
 

@@ -3579,7 +3579,7 @@ var ForgetPassword = /*#__PURE__*/function (_Component) {
             className: "fas fa-mobile mr-1"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "email-phone-container input-group",
+          className: "email-phone-container input-group default-style",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "input-group animated ".concat(login_method === "email" ? "" : "d-none"),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
@@ -6307,7 +6307,7 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
     }, {
       component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_3__["default"],
       title: "شماره تلفن",
-      type: "telephone",
+      phone_type: "telephone",
       path: "company.phone_number"
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -6511,20 +6511,12 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(PhoneInput);
 
-  function PhoneInput() {
+  function PhoneInput(props) {
     var _this;
 
     _classCallCheck(this, PhoneInput);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      type: ""
-    });
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "changephoneType", function () {
       _this.setState(function (prevState) {
@@ -6534,29 +6526,36 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
       });
 
       setTimeout(function () {
-        $(".input-group.animated").addClass("headShake");
         $(".gray.animated").each(function () {
           var _this2 = this;
 
-          $(this).addClass("flipInY");
+          $(this).addClass("flipInX");
           $(this).find("i")[1].classList.toggle("fa-mobile");
           $(this).find("i")[1].classList.toggle("fa-at");
           setTimeout(function () {
-            $(_this2).removeClass("flipInY");
+            $(_this2).removeClass("flipInX");
           }, 1000);
         });
+        $(_this.country_code_ref.current).select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
       }, 0);
     });
 
+    _this.country_code_ref = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
+    _this.state = {
+      type: ""
+    };
     return _this;
   }
 
   _createClass(PhoneInput, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      $("#country-select").select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
+      var _this3 = this;
+
       this.setState({
-        type: this.props.type !== "both" ? this.props.type : "cellphone"
+        type: this.props.phone_type !== "both" ? this.props.phone_type : "cellphone"
+      }, function () {
+        $(_this3.country_code_ref.current).select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
       });
     }
   }, {
@@ -6567,27 +6566,28 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
           title = _this$props.title,
           path = _this$props.path,
           onChangeHandler = _this$props.onChangeHandler,
-          type = _this$props.type;
+          phone_type = _this$props.phone_type,
+          type = this.state.type;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
           children: [title, ":"]
-        }), this.props.type === "both" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          className: "gray mb-2 animated",
+        }), phone_type === "both" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+          className: "gray animated mt-2 mb-2",
           onClick: this.changephoneType.bind(this),
-          children: [type === "cellphone" ? "با استفاده از شماره موبایل" : "با استفاده از شماره تلفن ثابت", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          children: [type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-long-arrow-alt-left mr-1"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-mobile mr-1"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "input-group ltr",
+          className: "input-group ltr animated",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "input-group-prepend ".concat(type =  true && "state-code"),
+            className: "input-group-prepend ".concat(type === "telephone" && "state-code"),
             children: type === "cellphone" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               className: "country_codes_holder",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-                id: "country-select",
+                ref: this.country_code_ref,
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                   value: "iran",
                   children: "+98"
@@ -7240,8 +7240,8 @@ var RegisterInfo = /*#__PURE__*/function (_Component) {
     }, {
       component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
       title: "شماره موبایل",
-      type: "cellphone",
-      path: "phone_number"
+      path: "phone_number",
+      phone_type: "cellphone"
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "رمزعبور جدید",
@@ -7256,7 +7256,7 @@ var RegisterInfo = /*#__PURE__*/function (_Component) {
       component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
       title: "شماره تلفن (جهت پاسخگویی)",
       path: "customer.phone_number",
-      type: "cellphone"
+      phone_type: "both"
     }]);
 
     return _this;
