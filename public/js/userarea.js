@@ -1374,7 +1374,7 @@ function isAsyncThunkAction() {
 // src/index.ts
 (0,immer__WEBPACK_IMPORTED_MODULE_2__.enableES5)();
 
-//# sourceMappingURL=redux-toolkit.esm.js.map
+//# sourceMappingURL=module.js.map
 
 /***/ }),
 
@@ -3311,9 +3311,11 @@ var EmailValidation = /*#__PURE__*/function (_Component) {
         resendIn: time
       }, function () {
         _this.interval = setInterval(function () {
-          if (_this.state.resendIn <= 0) {
-            clearInterval(_this.interval);
-          } else {
+          // if (this.state.resendIn <= 0) {
+          //     clearInterval(this.interval)
+          //     return
+          // }
+          if (_this.state.interval > 0) {
             _this.setState(function (prevState) {
               return {
                 resendIn: prevState.resendIn - 1
