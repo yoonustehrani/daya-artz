@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class ColorPicker extends Component {
     render() {
-        let { title, value } = this.props
+        let { title, value, path, onChangeHandler } = this.props
         return (
-            <div className="color-picker-container field-item mr-md-3">
+            <div className="field-item col-12 col-md-3">
                 <span>{title}:</span>
-                <input type="color" />
+                <div className="input-group"><input type="color" value={value} onChange={(e) => onChangeHandler(path, e.target.value)} /></div>
             </div>
         );
     }

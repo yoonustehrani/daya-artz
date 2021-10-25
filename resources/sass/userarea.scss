@@ -191,14 +191,27 @@
                 background-color: #DED8F2;
             }
             // profile
+            .center-table {
+                display: table;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            .form-title {
+                font-size: 20px;
+                float: right;
+                margin-top: 20px;
+                font-weight: bold;
+                display: inline-block;
+                width: 100%;
+            }
             .field-item {
                 direction: rtl;
                 float: right;
-                margin-bottom: 40px;
-                > span {
+                margin-top: 40px;
+                > span:nth-child(1) {
                     margin-right: 5px;
                     direction: rtl;
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: bold;
                 }
                 > div {
@@ -230,8 +243,8 @@
                         color: white;
                     }
                 }
-                position: static;
-                padding: 30px 15px 30px 0;
+                padding: 30px;
+                float: right;
             } 
         }
     }
