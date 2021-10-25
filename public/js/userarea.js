@@ -3315,11 +3315,9 @@ var EmailValidation = /*#__PURE__*/function (_Component) {
         resendIn: time
       }, function () {
         _this.interval = setInterval(function () {
-          // if (this.state.resendIn <= 0) {
-          //     clearInterval(this.interval)
-          //     return
-          // }
-          if (_this.state.interval > 0) {
+          if (_this.state.resendIn <= 0) {
+            clearInterval(_this.interval);
+          } else {
             _this.setState(function (prevState) {
               return {
                 resendIn: prevState.resendIn - 1
@@ -6532,8 +6530,8 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
           var _this2 = this;
 
           $(this).addClass("flipInX");
+          $(this).find("i")[1].classList.toggle("fa-phone");
           $(this).find("i")[1].classList.toggle("fa-mobile");
-          $(this).find("i")[1].classList.toggle("fa-at");
           setTimeout(function () {
             $(_this2).removeClass("flipInX");
           }, 1000);
@@ -6580,7 +6578,7 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
           children: [type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-long-arrow-alt-left mr-1"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-            className: "fas fa-mobile mr-1"
+            className: "fas fa-phone mr-1"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "input-group ltr animated",
