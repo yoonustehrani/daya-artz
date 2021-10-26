@@ -5,7 +5,7 @@ import HttpClient from '../../services/HttpClient'
 import { getCookie } from '../../services/CookieService'
 // Redux
 import { connect } from 'react-redux';
-import { logUserIn, verifyUserPhone } from '../redux/actions';
+import { logIn, register, verifyUserPhone } from '../redux/actions';
 // Routes
 import Login from '../Pages/Auth/Login';
 import Signup from '../Pages/Auth/Signup';
@@ -122,42 +122,39 @@ class AuthRoute extends Component {
 
     handleLogin = (e) => {
         e.preventDefault();
+        // change stats => loading
         let { authLogin } = this.props;
         let {email, phone_number, password} = this.state.login;
-        let payload = this.state.login_method == "email" ? {email, password} : {phone_number, password};
-        httpService.post('/login', payload).then(res => {
-            let {user} = res.data
-            authLogin(user)
+        let credentials = this.state.login_method == "email" ? {email, password} : {phone_number, password}; 
+        authLogin(credentials).then(() => {
+            // change status => not loading
         })
     }
 
     handleRegister = (e) => {
         e.preventDefault();
+        // change stats => loading
+        let { authRegister } = this.props;
         let {email, phone_number, password, password_confirmation} = this.state.signup
-        let payload = this.state.login_method == "email" ? {email, password, password_confirmation} : {phone_number, password, password_confirmation};
-        httpService.post('/register', payload).then(res => {
-            let {user, okay} = res.data
-            if (okay) {
-                this.props.authLogin(user)
-            }
+        let credentials = this.state.login_method == "email" ? {email, password, password_confirmation} : {phone_number, password, password_confirmation};
+        authRegister(credentials).then(() => {
+            // change status => not loading
         })
     }
 
     handleEdit = (type, payload) => httpService.put(`/verification/${type == 'phone' ? 'phone' : 'email'}/edit`, payload)
 
     handleResend = (type) => httpService.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
+    
     checkCodeForPhoneValidation = (e) => {
         e.preventDefault();
         let {code} = this.state.validation;
         if (code.length === 6) {
-            httpService.post('/verification/phone/verify', {code}).then(res => {
-                let {okay, verified} = res.data;
+            httpService.post('/verification/phone/verify', {code}).then(({okay, verified}) => {
                 if (verified) {
                     this.props.verifyPhone()
                 }
-            }).catch(err => {
-                console.log(err);
-            })
+            }).catch(err => null)
         }
     }
 
@@ -246,7 +243,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    authLogin: user => dispatch(logUserIn(user)),
+    authLogin: credentials => dispatch(logIn(credentials)),
+    authRegister: credentials => dispatch(register(credentials)),
     verifyPhone: () => dispatch(verifyUserPhone()),
 })
 

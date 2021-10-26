@@ -25,7 +25,7 @@ Route::prefix('auth')->name('auth.')->group(function() {
     Route::post('register', 'RegisterController@register')->name('register');
     Route::get('user', function (Request $request) {
         return $request->user()->load('customer', 'company');
-    })->name('user')->middleware('auth:sanctum');
+    })->name('user')->middleware('auth:sanctum'); // 
     Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
         Route::post('phone/verify', 'VerificationController@verifyPhoneNumber')->name('phone.verify');
         Route::put('phone/edit', function (Request $request) {

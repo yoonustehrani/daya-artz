@@ -25,34 +25,40 @@ const changePhoneNumber = phone_number => ({type: USER_PHONE_NUMBER_CHANGED, pay
 const changeEmail = email => ({type: USER_EMAIL_CHANGED, payload: email})
 
 const checkAuth = async (dispatch, getState) => {
-    await httpService.get('/auth/user').then(res => {
-        dispatch(logUserIn(res.data))
-    }).catch(error => {
-        if (error.response) {
-            let {status, data} = error.response
-            if (status === 401) {
-                // User is not loggedIn
-                // console.log(data);
-            }
-        }
-    })
+    let user = await httpService.get('/auth/user', null, false)
+    if (user) {
+        dispatch(logUserIn(user));
+    }
     dispatch(changeAppStatus(false))
 }
 
 const logOut = async (dispatch, getState) => {
-    if (getState().auth.user) {
+    if (getState().auth.user) {;
         dispatch(changeAppStatus(true))
-        await httpService.post('/auth/logout', {}).then(res => {
-            if (res.data.ok) {
-                dispatch(logUserOut())
-            }
+        await httpService.post('/auth/logout', {}).then(({ok}) => {
+            dispatch(logUserOut())
         })
         dispatch(changeAppStatus(false))
     }
 }
 
+const logIn = credentials => async (dispatch, getState) => {
+    await httpService.post('/auth/login', credentials).then(({ok, message, user}) => {
+        dispatch(logUserIn(user))
+    }).catch(err => null)
+}
+
+const register = credentials => async (dispatch, getState) => {
+    await httpService.post('/auth/register', credentials).then(({ok, message, user}) => {
+        console.log('answered !');
+        dispatch(logUserIn(user))
+    }).catch(err => null)
+}
+
 export {
     logUserIn,
+    logIn,
+    register,
     checkAuth,
     logOut,
     verifyUserPhone,
