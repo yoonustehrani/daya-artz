@@ -5,7 +5,7 @@ import HttpClient from '../../services/HttpClient'
 import { getCookie } from '../../services/CookieService'
 // Redux
 import { connect } from 'react-redux';
-import { logIn, register, verifyUserPhone } from '../redux/actions';
+import { logInUsingCredentials, registerUser, verifyUserPhone } from '../redux/actions';
 // Routes
 import Login from '../Pages/Auth/Login';
 import Signup from '../Pages/Auth/Signup';
@@ -125,10 +125,11 @@ class AuthRoute extends Component {
         // change stats => loading
         let { authLogin } = this.props;
         let {email, phone_number, password} = this.state.login;
-        let credentials = this.state.login_method == "email" ? {email, password} : {phone_number, password}; 
-        authLogin(credentials).then(() => {
-            // change status => not loading
-        })
+        let credentials = this.state.login_method == "email" ? {email, password} : {phone_number, password};
+        authLogin(credentials)
+        // authLogin(credentials).then(() => {
+        //     // change status => not loading
+        // })
     }
 
     handleRegister = (e) => {
@@ -136,8 +137,9 @@ class AuthRoute extends Component {
         // change stats => loading
         let { authRegister } = this.props;
         let {email, phone_number, password, password_confirmation} = this.state.signup
-        let credentials = this.state.login_method == "email" ? {email, password, password_confirmation} : {phone_number, password, password_confirmation};
-        authRegister(credentials).then(() => {
+        let info = this.state.login_method == "email" ? {email, password, password_confirmation} : {phone_number, password, password_confirmation};
+        authRegister(info).then(() => {
+            console.log('registered');
             // change status => not loading
         })
     }
@@ -243,8 +245,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    authLogin: credentials => dispatch(logIn(credentials)),
-    authRegister: credentials => dispatch(register(credentials)),
+    authLogin: credentials => dispatch(logInUsingCredentials(credentials)),
+    authRegister: information => dispatch(registerUser(information)),
     verifyPhone: () => dispatch(verifyUserPhone()),
 })
 

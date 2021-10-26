@@ -6188,7 +6188,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
               onClick: function onClick() {
-                return _this.props.dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__.logOut);
+                return _this.props.dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.logoutUser)());
               },
               href: "#logout",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
@@ -7980,7 +7980,6 @@ function VerifiedMiddleware() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "USER_LOGGED_IN": () => (/* binding */ USER_LOGGED_IN),
-/* harmony export */   "USER_LOGGED_OUT": () => (/* binding */ USER_LOGGED_OUT),
 /* harmony export */   "USER_VERIFIED_PHONE": () => (/* binding */ USER_VERIFIED_PHONE),
 /* harmony export */   "USER_PHONE_NUMBER_CHANGED": () => (/* binding */ USER_PHONE_NUMBER_CHANGED),
 /* harmony export */   "USER_EMAIL_CHANGED": () => (/* binding */ USER_EMAIL_CHANGED),
@@ -7988,7 +7987,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // authentication
 var USER_LOGGED_IN = "auth/userLoggedin";
-var USER_LOGGED_OUT = "auth/userLoggedOut";
 var USER_VERIFIED_PHONE = "auth/userVerifiedPhoneNumber";
 var USER_PHONE_NUMBER_CHANGED = "auth/userChangedPhoneNumber";
 var USER_EMAIL_CHANGED = "auth/userChangedEmail";
@@ -8007,24 +8005,26 @@ var APP_STATUS_CHANGED = "auth/appStatusChanged";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "logUserIn": () => (/* binding */ logUserIn),
-/* harmony export */   "logIn": () => (/* binding */ logIn),
-/* harmony export */   "register": () => (/* binding */ register),
 /* harmony export */   "checkAuth": () => (/* binding */ checkAuth),
-/* harmony export */   "logOut": () => (/* binding */ logOut),
 /* harmony export */   "verifyUserPhone": () => (/* binding */ verifyUserPhone),
 /* harmony export */   "changePhoneNumber": () => (/* binding */ changePhoneNumber),
-/* harmony export */   "changeEmail": () => (/* binding */ changeEmail)
+/* harmony export */   "changeEmail": () => (/* binding */ changeEmail),
+/* harmony export */   "logInUsingCredentials": () => (/* binding */ logInUsingCredentials),
+/* harmony export */   "registerUser": () => (/* binding */ registerUser),
+/* harmony export */   "logoutUser": () => (/* binding */ logoutUser)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actionTypes */ "./resources/js/react/redux/actionTypes.js");
 /* harmony import */ var _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/HttpClient */ "./resources/js/services/HttpClient.js");
 /* harmony import */ var _services_CookieService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/CookieService */ "./resources/js/services/CookieService.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -8036,17 +8036,123 @@ var httpService = new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default
     'Accept': 'application/json'
   }
 });
+var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/loginUser', /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(credentials, thunkAPI) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return httpService.post('/auth/login', credentials);
+
+          case 2:
+            response = _context.sent;
+
+            if (response.user) {
+              _context.next = 5;
+              break;
+            }
+
+            throw new Error();
+
+          case 5:
+            return _context.abrupt("return", response.user);
+
+          case 6:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function (_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}());
+var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/logoutUser', /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(param, _ref2) {
+    var getState, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            getState = _ref2.getState;
+
+            if (!getState().auth.user) {
+              _context2.next = 7;
+              break;
+            }
+
+            _context2.next = 4;
+            return httpService.post('/auth/logout');
+
+          case 4:
+            response = _context2.sent;
+
+            if (!response.ok) {
+              _context2.next = 7;
+              break;
+            }
+
+            return _context2.abrupt("return", response);
+
+          case 7:
+            throw new Error();
+
+          case 8:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function (_x3, _x4) {
+    return _ref3.apply(this, arguments);
+  };
+}());
+var registerUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/registerUser', /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(information, thunkAPI) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return httpService.post('/auth/register', information);
+
+          case 2:
+            response = _context3.sent;
+
+            if (!response.ok) {
+              _context3.next = 5;
+              break;
+            }
+
+            return _context3.abrupt("return", response.user);
+
+          case 5:
+            throw new Error();
+
+          case 6:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+
+  return function (_x5, _x6) {
+    return _ref4.apply(this, arguments);
+  };
+}());
 
 var logUserIn = function logUserIn(user) {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__.USER_LOGGED_IN,
     payload: user
-  };
-};
-
-var logUserOut = function logUserOut() {
-  return {
-    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__.USER_LOGGED_OUT
   };
 };
 
@@ -8078,17 +8184,17 @@ var changeEmail = function changeEmail(email) {
 };
 
 var checkAuth = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(dispatch, getState) {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(dispatch, getState) {
     var user;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
       while (1) {
-        switch (_context.prev = _context.next) {
+        switch (_context4.prev = _context4.next) {
           case 0:
-            _context.next = 2;
+            _context4.next = 2;
             return httpService.get('/auth/user', null, false);
 
           case 2:
-            user = _context.sent;
+            user = _context4.sent;
 
             if (user) {
               dispatch(logUserIn(user));
@@ -8098,114 +8204,16 @@ var checkAuth = /*#__PURE__*/function () {
 
           case 5:
           case "end":
-            return _context.stop();
+            return _context4.stop();
         }
       }
-    }, _callee);
+    }, _callee4);
   }));
 
-  return function checkAuth(_x, _x2) {
-    return _ref.apply(this, arguments);
+  return function checkAuth(_x7, _x8) {
+    return _ref5.apply(this, arguments);
   };
 }();
-
-var logOut = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(dispatch, getState) {
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            if (!getState().auth.user) {
-              _context2.next = 6;
-              break;
-            }
-
-            ;
-            dispatch(changeAppStatus(true));
-            _context2.next = 5;
-            return httpService.post('/auth/logout', {}).then(function (_ref3) {
-              var ok = _ref3.ok;
-              dispatch(logUserOut());
-            });
-
-          case 5:
-            dispatch(changeAppStatus(false));
-
-          case 6:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
-
-  return function logOut(_x3, _x4) {
-    return _ref2.apply(this, arguments);
-  };
-}();
-
-var logIn = function logIn(credentials) {
-  return /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(dispatch, getState) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return httpService.post('/auth/login', credentials).then(function (_ref5) {
-                var ok = _ref5.ok,
-                    message = _ref5.message,
-                    user = _ref5.user;
-                dispatch(logUserIn(user));
-              })["catch"](function (err) {
-                return null;
-              });
-
-            case 2:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function (_x5, _x6) {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-};
-
-var register = function register(credentials) {
-  return /*#__PURE__*/function () {
-    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(dispatch, getState) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.next = 2;
-              return httpService.post('/auth/register', credentials).then(function (_ref7) {
-                var ok = _ref7.ok,
-                    message = _ref7.message,
-                    user = _ref7.user;
-                console.log('answered !');
-                dispatch(logUserIn(user));
-              })["catch"](function (err) {
-                return null;
-              });
-
-            case 2:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4);
-    }));
-
-    return function (_x7, _x8) {
-      return _ref6.apply(this, arguments);
-    };
-  }();
-};
 
 
 
@@ -8245,11 +8253,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actionTypes */ "./resources/js/react/redux/actionTypes.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions */ "./resources/js/react/redux/actions.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 var stateCopy,
@@ -8268,39 +8278,52 @@ var loginReducer = function loginReducer() {
   copyState(state);
 
   switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logInUsingCredentials.fulfilled.toString():
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.registerUser.fulfilled.toString():
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_LOGGED_IN:
       stateCopy.user = action.payload;
-      return stateCopy;
+      break;
 
-    case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_LOGGED_OUT:
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logoutUser.fulfilled.toString():
       stateCopy.user = null;
-      return stateCopy;
+      stateCopy.loading = false;
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logoutUser.pending.toString():
+      stateCopy.loading = true;
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logoutUser.rejected.toString():
+      stateCopy.loading = false;
+      break;
 
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_VERIFIED_PHONE:
       stateCopy.user = _objectSpread(_objectSpread({}, stateCopy.user), {}, {
         phone_verified: true
       });
-      return stateCopy;
+      break;
 
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_PHONE_NUMBER_CHANGED:
       stateCopy.user = _objectSpread(_objectSpread({}, stateCopy.user), {}, {
         phone_number: action.payload
       });
-      return stateCopy;
+      break;
 
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_EMAIL_CHANGED:
       stateCopy.user = _objectSpread(_objectSpread({}, stateCopy.user), {}, {
         email: action.payload
       });
-      return stateCopy;
+      break;
 
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.APP_STATUS_CHANGED:
       stateCopy.loading = action.payload;
-      return stateCopy;
+      break;
 
     default:
       return state;
   }
+
+  return stateCopy;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loginReducer);
@@ -8515,8 +8538,9 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         phone_number: phone_number,
         password: password
       };
-      authLogin(credentials).then(function () {// change status => not loading
-      });
+      authLogin(credentials); // authLogin(credentials).then(() => {
+      //     // change status => not loading
+      // })
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleRegister", function (e) {
@@ -8528,7 +8552,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           phone_number = _this$state$signup.phone_number,
           password = _this$state$signup.password,
           password_confirmation = _this$state$signup.password_confirmation;
-      var credentials = _this.state.login_method == "email" ? {
+      var info = _this.state.login_method == "email" ? {
         email: email,
         password: password,
         password_confirmation: password_confirmation
@@ -8537,7 +8561,8 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         password: password,
         password_confirmation: password_confirmation
       };
-      authRegister(credentials).then(function () {// change status => not loading
+      authRegister(info).then(function () {
+        console.log('registered'); // change status => not loading
       });
     });
 
@@ -8766,10 +8791,10 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     authLogin: function authLogin(credentials) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.logIn)(credentials));
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.logInUsingCredentials)(credentials));
     },
-    authRegister: function authRegister(credentials) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.register)(credentials));
+    authRegister: function authRegister(information) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.registerUser)(information));
     },
     verifyPhone: function verifyPhone() {
       return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.verifyUserPhone)());

@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::prefix('auth')->name('auth.')->group(function() {
-    Route::post('login', 'LoginController@login')->name('login'); // ->middleware('guest')
+    Route::post('login', 'LoginController@login')->name('login')->middleware('guest'); // 
     Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth:sanctum');
-    Route::post('register', 'RegisterController@register')->name('register');
+    Route::post('register', 'RegisterController@register')->name('register')->middleware('guest');
     Route::get('user', function (Request $request) {
         return $request->user()->load('customer', 'company');
     })->name('user')->middleware('auth:sanctum'); // 

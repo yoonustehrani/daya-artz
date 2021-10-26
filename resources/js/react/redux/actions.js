@@ -8,6 +8,7 @@ import {
 } from "./actionTypes";
 import HttpClient from "../../services/HttpClient";
 import { getCookie } from "../../services/CookieService";
+import { createAsyncThunk } from '@reduxjs/toolkit'
 
 const httpService = new HttpClient({
     baseURL: "http://localhost/api/v1",
@@ -17,8 +18,32 @@ const httpService = new HttpClient({
     }
 })
 
+const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, thunkAPI) => {
+    const response = await httpService.post('/auth/login', credentials)
+    if (! response.user)
+        throw new Error()
+    return response.user
+})
+
+const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState}) => {
+    if (getState().auth.user) {
+        const response = await httpService.post('/auth/logout')
+        if (response.ok) {
+            return response
+        }
+    }
+    throw new Error()
+})
+
+const registerUser = createAsyncThunk('auth/registerUser', async (information, thunkAPI) => {
+    const response = await httpService.post('/auth/register', information)
+    if (response.ok) {
+        return response.user
+    }
+    throw new Error()
+})
+
 const logUserIn = user => ({ type: USER_LOGGED_IN, payload: user })
-const logUserOut = () => ({ type: USER_LOGGED_OUT })
 const verifyUserPhone = () => ({type: USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: APP_STATUS_CHANGED, payload: !! status })
 const changePhoneNumber = phone_number => ({type: USER_PHONE_NUMBER_CHANGED, payload: phone_number})
@@ -32,36 +57,13 @@ const checkAuth = async (dispatch, getState) => {
     dispatch(changeAppStatus(false))
 }
 
-const logOut = async (dispatch, getState) => {
-    if (getState().auth.user) {;
-        dispatch(changeAppStatus(true))
-        await httpService.post('/auth/logout', {}).then(({ok}) => {
-            dispatch(logUserOut())
-        })
-        dispatch(changeAppStatus(false))
-    }
-}
-
-const logIn = credentials => async (dispatch, getState) => {
-    await httpService.post('/auth/login', credentials).then(({ok, message, user}) => {
-        dispatch(logUserIn(user))
-    }).catch(err => null)
-}
-
-const register = credentials => async (dispatch, getState) => {
-    await httpService.post('/auth/register', credentials).then(({ok, message, user}) => {
-        console.log('answered !');
-        dispatch(logUserIn(user))
-    }).catch(err => null)
-}
-
 export {
     logUserIn,
-    logIn,
-    register,
     checkAuth,
-    logOut,
     verifyUserPhone,
     changePhoneNumber,
-    changeEmail
+    changeEmail,
+    logInUsingCredentials,
+    registerUser,
+    logoutUser
 }
