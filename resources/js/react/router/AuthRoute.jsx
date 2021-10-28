@@ -18,6 +18,7 @@ import GuestMiddleware from '../components/GuestMiddleware';
 import PrivateRoute from './PrivateRoute';
 import EmailValidation from '../Pages/Auth/EmailValidation';
 import PhoneValidation from '../Pages/Auth/PhoneValidation';
+import NoMatch from './NoMatch';
 
 const httpService = new HttpClient({
     baseURL: "http://localhost/api/v1/auth",
@@ -126,10 +127,9 @@ class AuthRoute extends Component {
         let { authLogin } = this.props;
         let {email, phone_number, password} = this.state.login;
         let credentials = this.state.login_method == "email" ? {email, password} : {phone_number, password};
-        authLogin(credentials)
-        // authLogin(credentials).then(() => {
-        //     // change status => not loading
-        // })
+        authLogin(credentials).then(res => {
+            // change status => not loading
+        })
     }
 
     handleRegister = (e) => {
@@ -138,8 +138,7 @@ class AuthRoute extends Component {
         let { authRegister } = this.props;
         let {email, phone_number, password, password_confirmation} = this.state.signup
         let info = this.state.login_method == "email" ? {email, password, password_confirmation} : {phone_number, password, password_confirmation};
-        authRegister(info).then(() => {
-            console.log('registered');
+        authRegister(info).then(res => {
             // change status => not loading
         })
     }
@@ -201,41 +200,40 @@ class AuthRoute extends Component {
     render() {
         let {signup, login, forgetPassword, validation, login_method, state} = this.state, { history, location, match, user } = this.props
         return (
-            location.pathname !== "/auth"
-            ? (
-                <>
-                <GuestMiddleware exception={['/auth/verification/email/', '/auth/verification/phone/']} location={location}/>
-                <div className="auth-container">
-                    <div className="login-bg">
-                        <DayaLogo state={state} />
-                        <Background state={state} history={history} changeSection={this.changeSection} />
-                        <Welcome state={state} />
-                        <div className={`login-form animated ${state === 'login' || state === "forgetPassword" ? "right-40" : ""}`}>
-                            <Switch>
-                                <Route exact path={`/auth/signup`} children={(props) => (
-                                    <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />
-                                )} />
+            <>
+            <GuestMiddleware exception={['/auth/verification/email/', '/auth/verification/phone/']} location={location}/>
+            <div className="auth-container">
+                <div className="login-bg">
+                    <DayaLogo state={state} />
+                    <Background state={state} history={history} changeSection={this.changeSection} />
+                    <Welcome state={state} />
+                    <div className={`login-form animated ${state === 'login' || state === "forgetPassword" ? "right-40" : ""}`}>
+                        <Switch>
+                            <Route exact path={`/auth/signup`} children={(props) => (
+                                <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />
+                            )} />
 
-                                <Route exact path={`/auth/login`} children={(props) => (
-                                    <Login {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />
-                                )} />
+                            <Route exact path={`/auth/login`} children={(props) => (
+                                <Login {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />
+                            )} />
 
-                                <Route exact path={`/auth/forgetPassword`} children={(props) => (
-                                    <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
-                                )} />
-                                <PrivateRoute exact={true} path="/auth/verification/email">
-                                    <EmailValidation handleResend={this.handleResend} handleEdit={this.handleEdit}/>
-                                </PrivateRoute>
-                                <PrivateRoute exact={true} path="/auth/verification/phone">
-                                    <PhoneValidation handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation} handleEdit={this.handleEdit}/>
-                                </PrivateRoute>
-                            </Switch>
-                        </div>
+                            <Route exact path={`/auth/forgetPassword`} children={(props) => (
+                                <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
+                            )} />
+                            <PrivateRoute exact={true} path="/auth/verification/email">
+                                <EmailValidation handleResend={this.handleResend} handleEdit={this.handleEdit}/>
+                            </PrivateRoute>
+                            <PrivateRoute exact={true} path="/auth/verification/phone">
+                                <PhoneValidation handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation} handleEdit={this.handleEdit}/>
+                            </PrivateRoute>
+                            <Route path="*">
+                                <NoMatch redirect="/auth/login"/>
+                            </Route>
+                        </Switch>
                     </div>
                 </div>
-                </>
-            )
-            : <Redirect to={{ pathname: "/auth/login", state: {from: location} }} />
+            </div>
+            </>
         );
     }
 }

@@ -8049,15 +8049,15 @@ var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.cre
           case 2:
             response = _context.sent;
 
-            if (response.user) {
+            if (!response) {
               _context.next = 5;
               break;
             }
 
-            throw new Error();
+            return _context.abrupt("return", response.user);
 
           case 5:
-            return _context.abrupt("return", response.user);
+            throw new Error();
 
           case 6:
           case "end":
@@ -8365,7 +8365,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/HttpClient */ "./resources/js/services/HttpClient.js");
@@ -8382,7 +8382,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PrivateRoute__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./PrivateRoute */ "./resources/js/react/router/PrivateRoute.jsx");
 /* harmony import */ var _Pages_Auth_EmailValidation__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Pages/Auth/EmailValidation */ "./resources/js/react/Pages/Auth/EmailValidation.jsx");
 /* harmony import */ var _Pages_Auth_PhoneValidation__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Pages/Auth/PhoneValidation */ "./resources/js/react/Pages/Auth/PhoneValidation.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _NoMatch__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./NoMatch */ "./resources/js/react/router/NoMatch.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -8423,6 +8424,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  // custom components
+
 
 
 
@@ -8538,9 +8540,8 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         phone_number: phone_number,
         password: password
       };
-      authLogin(credentials); // authLogin(credentials).then(() => {
-      //     // change status => not loading
-      // })
+      authLogin(credentials).then(function (res) {// change status => not loading
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleRegister", function (e) {
@@ -8561,8 +8562,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         password: password,
         password_confirmation: password_confirmation
       };
-      authRegister(info).then(function () {
-        console.log('registered'); // change status => not loading
+      authRegister(info).then(function (res) {// change status => not loading
       });
     });
 
@@ -8688,30 +8688,30 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           location = _this$props.location,
           match = _this$props.match,
           user = _this$props.user;
-      return location.pathname !== "/auth" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_GuestMiddleware__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_GuestMiddleware__WEBPACK_IMPORTED_MODULE_12__["default"], {
           exception: ['/auth/verification/email/', '/auth/verification/phone/'],
           location: location
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
           className: "auth-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "login-bg",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_10__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_10__["default"], {
               state: state
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_9__["default"], {
               state: state,
               history: history,
               changeSection: this.changeSection
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_11__["default"], {
               state: state
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
               className: "login-form animated ".concat(state === 'login' || state === "forgetPassword" ? "right-40" : ""),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Switch, {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Switch, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
                   exact: true,
                   path: "/auth/signup",
                   children: function children(props) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], _objectSpread(_objectSpread({}, props), {}, {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], _objectSpread(_objectSpread({}, props), {}, {
                       changeLoginMethod: _this4.changeLoginMethod,
                       changeSection: _this4.changeSection,
                       onChangeField: _this4.onChangeField,
@@ -8720,11 +8720,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                       login_method: login_method
                     }));
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
                   exact: true,
                   path: "/auth/login",
                   children: function children(props) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, props), {}, {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, props), {}, {
                       changeLoginMethod: _this4.changeLoginMethod,
                       changeSection: _this4.changeSection,
                       onChangeField: _this4.onChangeField,
@@ -8733,11 +8733,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                       login_method: login_method
                     }));
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
                   exact: true,
                   path: "/auth/forgetPassword",
                   children: function children(props) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_ForgetPassword__WEBPACK_IMPORTED_MODULE_8__["default"], _objectSpread(_objectSpread({}, props), {}, {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_ForgetPassword__WEBPACK_IMPORTED_MODULE_8__["default"], _objectSpread(_objectSpread({}, props), {}, {
                       changeLoginMethod: _this4.changeLoginMethod,
                       changeSection: _this4.changeSection,
                       onChangeField: _this4.onChangeField,
@@ -8746,35 +8746,33 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                       login_method: login_method
                     }));
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_13__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_13__["default"], {
                   exact: true,
                   path: "/auth/verification/email",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_EmailValidation__WEBPACK_IMPORTED_MODULE_14__["default"], {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_EmailValidation__WEBPACK_IMPORTED_MODULE_14__["default"], {
                     handleResend: this.handleResend,
                     handleEdit: this.handleEdit
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_13__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_13__["default"], {
                   exact: true,
                   path: "/auth/verification/phone",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_PhoneValidation__WEBPACK_IMPORTED_MODULE_15__["default"], {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_PhoneValidation__WEBPACK_IMPORTED_MODULE_15__["default"], {
                     handleResend: this.handleResend,
                     code: validation.code,
                     onChangeField: this.onChangeField,
                     checkCode: this.checkCodeForPhoneValidation,
                     handleEdit: this.handleEdit
                   })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+                  path: "*",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_NoMatch__WEBPACK_IMPORTED_MODULE_16__["default"], {
+                    redirect: "/auth/login"
+                  })
                 })]
               })
             })]
           })
         })]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Redirect, {
-        to: {
-          pathname: "/auth/login",
-          state: {
-            from: location
-          }
-        }
       });
     }
   }]);
@@ -8803,6 +8801,30 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_4__.connect)(mapStateToProps, mapDispatchToProps)(AuthRoute));
+
+/***/ }),
+
+/***/ "./resources/js/react/router/NoMatch.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/react/router/NoMatch.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NoMatch)
+/* harmony export */ });
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function NoMatch(_ref) {
+  var redirect = _ref.redirect;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_1__.Redirect, {
+    to: redirect
+  });
+}
 
 /***/ }),
 

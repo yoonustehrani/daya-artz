@@ -1,7 +1,6 @@
 import {
     APP_STATUS_CHANGED,
     USER_LOGGED_IN,
-    USER_LOGGED_OUT,
     USER_VERIFIED_PHONE,
     USER_PHONE_NUMBER_CHANGED,
     USER_EMAIL_CHANGED
@@ -20,9 +19,10 @@ const httpService = new HttpClient({
 
 const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, thunkAPI) => {
     const response = await httpService.post('/auth/login', credentials)
-    if (! response.user)
-        throw new Error()
-    return response.user
+    if (response) {
+        return response.user
+    }
+    throw new Error()
 })
 
 const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState}) => {
