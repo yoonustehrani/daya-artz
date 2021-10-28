@@ -29,6 +29,10 @@ const loginReducer = (state = defaultState, action) => {
             stateCopy.user = null
             stateCopy.loading = false
             break
+        case logInUsingCredentials.rejected.toString():
+            // action.payload contains the error data
+            // console.log("action is ", action);
+            break
         case logoutUser.pending.toString():
             stateCopy.loading = true
             break

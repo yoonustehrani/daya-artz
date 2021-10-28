@@ -11,7 +11,8 @@ export default class HttpClient
             const response = await this.Http.get(url, config)
             return await response.data
         } catch (err) {
-            this.handleErr(err, handleErrors)
+            let errObj = this.handleErr(err, handleErrors)
+            return {error: errObj}
         }
     }
     post = async (url, params = {}, config = null, handleErrors = true) => {
@@ -19,7 +20,8 @@ export default class HttpClient
             let response = await this.Http.post(url, params, config)
             return await response.data
         } catch (err) {
-            this.handleErr(err, handleErrors)
+            let errObj = this.handleErr(err, handleErrors)
+            return {error: errObj}
         }
     }
     put = (url, params = {}, config = null) => {
@@ -48,15 +50,17 @@ export default class HttpClient
                     // Any Other Error
                     break;
             }
-          } else if (err.request) {
+            return data
+        } else if (err.request) {
             // The request was made but no response was received
             // `err.request` is an instance of XMLHttpRequest in the browser and an instance of
             // http.ClientRequest in node.js
             console.log(err.request);
-          } else {
+        } else {
             // Something happened in setting up the request that triggered an Error
             console.log('Error', err.message);
-          }
+        }
+        return {data: {message: "Error"}}
         //   console.log(err.config);
     }
 }

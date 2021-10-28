@@ -8037,29 +8037,30 @@ var httpService = new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default
   }
 });
 var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/loginUser', /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(credentials, thunkAPI) {
-    var response;
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(credentials, _ref) {
+    var rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
+            rejectWithValue = _ref.rejectWithValue;
+            _context.next = 3;
             return httpService.post('/auth/login', credentials);
 
-          case 2:
+          case 3:
             response = _context.sent;
 
-            if (!response) {
-              _context.next = 5;
+            if (!(typeof response.error !== 'undefined')) {
+              _context.next = 6;
               break;
             }
 
-            return _context.abrupt("return", response.user);
-
-          case 5:
-            throw new Error();
+            return _context.abrupt("return", rejectWithValue(response.error));
 
           case 6:
+            return _context.abrupt("return", response.user);
+
+          case 7:
           case "end":
             return _context.stop();
         }
@@ -8068,17 +8069,17 @@ var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.cre
   }));
 
   return function (_x, _x2) {
-    return _ref.apply(this, arguments);
+    return _ref2.apply(this, arguments);
   };
 }());
 var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/logoutUser', /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(param, _ref2) {
-    var getState, response;
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(param, _ref3) {
+    var getState, rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            getState = _ref2.getState;
+            getState = _ref3.getState, rejectWithValue = _ref3.rejectWithValue;
 
             if (!getState().auth.user) {
               _context2.next = 7;
@@ -8110,33 +8111,34 @@ var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThu
   }));
 
   return function (_x3, _x4) {
-    return _ref3.apply(this, arguments);
+    return _ref4.apply(this, arguments);
   };
 }());
 var registerUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/registerUser', /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(information, thunkAPI) {
-    var response;
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(information, _ref5) {
+    var rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _context3.next = 2;
+            rejectWithValue = _ref5.rejectWithValue;
+            _context3.next = 3;
             return httpService.post('/auth/register', information);
 
-          case 2:
+          case 3:
             response = _context3.sent;
 
-            if (!response.ok) {
-              _context3.next = 5;
+            if (!(typeof response.error !== 'undefined')) {
+              _context3.next = 6;
               break;
             }
 
-            return _context3.abrupt("return", response.user);
-
-          case 5:
-            throw new Error();
+            return _context3.abrupt("return", rejectWithValue(response.error));
 
           case 6:
+            return _context3.abrupt("return", response.user);
+
+          case 7:
           case "end":
             return _context3.stop();
         }
@@ -8145,7 +8147,7 @@ var registerUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncT
   }));
 
   return function (_x5, _x6) {
-    return _ref4.apply(this, arguments);
+    return _ref6.apply(this, arguments);
   };
 }());
 
@@ -8184,8 +8186,8 @@ var changeEmail = function changeEmail(email) {
 };
 
 var checkAuth = /*#__PURE__*/function () {
-  var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(dispatch, getState) {
-    var user;
+  var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(dispatch, getState) {
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
@@ -8194,10 +8196,10 @@ var checkAuth = /*#__PURE__*/function () {
             return httpService.get('/auth/user', null, false);
 
           case 2:
-            user = _context4.sent;
+            response = _context4.sent;
 
-            if (user) {
-              dispatch(logUserIn(user));
+            if (response.user) {
+              dispatch(logUserIn(response.user));
             }
 
             dispatch(changeAppStatus(false));
@@ -8211,7 +8213,7 @@ var checkAuth = /*#__PURE__*/function () {
   }));
 
   return function checkAuth(_x7, _x8) {
-    return _ref5.apply(this, arguments);
+    return _ref7.apply(this, arguments);
   };
 }();
 
@@ -8287,6 +8289,11 @@ var loginReducer = function loginReducer() {
     case _actions__WEBPACK_IMPORTED_MODULE_1__.logoutUser.fulfilled.toString():
       stateCopy.user = null;
       stateCopy.loading = false;
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logInUsingCredentials.rejected.toString():
+      // action.payload contains the error data
+      // console.log("action is ", action);
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_1__.logoutUser.pending.toString():
@@ -9250,6 +9257,7 @@ var HttpClient = function HttpClient() {
       var config,
           handleErrors,
           response,
+          errObj,
           _args = arguments;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
@@ -9272,10 +9280,12 @@ var HttpClient = function HttpClient() {
             case 11:
               _context.prev = 11;
               _context.t0 = _context["catch"](2);
+              errObj = _this.handleErr(_context.t0, handleErrors);
+              return _context.abrupt("return", {
+                error: errObj
+              });
 
-              _this.handleErr(_context.t0, handleErrors);
-
-            case 14:
+            case 15:
             case "end":
               return _context.stop();
           }
@@ -9294,6 +9304,7 @@ var HttpClient = function HttpClient() {
           config,
           handleErrors,
           response,
+          errObj,
           _args2 = arguments;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
@@ -9317,10 +9328,12 @@ var HttpClient = function HttpClient() {
             case 12:
               _context2.prev = 12;
               _context2.t0 = _context2["catch"](3);
+              errObj = _this.handleErr(_context2.t0, handleErrors);
+              return _context2.abrupt("return", {
+                error: errObj
+              });
 
-              _this.handleErr(_context2.t0, handleErrors);
-
-            case 15:
+            case 16:
             case "end":
               return _context2.stop();
           }
@@ -9371,6 +9384,8 @@ var HttpClient = function HttpClient() {
           // Any Other Error
           break;
       }
+
+      return data;
     } else if (err.request) {
       // The request was made but no response was received
       // `err.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -9379,8 +9394,13 @@ var HttpClient = function HttpClient() {
     } else {
       // Something happened in setting up the request that triggered an Error
       console.log('Error', err.message);
-    } //   console.log(err.config);
+    }
 
+    return {
+      data: {
+        message: "Error"
+      }
+    }; //   console.log(err.config);
   });
 
   this.Http = axios__WEBPACK_IMPORTED_MODULE_1___default().create(_config);

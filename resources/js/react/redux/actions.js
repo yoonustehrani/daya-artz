@@ -17,15 +17,16 @@ const httpService = new HttpClient({
     }
 })
 
-const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, thunkAPI) => {
+
+const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, {rejectWithValue}) => {
     const response = await httpService.post('/auth/login', credentials)
-    if (response) {
-        return response.user
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
     }
-    throw new Error()
+    return response.user
 })
 
-const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState}) => {
+const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState, rejectWithValue}) => {
     if (getState().auth.user) {
         const response = await httpService.post('/auth/logout')
         if (response.ok) {
@@ -35,12 +36,12 @@ const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState})
     throw new Error()
 })
 
-const registerUser = createAsyncThunk('auth/registerUser', async (information, thunkAPI) => {
+const registerUser = createAsyncThunk('auth/registerUser', async (information, {rejectWithValue}) => {
     const response = await httpService.post('/auth/register', information)
-    if (response.ok) {
-        return response.user
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
     }
-    throw new Error()
+    return response.user
 })
 
 const logUserIn = user => ({ type: USER_LOGGED_IN, payload: user })
@@ -50,9 +51,9 @@ const changePhoneNumber = phone_number => ({type: USER_PHONE_NUMBER_CHANGED, pay
 const changeEmail = email => ({type: USER_EMAIL_CHANGED, payload: email})
 
 const checkAuth = async (dispatch, getState) => {
-    let user = await httpService.get('/auth/user', null, false)
-    if (user) {
-        dispatch(logUserIn(user));
+    const response = await httpService.get('/auth/user', null, false)
+    if (response.user) {
+        dispatch(logUserIn(response.user));
     }
     dispatch(changeAppStatus(false))
 }
