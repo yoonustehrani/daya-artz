@@ -1,9 +1,11 @@
 import axios from "axios";
+import AlertService from "./AlertService";
 
 export default class HttpClient
 {
     constructor(config = {}) {
         this.Http = axios.create(config)
+        this.Alert = new AlertService()
     }
     
     get = async (url, config = null, handleErrors = true) => {
@@ -24,8 +26,14 @@ export default class HttpClient
             return {error: errObj}
         }
     }
-    put = (url, params = {}, config = null) => {
-        return this.Http.put(url, params, config)
+    put = async (url, params = {}, config = null, handleErrors = true) => {
+        try {
+            let response = await this.Http.put(url, params, config)
+            return await response.data
+        } catch (err) {
+            let errObj = this.handleErr(err, handleErrors)
+            return {error: errObj}
+        }
     }
     patch = (url, params = {}, config = null) => {
         return this.Http.patch(url, params, config)
@@ -39,7 +47,10 @@ export default class HttpClient
         }
         if (err.response) {
             let {data, status} = err.response
-            console.log('service catched error !');
+            this.Alert.error({
+                title: data.message
+            })
+            // console.log('service catched error !');
             // The request was made and the server responded with a status code
             // that falls out of the range of 2xx
             switch (status) {

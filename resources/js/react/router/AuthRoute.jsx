@@ -143,8 +143,6 @@ class AuthRoute extends Component {
         })
     }
 
-    handleEdit = (type, payload) => httpService.put(`/verification/${type == 'phone' ? 'phone' : 'email'}/edit`, payload)
-
     handleResend = (type) => httpService.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
     
     checkCodeForPhoneValidation = (e) => {
@@ -221,10 +219,10 @@ class AuthRoute extends Component {
                                 <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
                             )} />
                             <PrivateRoute exact={true} path="/auth/verification/email">
-                                <EmailValidation handleResend={this.handleResend} handleEdit={this.handleEdit}/>
+                                <EmailValidation handleResend={this.handleResend}/>
                             </PrivateRoute>
                             <PrivateRoute exact={true} path="/auth/verification/phone">
-                                <PhoneValidation handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation} handleEdit={this.handleEdit}/>
+                                <PhoneValidation handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
                             </PrivateRoute>
                             <Route path="*">
                                 <NoMatch redirect="/auth/login"/>

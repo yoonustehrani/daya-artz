@@ -1,12 +1,10 @@
 import {
     APP_STATUS_CHANGED,
     USER_LOGGED_IN,
-    USER_PHONE_NUMBER_CHANGED,
     USER_VERIFIED_PHONE,
-    USER_EMAIL_CHANGED
 } from "../actionTypes"
 
-import { logInUsingCredentials, registerUser, logoutUser } from '../actions'
+import { logInUsingCredentials, registerUser, logoutUser, changeUserPhoneNumber, changeUserEmail } from '../actions'
 
 var stateCopy, defaultState = {
     loading: true,
@@ -45,16 +43,16 @@ const loginReducer = (state = defaultState, action) => {
                 phone_verified: true
             }
             break
-        case USER_PHONE_NUMBER_CHANGED:
+        case changeUserPhoneNumber.fulfilled.toString():
             stateCopy.user = {
                 ...stateCopy.user,
-                phone_number: action.payload
+                phone_number: action.payload.phone_number
             }
             break
-        case USER_EMAIL_CHANGED:
+        case changeUserEmail.fulfilled.toString():
             stateCopy.user = {
                 ...stateCopy.user,
-                email: action.payload
+                email: action.payload.email
             }
             break
         case APP_STATUS_CHANGED:

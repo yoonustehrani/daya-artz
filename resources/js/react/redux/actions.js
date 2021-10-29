@@ -44,10 +44,24 @@ const registerUser = createAsyncThunk('auth/registerUser', async (information, {
     return response.user
 })
 
+const changeUserPhoneNumber = createAsyncThunk('auth/user/changePhoneNumber', async (phone_number, thunkAPI) => {
+    const response = await httpService.put(`/auth/verification/phone/edit`, {phone_number})
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
+    }
+    return {phone_number}
+})
+const changeUserEmail = createAsyncThunk('auth/user/changeEmail', async (email, thunkAPI) => {
+    const response = await httpService.put(`/auth/verification/email/edit`, {email})
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
+    }
+    return {email}
+})
+
 const logUserIn = user => ({ type: USER_LOGGED_IN, payload: user })
 const verifyUserPhone = () => ({type: USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: APP_STATUS_CHANGED, payload: !! status })
-const changePhoneNumber = phone_number => ({type: USER_PHONE_NUMBER_CHANGED, payload: phone_number})
 const changeEmail = email => ({type: USER_EMAIL_CHANGED, payload: email})
 
 const checkAuth = async (dispatch, getState) => {
@@ -62,9 +76,9 @@ export {
     logUserIn,
     checkAuth,
     verifyUserPhone,
-    changePhoneNumber,
-    changeEmail,
     logInUsingCredentials,
     registerUser,
-    logoutUser
+    logoutUser,
+    changeUserPhoneNumber,
+    changeUserEmail
 }

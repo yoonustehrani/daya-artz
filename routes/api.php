@@ -4,6 +4,7 @@ use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\Validator;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
 Route::prefix('auth')->name('auth.')->group(function() {
     Route::post('login', 'LoginController@login')->name('login')->middleware('guest'); // 
     Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth:sanctum');
