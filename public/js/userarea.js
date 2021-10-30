@@ -9273,7 +9273,8 @@ var AlertService = /*#__PURE__*/function () {
         titleText: title,
         icon: icon,
         timer: timer,
-        timerProgressBar: true
+        timerProgressBar: true,
+        html: html
       });
     }
   }, {
@@ -9551,23 +9552,38 @@ var HttpClient = function HttpClient() {
       var _err$response = err.response,
           data = _err$response.data,
           status = _err$response.status;
-
-      _this.Alert.error({
-        title: data.message
-      }); // console.log('service catched error !');
+      var message = "";
+      var title = data.message; // console.log('service catched error !');
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx
-
 
       switch (status) {
         case 401:
           // Unauthorized
           break;
 
+        case 422:
+          // Custom Error
+          var errors = Object.keys(data.errors);
+          errors.map(function (item) {
+            var msg = "";
+            data.errors[item].forEach(function (m) {
+              msg += m + "\n";
+            });
+            message += msg + "\n";
+          });
+          message = message.trim().replace(/\n{1,}/g, "<br>");
+          break;
+
         default:
-          // Any Other Error
+          message = data;
           break;
       }
+
+      _this.Alert.error({
+        title: title,
+        html: message
+      });
 
       return data;
     } else if (err.request) {

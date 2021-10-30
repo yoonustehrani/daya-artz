@@ -47,20 +47,32 @@ export default class HttpClient
         }
         if (err.response) {
             let {data, status} = err.response
-            this.Alert.error({
-                title: data.message
-            })
+            let message = ""
+            let title = data.message
             // console.log('service catched error !');
             // The request was made and the server responded with a status code
             // that falls out of the range of 2xx
             switch (status) {
                 case 401:
                     // Unauthorized
-                    break;
+                    break
+                case 422:
+                    // Custom Error
+                    let errors = Object.keys(data.errors)
+                    errors.map(item => {
+                        let msg = ""
+                        data.errors[item].forEach(m => {
+                            msg += (m + "\n")
+                        });
+                        message += (msg + "\n")
+                    })
+                    message = message.trim().replace(/\n{1,}/g, "<br>")
+                    break
                 default:
-                    // Any Other Error
-                    break;
+                    message = data
+                    break
             }
+            this.Alert.error({title, html: message})
             return data
         } else if (err.request) {
             // The request was made but no response was received

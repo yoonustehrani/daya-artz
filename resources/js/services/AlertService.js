@@ -19,7 +19,8 @@ export default class AlertService {
             titleText: title,
             icon: icon,
             timer: timer,
-            timerProgressBar: true
+            timerProgressBar: true,
+            html: html
         })
     }
     success(config)
