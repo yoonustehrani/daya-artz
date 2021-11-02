@@ -5,13 +5,14 @@ import { logOut } from '../../../../redux/actions'
 
 class Sidebar extends Component {
     render() {
+        let { name, company } = this.props.user
         return (
             <div id="m-menu" className="user-area-sidebar d-none d-md-inline-block">
                 <i id="menu-close" className="fas fa-times float-right d-md-none"></i>
                 <div className="user-info">
                     <div className="user-avatar"><img src={`${APP_PATH}images/user-avatar.png`} alt="user-avatar"/></div>
-                    <p>دایا | daya</p>
-                    <span>شرکت DAYA ARTZ</span>
+                    {name&&<p>{name}</p>}
+                    {company&&company.title&&<span>{company.title}</span>}
                 </div>
                 <ul className="menu-items-container p-0">
                     <li>
@@ -93,4 +94,8 @@ class Sidebar extends Component {
     }
 }
 
-export default connect()(Sidebar);
+const mapStateToProps = (state) => ({
+    user: state.auth.user
+})
+
+export default connect(mapStateToProps)(Sidebar);

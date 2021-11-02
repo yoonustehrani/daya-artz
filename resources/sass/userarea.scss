@@ -196,13 +196,15 @@
                 margin-right: auto;
                 margin-left: auto;
             }
-            .form-title {
-                font-size: 20px;
-                float: right;
+            div.form-title {
+                width: fit-content;
                 margin-top: 20px;
-                font-weight: bold;
-                display: inline-block;
-                width: 100%;
+                h4 {
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding-bottom: 8px;
+                    border-bottom: 2px solid #000;
+                }
             }
             .field-item {
                 direction: rtl;
@@ -223,6 +225,11 @@
                 }
                 .state-code {
                     width: 18%;
+                }
+                .form-check {
+                    input, label {
+                        cursor: pointer;
+                    }
                 }
             }
             .color-picker-container {
@@ -246,6 +253,157 @@
                 padding: 30px;
                 float: right;
             } 
+            // dashboard
+            .dashboard-container {
+                .top_items, .middle_items, .bottom_items {
+                    display: flex;
+                    align-items: stretch;
+                    flex-wrap: wrap;
+                }
+                .middle_items {
+                    :nth-child(1) {
+                        span {
+                            background-color: #6299AB;
+                        }
+                    }
+                    :nth-child(2) {
+                        span {
+                            background-color: #7553C1;
+                        }
+                    }
+                    :nth-child(3) {
+                        span {
+                            background-color: #BD6D7C;
+                        }
+                    }
+                }
+                .dashboard-item-container {
+                    float: left;
+                    margin-top: 50px;
+                    p {
+                        font-size: 16px;
+                    }
+                    .dashboard-top-item, .dashboard-middle-item, .dashboard-bottom-item>.top-header {
+                        float: left;
+                        background-color: $navy-blue;
+                        width: 100%;
+                        border-radius: 8px;
+                        > div {
+                            background-image: url("/images/footer-background.png");
+                            background-size: cover;
+                            width: 100%;
+                            height: 100%;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            float: left;
+                            border-radius: 8px;
+                            display: flex;
+                            flex-direction: row-reverse;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 15px;
+                            * {
+                                color: #fff;
+                            }
+                            h4 {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                    .dashboard-top-item {
+                        .top-item-icon {
+                            i {
+                                font-size: 60px;
+                            }
+                        }
+                        .top-item-info {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: flex-start;
+                            span {
+                                font-size: 40px;
+                            }
+                            > div {
+                                a {
+                                    font-size: 16px;
+                                    background-color: $navy-purple;
+                                    float: right;
+                                    font-weight: normal;
+                                    margin-bottom: 5px;
+                                    transition: 0.4s;
+                                    &:nth-child(1) {
+                                        margin-left: 6px;
+                                    }
+                                    &:hover {
+                                        background-color: $purple;
+                                    }
+                                }
+                            }
+                            h4 {
+                                margin-bottom: 1em;
+                            }
+                        }
+                    }
+                    .dashboard-middle-item {
+                        min-height: 80px;
+                        height: 100%;
+                        > div {
+                            > span {
+                                font-size: 22px;
+                                border-radius: 100%;
+                                padding: 4px;
+                                width: 40px;
+                                height: 40px;
+                                text-align: center;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            h4 {
+                                margin: 0;
+                            }
+                        }
+                    }
+                    .dashboard-bottom-item {
+                        .top-header {
+                            border-top-left-radius: 8px;
+                            border-top-right-radius: 8px;
+                            border-bottom-left-radius: 0 !important;
+                            border-bottom-right-radius: 0 !important;
+                            > div {
+                                justify-content: center !important;
+                            }
+                        }
+                    }
+                    ul.bottom-items {
+                        padding: 0;
+                        margin: 0;
+                        list-style: none;
+                        li:nth-child(odd) {
+                            background-color: #3C2A64;
+                        }
+                        li:nth-child(even) {
+                            background-color: #422D6E;
+                        }
+                        li {
+                            width: 100%;
+                            float: left;
+                            padding: 12px;
+                            font-size: 16px;
+                            a {
+                                text-decoration: none;
+                                color: #fff;
+                                transition: 0.4s;
+                                display: inline-block;
+                                &:hover {
+                                    color: $pink;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

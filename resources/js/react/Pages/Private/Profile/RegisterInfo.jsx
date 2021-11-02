@@ -48,6 +48,10 @@ class RegisterInfo extends Component {
         },
     ]   
 
+    componentDidMount() {
+        document.title = "اطلاعات فردی"
+    }
+
     render() {
         return (
             <ProfileLayout fields={this.fields} title="اطلاعات فردی" />

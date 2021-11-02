@@ -31,7 +31,7 @@ class PrivateRoutes extends Component {
         {
             path: '/dashboard',
             exact: true,
-            Component: Dashboard
+            Component: Dashboard,
         },
         {
             path: '/brandInfo',
