@@ -295,6 +295,12 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .order-items-container {
+        > div {
+            width: 46% !important;
+            margin: 2% !important;
+        }
+    }
 }
 
 // medium and above
@@ -862,6 +868,18 @@ $xl-xl-breakpoint: 1400px;
     .dashboard-item-container {
         margin-top: 30px !important;
     }
+    .orders-filter {
+        h4 {
+            width: 100%;
+        }
+        .filter-items {            
+            width: 100%;
+            padding: 0;
+            li {
+                margin: 15px 0 0 15px !important;
+            }
+        }
+    }
 }
 
 // tablet
@@ -887,6 +905,12 @@ $xl-xl-breakpoint: 1400px;
     }
     .state-code {
         width: 20% !important;
+    }
+    .order-items-container {
+        > div {
+            width: 46% !important;
+            margin: 2% !important;
+        }
     }
 }
 
@@ -942,6 +966,12 @@ $xl-xl-breakpoint: 1400px;
     }
     .state-code {
         width: 26% !important;
+    }
+    .order-items-container {
+        > div {
+            width: 94% !important;
+            margin: 3% !important;
+        }
     }
 }
 
@@ -1123,6 +1153,26 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .order-items-container {
+        > div {
+            div.order-title {
+                h4 {
+                    font-size: 16px !important;
+                }
+            }
+            ul {
+                li {
+                    font-size: 14px !important;
+                    span {
+                        font-size: 12px !important;
+                    }
+                }
+            }
+            > span {
+                font-size: 14px !important;
+            }
+        }
+    }
 }
 
 // xl
@@ -1260,5 +1310,11 @@ $xl-xl-breakpoint: 1400px;
     }
     .state-code {
         width: 26% !important;
+    }
+    .order-items-container {
+        > div {
+            width: 31% !important;
+            margin: 1.15% !important;
+        }
     }
 }

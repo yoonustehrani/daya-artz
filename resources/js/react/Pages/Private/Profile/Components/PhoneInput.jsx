@@ -18,7 +18,7 @@ class PhoneInput extends Component {
             $(".gray.animated").each(function() {
                 $(this).addClass("flipInX")
                 $(this).find("i")[1].classList.toggle("fa-mobile")
-                $(this).find("i")[1].classList.toggle("fa-at")
+                $(this).find("i")[1].classList.toggle("fa-phone")
                 setTimeout(() => {
                     $(this).removeClass("flipInX")
                 }, 1000)
@@ -45,7 +45,7 @@ class PhoneInput extends Component {
                     <span className="gray animated mt-2 mb-2" onClick={this.changephoneType.bind(this)}>
                         {type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل"}
                         <i className="fas fa-long-arrow-alt-left mr-1"></i>
-                        <i className="fas fa-mobile mr-1"></i>
+                        <i className="fas fa-phone mr-1"></i>
                     </span>
                 }
                 <div className="input-group ltr animated">

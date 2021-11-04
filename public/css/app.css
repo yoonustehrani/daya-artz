@@ -34,6 +34,22 @@
   background-color: #dfdfdf;
 }
 
+.bg-dark-blue {
+  background-color: #18093c;
+}
+
+.bg-horny-eggplant {
+  background-color: #6332df;
+}
+
+.bg-green {
+  background-color: #82D177;
+}
+
+.bg-peach {
+  background-color: #ee786e;
+}
+
 @font-face {
   font-family: "IranSansWeb";
   src: url(/fonts/IRANSansWeb.ttf) format("truetype");
@@ -10306,6 +10322,11 @@ h3 {
   .dashboard-item-container .dashboard-bottom-item ul.bottom-items li {
     font-size: 12px !important;
   }
+
+  .order-items-container > div {
+    width: 46% !important;
+    margin: 2% !important;
+  }
 }
 @media screen and (min-width: 768px) {
   div.order-section-container .ml-8p {
@@ -10879,6 +10900,17 @@ h3 {
   .dashboard-item-container {
     margin-top: 30px !important;
   }
+
+  .orders-filter h4 {
+    width: 100%;
+  }
+  .orders-filter .filter-items {
+    width: 100%;
+    padding: 0;
+  }
+  .orders-filter .filter-items li {
+    margin: 15px 0 0 15px !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -10899,6 +10931,11 @@ h3 {
 
   .state-code {
     width: 20% !important;
+  }
+
+  .order-items-container > div {
+    width: 46% !important;
+    margin: 2% !important;
   }
 }
 @media screen and (max-width: 425px) {
@@ -10948,6 +10985,11 @@ h3 {
 
   .state-code {
     width: 26% !important;
+  }
+
+  .order-items-container > div {
+    width: 94% !important;
+    margin: 3% !important;
   }
 }
 @media screen and (max-width: 360px) {
@@ -11098,6 +11140,19 @@ h3 {
     width: 35px !important;
     height: 35px !important;
   }
+
+  .order-items-container > div div.order-title h4 {
+    font-size: 16px !important;
+  }
+  .order-items-container > div ul li {
+    font-size: 14px !important;
+  }
+  .order-items-container > div ul li span {
+    font-size: 12px !important;
+  }
+  .order-items-container > div > span {
+    font-size: 14px !important;
+  }
 }
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
   .portfolio-detail {
@@ -11211,6 +11266,11 @@ h3 {
   .state-code {
     width: 26% !important;
   }
+
+  .order-items-container > div {
+    width: 31% !important;
+    margin: 1.15% !important;
+  }
 }
 html, body {
   width: 100%;
@@ -11225,6 +11285,10 @@ html, body {
 h1, h2, h3, h4, h5, h6, p, span, button, a, ul, li, input, textarea, blockquote, label {
   font-family: "IranSansWeb";
   direction: rtl;
+}
+
+div {
+  font-family: "IranSansWeb";
 }
 
 blockquote {
@@ -15257,4 +15321,137 @@ div.header-section div.header-title .title span {
 }
 .user-area-layout-container .user-area-panel .main-content-container .dashboard-container .dashboard-item-container ul.bottom-items li a:hover {
   color: #DC47DE;
+}
+.user-area-layout-container .user-area-panel .main-content-container .activity-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter {
+  width: 100%;
+  float: right;
+  margin-bottom: 30px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter h4 {
+  font-size: 16px;
+  float: right;
+  font-weight: bold;
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter .filter-items {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter .filter-items li {
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin: 0 0 15px 20px;
+  transition: 0.5s;
+  color: #808080;
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter .filter-items li.active {
+  color: #000;
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter .filter-items li.active span {
+  transform: scale(1.3);
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter .filter-items li:hover {
+  color: #000;
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter .filter-items li:hover span {
+  transform: scale(1.3);
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter .filter-items li span {
+  position: relative;
+  width: 10px;
+  margin-right: 6px;
+  font-size: 15px;
+  transition: 0.5s;
+}
+.user-area-layout-container .user-area-panel .main-content-container .orders-filter .filter-items li span::before {
+  content: "";
+  float: left;
+  padding-top: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  float: right;
+  width: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div {
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px #DED8F2;
+  width: 22%;
+  margin: 1.5%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div div.order-title {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: right;
+  align-items: center;
+  height: 45px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div div.order-title h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div div.order-title img {
+  background-image: url(/images/item-background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  width: auto;
+  height: inherit;
+  margin-left: 8px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div ul.order-details {
+  width: 100%;
+  padding: 0;
+  margin: 12px 0 0;
+  list-style: none;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div ul.order-details li {
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div ul.order-details li span {
+  font-size: 12px;
+  font-weight: normal;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span {
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+  margin-top: 12px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-left: 6px;
+  border-radius: 100px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span.in_progress::before {
+  background-color: #ee786e;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span.waiting::before {
+  background-color: #6332df;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span.done::before {
+  background-color: #82D177;
 }
