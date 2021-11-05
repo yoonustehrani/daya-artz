@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Spinner } from 'react-activity'
 import axios from 'axios';
 // custom components
 import FilterBar from './components/FlterBar';
 import OrderItem from './components/OrderItem';
+import Activity from '../Layout/components/Activity';
 
 class Orders extends Component {
     state = {
@@ -56,6 +56,7 @@ class Orders extends Component {
     }
 
     componentDidMount() {
+        document.title = "سفارشات"
         this.sendFilterReq()
     }
     
@@ -66,7 +67,7 @@ class Orders extends Component {
             <div>
                 <FilterBar onFilterClick={this.onFilterClick} />
                 {
-                    loading ? <div className="activity-container"><Spinner color="#6332df" size={34} /></div>
+                    loading ? <Activity/>
                     : items && items.length > 0
                     ? <div className="order-items-container">
                         {items.map((item, i) => (

@@ -16,7 +16,7 @@ class FilterBar extends Component {
         return (
             <nav className="orders-filter">
                 <h4>فیلتر کردن سفارشات:</h4>
-                <ul className="filter-items">
+                <ul className="filter-items clickable">
                     <li id="all" className="active">همه سفارشات <span className='bg-dark-blue'></span></li>
                     <li id="in_progress">سفارشات در حال انجام <span className='bg-peach'></span></li>
                     <li id="waiting">سفارشات در انتظار <span className="bg-horny-eggplant"></span></li>

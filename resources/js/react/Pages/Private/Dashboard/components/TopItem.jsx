@@ -7,7 +7,7 @@ class TopItem extends Component {
         return (
             <div className="dashboard-item-container col-12 col-md-4">
                 <div className="dashboard-top-item">
-                    <div>
+                    <div className="shapes-back-img">
                         <span className="top-item-icon"><i className={icon}></i></span>
                         <div className="top-item-info">
                             <span>{number}</span>

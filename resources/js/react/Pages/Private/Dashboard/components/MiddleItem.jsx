@@ -6,7 +6,7 @@ class MiddleItem extends Component {
         return (
             <div className="dashboard-item-container col-12 col-md-4">
                 <div className="dashboard-middle-item">
-                    <div>
+                    <div className="shapes-back-img">
                         <span>{number}</span>
                         <h4>{title}</h4>
                     </div>

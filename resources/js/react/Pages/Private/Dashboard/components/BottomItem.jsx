@@ -8,7 +8,7 @@ class BottomItem extends Component {
             <div className="dashboard-item-container col-12 col-md-4">
                 <div className="dashboard-bottom-item">
                     <div className="top-header">
-                        <div>
+                        <div className="shapes-back-img">
                             <h4>{title}</h4>
                         </div>
                     </div>

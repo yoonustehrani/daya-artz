@@ -349,6 +349,9 @@ span.back-aqua {
     i {
         font-size: 55px;
     }
+    &.big-icon {
+        background-size: 70% 100% !important;
+    }
 }
 
 .order-section-container {
