@@ -15280,7 +15280,6 @@ div.header-section div.header-title .title span {
   background-color: #17093c;
   color: white;
 }
-<<<<<<< HEAD
 .user-area-layout-container .user-area-panel .main-content-container .dashboard-top-item, .user-area-layout-container .user-area-panel .main-content-container .finance-item {
   border-radius: 8px;
 }
@@ -15676,7 +15675,7 @@ div.header-section div.header-title .title span {
 }
 .user-area-layout-container .user-area-panel .main-content-container .invoice-table tbody tr:last-child td {
   border-bottom: none !important;
-=======
+}
 
 .swal2-popup.swal2-toast {
   box-sizing: border-box;
@@ -16993,5 +16992,4 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   right: 0;
   bottom: 0;
   left: auto;
->>>>>>> 769b8ced2520e658c2840ca0f01ec678fcb86ca8
 }
