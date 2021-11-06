@@ -4,6 +4,7 @@ use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\Validator;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,14 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
 Route::prefix('auth')->name('auth.')->group(function() {
-    Route::post('login', 'LoginController@login')->name('login'); // ->middleware('guest')
+    Route::post('login', 'LoginController@login')->name('login')->middleware('guest'); // 
     Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth:sanctum');
-    Route::post('register', 'RegisterController@register')->name('register');
+    Route::post('register', 'RegisterController@register')->name('register')->middleware('guest');
     Route::get('user', function (Request $request) {
-        return $request->user()->load('customer', 'company');
-    })->name('user')->middleware('auth:sanctum');
+        return ['ok' => true, 'user' => $request->user()->load('customer', 'company')];
+    })->name('user')->middleware('auth:sanctum'); // 
     Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
         Route::post('phone/verify', 'VerificationController@verifyPhoneNumber')->name('phone.verify');
         Route::put('phone/edit', function (Request $request) {

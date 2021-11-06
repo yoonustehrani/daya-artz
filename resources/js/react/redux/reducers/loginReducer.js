@@ -1,11 +1,10 @@
 import {
     APP_STATUS_CHANGED,
     USER_LOGGED_IN,
-    USER_LOGGED_OUT,
-    USER_PHONE_NUMBER_CHANGED,
     USER_VERIFIED_PHONE,
-    USER_EMAIL_CHANGED
 } from "../actionTypes"
+
+import { logInUsingCredentials, registerUser, logoutUser, changeUserPhoneNumber, changeUserEmail } from '../actions'
 
 var stateCopy, defaultState = {
     loading: true,
@@ -19,36 +18,50 @@ const copyState = (state) => {
 const loginReducer = (state = defaultState, action) => {
     copyState(state)
     switch (action.type) {
+        case logInUsingCredentials.fulfilled.toString():
+        case registerUser.fulfilled.toString():
         case USER_LOGGED_IN:
             stateCopy.user = action.payload
-            return stateCopy
-        case USER_LOGGED_OUT:
+            break
+        case logoutUser.fulfilled.toString():
             stateCopy.user = null
-            return stateCopy
+            stateCopy.loading = false
+            break
+        case logInUsingCredentials.rejected.toString():
+            // action.payload contains the error data
+            // console.log("action is ", action);
+            break
+        case logoutUser.pending.toString():
+            stateCopy.loading = true
+            break
+        case logoutUser.rejected.toString():
+            stateCopy.loading = false
+            break
         case USER_VERIFIED_PHONE:
             stateCopy.user = {
                 ...stateCopy.user,
                 phone_verified: true
             }
-            return stateCopy
-        case USER_PHONE_NUMBER_CHANGED:
+            break
+        case changeUserPhoneNumber.fulfilled.toString():
             stateCopy.user = {
                 ...stateCopy.user,
-                phone_number: action.payload
+                phone_number: action.payload.phone_number
             }
-            return stateCopy;
-        case USER_EMAIL_CHANGED:
+            break
+        case changeUserEmail.fulfilled.toString():
             stateCopy.user = {
                 ...stateCopy.user,
-                email: action.payload
+                email: action.payload.email
             }
-            return stateCopy;
+            break
         case APP_STATUS_CHANGED:
             stateCopy.loading = action.payload
-            return stateCopy
+            break
         default:
             return state;
     }
+    return stateCopy
 }
 
 export default loginReducer

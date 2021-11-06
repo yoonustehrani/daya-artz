@@ -3329,41 +3329,17 @@ var EmailValidation = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleEdit", function (e) {
-      e.preventDefault();
-      var _this$props = _this.props,
-          handleEdit = _this$props.handleEdit,
-          editEmail = _this$props.editEmail; // send http request here
+      e.preventDefault(); // send http request here
 
-      handleEdit("email", {
-        email: _this.state.email
-      }).then(function (res) {
-        if (res.data.okay) {
-          _this.setState({
-            edit: false
-          });
-
-          editEmail(_this.state.email);
-        }
-      })["catch"](function (err) {
-        return console.log(err);
+      _this.props.editEmail(_this.state.email).then(function (res) {
+        console.log(res);
       });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleResend", function () {
       var handleResend = _this.props.handleResend;
       handleResend('email').then(function (res) {
-        var _res$data = res.data,
-            okay = _res$data.okay,
-            left_attempts = _res$data.left_attempts,
-            next_attempt_in_seconds = _res$data.next_attempt_in_seconds;
-
-        _this.setResendTime(next_attempt_in_seconds);
-
-        _this.setState({
-          left_attempts: left_attempts
-        });
-      })["catch"](function (err) {
-        return console.log(err);
+        console.log(res);
       });
     });
 
@@ -3394,7 +3370,7 @@ var EmailValidation = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var user = this.props.user;
-      return user.email && user.email_verified_at ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_4__.Redirect, {
+      return user.email && user.email_verified_at || user.phone_number && !user.phone_verified ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_4__.Redirect, {
         to: "/dashboard"
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
         children: !this.state.edit ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -3472,7 +3448,7 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     editEmail: function editEmail(email) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.changeEmail)(email));
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.changeUserEmail)(email));
     }
   };
 };
@@ -3948,23 +3924,10 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleEdit", function (e) {
       e.preventDefault();
-      var _this$props = _this.props,
-          handleEdit = _this$props.handleEdit,
-          editPhone = _this$props.editPhone; // send http request here
 
-      handleEdit("phone", {
-        phone_number: _this.state.phone_number
-      }).then(function (res) {
-        if (res.data.okay) {
-          _this.setState({
-            edit: false
-          });
-
-          editPhone(_this.state.phone_number);
-        }
-      })["catch"](function (err) {
-        return console.log(err);
-      }); // then set the edit state false
+      _this.props.editPhone(_this.state.phone_number).then(function (res) {
+        console.log(res);
+      });
     });
 
     _this.state = {
@@ -3993,11 +3956,11 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var _this$props2 = this.props,
-          onChangeField = _this$props2.onChangeField,
-          code = _this$props2.code,
-          checkCode = _this$props2.checkCode,
-          user = _this$props2.user;
+      var _this$props = this.props,
+          onChangeField = _this$props.onChangeField,
+          code = _this$props.code,
+          checkCode = _this$props.checkCode,
+          user = _this$props.user;
       return user.phone_number && user.phone_verified ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_4__.Redirect, {
         to: "/dashboard"
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
@@ -4097,7 +4060,7 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     editPhone: function editPhone(phone_number) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.changePhoneNumber)(phone_number));
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.changeUserPhoneNumber)(phone_number));
     }
   };
 };
@@ -7113,7 +7076,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
               onClick: function onClick() {
-                return _this.props.dispatch(_redux_actions__WEBPACK_IMPORTED_MODULE_2__.logOut);
+                return _this.props.dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.logoutUser)());
               },
               href: "#logout",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
@@ -7666,946 +7629,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************!*\
   !*** ./resources/js/react/Pages/Private/Profile/BrandInfo.jsx ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/TextInput */ "./resources/js/react/Pages/Private/Profile/Components/TextInput.jsx");
-/* harmony import */ var _Components_Select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/Select */ "./resources/js/react/Pages/Private/Profile/Components/Select.jsx");
-/* harmony import */ var _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/PhoneInput */ "./resources/js/react/Pages/Private/Profile/Components/PhoneInput.jsx");
-/* harmony import */ var _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/ColorPicker */ "./resources/js/react/Pages/Private/Profile/Components/ColorPicker.jsx");
-/* harmony import */ var _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/Textarea */ "./resources/js/react/Pages/Private/Profile/Components/Textarea.jsx");
-/* harmony import */ var _Components_Radio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/Radio */ "./resources/js/react/Pages/Private/Profile/Components/Radio.jsx");
-/* harmony import */ var _ProfileLayout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ProfileLayout */ "./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
- // components
-
-
-
-
-
-
-
-
-
-
-var BrandInfo = /*#__PURE__*/function (_Component) {
-  _inherits(BrandInfo, _Component);
-
-  var _super = _createSuper(BrandInfo);
-
-  function BrandInfo() {
-    var _this;
-
-    _classCallCheck(this, BrandInfo);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "fields", [{
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "عنوان برند",
-      path: "company.title"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "عنوان انگلیسی برند",
-      path: "company.title_en"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "تگ لاین یا شعار",
-      path: "company.details.tagline"
-    }, {
-      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_3__["default"],
-      title: "شماره تلفن",
-      phone_type: "telephone",
-      path: "company.phone_number"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "آدرس وب سایت",
-      path: "company.website"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "آدرس",
-      path: "company.address"
-    }, {
-      component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
-      title: "معرفی کسب و کار",
-      placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
-      path: "company.intro"
-    }, {
-      component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
-      title: "توصیف عقاید و چهارچوب های سازمانی",
-      placeHolder: "",
-      path: "company.details.policy"
-    }, {
-      component: _Components_Select__WEBPACK_IMPORTED_MODULE_2__["default"],
-      title: "نوع کسب و کار",
-      placeholder: "نوع کسب و کار خود را از میان گزینه های موجود انتخاب کنید",
-      options: [{
-        value: "service",
-        text: "خدمات"
-      }, {
-        value: "sales",
-        text: "فروش"
-      }, {
-        value: "other",
-        text: "..."
-      }],
-      path: "company.business_type"
-    }, {
-      component: _Components_Radio__WEBPACK_IMPORTED_MODULE_6__["default"],
-      title: "شیوه بازار یابی",
-      name: "market_type",
-      options: [{
-        id: "classic",
-        text: "کلاسیک"
-      }, {
-        id: "modern",
-        text: "مدرن"
-      }],
-      path: "company.marketType"
-    }, {
-      component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
-      title: "رنگ سازمانی",
-      path: "company.details.color"
-    }]);
-
-    return _this;
-  }
-
-  _createClass(BrandInfo, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      document.title = "مشخصات کسب و کار";
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        fields: this.fields,
-        title: "\u0645\u0634\u062E\u0635\u0627\u062A \u06A9\u0633\u0628 \u0648 \u06A9\u0627\u0631"
-      });
-    }
-  }]);
-
-  return BrandInfo;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BrandInfo);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/Components/ColorPicker.jsx":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Components/ColorPicker.jsx ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-var ColorPicker = /*#__PURE__*/function (_Component) {
-  _inherits(ColorPicker, _Component);
-
-  var _super = _createSuper(ColorPicker);
-
-  function ColorPicker() {
-    _classCallCheck(this, ColorPicker);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(ColorPicker, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          title = _this$props.title,
-          value = _this$props.value,
-          path = _this$props.path,
-          onChangeHandler = _this$props.onChangeHandler;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "field-item col-12 col-md-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "input-group",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "color",
-            value: value,
-            onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
-            }
-          })
-        })]
-      });
-    }
-  }]);
-
-  return ColorPicker;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ColorPicker);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/Components/PhoneInput.jsx":
-/*!****************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Components/PhoneInput.jsx ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_select2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../components/select2 */ "./resources/js/components/select2.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-var PhoneInput = /*#__PURE__*/function (_Component) {
-  _inherits(PhoneInput, _Component);
-
-  var _super = _createSuper(PhoneInput);
-
-  function PhoneInput(props) {
-    var _this;
-
-    _classCallCheck(this, PhoneInput);
-
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "changephoneType", function () {
-      _this.setState(function (prevState) {
-        return {
-          type: prevState.type === "cellphone" ? "telephone" : "cellphone"
-        };
-      });
-
-      setTimeout(function () {
-        $(".gray.animated").each(function () {
-          var _this2 = this;
-
-          $(this).addClass("flipInX");
-          $(this).find("i")[1].classList.toggle("fa-mobile");
-          $(this).find("i")[1].classList.toggle("fa-phone");
-          setTimeout(function () {
-            $(_this2).removeClass("flipInX");
-          }, 1000);
-        });
-        $(_this.country_code_ref.current).select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
-      }, 0);
-    });
-
-    _this.country_code_ref = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
-    _this.state = {
-      type: ""
-    };
-    return _this;
-  }
-
-  _createClass(PhoneInput, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this3 = this;
-
-      this.setState({
-        type: this.props.phone_type !== "both" ? this.props.phone_type : "cellphone"
-      }, function () {
-        $(_this3.country_code_ref.current).select2(_components_select2__WEBPACK_IMPORTED_MODULE_1__.state_select);
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          value = _this$props.value,
-          title = _this$props.title,
-          path = _this$props.path,
-          onChangeHandler = _this$props.onChangeHandler,
-          phone_type = _this$props.phone_type,
-          type = this.state.type;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "field-item col-12 col-md-6",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          children: [title, ":"]
-        }), phone_type === "both" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          className: "gray animated mt-2 mb-2",
-          onClick: this.changephoneType.bind(this),
-          children: [type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-            className: "fas fa-long-arrow-alt-left mr-1"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-            className: "fas fa-phone mr-1"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "input-group ltr animated",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "input-group-prepend ".concat(type === "telephone" && "state-code"),
-            children: type === "cellphone" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "country_codes_holder",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-                ref: this.country_code_ref,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                  value: "iran",
-                  children: "+98"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                  value: "united-states",
-                  children: "+1"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                  value: "united-kingdom",
-                  children: "+356"
-                })]
-              })
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "tel",
-              className: "form-control ltr",
-              placeholder: "\u06A9\u062F \u0627\u0633\u062A\u0627\u0646"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "tel",
-            value: value,
-            className: "form-control ltr",
-            placeholder: type === "cellphone" ? "شماره موبایل" : "شماره تلفن",
-            onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
-            }
-          })]
-        })]
-      });
-    }
-  }]);
-
-  return PhoneInput;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PhoneInput);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/Components/Radio.jsx":
-/*!***********************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Components/Radio.jsx ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-var Radio = /*#__PURE__*/function (_Component) {
-  _inherits(Radio, _Component);
-
-  var _super = _createSuper(Radio);
-
-  function Radio() {
-    _classCallCheck(this, Radio);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Radio, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          title = _this$props.title,
-          value = _this$props.value,
-          options = _this$props.options,
-          name = _this$props.name,
-          path = _this$props.path,
-          onChangeHandler = _this$props.onChangeHandler;
-      console.log(value);
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "field-item col-12 col-md-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "input-group mb-1",
-          children: options.map(function (option, i) {
-            var text = option.text,
-                id = option.id;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "form-check form-check-inline",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                type: "radio",
-                className: "form-check-input",
-                id: id,
-                defaultChecked: value === id,
-                name: name,
-                onChange: function onChange(e) {
-                  return onChangeHandler(path, e.target.id);
-                }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                htmlFor: id,
-                className: "form-check-label mr-1",
-                children: text
-              })]
-            }, i);
-          })
-        })]
-      });
-    }
-  }]);
-
-  return Radio;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Radio);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/Components/Select.jsx":
-/*!************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Components/Select.jsx ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_select2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../components/select2 */ "./resources/js/components/select2.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-
-var Select = /*#__PURE__*/function (_Component) {
-  _inherits(Select, _Component);
-
-  var _super = _createSuper(Select);
-
-  function Select(props, context) {
-    var _this;
-
-    _classCallCheck(this, Select);
-
-    _this = _super.call(this, props, context);
-    _this.select2Ref = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
-    return _this;
-  }
-
-  _createClass(Select, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this$props = this.props,
-          onChangeHandler = _this$props.onChangeHandler,
-          path = _this$props.path,
-          placeholder = _this$props.placeholder;
-      $(this.select2Ref.current).select2((0,_components_select2__WEBPACK_IMPORTED_MODULE_1__.normal)(placeholder));
-      $(this.select2Ref.current).on("select2:select", function (e) {
-        onChangeHandler(path, e.target.value);
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props2 = this.props,
-          options = _this$props2.options,
-          title = _this$props2.title,
-          value = _this$props2.value,
-          onChangeHandler = _this$props2.onChangeHandler,
-          path = _this$props2.path;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "field-item col-12 col-md-6",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          children: [title, ":"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "input-group",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-            className: "form-control",
-            ref: this.select2Ref,
-            value: value,
-            onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-              value: ""
-            }), options.map(function (option, i) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: option.value,
-                children: option.text
-              }, i);
-            })]
-          })
-        })]
-      });
-    }
-  }]);
-
-  return Select;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Select);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/Components/TextInput.jsx":
-/*!***************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Components/TextInput.jsx ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-var TextInput = /*#__PURE__*/function (_Component) {
-  _inherits(TextInput, _Component);
-
-  var _super = _createSuper(TextInput);
-
-  function TextInput() {
-    _classCallCheck(this, TextInput);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(TextInput, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          value = _this$props.value,
-          title = _this$props.title,
-          onChangeHandler = _this$props.onChangeHandler,
-          path = _this$props.path,
-          _this$props$type = _this$props.type,
-          type = _this$props$type === void 0 ? "text" : _this$props$type;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "field-item col-12 col-md-6",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "input-group",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: type,
-            className: "form-control",
-            value: value,
-            onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
-            }
-          })
-        })]
-      });
-    }
-  }]);
-
-  return TextInput;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextInput);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/Components/Textarea.jsx":
-/*!**************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/Components/Textarea.jsx ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-var Textarea = /*#__PURE__*/function (_Component) {
-  _inherits(Textarea, _Component);
-
-  var _super = _createSuper(Textarea);
-
-  function Textarea() {
-    _classCallCheck(this, Textarea);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Textarea, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          title = _this$props.title,
-          value = _this$props.value,
-          onChangeHandler = _this$props.onChangeHandler,
-          path = _this$props.path;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "field-item col-12 col-md-6",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "input-group",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
-            className: "form-control",
-            value: value,
-            onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
-            }
-          })
-        })]
-      });
-    }
-  }]);
-
-  return Textarea;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Textarea);
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx":
-/*!********************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/react/redux/actions.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
- // redux
-
-
-
-
-
-
-var ProfileLayout = /*#__PURE__*/function (_Component) {
-  _inherits(ProfileLayout, _Component);
-
-  var _super = _createSuper(ProfileLayout);
-
-  function ProfileLayout(props) {
-    var _this;
-
-    _classCallCheck(this, ProfileLayout);
-
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "changeInfo", function (path, value) {
-      var _this$state;
-
-      var keys = path.split("."),
-          _ref = (_this$state = _this.state) !== null && _this$state !== void 0 ? _this$state : {},
-          user = _ref.user;
-
-      var lastKey = keys.pop();
-      var lastObj = keys.reduce(function (user, key) {
-        return user[key] = user[key] || {};
-      }, user);
-      lastObj[lastKey] = value;
-
-      _this.setState({
-        user: user
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "updateInfo", function () {
-      var updateInfo = _this.props.updateInfo,
-          user = _this.state.user;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post('', user).then(function (res) {
-        var user = res.data;
-        updateInfo(user);
-      });
-    });
-
-    _this.state = {
-      user: _this.props.user
-    };
-    return _this;
-  }
-
-  _createClass(ProfileLayout, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$props = this.props,
-          fields = _this$props.fields,
-          title = _this$props.title,
-          user = this.state.user;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "form-title",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-            children: title
-          })
-        }), fields.map(function (field, i) {
-          var _lastObj$last_key;
-
-          var keys = field.path.split("."),
-              last_key = keys.pop(),
-              lastObj = keys.reduce(function (user, key) {
-            return user[key] = user[key] || {};
-          }, _objectSpread({}, user));
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(field.component, _objectSpread({
-            onChangeHandler: _this2.changeInfo,
-            value: (_lastObj$last_key = lastObj[last_key]) !== null && _lastObj$last_key !== void 0 ? _lastObj$last_key : ""
-          }, field), i);
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "eggplant-btn col-12",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "btn btn-lg col-12 col-md-2",
-            onClick: this.updateInfo.bind(this),
-            children: "\u062B\u0628\u062A"
-          })
-        })]
-      });
-    }
-  }]);
-
-  return ProfileLayout;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    user: state.auth.user
-  };
-};
-
-var mapDispathToProps = function mapDispathToProps(dispatch) {
-  return {
-    updateInfo: function updateInfo(Info) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.logUserIn)(Info));
-    }
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps, mapDispathToProps)(ProfileLayout));
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\projects\\daya-artz\\resources\\js\\react\\Pages\\Private\\Profile\\BrandInfo.jsx: Unexpected token (82:1)\n\n\u001b[0m \u001b[90m 80 |\u001b[39m             path\u001b[33m:\u001b[39m \u001b[32m\"company.details.color\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 81 |\u001b[39m         }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 82 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 83 |\u001b[39m     ]  \u001b[0m\n\u001b[0m \u001b[90m 84 |\u001b[39m     \u001b[0m\n\u001b[0m \u001b[90m 85 |\u001b[39m     componentDidMount() {\u001b[0m\n    at Object._raise (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:808:17)\n    at Object.raiseWithData (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:801:17)\n    at Object.raise (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:762:17)\n    at Object.unexpected (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:3267:16)\n    at Object.jsxParseIdentifier (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:6943:12)\n    at Object.jsxParseNamespacedName (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:6953:23)\n    at Object.jsxParseElementName (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:6964:21)\n    at Object.jsxParseOpeningElementAt (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:7051:22)\n    at Object.jsxParseElementAt (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:7084:33)\n    at Object.jsxParseElement (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:7158:17)");
 
 /***/ }),
 
@@ -8613,122 +7639,9 @@ var mapDispathToProps = function mapDispathToProps(dispatch) {
 /*!*******************************************************************!*\
   !*** ./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/TextInput */ "./resources/js/react/Pages/Private/Profile/Components/TextInput.jsx");
-/* harmony import */ var _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/PhoneInput */ "./resources/js/react/Pages/Private/Profile/Components/PhoneInput.jsx");
-/* harmony import */ var _ProfileLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProfileLayout */ "./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
- // components
-
-
-
-
-
-
-var RegisterInfo = /*#__PURE__*/function (_Component) {
-  _inherits(RegisterInfo, _Component);
-
-  var _super = _createSuper(RegisterInfo);
-
-  function RegisterInfo() {
-    var _this;
-
-    _classCallCheck(this, RegisterInfo);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "fields", [{
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "نام",
-      path: "customer.firstname"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "نام خانوادگی",
-      path: "customer.lastname"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "ایمیل",
-      path: "email",
-      type: "email"
-    }, {
-      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
-      title: "شماره موبایل",
-      path: "phone_number",
-      phone_type: "cellphone"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "رمزعبور جدید",
-      path: "",
-      type: "password"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "تایید رمزعبور",
-      path: "",
-      type: "password"
-    }, {
-      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
-      title: "شماره تلفن (جهت پاسخگویی)",
-      path: "customer.phone_number",
-      phone_type: "both"
-    }]);
-
-    return _this;
-  }
-
-  _createClass(RegisterInfo, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      document.title = "اطلاعات فردی";
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        fields: this.fields,
-        title: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0641\u0631\u062F\u06CC"
-      });
-    }
-  }]);
-
-  return RegisterInfo;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegisterInfo);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\projects\\daya-artz\\resources\\js\\react\\Pages\\Private\\Profile\\RegisterInfo.jsx: Unexpected token (50:3)\n\n\u001b[0m \u001b[90m 48 |\u001b[39m         }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 49 |\u001b[39m     ]   \u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 50 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 51 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 52 |\u001b[39m     componentDidMount() {\u001b[0m\n\u001b[0m \u001b[90m 53 |\u001b[39m         document\u001b[33m.\u001b[39mtitle \u001b[33m=\u001b[39m \u001b[32m\"اطلاعات فردی\"\u001b[39m\u001b[0m\n    at Object._raise (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:808:17)\n    at Object.raiseWithData (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:801:17)\n    at Object.raise (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:762:17)\n    at Object.unexpected (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:3267:16)\n    at Object.jsxParseIdentifier (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:6943:12)\n    at Object.jsxParseNamespacedName (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:6953:23)\n    at Object.jsxParseElementName (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:6964:21)\n    at Object.jsxParseOpeningElementAt (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:7051:22)\n    at Object.jsxParseElementAt (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:7084:33)\n    at Object.jsxParseElement (D:\\projects\\daya-artz\\node_modules\\@babel\\parser\\lib\\index.js:7158:17)");
 
 /***/ }),
 
@@ -9203,7 +8116,6 @@ function VerifiedMiddleware() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "USER_LOGGED_IN": () => (/* binding */ USER_LOGGED_IN),
-/* harmony export */   "USER_LOGGED_OUT": () => (/* binding */ USER_LOGGED_OUT),
 /* harmony export */   "USER_VERIFIED_PHONE": () => (/* binding */ USER_VERIFIED_PHONE),
 /* harmony export */   "USER_PHONE_NUMBER_CHANGED": () => (/* binding */ USER_PHONE_NUMBER_CHANGED),
 /* harmony export */   "USER_EMAIL_CHANGED": () => (/* binding */ USER_EMAIL_CHANGED),
@@ -9211,7 +8123,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // authentication
 var USER_LOGGED_IN = "auth/userLoggedin";
-var USER_LOGGED_OUT = "auth/userLoggedOut";
 var USER_VERIFIED_PHONE = "auth/userVerifiedPhoneNumber";
 var USER_PHONE_NUMBER_CHANGED = "auth/userChangedPhoneNumber";
 var USER_EMAIL_CHANGED = "auth/userChangedEmail";
@@ -9231,21 +8142,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "logUserIn": () => (/* binding */ logUserIn),
 /* harmony export */   "checkAuth": () => (/* binding */ checkAuth),
-/* harmony export */   "logOut": () => (/* binding */ logOut),
 /* harmony export */   "verifyUserPhone": () => (/* binding */ verifyUserPhone),
-/* harmony export */   "changePhoneNumber": () => (/* binding */ changePhoneNumber),
-/* harmony export */   "changeEmail": () => (/* binding */ changeEmail)
+/* harmony export */   "logInUsingCredentials": () => (/* binding */ logInUsingCredentials),
+/* harmony export */   "registerUser": () => (/* binding */ registerUser),
+/* harmony export */   "logoutUser": () => (/* binding */ logoutUser),
+/* harmony export */   "changeUserPhoneNumber": () => (/* binding */ changeUserPhoneNumber),
+/* harmony export */   "changeUserEmail": () => (/* binding */ changeUserEmail)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actionTypes */ "./resources/js/react/redux/actionTypes.js");
 /* harmony import */ var _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/HttpClient */ "./resources/js/services/HttpClient.js");
 /* harmony import */ var _services_CookieService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/CookieService */ "./resources/js/services/CookieService.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -9257,17 +8172,203 @@ var httpService = new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default
     'Accept': 'application/json'
   }
 });
+var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/loginUser', /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(credentials, _ref) {
+    var rejectWithValue, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            rejectWithValue = _ref.rejectWithValue;
+            _context.next = 3;
+            return httpService.post('/auth/login', credentials);
+
+          case 3:
+            response = _context.sent;
+
+            if (!(typeof response.error !== 'undefined')) {
+              _context.next = 6;
+              break;
+            }
+
+            return _context.abrupt("return", rejectWithValue(response.error));
+
+          case 6:
+            return _context.abrupt("return", response.user);
+
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function (_x, _x2) {
+    return _ref2.apply(this, arguments);
+  };
+}());
+var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/logoutUser', /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(param, _ref3) {
+    var getState, rejectWithValue, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            getState = _ref3.getState, rejectWithValue = _ref3.rejectWithValue;
+
+            if (!getState().auth.user) {
+              _context2.next = 7;
+              break;
+            }
+
+            _context2.next = 4;
+            return httpService.post('/auth/logout');
+
+          case 4:
+            response = _context2.sent;
+
+            if (!response.ok) {
+              _context2.next = 7;
+              break;
+            }
+
+            return _context2.abrupt("return", response);
+
+          case 7:
+            throw new Error();
+
+          case 8:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function (_x3, _x4) {
+    return _ref4.apply(this, arguments);
+  };
+}());
+var registerUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/registerUser', /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(information, _ref5) {
+    var rejectWithValue, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            rejectWithValue = _ref5.rejectWithValue;
+            _context3.next = 3;
+            return httpService.post('/auth/register', information);
+
+          case 3:
+            response = _context3.sent;
+
+            if (!(typeof response.error !== 'undefined')) {
+              _context3.next = 6;
+              break;
+            }
+
+            return _context3.abrupt("return", rejectWithValue(response.error));
+
+          case 6:
+            return _context3.abrupt("return", response.user);
+
+          case 7:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+
+  return function (_x5, _x6) {
+    return _ref6.apply(this, arguments);
+  };
+}());
+var changeUserPhoneNumber = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/user/changePhoneNumber', /*#__PURE__*/function () {
+  var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(phone_number, thunkAPI) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return httpService.put("/auth/verification/phone/edit", {
+              phone_number: phone_number
+            });
+
+          case 2:
+            response = _context4.sent;
+
+            if (!(typeof response.error !== 'undefined')) {
+              _context4.next = 5;
+              break;
+            }
+
+            return _context4.abrupt("return", rejectWithValue(response.error));
+
+          case 5:
+            return _context4.abrupt("return", {
+              phone_number: phone_number
+            });
+
+          case 6:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+
+  return function (_x7, _x8) {
+    return _ref7.apply(this, arguments);
+  };
+}());
+var changeUserEmail = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/user/changeEmail', /*#__PURE__*/function () {
+  var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(email, thunkAPI) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.next = 2;
+            return httpService.put("/auth/verification/email/edit", {
+              email: email
+            });
+
+          case 2:
+            response = _context5.sent;
+
+            if (!(typeof response.error !== 'undefined')) {
+              _context5.next = 5;
+              break;
+            }
+
+            return _context5.abrupt("return", rejectWithValue(response.error));
+
+          case 5:
+            return _context5.abrupt("return", {
+              email: email
+            });
+
+          case 6:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+
+  return function (_x9, _x10) {
+    return _ref8.apply(this, arguments);
+  };
+}());
 
 var logUserIn = function logUserIn(user) {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__.USER_LOGGED_IN,
     payload: user
-  };
-};
-
-var logUserOut = function logUserOut() {
-  return {
-    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__.USER_LOGGED_OUT
   };
 };
 
@@ -9284,13 +8385,6 @@ var changeAppStatus = function changeAppStatus(status) {
   };
 };
 
-var changePhoneNumber = function changePhoneNumber(phone_number) {
-  return {
-    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__.USER_PHONE_NUMBER_CHANGED,
-    payload: phone_number
-  };
-};
-
 var changeEmail = function changeEmail(email) {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__.USER_EMAIL_CHANGED,
@@ -9299,74 +8393,34 @@ var changeEmail = function changeEmail(email) {
 };
 
 var checkAuth = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(dispatch, getState) {
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+  var _ref9 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(dispatch, getState) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
       while (1) {
-        switch (_context.prev = _context.next) {
+        switch (_context6.prev = _context6.next) {
           case 0:
-            _context.next = 2;
-            return httpService.get('/auth/user').then(function (res) {
-              dispatch(logUserIn(res.data));
-            })["catch"](function (error) {
-              if (error.response) {
-                var _error$response = error.response,
-                    status = _error$response.status,
-                    data = _error$response.data;
-
-                if (status === 401) {// User is not loggedIn
-                  // console.log(data);
-                }
-              }
-            });
+            _context6.next = 2;
+            return httpService.get('/auth/user', null, false);
 
           case 2:
-            dispatch(changeAppStatus(false));
+            response = _context6.sent;
 
-          case 3:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function checkAuth(_x, _x2) {
-    return _ref.apply(this, arguments);
-  };
-}();
-
-var logOut = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(dispatch, getState) {
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            if (!getState().auth.user) {
-              _context2.next = 5;
-              break;
+            if (response.user) {
+              dispatch(logUserIn(response.user));
             }
 
-            dispatch(changeAppStatus(true));
-            _context2.next = 4;
-            return httpService.post('/auth/logout', {}).then(function (res) {
-              if (res.data.ok) {
-                dispatch(logUserOut());
-              }
-            });
-
-          case 4:
             dispatch(changeAppStatus(false));
 
           case 5:
           case "end":
-            return _context2.stop();
+            return _context6.stop();
         }
       }
-    }, _callee2);
+    }, _callee6);
   }));
 
-  return function logOut(_x3, _x4) {
-    return _ref2.apply(this, arguments);
+  return function checkAuth(_x11, _x12) {
+    return _ref9.apply(this, arguments);
   };
 }();
 
@@ -9408,11 +8462,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actionTypes */ "./resources/js/react/redux/actionTypes.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions */ "./resources/js/react/redux/actions.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 var stateCopy,
@@ -9431,39 +8487,57 @@ var loginReducer = function loginReducer() {
   copyState(state);
 
   switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logInUsingCredentials.fulfilled.toString():
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.registerUser.fulfilled.toString():
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_LOGGED_IN:
       stateCopy.user = action.payload;
-      return stateCopy;
+      break;
 
-    case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_LOGGED_OUT:
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logoutUser.fulfilled.toString():
       stateCopy.user = null;
-      return stateCopy;
+      stateCopy.loading = false;
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logInUsingCredentials.rejected.toString():
+      // action.payload contains the error data
+      // console.log("action is ", action);
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logoutUser.pending.toString():
+      stateCopy.loading = true;
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.logoutUser.rejected.toString():
+      stateCopy.loading = false;
+      break;
 
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_VERIFIED_PHONE:
       stateCopy.user = _objectSpread(_objectSpread({}, stateCopy.user), {}, {
         phone_verified: true
       });
-      return stateCopy;
+      break;
 
-    case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_PHONE_NUMBER_CHANGED:
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.changeUserPhoneNumber.fulfilled.toString():
       stateCopy.user = _objectSpread(_objectSpread({}, stateCopy.user), {}, {
-        phone_number: action.payload
+        phone_number: action.payload.phone_number
       });
-      return stateCopy;
+      break;
 
-    case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_EMAIL_CHANGED:
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.changeUserEmail.fulfilled.toString():
       stateCopy.user = _objectSpread(_objectSpread({}, stateCopy.user), {}, {
-        email: action.payload
+        email: action.payload.email
       });
-      return stateCopy;
+      break;
 
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.APP_STATUS_CHANGED:
       stateCopy.loading = action.payload;
-      return stateCopy;
+      break;
 
     default:
       return state;
   }
+
+  return stateCopy;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loginReducer);
@@ -9505,7 +8579,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/HttpClient */ "./resources/js/services/HttpClient.js");
@@ -9522,7 +8596,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PrivateRoute__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./PrivateRoute */ "./resources/js/react/router/PrivateRoute.jsx");
 /* harmony import */ var _Pages_Auth_EmailValidation__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Pages/Auth/EmailValidation */ "./resources/js/react/Pages/Auth/EmailValidation.jsx");
 /* harmony import */ var _Pages_Auth_PhoneValidation__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Pages/Auth/PhoneValidation */ "./resources/js/react/Pages/Auth/PhoneValidation.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _NoMatch__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./NoMatch */ "./resources/js/react/router/NoMatch.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -9563,6 +8638,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  // custom components
+
 
 
 
@@ -9664,33 +8740,34 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleLogin", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // change stats => loading
+
       var authLogin = _this.props.authLogin;
       var _this$state$login = _this.state.login,
           email = _this$state$login.email,
           phone_number = _this$state$login.phone_number,
           password = _this$state$login.password;
-      var payload = _this.state.login_method == "email" ? {
+      var credentials = _this.state.login_method == "email" ? {
         email: email,
         password: password
       } : {
         phone_number: phone_number,
         password: password
       };
-      httpService.post('/login', payload).then(function (res) {
-        var user = res.data.user;
-        authLogin(user);
+      authLogin(credentials).then(function (res) {// change status => not loading
       });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleRegister", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // change stats => loading
+
+      var authRegister = _this.props.authRegister;
       var _this$state$signup = _this.state.signup,
           email = _this$state$signup.email,
           phone_number = _this$state$signup.phone_number,
           password = _this$state$signup.password,
           password_confirmation = _this$state$signup.password_confirmation;
-      var payload = _this.state.login_method == "email" ? {
+      var info = _this.state.login_method == "email" ? {
         email: email,
         password: password,
         password_confirmation: password_confirmation
@@ -9699,19 +8776,8 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
         password: password,
         password_confirmation: password_confirmation
       };
-      httpService.post('/register', payload).then(function (res) {
-        var _res$data = res.data,
-            user = _res$data.user,
-            okay = _res$data.okay;
-
-        if (okay) {
-          _this.props.authLogin(user);
-        }
+      authRegister(info).then(function (res) {// change status => not loading
       });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleEdit", function (type, payload) {
-      return httpService.put("/verification/".concat(type == 'phone' ? 'phone' : 'email', "/edit"), payload);
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleResend", function (type) {
@@ -9725,16 +8791,15 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
       if (code.length === 6) {
         httpService.post('/verification/phone/verify', {
           code: code
-        }).then(function (res) {
-          var _res$data2 = res.data,
-              okay = _res$data2.okay,
-              verified = _res$data2.verified;
+        }).then(function (_ref2) {
+          var okay = _ref2.okay,
+              verified = _ref2.verified;
 
           if (verified) {
             _this.props.verifyPhone();
           }
         })["catch"](function (err) {
-          console.log(err);
+          return null;
         });
       }
     });
@@ -9833,30 +8898,30 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           location = _this$props.location,
           match = _this$props.match,
           user = _this$props.user;
-      return location.pathname !== "/auth" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_GuestMiddleware__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_GuestMiddleware__WEBPACK_IMPORTED_MODULE_12__["default"], {
           exception: ['/auth/verification/email/', '/auth/verification/phone/'],
           location: location
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
           className: "auth-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "login-bg",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_10__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_10__["default"], {
               state: state
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_9__["default"], {
               state: state,
               history: history,
               changeSection: this.changeSection
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_11__["default"], {
               state: state
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
               className: "login-form animated ".concat(state === 'login' || state === "forgetPassword" ? "right-40" : ""),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Switch, {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Switch, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
                   exact: true,
                   path: "/auth/signup",
                   children: function children(props) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], _objectSpread(_objectSpread({}, props), {}, {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_Signup__WEBPACK_IMPORTED_MODULE_7__["default"], _objectSpread(_objectSpread({}, props), {}, {
                       changeLoginMethod: _this4.changeLoginMethod,
                       changeSection: _this4.changeSection,
                       onChangeField: _this4.onChangeField,
@@ -9865,11 +8930,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                       login_method: login_method
                     }));
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
                   exact: true,
                   path: "/auth/login",
                   children: function children(props) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, props), {}, {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, props), {}, {
                       changeLoginMethod: _this4.changeLoginMethod,
                       changeSection: _this4.changeSection,
                       onChangeField: _this4.onChangeField,
@@ -9878,11 +8943,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                       login_method: login_method
                     }));
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
                   exact: true,
                   path: "/auth/forgetPassword",
                   children: function children(props) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_ForgetPassword__WEBPACK_IMPORTED_MODULE_8__["default"], _objectSpread(_objectSpread({}, props), {}, {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_ForgetPassword__WEBPACK_IMPORTED_MODULE_8__["default"], _objectSpread(_objectSpread({}, props), {}, {
                       changeLoginMethod: _this4.changeLoginMethod,
                       changeSection: _this4.changeSection,
                       onChangeField: _this4.onChangeField,
@@ -9891,35 +8956,31 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                       login_method: login_method
                     }));
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_13__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_13__["default"], {
                   exact: true,
                   path: "/auth/verification/email",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_EmailValidation__WEBPACK_IMPORTED_MODULE_14__["default"], {
-                    handleResend: this.handleResend,
-                    handleEdit: this.handleEdit
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_EmailValidation__WEBPACK_IMPORTED_MODULE_14__["default"], {
+                    handleResend: this.handleResend
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_13__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_13__["default"], {
                   exact: true,
                   path: "/auth/verification/phone",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Pages_Auth_PhoneValidation__WEBPACK_IMPORTED_MODULE_15__["default"], {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Pages_Auth_PhoneValidation__WEBPACK_IMPORTED_MODULE_15__["default"], {
                     handleResend: this.handleResend,
                     code: validation.code,
                     onChangeField: this.onChangeField,
-                    checkCode: this.checkCodeForPhoneValidation,
-                    handleEdit: this.handleEdit
+                    checkCode: this.checkCodeForPhoneValidation
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+                  path: "*",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_NoMatch__WEBPACK_IMPORTED_MODULE_16__["default"], {
+                    redirect: "/auth/login"
                   })
                 })]
               })
             })]
           })
         })]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Redirect, {
-        to: {
-          pathname: "/auth/login",
-          state: {
-            from: location
-          }
-        }
       });
     }
   }]);
@@ -9935,8 +8996,11 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    authLogin: function authLogin(user) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.logUserIn)(user));
+    authLogin: function authLogin(credentials) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.logInUsingCredentials)(credentials));
+    },
+    authRegister: function authRegister(information) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.registerUser)(information));
     },
     verifyPhone: function verifyPhone() {
       return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.verifyUserPhone)());
@@ -9945,6 +9009,30 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_4__.connect)(mapStateToProps, mapDispatchToProps)(AuthRoute));
+
+/***/ }),
+
+/***/ "./resources/js/react/router/NoMatch.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/react/router/NoMatch.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NoMatch)
+/* harmony export */ });
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function NoMatch(_ref) {
+  var redirect = _ref.redirect;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_1__.Redirect, {
+    to: redirect
+  });
+}
 
 /***/ }),
 
@@ -10298,6 +9386,113 @@ function RouteWithSubRoutes(path, exact, Component, subroutes, key) {
 
 /***/ }),
 
+/***/ "./resources/js/services/AlertService.js":
+/*!***********************************************!*\
+  !*** ./resources/js/services/AlertService.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AlertService)
+/* harmony export */ });
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'sweetalert2'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var AlertService = /*#__PURE__*/function () {
+  function AlertService() {
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+    _classCallCheck(this, AlertService);
+
+    this.alert = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'sweetalert2'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();
+  }
+
+  _createClass(AlertService, [{
+    key: "fire",
+    value: function fire(_ref) {
+      var title = _ref.title,
+          _ref$message = _ref.message,
+          message = _ref$message === void 0 ? "" : _ref$message,
+          _ref$html = _ref.html,
+          html = _ref$html === void 0 ? "" : _ref$html,
+          _ref$icon = _ref.icon,
+          icon = _ref$icon === void 0 ? "info" : _ref$icon,
+          _ref$timer = _ref.timer,
+          timer = _ref$timer === void 0 ? false : _ref$timer,
+          _ref$confirmButtonTex = _ref.confirmButtonText,
+          confirmButtonText = _ref$confirmButtonTex === void 0 ? null : _ref$confirmButtonTex,
+          _ref$cancelButtonText = _ref.cancelButtonText,
+          cancelButtonText = _ref$cancelButtonText === void 0 ? null : _ref$cancelButtonText,
+          _ref$confirmButton = _ref.confirmButton,
+          confirmButton = _ref$confirmButton === void 0 ? false : _ref$confirmButton,
+          _ref$cancelButton = _ref.cancelButton,
+          cancelButton = _ref$cancelButton === void 0 ? false : _ref$cancelButton;
+      this.alert.fire({
+        titleText: title,
+        icon: icon,
+        timer: timer,
+        timerProgressBar: true,
+        html: html
+      });
+    }
+  }, {
+    key: "success",
+    value: function success(config) {
+      this.fire(_objectSpread(_objectSpread({}, config), {}, {
+        icon: "success"
+      }));
+    }
+  }, {
+    key: "error",
+    value: function error(config) {
+      this.fire(_objectSpread(_objectSpread({}, config), {}, {
+        icon: "error"
+      }));
+    }
+  }, {
+    key: "warning",
+    value: function warning(config) {
+      this.fire(_objectSpread(_objectSpread({}, config), {}, {
+        icon: "warning"
+      }));
+    }
+  }, {
+    key: "info",
+    value: function info(config) {
+      this.fire(_objectSpread(_objectSpread({}, config), {}, {
+        icon: "info"
+      }));
+    }
+  }, {
+    key: "question",
+    value: function question(config) {
+      this.fire(_objectSpread(_objectSpread({}, config), {}, {
+        icon: "question"
+      }));
+    }
+  }]);
+
+  return AlertService;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/services/CookieService.js":
 /*!************************************************!*\
   !*** ./resources/js/services/CookieService.js ***!
@@ -10342,11 +9537,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ HttpClient)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _AlertService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AlertService */ "./resources/js/services/AlertService.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -10357,22 +9562,147 @@ var HttpClient = function HttpClient() {
 
   _classCallCheck(this, HttpClient);
 
-  _defineProperty(this, "get", function (url) {
-    var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    return _this.Http.get(url, config);
-  });
+  _defineProperty(this, "get", /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(url) {
+      var config,
+          handleErrors,
+          response,
+          errObj,
+          _args = arguments;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              config = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
+              handleErrors = _args.length > 2 && _args[2] !== undefined ? _args[2] : true;
+              _context.prev = 2;
+              _context.next = 5;
+              return _this.Http.get(url, config);
 
-  _defineProperty(this, "post", function (url) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-    return _this.Http.post(url, params, config);
-  });
+            case 5:
+              response = _context.sent;
+              _context.next = 8;
+              return response.data;
 
-  _defineProperty(this, "put", function (url) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-    return _this.Http.put(url, params, config);
-  });
+            case 8:
+              return _context.abrupt("return", _context.sent);
+
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](2);
+              errObj = _this.handleErr(_context.t0, handleErrors);
+              return _context.abrupt("return", {
+                error: errObj
+              });
+
+            case 15:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[2, 11]]);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+
+  _defineProperty(this, "post", /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(url) {
+      var params,
+          config,
+          handleErrors,
+          response,
+          errObj,
+          _args2 = arguments;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              params = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : {};
+              config = _args2.length > 2 && _args2[2] !== undefined ? _args2[2] : null;
+              handleErrors = _args2.length > 3 && _args2[3] !== undefined ? _args2[3] : true;
+              _context2.prev = 3;
+              _context2.next = 6;
+              return _this.Http.post(url, params, config);
+
+            case 6:
+              response = _context2.sent;
+              _context2.next = 9;
+              return response.data;
+
+            case 9:
+              return _context2.abrupt("return", _context2.sent);
+
+            case 12:
+              _context2.prev = 12;
+              _context2.t0 = _context2["catch"](3);
+              errObj = _this.handleErr(_context2.t0, handleErrors);
+              return _context2.abrupt("return", {
+                error: errObj
+              });
+
+            case 16:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[3, 12]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+
+  _defineProperty(this, "put", /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(url) {
+      var params,
+          config,
+          handleErrors,
+          response,
+          errObj,
+          _args3 = arguments;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              params = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : {};
+              config = _args3.length > 2 && _args3[2] !== undefined ? _args3[2] : null;
+              handleErrors = _args3.length > 3 && _args3[3] !== undefined ? _args3[3] : true;
+              _context3.prev = 3;
+              _context3.next = 6;
+              return _this.Http.put(url, params, config);
+
+            case 6:
+              response = _context3.sent;
+              _context3.next = 9;
+              return response.data;
+
+            case 9:
+              return _context3.abrupt("return", _context3.sent);
+
+            case 12:
+              _context3.prev = 12;
+              _context3.t0 = _context3["catch"](3);
+              errObj = _this.handleErr(_context3.t0, handleErrors);
+              return _context3.abrupt("return", {
+                error: errObj
+              });
+
+            case 16:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[3, 12]]);
+    }));
+
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }());
 
   _defineProperty(this, "patch", function (url) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -10385,7 +9715,68 @@ var HttpClient = function HttpClient() {
     return _this.Http["delete"](url, config);
   });
 
-  this.Http = axios__WEBPACK_IMPORTED_MODULE_0___default().create(_config);
+  _defineProperty(this, "handleErr", function (err, handle) {
+    if (!handle) {
+      return;
+    }
+
+    if (err.response) {
+      var _err$response = err.response,
+          data = _err$response.data,
+          status = _err$response.status;
+      var message = "";
+      var title = data.message; // console.log('service catched error !');
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+
+      switch (status) {
+        case 401:
+          // Unauthorized
+          break;
+
+        case 422:
+          // Custom Error
+          var errors = Object.keys(data.errors);
+          errors.map(function (item) {
+            var msg = "";
+            data.errors[item].forEach(function (m) {
+              msg += m + "\n";
+            });
+            message += msg + "\n";
+          });
+          message = message.trim().replace(/\n{1,}/g, "<br>");
+          break;
+
+        default:
+          message = data;
+          break;
+      }
+
+      _this.Alert.error({
+        title: title,
+        html: message
+      });
+
+      return data;
+    } else if (err.request) {
+      // The request was made but no response was received
+      // `err.request` is an instance of XMLHttpRequest in the browser and an instance of
+      // http.ClientRequest in node.js
+      console.log(err.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', err.message);
+    }
+
+    return {
+      data: {
+        message: "Error"
+      }
+    }; //   console.log(err.config);
+  });
+
+  this.Http = axios__WEBPACK_IMPORTED_MODULE_1___default().create(_config);
+  this.Alert = new _AlertService__WEBPACK_IMPORTED_MODULE_2__["default"]();
 };
 
 

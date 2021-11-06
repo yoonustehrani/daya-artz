@@ -1,13 +1,13 @@
 import {
     APP_STATUS_CHANGED,
     USER_LOGGED_IN,
-    USER_LOGGED_OUT,
     USER_VERIFIED_PHONE,
     USER_PHONE_NUMBER_CHANGED,
     USER_EMAIL_CHANGED
 } from "./actionTypes";
 import HttpClient from "../../services/HttpClient";
 import { getCookie } from "../../services/CookieService";
+import { createAsyncThunk } from '@reduxjs/toolkit'
 
 const httpService = new HttpClient({
     baseURL: "http://localhost/api/v1",
@@ -17,45 +17,68 @@ const httpService = new HttpClient({
     }
 })
 
+
+const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, {rejectWithValue}) => {
+    const response = await httpService.post('/auth/login', credentials)
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
+    }
+    return response.user
+})
+
+const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState, rejectWithValue}) => {
+    if (getState().auth.user) {
+        const response = await httpService.post('/auth/logout')
+        if (response.ok) {
+            return response
+        }
+    }
+    throw new Error()
+})
+
+const registerUser = createAsyncThunk('auth/registerUser', async (information, {rejectWithValue}) => {
+    const response = await httpService.post('/auth/register', information)
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
+    }
+    return response.user
+})
+
+const changeUserPhoneNumber = createAsyncThunk('auth/user/changePhoneNumber', async (phone_number, thunkAPI) => {
+    const response = await httpService.put(`/auth/verification/phone/edit`, {phone_number})
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
+    }
+    return {phone_number}
+})
+const changeUserEmail = createAsyncThunk('auth/user/changeEmail', async (email, thunkAPI) => {
+    const response = await httpService.put(`/auth/verification/email/edit`, {email})
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
+    }
+    return {email}
+})
+
 const logUserIn = user => ({ type: USER_LOGGED_IN, payload: user })
-const logUserOut = () => ({ type: USER_LOGGED_OUT })
 const verifyUserPhone = () => ({type: USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: APP_STATUS_CHANGED, payload: !! status })
-const changePhoneNumber = phone_number => ({type: USER_PHONE_NUMBER_CHANGED, payload: phone_number})
 const changeEmail = email => ({type: USER_EMAIL_CHANGED, payload: email})
 
 const checkAuth = async (dispatch, getState) => {
-    await httpService.get('/auth/user').then(res => {
-        dispatch(logUserIn(res.data))
-    }).catch(error => {
-        if (error.response) {
-            let {status, data} = error.response
-            if (status === 401) {
-                // User is not loggedIn
-                // console.log(data);
-            }
-        }
-    })
-    dispatch(changeAppStatus(false))
-}
-
-const logOut = async (dispatch, getState) => {
-    if (getState().auth.user) {
-        dispatch(changeAppStatus(true))
-        await httpService.post('/auth/logout', {}).then(res => {
-            if (res.data.ok) {
-                dispatch(logUserOut())
-            }
-        })
-        dispatch(changeAppStatus(false))
+    const response = await httpService.get('/auth/user', null, false)
+    if (response.user) {
+        dispatch(logUserIn(response.user));
     }
+    dispatch(changeAppStatus(false))
 }
 
 export {
     logUserIn,
     checkAuth,
-    logOut,
     verifyUserPhone,
-    changePhoneNumber,
-    changeEmail
+    logInUsingCredentials,
+    registerUser,
+    logoutUser,
+    changeUserPhoneNumber,
+    changeUserEmail
 }

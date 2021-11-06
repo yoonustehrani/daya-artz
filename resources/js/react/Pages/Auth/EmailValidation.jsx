@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { changeEmail } from '../../redux/actions';
+import { changeUserEmail } from '../../redux/actions';
 
 class EmailValidation extends Component {
     constructor(props) {
@@ -37,28 +37,20 @@ class EmailValidation extends Component {
     }
     handleEdit = (e) => {
         e.preventDefault()
-        let {handleEdit, editEmail} = this.props;
         // send http request here
-        handleEdit("email", {email: this.state.email}).then(res => {
-            if (res.data.okay) {
-                this.setState({edit: false})
-                editEmail(this.state.email)
-            }
-        }).catch(err => console.log(err))
+        this.props.editEmail(this.state.email).then(res => {
+            console.log(res);
+        })
     }
     handleResend = () => {
         let {handleResend} = this.props;
         handleResend('email').then(res => {
-            let {okay, left_attempts, next_attempt_in_seconds} = res.data;
-            this.setResendTime(next_attempt_in_seconds)
-            this.setState({
-                left_attempts: left_attempts
-            })
-        }).catch(err => console.log(err))
+            console.log(res);
+        })
     }
     render() {
         let { user } = this.props
-        return user.email && user.email_verified_at 
+        return user.email && user.email_verified_at || user.phone_number && ! user.phone_verified
         ? <Redirect to="/dashboard"/>
         : (
             <>
@@ -101,7 +93,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    editEmail: email => dispatch(changeEmail(email))
+    editEmail: email => dispatch(changeUserEmail(email))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmailValidation);

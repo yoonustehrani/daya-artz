@@ -47,11 +47,17 @@ class RegisterInfo extends Component {
             phone_type: "both"
         },
     ]   
+<<<<<<< HEAD
 
     componentDidMount() {
         document.title = "اطلاعات فردی"
     }
 
+=======
+    componentDidMount() {
+        document.title = "مشخصات فردی"
+    }
+>>>>>>> 769b8ced2520e658c2840ca0f01ec678fcb86ca8
     render() {
         return (
             <ProfileLayout fields={this.fields} title="اطلاعات فردی" />

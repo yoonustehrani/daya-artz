@@ -34,12 +34,13 @@ $("#guide-toggler").click(function() {
 
 // the code below is for checking which element is in viewport
 const section_ids = ["#logo-info", "#order-detail", "#customer-detail", "#about-logo", "#start-order", "#daya-guide", "#daya-samples"]
-$("body").scroll(function() {
+$("body").on('scroll', function() {
     let sections_info = [], current_section_index
     section_ids.map((id, index) => {
+        let elem = $(id)
         sections_info.push({
-            offset_top: $(id).offset().top, 
-            height: $(id).innerHeight()
+            offset_top: elem[0] ? elem.offset().top : null, 
+            height: elem[0] ? elem.innerHeight() : null
         })
     })
     sections_info.map((section, i) => {

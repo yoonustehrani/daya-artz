@@ -25,7 +25,7 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
         if ($this->attemptLogin($this->credentials($request))) {
-            return response()->json(['okay' => true, 'message' => 'Login Successful', 'user' => Auth::user()->load('customer', 'company')]);
+            return response()->json(['ok' => true, 'message' => 'Login Successful', 'user' => Auth::user()->load('customer', 'company')]);
         }
         // if fail should be run
         $this->incrementLoginAttempts($request);

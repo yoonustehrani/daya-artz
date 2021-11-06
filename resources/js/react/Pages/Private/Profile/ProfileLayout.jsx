@@ -11,7 +11,6 @@ class ProfileLayout extends Component {
             user: this.props.user
         }
     }
-    
     changeInfo = (path, value) => {
         let keys = path.split("."), { user } = this.state??{}
         const lastKey = keys.pop()
