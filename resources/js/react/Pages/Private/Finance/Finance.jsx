@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Activity from '../Layout/components/Activity';
 // custom components
 import FactorsGuide from './components/FactorsGuide';
 import FinanceItem from './components/FinanceItem';
+import QuickAccess from './components/QuickAccess';
 
 class Finance extends Component {
     state = {
@@ -66,23 +66,7 @@ class Finance extends Component {
                           ))
                         }
                     </div>
-                    <div className="finance-quick-buttons">
-                        <div>
-                            <h4>ثبت سفارش جدید</h4>
-                            <span><i className="fas fa-cart-plus"></i></span>                            
-                            <Link to="#start-order" className="badge badge-pill purple-pill">شروع سفارش</Link>
-                        </div>
-                        <div>
-                            <div>
-                                <h4>تصویه بدهی ها</h4>
-                                <Link to="#pay" className="badge badge-pill purple-pill">تصویه حساب</Link>
-                            </div>
-                            <div>
-                                <h4>پیش پرداخت ها</h4>
-                                <Link to="#pay" className="badge badge-pill purple-pill">پیش پرداخت ها</Link>
-                            </div>
-                        </div>
-                    </div>
+                    <QuickAccess />
                 </div>
             </div>
         );

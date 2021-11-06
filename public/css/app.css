@@ -31,23 +31,35 @@
 }
 
 .bg-milk {
-  background-color: #dfdfdf;
+  background-color: #dfdfdf !important;
 }
 
 .bg-dark-blue {
-  background-color: #18093c;
+  background-color: #18093c !important;
 }
 
 .bg-horny-eggplant {
-  background-color: #6332df;
+  background-color: #6332df !important;
 }
 
 .bg-green {
-  background-color: #82D177;
+  background-color: #82D177 !important;
 }
 
 .bg-peach {
-  background-color: #ee786e;
+  background-color: #ee786e !important;
+}
+
+.bg-light-eggplant {
+  background-color: #C3ACFA !important;
+}
+
+.bg-light-green {
+  background-color: #CBE8EE !important;
+}
+
+.bg-light-peach {
+  background-color: #FED0D1 !important;
 }
 
 @font-face {
@@ -15191,6 +15203,7 @@ div.header-section div.header-title .title span {
   margin-right: 25px;
   padding: 20px;
   overflow-y: auto;
+  overflow-x: hidden;
   direction: rtl;
 }
 .user-area-layout-container .user-area-panel .main-content-container::-webkit-scrollbar {
@@ -15638,4 +15651,28 @@ div.header-section div.header-title .title span {
 .user-area-layout-container .user-area-panel .main-content-container .finance-info-section > div.finance-quick-buttons > div:nth-child(2) > div {
   height: 46%;
   width: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .invoice-table {
+  border-radius: 8px;
+  border: 2px solid #BAA8DE;
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  text-align: center;
+}
+.user-area-layout-container .user-area-panel .main-content-container .invoice-table th {
+  border-top: none !important;
+}
+.user-area-layout-container .user-area-panel .main-content-container .invoice-table th, .user-area-layout-container .user-area-panel .main-content-container .invoice-table td {
+  border-color: #BAA8DE !important;
+}
+.user-area-layout-container .user-area-panel .main-content-container .invoice-table tr th:first-child, .user-area-layout-container .user-area-panel .main-content-container .invoice-table tr td:first-child {
+  border-right: none !important;
+}
+.user-area-layout-container .user-area-panel .main-content-container .invoice-table tr th:last-child, .user-area-layout-container .user-area-panel .main-content-container .invoice-table tr td:last-child {
+  border-left: none !important;
+}
+.user-area-layout-container .user-area-panel .main-content-container .invoice-table tbody tr:last-child td {
+  border-bottom: none !important;
 }
