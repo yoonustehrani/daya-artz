@@ -19,7 +19,6 @@ class PhoneInput extends Component {
                 $(this).addClass("flipInX")
                 $(this).find("i")[1].classList.toggle("fa-phone")
                 $(this).find("i")[1].classList.toggle("fa-mobile")
-                $(this).find("i")[1].classList.toggle("fa-phone")
                 setTimeout(() => {
                     $(this).removeClass("flipInX")
                 }, 1000)

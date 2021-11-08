@@ -3,6 +3,7 @@ import axios from 'axios';
 import Activity from '../../../Layout/components/Activity'
 import InvoiceHead from './InvoiceHead';
 import InvoiceRow from './InvoiceRow';
+import NoItem from '../../../Layout/components/NoItem';
 
 class InvoiceTable extends Component {
     state = {
@@ -39,6 +40,7 @@ class InvoiceTable extends Component {
     }
     
     componentDidMount() {
+        document.title = "فاکتور ها"
         // axios.get('').then(res => {
         //     let { data } = res
         //     this.setState({
@@ -53,7 +55,7 @@ class InvoiceTable extends Component {
         return (
             loading ? <Activity/> :
             invoices && invoices.length > 0 ?
-            <table className="table table-striped table-responsive table-bordered invoice-table">
+            <table className="table table-striped table-responsive table-bordered userarea-table">
                 <InvoiceHead />
                 <tbody>
                     {
@@ -63,7 +65,7 @@ class InvoiceTable extends Component {
                     }
                 </tbody>
             </table>
-            : <div className="activity-container alert alert-light">موردی برای نمایش وجود ندارد</div>
+            : <NoItem/>
         );
     }
 }

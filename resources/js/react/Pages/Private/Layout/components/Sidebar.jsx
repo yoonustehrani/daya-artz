@@ -63,10 +63,10 @@ class Sidebar extends Component {
                         <a to="#tickets"><i className="fas fa-headset"></i>پشتیبانی</a>
                         <ul className="submenu-m">
                             <li>
-                                <Link to="/ticekts/new" className="link">درخواست های پشتیبانی</Link>
+                                <Link to="/tickets" className="link">درخواست های پشتیبانی</Link>
                             </li>
                             <li>
-                                <Link to="/ticekts" className="link">ثبت درخواست پشتیبانی</Link>
+                                <Link to="/ticekts/new" className="link">ثبت درخواست پشتیبانی</Link>
                             </li>
                             <li>
                                 <Link to="/tickets/faq" className="link">سوالات متداول</Link>

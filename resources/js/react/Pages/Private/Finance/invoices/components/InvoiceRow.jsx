@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 
 class InvoiceRow extends Component {
     render() {
-        let { title, price, pre_pay, debt, created_at, details, color } = this.props
+        let { title, price, pre_pay, debt, created_at, details, color } = this.props, cells = [title, price, pre_pay, debt, created_at, details]
         return (
             <tr className={color}>
-                <td>{title}</td>
-                <td>{price}</td>
-                <td>{pre_pay}</td>
-                <td>{debt}</td>
-                <td>{created_at}</td>
-                <td>{details}</td>
+                {cells && cells.length > 0 && cells.map((cell, i) => (
+                    <td key={i}>{cell}</td>
+                ))}
             </tr>
         );
     }

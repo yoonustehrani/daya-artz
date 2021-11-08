@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import NoItem from '../../Layout/components/NoItem';
 
 class BottomItem extends Component {
     render() {
@@ -20,7 +21,7 @@ class BottomItem extends Component {
                                 <li key={i}><Link to={item.href}>{item.title}</Link></li>
                             ))}
                         </ul>
-                    ) : (<div className="text-center mt-2 float-left w-100"><p className="text-center text-secondary">موردی برای نمایش وجود ندارد</p></div>)
+                    ) : <NoItem/>
                 }
             </div>
         );

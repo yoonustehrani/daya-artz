@@ -4,6 +4,7 @@ import axios from 'axios';
 import FilterBar from './components/FlterBar';
 import OrderItem from './components/OrderItem';
 import Activity from '../Layout/components/Activity';
+import NoItem from '../Layout/components/NoItem';
 
 class Orders extends Component {
     state = {
@@ -74,7 +75,7 @@ class Orders extends Component {
                             <OrderItem key={i} {...item} />
                         ))}
                     </div>
-                    : <div className="activity-container alert alert-light">موردی برای نمایش وجود ندارد</div>
+                    : <NoItem/>
                 }
             </div>
         );
