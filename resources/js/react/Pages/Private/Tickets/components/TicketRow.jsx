@@ -6,13 +6,13 @@ class TicketRow extends Component {
         let { title, ticket_number, created_at, department, status, href } = this.props, rowInfo = [ title, ticket_number, created_at, department, status ]
         
         return (
+            <Link to={href} className="d-contents">
                 <tr>
-                    <Link to={href} className="d-contents">
                         {rowInfo && rowInfo.length > 0 && rowInfo.map((row, i) => (
                             <td key={i}>{row}</td>
                         ))}
-                    </Link>
                 </tr>
+            </Link>
         );
     }
 }

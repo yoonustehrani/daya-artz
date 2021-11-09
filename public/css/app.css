@@ -15681,8 +15681,36 @@ div.header-section div.header-title .title span {
 .user-area-layout-container .user-area-panel .main-content-container .userarea-table tr th:last-child, .user-area-layout-container .user-area-panel .main-content-container .userarea-table tr td:last-child {
   border-left: none !important;
 }
+.user-area-layout-container .user-area-panel .main-content-container .userarea-table tbody a {
+  color: inherit;
+}
 .user-area-layout-container .user-area-panel .main-content-container .userarea-table tbody tr:last-child td {
   border-bottom: none !important;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container {
+  height: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container > * {
+  width: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-top-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  border-bottom: 2px solid #000;
+  padding: 8px;
+  text-align: ce;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-top-nav h4 {
+  font-size: 16px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-top-nav h4:first-child {
+  margin-left: 15px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-top-nav h4 span {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .swal2-popup.swal2-toast {

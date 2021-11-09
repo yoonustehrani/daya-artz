@@ -676,12 +676,40 @@
                     }
                 }
                 tbody {
+                    a {
+                        color: inherit;
+                    }
                     tr:last-child {
                         td {
                             border-bottom: none !important;
                         }
                     }
                 }
+            }
+            .ticket-container {
+                height: 100%;
+                > * {
+                    width: 100%;
+                }
+                .ticket-top-nav {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: flex-start;
+                    border-bottom: 2px solid #000;
+                    padding: 8px;
+                    text-align: ce;
+                    h4 {
+                        font-size: 16px;
+                        &:first-child {
+                            margin-left: 15px;
+                        }
+                        span {
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                    }
+                }               
             }
         }
     }
