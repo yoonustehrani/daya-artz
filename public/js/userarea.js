@@ -9540,21 +9540,6 @@ var TicketsFaq = /*#__PURE__*/function (_Component) {
     }, {
       question: "پشتیبانی دایا چگونه انجام میشود؟",
       answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-    }, {
-      question: "پشتیبانی دایا چگونه انجام میشود؟",
-      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-    }, {
-      question: "پشتیبانی دایا چگونه انجام میشود؟",
-      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-    }, {
-      question: "پشتیبانی دایا چگونه انجام میشود؟",
-      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-    }, {
-      question: "پشتیبانی دایا چگونه انجام میشود؟",
-      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-    }, {
-      question: "پشتیبانی دایا چگونه انجام میشود؟",
-      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
     }]);
 
     _defineProperty(_assertThisInitialized(_this), "openfaq", function (e) {
@@ -9878,7 +9863,9 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
           hasMore = _this$props.hasMore;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "ticket-messages",
-        ref: this.scrollerRef,
+        ref: function ref(_ref) {
+          return _this2.scrollerRef = _ref;
+        },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1___default()), {
           pageStart: 0,
           loadMore: loadMore,

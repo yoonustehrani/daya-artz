@@ -12,7 +12,7 @@ class TicketMessages extends Component {
     render() {
         let { messages, loadMore, loading_messages,hasMore } = this.props
         return (
-            <div className="ticket-messages" ref={this.scrollerRef}>
+            <div className="ticket-messages" ref={(ref) => this.scrollerRef = ref}>
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={loadMore}

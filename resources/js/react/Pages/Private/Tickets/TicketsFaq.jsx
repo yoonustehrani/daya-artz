@@ -22,26 +22,6 @@ class TicketsFaq extends Component {
             question: "پشتیبانی دایا چگونه انجام میشود؟",
             answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
         },
-        {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-        },
-        {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-        },
-        {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-        },
-        {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-        },
-        {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
-        },
     ]
 
     openfaq = (e) => {
