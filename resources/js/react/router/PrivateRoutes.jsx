@@ -104,7 +104,7 @@ class PrivateRoutes extends Component {
             Component: NewTicket
         },
         {
-            path: '/ticekts/faq',
+            path: '/tickets/faq',
             exact: true,
             Component: TicketsFaq
         },

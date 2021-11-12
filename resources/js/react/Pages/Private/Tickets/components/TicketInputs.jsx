@@ -18,12 +18,12 @@ class TicketInputs extends Component {
                     <div>
                         <h4>ارسال عکس</h4>
                         <span>[jpg, jpeg, png]</span>
-                        <button className="badge badge-pill purple-btn" type="file">ارسال عکس</button>
+                        <button className="badge badge-pill purple-btn">ارسال عکس</button>
                     </div>
                     <div>
                         <h4>ارسال فایل</h4>
                         <span>[tiff, psd, gif]</span>
-                        <button className="badge badge-pill purple-btn" type="file">ارسال فایل</button>
+                        <button className="badge badge-pill purple-btn">ارسال فایل</button>
                     </div>
                 </div>
             </div>

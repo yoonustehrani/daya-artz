@@ -8982,7 +8982,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_select2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/select2 */ "./resources/js/components/select2.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9011,6 +9012,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var NewTicket = /*#__PURE__*/function (_Component) {
   _inherits(NewTicket, _Component);
 
@@ -9028,13 +9031,22 @@ var NewTicket = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      ticket_content: ""
+      ticket_content: "",
+      department: ""
     });
 
     _defineProperty(_assertThisInitialized(_this), "sendNewTicket", function () {
-      var ticket_content = _this.state.ticket_content; // axios.post('', {message: ticket_content}).then(res => {
+      var _this$state = _this.state,
+          ticket_content = _this$state.ticket_content,
+          department = _this$state.department; // axios.post('', {message: ticket_content, department: department}).then(res => {
       //     let { data } = res.data
       // })
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "changeContent", function (e) {
+      _this.setState({
+        ticket_content: e.target.value
+      });
     });
 
     return _this;
@@ -9043,13 +9055,80 @@ var NewTicket = /*#__PURE__*/function (_Component) {
   _createClass(NewTicket, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       document.title = "ارسال تیکت جدید";
-      console.log(this.props);
+      $("#department-section").select2((0,_components_select2__WEBPACK_IMPORTED_MODULE_2__.normal)("بخش مربوطه: "));
+      $("#department-section").on("select2:select", function () {
+        _this2.setState({
+          department: $("#department-section").val()
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {});
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "new-ticket-container",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "input-group",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            id: "department-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: ""
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "support",
+              children: "\u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "sales",
+              children: "\u0641\u0631\u0648\u0634"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "technical",
+              children: "\u0641\u0646\u06CC"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "design",
+              children: "\u0637\u0631\u0627\u062D\u06CC"
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "msg-text-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "input-group",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+              className: "form-control",
+              onChange: this.changeContent.bind(this),
+              placeholder: "\u0645\u062A\u0646 \u067E\u06CC\u0627\u0645:"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "badge badge-pill purple-btn",
+            children: "\u0627\u0631\u0633\u0627\u0644 \u062A\u06CC\u06A9\u062A"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "upload-boxes",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "flex-center",
+            children: "here will be the dropzone"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+              children: "\u0627\u0631\u0633\u0627\u0644 \u0639\u06A9\u0633"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "[jpg, jpeg, png]"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              className: "badge badge-pill purple-btn",
+              children: "\u0627\u0631\u0633\u0627\u0644 \u0639\u06A9\u0633"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+              children: "\u0627\u0631\u0633\u0627\u0644 \u0641\u0627\u06CC\u0644"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "[tiff, psd, gif]"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              className: "badge badge-pill purple-btn",
+              children: "\u0627\u0631\u0633\u0627\u0644 \u0641\u0627\u06CC\u0644"
+            })]
+          })]
+        })]
+      });
     }
   }]);
 
@@ -9424,6 +9503,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -9433,15 +9515,79 @@ var TicketsFaq = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(TicketsFaq);
 
   function TicketsFaq() {
+    var _this;
+
     _classCallCheck(this, TicketsFaq);
 
-    return _super.apply(this, arguments);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "faqs", [{
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }, {
+      question: "پشتیبانی دایا چگونه انجام میشود؟",
+      answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+    }]);
+
+    _defineProperty(_assertThisInitialized(_this), "openfaq", function (e) {
+      $(e.target).parent("span").siblings("p").toggleClass("d-none");
+      $(e.target).toggleClass("fa-plus fa-minus");
+    });
+
+    return _this;
   }
 
   _createClass(TicketsFaq, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
+      var _this2 = this;
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "ticekts-faq",
+        children: this.faqs.map(function (item, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+                onClick: _this2.openfaq.bind(_this2),
+                className: "fas fa-plus"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+              children: item.question
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              className: "d-none animated fadeIn",
+              children: item.answer
+            })]
+          }, i);
+        })
+      });
     }
   }]);
 
@@ -9542,7 +9688,6 @@ var TicketInputs = /*#__PURE__*/function (_Component) {
               children: "[jpg, jpeg, png]"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
               className: "badge badge-pill purple-btn",
-              type: "file",
               children: "\u0627\u0631\u0633\u0627\u0644 \u0639\u06A9\u0633"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -9552,7 +9697,6 @@ var TicketInputs = /*#__PURE__*/function (_Component) {
               children: "[tiff, psd, gif]"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
               className: "badge badge-pill purple-btn",
-              type: "file",
               children: "\u0627\u0631\u0633\u0627\u0644 \u0641\u0627\u06CC\u0644"
             })]
           })]
@@ -11312,7 +11456,7 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
       exact: true,
       Component: _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_11__["default"]
     }, {
-      path: '/ticekts/faq',
+      path: '/tickets/faq',
       exact: true,
       Component: _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_14__["default"]
     }, {
