@@ -236,13 +236,10 @@ $xl-xl-breakpoint: 1400px;
             height: calc(100% - 215px);
             a {
                 font-size: 13px !important;
-                padding: 15px 15px !important;
+                // padding: 15px 15px !important;
                 i {
                     font-size: 12px !important;
                 }
-            }
-            ul.submenu-m {
-                padding-right: 25px !important;
             }
         }
     }
@@ -1455,7 +1452,7 @@ $xl-xl-breakpoint: 1400px;
             }
         }
         ul.submenu-m {
-            padding-right: 30px !important;
+            padding-right: 40px !important;
         }
     }
     .state-code {

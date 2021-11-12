@@ -10290,13 +10290,9 @@ h3 {
   }
   .user-area-sidebar ul.menu-items-container a {
     font-size: 13px !important;
-    padding: 15px 15px !important;
   }
   .user-area-sidebar ul.menu-items-container a i {
     font-size: 12px !important;
-  }
-  .user-area-sidebar ul.menu-items-container ul.submenu-m {
-    padding-right: 25px !important;
   }
 
   .state-code {
@@ -11435,7 +11431,7 @@ h3 {
     font-size: 16px !important;
   }
   .user-area-sidebar ul.submenu-m {
-    padding-right: 30px !important;
+    padding-right: 40px !important;
   }
 
   .state-code {
@@ -15314,7 +15310,7 @@ div.header-section div.header-title .title span {
   font: 16px !important;
 }
 .user-area-layout-container .user-area-panel .user-area-sidebar ul.menu-items-container li.has-sub .submenu-m li {
-  padding: 10px 0px;
+  padding: 8px 0px;
   -webkit-backface-visibility: visible;
           backface-visibility: visible;
   -webkit-animation-name: flipInX;
