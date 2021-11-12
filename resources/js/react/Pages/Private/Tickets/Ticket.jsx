@@ -2,54 +2,97 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // custom components
 import Activity from '../Layout/components/Activity'
+import TicketTopNav from './components/TicketTopNav';
+import TicketMessages from './components/TicketMessages';
+import TicketInputs from './components/TicketInputs';
 
 class Ticket extends Component {
     state = {
         loading: false,
-        ticket: {
-            department: "پشتیبانی طراحی",
-            ticketNo: "312349",
-            messages: [
-                {
-                    type: "user",
-                    user_name: "دانیال طهرانیم",
-                    date: "1400/02/09",
-                    time: "13:45",
-                    content: "سلام خسته نباشید ... جسارتا داخل پروفایل من آخرین سفارشم ثبت نشده امکانش هست پیگیری کنید بنده مبلغ رو واریز کزدم"
-                },
-                {
-                    type: "admin",
-                    date: "1400/02/09",
-                    time: "13:45",
-                    content: "سلام قربان خسته نباشید. به روی چشم همین الان بررسی میکنیم و مشکل برطرف میشه. بخاطر ایجاد تاخیر در ثبت عذر خواهی میکنم"
-                },
-            ]
-        }
+        department: "پشتیبانی طراحی",
+        ticketNo: "312349",
+        messages: [
+            {
+                type: "user",
+                user_name: "دانیال طهرانیم",
+                date: "1400/02/09",
+                time: "13:45",
+                content: "سلام خسته نباشید ... جسارتا داخل پروفایل من آخرین سفارشم ثبت نشده امکانش هست پیگیری کنید بنده مبلغ رو واریز کزدم"
+            },
+            {
+                type: "admin",
+                date: "1400/02/09",
+                time: "13:45",
+                content: "سلام قربان خسته نباشید. به روی چشم همین الان بررسی میکنیم و مشکل برطرف میشه. بخاطر ایجاد تاخیر در ثبت عذر خواهی میکنم"
+            },
+        ],
+        hasMore: false,
+        current_page: 1,
+        loading_messages: false,
+        new_message: "",
+        sending: false
+    }
+
+    setNewMessage = (e) => {
+        this.setState({
+            new_message: e.target.value
+        })
+    }
+
+    sendMessage = () => {
+        let { new_message } = this.state
+        // if (new_message.length > 0) {
+        //     this.setState({
+        //         sending: true
+        //     }, () => {
+        //         axios.post('', {message: new_message}).then(res => {
+        //             let { data } = res
+        //             this.setState(prevState => ({
+        //                 new_message: "",
+        //                 sending: false,
+        //                 messages: [
+        //                       ...prevState.ticket.messages,
+        //                       data.message
+        //                   ],
+        //             }))
+        //         })
+        //     })
+        // }
+    }
+
+    loadMore = () => {
+        let { current_page } = this.state
+        this.setState({
+            loading_messages: true
+        }, () => {
+            // axios.get(`?page=${current_page}`).then(res => {
+            //     let { last_page, current_page, data } = res.data
+            //     this.setState(prevState => ({
+            //         hasMore: current_page !== last_page,
+            //         current_page: current_page+=1,
+            //         messages: [...prevState.messages, data],
+            //         loading_messages: false
+            //     }))
+            // })
+        })
     }
     
     componentDidMount() {
         document.title = "تیکت شماره 1"
-        // axios.get("").then(res => {
-        //     let { data } = res
-        //     this.setState({
-        //         ticket: data,
-        //         loading: false
-        //     })
+        // this.loadMore()
+        // this.setState({
+        //     loading: false
         // })
     }
     
     render() {
-        let { ticket, loading } = this.state, { department, ticketNo, messages } = ticket
+        let { loading, new_message, sending, department, ticketNo, messages, hasMore, current_page, loading_messages } = this.state
         return (
-            loading ? <Activity/> : ticket &&
+            loading ? <Activity/> :
             <div className='ticket-container'>
-                <div className="ticket-top-nav">
-                    <h4>بخش مربوطه: <span>{department}</span></h4>
-                    <h4>شماره تیکت: <span>{ticketNo}</span></h4>
-                </div>
-                <div className="ticket-messages">
-                    
-                </div>
+                <TicketTopNav department={department} ticketNo={ticketNo} />
+                <TicketMessages messages={messages} hasMore={hasMore} current_page={current_page} loading_messages={loading_messages} loadMore={this.loadMore} />
+                <TicketInputs messageText={new_message} setNewMessage={this.setNewMessage} sendMessage={this.sendMessage} sending={sending} />
             </div>
         );
     }

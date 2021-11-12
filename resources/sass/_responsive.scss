@@ -327,6 +327,17 @@ $xl-xl-breakpoint: 1400px;
             line-height: 1.4 !important;
         }
     }
+    .ticket-messages {
+        > div {
+            width: 100% !important;
+        }
+    }
+    .ticket-file-inputs {
+        width: 25% !important;
+    }
+    .ticket-text-input {
+        width: 73% !important;
+    }
 }
 
 // medium and above
@@ -931,6 +942,57 @@ $xl-xl-breakpoint: 1400px;
             }
         }
     }
+    .ticket-messages {
+        > div {
+            width: 100% !important;
+            flex-wrap: wrap !important;
+            .msg-content {
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+            }
+            .msg-meta {
+                flex-direction: row !important;
+                justify-content: space-evenly !important;
+                align-items: flex-start !important;
+                width: 100%;
+                span {
+                    margin-bottom: 4px !important;
+                    &:nth-child(2) {
+                        margin-left: 8px;
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .ticket-inputs {
+        align-items: flex-start !important;
+        height: auto !important;
+        .ticket-text-input {
+            width: 100% !important;
+            textarea {
+                height: 140px !important;
+            }
+            button {
+                height: auto !important;
+                font-size: 16px !important;
+            }
+        }
+        .ticket-file-inputs {
+            width: 100% !important;
+            height: 100px !important;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: stretch;
+            margin-top: 15px;
+            > div {
+                height: auto !important;
+                width: 45% !important;
+                margin: 0 !important;
+            }
+        }
+    }
 }
 
 // tablet
@@ -1090,6 +1152,16 @@ $xl-xl-breakpoint: 1400px;
             i {
                 font-size: 50px !important;
             }
+        }
+    }
+    .msg-meta {
+        span {
+            font-size: 14px !important;
+        }
+    }
+    .msg-content {
+        p {
+            font-size: 14px !important;
         }
     }
 }
@@ -1381,5 +1453,16 @@ $xl-xl-breakpoint: 1400px;
         a {
             font-size: 13px !important;
         }
+    }
+    .ticket-messages {
+        > div {
+            width: 70% !important;
+        }
+    }
+    .ticket-file-inputs {
+        width: 20% !important;
+    }
+    .ticket-text-input {
+        width: 78% !important;
     }
 }
