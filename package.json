@@ -37,6 +37,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.3",
         "bootstrap": "^4.6.0",
+        "immer": "^9.0.6",
         "postcss-preset-env": "^6.7.0",
         "swiper": "^6.8.0"
     }

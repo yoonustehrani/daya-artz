@@ -10585,12 +10585,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _loginReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loginReducer */ "./resources/js/react/redux/reducers/loginReducer.js");
+/* harmony import */ var _userReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./userReducer */ "./resources/js/react/redux/reducers/userReducer.js");
 
 
-var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
-  auth: _loginReducer__WEBPACK_IMPORTED_MODULE_0__["default"]
+
+var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
+  auth: _loginReducer__WEBPACK_IMPORTED_MODULE_0__["default"],
+  user: _userReducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rootReducer);
 
@@ -10687,6 +10690,38 @@ var loginReducer = function loginReducer() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loginReducer);
+
+/***/ }),
+
+/***/ "./resources/js/react/redux/reducers/userReducer.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/react/redux/reducers/userReducer.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.esm.js");
+
+var initialState = {
+  company: null,
+  customer: null,
+  test: false
+};
+var userReducer = (0,immer__WEBPACK_IMPORTED_MODULE_0__.produce)(function (draft, action) {
+  switch (action.type) {
+    case 'test':
+      draft.test = true;
+      break;
+
+    default:
+      break;
+  }
+}, initialState);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userReducer);
 
 /***/ }),
 
