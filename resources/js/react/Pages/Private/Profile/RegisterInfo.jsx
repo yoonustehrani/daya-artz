@@ -16,30 +16,30 @@ class RegisterInfo extends Component {
             title: "نام خانوادگی",
             path: "customer.lastname"
         },
-        {
-            component: TextInput,
-            title: "ایمیل",
-            path: "email",
-            type: "email"
-        },
-        {
-            component: PhoneInput,
-            title: "شماره موبایل",
-            path: "phone_number",
-            phone_type: "cellphone",
-        },
-        {
-            component: TextInput,
-            title: "رمزعبور جدید",
-            path: "",
-            type: "password"
-        },
-        {
-            component: TextInput,
-            title: "تایید رمزعبور",
-            path: "",
-            type: "password"
-        },
+        // {
+        //     component: TextInput,
+        //     title: "ایمیل",
+        //     path: "email",
+        //     type: "email"
+        // },
+        // {
+        //     component: PhoneInput,
+        //     title: "شماره موبایل",
+        //     path: "phone_number",
+        //     phone_type: "cellphone",
+        // },
+        // {
+        //     component: TextInput,
+        //     title: "رمزعبور جدید",
+        //     path: "",
+        //     type: "password"
+        // },
+        // {
+        //     component: TextInput,
+        //     title: "تایید رمزعبور",
+        //     path: "",
+        //     type: "password"
+        // },
         {
             component: PhoneInput,
             title: "شماره تلفن (جهت پاسخگویی)",

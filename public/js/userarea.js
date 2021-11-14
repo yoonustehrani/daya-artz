@@ -8916,27 +8916,31 @@ var RegisterInfo = /*#__PURE__*/function (_Component) {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "نام خانوادگی",
       path: "customer.lastname"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "ایمیل",
-      path: "email",
-      type: "email"
-    }, {
-      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
-      title: "شماره موبایل",
-      path: "phone_number",
-      phone_type: "cellphone"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "رمزعبور جدید",
-      path: "",
-      type: "password"
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "تایید رمزعبور",
-      path: "",
-      type: "password"
-    }, {
+    }, // {
+    //     component: TextInput,
+    //     title: "ایمیل",
+    //     path: "email",
+    //     type: "email"
+    // },
+    // {
+    //     component: PhoneInput,
+    //     title: "شماره موبایل",
+    //     path: "phone_number",
+    //     phone_type: "cellphone",
+    // },
+    // {
+    //     component: TextInput,
+    //     title: "رمزعبور جدید",
+    //     path: "",
+    //     type: "password"
+    // },
+    // {
+    //     component: TextInput,
+    //     title: "تایید رمزعبور",
+    //     path: "",
+    //     type: "password"
+    // },
+    {
       component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
       title: "شماره تلفن (جهت پاسخگویی)",
       path: "customer.phone_number",

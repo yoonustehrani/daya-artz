@@ -52,9 +52,9 @@ Route::prefix('auth')->name('auth.')->group(function() {
         Route::post('email/resend', 'VerificationController@resendEmail');
     });
 });
-// Route::prefix('userarea')->middleware('auth:sanctum')->prefix('userarea')->group(function() {
+Route::prefix('userarea')->middleware('auth:sanctum')->prefix('userarea')->group(function() {
     
-// });
+});
 // Route::get('/',function() {
 //     return ['hello'];
 // })->middleware('auth:sanctum');
