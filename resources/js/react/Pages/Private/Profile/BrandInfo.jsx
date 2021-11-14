@@ -79,10 +79,12 @@ class BrandInfo extends Component {
             title: "رنگ سازمانی",
             path: "company.details.color"
         },
-    ]
+    ]  
+    
     componentDidMount() {
         document.title = "مشخصات کسب و کار"
     }
+
     render() {
         return (
             <ProfileLayout fields={this.fields} title="مشخصات کسب و کار" />

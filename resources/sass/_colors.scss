@@ -26,6 +26,13 @@ $horny-eggplant: #6332df;
 $dark-blue: #18093c;
 $heavy-aqua: #b0fcf0;
 $gray: #808080;
+$navy-blue: #2e214f;
+$navy-purple: #5C318B;
+$light-eggplant: #322e3d;
+$light-peach: #FED0D1;
+$light-green: #CBE8EE;
+$light-bg-msg: #E4DBFA;
+$horny-bg-msg: #C5AEF6;
 .eggplant {
     color: $eggplant !important;
 }
@@ -36,5 +43,29 @@ $gray: #808080;
     color: #9ed6d3 !important;
 }
 .bg-milk {
-    background-color: $milk;
+    background-color: $milk !important;
+}
+.bg-dark-blue {
+    background-color: $dark-blue !important;
+}
+.bg-horny-eggplant {
+    background-color: $horny-eggplant !important;
+}
+.bg-green {
+    background-color: $green !important;
+}
+.bg-peach {
+    background-color: $peach !important;
+}
+.bg-light-eggplant {
+    background-color: $light-eggplant !important;
+}
+.bg-light-green {
+    background-color: $light-green !important;
+}
+.bg-light-peach {
+    background-color: $light-peach !important;
+}
+.alert-light {
+    color: #7d7d81 !important;
 }

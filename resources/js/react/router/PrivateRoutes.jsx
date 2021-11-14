@@ -3,7 +3,7 @@ import { Switch } from 'react-router-dom';
 // Main Routes
 import Dashboard from '../Pages/Private/Dashboard';
 import Orders from '../Pages/Private/Orders';
-import Tickets from '../Pages/Private/Tickets';
+import Tickets from '../Pages/Private/Tickets/Tickets';
 import Finance from '../Pages/Private/Finance';
 import BrandInfo from '../Pages/Private/Profile/BrandInfo';
 import RegisterInfo from '../Pages/Private/Profile/RegisterInfo';
@@ -31,7 +31,7 @@ class PrivateRoutes extends Component {
         {
             path: '/dashboard',
             exact: true,
-            Component: Dashboard
+            Component: Dashboard,
         },
         {
             path: '/brandInfo',
@@ -104,7 +104,7 @@ class PrivateRoutes extends Component {
             Component: NewTicket
         },
         {
-            path: '/ticekts/faq',
+            path: '/tickets/faq',
             exact: true,
             Component: TicketsFaq
         },

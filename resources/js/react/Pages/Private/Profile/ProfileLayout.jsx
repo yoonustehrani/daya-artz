@@ -35,7 +35,9 @@ class ProfileLayout extends Component {
         let { fields, title } = this.props, { user } = this.state
         return (
             <div>
-                <h4 className="form-title">{title}</h4>
+                <div className="form-title">
+                    <h4>{title}</h4>
+                </div>
                 {fields.map((field, i) => {
                     let keys = field.path.split("."), last_key = keys.pop(), lastObj = keys.reduce((user, key) => 
                         (user[key] = user[key] || {})

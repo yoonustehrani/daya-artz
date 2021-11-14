@@ -349,6 +349,9 @@ span.back-aqua {
     i {
         font-size: 55px;
     }
+    &.big-icon {
+        background-size: 70% 100% !important;
+    }
 }
 
 .order-section-container {
@@ -2361,3 +2364,12 @@ div.other-services-container {
     }
 }
 // end portfolio-page
+.purple-btn {
+    background-color: $navy-purple;
+    font-weight: normal;
+    transition: 0.4s;
+    color: #fff;
+    &:hover {
+        background-color: $purple;
+    }
+}
