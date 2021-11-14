@@ -7213,6 +7213,12 @@ var Sidebar = /*#__PURE__*/function (_Component) {
               className: "submenu-m",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+                  to: "userInfo",
+                  className: "link",
+                  children: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u06A9\u0627\u0631\u0628\u0631\u06CC"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
                   to: "/registerInfo",
                   className: "link",
                   children: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0641\u0631\u062F\u06CC"
@@ -8916,31 +8922,7 @@ var RegisterInfo = /*#__PURE__*/function (_Component) {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "نام خانوادگی",
       path: "customer.lastname"
-    }, // {
-    //     component: TextInput,
-    //     title: "ایمیل",
-    //     path: "email",
-    //     type: "email"
-    // },
-    // {
-    //     component: PhoneInput,
-    //     title: "شماره موبایل",
-    //     path: "phone_number",
-    //     phone_type: "cellphone",
-    // },
-    // {
-    //     component: TextInput,
-    //     title: "رمزعبور جدید",
-    //     path: "",
-    //     type: "password"
-    // },
-    // {
-    //     component: TextInput,
-    //     title: "تایید رمزعبور",
-    //     path: "",
-    //     type: "password"
-    // },
-    {
+    }, {
       component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
       title: "شماره تلفن (جهت پاسخگویی)",
       path: "customer.phone_number",
@@ -8969,6 +8951,116 @@ var RegisterInfo = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegisterInfo);
+
+/***/ }),
+
+/***/ "./resources/js/react/Pages/Private/Profile/UserInfo.jsx":
+/*!***************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Profile/UserInfo.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/TextInput */ "./resources/js/react/Pages/Private/Profile/Components/TextInput.jsx");
+/* harmony import */ var _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/PhoneInput */ "./resources/js/react/Pages/Private/Profile/Components/PhoneInput.jsx");
+/* harmony import */ var _ProfileLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProfileLayout */ "./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+ // components
+
+
+
+
+
+
+var UserInfo = /*#__PURE__*/function (_Component) {
+  _inherits(UserInfo, _Component);
+
+  var _super = _createSuper(UserInfo);
+
+  function UserInfo() {
+    var _this;
+
+    _classCallCheck(this, UserInfo);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "fields", [{
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+      title: "ایمیل",
+      path: "email",
+      type: "email"
+    }, {
+      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
+      title: "شماره موبایل",
+      path: "phone_number",
+      phone_type: "cellphone"
+    }, {
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+      title: "رمزعبور جدید",
+      path: "",
+      type: "password"
+    }, {
+      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+      title: "تایید رمزعبور",
+      path: "",
+      type: "password"
+    }]);
+
+    return _this;
+  }
+
+  _createClass(UserInfo, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.title = "مشخصات کاربری";
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        fields: this.fields,
+        title: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u06A9\u0627\u0631\u0628\u0631\u06CC"
+      });
+    }
+  }]);
+
+  return UserInfo;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserInfo);
 
 /***/ }),
 
@@ -11328,30 +11420,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Pages/Private/Dashboard */ "./resources/js/react/Pages/Private/Dashboard/index.js");
 /* harmony import */ var _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Pages/Private/Orders */ "./resources/js/react/Pages/Private/Orders/index.js");
 /* harmony import */ var _Pages_Private_Tickets_Tickets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Pages/Private/Tickets/Tickets */ "./resources/js/react/Pages/Private/Tickets/Tickets.jsx");
 /* harmony import */ var _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/Private/Finance */ "./resources/js/react/Pages/Private/Finance/index.js");
 /* harmony import */ var _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Pages/Private/Profile/BrandInfo */ "./resources/js/react/Pages/Private/Profile/BrandInfo.jsx");
 /* harmony import */ var _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Pages/Private/Profile/RegisterInfo */ "./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx");
-/* harmony import */ var _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Pages/Private/Contracts/Contracts */ "./resources/js/react/Pages/Private/Contracts/Contracts.jsx");
-/* harmony import */ var _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/Private/Contracts/ContractSample */ "./resources/js/react/Pages/Private/Contracts/ContractSample.jsx");
-/* harmony import */ var _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Pages/Private/Orders/Order */ "./resources/js/react/Pages/Private/Orders/Order.jsx");
-/* harmony import */ var _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Pages/Private/Tickets/Ticket */ "./resources/js/react/Pages/Private/Tickets/Ticket.jsx");
-/* harmony import */ var _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Pages/Private/Tickets/NewTicket */ "./resources/js/react/Pages/Private/Tickets/NewTicket.jsx");
-/* harmony import */ var _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Pages/Private/Finance/Invoices/Invoices */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoices.jsx");
-/* harmony import */ var _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Pages/Private/Finance/Invoices/Invoice */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoice.jsx");
-/* harmony import */ var _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Pages/Private/Tickets/TicketsFaq */ "./resources/js/react/Pages/Private/Tickets/TicketsFaq.jsx");
-/* harmony import */ var _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Pages/Private/Finance/Pre Invoices/PreInvoices */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoices.jsx");
-/* harmony import */ var _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Pages/Private/Finance/Pre Invoices/PreInvoice */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoice.jsx");
-/* harmony import */ var _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Pages/Private/Finance/Bills/Bill */ "./resources/js/react/Pages/Private/Finance/Bills/Bill.jsx");
-/* harmony import */ var _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Pages/Private/Finance/Bills/Bills */ "./resources/js/react/Pages/Private/Finance/Bills/Bills.jsx");
-/* harmony import */ var _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../Pages/Private/Finance/Transactions/Transactions */ "./resources/js/react/Pages/Private/Finance/Transactions/Transactions.jsx");
-/* harmony import */ var _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../Pages/Private/Finance/Discounts/Discounts */ "./resources/js/react/Pages/Private/Finance/Discounts/Discounts.jsx");
-/* harmony import */ var _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../Pages/Private/Contracts/Contract */ "./resources/js/react/Pages/Private/Contracts/Contract.jsx");
-/* harmony import */ var _RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./RouteWithSubRoutes */ "./resources/js/react/router/RouteWithSubRoutes.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Pages_Private_Profile_UserInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Pages/Private/Profile/UserInfo */ "./resources/js/react/Pages/Private/Profile/UserInfo.jsx");
+/* harmony import */ var _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/Private/Contracts/Contracts */ "./resources/js/react/Pages/Private/Contracts/Contracts.jsx");
+/* harmony import */ var _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Pages/Private/Contracts/ContractSample */ "./resources/js/react/Pages/Private/Contracts/ContractSample.jsx");
+/* harmony import */ var _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Pages/Private/Orders/Order */ "./resources/js/react/Pages/Private/Orders/Order.jsx");
+/* harmony import */ var _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Pages/Private/Tickets/Ticket */ "./resources/js/react/Pages/Private/Tickets/Ticket.jsx");
+/* harmony import */ var _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Pages/Private/Tickets/NewTicket */ "./resources/js/react/Pages/Private/Tickets/NewTicket.jsx");
+/* harmony import */ var _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Pages/Private/Finance/Invoices/Invoices */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoices.jsx");
+/* harmony import */ var _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Pages/Private/Finance/Invoices/Invoice */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoice.jsx");
+/* harmony import */ var _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Pages/Private/Tickets/TicketsFaq */ "./resources/js/react/Pages/Private/Tickets/TicketsFaq.jsx");
+/* harmony import */ var _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Pages/Private/Finance/Pre Invoices/PreInvoices */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoices.jsx");
+/* harmony import */ var _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Pages/Private/Finance/Pre Invoices/PreInvoice */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoice.jsx");
+/* harmony import */ var _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Pages/Private/Finance/Bills/Bill */ "./resources/js/react/Pages/Private/Finance/Bills/Bill.jsx");
+/* harmony import */ var _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../Pages/Private/Finance/Bills/Bills */ "./resources/js/react/Pages/Private/Finance/Bills/Bills.jsx");
+/* harmony import */ var _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../Pages/Private/Finance/Transactions/Transactions */ "./resources/js/react/Pages/Private/Finance/Transactions/Transactions.jsx");
+/* harmony import */ var _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../Pages/Private/Finance/Discounts/Discounts */ "./resources/js/react/Pages/Private/Finance/Discounts/Discounts.jsx");
+/* harmony import */ var _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../Pages/Private/Contracts/Contract */ "./resources/js/react/Pages/Private/Contracts/Contract.jsx");
+/* harmony import */ var _RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./RouteWithSubRoutes */ "./resources/js/react/router/RouteWithSubRoutes.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11378,6 +11471,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  // Main Routes
+
 
 
 
@@ -11434,9 +11528,13 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
       exact: true,
       Component: _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_6__["default"]
     }, {
+      path: "/userInfo",
+      exact: true,
+      Component: _Pages_Private_Profile_UserInfo__WEBPACK_IMPORTED_MODULE_7__["default"]
+    }, {
       path: '/orders/:orderId',
       exact: true,
-      Component: _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_9__["default"]
+      Component: _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_10__["default"]
     }, {
       path: '/orders',
       exact: false,
@@ -11444,35 +11542,35 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
     }, {
       path: '/finance/invoices/:invoiceId',
       exact: true,
-      Component: _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_13__["default"]
+      Component: _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_14__["default"]
     }, {
       path: '/finance/invoices',
       exact: true,
-      Component: _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_12__["default"]
+      Component: _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_13__["default"]
     }, {
       path: '/finance/pre-invoices/:pre_invoiceId',
       exact: true,
-      Component: _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_16__["default"]
+      Component: _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_17__["default"]
     }, {
       path: '/finance/pre_invoices',
       exact: true,
-      Component: _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_15__["default"]
+      Component: _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_16__["default"]
     }, {
       path: '/finance/bills/:billId',
       exact: true,
-      Component: _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_17__["default"]
+      Component: _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_18__["default"]
     }, {
       path: '/finance/bills',
       exact: true,
-      Component: _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_18__["default"]
+      Component: _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_19__["default"]
     }, {
       path: '/finance/transactions',
       exact: true,
-      Component: _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_19__["default"]
+      Component: _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_20__["default"]
     }, {
       path: '/finance/discounts',
       exact: true,
-      Component: _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_20__["default"]
+      Component: _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_21__["default"]
     }, {
       path: '/finance',
       exact: true,
@@ -11480,15 +11578,15 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
     }, {
       path: '/tickets/new',
       exact: true,
-      Component: _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_11__["default"]
+      Component: _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_12__["default"]
     }, {
       path: '/tickets/faq',
       exact: true,
-      Component: _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_14__["default"]
+      Component: _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_15__["default"]
     }, {
       path: '/tickets/:ticketId',
       exact: true,
-      Component: _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_10__["default"]
+      Component: _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_11__["default"]
     }, {
       path: '/tickets',
       exact: true,
@@ -11496,15 +11594,15 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
     }, {
       path: "/contracts/:contractId",
       exact: true,
-      Component: _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_21__["default"]
+      Component: _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_22__["default"]
     }, {
       path: "/contracts",
       exact: true,
-      Component: _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_7__["default"]
+      Component: _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_8__["default"]
     }, {
       path: "contract_sample",
       exact: true,
-      Component: _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_8__["default"]
+      Component: _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_9__["default"]
     }]);
 
     return _this;
@@ -11514,13 +11612,13 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       var routes = this.routes;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Switch, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_25__.Switch, {
         children: routes.map(function (mainRoute, i) {
           var path = mainRoute.path,
               exact = mainRoute.exact,
               Component = mainRoute.Component,
               subroutes = mainRoute.subroutes;
-          return (0,_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_22__["default"])(path, exact, Component, subroutes, i);
+          return (0,_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_23__["default"])(path, exact, Component, subroutes, i);
         })
       });
     }

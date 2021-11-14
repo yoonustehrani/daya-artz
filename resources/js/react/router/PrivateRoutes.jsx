@@ -7,6 +7,7 @@ import Tickets from '../Pages/Private/Tickets/Tickets';
 import Finance from '../Pages/Private/Finance';
 import BrandInfo from '../Pages/Private/Profile/BrandInfo';
 import RegisterInfo from '../Pages/Private/Profile/RegisterInfo';
+import UserInfo from '../Pages/Private/Profile/UserInfo';
 import Contracts from '../Pages/Private/Contracts/Contracts';
 import ContractSample from '../Pages/Private/Contracts/ContractSample';
 // SubRoutes
@@ -42,6 +43,11 @@ class PrivateRoutes extends Component {
             path: '/registerInfo',
             exact: true,
             Component: RegisterInfo
+        },
+        {
+            path: "/userInfo",
+            exact: true,
+            Component: UserInfo
         },
         {
             path: '/orders/:orderId',
