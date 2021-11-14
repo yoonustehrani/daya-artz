@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Cache\RateLimiter;
+use App\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\Validator;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,8 +50,31 @@ Route::prefix('auth')->name('auth.')->group(function() {
         Route::post('email/resend', 'VerificationController@resendEmail');
     });
 });
-Route::prefix('userarea')->middleware('auth:sanctum')->prefix('userarea')->group(function() {
-    
+Route::prefix('userarea')->prefix('userarea')->group(function() { // ->middleware('auth:sanctum')
+    Route::prefix('user')->group(function() {
+        Route::post('customer', function (Request $request) {
+            \Gate::authorize('create', Customer::class);
+            // $this->authorize('create', Customer::class);
+            return ['okay' => true];
+            // $request->validate([
+            //     'firstname' => 'nullable|string|max:20|min:2',
+            //     'lastname' => 'required|string|max:40|min:3',
+            //     'phone_number' => 'required|string|regex:/^9[0-9]{9}$/'
+            // ]);
+            // $user = $request->user();
+            // $customer = new Customer();
+            // $customer->firstname = $request->firstname;
+            // $customer->lastname = $request->lastname;
+            // $customer->phone_number = $request->phone_number;
+            // return [
+            //     'ok' => $user->customer()->save($customer),
+            //     'customer' => $customer->toArray()
+            // ];
+        });
+        Route::put('customer/{customer}/edit', function (Request $request, $customer) {
+            $user = $request->user();
+        });
+    });
 });
 // Route::get('/',function() {
 //     return ['hello'];
@@ -61,12 +82,3 @@ Route::prefix('userarea')->middleware('auth:sanctum')->prefix('userarea')->group
 // Route::prefix('userarea')
 
 // Route::post('login')
-
-
-
-
-// Route::get('hello', function() {
-//     return response()->json([
-//         'message' => 'hello'
-//     ]);
-// });
