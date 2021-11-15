@@ -10,8 +10,20 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = $request->user();
-        $user->email = $request->email;
-        $user->phone_number = $request->phone_number;
-        // $user->
+        if ($user->email !== $request->email) {
+            $user->email = $request->email;
+            $user->email_verified_at = null;
+        }
+        if ($user->phone_number !== $request->phone_number) {
+            $user->phone_number = $request->phone_number;
+            $user->phone_verified = null;
+        }
+        if ($request->password) {
+            $user->password = bcrypt($request->input('password'));
+        }
+        return [
+            'ok' => $user->save(),
+            'user' => $user
+        ];
     }
 }

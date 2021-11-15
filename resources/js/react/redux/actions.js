@@ -59,6 +59,14 @@ const changeUserEmail = createAsyncThunk('auth/user/changeEmail', async (email, 
     return {email}
 })
 
+const updateUserInfo = createAsyncThunk('auth/user/editInfo', async({email, phone_number, password = null, password_confirmation = null}, {thunkAPI}) => {
+    const response = await httpService.put('/userarea/user/update', {email, phone_number, password, password_confirmation})
+    if ((typeof response.error) !== 'undefined') {
+        return rejectWithValue(response.error)
+    }
+    return response.user
+})
+
 const logUserIn = user => ({ type: USER_LOGGED_IN, payload: user })
 const verifyUserPhone = () => ({type: USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: APP_STATUS_CHANGED, payload: !! status })
@@ -80,5 +88,6 @@ export {
     registerUser,
     logoutUser,
     changeUserPhoneNumber,
-    changeUserEmail
+    changeUserEmail,
+    updateUserInfo
 }

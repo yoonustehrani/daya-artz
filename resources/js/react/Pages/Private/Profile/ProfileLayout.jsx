@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 // redux
 import { connect } from 'react-redux';
-import { logUserIn } from '../../../redux/actions'
+import { updateUserInfo } from '../../../redux/actions'
 
 class ProfileLayout extends Component {
     constructor(props) {
@@ -25,10 +24,7 @@ class ProfileLayout extends Component {
 
     updateInfo = () => {
         let { updateInfo } = this.props, { user } = this.state
-        axios.post('', user).then(res => {
-            let user = res.data
-            updateInfo(user)
-        })
+        
     }
 
     render() {
@@ -59,7 +55,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispathToProps = (dispatch) => ({
-    updateInfo: Info => dispatch(logUserIn(Info))
+    updateInfo: user => dispatch(updateUserInfo(user))
 })
 
 export default connect(mapStateToProps, mapDispathToProps)(ProfileLayout);
