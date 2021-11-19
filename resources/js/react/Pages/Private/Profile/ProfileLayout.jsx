@@ -75,7 +75,7 @@ class ProfileLayout extends Component {
                     )
                 })}
                 <div className="eggplant-btn col-12">
-                    <button className={`btn btn-lg col-12 col-md-3 col-lg-2 ${sending_data ? "disabled" : ""}`} disabled={sending_data} onClick={this.updateInfo.bind(this, table)}>ثبت</button>
+                    <button className={`btn btn-lg col-12 col-md-3 col-lg-2 ${sending_data ? "disabled" : ""}`} disabled={sending_data} onClick={this.updateInfo}>ثبت</button>
                     {sending_data && <Windmill size={30} color="#6332df" />}
                     <div className={`col-12 col-md-7 col-lg-4 alert animated fadeIn ${errors.length > 0 || showSuccess ? "" : "d-none"} ${errors.length > 0 ? "alert-danger" : ""} ${showSuccess ? "alert-success" : ""}`}>
                         <span className={!showSuccess ? "d-none" : undefined}>تغییرات شما با موفقیت ثبت شد</span>
