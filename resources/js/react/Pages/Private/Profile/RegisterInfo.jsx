@@ -5,34 +5,42 @@ import PhoneInput from './Components/PhoneInput';
 import ProfileLayout from './ProfileLayout';
 
 class RegisterInfo extends Component {
+    title = "مشخصات فردی"
     fields = [
         {
             component: TextInput,
             title: "نام",
-            path: "customer.firstname"
+            path: "customer.firstname",
+            validate_types: ["short_text", "alpha-fa"],
         },
         {
             component: TextInput,
             title: "نام خانوادگی",
-            path: "customer.lastname"
+            path: "customer.lastname",
+            validate_types: ["short_text", "alpha-fa"]
         },
         {
             component: PhoneInput,
             title: "شماره تلفن (جهت پاسخگویی)",
             path: "customer.phone_number",
-            phone_type: "both"
+            phone_type: "both",
+            validate_types: ["phone_number"]
         },
     ]   
 
     componentDidMount() {
-        document.title = "مشخصات فردی"
+        document.title = this.title
     }
     
     render() {
         return (
-            <ProfileLayout fields={this.fields} title="اطلاعات فردی" />
+            <ProfileLayout 
+                fields = {this.fields} 
+                title = {this.title} 
+                table = "customer" 
+            />
         );
     }
 }
 
-export default RegisterInfo;
+export default (RegisterInfo);

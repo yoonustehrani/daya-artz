@@ -21,8 +21,8 @@ class Sidebar extends Component {
                     <li className="has-sub">
                         <a to="#profile"><i className="fas fa-id-card"></i>حساب کاربری</a>
                         <ul className="submenu-m">
-                            <li><Link to="userInfo" className="link">اطلاعات کاربری</Link></li>
-                            <li><Link to="/registerInfo" className="link">اطلاعات فردی</Link></li>
+                            <li><Link to="/userInfo" className="link">اطلاعات کاربری</Link></li>
+                            <li><Link to="/registerInfo" className="link">مشخصات فردی</Link></li>
                             <li><Link to="/brandInfo" className="link">مشخصات کسب و کار</Link></li>
                         </ul>
                     </li>

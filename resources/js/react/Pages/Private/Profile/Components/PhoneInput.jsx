@@ -5,6 +5,7 @@ class PhoneInput extends Component {
     constructor(props) {
         super(props);
         this.country_code_ref = React.createRef()
+        this.state_code_ref = React.createRef()
         this.state = {
             type: ""
         }   
@@ -58,10 +59,10 @@ class PhoneInput extends Component {
                                         <option value="united-kingdom">+356</option>
                                     </select>
                                 </span>)
-                            : (<input type="tel" className="form-control ltr" placeholder="کد استان" />)    
+                            : (<input type="tel" ref={this.state_code_ref} className="form-control ltr" placeholder="کد استان" />)    
                         }
                     </div>
-                    <input type="tel" value={value} className="form-control ltr" placeholder={type === "cellphone" ? "شماره موبایل" : "شماره تلفن"} onChange={(e) => onChangeHandler(path, e.target.value)} />
+                    <input type="tel" value={value} className="form-control ltr" placeholder={type === "cellphone" ? "شماره موبایل" : "شماره تلفن"} onChange={(e) => onChangeHandler(path, e.target.value, true)} />
                 </div>
             </div>
         );

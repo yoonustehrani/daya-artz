@@ -5,18 +5,21 @@ import PhoneInput from './Components/PhoneInput';
 import ProfileLayout from './ProfileLayout';
 
 class UserInfo extends Component {
+    title = "اطلاعات کاربری"
     fields = [
         {
             component: TextInput,
             title: "ایمیل",
             path: "email",
-            type: "email"
+            type: "email",
+            validate_types: ["email"]
         },
         {
             component: PhoneInput,
             title: "شماره موبایل",
             path: "phone_number",
             phone_type: "cellphone",
+            validate_types: ["phone_number"]
         },
         {
             component: TextInput,
@@ -33,14 +36,18 @@ class UserInfo extends Component {
     ]   
 
     componentDidMount() {
-        document.title = "مشخصات کاربری"
+        document.title = this.title
     }
     
     render() {
         return (
-            <ProfileLayout fields={this.fields} title="اطلاعات کاربری" />
+            <ProfileLayout 
+                fields = {this.fields} 
+                title = {this.title} 
+                table = "user"
+            />
         );
     }
 }
 
-export default UserInfo;
+export default (UserInfo);

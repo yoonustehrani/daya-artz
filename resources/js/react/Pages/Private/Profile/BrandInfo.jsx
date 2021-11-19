@@ -9,49 +9,58 @@ import Radio from './Components/Radio';
 import ProfileLayout from './ProfileLayout';
 
 class BrandInfo extends Component {
+    title = "مشخصات کسب و کار"
     fields = [
         {
             component: TextInput,
             title: "عنوان برند",
-            path: "company.title"
+            path: "company.title",
+            validate_types: ["short_text", "alpha-numeric-fa"]
         },
         {
             component: TextInput,
             title: "عنوان انگلیسی برند",
-            path: "company.title_en"
+            path: "company.title_en",
+            validate_types: ["short_text", "alpha-numeric-en"]
         },
         {
             component: TextInput,
             title: "تگ لاین یا شعار",
-            path: "company.details.tagline"
+            path: "company.details.tagline",
+            validate_types: ["short_text"]
         },
         {
             component: PhoneInput,
             title: "شماره تلفن",
             phone_type: "telephone",
-            path: "company.phone_number"
+            path: "company.phone_number",
+            validate_types: ["phone_number"]
         },
         {
             component: TextInput,
             title: "آدرس وب سایت",
-            path: "company.website"
+            path: "company.website",
+            validate_types: ["url"]
         },
         {
             component: TextInput,
             title: "آدرس",
-            path: "company.address"
+            path: "company.address",
+            validate_types: ["long_text"]
         },
         {
             component: Textarea,
             title: "معرفی کسب و کار",
             placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
-            path: "company.intro"
+            path: "company.intro",
+            validate_types: ["paragraph"]
         },
         {
             component: Textarea,
             title: "توصیف عقاید و چهارچوب های سازمانی",
             placeHolder: "",
-            path: "company.details.policy"
+            path: "company.details.policy",
+            validate_types: ["paragraph"]
         },
         {
             component: Select,
@@ -77,19 +86,24 @@ class BrandInfo extends Component {
         {
             component: ColorPicker,
             title: "رنگ سازمانی",
-            path: "company.details.color"
+            path: "company.details.color",
+            validate_types: ["color"]
         },
     ]  
     
     componentDidMount() {
-        document.title = "مشخصات کسب و کار"
+        document.title = this.title
     }
 
     render() {
         return (
-            <ProfileLayout fields={this.fields} title="مشخصات کسب و کار" />
+            <ProfileLayout 
+                fields = {this.fields} 
+                title = {this.title} 
+                table="company"
+            />
         );
     }
 }
 
-export default BrandInfo
+export default (BrandInfo);
