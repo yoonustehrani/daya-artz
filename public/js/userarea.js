@@ -9032,21 +9032,21 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
   return ProfileLayout;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    sendInfo: function sendInfo(info) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.logUserIn)(info));
-    }
-  };
-};
-
 var mapStateToProps = function mapStateToProps(state) {
   return {
     user: state.auth.user
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps, mapDispatchToProps)(ProfileLayout));
+var mapDispathToProps = function mapDispathToProps(dispatch) {
+  return {
+    updateInfo: function updateInfo(user) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.updateUserInfo)(user));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps, mapDispathToProps)(ProfileLayout));
 
 /***/ }),
 
@@ -10595,7 +10595,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "registerUser": () => (/* binding */ registerUser),
 /* harmony export */   "logoutUser": () => (/* binding */ logoutUser),
 /* harmony export */   "changeUserPhoneNumber": () => (/* binding */ changeUserPhoneNumber),
-/* harmony export */   "changeUserEmail": () => (/* binding */ changeUserEmail)
+/* harmony export */   "changeUserEmail": () => (/* binding */ changeUserEmail),
+/* harmony export */   "updateUserInfo": () => (/* binding */ updateUserInfo)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -10812,6 +10813,49 @@ var changeUserEmail = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsy
     return _ref8.apply(this, arguments);
   };
 }());
+var updateUserInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/user/editInfo', /*#__PURE__*/function () {
+  var _ref11 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(_ref9, _ref10) {
+    var email, phone_number, _ref9$password, password, _ref9$password_confir, password_confirmation, thunkAPI, response;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            email = _ref9.email, phone_number = _ref9.phone_number, _ref9$password = _ref9.password, password = _ref9$password === void 0 ? null : _ref9$password, _ref9$password_confir = _ref9.password_confirmation, password_confirmation = _ref9$password_confir === void 0 ? null : _ref9$password_confir;
+            thunkAPI = _ref10.thunkAPI;
+            _context6.next = 4;
+            return httpService.put('/userarea/user/update', {
+              email: email,
+              phone_number: phone_number,
+              password: password,
+              password_confirmation: password_confirmation
+            });
+
+          case 4:
+            response = _context6.sent;
+
+            if (!(typeof response.error !== 'undefined')) {
+              _context6.next = 7;
+              break;
+            }
+
+            return _context6.abrupt("return", rejectWithValue(response.error));
+
+          case 7:
+            return _context6.abrupt("return", response.user);
+
+          case 8:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+
+  return function (_x11, _x12) {
+    return _ref11.apply(this, arguments);
+  };
+}());
 
 var logUserIn = function logUserIn(user) {
   return {
@@ -10841,17 +10885,17 @@ var changeEmail = function changeEmail(email) {
 };
 
 var checkAuth = /*#__PURE__*/function () {
-  var _ref9 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(dispatch, getState) {
+  var _ref12 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(dispatch, getState) {
     var response;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
       while (1) {
-        switch (_context6.prev = _context6.next) {
+        switch (_context7.prev = _context7.next) {
           case 0:
-            _context6.next = 2;
+            _context7.next = 2;
             return httpService.get('/auth/user', null, false);
 
           case 2:
-            response = _context6.sent;
+            response = _context7.sent;
 
             if (response.user) {
               dispatch(logUserIn(response.user));
@@ -10861,14 +10905,14 @@ var checkAuth = /*#__PURE__*/function () {
 
           case 5:
           case "end":
-            return _context6.stop();
+            return _context7.stop();
         }
       }
-    }, _callee6);
+    }, _callee7);
   }));
 
-  return function checkAuth(_x11, _x12) {
-    return _ref9.apply(this, arguments);
+  return function checkAuth(_x13, _x14) {
+    return _ref12.apply(this, arguments);
   };
 }();
 
@@ -10940,6 +10984,7 @@ var loginReducer = function loginReducer() {
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_1__.logInUsingCredentials.fulfilled.toString():
     case _actions__WEBPACK_IMPORTED_MODULE_1__.registerUser.fulfilled.toString():
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.updateUserInfo.fulfilled.toString():
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_LOGGED_IN:
       stateCopy.user = action.payload;
       break;

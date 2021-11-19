@@ -4,7 +4,7 @@ import {
     USER_VERIFIED_PHONE,
 } from "../actionTypes"
 
-import { logInUsingCredentials, registerUser, logoutUser, changeUserPhoneNumber, changeUserEmail } from '../actions'
+import { logInUsingCredentials, registerUser, logoutUser, changeUserPhoneNumber, changeUserEmail, updateUserInfo } from '../actions'
 
 var stateCopy, defaultState = {
     loading: true,
@@ -20,6 +20,7 @@ const loginReducer = (state = defaultState, action) => {
     switch (action.type) {
         case logInUsingCredentials.fulfilled.toString():
         case registerUser.fulfilled.toString():
+        case updateUserInfo.fulfilled.toString():
         case USER_LOGGED_IN:
             stateCopy.user = action.payload
             break

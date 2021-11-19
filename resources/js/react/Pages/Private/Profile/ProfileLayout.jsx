@@ -5,7 +5,7 @@ import validator from "validator";
 import validate from '../Layout/components/Validator'
 // redux
 import { connect } from 'react-redux';
-import { logUserIn } from '../../../redux/actions';
+import { updateUserInfo } from '../../../redux/actions'
 
 class ProfileLayout extends Component {
     constructor(props) {
@@ -89,12 +89,11 @@ class ProfileLayout extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    sendInfo: (info) => dispatch(logUserIn(info))
-})
-
 const mapStateToProps = (state) => ({
     user: state.auth.user
 })
+const mapDispathToProps = (dispatch) => ({
+    updateInfo: user => dispatch(updateUserInfo(user))
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileLayout);
+export default connect(mapStateToProps, mapDispathToProps)(ProfileLayout);
