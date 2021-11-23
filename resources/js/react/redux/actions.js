@@ -44,14 +44,14 @@ const registerUser = createAsyncThunk('auth/registerUser', async (information, {
     return response.user
 })
 
-const changeUserPhoneNumber = createAsyncThunk('auth/user/changePhoneNumber', async (phone_number, thunkAPI) => {
+const changeUserPhoneNumber = createAsyncThunk('auth/user/changePhoneNumber', async (phone_number, {rejectWithValue}) => {
     const response = await httpService.put(`/auth/verification/phone/edit`, {phone_number})
     if ((typeof response.error) !== 'undefined') {
         return rejectWithValue(response.error)
     }
     return {phone_number}
 })
-const changeUserEmail = createAsyncThunk('auth/user/changeEmail', async (email, thunkAPI) => {
+const changeUserEmail = createAsyncThunk('auth/user/changeEmail', async (email, {rejectWithValue}) => {
     const response = await httpService.put(`/auth/verification/email/edit`, {email})
     if ((typeof response.error) !== 'undefined') {
         return rejectWithValue(response.error)
@@ -59,7 +59,7 @@ const changeUserEmail = createAsyncThunk('auth/user/changeEmail', async (email, 
     return {email}
 })
 
-const updateUserInfo = createAsyncThunk('auth/user/editInfo', async({email, phone_number, password = null, password_confirmation = null}, {thunkAPI}) => {
+const updateUserInfo = createAsyncThunk('auth/user/editInfo', async({email, phone_number, password = null, password_confirmation = null}, {rejectWithValue}) => {
     const response = await httpService.put('/userarea/user/update', {email, phone_number, password, password_confirmation})
     if ((typeof response.error) !== 'undefined') {
         return rejectWithValue(response.error)

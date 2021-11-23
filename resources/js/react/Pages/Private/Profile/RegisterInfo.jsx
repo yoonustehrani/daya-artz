@@ -37,7 +37,7 @@ class RegisterInfo extends Component {
             <ProfileLayout 
                 fields = {this.fields} 
                 title = {this.title} 
-                table = "customer" 
+                controller = "customer" 
             />
         );
     }

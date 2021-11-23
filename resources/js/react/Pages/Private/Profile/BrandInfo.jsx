@@ -100,7 +100,7 @@ class BrandInfo extends Component {
             <ProfileLayout 
                 fields = {this.fields} 
                 title = {this.title} 
-                table="company"
+                controller="company"
             />
         );
     }

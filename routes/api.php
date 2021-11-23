@@ -50,9 +50,9 @@ Route::prefix('auth')->name('auth.')->group(function() {
         Route::post('email/resend', 'VerificationController@resendEmail');
     });
 });
-Route::prefix('userarea')->prefix('userarea')->group(function() { // ->middleware('auth:sanctum')
+Route::prefix('userarea')->prefix('userarea')->middleware('auth:sanctum')->group(function() { // ->middleware('auth:sanctum')
     Route::prefix('user')->group(function() {
-        Route::put('update', 'Api\UserController@update');
+        Route::put('update', 'UserController@update');
         // Route::post('customer', function (Request $request) {
         //     \Gate::authorize('create', Customer::class);
         //     // $this->authorize('create', Customer::class);

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Radio extends Component {
     render() {
         let { title, value, options, name, path, onChangeHandler } = this.props
-        console.log(value);
         return (
             <div className="field-item col-12 col-md-3">
                 <span>{title}:</span>
