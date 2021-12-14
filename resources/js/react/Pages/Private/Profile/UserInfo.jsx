@@ -12,6 +12,7 @@ class UserInfo extends Component {
             title: "ایمیل",
             path: "email",
             type: "email",
+            name: "email",
             validate_types: ["email"]
         },
         {
@@ -19,6 +20,7 @@ class UserInfo extends Component {
             title: "شماره موبایل",
             path: "phone_number",
             phone_type: "cellphone",
+            name: "phone_number",
             validate_types: ["phone_number"]
         },
         {
