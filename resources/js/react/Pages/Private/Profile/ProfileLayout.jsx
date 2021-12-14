@@ -72,20 +72,6 @@ class ProfileLayout extends Component {
         }
     }
 
-    componentDidMount() {
-        let { controller, fields, title, namespace } = this.props
-        let newData = {};
-        fields.map((field, i) => {
-            let defaultValue = this.props[namespace][field.path]
-            if (defaultValue) {
-                newData[field.name] = defaultValue
-            }
-        })
-        this.setState({
-            data: newData
-        })
-    }
-
     render() {
         let { fields, title, controller } = this.props, { sending_data, showSuccess, showErr, errs } = this.state
         return (
@@ -118,9 +104,6 @@ const mapStateToProps = (state) => ({
     user: state.auth.user,
     company: state.user.company,
     customer: state.user.customer
-})
-const mapDispathToProps = (dispatch) => ({
-    changeUserInfo: user => dispatch(updateUserInfo(user))
 })
 const mapDispathToProps = (dispatch) => ({
     changeUserInfo: user => dispatch(updateUserInfo(user))
