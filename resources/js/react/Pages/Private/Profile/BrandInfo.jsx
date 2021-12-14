@@ -14,52 +14,52 @@ class BrandInfo extends Component {
         {
             component: TextInput,
             title: "عنوان برند",
-            path: "company.title",
+            path: "title",
             validate_types: ["short_text", "alpha-numeric-fa"]
         },
         {
             component: TextInput,
             title: "عنوان انگلیسی برند",
-            path: "company.title_en",
+            path: "title_en",
             validate_types: ["short_text", "alpha-numeric-en"]
         },
         {
             component: TextInput,
             title: "تگ لاین یا شعار",
-            path: "company.details.tagline",
+            path: "details.tagline",
             validate_types: ["short_text"]
         },
         {
             component: PhoneInput,
             title: "شماره تلفن",
             phone_type: "telephone",
-            path: "company.phone_number",
+            path: "phone_number",
             validate_types: ["phone_number"]
         },
         {
             component: TextInput,
             title: "آدرس وب سایت",
-            path: "company.website",
+            path: "website",
             validate_types: ["url"]
         },
         {
             component: TextInput,
             title: "آدرس",
-            path: "company.address",
+            path: "address",
             validate_types: ["long_text"]
         },
         {
             component: Textarea,
             title: "معرفی کسب و کار",
             placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
-            path: "company.intro",
+            path: "intro",
             validate_types: ["paragraph"]
         },
         {
             component: Textarea,
             title: "توصیف عقاید و چهارچوب های سازمانی",
             placeHolder: "",
-            path: "company.details.policy",
+            path: "details.policy",
             validate_types: ["paragraph"]
         },
         {
@@ -71,7 +71,7 @@ class BrandInfo extends Component {
                 {value: "sales", text: "فروش"},
                 {value: "other", text: "..."}
             ],
-            path: "company.business_type"
+            path: "business_type"
         },
         {
             component: Radio,
@@ -81,12 +81,12 @@ class BrandInfo extends Component {
                 {id: "classic", text: "کلاسیک"},
                 {id: "modern", text: "مدرن"}
             ],
-            path: "company.marketType"
+            path: "marketType"
         },
         {
             component: ColorPicker,
             title: "رنگ سازمانی",
-            path: "company.details.color",
+            path: "details.color",
             validate_types: ["color"]
         },
     ]  
@@ -100,7 +100,7 @@ class BrandInfo extends Component {
             <ProfileLayout 
                 fields = {this.fields} 
                 title = {this.title} 
-                table="company"
+                controller="company"
             />
         );
     }

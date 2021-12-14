@@ -11727,6 +11727,11 @@ a:hover {
   display: contents;
 }
 
+.form-control.input-err {
+  border-color: #FF0000 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6) !important;
+}
+
 .section, .title-section {
   float: left;
 }
@@ -15398,9 +15403,14 @@ div.header-section div.header-title .title span {
   padding-bottom: 8px;
   border-bottom: 2px solid #000;
 }
+.user-area-layout-container .user-area-panel .main-content-container .fields-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
 .user-area-layout-container .user-area-panel .main-content-container .field-item {
   direction: rtl;
-  float: right;
   margin-top: 40px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .field-item > span:nth-child(1) {

@@ -10,19 +10,19 @@ class RegisterInfo extends Component {
         {
             component: TextInput,
             title: "نام",
-            path: "customer.firstname",
+            path: "firstname",
             validate_types: ["short_text", "alpha-fa"],
         },
         {
             component: TextInput,
             title: "نام خانوادگی",
-            path: "customer.lastname",
+            path: "lastname",
             validate_types: ["short_text", "alpha-fa"]
         },
         {
             component: PhoneInput,
             title: "شماره تلفن (جهت پاسخگویی)",
-            path: "customer.phone_number",
+            path: "phone_number",
             phone_type: "both",
             validate_types: ["phone_number"]
         },
@@ -37,7 +37,7 @@ class RegisterInfo extends Component {
             <ProfileLayout 
                 fields = {this.fields} 
                 title = {this.title} 
-                table = "customer" 
+                controller = "customer" 
             />
         );
     }

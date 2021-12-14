@@ -3468,6 +3468,68 @@ var normal = function normal() {
 
 /***/ }),
 
+/***/ "./resources/js/helpers/index.js":
+/*!***************************************!*\
+  !*** ./resources/js/helpers/index.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "NestedObj": () => (/* binding */ NestedObj),
+/* harmony export */   "isObjEmpty": () => (/* binding */ isObjEmpty)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var NestedObj = /*#__PURE__*/function () {
+  function NestedObj(targetObj, path) {
+    var value = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+    _classCallCheck(this, NestedObj);
+
+    this.targetObj = targetObj;
+    this.value = value;
+    var keys = path.split(".");
+
+    if (keys.length > 1) {
+      this.lastKey = keys.pop();
+      this.lastObj = keys.reduce(function (targetObj, key) {
+        return targetObj[key] = targetObj[key] || {};
+      }, this.targetObj);
+    } else {
+      this.lastObj = targetObj;
+      this.lastKey = path;
+    }
+  }
+
+  _createClass(NestedObj, [{
+    key: "make",
+    value: function make() {
+      this.lastObj[this.lastKey] = this.value;
+      return this.targetObj;
+    }
+  }, {
+    key: "get",
+    value: function get() {
+      var _this$lastObj$this$la;
+
+      return (_this$lastObj$this$la = this.lastObj[this.lastKey]) !== null && _this$lastObj$this$la !== void 0 ? _this$lastObj$this$la : "";
+    }
+  }]);
+
+  return NestedObj;
+}();
+function isObjEmpty(obj) {
+  return !Object.keys(obj).length;
+}
+
+/***/ }),
+
 /***/ "./resources/js/react/Pages/Auth/EmailValidation.jsx":
 /*!***********************************************************!*\
   !*** ./resources/js/react/Pages/Auth/EmailValidation.jsx ***!
@@ -8084,45 +8146,45 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "fields", [{
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "عنوان برند",
-      path: "company.title",
+      path: "title",
       validate_types: ["short_text", "alpha-numeric-fa"]
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "عنوان انگلیسی برند",
-      path: "company.title_en",
+      path: "title_en",
       validate_types: ["short_text", "alpha-numeric-en"]
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "تگ لاین یا شعار",
-      path: "company.details.tagline",
+      path: "details.tagline",
       validate_types: ["short_text"]
     }, {
       component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_3__["default"],
       title: "شماره تلفن",
       phone_type: "telephone",
-      path: "company.phone_number",
+      path: "phone_number",
       validate_types: ["phone_number"]
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "آدرس وب سایت",
-      path: "company.website",
+      path: "website",
       validate_types: ["url"]
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "آدرس",
-      path: "company.address",
+      path: "address",
       validate_types: ["long_text"]
     }, {
       component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
       title: "معرفی کسب و کار",
       placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
-      path: "company.intro",
+      path: "intro",
       validate_types: ["paragraph"]
     }, {
       component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
       title: "توصیف عقاید و چهارچوب های سازمانی",
       placeHolder: "",
-      path: "company.details.policy",
+      path: "details.policy",
       validate_types: ["paragraph"]
     }, {
       component: _Components_Select__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -8138,7 +8200,7 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
         value: "other",
         text: "..."
       }],
-      path: "company.business_type"
+      path: "business_type"
     }, {
       component: _Components_Radio__WEBPACK_IMPORTED_MODULE_6__["default"],
       title: "شیوه بازار یابی",
@@ -8150,11 +8212,11 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
         id: "modern",
         text: "مدرن"
       }],
-      path: "company.marketType"
+      path: "marketType"
     }, {
       component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
       title: "رنگ سازمانی",
-      path: "company.details.color",
+      path: "details.color",
       validate_types: ["color"]
     }]);
 
@@ -8172,7 +8234,7 @@ var BrandInfo = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
         fields: this.fields,
         title: this.title,
-        table: "company"
+        controller: "company"
       });
     }
   }]);
@@ -8241,7 +8303,10 @@ var ColorPicker = /*#__PURE__*/function (_Component) {
           title = _this$props.title,
           value = _this$props.value,
           path = _this$props.path,
-          onChangeHandler = _this$props.onChangeHandler;
+          onChangeHandler = _this$props.onChangeHandler,
+          _this$props$validate_ = _this$props.validate_types,
+          validate_types = _this$props$validate_ === void 0 ? null : _this$props$validate_,
+          not_null = _this$props.not_null;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
@@ -8252,7 +8317,7 @@ var ColorPicker = /*#__PURE__*/function (_Component) {
             type: "color",
             value: value,
             onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
+              return onChangeHandler(path, e.target, validate_types, title, not_null);
             }
           })
         })]
@@ -8372,6 +8437,9 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
           path = _this$props.path,
           onChangeHandler = _this$props.onChangeHandler,
           phone_type = _this$props.phone_type,
+          _this$props$validate_ = _this$props.validate_types,
+          validate_types = _this$props$validate_ === void 0 ? null : _this$props$validate_,
+          not_null = _this$props.not_null,
           type = this.state.type;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
@@ -8412,11 +8480,11 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "tel",
-            value: value,
+            value: value !== null && value !== void 0 ? value : "",
             className: "form-control ltr",
             placeholder: type === "cellphone" ? "شماره موبایل" : "شماره تلفن",
             onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value, true);
+              return onChangeHandler(path, e.target, validate_types, title, not_null, true);
             }
           })]
         })]
@@ -8490,8 +8558,10 @@ var Radio = /*#__PURE__*/function (_Component) {
           options = _this$props.options,
           name = _this$props.name,
           path = _this$props.path,
-          onChangeHandler = _this$props.onChangeHandler;
-      console.log(value);
+          onChangeHandler = _this$props.onChangeHandler,
+          _this$props$validate_ = _this$props.validate_types,
+          validate_types = _this$props$validate_ === void 0 ? null : _this$props$validate_,
+          not_null = _this$props.not_null;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
@@ -8510,7 +8580,7 @@ var Radio = /*#__PURE__*/function (_Component) {
                 defaultChecked: value === id,
                 name: name,
                 onChange: function onChange(e) {
-                  return onChangeHandler(path, e.target.id);
+                  return onChangeHandler(path, e.target, validate_types, title, not_null);
                 }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
                 htmlFor: id,
@@ -8607,7 +8677,10 @@ var Select = /*#__PURE__*/function (_Component) {
           title = _this$props2.title,
           value = _this$props2.value,
           onChangeHandler = _this$props2.onChangeHandler,
-          path = _this$props2.path;
+          path = _this$props2.path,
+          _this$props2$validate = _this$props2.validate_types,
+          validate_types = _this$props2$validate === void 0 ? null : _this$props2$validate,
+          not_null = _this$props2.not_null;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
@@ -8619,7 +8692,7 @@ var Select = /*#__PURE__*/function (_Component) {
             ref: this.select2Ref,
             value: value,
             onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
+              return onChangeHandler(path, e.target, validate_types, title, not_null);
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
               value: ""
@@ -8701,7 +8774,10 @@ var TextInput = /*#__PURE__*/function (_Component) {
           onChangeHandler = _this$props.onChangeHandler,
           path = _this$props.path,
           _this$props$type = _this$props.type,
-          type = _this$props$type === void 0 ? "text" : _this$props$type;
+          type = _this$props$type === void 0 ? "text" : _this$props$type,
+          _this$props$validate_ = _this$props.validate_types,
+          validate_types = _this$props$validate_ === void 0 ? null : _this$props$validate_,
+          not_null = _this$props.not_null;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
@@ -8711,9 +8787,9 @@ var TextInput = /*#__PURE__*/function (_Component) {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: type,
             className: "form-control",
-            value: value,
+            value: value !== null && value !== void 0 ? value : "",
             onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
+              return onChangeHandler(path, e.target, validate_types, title, not_null);
             }
           })
         })]
@@ -8785,7 +8861,10 @@ var Textarea = /*#__PURE__*/function (_Component) {
           title = _this$props.title,
           value = _this$props.value,
           onChangeHandler = _this$props.onChangeHandler,
-          path = _this$props.path;
+          path = _this$props.path,
+          _this$props$validate_ = _this$props.validate_types,
+          validate_types = _this$props$validate_ === void 0 ? null : _this$props$validate_,
+          not_null = _this$props.not_null;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
@@ -8796,7 +8875,7 @@ var Textarea = /*#__PURE__*/function (_Component) {
             className: "form-control",
             value: value,
             onChange: function onChange(e) {
-              return onChangeHandler(path, e.target.value);
+              return onChangeHandler(path, e.target, validate_types, title, not_null);
             }
           })
         })]
@@ -8823,14 +8902,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
-/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! validator */ "./node_modules/validator/index.js");
-/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(validator__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! validator */ "./node_modules/validator/index.js");
+/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(validator__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _Layout_components_Validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout/components/Validator */ "./resources/js/react/Pages/Private/Layout/components/Validator.jsx");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/react/redux/actions.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../helpers */ "./resources/js/helpers/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -8863,6 +8943,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
  // helpers
 
+
  // redux
 
 
@@ -8876,82 +8957,100 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(ProfileLayout);
 
   function ProfileLayout(props) {
+    var _this$props$_this$pro;
+
     var _this;
 
     _classCallCheck(this, ProfileLayout);
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "changeInfo", function (path, value) {
-      var only_number = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    _defineProperty(_assertThisInitialized(_this), "changeInfo", function (path, target, validate_types, title, not_null) {
+      var only_number = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
+      var controller = _this.props.controller,
+          errs = _this.state.errs,
+          targetObj = _this.state[controller],
+          value = target.value,
+          errors = [],
+          input_validate = [{
+        validate_types: validate_types,
+        value: value,
+        title: title,
+        not_null: not_null !== null && not_null !== void 0 ? not_null : false
+      }];
 
-      if (!only_number || validator__WEBPACK_IMPORTED_MODULE_5___default().isNumeric(value, {
+      if (!only_number || validator__WEBPACK_IMPORTED_MODULE_6___default().isNumeric(value, {
         no_symbols: true
       }) || value === "") {
-        var _this$state;
-
-        var keys = path.split("."),
-            _ref = (_this$state = _this.state) !== null && _this$state !== void 0 ? _this$state : {},
-            user = _ref.user;
-
-        var lastKey = keys.pop();
-        var lastObj = keys.reduce(function (user, key) {
-          return user[key] = user[key] || {};
-        }, user);
-        lastObj[lastKey] = value;
-
-        _this.setState({
-          user: user
+        validate_types ? errors = (0,_Layout_components_Validator__WEBPACK_IMPORTED_MODULE_1__["default"])(input_validate) : null;
+        $(target).parent(".input-group").siblings("span.text-danger").each(function (i, el) {
+          return $(el).remove();
         });
+
+        if (errors.length) {
+          $(target).addClass("input-err");
+          errors.map(function (err, i) {
+            $(target).parent(".input-group").after("<span class=\"text-danger d-block m-1\">".concat(err, "</span>"));
+
+            _this.setState(function (prevState) {
+              return {
+                errs: _objectSpread(_objectSpread({}, prevState.errs), {}, _defineProperty({}, "".concat(controller, ".").concat(path), err))
+              };
+            });
+          });
+        } else {
+          $(target).removeClass("input-err");
+          delete errs["".concat(controller, ".").concat(path)];
+
+          _this.setState({
+            errs: errs
+          });
+        }
+
+        var newData = new _helpers__WEBPACK_IMPORTED_MODULE_2__.NestedObj(targetObj, path, value);
+
+        _this.setState(_defineProperty({}, controller, newData.make()));
       }
     });
 
     _defineProperty(_assertThisInitialized(_this), "updateInfo", function () {
       var _this$props = _this.props,
-          sendInfo = _this$props.sendInfo,
-          table = _this$props.table,
-          fields = _this$props.fields,
-          title = _this$props.title,
-          user = _this.state.user,
-          inputs = [];
-      fields.map(function (field, i) {
-        var _lastObj$last_key, _lastObj$last_key2, _lastObj$last_key3, _field$not_null;
-
-        var keys = field.path.split("."),
-            last_key = keys.pop(),
-            lastObj = keys.reduce(function (user, key) {
-          return user[key] = user[key] || {};
-        }, _objectSpread({}, user));
-        validator__WEBPACK_IMPORTED_MODULE_5___default().trim((_lastObj$last_key = lastObj[last_key]) !== null && _lastObj$last_key !== void 0 ? _lastObj$last_key : "");
-        field.type === "email" ? validator__WEBPACK_IMPORTED_MODULE_5___default().normalizeEmail((_lastObj$last_key2 = lastObj[last_key]) !== null && _lastObj$last_key2 !== void 0 ? _lastObj$last_key2 : "") : null;
-
-        _this.setState({
-          user: user
-        });
-
-        inputs.push({
-          validate_types: field.validate_types,
-          value: (_lastObj$last_key3 = lastObj[last_key]) !== null && _lastObj$last_key3 !== void 0 ? _lastObj$last_key3 : "",
-          title: field.title,
-          not_null: (_field$not_null = field.not_null) !== null && _field$not_null !== void 0 ? _field$not_null : false
-        });
-      });
-      var errors = (0,_Layout_components_Validator__WEBPACK_IMPORTED_MODULE_1__["default"])(inputs);
+          controller = _this$props.controller,
+          changeUserInfo = _this$props.changeUserInfo,
+          _this$state = _this.state,
+          user = _this$state.user,
+          company = _this$state.company,
+          customer = _this$state.customer,
+          errs = _this$state.errs;
 
       _this.setState({
-        errors: errors,
-        showSuccess: false
+        showSuccess: false,
+        showErr: false
       });
 
-      if (!errors.length) {
+      if ((0,_helpers__WEBPACK_IMPORTED_MODULE_2__.isObjEmpty)(errs)) {
         _this.setState({
           sending_data: true
         }, function () {
-          // here you can use your desired url or method to send your req using table variable
-          _this.setState({
-            sending_data: false,
-            showSuccess: true
-          });
+          // here you can use your desired url or method to send your req using controller variable
+          switch (controller) {
+            case "user":
+              // changeUserInfo(user).then(res => {
+              _this.setState({
+                sending_data: false,
+                showSuccess: true
+              }); // })
+
+
+              break;
+            // case "company":
+            //     break;
+            // case "customer":
+            //     break;
+
+            default:
+              break;
+          }
 
           setTimeout(function () {
             _this.setState({
@@ -8959,15 +9058,25 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
             });
           }, 5000);
         });
+      } else {
+        _this.setState({
+          showErr: true
+        });
+
+        setTimeout(function () {
+          _this.setState({
+            showErr: false
+          });
+        }, 5000);
       }
     });
 
-    _this.state = {
-      user: _this.props.user,
+    _this.state = _defineProperty({
       sending_data: false,
-      errors: [],
-      showSuccess: false
-    };
+      showSuccess: false,
+      showErr: false,
+      errs: {}
+    }, _this.props.controller, (_this$props$_this$pro = _this.props[_this.props.controller]) !== null && _this$props$_this$pro !== void 0 ? _this$props$_this$pro : {});
     return _this;
   }
 
@@ -8979,49 +9088,45 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
       var _this$props2 = this.props,
           fields = _this$props2.fields,
           title = _this$props2.title,
-          table = _this$props2.table,
-          _this$state2 = this.state,
-          user = _this$state2.user,
-          sending_data = _this$state2.sending_data,
-          errors = _this$state2.errors,
-          showSuccess = _this$state2.showSuccess;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          controller = _this$props2.controller,
+          _this$state3 = this.state,
+          sending_data = _this$state3.sending_data,
+          showSuccess = _this$state3.showSuccess,
+          showErr = _this$state3.showErr,
+          errs = _this$state3.errs;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "form-title",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
             children: title
           })
-        }), fields.map(function (field, i) {
-          var _lastObj$last_key4;
-
-          var keys = field.path.split("."),
-              last_key = keys.pop(),
-              lastObj = keys.reduce(function (user, key) {
-            return user[key] = user[key] || {};
-          }, _objectSpread({}, user));
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(field.component, _objectSpread({
-            onChangeHandler: _this2.changeInfo,
-            value: (_lastObj$last_key4 = lastObj[last_key]) !== null && _lastObj$last_key4 !== void 0 ? _lastObj$last_key4 : ""
-          }, field), i);
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "fields-container",
+          children: fields.map(function (field, i) {
+            var value = new _helpers__WEBPACK_IMPORTED_MODULE_2__.NestedObj(_this2.state[controller], field.path).get();
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(field.component, _objectSpread({
+              onChangeHandler: _this2.changeInfo,
+              value: value
+            }, field), i);
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "eggplant-btn col-12",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             className: "btn btn-lg col-12 col-md-3 col-lg-2 ".concat(sending_data ? "disabled" : ""),
             disabled: sending_data,
-            onClick: this.updateInfo.bind(this, table),
+            onClick: this.updateInfo,
             children: "\u062B\u0628\u062A"
-          }), sending_data && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_6__.Windmill, {
+          }), sending_data && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_7__.Windmill, {
             size: 30,
             color: "#6332df"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "col-12 col-md-7 col-lg-4 alert animated fadeIn ".concat(errors.length > 0 || showSuccess ? "" : "d-none", " ").concat(errors.length > 0 ? "alert-danger" : "", " ").concat(showSuccess ? "alert-success" : ""),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: !showSuccess ? "d-none" : undefined,
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "col-12 col-md-7 col-lg-4 alert animated fadeIn ".concat(!showSuccess && !showErr ? "d-none" : showErr ? "alert-danger" : "alert-success"),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: showErr ? "d-none" : null,
               children: "\u062A\u063A\u06CC\u06CC\u0631\u0627\u062A \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u062B\u0628\u062A \u0634\u062F"
-            }), errors && errors.length > 0 && errors.map(function (err, i) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                children: err
-              }, i);
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: showSuccess ? "d-none" : null,
+              children: "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062A \u062E\u0648\u062F \u0631\u0627 \u0628\u0647 \u062F\u0631\u0633\u062A\u06CC \u0648\u0627\u0631\u062F \u06A9\u0646\u06CC\u062F"
             })]
           })]
         })]
@@ -9032,21 +9137,23 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
   return ProfileLayout;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+var mapStateToProps = function mapStateToProps(state) {
   return {
-    sendInfo: function sendInfo(info) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.logUserIn)(info));
+    user: state.auth.user,
+    company: state.user.company,
+    customer: state.user.customer
+  };
+};
+
+var mapDispathToProps = function mapDispathToProps(dispatch) {
+  return {
+    changeUserInfo: function changeUserInfo(user) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_4__.updateUserInfo)(user));
     }
   };
 };
 
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    user: state.auth.user
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps, mapDispatchToProps)(ProfileLayout));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_3__.connect)(mapStateToProps, mapDispathToProps)(ProfileLayout));
 
 /***/ }),
 
@@ -9118,17 +9225,17 @@ var RegisterInfo = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "fields", [{
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "نام",
-      path: "customer.firstname",
+      path: "firstname",
       validate_types: ["short_text", "alpha-fa"]
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "نام خانوادگی",
-      path: "customer.lastname",
+      path: "lastname",
       validate_types: ["short_text", "alpha-fa"]
     }, {
       component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_2__["default"],
       title: "شماره تلفن (جهت پاسخگویی)",
-      path: "customer.phone_number",
+      path: "phone_number",
       phone_type: "both",
       validate_types: ["phone_number"]
     }]);
@@ -9147,7 +9254,7 @@ var RegisterInfo = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
         fields: this.fields,
         title: this.title,
-        table: "customer"
+        controller: "customer"
       });
     }
   }]);
@@ -9239,12 +9346,12 @@ var UserInfo = /*#__PURE__*/function (_Component) {
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "رمزعبور جدید",
-      path: "",
+      path: "password",
       type: "password"
     }, {
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "تایید رمزعبور",
-      path: "",
+      path: "password_confirmation",
       type: "password"
     }]);
 
@@ -9262,7 +9369,7 @@ var UserInfo = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
         fields: this.fields,
         title: this.title,
-        table: "user"
+        controller: "user"
       });
     }
   }]);
@@ -10595,7 +10702,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "registerUser": () => (/* binding */ registerUser),
 /* harmony export */   "logoutUser": () => (/* binding */ logoutUser),
 /* harmony export */   "changeUserPhoneNumber": () => (/* binding */ changeUserPhoneNumber),
-/* harmony export */   "changeUserEmail": () => (/* binding */ changeUserEmail)
+/* harmony export */   "changeUserEmail": () => (/* binding */ changeUserEmail),
+/* harmony export */   "updateUserInfo": () => (/* binding */ updateUserInfo)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -10735,33 +10843,34 @@ var registerUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncT
   };
 }());
 var changeUserPhoneNumber = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/user/changePhoneNumber', /*#__PURE__*/function () {
-  var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(phone_number, thunkAPI) {
-    var response;
+  var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(phone_number, _ref7) {
+    var rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            _context4.next = 2;
+            rejectWithValue = _ref7.rejectWithValue;
+            _context4.next = 3;
             return httpService.put("/auth/verification/phone/edit", {
               phone_number: phone_number
             });
 
-          case 2:
+          case 3:
             response = _context4.sent;
 
             if (!(typeof response.error !== 'undefined')) {
-              _context4.next = 5;
+              _context4.next = 6;
               break;
             }
 
             return _context4.abrupt("return", rejectWithValue(response.error));
 
-          case 5:
+          case 6:
             return _context4.abrupt("return", {
               phone_number: phone_number
             });
 
-          case 6:
+          case 7:
           case "end":
             return _context4.stop();
         }
@@ -10770,37 +10879,38 @@ var changeUserPhoneNumber = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.cre
   }));
 
   return function (_x7, _x8) {
-    return _ref7.apply(this, arguments);
+    return _ref8.apply(this, arguments);
   };
 }());
 var changeUserEmail = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/user/changeEmail', /*#__PURE__*/function () {
-  var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(email, thunkAPI) {
-    var response;
+  var _ref10 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(email, _ref9) {
+    var rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
-            _context5.next = 2;
+            rejectWithValue = _ref9.rejectWithValue;
+            _context5.next = 3;
             return httpService.put("/auth/verification/email/edit", {
               email: email
             });
 
-          case 2:
+          case 3:
             response = _context5.sent;
 
             if (!(typeof response.error !== 'undefined')) {
-              _context5.next = 5;
+              _context5.next = 6;
               break;
             }
 
             return _context5.abrupt("return", rejectWithValue(response.error));
 
-          case 5:
+          case 6:
             return _context5.abrupt("return", {
               email: email
             });
 
-          case 6:
+          case 7:
           case "end":
             return _context5.stop();
         }
@@ -10809,7 +10919,50 @@ var changeUserEmail = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsy
   }));
 
   return function (_x9, _x10) {
-    return _ref8.apply(this, arguments);
+    return _ref10.apply(this, arguments);
+  };
+}());
+var updateUserInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('auth/user/editInfo', /*#__PURE__*/function () {
+  var _ref13 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(_ref11, _ref12) {
+    var email, phone_number, _ref11$password, password, _ref11$password_confi, password_confirmation, rejectWithValue, response;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            email = _ref11.email, phone_number = _ref11.phone_number, _ref11$password = _ref11.password, password = _ref11$password === void 0 ? null : _ref11$password, _ref11$password_confi = _ref11.password_confirmation, password_confirmation = _ref11$password_confi === void 0 ? null : _ref11$password_confi;
+            rejectWithValue = _ref12.rejectWithValue;
+            _context6.next = 4;
+            return httpService.put('/userarea/user/update', {
+              email: email,
+              phone_number: phone_number,
+              password: password,
+              password_confirmation: password_confirmation
+            });
+
+          case 4:
+            response = _context6.sent;
+
+            if (!(typeof response.error !== 'undefined')) {
+              _context6.next = 7;
+              break;
+            }
+
+            return _context6.abrupt("return", rejectWithValue(response.error));
+
+          case 7:
+            return _context6.abrupt("return", response.user);
+
+          case 8:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+
+  return function (_x11, _x12) {
+    return _ref13.apply(this, arguments);
   };
 }());
 
@@ -10841,17 +10994,17 @@ var changeEmail = function changeEmail(email) {
 };
 
 var checkAuth = /*#__PURE__*/function () {
-  var _ref9 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(dispatch, getState) {
+  var _ref14 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(dispatch, getState) {
     var response;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
       while (1) {
-        switch (_context6.prev = _context6.next) {
+        switch (_context7.prev = _context7.next) {
           case 0:
-            _context6.next = 2;
+            _context7.next = 2;
             return httpService.get('/auth/user', null, false);
 
           case 2:
-            response = _context6.sent;
+            response = _context7.sent;
 
             if (response.user) {
               dispatch(logUserIn(response.user));
@@ -10861,14 +11014,14 @@ var checkAuth = /*#__PURE__*/function () {
 
           case 5:
           case "end":
-            return _context6.stop();
+            return _context7.stop();
         }
       }
-    }, _callee6);
+    }, _callee7);
   }));
 
-  return function checkAuth(_x11, _x12) {
-    return _ref9.apply(this, arguments);
+  return function checkAuth(_x13, _x14) {
+    return _ref14.apply(this, arguments);
   };
 }();
 
@@ -10940,6 +11093,7 @@ var loginReducer = function loginReducer() {
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_1__.logInUsingCredentials.fulfilled.toString():
     case _actions__WEBPACK_IMPORTED_MODULE_1__.registerUser.fulfilled.toString():
+    case _actions__WEBPACK_IMPORTED_MODULE_1__.updateUserInfo.fulfilled.toString():
     case _actionTypes__WEBPACK_IMPORTED_MODULE_0__.USER_LOGGED_IN:
       stateCopy.user = action.payload;
       break;

@@ -24,17 +24,16 @@ class UserInfo extends Component {
         {
             component: TextInput,
             title: "رمزعبور جدید",
-            path: "",
-            type: "password"
+            path: "password",
+            type: "password",
         },
         {
             component: TextInput,
             title: "تایید رمزعبور",
-            path: "",
-            type: "password"
+            path: "password_confirmation",
+            type: "password",
         },
-    ]   
-
+    ]
     componentDidMount() {
         document.title = this.title
     }
@@ -44,7 +43,7 @@ class UserInfo extends Component {
             <ProfileLayout 
                 fields = {this.fields} 
                 title = {this.title} 
-                table = "user"
+                controller = "user"
             />
         );
     }

@@ -37,7 +37,7 @@ class PhoneInput extends Component {
     }
     
     render() {
-        let { value, title, path, onChangeHandler, phone_type } = this.props, { type } = this.state
+        let { value, title, path, onChangeHandler, phone_type, validate_types=null, not_null } = this.props, { type } = this.state
         return (
             <div className="field-item col-12 col-md-6">
                 <span>{title}:</span>
@@ -62,7 +62,7 @@ class PhoneInput extends Component {
                             : (<input type="tel" ref={this.state_code_ref} className="form-control ltr" placeholder="کد استان" />)    
                         }
                     </div>
-                    <input type="tel" value={value} className="form-control ltr" placeholder={type === "cellphone" ? "شماره موبایل" : "شماره تلفن"} onChange={(e) => onChangeHandler(path, e.target.value, true)} />
+                    <input type="tel" value={value ?? ""} className="form-control ltr" placeholder={type === "cellphone" ? "شماره موبایل" : "شماره تلفن"} onChange={(e) => onChangeHandler(path, e.target, validate_types, title, not_null, true)} />
                 </div>
             </div>
         );

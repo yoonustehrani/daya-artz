@@ -207,9 +207,15 @@
                     border-bottom: 2px solid #000;
                 }
             }
+            .fields-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: stretch;
+            }
             .field-item {
                 direction: rtl;
-                float: right;
+                // float: right;
                 margin-top: 40px;
                 > span:nth-child(1) {
                     margin-right: 5px;
