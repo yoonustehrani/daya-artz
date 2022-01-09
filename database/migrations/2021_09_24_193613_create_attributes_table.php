@@ -21,7 +21,7 @@ class CreateAttributesTable extends Migration
             $table->boolean('effects_on_price')->default(false);
             $table->integer('effect_value')->default(0);
             $table->enum('effect_type', ['price', 'percent', 'none'])->default('none');
-            $table->json('details')->default(json_encode(json_decode('[]')));
+            $table->json('details');
         });
     }
 

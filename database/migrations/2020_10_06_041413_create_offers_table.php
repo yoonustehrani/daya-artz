@@ -19,7 +19,7 @@ class CreateOffersTable extends Migration
             $table->integer('value');
             $table->enum('value_type', ['amount', 'percentage']);
             $table->integer('max_attempts_for_user')->default(1);
-            $table->json('details')->default(json_encode(json_decode('[]')));
+            $table->json('details');
             $table->timestamp('expires_at')->nullable();
             $table->softDeletes();
             $table->timestamps();

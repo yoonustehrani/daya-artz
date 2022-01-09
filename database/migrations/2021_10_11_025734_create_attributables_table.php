@@ -16,7 +16,7 @@ class CreateAttributablesTable extends Migration
         Schema::create('attributables', function (Blueprint $table) {
             $table->foreignId('attribute_id');
             $table->morphs('attributable');
-            $table->json('details')->default(json_encode(json_decode('[]')));
+            $table->json('details');
         });
     }
 
