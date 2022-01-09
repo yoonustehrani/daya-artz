@@ -26,16 +26,16 @@ const validate = (inputsArray) => {
                                 ! validator.isLength(value, {min: 0, max: 500}) ? err = `طول فیلد ${title} حداکثر پانصد کاراکتر میباشد` : null
                                 break
                             case "alpha-fa":
-                                ! validator.isAlpha(value, "fa-IR") ? err = `فیلد ${title} فقط شامل حروف فارسی میباشد` : null
+                                ! validator.isAlpha(value, "fa-IR", {ignore: " "}) ? err = `فیلد ${title} فقط شامل حروف فارسی میباشد` : null
                                 break
                             case "alpha-numeric-fa":
-                                ! validator.isAlphanumeric(value, "fa-IR") ? err = `فیلد ${title} فقط شامل حروف  و اعداد فارسی میباشد` : null
+                                ! validator.isAlphanumeric(value, "fa-IR", {ignore: " -"}) ? err = `فیلد ${title} فقط شامل حروف  و اعداد فارسی میباشد` : null
                                 break
                             case "alpha-en":
-                                ! validator.isAlpha(value, "en-US") ? err = `فیلد ${title} فقط شامل حروف انگیسی میباشد` : null
+                                ! validator.isAlpha(value, "en-US", {ignore: " "}) ? err = `فیلد ${title} فقط شامل حروف انگیسی میباشد` : null
                                 break
                             case "alpha-numeric-en":
-                                ! validator.isAlphanumeric(value, "en-US") ? err = `فیلد ${title} فقط شامل حروف  و اعداد انگیسی میباشد` : null
+                                ! validator.isAlphanumeric(value, "en-US", {ignore: "- "}) ? err = `فیلد ${title} فقط شامل حروف  و اعداد انگیسی میباشد` : null
                                 break
                             case "url":
                                 ! validator.isURL(value, ) ? err = "آدرس وبسایت وارد شده معتبر نمیباشد" : null

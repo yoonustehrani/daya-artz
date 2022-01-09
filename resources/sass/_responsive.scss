@@ -3,7 +3,7 @@ $small-breakpoint: 576px;
 $md-breakpoint: 768px;
 $lg-breakpoint: 992px;
 $xl-breakpoint: 1200px;
-$xl-xl-breakpoint: 1400px;
+$xl-xl-breakpoint: 1600px;
 
 // medium-screens
 @media screen and (max-width: $lg-breakpoint+1px) and (min-width: $md-breakpoint) {
@@ -39,7 +39,7 @@ $xl-xl-breakpoint: 1400px;
                     font-size: 22px !important;
                 }
                 h3 {
-                    font-size: 18px !important;
+                    font-size: 15px !important;
                 }
             }
         }
@@ -48,6 +48,9 @@ $xl-xl-breakpoint: 1400px;
         .contact-us-form {
             top: 14% !important;
         }
+    }
+    .rules-back {
+        height: auto !important;
     }
     .fast-order-section {
         width: 96% !important;
@@ -485,6 +488,9 @@ $xl-xl-breakpoint: 1400px;
             width: 100%;
         }
     }
+    .contact-p {
+        font-size: 16px !important;
+    }
     div.contact-ways-container {
         > div {
             height: auto !important;
@@ -507,6 +513,14 @@ $xl-xl-breakpoint: 1400px;
     .policy-header {
         .header-vector {
             top: -30%;
+        }
+    }
+    .header-vector {
+        .rules {
+            width: 90% !important;
+        }
+        .rules-back {
+            width: 100% !important;
         }
     }
     .recommand-post-title {
@@ -570,9 +584,13 @@ $xl-xl-breakpoint: 1400px;
     }
     div.service-benefits-section {
         height: auto !important;
+        justify-content: center !important;
         .header-vector {
             top: 0 !important;
             transform: initial !important;
+            img.rules {
+                transform: none !important;
+            }
         }
     }
     .dotted-background {
@@ -1137,14 +1155,17 @@ $xl-xl-breakpoint: 1400px;
     }
     .progress-bar-container {
         figure {
-            width: 130px !important;
-            height: 130px !important;
+            width: 150px !important;
+            height: 150px !important;
+            margin-bottom: 0px !important;
             figcaption::after {
                 font-size: 2rem;
             }
         }
-        .chart-two svg .circle-background, .chart-two svg .circle-foreground {
-            r: 57px
+        svg{
+            >.circle-background, >.circle-foreground { 
+                r: 57px !important;
+            }
         }
         span {
             font-size: 18px !important;
@@ -1253,6 +1274,9 @@ $xl-xl-breakpoint: 1400px;
     }
     div.service-benefits-section {
         height: 500px !important;
+        p {
+            font-size: 18px !important;
+        }
     }
     .recommand-post-title {
         font-size: 16px !important;

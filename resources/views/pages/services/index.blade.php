@@ -53,9 +53,9 @@
 </div>
 <!-- services groups -->
 <!-- search section -->
-<div class="section dotted-background bg-purple-gr col-12 p-4">
+<div class="section dotted-background bg-purple-gr col-12 py-4 p-md-4">
     <p class="title title-bigger text-light text-center">دنبال چه نوع طراحی میگردی؟</p>
-    <div class="input-group input-group-lg search-box-services col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12 float-left">
+    <div class="input-group input-group-lg search-box-services col-xl-6 offset-xl-3 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-12 float-left p-0">
         <div class="input-group-prepend">
             <button class="btn btn-search" type="button">جستجو</button>
         </div>

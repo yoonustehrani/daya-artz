@@ -719,7 +719,7 @@ div.fast-order-container {
             margin: 10px 10px 10px 0px;
         }
         p.blog-post-description {
-            font-size: 12px;
+            font-size: 14px;
             transition: 0.3s ease-in-out;
             text-align: right;
         }
@@ -829,6 +829,9 @@ div.fast-order-container {
 }
 
 // contact us page
+.contact-p {
+    font-size: 20px;
+}
 div.contact-us-first-section.mb-4 {
     div.contact-us-background {
         height: 570px;
@@ -1383,6 +1386,11 @@ div.service-benefits-section {
     background-image: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
     background-image: -webkit-gradient(to right, #ac7ff4, #8f60ec, #6232de);
     position: relative;
+    flex-direction: row-reverse;
+    align-items: center !important;
+    div.header-text {
+        height: auto !important;
+    }
     h4 {
         color: #fff;
         border-right: 3px solid #fff;
@@ -1774,11 +1782,11 @@ div.step-container {
 .services-header {
     .header-vector {
         height: 350px !important;
-        img.rules {
-            width: 78% !important;
-            right: 50%;
-            transform: translateX(50%);
-        }
+        // img.rules {
+        //     width: 78% !important;
+        //     right: 50%;
+        //     transform: translateX(50%);
+        // }
     }
 }
 .services-groups-container {

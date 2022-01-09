@@ -10118,11 +10118,15 @@ h3 {
     font-size: 22px !important;
   }
   div.contact-ways-container > div div.address-label h3 {
-    font-size: 18px !important;
+    font-size: 15px !important;
   }
 
   .contact-us-first-section.mb-4 .contact-us-form {
     top: 14% !important;
+  }
+
+  .rules-back {
+    height: auto !important;
   }
 
   .fast-order-section {
@@ -10537,6 +10541,10 @@ h3 {
     width: 100%;
   }
 
+  .contact-p {
+    font-size: 16px !important;
+  }
+
   div.contact-ways-container > div {
     height: auto !important;
   }
@@ -10556,6 +10564,13 @@ h3 {
 
   .policy-header .header-vector {
     top: -30%;
+  }
+
+  .header-vector .rules {
+    width: 90% !important;
+  }
+  .header-vector .rules-back {
+    width: 100% !important;
   }
 
   .recommand-post-title {
@@ -10624,10 +10639,14 @@ h3 {
 
   div.service-benefits-section {
     height: auto !important;
+    justify-content: center !important;
   }
   div.service-benefits-section .header-vector {
     top: 0 !important;
     transform: initial !important;
+  }
+  div.service-benefits-section .header-vector img.rules {
+    transform: none !important;
   }
 
   .dotted-background {
@@ -11188,14 +11207,15 @@ h3 {
   }
 
   .progress-bar-container figure {
-    width: 130px !important;
-    height: 130px !important;
+    width: 150px !important;
+    height: 150px !important;
+    margin-bottom: 0px !important;
   }
   .progress-bar-container figure figcaption::after {
     font-size: 2rem;
   }
-  .progress-bar-container .chart-two svg .circle-background, .progress-bar-container .chart-two svg .circle-foreground {
-    r: 57px;
+  .progress-bar-container svg > .circle-background, .progress-bar-container .chart-five svg > .circle-foreground, .progress-bar-container .chart-four svg > .circle-foreground, .progress-bar-container .chart-three svg > .circle-foreground, .progress-bar-container .chart-two svg > .circle-foreground, .progress-bar-container .chart-one svg > .circle-foreground, .progress-bar-container svg > .circle-foreground {
+    r: 57px !important;
   }
   .progress-bar-container span {
     font-size: 18px !important;
@@ -11252,7 +11272,7 @@ h3 {
     justify-content: space-evenly !important;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1600px) {
   .steps-info-container {
     bottom: 0px !important;
     margin-bottom: 40px !important;
@@ -11290,6 +11310,9 @@ h3 {
 
   div.service-benefits-section {
     height: 500px !important;
+  }
+  div.service-benefits-section p {
+    font-size: 18px !important;
   }
 
   .recommand-post-title {
@@ -11352,7 +11375,7 @@ h3 {
     font-size: 14px !important;
   }
 }
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
   .portfolio-detail {
     padding: 15px 15px !important;
   }
@@ -11576,6 +11599,10 @@ a:hover {
 
 .description {
   font-size: 16px;
+}
+
+.form-control {
+  resize: none;
 }
 
 @-webkit-keyframes fadeIn {
@@ -12443,7 +12470,7 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   margin: 10px 10px 10px 0px;
 }
 .blog-posts-container .blog-post p.blog-post-description {
-  font-size: 12px;
+  font-size: 14px;
   transition: 0.3s ease-in-out;
   text-align: right;
 }
@@ -12542,6 +12569,10 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
 .daya-guide div.contact-us-form {
   top: 8%;
   width: 40%;
+}
+
+.contact-p {
+  font-size: 20px;
 }
 
 div.contact-us-first-section.mb-4 div.contact-us-background {
@@ -12661,9 +12692,10 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 .timeline-section > div {
-  height: 400px;
+  min-height: 400px;
   border-radius: 20px;
   padding: 12px;
   background-image: linear-gradient(110deg, #fff 0 50%, #b790e0 50.09%, #5d2992);
@@ -12690,6 +12722,11 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
   border-left: 30px solid #7F50AF;
+}
+@media screen and (max-width: 992px) {
+  .timeline-section > div:not(:last-child)::after {
+    display: none;
+  }
 }
 
 .search-box button.btn-search {
@@ -12718,10 +12755,18 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   background-color: #6332df !important;
   transition: 0.3s;
 }
+.search-box-services button.btn-search:focus {
+  box-shadow: -2px 0 0 0.2rem #C2AEF3 !important;
+}
 .search-box-services input {
   border: 3px solid #18093c;
   border-left-width: 0px;
   color: #18093c !important;
+}
+.search-box-services input:focus {
+  border-color: #C2AEF3 !important;
+  border-left-width: 0 !important;
+  box-shadow: 2px 0 0 0.2rem #C2AEF3 !important;
 }
 
 .footer {
@@ -13468,6 +13513,11 @@ div.service-benefits-section {
   background-image: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
   background-image: -webkit-gradient(to right, #ac7ff4, #8f60ec, #6232de);
   position: relative;
+  flex-direction: row-reverse;
+  align-items: center !important;
+}
+div.service-benefits-section div.header-text {
+  height: auto !important;
 }
 div.service-benefits-section h4 {
   color: #fff;
@@ -13838,11 +13888,6 @@ div.step-container .step-item {
 
 .services-header .header-vector {
   height: 350px !important;
-}
-.services-header .header-vector img.rules {
-  width: 78% !important;
-  right: 50%;
-  transform: translateX(50%);
 }
 
 .services-groups-container {
@@ -14451,12 +14496,17 @@ div.other-services-container > div.other-service button {
 .header {
   background: linear-gradient(50deg, #e77cf2, #6332de);
   background: -webkit-linear-gradient(50deg, #e77cf2, #6332de);
-  min-height: 600px;
 }
 @media screen and (min-width: 768px) {
   .header {
     background: linear-gradient(50deg, #ffffff 0 26%, #a77cf2 26.09%, #6332de);
     background: -webkit-linear-gradient(50deg, #ffffff 0 26%, #a77cf2 26.09%, #6332de);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header {
+    background: linear-gradient(60deg, #ffffff 0 26%, #a77cf2 26.09%, #6332de);
+    background: -webkit-linear-gradient(60deg, #ffffff 0 26%, #a77cf2 26.09%, #6332de);
   }
 }
 
@@ -14615,46 +14665,57 @@ div.other-services-container > div.other-service button {
 div.header-section {
   width: 100%;
   float: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   div.header-section div.header-vector {
     height: auto !important;
   }
 }
 div.header-section .triangle {
-  width: 50%;
+  width: 90%;
   height: 0;
-  padding-bottom: 50%;
-  background: linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
-  background: -webkit-linear-gradient(45deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+  padding-bottom: 75%;
+  background: linear-gradient(50deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+  background: -webkit-linear-gradient(50deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
   position: absolute;
   left: 0%;
   bottom: 0%;
   z-index: 5;
 }
+@media screen and (min-width: 992px) {
+  div.header-section .triangle {
+    width: 60%;
+    padding-bottom: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  div.header-section .triangle {
+    padding-bottom: 35%;
+    background: linear-gradient(60deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+    background: -webkit-linear-gradient(60deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+  }
+}
 div.header-section div.header-vector {
-  float: left;
-  height: 530px;
   position: relative;
   z-index: 8;
 }
 div.header-section div.header-vector img {
   width: 100%;
-  height: 100%;
   position: relative;
   z-index: 8;
+  margin: auto;
+  transform: translateY(-50%);
+  top: 50%;
+  display: block;
+  max-width: 500px;
 }
 div.header-section div.header-text {
   float: right;
   height: 100%;
-}
-@media screen and (max-width: 768px) {
-  div.header-section div.header-text h1, div.header-section div.header-text h2 {
-    font-size: 26px !important;
-  }
-  div.header-section div.header-text p {
-    font-size: 18px !important;
-  }
 }
 div.header-section div.header-text h1, div.header-section div.header-text h2 {
   color: #ffffff;
@@ -14667,7 +14728,6 @@ div.header-section div.header-text h1 span, div.header-section div.header-text h
 }
 div.header-section div.header-text p {
   color: #ffffff;
-  font-size: 18px;
   line-height: 3;
 }
 div.header-section div.header-text p span {
@@ -14730,9 +14790,9 @@ div.header-section div.header-title .title span {
 .policy-header .header-vector img.rules-back, .service-benefits-section .header-vector img.rules-back {
   position: absolute !important;
   z-index: 4;
-  opacity: 0.6;
-  top: 0;
   right: 0;
+  left: 0;
+  transform: translateY(-50%) scale(1.1);
 }
 .policy-header ul, .service-benefits-section ul {
   list-style-type: none !important;

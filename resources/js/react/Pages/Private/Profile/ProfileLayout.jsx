@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Windmill } from 'react-activity'
 import validator from "validator";
 // helpers
-import validate from '../Layout/components/Validator'
+import validate from '../../../../helpers/Validator'
 import { isObjEmpty, NestedObj } from '../../../../helpers';
 // redux
 import { connect } from 'react-redux';

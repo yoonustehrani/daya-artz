@@ -70,6 +70,10 @@ a:hover {
     font-size: 16px;
 }
 
+.form-control {
+    resize: none;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

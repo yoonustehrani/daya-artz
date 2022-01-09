@@ -3468,6 +3468,118 @@ var normal = function normal() {
 
 /***/ }),
 
+/***/ "./resources/js/helpers/Validator.js":
+/*!*******************************************!*\
+  !*** ./resources/js/helpers/Validator.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! validator */ "./node_modules/validator/index.js");
+/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(validator__WEBPACK_IMPORTED_MODULE_0__);
+// we use validator library methods to validate our fields and the return the error messages back to the desired componen to show err
+
+
+var validate = function validate(inputsArray) {
+  if (inputsArray && inputsArray.length > 0) {
+    var errors = [],
+        err;
+    inputsArray.map(function (item) {
+      var validate_types = item.validate_types,
+          title = item.title,
+          value = item.value,
+          not_null = item.not_null;
+
+      if (validate_types && validate_types.length > 0) {
+        for (var i = 0; i < validate_types.length; i++) {
+          if (!validator__WEBPACK_IMPORTED_MODULE_0___default().isEmpty(value)) {
+            switch (validate_types[i]) {
+              case "email":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isEmail(value) ? err = "فیلد ایمیل معتبر نیست" : null;
+                break;
+
+              case "phone_number":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isMobilePhone(value) ? err = "شماره تلفن وارد شده معتبر نیست" : null;
+                break;
+
+              case "short_text":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
+                  min: 0,
+                  max: 20
+                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0628\u06CC\u0633\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                break;
+
+              case "long_text":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
+                  min: 0,
+                  max: 60
+                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0634\u0635\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                break;
+
+              case "paragraph":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
+                  min: 0,
+                  max: 500
+                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u067E\u0627\u0646\u0635\u062F \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                break;
+
+              case "alpha-fa":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isAlpha(value, "fa-IR", {
+                  ignore: " "
+                }) ? err = "\u0641\u06CC\u0644\u062F ".concat(title, " \u0641\u0642\u0637 \u0634\u0627\u0645\u0644 \u062D\u0631\u0648\u0641 \u0641\u0627\u0631\u0633\u06CC \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                break;
+
+              case "alpha-numeric-fa":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isAlphanumeric(value, "fa-IR", {
+                  ignore: " -"
+                }) ? err = "\u0641\u06CC\u0644\u062F ".concat(title, " \u0641\u0642\u0637 \u0634\u0627\u0645\u0644 \u062D\u0631\u0648\u0641  \u0648 \u0627\u0639\u062F\u0627\u062F \u0641\u0627\u0631\u0633\u06CC \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                break;
+
+              case "alpha-en":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isAlpha(value, "en-US", {
+                  ignore: " "
+                }) ? err = "\u0641\u06CC\u0644\u062F ".concat(title, " \u0641\u0642\u0637 \u0634\u0627\u0645\u0644 \u062D\u0631\u0648\u0641 \u0627\u0646\u06AF\u06CC\u0633\u06CC \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                break;
+
+              case "alpha-numeric-en":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isAlphanumeric(value, "en-US", {
+                  ignore: "- "
+                }) ? err = "\u0641\u06CC\u0644\u062F ".concat(title, " \u0641\u0642\u0637 \u0634\u0627\u0645\u0644 \u062D\u0631\u0648\u0641  \u0648 \u0627\u0639\u062F\u0627\u062F \u0627\u0646\u06AF\u06CC\u0633\u06CC \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                break;
+
+              case "url":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isURL(value) ? err = "آدرس وبسایت وارد شده معتبر نمیباشد" : null;
+                break;
+
+              case "color":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isHexColor(value) && !validator__WEBPACK_IMPORTED_MODULE_0___default().isHSL(value) && !validator__WEBPACK_IMPORTED_MODULE_0___default().isRgbColor(value) ? err = "کد رنگ وارد شده معتبر نمیباشد" : null;
+                break;
+
+              default:
+                break;
+            }
+
+            err ? errors.push(err) : undefined;
+            err = null;
+          } else if (not_null) {
+            errors.push("\u0644\u0637\u0641\u0627 \u0641\u06CC\u0644\u062F ".concat(title, " \u0631\u0627 \u067E\u0631 \u0646\u0645\u0627\u06CC\u06CC\u062F"));
+            break;
+          }
+        }
+      }
+    });
+    return errors;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validate);
+
+/***/ }),
+
 /***/ "./resources/js/helpers/index.js":
 /*!***************************************!*\
   !*** ./resources/js/helpers/index.js ***!
@@ -7519,110 +7631,6 @@ var TopBackground = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/react/Pages/Private/Layout/components/Validator.jsx":
-/*!**************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Layout/components/Validator.jsx ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! validator */ "./node_modules/validator/index.js");
-/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(validator__WEBPACK_IMPORTED_MODULE_0__);
-// we use validator library methods to validate our fields and the return the error messages back to the desired componen to show err
-
-
-var validate = function validate(inputsArray) {
-  if (inputsArray && inputsArray.length > 0) {
-    var errors = [],
-        err;
-    inputsArray.map(function (item) {
-      var validate_types = item.validate_types,
-          title = item.title,
-          value = item.value,
-          not_null = item.not_null;
-
-      if (validate_types && validate_types.length > 0) {
-        for (var i = 0; i < validate_types.length; i++) {
-          if (!validator__WEBPACK_IMPORTED_MODULE_0___default().isEmpty(value)) {
-            switch (validate_types[i]) {
-              case "email":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isEmail(value) ? err = "فیلد ایمیل معتبر نیست" : null;
-                break;
-
-              case "phone_number":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isMobilePhone(value) ? err = "شماره تلفن وارد شده معتبر نیست" : null;
-                break;
-
-              case "short_text":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
-                  min: 0,
-                  max: 20
-                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0628\u06CC\u0633\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
-                break;
-
-              case "long_text":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
-                  min: 0,
-                  max: 60
-                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0634\u0635\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
-                break;
-
-              case "paragraph":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
-                  min: 0,
-                  max: 500
-                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u067E\u0627\u0646\u0635\u062F \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
-                break;
-
-              case "alpha-fa":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isAlpha(value, "fa-IR") ? err = "\u0641\u06CC\u0644\u062F ".concat(title, " \u0641\u0642\u0637 \u0634\u0627\u0645\u0644 \u062D\u0631\u0648\u0641 \u0641\u0627\u0631\u0633\u06CC \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
-                break;
-
-              case "alpha-numeric-fa":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isAlphanumeric(value, "fa-IR") ? err = "\u0641\u06CC\u0644\u062F ".concat(title, " \u0641\u0642\u0637 \u0634\u0627\u0645\u0644 \u062D\u0631\u0648\u0641  \u0648 \u0627\u0639\u062F\u0627\u062F \u0641\u0627\u0631\u0633\u06CC \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
-                break;
-
-              case "alpha-en":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isAlpha(value, "en-US") ? err = "\u0641\u06CC\u0644\u062F ".concat(title, " \u0641\u0642\u0637 \u0634\u0627\u0645\u0644 \u062D\u0631\u0648\u0641 \u0627\u0646\u06AF\u06CC\u0633\u06CC \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
-                break;
-
-              case "alpha-numeric-en":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isAlphanumeric(value, "en-US") ? err = "\u0641\u06CC\u0644\u062F ".concat(title, " \u0641\u0642\u0637 \u0634\u0627\u0645\u0644 \u062D\u0631\u0648\u0641  \u0648 \u0627\u0639\u062F\u0627\u062F \u0627\u0646\u06AF\u06CC\u0633\u06CC \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
-                break;
-
-              case "url":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isURL(value) ? err = "آدرس وبسایت وارد شده معتبر نمیباشد" : null;
-                break;
-
-              case "color":
-                !validator__WEBPACK_IMPORTED_MODULE_0___default().isHexColor(value) && !validator__WEBPACK_IMPORTED_MODULE_0___default().isHSL(value) && !validator__WEBPACK_IMPORTED_MODULE_0___default().isRgbColor(value) ? err = "کد رنگ وارد شده معتبر نمیباشد" : null;
-                break;
-
-              default:
-                break;
-            }
-
-            err ? errors.push(err) : undefined;
-            err = null;
-          } else if (not_null) {
-            errors.push("\u0644\u0637\u0641\u0627 \u0641\u06CC\u0644\u062F ".concat(title, " \u0631\u0627 \u067E\u0631 \u0646\u0645\u0627\u06CC\u06CC\u062F"));
-            break;
-          }
-        }
-      }
-    });
-    return errors;
-  }
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validate);
-
-/***/ }),
-
 /***/ "./resources/js/react/Pages/Private/Layout/index.js":
 /*!**********************************************************!*\
   !*** ./resources/js/react/Pages/Private/Layout/index.js ***!
@@ -8906,7 +8914,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! validator */ "./node_modules/validator/index.js");
 /* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(validator__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _Layout_components_Validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout/components/Validator */ "./resources/js/react/Pages/Private/Layout/components/Validator.jsx");
+/* harmony import */ var _helpers_Validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../helpers/Validator */ "./resources/js/helpers/Validator.js");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../helpers */ "./resources/js/helpers/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/react/redux/actions.js");
@@ -8982,7 +8990,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
       if (!only_number || validator__WEBPACK_IMPORTED_MODULE_6___default().isNumeric(value, {
         no_symbols: true
       }) || value === "") {
-        validate_types ? errors = (0,_Layout_components_Validator__WEBPACK_IMPORTED_MODULE_1__["default"])(input_validate) : null;
+        validate_types ? errors = (0,_helpers_Validator__WEBPACK_IMPORTED_MODULE_1__["default"])(input_validate) : null;
         $(target).parent(".input-group").siblings("span.text-danger").each(function (i, el) {
           return $(el).remove();
         });
