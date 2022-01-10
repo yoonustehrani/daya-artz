@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PaymentRule extends Model
+class Transaction extends Model
 {
     //
 }
