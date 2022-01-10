@@ -1,6 +1,7 @@
 <?php
 
 use App\Broadcasting\SMSChannel;
+use App\Http\Controllers\WebsiteController;
 use App\Http\Utils\SMS;
 use App\Notifications\VerificationNotification;
 use App\User;
@@ -26,20 +27,20 @@ use Illuminate\Support\Facades\Route;
 //     return $user;
 // });
 
-Route::view('/', 'welcome')->name('home');
+Route::get('/', [WebsiteController::class, 'index'])->name('home');
+
+Route::get('services', [WebsiteController::class, 'services'])->name('services.index');
+Route::get('services/{service}', [WebsiteController::class, 'service'])->name('services.show');
+
+Route::view('blog', [WebsiteController::class, 'blog'])->name('blog.index');
+Route::get('blog/{slug}', [WebsiteController::class, 'blog_post'])->name('blog.show');
+
+Route::view('portfolio/{slug}', [WebsiteController::class, 'portfolio'])->name('portfolio.show');
 
 Route::view('about', 'pages.about')->name('about');
 Route::view('contact', 'pages.contact')->name('contact');
 Route::view('policy', 'pages.policy')->name('policy');
-Route::view('services', 'pages.services.index')->name('services.index');
-Route::get('services/{service}', function($service) {
-    return view('pages.services.show', compact('service'));
-})->name('services.show');
-Route::view('blog', 'pages.posts.index')->name('blog.index');
-Route::get('blog/{title}', function($title) {
-    return view('pages.posts.show', compact('title'));
-})->name('blog.show');
-Route::view('portfolio/{title}', 'pages.portfolio')->name('portfolio.show');
+
 Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('userarea');
 // Auth::routes([
 //     'register' => false,
