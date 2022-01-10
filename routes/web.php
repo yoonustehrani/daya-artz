@@ -1,11 +1,7 @@
 <?php
 
-use App\Broadcasting\SMSChannel;
 use App\Http\Controllers\WebsiteController;
-use App\Http\Utils\SMS;
-use App\Notifications\VerificationNotification;
-use App\User;
-use GuzzleHttp\Client;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
