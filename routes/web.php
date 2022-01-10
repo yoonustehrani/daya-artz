@@ -20,7 +20,7 @@ Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('services', [WebsiteController::class, 'services'])->name('services.index');
 Route::get('services/{service}', [WebsiteController::class, 'service'])->name('services.show');
 
-Route::view('blog', [WebsiteController::class, 'blog'])->name('blog.index');
+Route::get('blog', [WebsiteController::class, 'blog'])->name('blog.index');
 Route::get('blog/{slug}', [WebsiteController::class, 'blog_post'])->name('blog.show');
 
 Route::view('portfolio/{slug}', [WebsiteController::class, 'portfolio'])->name('portfolio.show');

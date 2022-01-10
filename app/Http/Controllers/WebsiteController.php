@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -20,13 +21,16 @@ class WebsiteController extends Controller
     }
     public function blog()
     {
-        return view('pages.posts.index', compact('pages.posts.index'));
+        $posts = Post::published()->simplePaginate(12);
+        return view('pages.posts.index', compact('posts'));
     }
     public function blog_post($slug)
     {
-        return view('pages.posts.show', compact('slug'));
+        $post = Post::published()->where('slug', $slug)->firstOrFail();
+        $post->load('author');
+        return view('pages.posts.show', compact('post'));
     }
-    public function portfolio()
+    public function portfolio($slug)
     {
         return view('pages.portfolio');
     }

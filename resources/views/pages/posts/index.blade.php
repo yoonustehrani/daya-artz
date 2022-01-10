@@ -71,6 +71,8 @@
                 </div> 
             </a>
         </article>
+        @endforeach
     </div>
 </div>
 @endsection
+

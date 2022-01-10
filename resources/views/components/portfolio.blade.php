@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="col-12 mt-4 float-left portfolio-section p-2">
-        <a href="{{ route('portfolio.show', ['title' => 'test']) }}">
+        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
         <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
             <div class="portfolio-avatar">
                 <img src="{{ asset('images/gallery/orange-studio-logo.jpg') }}" alt="">
@@ -22,7 +22,7 @@
             </div>
         </div>
         </a>
-        <a href="{{ route('portfolio.show', ['title' => 'test']) }}">
+        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
         <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
             <div class="portfolio-avatar">
                 <img src="{{ asset('images/gallery/reverse-logo.jpg') }}" alt="">
@@ -38,7 +38,7 @@
             </div>
         </div>
         </a>
-        <a href="{{ route('portfolio.show', ['title' => 'test']) }}">
+        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
         <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
             <div class="portfolio-avatar">
                 <img src="{{ asset('images/gallery/elnovel-logo.jpg') }}" alt="">
@@ -54,7 +54,7 @@
             </div>
         </div>
         </a>
-        <a href="{{ route('portfolio.show', ['title' => 'test']) }}">
+        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
         <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
             <div class="portfolio-avatar">
                 <img src="{{ asset('images/gallery/vispubish-logo.jpg') }}" alt="">
@@ -70,7 +70,7 @@
             </div>
         </div>
         </a>
-        <a href="{{ route('portfolio.show', ['title' => 'test']) }}">
+        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
         <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
             <div class="portfolio-avatar">
                 <img src="{{ asset('images/gallery/sampi-logo.jpg') }}" alt="">
@@ -86,7 +86,7 @@
             </div>
         </div>
         </a>
-        <a href="{{ route('portfolio.show', ['title' => 'test']) }}">
+        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
         <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
             <div class="portfolio-avatar">
                 <img src="{{ asset('images/gallery/tehran-tejarat-logo.jpg') }}" alt="">

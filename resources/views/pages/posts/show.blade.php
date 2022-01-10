@@ -1,15 +1,15 @@
 @extends('layouts.page')
 
 @section('head')
-    <title>{{ $title }} | Daya Artz Blog</title>
+    <title>{{ $post->title }} - وبلاگ دایا آرتز</title>
 @endsection
-
 
 @section('content')
     <div class="section w-100">
         <div class="horizontal-centerlize-w col-12 col-lg-11 col-xl-10 post-info-section mt-3">
             <div class="post-info-container vertical-centerlize p-4">
-                <h2 class="horizontal-centerlize mb-4 pr-2">{{ $title }}</h2>
+                <h2 class="horizontal-centerlize mb-4 pr-2">{{ $post->title }}</h2> 
+                {{-- Please convert to H1 --}}
                 <div class="post-info-flex">
                     <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-icons"></i> <span>دسته موضوع: </span> <span>طراحی گرافیک</span></div>
                     <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-calendar-day"></i> <span>تاریخ انتشار: </span> <span>۲۰ شهریور ۱۴۰۰</span></div>
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="post-info-cover float-left mt-2 mt-md-0">
-                <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="blog-post-cover">
+                <img src="{{ asset($post->image_url) }}" alt="{{ $post->image_alt }}">
             </div>
         </div>
     </div>
