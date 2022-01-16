@@ -10127,6 +10127,8 @@ h3 {
 
   .rules-back {
     height: auto !important;
+    margin-right: 10px !important;
+    transform: translateY(-50%) !important;
   }
 
   .fast-order-section {
@@ -10164,8 +10166,8 @@ h3 {
     font-size: 18px !important;
   }
 
-  .main-service {
-    width: 48% !important;
+  .main-service .icon-container > span > i {
+    font-size: 60px !important;
   }
 
   .other-service {
@@ -10203,8 +10205,8 @@ h3 {
     height: 100px !important;
   }
   .step-item .step-index {
-    font-size: 25px !important;
-    transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
+    font-size: 30px !important;
+    transform: rotate3d(0, 1, 1, -90deg) translate3d(-170px, -180px, 0px) !important;
   }
 
   .step-container {
@@ -10235,6 +10237,13 @@ h3 {
     left: 62% !important;
   }
 
+  .sample-images-slider {
+    width: 50% !important;
+  }
+
+  .sample-info {
+    width: 45% !important;
+  }
   .sample-info h3 {
     font-size: 22px !important;
   }
@@ -10267,6 +10276,34 @@ h3 {
     border-left: 5px solid transparent !important;
     border-top: 15px solid !important;
     top: calc(100% + 5px) !important;
+  }
+
+  .section-guide-container {
+    max-width: 270px;
+  }
+  .section-guide-container .section-guide h4 {
+    font-size: 24px !important;
+  }
+  .section-guide-container .section-guide ul > li {
+    height: 35px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(1) {
+    font-size: 15px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2) {
+    width: 15px !important;
+    height: 15px !important;
+    margin-right: 50px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2)::before {
+    width: 21px !important;
+    margin: 20px 6px 5px 0 !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2)::after {
+    width: 55px !important;
+  }
+  .section-guide-container #guide-toggler i {
+    font-size: 50px !important;
   }
 
   .daya-logo {
@@ -10415,13 +10452,6 @@ h3 {
   }
 }
 @media screen and (min-width: 768px) {
-  div.order-section-container .ml-8p {
-    margin-left: 8% !important;
-  }
-  div.order-section-container .order-vector.w-md-45 {
-    width: 45% !important;
-  }
-
   .policy-header .header-vector, .policy-header .services-vector {
     top: 50%;
     transform: translateY(-50%);
@@ -10440,6 +10470,10 @@ h3 {
 
   .section-guide-container.close {
     top: 70vh;
+  }
+
+  .sample-images-slider {
+    float: right;
   }
 }
 @media screen and (min-width: 992px) {
@@ -10497,8 +10531,16 @@ h3 {
     align-items: flex-start !important;
   }
 
+  .order-section {
+    left: initial !important;
+  }
+
   .order-vector {
     width: 90% !important;
+  }
+
+  .order-detail {
+    width: 100% !important;
   }
 
   .order-types {
@@ -10556,10 +10598,6 @@ h3 {
   }
   div.contact-ways-container > div div.address-label h3 {
     font-size: 18px !important;
-  }
-
-  .mt-20px {
-    margin-top: 20px !important;
   }
 
   .policy-header .header-vector {
@@ -10767,13 +10805,15 @@ h3 {
     margin-right: auto;
     margin-left: auto;
     position: static !important;
-    margin-bottom: 25px !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
   }
   .main-service .icon-container span {
     margin-bottom: 15px !important;
   }
   .main-service .info-container {
     width: 100% !important;
+    height: unset !important;
   }
 
   .other-service {
@@ -10793,6 +10833,7 @@ h3 {
   }
 
   .sample-images-slider {
+    margin: auto;
     width: 100% !important;
   }
 
@@ -10800,6 +10841,8 @@ h3 {
     width: 100% !important;
     text-align: center !important;
     align-items: center !important;
+    margin-right: 0 !important;
+    max-width: none !important;
   }
   .sample-info h3 {
     font-size: 24px !important;
@@ -10902,16 +10945,34 @@ h3 {
     transform: none !important;
   }
 
-  .section-guide-container {
-    width: 90% !important;
-  }
   .section-guide-container.close {
     margin: 90px 0% 0 2% !important;
-    top: 74vh;
+    top: 70vh;
     padding-left: 0 !important;
   }
-  .section-guide-container.open {
-    margin: 90px 5% 0 5% !important;
+  .section-guide-container .section-guide h4 {
+    font-size: 24px !important;
+  }
+  .section-guide-container .section-guide ul > li {
+    height: 40px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(1) {
+    font-size: 15px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2) {
+    width: 15px !important;
+    height: 15px !important;
+    margin-right: 50px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2)::before {
+    width: 25px !important;
+    margin: 20px 6px 5px 0 !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2)::after {
+    width: 55px !important;
+  }
+  .section-guide-container #guide-toggler {
+    margin-right: 75% !important;
   }
 
   .daya-logo {
@@ -10928,6 +10989,11 @@ h3 {
   .daya-logo span {
     font-size: 16px !important;
     color: #777DD1 !important;
+  }
+
+  .duty-vector-text {
+    display: flex;
+    flex-direction: column;
   }
 
   .login-form {
@@ -11141,8 +11207,16 @@ h3 {
     width: 46% !important;
     margin: 2% !important;
   }
+
+  .section-guide-container {
+    width: 300px !important;
+    margin: 90px auto 0 -150px !important;
+  }
+  .section-guide-container.open {
+    left: 50%;
+  }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 424px) {
   footer.footer .footer-content {
     background-size: unset;
   }
@@ -11194,6 +11268,13 @@ h3 {
   .order-items-container > div {
     width: 94% !important;
     margin: 3% !important;
+  }
+
+  .section-guide-container {
+    max-width: 90% !important;
+  }
+  .section-guide-container.open {
+    margin: 90px 5% 0 5% !important;
   }
 }
 @media screen and (max-width: 360px) {
@@ -11261,6 +11342,10 @@ h3 {
   .msg-content p {
     font-size: 14px !important;
   }
+
+  .accordion-container .question-wrapper h4 {
+    font-size: 16px !important;
+  }
 }
 @media screen and (min-width: 1800px) {
   .col-xl-xl-2 {
@@ -11270,37 +11355,6 @@ h3 {
 
   .order-types {
     justify-content: space-evenly !important;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .steps-info-container {
-    bottom: 0px !important;
-    margin-bottom: 40px !important;
-  }
-
-  .portfolio-detail {
-    padding: 15px 15px !important;
-  }
-  .portfolio-detail p {
-    font-size: 22px !important;
-    line-height: 2rem !important;
-  }
-  .portfolio-detail ul {
-    font-size: 20px !important;
-  }
-
-  .sample-info h3 {
-    font-size: 2.2vw !important;
-  }
-  .sample-info ul li {
-    font-size: 1.7vw !important;
-  }
-  .sample-info ul li h3, .sample-info ul li span {
-    font-size: 1.4vw !important;
-  }
-
-  .small-items-container i {
-    font-size: 5vw !important;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1201px) {
@@ -11380,12 +11434,12 @@ h3 {
     padding: 15px 15px !important;
   }
   .portfolio-detail p {
-    font-size: 18px !important;
+    font-size: 20px !important;
     line-height: 1.5rem !important;
     margin-bottom: 15px;
   }
   .portfolio-detail ul {
-    font-size: 14px !important;
+    font-size: 18px !important;
   }
 
   .user-area-sidebar {
@@ -11425,21 +11479,45 @@ h3 {
   .step-container {
     margin-bottom: 16% !important;
   }
-  .step-container .step-2 .step-index, .step-container .step-4 .step-index {
-    transform: rotateY(68deg) rotateZ(-90deg) translateY(-156%) translateX(-114%) translateZ(-150px) perspective(1000px) !important;
-  }
 
   .state-code {
     width: 18% !important;
   }
+
+  .order-vectors-container {
+    height: 400px;
+  }
+  .order-vectors-container .order-vector {
+    width: auto !important;
+    height: 100% !important;
+    max-width: 60% !important;
+  }
+  .order-vectors-container .order-section {
+    margin: 0 !important;
+    left: initial !important;
+  }
+  .order-vectors-container .order-detail {
+    width: 40% !important;
+  }
+  .order-vectors-container .order-detail h3, .order-vectors-container .order-detail h4 {
+    white-space: nowrap;
+  }
+
+  .section-guide-container {
+    max-width: 340px;
+  }
+
+  .main-service {
+    width: 31% !important;
+  }
 }
-@media screen and (min-width: 992px) and (max-width: 1200px) {
+@media screen and (min-width: 992px) and (max-width: 1199px) {
   .contact-us-first-section.mb-4 .contact-us-form {
     top: 8% !important;
   }
 
   .step-container {
-    margin-bottom: 8% !important;
+    margin-bottom: 10% !important;
   }
 
   .l-25 .step-info, .l-75 .step-info {
@@ -11469,6 +11547,45 @@ h3 {
     border-left: 10px solid transparent !important;
     border-top: 20px solid !important;
     top: calc(100% + 10px) !important;
+  }
+
+  .section-guide-container {
+    max-width: 290px;
+  }
+  .section-guide-container .section-guide h4 {
+    font-size: 24px !important;
+  }
+  .section-guide-container .section-guide ul > li {
+    height: 40px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(1) {
+    font-size: 16px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2) {
+    width: 15px !important;
+    height: 15px !important;
+    margin-right: 52px !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2)::before {
+    width: 25px !important;
+    margin: 20px 6px 5px 0 !important;
+  }
+  .section-guide-container .section-guide ul > li span:nth-child(2)::after {
+    width: 55px !important;
+  }
+  .section-guide-container #guide-toggler i {
+    font-size: 50px !important;
+  }
+
+  .order-ways-section .contact-info h4 {
+    font-size: 18px !important;
+  }
+  .order-ways-section .contact-info p {
+    font-size: 14px !important;
+  }
+  .order-ways-section .contact-info button {
+    font-size: 14px !important;
+    letter-spacing: -1px !important;
   }
 
   .login-form .default-style {
@@ -11526,6 +11643,21 @@ h3 {
 
   .msg-text-section textarea {
     height: 300px !important;
+  }
+
+  .rules-back {
+    margin-right: 10px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .sample-info h3 {
+    font-size: 22px !important;
+  }
+  .sample-info ul li {
+    font-size: 18px !important;
+  }
+  .sample-info ul li h3, .sample-info ul li span {
+    font-size: 16px !important;
   }
 }
 html, body, #main {
@@ -11812,6 +11944,8 @@ button i.fa-phone {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .title-section .title-container .title-text {
   display: inline-block;
@@ -12116,20 +12250,32 @@ span.back-aqua.big-icon {
 .order-section-container div.background-order {
   float: left;
 }
+.order-section-container .order-vectors-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.order-section-container .order-vectors-container div:nth-child(2) {
+  left: 8%;
+}
 .order-section-container .order-section {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin: 20px 0 20px 0;
 }
 .order-section-container .order-section .order-detail {
   margin-top: auto;
   margin-bottom: auto;
 }
 .order-section-container .order-section .order-detail h3 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
 }
 .order-section-container .order-section .order-detail h4 {
-  font-size: 20px;
+  font-size: 18px;
 }
 .order-section-container .order-section .order-detail h4 span {
   margin-left: 8px;
@@ -12144,12 +12290,12 @@ span.back-aqua.big-icon {
   direction: ltr;
 }
 .order-section-container .order-section .order-vector {
-  width: 500px;
   height: auto;
+  width: 50%;
 }
 .order-section-container .order-section .order-vector img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 .order-section-container .order-section .order-btn-container {
   text-align: right;
@@ -12174,18 +12320,18 @@ span.back-aqua.big-icon {
 .contact-section .contact-info {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
 }
 .contact-section .contact-info > div {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  border: 2px solid #78cad2;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px 0 rgba(120, 202, 210, 0.3);
   background-image: url(/images/contact-background.png);
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
 }
 .contact-section .contact-info > div span {
   margin-bottom: 15px;
@@ -12193,9 +12339,6 @@ span.back-aqua.big-icon {
 .contact-section .contact-info > div h4 {
   font-size: 22px;
   font-weight: bold;
-}
-.contact-section .contact-info > div p {
-  font-size: 16px;
 }
 .contact-section .contact-info > div button {
   background: linear-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
@@ -12252,7 +12395,7 @@ span.back-aqua.big-icon {
   width: 100%;
   margin: 0px;
   padding: 0px 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .portfolio-section .portfolio:hover .portfolio-avatar img {
   transition: 0.3s;
@@ -12933,6 +13076,7 @@ div.daya-duties .duty-vector-text .privacy-vector {
 }
 .FAQ-section .accordion-container div.item-wrapper div.question-wrapper span {
   cursor: pointer;
+  margin-right: 10px;
 }
 .FAQ-section .accordion-container div.item-wrapper div.question-wrapper span i {
   color: #fff;
@@ -12995,11 +13139,11 @@ div.daya-duties .duty-vector-text .privacy-vector {
   cx: 50%;
   cy: 50%;
   fill: none;
-  stroke: #34167C;
+  stroke: #E4DBFA;
   stroke-width: 15px;
 }
 .chart-one svg .circle-foreground {
-  stroke: #4d4d54;
+  stroke: #5C318B;
   stroke-dasharray: 48.67px 486.7px;
   stroke-dashoffset: 48.67px;
   stroke-linecap: round;
@@ -13066,11 +13210,11 @@ div.daya-duties .duty-vector-text .privacy-vector {
   cx: 50%;
   cy: 50%;
   fill: none;
-  stroke: #34167C;
+  stroke: #E4DBFA;
   stroke-width: 15px;
 }
 .chart-two svg .circle-foreground {
-  stroke: #4d4d54;
+  stroke: #5C318B;
   stroke-dasharray: 97.34px 486.7px;
   stroke-dashoffset: 97.34px;
   stroke-linecap: round;
@@ -13137,11 +13281,11 @@ div.daya-duties .duty-vector-text .privacy-vector {
   cx: 50%;
   cy: 50%;
   fill: none;
-  stroke: #34167C;
+  stroke: #E4DBFA;
   stroke-width: 15px;
 }
 .chart-three svg .circle-foreground {
-  stroke: #4d4d54;
+  stroke: #5C318B;
   stroke-dasharray: 146.01px 486.7px;
   stroke-dashoffset: 146.01px;
   stroke-linecap: round;
@@ -13208,11 +13352,11 @@ div.daya-duties .duty-vector-text .privacy-vector {
   cx: 50%;
   cy: 50%;
   fill: none;
-  stroke: #34167C;
+  stroke: #E4DBFA;
   stroke-width: 15px;
 }
 .chart-four svg .circle-foreground {
-  stroke: #4d4d54;
+  stroke: #5C318B;
   stroke-dasharray: 73.005px 486.7px;
   stroke-dashoffset: 73.005px;
   stroke-linecap: round;
@@ -13279,11 +13423,11 @@ div.daya-duties .duty-vector-text .privacy-vector {
   cx: 50%;
   cy: 50%;
   fill: none;
-  stroke: #34167C;
+  stroke: #E4DBFA;
   stroke-width: 15px;
 }
 .chart-five svg .circle-foreground {
-  stroke: #4d4d54;
+  stroke: #5C318B;
   stroke-dasharray: 121.675px 486.7px;
   stroke-dashoffset: 121.675px;
   stroke-linecap: round;
@@ -13665,9 +13809,9 @@ div.step-container .step-icon i {
 }
 div.step-container .step-index {
   position: absolute;
-  font-size: 45px;
+  font-size: 55px;
   font-weight: bold;
-  transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-150px) perspective(1000px);
+  transform: rotate3d(0, 1, 1, -90deg) translate3d(-280px, -300px, 0px);
 }
 div.step-container .step-item {
   transform-style: preserve-3d;
@@ -13954,7 +14098,7 @@ div.main-services-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
 }
 div.main-services-container > div.main-service {
@@ -13964,7 +14108,7 @@ div.main-services-container > div.main-service {
   box-shadow: 0px 0px 10px 1px #c2c2c2;
   position: relative;
   min-height: 270px;
-  width: 42%;
+  width: 48%;
   margin-left: 1%;
   margin-right: 1%;
 }
@@ -13981,12 +14125,12 @@ div.main-services-container > div.main-service .icon-container span {
   font-size: unset !important;
 }
 div.main-services-container > div.main-service .icon-container span i {
-  font-size: 80px;
+  font-size: 70px;
   color: #000;
 }
 div.main-services-container > div.main-service .icon-container h2 {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 26px;
 }
 div.main-services-container > div.main-service .info-container {
   text-align: center;
@@ -13999,11 +14143,11 @@ div.main-services-container > div.main-service .info-container {
 div.main-services-container > div.main-service .info-container h3 {
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 23px;
+  font-size: 20px;
 }
 div.main-services-container > div.main-service .info-container p {
-  margin-bottom: 20px;
-  font-size: 17px;
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 div.main-services-container > div.main-service .info-container div.button-container {
   display: flex;
@@ -14064,7 +14208,6 @@ div.other-services-container > div.other-service button {
 
 .section-guide-container {
   position: fixed;
-  max-height: calc(100vh - 120px);
   z-index: 21;
   border-radius: 2%;
   margin: 90px 0 0 20px;
@@ -14108,7 +14251,7 @@ div.other-services-container > div.other-service button {
 .section-guide-container #guide-toggler {
   transition: 0.5s;
   cursor: pointer;
-  margin-right: 80%;
+  margin-right: 75%;
   display: inline-block;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -14146,8 +14289,7 @@ div.other-services-container > div.other-service button {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc((100vh - 260px) / 7);
-  min-height: 40px;
+  height: 50px;
   cursor: pointer;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -14194,8 +14336,7 @@ div.other-services-container > div.other-service button {
 .section-guide-container .section-guide ul li span:nth-child(2)::before {
   content: "";
   display: block;
-  width: calc((100vh - 480px) / 7);
-  min-width: 8px;
+  width: 31px;
   height: 2px;
   background-color: white;
   transform: rotateZ(-90deg);
@@ -14218,7 +14359,8 @@ div.other-services-container > div.other-service button {
 }
 
 .sample-images-slider {
-  width: 50%;
+  width: 45%;
+  max-width: 400px;
 }
 .sample-images-slider div.showing-image {
   position: relative;
@@ -14248,7 +14390,7 @@ div.other-services-container > div.other-service button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   margin-top: 30px;
 }
 .sample-images-slider .small-items-container div {
@@ -14296,7 +14438,8 @@ div.other-services-container > div.other-service button {
 }
 
 .sample-info {
-  width: 45%;
+  margin-right: 2%;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -14305,7 +14448,7 @@ div.other-services-container > div.other-service button {
   padding: 2%;
 }
 .sample-info > h3 {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
 }
 .sample-info ul {
@@ -14314,14 +14457,14 @@ div.other-services-container > div.other-service button {
 .sample-info ul li {
   color: #000;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 2.5;
 }
 .sample-info ul li h3, .sample-info ul li span {
   font-weight: normal;
   color: #808080;
   display: inline;
-  font-size: 22px;
+  font-size: 20px;
 }
 .sample-info ul li h3 i, .sample-info ul li span i {
   font-size: 30px;
@@ -14790,12 +14933,14 @@ div.header-section div.header-title .title span {
 .policy-header .header-vector img.rules-back, .service-benefits-section .header-vector img.rules-back {
   position: absolute !important;
   z-index: 4;
+  opacity: 0.6;
   right: 0;
   left: 0;
   transform: translateY(-50%) scale(1.1);
 }
 .policy-header ul, .service-benefits-section ul {
   list-style-type: none !important;
+  padding-right: 0;
 }
 .policy-header ul li, .service-benefits-section ul li {
   font-size: 22px;

@@ -6,7 +6,7 @@
 
 @section('content')
 <!-- page section guide -->
-<div class="section-guide-container col-md-4 col-xl-3 animated rotateInDownLeft">
+<div class="section-guide-container animated rotateInDownLeft">
     <div class="section-guide animated">
         <h4>راهنمای صفحه</h4>
         <ul id="guide-list">
@@ -35,7 +35,7 @@
 <!-- sample info -->
 <div id="logo-info" class="w-100 float-left dotted-background p-4 p-md-2 p-lg-5">
     <div class="float-right col-12 col-md-8">
-        <div class="sample-images-slider float-right">
+        <div class="sample-images-slider">
             <div class="showing-image">
                 <img src="{{ asset('images/gallery/sampi-logo.jpg') }}">
             </div>
@@ -104,8 +104,8 @@
 <!-- end process timeline -->
 
 <!-- start customer detail -->
-<div id="customer-detail" class="header-section service-benefits-section auto-height">
-    <div class="header-text vertical-centralize p-3 col-12 col-md-7">
+<div id="customer-detail" class="header-section service-benefits-section auto-height p-3">
+    <div class="header-text col-12 col-md-8">
         <ul>
             <li>نام شرکت: <h3>تیم سامپی تِک | Sampi Tech</h3></li>
             <br>
@@ -114,8 +114,8 @@
             <li>نطر شرگت سامپی درباره کار با دایاآرتز: <p>با تشکر فراوان از تیم جوان و ایده پرداز “دایا” برای برخورد بسیار حرفه ای و طراحان خوش ذهن ، بسیار خرسندیم که با شما کار کردیم .</p></li>
         </ul>
     </div>
-    <div class="header-vector col-10 col-sm-8 col-md-5 mb-3 mb-md-0 vertical-centerlize offset-sm-2 offset-1 offset-md-0">
-        <img src="{{ asset('images/profile.svg') }}" class="rules customer-profile">
+    <div class="header-vector col-10 col-sm-8 col-md-4 mb-3 mb-md-0">
+        <img src="{{ asset('images/profile.svg') }}" class="rules">
         <img src="{{ asset('images/profile-back.svg') }}" class="rules-back">
     </div>
 </div>

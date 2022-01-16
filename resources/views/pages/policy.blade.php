@@ -31,7 +31,7 @@
             <p>بله کاملا ، رعایت حقوق معنوی و حفظ کرامت کارفرما از اصول اخلاقیست. تیم نوین طراحی گرافیک دایا آرتز مسئول حفاظت از اطلاعات مشتریان است و نسبت به صیانت از حقوق مشتریان کاملا متعهد می شود.</p>
         </div>
         <div class="duty-vector-text float-left">
-            <div class="col-5 d-none d-md-block customer-vector float-left mt-md-5 mt-lg-0">
+            <div class="customer-vector mt-md-5 mt-lg-0">
                 <img src="{{ asset('images/customer.svg') }}" alt="daya-shopping-basket">
             </div>
             <div class="customer-text">
@@ -65,9 +65,9 @@
                 <p>دایا آرتز پیشگام در حمایت استارتاپ های نوپا به صورت حقوقی و معنوی است ، از همین جهت قرارداد های صیانت از محرمانگی هویت ایده استارتاپ ها در دسترس کافرمایان گرامی قرار خواهد گرفت تا با آسودگی و امنیت به سفارش و طراحی لوگو و هویت برند خود بپردازند. دایا آرتز در تلاش ها و سیاست گذاری های نوین برای حمایت از کارآفرینان و استارتاپ ها نیز دارد که به ذی نفعان ارائه داده می شود تا باری جزئی از فشار های ایجاد یک کسب و کار نوین از دوش ایشان برداشته شود.</p>
             </div>
         </div>
-        <div class="col-10 offset-1 d-md-none customer-vector float-left">
+        {{-- <div class="col-10 offset-1 d-md-none customer-vector float-left">
             <img src="{{ asset('images/customer.svg') }}" alt="daya-shopping-basket">
-        </div>
+        </div> --}}
     </div>
 </div>
 <!-- end daya duties --> 

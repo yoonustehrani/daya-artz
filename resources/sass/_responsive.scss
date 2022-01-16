@@ -51,6 +51,8 @@ $xl-xl-breakpoint: 1600px;
     }
     .rules-back {
         height: auto !important;
+        margin-right: 10px !important;
+        transform: translateY(-50%) !important;
     }
     .fast-order-section {
         width: 96% !important;
@@ -90,7 +92,9 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .main-service {
-        width: 48% !important;
+        .icon-container > span > i {
+            font-size: 60px !important;
+        }
     }
     .other-service {
         width: 30% !important;
@@ -127,8 +131,8 @@ $xl-xl-breakpoint: 1600px;
             height: 100px !important;
         }
         .step-index {
-            font-size: 25px !important;
-            transform: rotateY(90deg) rotateZ(-90deg) translateY(-100%) translateX(-126%) translateZ(-100px) perspective(1000px) !important;
+            font-size: 30px !important;
+            transform: rotate3d(0, 1, 1, -90deg) translate3d(-170px, -180px, 0px) !important;
         }
     }
     .step-container {
@@ -152,7 +156,11 @@ $xl-xl-breakpoint: 1600px;
     .match-line-2 {
         left: 62% !important;
     }
+    .sample-images-slider {
+        width: 50% !important;
+    }
     .sample-info {
+        width: 45% !important;
         h3 {
             font-size: 22px !important;
         }
@@ -197,6 +205,37 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
 
+        }
+    }
+    .section-guide-container {
+        max-width: 270px;
+        .section-guide {
+            h4 {
+                font-size: 24px !important;
+            }
+            ul > li {
+                height: 35px !important;
+                span:nth-child(1) {
+                    font-size: 15px !important;
+                }
+                span:nth-child(2) {
+                    width: 15px !important;
+                    height: 15px !important;
+                    margin-right: 50px !important;
+                    &::before {
+                        width: 21px !important;
+                        margin: 20px 6px 5px 0 !important;
+                    }
+                    &::after {
+                        width: 55px !important;
+                    }
+                }
+            }
+        }
+        #guide-toggler {
+            i {
+                font-size: 50px !important;
+            }
         }
     }
     .daya-logo {
@@ -355,16 +394,6 @@ $xl-xl-breakpoint: 1600px;
 
 // medium and above
 @media screen and (min-width: $md-breakpoint) {
-    div.order-section-container {
-        .ml-8p {
-            margin-left: 8% !important;
-        }
-        .order-vector {
-            &.w-md-45 {
-                width: 45% !important;
-            }
-        }
-    }
     .policy-header {
         .header-vector, .services-vector {
             top: 50%;
@@ -390,6 +419,9 @@ $xl-xl-breakpoint: 1600px;
         &.close {
             top: 70vh;
         }
+    }
+    .sample-images-slider {
+        float: right;
     }
 }
 
@@ -446,8 +478,14 @@ $xl-xl-breakpoint: 1600px;
         min-height: unset !important;
         align-items: flex-start !important;
     }
+    .order-section {
+        left: initial !important;
+    }
     .order-vector {
         width: 90% !important;
+    }
+    .order-detail {
+        width: 100% !important;
     }
     .order-types {
         justify-content: center !important;
@@ -506,9 +544,6 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
         }
-    }
-    .mt-20px {
-        margin-top: 20px !important;
     }
     .policy-header {
         .header-vector {
@@ -709,13 +744,15 @@ $xl-xl-breakpoint: 1600px;
             margin-right: auto;
             margin-left: auto;
             position: static !important;
+            width: 100% !important;
             span {
                 margin-bottom: 15px !important;
             }
-            margin-bottom: 25px !important;
+            margin-bottom: 15px !important;
         }
         .info-container {
             width: 100% !important;
+            height: unset !important;
         }
     }
     .other-service {
@@ -733,12 +770,15 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .sample-images-slider {
+        margin: auto;
         width: 100% !important;
     }
     .sample-info {
         width: 100% !important;
         text-align: center !important;
         align-items: center !important;
+        margin-right: 0 !important;
+        max-width: none !important;
         h3 {
             font-size: 24px !important;
         }
@@ -843,14 +883,36 @@ $xl-xl-breakpoint: 1600px;
         transform: none !important;
     }
     .section-guide-container {
-        width: 90% !important;
         &.close {
             margin: 90px 0% 0 2% !important;
-            top: 74vh;
+            top: 70vh;
             padding-left: 0 !important;
         }
-        &.open {
-            margin: 90px 5% 0 5% !important;
+        .section-guide {
+            h4 {
+                font-size: 24px !important;
+            }
+            ul > li {
+                height: 40px !important;
+                span:nth-child(1) {
+                    font-size: 15px !important;
+                }
+                span:nth-child(2) {
+                    width: 15px !important;
+                    height: 15px !important;
+                    margin-right: 50px !important;
+                    &::before {
+                        width: 25px !important;
+                        margin: 20px 6px 5px 0 !important;
+                    }
+                    &::after {
+                        width: 55px !important;
+                    }
+                }
+            }
+        }
+        #guide-toggler {
+            margin-right: 75% !important;
         }
     }
     .daya-logo {
@@ -867,6 +929,10 @@ $xl-xl-breakpoint: 1600px;
             font-size: 16px !important;
             color: #777DD1 !important;
         }
+    }
+    .duty-vector-text {
+        display: flex;
+        flex-direction: column;
     }
     .login-form {
         width: 100% !important;
@@ -1077,11 +1143,18 @@ $xl-xl-breakpoint: 1600px;
             margin: 2% !important;
         }
     }
+    .section-guide-container {
+        width: 300px !important;
+        margin: 90px auto 0 -150px !important;
+        &.open {
+            left: 50%;
+        }
+    }
 }
 
 
 // Mobile
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 424px) {
     footer.footer .footer-content {
         background-size: unset;
     }
@@ -1136,6 +1209,12 @@ $xl-xl-breakpoint: 1600px;
         > div {
             width: 94% !important;
             margin: 3% !important;
+        }
+    }
+    .section-guide-container {
+        max-width: 90% !important;
+        &.open {
+            margin: 90px 5% 0 5% !important;
         }
     }
 }
@@ -1219,6 +1298,13 @@ $xl-xl-breakpoint: 1600px;
             font-size: 14px !important;
         }
     }
+    .accordion-container {
+        .question-wrapper {
+            h4 {
+                font-size: 16px !important;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 1800px) {
@@ -1228,42 +1314,6 @@ $xl-xl-breakpoint: 1600px;
     }   
     .order-types {
         justify-content: space-evenly !important;
-    }
-}
-
-// xl-xl and above
-@media screen and (min-width: $xl-xl-breakpoint) {
-    .steps-info-container {
-        bottom: 0px !important;
-        margin-bottom: 40px !important;
-    }
-    .portfolio-detail {
-        padding: 15px 15px !important;
-        p {
-            font-size: 22px !important;
-            line-height: 2rem !important;
-        }
-        ul {
-            font-size: 20px !important;
-        }
-    }
-    .sample-info {
-        h3 {
-            font-size: 2.2vw !important;
-        }
-        ul {
-            li {
-                font-size: 1.7vw !important;
-                h3, span {
-                    font-size: 1.4vw !important;
-                }
-            }
-        }
-    }
-    .small-items-container {
-        i {
-            font-size: 5vw !important;
-        }
     }
 }
 
@@ -1364,12 +1414,12 @@ $xl-xl-breakpoint: 1600px;
     .portfolio-detail {
         padding: 15px 15px !important;
         p {
-            font-size: 18px !important;
+            font-size: 20px !important;
             line-height: 1.5rem !important;
             margin-bottom: 15px;
         }
         ul {
-            font-size: 14px !important;
+            font-size: 18px !important;
         }
     }
     .user-area-sidebar {
@@ -1417,26 +1467,45 @@ $xl-xl-breakpoint: 1600px;
     }
     .step-container {
         margin-bottom: 16% !important;
-        .step-2, .step-4 {
-            .step-index {
-                transform: rotateY(68deg) rotateZ(-90deg) translateY(-156%) translateX(-114%) translateZ(-150px) perspective(1000px) !important;
-            }
-        }
     }
     .state-code {
         width: 18% !important;
     }
+    .order-vectors-container {
+        height: 400px;
+        .order-vector {
+            width: auto !important;
+            height: 100% !important;
+            max-width: 60% !important;
+        }
+        .order-section {
+            margin: 0 !important;
+            left: initial !important;
+        }
+        .order-detail {
+            width: 40% !important;
+            h3, h4 {
+                white-space: nowrap;
+            }
+        }
+    }
+    .section-guide-container {
+        max-width: 340px;
+    }
+    .main-service {
+        width: 31% !important;
+    }
 }
 
 // lg;
-@media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint) {
+@media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint - 1px) {
     .contact-us-first-section.mb-4 {
         .contact-us-form {
             top: 8% !important;
         }
     }
     .step-container {
-        margin-bottom: 8% !important;
+        margin-bottom: 10% !important;
     }
     .l-25, .l-75 {
         .step-info {
@@ -1472,6 +1541,51 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
 
+        }
+    }
+    .section-guide-container {
+        max-width: 290px;
+        .section-guide {
+            h4 {
+                font-size: 24px !important;
+            }
+            ul > li {
+                height: 40px !important;
+                span:nth-child(1) {
+                    font-size: 16px !important;
+                }
+                span:nth-child(2) {
+                    width: 15px !important;
+                    height: 15px !important;
+                    margin-right: 52px !important;
+                    &::before {
+                        width: 25px !important;
+                        margin: 20px 6px 5px 0 !important;
+                    }
+                    &::after {
+                        width: 55px !important;
+                    }
+                }
+            }
+        }
+        #guide-toggler {
+            i {
+                font-size: 50px !important;
+            }
+        }
+    }
+    .order-ways-section {
+        .contact-info {
+            h4 {
+                font-size: 18px !important;
+            }
+            p {
+                font-size: 14px !important;
+            }
+            button {
+                font-size: 14px !important;
+                letter-spacing: -1px !important;
+            }
         }
     }
     .login-form {
@@ -1534,6 +1648,23 @@ $xl-xl-breakpoint: 1600px;
     .msg-text-section {
         textarea {
             height: 300px !important;
+        }
+    }
+    .rules-back {
+        margin-right: 10px !important;
+        transform: translateY(-50%) !important;
+    }
+    .sample-info {
+        h3 {
+            font-size: 22px !important;
+        }
+        ul {
+            li {
+                font-size: 18px !important;
+                h3, span {
+                    font-size: 16px !important;
+                }
+            }
         }
     }
 }

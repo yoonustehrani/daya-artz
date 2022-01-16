@@ -280,7 +280,7 @@ div.header-section {
         img.rules-back {
             position: absolute !important;
             z-index: 4;
-            // opacity: 0.6;
+            opacity: 0.6;
             right: 0;
             left: 0;
             transform: translateY(-50%) scale(1.1);
@@ -288,6 +288,7 @@ div.header-section {
     }
     ul {
         list-style-type: none !important;
+        padding-right: 0;
         li {
             font-size: 22px;
             font-weight: bold;

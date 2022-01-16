@@ -96,42 +96,43 @@
                     <span class="title-underline"></span>
                 </div>
             </div>
-            <div class="order-section float-left col-xl-5 offset-xl-1 mt-xl-5 col-12">
-                <div class="order-vector float-left">
-                    <img src="{{ asset('images/speed-order.svg') }}" alt="fast-order">
-                </div>
-                <div class="order-detail float-left">
-                    <h3 class="mb-4">سفارش فوری</h3>
-                    <h4 class="mb-3">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-3">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <h4 class="mb-4">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <div class="order-btn-container mb-5 mr-md-3 mt-lg-4">
-                        <button class="btn btn-gradient silver-progress-button">
-                            <p class="before">شروع سفارش</p>
-                            <p class="after">سفارش دهید</p>
-                            <span class="handler flex-center"><i class="fas fa-hand-point-left r-180"></i></span>
-                        </button>
+            <div class="order-vectors-container">
+                <div class="order-section col-xl-6 col-12">
+                    <div class="order-vector">
+                        <img src="{{ asset('images/speed-order.svg') }}" alt="fast-order">
+                    </div>
+                    <div class="order-detail">
+                        <h3 class="mb-4">سفارش فوری</h3>
+                        <h4 class="mb-3">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
+                        <h4 class="mb-3">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
+                        <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
+                        <h4 class="mb-4">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
+                        <div class="order-btn-container mt-lg-4">
+                            <button class="btn btn-gradient silver-progress-button reverse">
+                                <p class="before">شروع سفارش</p>
+                                <p class="after">سفارش دهید</p>
+                                <span class="handler flex-center"><i class="fas fa-hand-point-right"></i></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="order-section float-left col-xl-7 offset-xl-5 col-12 rtl">
-                {{-- ml-6p --}}
-                <div class="order-vector float-right ml-md-4">
-                    <img src="{{ asset('images/pro-order.svg') }}" alt="pro-order">
-                </div>    
-                <div class="order-detail float-right mr-md-4 mt-20px">
-                    <h3 class="mb-4">سفارش تخصصی</h3>
-                    <h4 class="mb-3">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-3">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-3">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
-                    <h4 class="mb-4">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
-                    <div class="order-btn-container mr-md-3 mt-lg-4">
-                        <button class="btn btn-gradient silver-progress-button reverse">
-                            <p class="before">شروع سفارش</p>
-                            <p class="after">سفارش دهید</p>
-                            <span class="handler flex-center"><i class="fas fa-hand-point-right"></i></span>
-                        </button>
+                <div class="order-section col-xl-6 col-12 rtl">
+                    <div class="order-vector">
+                        <img src="{{ asset('images/pro-order.svg') }}" alt="pro-order">
+                    </div>    
+                    <div class="order-detail">
+                        <h3 class="mb-4">سفارش تخصصی</h3>
+                        <h4 class="mb-3">فرم ثبت حرفه ای و کامل<span><i class="check fas fa-check-circle"></i></span></h4>
+                        <h4 class="mb-3">تحویل لوگو درجه یک<span><i class="check fas fa-check-circle"></i></span></h4>
+                        <h4 class="mb-3">نظارت بر طراحی لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
+                        <h4 class="mb-4">زمان تحویل نسبتا طولانی<span><i class="times fas fa-times-circle"></i></span></h4>
+                        <div class="order-btn-container mt-lg-4">
+                            <button class="btn btn-gradient silver-progress-button">
+                                <p class="before">شروع سفارش</p>
+                                <p class="after">سفارش دهید</p>
+                                <span class="handler flex-center"><i class="fas fa-hand-point-left r-180"></i></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

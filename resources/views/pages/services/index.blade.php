@@ -70,7 +70,7 @@
             <h2 class="title-text">خدمات اصلی دایا آرتز</h2>
         </div>
     </div>
-    <div class="main-services-container w-100">
+    <div class="main-services-container w-100 p-2">
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fab fa-d-and-d"></i></span><h2>لوگو</h2></div>
             <div class="info-container">
