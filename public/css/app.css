@@ -134,7 +134,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #fafafa;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -547,7 +547,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #fff;
+  background-color: #fafafa;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -3823,13 +3823,13 @@ input[type=button].btn-block {
   outline: 0;
 }
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fafafa, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fafafa, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fafafa, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 .custom-range::-moz-focus-outer {
   border: 0;
@@ -4003,8 +4003,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #fff;
-  border-color: #dee2e6 #dee2e6 #fff;
+  background-color: #fafafa;
+  border-color: #dee2e6 #dee2e6 #fafafa;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -10111,6 +10111,13 @@ h3 {
     font-size: 14px !important;
   }
 
+  .blog-header {
+    height: 300px !important;
+  }
+  .blog-header h1 {
+    font-size: 65px !important;
+  }
+
   div.contact-ways-container > div i.contact-way-icon {
     font-size: 40px !important;
   }
@@ -10452,7 +10459,7 @@ h3 {
   }
 }
 @media screen and (min-width: 768px) {
-  .policy-header .header-vector, .policy-header .services-vector {
+  .policy-header .header-vector, .blog-header .header-vector, .policy-header .services-vector, .blog-header .services-vector {
     top: 50%;
     transform: translateY(-50%);
   }
@@ -10493,10 +10500,6 @@ h3 {
   }
   div.order-btn-container .order-btn {
     font-size: 18px !important;
-  }
-
-  .title {
-    font-size: 19px !important;
   }
 
   .portfolio-detail {
@@ -10600,8 +10603,11 @@ h3 {
     font-size: 18px !important;
   }
 
-  .policy-header .header-vector {
-    top: -30%;
+  .blog-header {
+    height: auto !important;
+  }
+  .blog-header h1 {
+    font-size: 65px !important;
   }
 
   .header-vector .rules {
@@ -11358,7 +11364,7 @@ h3 {
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1201px) {
-  .policy-header {
+  .policy-header, .blog-header {
     height: 400px;
   }
 
@@ -11466,13 +11472,13 @@ h3 {
   }
 }
 @media screen and (min-width: 1200px) {
-  .policy-header {
+  .policy-header, .blog-header {
     height: 550px;
   }
-  .policy-header h2 {
+  .policy-header h2, .blog-header h2 {
     font-size: 34px !important;
   }
-  .policy-header p {
+  .policy-header p, .blog-header p {
     font-size: 24px !important;
   }
 
@@ -11497,7 +11503,7 @@ h3 {
     left: initial !important;
   }
   .order-vectors-container .order-detail {
-    width: 40% !important;
+    max-width: 40% !important;
   }
   .order-vectors-container .order-detail h3, .order-vectors-container .order-detail h4 {
     white-space: nowrap;
@@ -11509,6 +11515,14 @@ h3 {
 
   .main-service {
     width: 31% !important;
+  }
+
+  .search-box {
+    width: 80% !important;
+  }
+
+  .blog-posts-container {
+    width: 80%;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -11668,6 +11682,7 @@ html, body, #main {
   overflow-x: hidden;
   overflow-y: auto;
   text-align: right;
+  background-color: #fafafa;
 }
 
 h1, h2, h3, h4, h5, h6, p, span, button, a, ul, li, input, textarea, blockquote, label {
@@ -12582,18 +12597,21 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   justify-content: space-evenly;
   align-items: stretch;
   flex-wrap: wrap;
-  width: 100%;
   text-align: center;
+  margin: auto;
 }
 .blog-posts-container .blog-post {
   position: relative;
-  margin: 30px 5px;
+  margin: 30px 0px;
 }
 .blog-posts-container .blog-post a {
   cursor: pointer;
 }
 .blog-posts-container .blog-post a:hover img {
-  filter: grayscale(100%);
+  opacity: 0.8;
+}
+.blog-posts-container .blog-post a:hover .article-info {
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.06);
 }
 .blog-posts-container .blog-post a:hover h3 {
   color: #6232de;
@@ -12610,29 +12628,37 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
 .blog-posts-container .blog-post p.blog-post-source {
   color: #292b2c;
   font-size: 13px;
-  margin: 10px 10px 10px 0px;
+  margin: 0px 10px 10px 0px;
 }
 .blog-posts-container .blog-post p.blog-post-description {
   font-size: 14px;
   transition: 0.3s ease-in-out;
   text-align: right;
 }
-.blog-posts-container .blog-post span {
+.blog-posts-container .blog-post div.article-time {
+  text-align: right;
+}
+.blog-posts-container .blog-post div.article-time span {
+  color: #808080;
   font-size: 14px;
+}
+.blog-posts-container .blog-post span.article-date {
+  font-size: 12px;
   border-radius: 8px;
   background-color: #17093c;
   color: #fff;
   position: absolute;
-  padding: 5px 0px 5px 0px;
+  padding: 5px;
   bottom: -8%;
   right: 10%;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 45px;
 }
 .blog-posts-container .blog-post .img-container {
   position: relative;
-  box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .blog-posts-container .blog-post .img-container > img {
   position: absolute;
@@ -12649,11 +12675,23 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   cursor: pointer;
   -webkit-transition: 0.3s ease-in-out;
   border-radius: 6px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .blog-posts-container .blog-post .img-container::after {
   content: "";
   display: block;
   padding-bottom: 80%;
+}
+.blog-posts-container .blog-post .article-info {
+  padding: 20px;
+  border: 1px solid #f4f3ef;
+  border-top: 0px;
+  border-radius: 6px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  transition: 0.5s;
+  background-color: #fff;
 }
 
 .advantage-section {
@@ -12872,10 +12910,22 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   }
 }
 
+.search-box {
+  margin: 30px auto 0 auto;
+  position: relative;
+  width: 100%;
+}
+.search-box div.input-group-prepend {
+  z-index: 10;
+  left: 0;
+  position: absolute;
+  height: 100%;
+}
 .search-box button.btn-search {
   color: #fff !important;
   background-color: #6332df !important;
   transition: 0.3s;
+  border-radius: 100% !important;
 }
 .search-box button.btn-search:hover {
   color: #dfdfdf !important;
@@ -12884,6 +12934,9 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
 }
 .search-box input {
   color: #17093c !important;
+  border-radius: 40px !important;
+  padding-left: 60px !important;
+  border-left: 4px solid #6332df !important;
 }
 
 .search-box-services {
@@ -12903,7 +12956,6 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
 }
 .search-box-services input {
   border: 3px solid #18093c;
-  border-left-width: 0px;
   color: #18093c !important;
 }
 .search-box-services input:focus {
@@ -14908,29 +14960,29 @@ div.header-section div.header-title .title span {
   color: #ee786e;
 }
 
-.policy-header, .service-benefits-section {
+.policy-header, .blog-header, .service-benefits-section {
   position: relative;
 }
-.policy-header .triangle, .service-benefits-section .triangle {
+.policy-header .triangle, .blog-header .triangle, .service-benefits-section .triangle {
   width: 20% !important;
   height: 100% !important;
   padding-bottom: 0 !important;
   background: linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
   background: -webkit-linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
 }
-.policy-header .header-vector, .service-benefits-section .header-vector {
+.policy-header .header-vector, .blog-header .header-vector, .service-benefits-section .header-vector {
   height: auto;
   position: relative;
 }
-.policy-header .header-vector img, .service-benefits-section .header-vector img {
+.policy-header .header-vector img, .blog-header .header-vector img, .service-benefits-section .header-vector img {
   width: 100%;
   height: 100%;
 }
-.policy-header .header-vector img.ruels, .service-benefits-section .header-vector img.ruels {
+.policy-header .header-vector img.ruels, .blog-header .header-vector img.ruels, .service-benefits-section .header-vector img.ruels {
   position: relative !important;
   z-index: 6;
 }
-.policy-header .header-vector img.rules-back, .service-benefits-section .header-vector img.rules-back {
+.policy-header .header-vector img.rules-back, .blog-header .header-vector img.rules-back, .service-benefits-section .header-vector img.rules-back {
   position: absolute !important;
   z-index: 4;
   opacity: 0.6;
@@ -14938,19 +14990,23 @@ div.header-section div.header-title .title span {
   left: 0;
   transform: translateY(-50%) scale(1.1);
 }
-.policy-header ul, .service-benefits-section ul {
+.policy-header ul, .blog-header ul, .service-benefits-section ul {
   list-style-type: none !important;
   padding-right: 0;
 }
-.policy-header ul li, .service-benefits-section ul li {
+.policy-header ul li, .blog-header ul li, .service-benefits-section ul li {
   font-size: 22px;
   font-weight: bold;
   color: white;
 }
-.policy-header ul li h3, .policy-header ul li p, .service-benefits-section ul li h3, .service-benefits-section ul li p {
+.policy-header ul li h3, .blog-header ul li h3, .policy-header ul li p, .blog-header ul li p, .service-benefits-section ul li h3, .service-benefits-section ul li p {
   font-weight: normal;
   font-size: 20px;
   display: inline;
+}
+
+.blog-header {
+  height: 400px;
 }
 
 @media screen and (max-width: 767px) {

@@ -302,6 +302,11 @@ div.header-section {
     }
 }
 
+.blog-header {
+    @extend .policy-header;
+    height: 400px;
+}
+
 @media screen and (max-width: $md-breakpoint - 1px) {
     .menu-container {
         position: absolute;

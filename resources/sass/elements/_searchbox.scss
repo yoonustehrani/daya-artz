@@ -1,8 +1,18 @@
 .search-box {
+    margin: 30px auto 0 auto;
+    position: relative;
+    width: 100%;
+    div.input-group-prepend {
+        z-index: 10;
+        left: 0;
+        position: absolute;
+        height: 100%;
+    }
     button.btn-search {
         color: $white !important;
         background-color: $horny-eggplant !important;
         transition: 0.3s;
+        border-radius: 100% !important;
         &:hover {
             color: $milk !important;
             background-color: $eggplant !important;
@@ -11,6 +21,9 @@
     }
     input {
         color: $eggplant !important;
+        border-radius: 40px !important;
+        padding-left: 60px !important;
+        border-left: 4px solid #6332df !important;
     }
 }
 .search-box-services {
@@ -29,7 +42,6 @@
     }
     input {
         border: 3px solid $dark-blue;
-        border-left-width: 0px;
         color: $dark-blue !important;
         &:focus {
             border-color: $light-eggplant !important;
