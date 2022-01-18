@@ -991,6 +991,8 @@ div.contact-us-section-2 {
     font-weight: bold;
 }
 div.daya-duties {
+    width: 100%;
+    padding: 0 20px !important;
     .duty-item {
         margin-bottom: 25px;
         p {
@@ -998,18 +1000,18 @@ div.daya-duties {
             font-size: 18px;
             text-align: right;
             margin-bottom: 0 !important;
-        }
-    }
-    .duty-vector-text {
-        .customer-vector {
-            img {
-                width: 100%;
-                height: 100%;
+            &:first-child {
+                font-weight: bold;
             }
         }
-        .privacy-vector {
-            position: relative;
-            top: 20px;
+    }
+    .customer-vector {
+        width: 50%;
+        max-width: 400px;
+        float: left;
+        img {
+            width: 100%;
+            height: 100%;
         }
     }
 }

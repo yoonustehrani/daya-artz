@@ -10118,6 +10118,10 @@ h3 {
     font-size: 65px !important;
   }
 
+  .customer-vector {
+    width: 40% !important;
+  }
+
   div.contact-ways-container > div i.contact-way-icon {
     font-size: 40px !important;
   }
@@ -10493,6 +10497,12 @@ h3 {
     flex: unset !important;
     max-width: unset !important;
   }
+
+  div.daya-duties {
+    width: 80% !important;
+    padding: 0 !important;
+    margin: 0 auto;
+  }
 }
 @media screen and (max-width: 767px) {
   div.order-btn-container {
@@ -10552,6 +10562,18 @@ h3 {
 
   .blog-post {
     margin: 30px 0px !important;
+  }
+
+  div.daya-duties {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  div.daya-duties .customer-vector {
+    width: 90% !important;
+    max-width: none !important;
+    order: 10;
   }
 
   .contact-us-first-section div.contact-us-background {
@@ -12920,6 +12942,8 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   left: 0;
   position: absolute;
   height: 100%;
+  transform: scale(0.8);
+  left: 2px;
 }
 .search-box button.btn-search {
   color: #fff !important;
@@ -13069,6 +13093,10 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   font-weight: bold;
 }
 
+div.daya-duties {
+  width: 100%;
+  padding: 0 20px !important;
+}
 div.daya-duties .duty-item {
   margin-bottom: 25px;
 }
@@ -13078,13 +13106,17 @@ div.daya-duties .duty-item p {
   text-align: right;
   margin-bottom: 0 !important;
 }
-div.daya-duties .duty-vector-text .customer-vector img {
+div.daya-duties .duty-item p:first-child {
+  font-weight: bold;
+}
+div.daya-duties .customer-vector {
+  width: 50%;
+  max-width: 400px;
+  float: left;
+}
+div.daya-duties .customer-vector img {
   width: 100%;
   height: 100%;
-}
-div.daya-duties .duty-vector-text .privacy-vector {
-  position: relative;
-  top: 20px;
 }
 
 .FAQ-section {

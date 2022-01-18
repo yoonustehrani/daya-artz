@@ -35,6 +35,9 @@ $xl-xl-breakpoint: 1600px;
             font-size: 65px !important;
         }
     }
+    .customer-vector {
+        width: 40% !important;
+    }
     div.contact-ways-container {
         > div {
             i.contact-way-icon {
@@ -443,6 +446,11 @@ $xl-xl-breakpoint: 1600px;
         flex: unset !important;
         max-width: unset !important;
     }
+    div.daya-duties {
+        width: 80% !important;
+        padding: 0 !important;
+        margin: 0 auto;
+    }
 }
 
 // Tablet & Mobile
@@ -498,6 +506,17 @@ $xl-xl-breakpoint: 1600px;
     }
     .blog-post {
         margin: 30px 0px !important;
+    }
+    div.daya-duties {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        .customer-vector {
+            width: 90% !important;
+            max-width: none !important;
+            order: 10;
+        }
     }
     .contact-us-first-section {
         div.contact-us-background {
