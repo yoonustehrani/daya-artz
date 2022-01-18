@@ -12661,8 +12661,14 @@ div.fast-order-container .fast-order-section div.fast-order-guide ul {
   text-align: right;
 }
 .blog-posts-container .blog-post div.article-time span {
+  display: flex;
   color: #808080;
   font-size: 14px;
+}
+.blog-posts-container .blog-post div.article-time span i {
+  color: inherit;
+  font-size: 20px;
+  margin-right: 5px;
 }
 .blog-posts-container .blog-post span.article-date {
   font-size: 12px;

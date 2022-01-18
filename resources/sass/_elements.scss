@@ -742,8 +742,14 @@ div.fast-order-container {
         div.article-time {
             text-align: right;
             span {
+                display: flex;
                 color: $gray;
                 font-size: 14px;
+                i {
+                    color: inherit;
+                    font-size: 20px;
+                    margin-right: 5px;
+                }
             }
         }
         span.article-date {
