@@ -16,9 +16,9 @@ class CreateOrderItemsTable extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id');
-            $table->unsignedInteger('service_id')->nullable();
-            $table->unsignedInteger('service_plan_id')->nullable();
-            $table->unsignedInteger('company_id')->nullable();
+            $table->foreignId('service_id')->nullable();
+            $table->foreignId('plan_id')->nullable();
+            $table->foreignId('company_id')->nullable();
             $table->foreignId('offer_id')->nullable();
             $table->string('status', 20); // TO BE DISCUSSED
             $table->text('status_info')->nullable();
@@ -28,9 +28,9 @@ class CreateOrderItemsTable extends Migration
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('service_id')->references('id')->on('services')->nullOnDelete()->cascadeOnUpdate();
-            $table->foreign('service_plan_id')->references('id')->on('service_plans')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreign('plan_id')->references('id')->on('service_plans')->nullOnDelete()->cascadeOnUpdate();
             $table->foreign('company_id')->references('id')->on('companies')->nullOnDelete()->cascadeOnUpdate();
-            $table->foreign('offer_id')->references('id')->on('offers')->nullOnDelete()->cascadeOnUpdate();
+            // $table->foreign('offer_id')->references('id')->on('offers')->nullOnDelete()->cascadeOnUpdate();
         });
     }
 

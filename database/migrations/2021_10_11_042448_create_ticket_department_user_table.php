@@ -17,6 +17,7 @@ class CreateTicketDepartmentUserTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('ticket_department_id');
             $table->string('role', 20)->nullable();
+            $table->primary(['user_id', 'ticket_department_id']);
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('ticket_department_id')->references('id')->on('ticket_departments')->cascadeOnDelete()->cascadeOnUpdate();
         });

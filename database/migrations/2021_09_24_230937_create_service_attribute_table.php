@@ -20,6 +20,7 @@ class CreateServiceAttributeTable extends Migration
             $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('page')->default(1);
             $table->integer('order')->default(1);
+            $table->primary(['service_id', 'attribute_id']);
         });
     }
 

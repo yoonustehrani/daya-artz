@@ -14,7 +14,7 @@ class CreateTicketDepartmentsTable extends Migration
     public function up()
     {
         Schema::create('ticket_departments', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name');
             $table->string('about', 255);
         });

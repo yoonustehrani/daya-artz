@@ -14,7 +14,7 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->primary();
             $table->string('title');
             $table->string('title_en')->nullable();
             $table->string('phone_number', 13)->nullable();
@@ -27,8 +27,8 @@ class CreateCompaniesTable extends Migration
             $table->text('intro');
             $table->json('details')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('business_type_id')->references('id')->on('definitions')->nullOnDelete()->cascadeOnUpdate();
-            $table->foreign('product_type_id')->references('id')->on('definitions')->nullOnDelete()->cascadeOnUpdate();
+            // $table->foreign('business_type_id')->references('id')->on('definitions')->nullOnDelete()->cascadeOnUpdate();
+            // $table->foreign('product_type_id')->references('id')->on('definitions')->nullOnDelete()->cascadeOnUpdate();
             $table->softDeletes();
             $table->timestamps();
         });

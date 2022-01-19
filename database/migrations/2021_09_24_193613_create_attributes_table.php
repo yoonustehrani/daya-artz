@@ -14,7 +14,7 @@ class CreateAttributesTable extends Migration
     public function up()
     {
         Schema::create('attributes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name');
             $table->string('type', 15);
             $table->enum('group', ['form-field', 'add-on'])->default('form-field');

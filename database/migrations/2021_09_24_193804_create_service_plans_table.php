@@ -14,7 +14,7 @@ class CreateServicePlansTable extends Migration
     public function up()
     {
         Schema::create('service_plans', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->unsignedInteger('service_id');
             $table->string('title');
             $table->text('caption');
