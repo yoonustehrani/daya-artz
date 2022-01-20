@@ -13,19 +13,15 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->unique()->words(
-            $this->faker->numberBetween(1,5),
-            true
-        );
+        $title = $this->faker->unique()->words(3, true);
         return [
             'title' => $title,
             'slug' => \Str::kebab($title),
-            'image_url' => 'images/gallery/blog-post-1.jpg',
-            'reading_time' => 'دو دقیقه',
-            'body' => '<p>' . implode('<br>', $this->faker->paragraphs(40)) . '</p>',
-            'short_description' => $this->faker->words(50, true),
-            'published' => true,
-            'author_id' => 1
+            'image_url' => 'images/gallery/blog-post-2.jpg',
+            'image_alt' => $this->faker->sentence(),
+            'description' => $this->faker->words(20, true),
+            'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(rand(30, 50))) . '</p>',
+            'reading_time' => '5 دقیقه و 30 ثانیه',
         ];
     }
 }

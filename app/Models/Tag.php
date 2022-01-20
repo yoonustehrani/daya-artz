@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
-    public $timstamps = false;
+    public $timestamps = false;
     /**
      * Get all of the posts that are assigned this tag.
      */

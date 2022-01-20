@@ -29,21 +29,25 @@
         </div>
     </div>
     <div class="blog-posts-container text-center">
+        @foreach ($posts as $post)
         <article class="blog-post col-12 col-md-6 col-lg-4">
-            <a href="{{ route('blog.show', ['slug' => 'چگونه لوگوی خوب را بشناسیم']) }}">
+            <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
                 <div class="img-container w-100">
-                    <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
-                    <span class="article-date">19 فروردین <br> 1400</span>
+                    <img src="{{ asset($post->image_url) }}" alt="{{ $post->image_alt }}" class="w-100 h-100">
+                    <span class="article-date">{{ $post->created_at->format('M d') }}<br>{{ $post->created_at->format('Y') }}</span>
                 </div>
                 <div class="article-info">
+                    {{-- @if ($post->author_id)
                     <p class="blog-post-source">نوشته شده توسط: ویکی پدیا</p>
-                    <h3 class="block">چگونه لوگوی خوب را بشناسیم</h3>
-                    <p class="blog-post-description text-secondary">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا </p>
-                    <div class="article-time"><span>زمان مطالعه: 5 دقیقه <i class="far fa-clock"></i></span></div>
+                    @endif --}}
+                    <h3 class="block">{{ $post->title }}</h3>
+                    <p class="blog-post-description text-secondary">{{ $post->description }}</p>
+                    <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
                 </div>
             </a>
         </article>
-        <article class="blog-post col-12 col-md-6 col-lg-4">
+        @endforeach
+        {{-- <article class="blog-post col-12 col-md-6 col-lg-4">
             <a href="{{ route('blog.show', ['slug' => 'بهترین لوگوهای جهان']) }}">
                 <div class="img-container w-100">
                     <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
@@ -53,7 +57,7 @@
                     <p class="blog-post-source">نوشته شده توسط: تیم دایا</p>
                     <h3 class="block">بهترین لوگوهای جهان</h3>
                     <p class="blog-post-description text-secondary">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا </p>
-                    <div class="article-time"><span>زمان مطالعه: 5 دقیقه <i class="far fa-clock"></i></span></div>
+                    <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
                 </div>
             </a>
         </article>
@@ -67,10 +71,10 @@
                     <p class="blog-post-source">نوشته شده توسط: تیم دایا</p>
                     <h3 class="block">درباره برندینگ چه میدانید؟</h3>
                     <p class="blog-post-description text-secondary">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا </p>
-                    <div class="article-time"><span>زمان مطالعه: 5 دقیقه <i class="far fa-clock"></i></span></div>
+                    <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
                 </div> 
             </a>
-        </article>
+        </article> --}}
     </div>
 </div>
 @endsection

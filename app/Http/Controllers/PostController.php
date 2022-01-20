@@ -14,10 +14,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        // $posts = Post::latest()->cursorPaginate(10);
-
-        // return $posts;
-        return view('pages.posts.index');
+        $posts = Post::select([
+                    'id', 'title', 'slug',
+                    'description', 'reading_time',
+                    'image_url', 'image_alt', 'created_at'
+                    ])
+                    ->latest()
+                    ->simplePaginate(12);
+        return view('pages.posts.index', compact('posts'));
     }
 
     /**
@@ -29,6 +33,9 @@ class PostController extends Controller
     public function show($slug)
     {
         $post = Post::with('tags')->findOrfail($slug);
+        if ($post->author_id) {
+            $post->load('author');
+        }
         return view('pages.posts.show', compact('post'));
     }
 }
