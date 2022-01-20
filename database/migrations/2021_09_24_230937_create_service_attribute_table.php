@@ -14,10 +14,10 @@ class CreateServiceAttributeTable extends Migration
     public function up()
     {
         Schema::create('service_attribute', function (Blueprint $table) {
-            $table->unsignedInteger('service_id');
-            $table->unsignedInteger('attribute_id');
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('service_id');
+            $table->foreignId('attribute_id');
+            $table->foreign('service_id')->references('id')->on('services')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('attribute_id')->references('id')->on('attributes')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('page')->default(1);
             $table->integer('order')->default(1);
             $table->primary(['service_id', 'attribute_id']);

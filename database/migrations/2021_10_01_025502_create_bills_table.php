@@ -22,7 +22,7 @@ class CreateBillsTable extends Migration
                 'inactive',
                 'paid'
             ]);
-            $table->unsignedBigInteger('invoice_id');
+            $table->foreignId('invoice_id');
             $table->timestamps();
             $table->foreign('invoice_id')->references('id')->on('invoices')->cascadeOnDelete()->cascadeOnUpdate();
         });

@@ -15,10 +15,10 @@ class CreateOrderItemsTable extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id');
+            $table->foreignUuid('order_id');
             $table->foreignId('service_id')->nullable();
             $table->foreignId('plan_id')->nullable();
-            $table->foreignId('company_id')->nullable();
+            $table->foreignUuid('company_id')->nullable();
             $table->foreignId('offer_id')->nullable();
             $table->string('status', 20); // TO BE DISCUSSED
             $table->text('status_info')->nullable();

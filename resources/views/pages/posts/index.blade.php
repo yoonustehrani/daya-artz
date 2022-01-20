@@ -30,7 +30,7 @@
     </div>
     <div class="blog-posts-container text-center">
         <article class="blog-post col-12 col-md-6 col-lg-4">
-            <a href="{{ route('blog.show', ['title' => 'چگونه لوگوی خوب را بشناسیم']) }}">
+            <a href="{{ route('blog.show', ['slug' => 'چگونه لوگوی خوب را بشناسیم']) }}">
                 <div class="img-container w-100">
                     <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
                     <span class="article-date">19 فروردین <br> 1400</span>
@@ -44,7 +44,7 @@
             </a>
         </article>
         <article class="blog-post col-12 col-md-6 col-lg-4">
-            <a href="{{ route('blog.show', ['title' => 'بهترین لوگوهای جهان']) }}">
+            <a href="{{ route('blog.show', ['slug' => 'بهترین لوگوهای جهان']) }}">
                 <div class="img-container w-100">
                     <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
                     <span class="article-date">19 فروردین <br> 1400</span>
@@ -58,7 +58,7 @@
             </a>
         </article>
         <article class="blog-post col-12 col-md-6 col-lg-4">
-            <a href="{{ route('blog.show', ['title' => 'درباره برندینگ چه میدانید؟']) }}">
+            <a href="{{ route('blog.show', ['slug' => 'درباره برندینگ چه میدانید؟']) }}">
                 <div class="img-container w-100">
                     <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
                     <span class="article-date">19 فروردین <br> 1400</span>

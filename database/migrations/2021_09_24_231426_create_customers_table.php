@@ -18,8 +18,8 @@ class CreateCustomersTable extends Migration
             $table->string('firstname')->nullable();
             $table->string('lastname');
             $table->string('phone_number', 13)->nullable();
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->softDeletes();
             $table->timestamps();
         });

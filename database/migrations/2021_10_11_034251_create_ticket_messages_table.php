@@ -17,8 +17,8 @@ class CreateTicketMessagesTable extends Migration
             $table->id();
             $table->enum('side', ['operator', 'customer']);
             $table->text('body');
-            $table->unsignedInteger('user_id');
-            $table->uuid('ticket_id');
+            $table->foreignId('user_id');
+            $table->foreignUuid('ticket_id');
             $table->timestamp('read_at')->nullable();
             $table->timestamps();
             $table->softDeletes();

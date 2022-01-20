@@ -14,6 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        // $posts = Post::latest()->cursorPaginate(10);
+
+        // return $posts;
         return view('pages.posts.index');
     }
 

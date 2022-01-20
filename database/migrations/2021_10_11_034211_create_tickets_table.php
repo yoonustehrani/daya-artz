@@ -17,7 +17,7 @@ class CreateTicketsTable extends Migration
             $table->uuid('id')->primary();
             $table->string('tracking_code', 8)->unique();
             $table->string('title', 80);
-            $table->foreignId('ticket_department_id');
+            $table->foreignId('ticket_department_id')->nullable();
             $table->foreignId('user_id');
             $table->enum('status', [
                 'open',
@@ -28,10 +28,11 @@ class CreateTicketsTable extends Migration
                 'closed'
             ]);
             $table->timestamp('closed_at')->nullable();
+            $table->text('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('ticket_department_id')->references('id')->on('ticket_departments')->nullOnDelete()->cascadeOnUpdate();
-            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

@@ -14,7 +14,7 @@ class CreatePaymentRulesTable extends Migration
     public function up()
     {
         Schema::create('payment_rules', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->morphs('payable');
             $table->json('details');
         });

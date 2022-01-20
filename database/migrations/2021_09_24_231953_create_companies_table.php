@@ -21,12 +21,12 @@ class CreateCompaniesTable extends Migration
             $table->string('address')->nullable();
             $table->string('website')->nullable();
             $table->enum('market_type', ['classic', 'modern']);
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('business_type_id')->nullable();
-            $table->unsignedInteger('product_type_id')->nullable();
+            $table->foreignId('user_id');
+            $table->foreignId('business_type_id')->nullable();
+            $table->foreignId('product_type_id')->nullable();
             $table->text('intro');
             $table->json('details')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             // $table->foreign('business_type_id')->references('id')->on('definitions')->nullOnDelete()->cascadeOnUpdate();
             // $table->foreign('product_type_id')->references('id')->on('definitions')->nullOnDelete()->cascadeOnUpdate();
             $table->softDeletes();

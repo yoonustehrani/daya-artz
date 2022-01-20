@@ -15,14 +15,14 @@ class CreateServicePlansTable extends Migration
     {
         Schema::create('service_plans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('service_id');
+            $table->foreignId('service_id');
             $table->string('title');
             $table->text('caption');
             $table->integer('price');
             $table->integer('order')->default(0);
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('service_id')->references('id')->on('services')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

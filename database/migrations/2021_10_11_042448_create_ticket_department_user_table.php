@@ -14,8 +14,8 @@ class CreateTicketDepartmentUserTable extends Migration
     public function up()
     {
         Schema::create('ticket_department_user', function (Blueprint $table) {
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('ticket_department_id');
+            $table->foreignId('user_id');
+            $table->foreignId('ticket_department_id');
             $table->string('role', 20)->nullable();
             $table->primary(['user_id', 'ticket_department_id']);
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
