@@ -10146,24 +10146,9 @@ h3 {
     width: 96% !important;
   }
 
-  .post-info-section {
-    height: 220px !important;
-  }
-  .post-info-section .post-info-container {
-    width: calc(100% - 190px) !important;
-  }
-  .post-info-section .post-info-container h2 {
-    font-size: 22px !important;
-  }
-  .post-info-section .post-info-container .post-info-flex span, .post-info-section .post-info-container .post-info-flex i {
+  .post-info-flex span {
     font-size: 15px !important;
-  }
-  .post-info-section .post-info-cover {
-    width: 220px !important;
-  }
-
-  .post-main-section {
-    width: 85% !important;
+    width: inherit !important;
   }
 
   .order-ways-section .contact-info h4 {
@@ -10681,12 +10666,11 @@ h3 {
   }
   .post-info-section div.post-info-cover {
     position: relative !important;
-    width: 90% !important;
+    width: 100% !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    left: 50% !important;
-    transform: translateX(-50%);
+    left: 0 !important;
   }
   .post-info-section div.post-info-cover > img {
     position: absolute !important;
@@ -10705,10 +10689,7 @@ h3 {
     padding-bottom: 100%;
   }
 
-  .post-main-section {
-    width: 100% !important;
-  }
-  .post-main-section .post-main-text p {
+  .post-main-text p {
     font-size: 16px !important;
   }
 
@@ -11713,10 +11694,6 @@ h3 {
   }
   .sample-info ul li h3, .sample-info ul li span {
     font-size: 16px !important;
-  }
-
-  .post-main-section {
-    width: 80% !important;
   }
 }
 html, body, #main {
@@ -13611,10 +13588,9 @@ div.post-info-section {
 }
 div.post-info-section div.post-info-container {
   height: 80%;
-  width: calc(100% - 220px);
+  width: calc(100% - 250px);
   border-radius: 8px;
-  box-shadow: 0 0 10px 1px #c5c4c4;
-  background: linear-gradient(to left, #6E48AA, #9D50BB);
+  background-color: #17093c;
   position: relative;
   z-index: 5;
 }
@@ -13641,13 +13617,14 @@ div.post-info-section div.post-info-container .post-info-flex > div {
   justify-content: right;
   align-items: center;
 }
-div.post-info-section div.post-info-container .post-info-flex > div span:nth-child(3) {
-  margin-right: 6px;
+div.post-info-section div.post-info-container .post-info-flex > div span:first-child {
+  border-right: 2px solid #fff;
+  padding-right: 8px;
 }
 div.post-info-section div.post-info-container .post-info-flex > div span:nth-child(2) {
   margin-right: 10px;
 }
-div.post-info-section div.post-info-container .post-info-flex > div span, div.post-info-section div.post-info-container .post-info-flex > div i {
+div.post-info-section div.post-info-container .post-info-flex > div span {
   color: #fff;
   font-size: 20px;
   display: inline-block;
@@ -13656,9 +13633,10 @@ div.post-info-section div.post-info-cover {
   position: absolute;
   z-index: 6;
   top: 0;
-  right: 15px;
+  right: 5%;
   height: 100%;
   width: 250px;
+  box-shadow: -2px -2px 8px 4px rgba(99, 50, 223, 0.25);
 }
 div.post-info-section div.post-info-cover img {
   width: 100%;
@@ -13670,15 +13648,6 @@ div.post-info-section div.post-info-cover img {
   background: linear-gradient(to right, #78cad2 0%, #fceeb5 50%, #6332df 100%);
 }
 
-div.post-main-section {
-  width: 60%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-div.post-main-section div.post-main-text {
-  padding: 0 1rem;
-}
 div.post-main-section div.post-main-text h2 {
   font-size: 26px;
   font-weight: bold;
@@ -13687,9 +13656,8 @@ div.post-main-section div.post-main-text h2 {
 }
 div.post-main-section div.post-main-text p {
   font-size: 18px;
-  color: #4a4a4a;
+  color: #000;
   text-align: justify;
-  margin: 20px 0;
 }
 div.post-main-section div.recommand-section {
   padding: 8px;

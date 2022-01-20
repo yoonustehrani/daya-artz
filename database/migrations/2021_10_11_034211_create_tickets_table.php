@@ -15,14 +15,15 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('code');
+            $table->string('tracking_code', 8)->unique();
             $table->string('title', 80);
-            $table->unsignedInteger('ticket_department_id')->nullable();
+            $table->foreignId('ticket_department_id');
+            $table->foreignId('user_id');
             $table->enum('status', [
                 'open',
-                'on hold',
-                'in progress',
-                'awaiting reply',
+                'on-hold',
+                'in-progress',
+                'awaiting-reply',
                 'reviewd',
                 'closed'
             ]);
@@ -30,6 +31,7 @@ class CreateTicketsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('ticket_department_id')->references('id')->on('ticket_departments')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete()->cascadeOnUpdate();
         });
     }
 
