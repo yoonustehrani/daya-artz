@@ -18,4 +18,11 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'author_id');
     }
+    /**
+     * Get all of the tags that are assigned this post.
+     */
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

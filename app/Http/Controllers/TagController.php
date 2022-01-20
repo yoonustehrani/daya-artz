@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +14,16 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('pages.posts.index');
+        //
     }
-
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Tag $tag)
     {
-        $post = Post::with('tags')->findOrfail($slug);
-        return view('pages.posts.show', compact('post'));
+        //
     }
 }

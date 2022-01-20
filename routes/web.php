@@ -4,6 +4,9 @@ use App\Http\Controllers\WebsiteController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +39,15 @@ Route::view('about', 'pages.about')->name('about');
 Route::view('contact', 'pages.contact')->name('contact');
 Route::view('policy', 'pages.policy')->name('policy');
 
+Route::view('services', 'pages.services.index')->name('services.index');
+Route::get('services/{service}', function($service) {
+    return view('pages.services.show', compact('service'));
+})->name('services.show');
+
+Route::get('blog', [PostController::class, 'index'])->name('blog.index');
+Route::get('blog/{slug}', [PostController::class, 'show'])->name('blog.show');
+
+Route::view('portfolio/{title}', 'pages.portfolio')->name('portfolio.show');
 Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('userarea');
 
 
