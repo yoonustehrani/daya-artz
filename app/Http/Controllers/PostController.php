@@ -21,7 +21,8 @@ class PostController extends Controller
                     ])
                     ->latest()
                     ->simplePaginate(12);
-        return view('pages.posts.index', compact('posts'));
+        $pagination = $posts->toArray();
+        return view('pages.posts.index', compact('posts', 'pagination'));
     }
 
     /**

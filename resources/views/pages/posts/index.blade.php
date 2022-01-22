@@ -76,5 +76,30 @@
             </a>
         </article> --}}
     </div>
+    <div>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>key</th>
+                    <th>current value</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (['current_page', 'first_page_url', 'next_page_url', 'prev_page_url', 'per_page'] as $item)
+                <tr>
+                    <td>{{ ucwords(str_replace('_', ' ', $item)) }}</td>
+                    <td>$pagination['{{ $item }}']</td>
+                    @if (! is_array($pagination[$item]))
+                    <td>{{ $pagination[$item] ?? 'null' }}</td>
+                    @else
+                    <td>Array</td>
+                    @endif
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{-- {{ $posts->links() }} --}}
+    </div>
 </div>
 @endsection
