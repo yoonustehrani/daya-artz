@@ -16,7 +16,6 @@ class RegisterController extends Controller
     }
     public function register(Request $request)
     {   
-        return $request;
         $this->username = $this->getDesiredUsernameKey(array_keys($request->toArray()));
         $this->validateRegister($request);
         $user = $this->create($this->credentials($request));
