@@ -6,12 +6,22 @@
         <div class="header-title">
             <h1 class="w-100 title text-center">دایا <span class="aqua">بلاگ</span></h1>
         </div>
-        <div class="input-group input-group-lg search-box">
-            <input class="h-100 form-control eggplant" type="text" placeholder="دنبال چه مطلبی هستی؟">
-            <div class="input-group-prepend">
-                <button class="btn btn-search" type="button"><i class="fas fa-search"></i></button>
+        <form action="{{ route('blog.index') }}" class="form-group p-0">
+            <div class="input-group input-group-lg search-box">
+                <input name="q" class="h-100 form-control eggplant" required minlength="3" type="text" value="{{ old('q') ?? request()->query('q') }}" placeholder="دنبال چه مطلبی هستی؟ سه حرف یا بیشتر">
+                <div class="input-group-prepend">
+                    @if (request()->query('q'))
+                    <a href="{{ route('blog.index') }}" class="input-group-text mx-2 bg-white text-danger"><i class="fas mx-1 fa-times"></i></a>
+                    @endif
+                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
+                </div>
             </div>
-        </div>
+            <div class="pt-2 px-2 text-center">
+                @foreach ($errors->get('q') as $e)
+                <span class="text-light">{{ $e }}</span>
+                @endforeach
+            </div>
+        </form>
     </div>
     <div class="header-vector col-lg-6 col-md-5 col-12 mb-3 mb-md-0">
         <img src="{{ asset('images/blog.svg') }}">
@@ -21,13 +31,21 @@
 @endsection
 
 @section('content')
-<div class="section col-12 mt-3">
+<div class="section col-12 mt-4">
     <div class="title-section col-12 mb-3">
         <div class="title-container">
             <h2 class="title-text">مقالات دایا</h2>
             <span class="title-underline"></span>
         </div>
     </div>
+    @if ($posts->count() < 1)
+    <div class="w-100 mt-3">
+        <p class="w-100 d-flex justify-content-center">
+            متاسفانه پستی برای نمایش وجود ندارد
+            <i class="far fa-2x fa-frown text-secondary mx-1"></i><i class="fas fa-2x fa-heart-broken text-danger"></i>
+        </p>
+    </div>
+    @else
     <div class="blog-posts-container text-center">
         @foreach ($posts as $post)
         <article class="blog-post col-12 col-md-6 col-lg-4">
@@ -47,6 +65,8 @@
             </a>
         </article>
         @endforeach
+    </div>
+    @endif
         {{-- <article class="blog-post col-12 col-md-6 col-lg-4">
             <a href="{{ route('blog.show', ['slug' => 'بهترین لوگوهای جهان']) }}">
                 <div class="img-container w-100">
@@ -75,7 +95,6 @@
                 </div> 
             </a>
         </article> --}}
-    </div>
     <div>
         <table class="table text-center">
             <thead>
