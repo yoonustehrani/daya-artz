@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        $post = Post::with('tags')->findOrfail($slug);
+        $post = Post::with('tags')->whereSlug($slug)->firstOrFail();
         if ($post->author_id) {
             $post->load('author');
         }
