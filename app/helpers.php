@@ -5,7 +5,7 @@ if (! function_exists('generate_code')) {
     {
         $code = "";
         if ($charType == 'string') {
-            $code = \Illuminate\Support\Str::random($length);
+            $code = \Str::random($length);
         } else {
             for ($i=0; $i < $length; $i++) { 
                 $code .= (string) mt_rand(0,9);
