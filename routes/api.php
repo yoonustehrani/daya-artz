@@ -1,6 +1,8 @@
 <?php
 
 use App\Customer;
+use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,41 +20,41 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
+Route::get('/', fn() => ['okay' => true]);
 Route::prefix('auth')->name('auth.')->group(function() {
-    Route::post('login', 'LoginController@login')->name('login')->middleware('guest'); // 
-    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth:sanctum');
-    Route::post('register', 'RegisterController@register')->name('register')->middleware('guest');
+    Route::post('login', [LoginController::class,'login'])->name('login')->middleware('guest'); // 
+    Route::post('logout', [LoginController::class,'logout'])->name('logout')->middleware('auth:sanctum');
+    Route::post('register', [RegisterController::class,'register'])->name('register')->middleware('guest');
     Route::get('user', function (Request $request) {
         return ['ok' => true, 'user' => $request->user()->load('customer', 'company')];
     })->name('user')->middleware('auth:sanctum'); // 
-    Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
-        Route::post('phone/verify', 'VerificationController@verifyPhoneNumber')->name('phone.verify');
-        Route::put('phone/edit', function (Request $request) {
-            $request->validate([
-                'phone_number' => 'required|string|regex:/^9[0-9]{9}$/|unique:users'
-            ]);
-            $user = $request->user();
-            abort_if($user->phone_verified, 422, "Phone already verified");
-            $user->phone_number = $request->input('phone_number');
-            return ['okay' => $user->save()];
-        });
-        Route::put('email/edit', function (Request $request) {
-            $request->validate([
-                'email' => 'required|email:filter,dns|unique:users'
-            ]);
-            $user = $request->user();
-            abort_if(!! $user->email_verified_at, 422, "email already verified");
-            $user->email = $request->input('email');
-            return ['okay' => $user->save()];
-        });
-        Route::post('phone/resend', 'VerificationController@resendSmsCode');
-        Route::post('email/resend', 'VerificationController@resendEmail');
-    });
+    // Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
+    //     Route::post('phone/verify', 'VerificationController@verifyPhoneNumber')->name('phone.verify');
+    //     Route::put('phone/edit', function (Request $request) {
+    //         $request->validate([
+    //             'phone_number' => 'required|string|regex:/^9[0-9]{9}$/|unique:users'
+    //         ]);
+    //         $user = $request->user();
+    //         abort_if($user->phone_verified, 422, "Phone already verified");
+    //         $user->phone_number = $request->input('phone_number');
+    //         return ['okay' => $user->save()];
+    //     });
+    //     Route::put('email/edit', function (Request $request) {
+    //         $request->validate([
+    //             'email' => 'required|email:filter,dns|unique:users'
+    //         ]);
+    //         $user = $request->user();
+    //         abort_if(!! $user->email_verified_at, 422, "email already verified");
+    //         $user->email = $request->input('email');
+    //         return ['okay' => $user->save()];
+    //     });
+    //     Route::post('phone/resend', 'VerificationController@resendSmsCode');
+    //     Route::post('email/resend', 'VerificationController@resendEmail');
+    // });
 });
-Route::prefix('userarea')->prefix('userarea')->middleware('auth:sanctum')->group(function() { // ->middleware('auth:sanctum')
+Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(function() { // ->middleware('auth:sanctum')
     Route::prefix('user')->group(function() {
-        Route::put('update', 'UserController@update');
+        // Route::put('update', 'UserController@update');
         // Route::post('customer', function (Request $request) {
         //     \Gate::authorize('create', Customer::class);
         //     // $this->authorize('create', Customer::class);

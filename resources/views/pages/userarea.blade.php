@@ -10,7 +10,8 @@
 <body>
     <div id="main"></div>
     <script>
-        APP_PATH = "{{ asset('/') }}"
+        const APP_PATH = "{{ asset('/') }}"
+        const API_BASE_URL = "{{ route('api.') }}"
     </script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/userarea.js') }}"></script>

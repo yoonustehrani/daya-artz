@@ -21,7 +21,7 @@ import PhoneValidation from '../Pages/Auth/PhoneValidation';
 import NoMatch from './NoMatch';
 
 const httpService = new HttpClient({
-    baseURL: "http://localhost/api/v1/auth",
+    baseURL: `${API_BASE_URL}/auth`,
     headers: {
         'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
         'Accept': 'application/json'

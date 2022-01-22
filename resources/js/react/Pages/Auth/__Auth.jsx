@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { logUserIn } from '../../redux/actions';
 
 const httpService = new HttpClient({
-    baseURL: "http://localhost/api/v1/",
+    baseURL: API_BASE_URL,
     headers: {
         'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
         'Accept': 'application/json'
