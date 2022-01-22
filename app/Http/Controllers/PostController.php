@@ -26,7 +26,7 @@ class PostController extends Controller
         if ($query) {
             $posts->where('title', 'like', "%{$query}%")->orWhere('description', 'like', "%{$query}%");
         }
-        $posts = $posts->simplePaginate(12);
+        $posts = $posts->simplePaginate(12)->withQueryString();
         $pagination = $posts->toArray();
         return view('pages.posts.index', compact('posts', 'pagination'));
     }
