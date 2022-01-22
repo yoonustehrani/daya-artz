@@ -33,7 +33,7 @@ Route::get('services/{service}', [WebsiteController::class, 'service'])->name('s
 Route::get('blog', [PostController::class, 'index'])->name('blog.index');
 Route::get('blog/{slug}', [PostController::class, 'show'])->name('blog.show');
 
-Route::view('portfolio/{slug}', [WebsiteController::class, 'portfolio'])->name('portfolio.show');
+Route::get('portfolio/{slug}', [WebsiteController::class, 'portfolio'])->name('portfolio.show');
 
 Route::view('about', 'pages.about')->name('about');
 Route::view('contact', 'pages.contact')->name('contact');
