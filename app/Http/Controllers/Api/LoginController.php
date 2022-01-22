@@ -20,15 +20,15 @@ class LoginController extends Controller
     {
         $this->username = $this->getDesiredUsernameKey(array_keys($request->toArray()));
         $this->validateLogin($request);
-        if (method_exists($this, 'hasTooManyLoginAttempts') && $this->hasTooManyLoginAttempts($request)) {
-            $this->fireLockoutEvent($request);
-            return $this->sendLockoutResponse($request);
-        }
+        // if (method_exists($this, 'hasTooManyLoginAttempts') && $this->hasTooManyLoginAttempts($request)) {
+        //     $this->fireLockoutEvent($request);
+        //     return $this->sendLockoutResponse($request);
+        // }
         if ($this->attemptLogin($this->credentials($request))) {
             return response()->json(['ok' => true, 'message' => 'Login Successful', 'user' => Auth::user()->load('customer', 'company')]);
         }
         // if fail should be run
-        $this->incrementLoginAttempts($request);
+        // $this->incrementLoginAttempts($request);
         throw ValidationException::withMessages([
             $this->username() => [trans('auth.failed')]
         ]);
