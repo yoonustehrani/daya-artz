@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="fast-order-section text-center p-2">
-        <div class="fast-order-guide col-12 col-md-6 col-lg-5 col-xl-4 ml-lg-4">
+        <div class="fast-order-guide col-12 col-md-6 col-lg-5 col-xl-4 ml-lg-4 mt-md-3">
             <h3 class="mb-3">سفارش رو در کوتاه ترین زمان ممکن ثبت کن !</h3>
             <p>فقط با پر کردن این فرم در سریعترین و خلاصه ترین روش ممکن سفارشت بدست ما میرسه</p>
             <h5>راهنمای ثبت فرم:</h5>
