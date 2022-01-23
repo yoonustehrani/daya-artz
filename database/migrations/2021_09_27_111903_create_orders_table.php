@@ -23,7 +23,8 @@ class CreateOrdersTable extends Migration
                 'telegram-bot',
                 'messanger'
             ]);
-            $table->string('status', 20); // ->default(''); TO BE DESCUSSED
+            $table->string('code', 12);
+            $table->string('status');
             $table->text('status_info')->nullable();
             $table->text('description')->nullable();
             $table->foreignUuid('customer_id')->nullable();
