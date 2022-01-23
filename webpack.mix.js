@@ -28,4 +28,5 @@ mix.disableNotifications()
 
 // mix.js(res.js + 'app.js', pub.js)
     mix.js(res.js + "userarea.js", pub.js).react()
-    .sass( res.sass + 'app.scss', pub.css);
+    .sass( res.sass + 'app.scss', pub.css)
+    .js(res.js + "fastOrder.js", pub.js ).react()
