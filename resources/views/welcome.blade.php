@@ -201,7 +201,7 @@
     <!-- end Portfolio -->
 
     <!-- fast order -->
-        @include('components.fast-order-form')
+        @include('components.quick-order-form')
     <!-- end fast order -->
 
     <!-- daya blog -->

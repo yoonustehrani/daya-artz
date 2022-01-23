@@ -1,23 +1,23 @@
 <div class="section fast-order-container w-100 mt-4">
     <div class="title-section w-100 mb-5">
         <div class="title-container">
-            <h2 class="title-text">سفارش فوری</h2>
+            <h2 class="title-text">سفارش سریع</h2>
             <span class="title-underline"></span>
         </div>
     </div>
     <div class="fast-order-section text-center">
         <div class="col-12 col-md-6 col-lg-5 ml-lg-4 col-xl-5 mt-4 fast-order-guide">
-            <h3 class="mb-5">فرم سفارش فوری</h3>
-            <p class="font-18">با پر کردن این فرم و ثبت نوع طراحی مورد نیاز خود منتظر تماس کارشناسان باشید.</p>
+            <h3 class="mb-3">سفارش رو در کوتاه ترین زمان ممکن ثبت کن !</h3>
+            <p class="font-18">فقط با پر کردن این فرم در سریعترین و خلاصه ترین روش ممکن سفارشت بدست ما میرسه</p>
             <br>
             <h5 class="font-18">راهنمای ثبت فرم:</h5>
             <ul class="font-18">
                 <li>وارد کردن مشخصات شخصی</li>
                 <li>وارد کردن شماره تماس در دسترس</li>
-                <li>انتخاب درسته مورد نیاز برای طراحی</li>
+                <li>انتخاب دسته مورد نیاز برای طراحی</li>
             </ul>
             <br><br>
-            <p class="font-16 text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
+            <p class="font-16 text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان <b>دایا آرتز</b> با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
         </div>
         <div class="fast-order-form col-12 col-md-6 col-lg-5 col-xl-4">
             <form action="#">

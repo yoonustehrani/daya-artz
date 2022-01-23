@@ -1,6 +1,7 @@
 <?php
 
 use App\Customer;
+use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
 use Illuminate\Http\Request;
@@ -21,6 +22,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::get('/', fn() => ['okay' => true]);
+
+Route::prefix('forms')->name('forms.')->group(function() {
+    Route::post('quick-order', [FormsController::class, 'quickOrder'])->name('orders.quick');
+});
+
 Route::prefix('auth')->name('auth.')->group(function() {
     Route::post('login', [LoginController::class,'login'])->name('login')->middleware('guest'); // 
     Route::post('logout', [LoginController::class,'logout'])->name('logout')->middleware('auth:sanctum');
