@@ -12612,6 +12612,13 @@ div.fast-order-container .fast-order-section .fast-order-form div.order-types .c
 div.fast-order-container .fast-order-section div.fast-order-guide {
   height: 100%;
 }
+div.fast-order-container .fast-order-section div.fast-order-guide button {
+  background-color: #4d4d54;
+  color: #fff;
+}
+div.fast-order-container .fast-order-section div.fast-order-guide button:hover {
+  background-color: #34167C;
+}
 div.fast-order-container .fast-order-section div.fast-order-guide h3, div.fast-order-container .fast-order-section div.fast-order-guide h5, div.fast-order-container .fast-order-section div.fast-order-guide p, div.fast-order-container .fast-order-section div.fast-order-guide li, div.fast-order-container .fast-order-section div.fast-order-guide ul {
   text-align: right;
   direction: rtl;

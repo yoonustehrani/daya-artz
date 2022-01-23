@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="fast-order-section text-center p-2">
-        <div class="fast-order-guide col-12 col-md-6 col-lg-5 col-xl-4 ml-lg-4 mt-md-3">
+        <div class="fast-order-guide col-12 col-md-6 col-xl-5 mt-md-3 ml-xl-4 pl-md-4">
             <h3 class="mb-3">سفارش رو در کوتاه ترین زمان ممکن ثبت کن !</h3>
             <p>فقط با پر کردن این فرم در سریعترین و خلاصه ترین روش ممکن سفارشت بدست ما میرسه</p>
             <h5>راهنمای ثبت فرم:</h5>
@@ -20,7 +20,7 @@
             <p class="text-secondaty">ضمنا اگر می‌خواید به صورت شخصی سازی شده و هوشمند سفارشتون رو ثبت کنید ؛ از سیستم سفارش تخصصی استفاده کنین</p>
             <button class="btn btn-lg btn-dark">برو بریم</button>
         </div>
-        <div class="fast-order-form col-12 col-md-6 col-lg-5 col-xl-4 mt-4 mt-md-0">
+        <div class="fast-order-form col-12 col-md-6 col-xl-4 mt-4 mt-md-0">
             <form action="#">
                 <div class="input-group float-right mb-3">
                     <input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی">

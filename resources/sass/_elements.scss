@@ -663,6 +663,13 @@ div.fast-order-container {
         }
         div.fast-order-guide {
             height: 100%;
+            button {
+                background-color: $aqua-purple;
+                color: #fff;
+                &:hover {
+                    background-color: $dark-purple;
+                }
+            }
             h3, h5, p, li, ul {
                 text-align: right;
                 direction: rtl;
