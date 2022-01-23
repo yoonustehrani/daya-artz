@@ -50,6 +50,6 @@ class FormsController extends Controller
     }
     public function contact()
     {
-
+        
     }
 }
