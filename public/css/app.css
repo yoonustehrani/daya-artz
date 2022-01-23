@@ -10518,6 +10518,15 @@ h3 {
     padding: 0 !important;
     margin: 0 auto;
   }
+
+  .fast-order-form form > div:first-child {
+    width: 48% !important;
+    margin-left: 2% !important;
+  }
+  .fast-order-form form > div:nth-child(2) {
+    width: 48% !important;
+    margin-right: 2% !important;
+  }
 }
 @media screen and (max-width: 767px) {
   div.order-btn-container {
@@ -10559,6 +10568,16 @@ h3 {
     align-items: flex-start !important;
   }
 
+  .fast-order-guide br {
+    display: none;
+  }
+  .fast-order-guide h3 {
+    font-size: 25px !important;
+  }
+  .fast-order-guide li, .fast-order-guide p, .fast-order-guide h5 {
+    font-size: 18px !important;
+  }
+
   .order-section {
     left: initial !important;
   }
@@ -10569,10 +10588,6 @@ h3 {
 
   .order-detail {
     width: 100% !important;
-  }
-
-  .order-types {
-    justify-content: center !important;
   }
 
   .blog-post {
@@ -11398,10 +11413,6 @@ h3 {
   .col-xl-xl-2 {
     flex: 0 0 16.6666666667% !important;
     max-width: 16.6666666667% !important;
-  }
-
-  .order-types {
-    justify-content: space-evenly !important;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1201px) {
@@ -12487,9 +12498,12 @@ div.fast-order-container .fast-order-section {
 div.fast-order-container .fast-order-section .fast-order-form {
   height: 100%;
   padding: 10px;
-  box-shadow: 4px 4px 15px 2px #dcdcdc;
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 30px 10px;
+}
+div.fast-order-container .fast-order-section .fast-order-form form > div:first-child, div.fast-order-container .fast-order-section .fast-order-form form > div:nth-child(2) {
+  width: 100%;
 }
 div.fast-order-container .fast-order-section .fast-order-form button {
   background-color: #4d4d54;
@@ -12504,7 +12518,7 @@ div.fast-order-container .fast-order-section .fast-order-form input, div.fast-or
 div.fast-order-container .fast-order-section .fast-order-form div.order-types {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -12598,6 +12612,13 @@ div.fast-order-container .fast-order-section .fast-order-form div.order-types .c
 div.fast-order-container .fast-order-section div.fast-order-guide {
   height: 100%;
 }
+div.fast-order-container .fast-order-section div.fast-order-guide button {
+  background-color: #4d4d54;
+  color: #fff;
+}
+div.fast-order-container .fast-order-section div.fast-order-guide button:hover {
+  background-color: #34167C;
+}
 div.fast-order-container .fast-order-section div.fast-order-guide h3, div.fast-order-container .fast-order-section div.fast-order-guide h5, div.fast-order-container .fast-order-section div.fast-order-guide p, div.fast-order-container .fast-order-section div.fast-order-guide li, div.fast-order-container .fast-order-section div.fast-order-guide ul {
   text-align: right;
   direction: rtl;
@@ -12608,6 +12629,9 @@ div.fast-order-container .fast-order-section div.fast-order-guide h3 {
 }
 div.fast-order-container .fast-order-section div.fast-order-guide ul {
   list-style-type: decimal;
+}
+div.fast-order-container .fast-order-section div.fast-order-guide li, div.fast-order-container .fast-order-section div.fast-order-guide p, div.fast-order-container .fast-order-section div.fast-order-guide h5 {
+  font-size: 20px;
 }
 
 .font-24 {
