@@ -9,6 +9,7 @@ class WebsiteController extends Controller
 {
     public function index()
     {
+        // return route('api.forms.orders.quick');
         return view('welcome');
     }
     public function services()
@@ -18,17 +19,6 @@ class WebsiteController extends Controller
     public function service($service)
     {
         return view('pages.services.show', compact('service'));
-    }
-    public function blog()
-    {
-        $posts = Post::published()->simplePaginate(12);
-        return view('pages.posts.index', compact('posts'));
-    }
-    public function blog_post($slug)
-    {
-        $post = Post::published()->where('slug', $slug)->firstOrFail();
-        $post->load('author');
-        return view('pages.posts.show', compact('post'));
     }
     public function portfolio($slug)
     {
