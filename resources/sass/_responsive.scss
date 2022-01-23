@@ -38,6 +38,14 @@ $xl-xl-breakpoint: 1600px;
     .customer-vector {
         width: 40% !important;
     }
+    .fast-order-guide {
+        h3 {
+            font-size: 25px !important;
+        }
+        li, p, h5 {
+            font-size: 18px !important;
+        }
+    }
     div.contact-ways-container {
         > div {
             i.contact-way-icon {
@@ -465,6 +473,18 @@ $xl-xl-breakpoint: 1600px;
         padding: 0 !important;
         margin: 0 auto;
     }
+    .fast-order-form {
+        form {
+            > div:first-child {
+                width: 48% !important;
+                margin-left: 2% !important;
+            }
+            > div:nth-child(2) {
+                width: 48% !important;
+                margin-right: 2% !important;
+            }
+        }
+    }
 }
 
 // Tablet & Mobile
@@ -506,6 +526,17 @@ $xl-xl-breakpoint: 1600px;
         min-height: unset !important;
         align-items: flex-start !important;
     }
+    .fast-order-guide {
+        br {
+            display: none;
+        }
+        h3 {
+            font-size: 25px !important;
+        }
+        li, p, h5 {
+            font-size: 18px !important;
+        }
+    }
     .order-section {
         left: initial !important;
     }
@@ -514,9 +545,6 @@ $xl-xl-breakpoint: 1600px;
     }
     .order-detail {
         width: 100% !important;
-    }
-    .order-types {
-        justify-content: center !important;
     }
     .blog-post {
         margin: 30px 0px !important;
@@ -1361,9 +1389,6 @@ $xl-xl-breakpoint: 1600px;
         flex: 0 0 16.6666666667% !important;
         max-width: 16.6666666667% !important;
     }   
-    .order-types {
-        justify-content: space-evenly !important;
-    }
 }
 
 // medium - xl 
