@@ -13933,7 +13933,7 @@ div.step-container .match-line {
   position: absolute;
   width: 22vw;
   height: 20px;
-  background-color: #f5f5f5;
+  background-color: #F1F0F8;
   left: 103%;
   top: 50%;
   z-index: -1;
@@ -14391,13 +14391,15 @@ div.other-services-container > div.other-service button {
   width: inherit;
   top: initial;
 }
+.section-guide-container.open #guide-toggler {
+  position: absolute;
+}
 .section-guide-container.open #guide-toggler span:nth-child(1) {
   display: none !important;
 }
 .section-guide-container #guide-toggler {
   transition: 0.5s;
   cursor: pointer;
-  margin-right: 75%;
   display: inline-block;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -14406,14 +14408,12 @@ div.other-services-container > div.other-service button {
   height: -moz-fit-content;
   height: fit-content;
 }
-.section-guide-container #guide-toggler i {
-  font-size: 60px;
-}
 .section-guide-container #guide-toggler i.fa-hand-point-left {
   color: white;
 }
 .section-guide-container #guide-toggler i.fa-question-circle {
   color: #8f60ec;
+  font-size: 60px;
 }
 .section-guide-container .section-guide {
   text-align: center;
@@ -14463,14 +14463,14 @@ div.other-services-container > div.other-service button {
   background-color: transparent;
   border: 2px solid white;
   display: grid;
-  margin-right: 80px;
+  margin-right: 60px;
   align-items: center;
   transition: 0.5s;
 }
 .section-guide-container .section-guide ul li span:nth-child(2)::after {
   content: "";
   display: block;
-  width: 72px;
+  width: 50px;
   height: 2px;
   background-color: white;
   margin-right: 10px;

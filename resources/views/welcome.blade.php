@@ -201,10 +201,14 @@
     <!-- end Portfolio -->
 
     <!-- fast order -->
-        @include('components.quick-order-form')
+        <div id="react-fast-order"></div>
     <!-- end fast order -->
 
     <!-- daya blog -->
         @include('components.blog-suggestion')
     <!-- end daya blog -->
+@endsection
+
+@section('scripts')
+    <script src="{{ asset("js/fastOrder.js") }}"></script>
 @endsection
