@@ -20,12 +20,13 @@ class FormsController extends Controller
     public function quickOrder(Request $request)
     {
         $request->validate([
-            'phone_number' => 'required|string|numeric|regex:/^09[0-9]{9}$/',
+            'phone_number' => 'required|string|digits:11|regex:/^09[0-9]{9}$/',
             'fullname' => 'required|string|min:3|max:40',
             'description' => 'nullable|string|max:2000',
-            'items' => 'required|array'
+            'order_items' => 'required|array'
         ]);
-        $order_items = $request->input('items');
+        // ValidationException
+        $order_items = $request->input('order_items');
         $order = new Order();
         $order->method = 'quick-order';
         $order->type = 'automate';
@@ -35,7 +36,7 @@ class FormsController extends Controller
         $desscription .= "شماره تلفن : ({$request->input('phone_number')})\n";
         $desscription .= "سفارش : " . implode(', ', $order_items) . "\n";
         $order->description = $desscription . $request->input('description');
-        $order->details = ['items' => $order_items];
+        $order->details = ['order_items' => $order_items];
         $order->code = $this->tracking_code();
         if ($order->save()) {
             return response()->json([
@@ -46,7 +47,7 @@ class FormsController extends Controller
         return response()->json([
             'okay' => false,
             'message' => __('messages.order.error')
-        ],403);
+        ], 403);
     }
     public function contact()
     {
