@@ -41,7 +41,7 @@
                 </div>
                 <div class="social-media-container">
                     <a href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/+989015074027"><i class="fab fa-whatsapp ml-4"></i></a>
+                    <a href="https://wa.me/989015045025"><i class="fab fa-whatsapp ml-4"></i></a>
                 </div>
             </div>
             <p class="ltr m-text-center">

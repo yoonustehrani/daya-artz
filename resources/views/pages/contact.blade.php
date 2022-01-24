@@ -49,16 +49,27 @@
         <div class="text-center mb-4 col-10 col-md-3">
             <span><i class="contact-way-icon fas fa-phone mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
             <div>
-                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-mobile"></i></span><h3 class="text-center vertical-center">+98 1234567891</h3></div>
-                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-tty"></i></span><h3 class="text-center vertical-center">+0513 1234567</h3></div>
+                <a href="tel:+989015045025">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-mobile"></i></span><h3 class="text-center vertical-center">(+98) 901 504 50 25</h3></div>
+                </a>
+                <a href="tel:+989016045025">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-mobile"></i></span><h3 class="text-center vertical-center">(+98) 901 604 50 25</h3></div>
+                </a>
+                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-phone"></i></span><h3 class="text-center vertical-center">(021) 950 4434</h3></div>
             </div>
         </div>
         <div class="text-center mb-4 col-10 col-md-3">
             <span><i class="contact-way-icon fab fa-battle-net mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
             <div>
-                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-instagram"></i></span><h3 class="text-center vertical-center">@Dayaartz</h3></div>
-                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-telegram-plane"></i></span><h3 class="text-center vertical-center">@Dayaartz</h3></div>
-                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-whatsapp"></i></span><h3 class="text-center vertical-center">+98 1234567891</h3></div>
+                <a href="https://instagram.com/dayaartz">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-instagram"></i></span><h3 class="text-center vertical-center">DayaArtz</h3></div>
+                </a>
+                <a href="https://t.me/Dayaartz">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-telegram-plane"></i></span><h3 class="text-center vertical-center">@@DayaArtz</h3></div>
+                </a>
+                <a href="https://wa.me/989015045025?text={{ urlencode('سلام من به پشتیبانی احتیاج دارم') }}">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-whatsapp"></i></span><h3 class="text-center vertical-center">(+98) 901 504 5025</h3></div>
+                </a>
             </div>
         </div>
         <div class="text-center mb-4 col-10 col-md-3 mb-4">
