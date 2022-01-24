@@ -1,6 +1,9 @@
 @extends('layouts.default')
 @push('head')
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <title>Daya Artz</title>
+    <script async src="https://www.google.com/recaptcha/api.js?trustedtypes=true&render={{ config('services.reCAPTCHA.site_key') }}"></script>
 @endpush
 <!-- Header -->
 @section('header')
@@ -221,7 +224,12 @@
                 <p class="text-secondaty">ضمنا اگر می‌خواید به صورت شخصی سازی شده و هوشمند سفارشتون رو ثبت کنید ؛ از سیستم سفارش تخصصی استفاده کنین</p>
                 <button class="btn btn-lg btn-dark">برو بریم</button>
             </div>
-            <div class="fast-order-form col-12 col-md-6 col-xl-4 mt-4 mt-md-0 px-3" id="react-quick-order" data-post-api="{{ route('api.forms.orders.quick') }}"></div>
+            <div 
+                class="fast-order-form col-12 col-md-6 col-xl-4 mt-4 mt-md-0 px-3"
+                id="react-quick-order"
+                data-post-api="{{ route('api.forms.orders.quick') }}"
+                data-recaptcha="{{ config('services.reCAPTCHA.site_key') }}"
+            ></div>
         </div>
     </div>
     <!-- daya blog -->
@@ -229,6 +237,6 @@
     <!-- end daya blog -->
 @endsection
 
-{{-- @push('scripts')
-    
-@endpush --}}
+@push('scripts')
+
+@endpush

@@ -13,5 +13,5 @@ import 'select2/dist/js/select2.min.js'
 const quickOrderElement = document.getElementById("react-quick-order")
 
 if (quickOrderElement) {
-    render(<QuickOrder targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
+    render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
 }

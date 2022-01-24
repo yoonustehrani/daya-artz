@@ -57,6 +57,7 @@ Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
 })->middleware('signed')->name('verification.email.verify');
 
 Route::get('test', function () {
+    // return view('test');
     return App\Models\Order::latest()->get();
     // $user = User::find(2);
     // $user->notifyNow(new VerificationNotification([SMSChannel::class]));
