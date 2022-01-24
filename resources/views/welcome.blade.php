@@ -1,9 +1,6 @@
 @extends('layouts.default')
 @push('head')
-    <link rel="preconnect" href="https://www.google.com">
-    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <title>Daya Artz</title>
-    <script async src="https://www.google.com/recaptcha/api.js?trustedtypes=true&render={{ config('services.reCAPTCHA.site_key') }}"></script>
 @endpush
 <!-- Header -->
 @section('header')
@@ -27,7 +24,7 @@
 <!-- end Header -->
 @section('content')
 <!-- Services -->
-    {{-- <div class="section col-12 p-4">
+    <div class="section col-12 p-4">
         <div class="col-12 title-section mb-3">
             <div class="title-container">
                 <p class="title-text">خدمات دایا آرتز</p>
@@ -87,11 +84,11 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- end Services -->
 
     <!-- Ordering Methods -->
-    {{-- <div class="section w-100 order-section-container">
+    <div class="section w-100 order-section-container">
         <div class="background-order dotted-background w-100 p-0">
             <div class="title-section col-12 mb-3 mb-md-0 mt-3">
                 <div class="title-container">
@@ -140,11 +137,11 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- end Ordering Methods -->
 
     <!-- contact daya -->
-    {{-- <div class="section w-100 mt-5 mb-5">
+    <div class="section w-100 mt-5 mb-5">
         <div class="absolute-contact w-100">
             <div class="contact-section section w-100">
                 <div class="col-md-11 back-aqua d-none d-md-block"></div>
@@ -172,15 +169,15 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- end contact daya -->
 
     <!-- progress bars -->
-        {{-- @include('components.circular-percentage') --}}
+    @include('components.circular-percentage')
     <!-- end progress bars -->
 
     <!-- About Daya -->
-    {{-- <div class="section about-section col-12 p-0 mb-2">
+    <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
             <div class="image-box col-xl-2 col-lg-3 col-sm-3 col-12">
                 <img src="{{ asset('images/daya-cyan-logo.png') }}" alt="">
@@ -192,51 +189,20 @@
                 <a href="#" class="btn btn-info badge-pill float-left">بیشتر بخوانید</a></p>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- end About Daya -->
 
     <!-- About Logo -->
-        {{-- @include('components.info-item') --}}
+    @include('components.info-item')
     <!-- end About Logo -->
 
     <!-- Portfolio -->
-        {{-- @include('components.portfolio') --}}
+    @include('components.portfolio')
     <!-- end Portfolio -->
-    <div class="section fast-order-container w-100 mt-4">
-        <div class="title-section w-100 mb-4">
-            <div class="title-container">
-                <h2 class="title-text">سفارش سریع</h2>
-                <span class="title-underline"></span>
-            </div>
-        </div>
-        <div class="fast-order-section text-center p-2">
-            <div class="fast-order-guide col-12 col-md-6 col-xl-5 mt-md-3 ml-xl-4 pl-md-4">
-                <h3 class="mb-3">سفارش رو در کوتاه ترین زمان ممکن ثبت کن !</h3>
-                <p>فقط با پر کردن این فرم در سریعترین و خلاصه ترین روش ممکن سفارشت بدست ما میرسه</p>
-                <h5>راهنمای ثبت فرم:</h5>
-                <ul>
-                    <li>وارد کردن مشخصات شخصی</li>
-                    <li>وارد کردن شماره تماس در دسترس</li>
-                    <li>انتخاب دسته مورد نیاز برای طراحی</li>
-                </ul>
-                <br/>
-                <p class="text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان <b>دایا آرتز</b> با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
-                <p class="text-secondaty">ضمنا اگر می‌خواید به صورت شخصی سازی شده و هوشمند سفارشتون رو ثبت کنید ؛ از سیستم سفارش تخصصی استفاده کنین</p>
-                <button class="btn btn-lg btn-dark">برو بریم</button>
-            </div>
-            <div 
-                class="fast-order-form col-12 col-md-6 col-xl-4 mt-4 mt-md-0 px-3"
-                id="react-quick-order"
-                data-post-api="{{ route('api.forms.orders.quick') }}"
-                data-recaptcha="{{ config('services.reCAPTCHA.site_key') }}"
-            ></div>
-        </div>
-    </div>
+
+    <x-quick-order-form />
+
     <!-- daya blog -->
-        {{-- @include('components.blog-suggestion') --}}
+    @include('components.blog-suggestion')
     <!-- end daya blog -->
 @endsection
-
-@push('scripts')
-
-@endpush

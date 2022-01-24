@@ -50,7 +50,11 @@ class PostController extends Controller
                 $posts->inRandomOrder();
                 break;
         }
-        return response()->json($posts->get());
+        $result = $posts->get()->map(function($post) {
+            $post->url = route('blog.show', ['slug' => $post->slug]);
+            return $post;
+        });
+        return response()->json($result);
     }
     /**
      * Display the specified resource.

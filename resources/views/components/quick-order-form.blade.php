@@ -15,35 +15,22 @@
                 <li>وارد کردن شماره تماس در دسترس</li>
                 <li>انتخاب دسته مورد نیاز برای طراحی</li>
             </ul>
-            <br>
+            <br/>
             <p class="text-secondary">توجه داشته باشید حداقل زمان تماس کارشناسان <b>دایا آرتز</b> با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت میباشد.</p>
             <p class="text-secondaty">ضمنا اگر می‌خواید به صورت شخصی سازی شده و هوشمند سفارشتون رو ثبت کنید ؛ از سیستم سفارش تخصصی استفاده کنین</p>
             <button class="btn btn-lg btn-dark">برو بریم</button>
         </div>
-        <div class="fast-order-form col-12 col-md-6 col-xl-4 mt-4 mt-md-0">
-            <form action="#">
-                <div class="input-group float-right mb-3">
-                    <input type="text" name="fast-order-name" class="form-control" placeholder="نام و نام خانوادگی">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                    </div>
-                </div>
-                <div class="input-group float-right mb-3">
-                    <input type="text" name="fast-order-number" class="form-control" placeholder="شماره تلفن">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
-                    </div>
-                </div>
-                <div class="order-types mb-3 w-100">
-                    <div class="checkbox"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/brand.svg') }}"></span><span class="checkbox-label">لوگو</span></span></label></div>
-                    <div class="checkbox"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/big-brochure.svg') }}"></span><span class="checkbox-label">کاتالوگ</span></span></label></div>
-                    <div class="checkbox"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/credit-card.svg') }}"></span><span class="checkbox-label">کارت ویزیت</span></span></label></div>
-                    <div class="checkbox"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/paper.svg') }}"></span><span class="checkbox-label">سربرگ</span></span></label></div>
-                    <div class="checkbox"><label class="checkbox-wrapper"><input type="checkbox" class="checkbox-input"><span class="checkbox-tile"><span class="checkbox-icon"><img src="{{ asset('images/office-tools.svg') }}"></span><span class="checkbox-label">ست اداری</span></span></label></div>
-                </div>
-                <div class="form-group"><textarea name="fast-order-description" cols="30" rows="10" class="form-control" placeholder="توضیحات"></textarea></div>
-                <button type="submit" class="btn">ثبت سفارش</button>
-            </form>
-        </div>
+        <div 
+            class="fast-order-form col-12 col-md-6 col-xl-4 mt-4 mt-md-0 px-3"
+            id="react-quick-order"
+            data-post-api="{{ route('api.forms.orders.quick') }}"
+            data-recaptcha="{{ config('services.reCAPTCHA.site_key') }}"
+        ></div>
     </div>
 </div>
+
+@push('head')
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+<script async src="https://www.google.com/recaptcha/api.js?trustedtypes=true&render={{ config('services.reCAPTCHA.site_key') }}"></script>
+@endpush
