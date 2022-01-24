@@ -4,6 +4,7 @@ use App\Customer;
 use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ Route::get('/', fn() => ['okay' => true]);
 Route::prefix('forms')->name('forms.')->group(function() {
     Route::post('quick-order', [FormsController::class, 'quickOrder'])->name('orders.quick');
 });
+
+Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
 
 Route::prefix('auth')->name('auth.')->group(function() {
     Route::post('login', [LoginController::class,'login'])->name('login')->middleware('guest'); // 

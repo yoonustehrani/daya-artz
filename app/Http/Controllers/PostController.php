@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         request()->validate([
-            'q' => 'nullable|string|min:3'
+            'q' => 'nullable|string|min:3',
         ]);
         $posts = Post::select([
                     'id', 'title', 'slug',
@@ -30,7 +31,27 @@ class PostController extends Controller
         $pagination = $posts->toArray();
         return view('pages.posts.index', compact('posts', 'pagination'));
     }
-
+    public function indexApi(Request $request)
+    {
+        $request->validate([
+            'limit' => 'required|numeric|min:1|max:10',
+            'mode' => ['nullable', Rule::in(['latest', 'random'])]
+        ]);
+        $posts = Post::select([
+            'id', 'title', 'slug',
+            'description', 'reading_time',
+            'image_url', 'image_alt', 'created_at'
+        ])->limit(intval($request->query('limit')));
+        switch ($request->query('mode')) {
+            case 'latest':
+                $posts->latest();
+                break;
+            case 'random':
+                $posts->inRandomOrder();
+                break;
+        }
+        return response()->json($posts->get());
+    }
     /**
      * Display the specified resource.
      *
