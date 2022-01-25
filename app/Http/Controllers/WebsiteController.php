@@ -16,8 +16,9 @@ class WebsiteController extends Controller
     {
         return view('pages.services.index');
     }
-    public function service($service)
+    public function service($slug)
     {
+        $service = "logo";
         return view('pages.services.show', compact('service'));
     }
     public function portfolio($slug)
