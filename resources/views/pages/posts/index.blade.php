@@ -8,7 +8,7 @@
 <div class="header-section dotted-background blog-header">
     <div class="float-right p-4 col-lg-6 col-md-7 col-12 my-auto">
         <div class="header-title">
-            <h1 class="w-100 title text-center">دایا <span class="aqua">بلاگ</span></h1>
+            <h1 class="w-100 title text-center">دایا <span>بلاگ</span></h1>
         </div>
         <form action="{{ route('blog.index') }}" class="form-group p-0">
             <div class="input-group input-group-lg search-box">

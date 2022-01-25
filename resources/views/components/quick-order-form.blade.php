@@ -1,13 +1,13 @@
 <div class="section fast-order-container w-100 mt-4">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
-            <h2 class="title-text">سفارش سریع</h2>
+            <p class="title-text">سفارش سریع</p>
             <span class="title-underline"></span>
         </div>
     </div>
     <div class="fast-order-section text-center p-2">
         <div class="fast-order-guide col-12 col-md-6 col-xl-5 mt-md-3 ml-xl-4 pl-md-4">
-            <h3 class="mb-3">سفارش رو در کوتاه ترین زمان ممکن ثبت کن !</h3>
+            <p class="title mb-3">سفارش رو در کوتاه ترین زمان ممکن ثبت کن !</p>
             <p>فقط با پر کردن این فرم در سریعترین و خلاصه ترین روش ممکن سفارشت بدست ما میرسه</p>
             <h5>راهنمای ثبت فرم:</h5>
             <ul>
