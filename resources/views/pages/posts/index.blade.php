@@ -35,7 +35,7 @@
 @endsection
 
 @section('content')
-<div class="section col-12 mt-4">
+<div class="section col-12 mt-4" itemscope itemtype="https://schema.org/Blog">
     <div class="title-section col-12 mb-3">
         <div class="title-container">
             <h2 class="title-text">مقالات دایا</h2>
@@ -52,17 +52,19 @@
     @else
     <div class="blog-posts-container text-center">
         @foreach ($posts as $post)
-        <article class="blog-post col-12 col-md-6 col-lg-4">
-            <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
+        <article class="blog-post col-12 col-md-6 col-lg-4" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+            <a itemprop="url" href="{{ route('blog.show', ['slug' => $post->slug]) }}">
                 <div class="img-container w-100">
-                    <img src="{{ asset($post->image_url) }}" alt="{{ $post->image_alt }}" class="w-100 h-100">
-                    <span class="article-date">{{ jdate($post->created_at)->format('%e %B') }}<br>{{ jdate($post->created_at)->format('%Y') }}</span>
+                    <img itemprop="image" src="{{ asset($post->image_url) }}" alt="{{ $post->image_alt }}" class="w-100 h-100">
+                    <span class="article-date">
+                        <time itemprop="datePublished" datetime="{{ $post->created_at->format('Y-m-d') }}">{{ jdate($post->created_at)->format('%e %B') }}<br>{{ jdate($post->created_at)->format('%Y') }}</time>
+                    </span>
                 </div>
                 <div class="article-info">
-                    {{-- @if ($post->author_id)
-                    <p class="blog-post-source">نوشته شده توسط: ویکی پدیا</p>
-                    @endif --}}
-                    <h3 class="block mt-4">{{ $post->title }}</h3>
+                    @if ($post->author_id)
+                        <p class="blog-post-source">نوشته شده توسط: ویکی پدیا</p>
+                    @endif
+                    <h3 itemprop="name" class="block mt-4">{{ $post->title }}</h3>
                     <p class="blog-post-description text-secondary">{{ $post->description }}</p>
                     <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
                 </div>
@@ -71,34 +73,6 @@
         @endforeach
     </div>
     @endif
-        {{-- <article class="blog-post col-12 col-md-6 col-lg-4">
-            <a href="{{ route('blog.show', ['slug' => 'بهترین لوگوهای جهان']) }}">
-                <div class="img-container w-100">
-                    <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
-                    <span class="article-date">19 فروردین <br> 1400</span>
-                </div>
-                <div class="article-info">
-                    <p class="blog-post-source">نوشته شده توسط: تیم دایا</p>
-                    <h3 class="block">بهترین لوگوهای جهان</h3>
-                    <p class="blog-post-description text-secondary">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا </p>
-                    <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
-                </div>
-            </a>
-        </article>
-        <article class="blog-post col-12 col-md-6 col-lg-4">
-            <a href="{{ route('blog.show', ['slug' => 'درباره برندینگ چه میدانید؟']) }}">
-                <div class="img-container w-100">
-                    <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
-                    <span class="article-date">19 فروردین <br> 1400</span>
-                </div>
-                <div class="article-info">
-                    <p class="blog-post-source">نوشته شده توسط: تیم دایا</p>
-                    <h3 class="block">درباره برندینگ چه میدانید؟</h3>
-                    <p class="blog-post-description text-secondary">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا </p>
-                    <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
-                </div> 
-            </a>
-        </article> --}}
     <div>
         <table class="table text-center">
             <thead>

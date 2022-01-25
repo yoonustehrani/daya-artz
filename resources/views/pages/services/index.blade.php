@@ -171,8 +171,33 @@
 </div>
 <!-- end guide section -->
 
-<!-- printing design services -->
+{{-- Service Groups --}}
+@foreach ($service_groups as $group => $services)
 <div class="section w-100 mt-3 mt-md-5">
+    <div class="title-section w-100 mb-4">
+        <div class="title-container">
+            <h2 class="title-text">{{ $group }}</h2>
+        </div>
+    </div>
+    <div class="other-services-container w-100">
+        @foreach ($services as $service)
+        <div class="other-service">
+            <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
+            <h2>{{ $service->title }}</h2>
+            <a href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
+            <div class="mb-4">
+                <a href="#" class="btn mx-1 btn-gradient">ثبت سفارش</a>
+                <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient">مشاهده نمونه کار</a>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@endforeach
+{{-- End Service Groups --}}
+
+<!-- printing design services -->
+{{-- <div class="section w-100 mt-3 mt-md-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h2 class="title-text">خدمات طراحی چاپی</h2>
@@ -240,52 +265,7 @@
             <button class="btn btn-gradient">سفارش</button>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- end other services -->
-
-<!-- social media design services -->
-<div class="section w-100 mt-3 mt-md-5">
-    <div class="title-section w-100 mb-4">
-        <div class="title-container">
-            <h2 class="title-text">خدمات طراحی فضای مجازی</h2>
-        </div>
-    </div>
-    <div class="other-services-container w-100">
-        <div class="other-service">
-            <span class="back-aqua"><i class="fab fa-instagram"></i></span>
-            <h2>صفحات مجازی</h2>
-            <h3>طراحی قالب ، کاور ،‌پروفایل و ...</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-    </div>
-</div>
-<!-- end social media design services -->
-
-<!-- digital design services -->
-<div class="section w-100 mt-3 mt-md-5">
-    <div class="title-section w-100 mb-4">
-        <div class="title-container">
-            <h2 class="title-text">خدمات طراحی دیجیتالی</h2>
-        </div>
-    </div>
-    <div class="other-services-container w-100">
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-image"></i></span>
-            <h2>اسلایدر وب سایت</h2>
-            <h3>طراحی اسلایدر های حرفه ای</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-guitar"></i></span>
-            <h2>موزیک</h2>
-            <h3>کاور ، تم آلبوم و ...</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-    </div>
-</div>
-<!-- end digital services -->
-
-<!-- quick order -->
 <x-quick-order-form />
-<!-- end quick order -->
 @endsection

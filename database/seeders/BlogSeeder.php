@@ -14,6 +14,6 @@ class BlogSeeder extends Seeder
      */
     public function run()
     {
-        Post::factory()->count(30)->hasTags(rand(3, 7))->hasCategory()->create();
+        Post::factory()->count(30)->hasTags(2)->hasCategory()->create();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -14,7 +15,9 @@ class WebsiteController extends Controller
     }
     public function services()
     {
-        return view('pages.services.index');
+        $service_groups = Service::whereNull('parent_id')->select("*")->where('group', '<>', 'main')->get()->groupBy('group');
+        
+        return view('pages.services.index', compact('service_groups'));
     }
     public function service($slug)
     {

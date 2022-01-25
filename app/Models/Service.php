@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['title', 'subtitle', 'slug', 'description', 'icon_class'];
+    protected $fillable = ['title', 'subtitle', 'slug', 'group', 'description', 'icon_class'];
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class, 'service_attribute');
