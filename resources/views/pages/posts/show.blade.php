@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="post-info-cover float-left mt-2 mt-md-0">
-                <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="blog-post-cover">
+                <img src="{{ asset('images/gallery/sampi-logo.jpg') }}" alt="blog-post-cover">
             </div>
         </div>
     </div>

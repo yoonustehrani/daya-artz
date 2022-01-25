@@ -219,7 +219,7 @@ $xl-xl-breakpoint: 1600px;
         }
         .icons-container {
             > span {
-                border: 8px solid !important;
+                // border: 8px solid !important;
                 &::before {
                     border-right: 5px solid transparent !important;
                     border-left:  5px solid transparent !important;
@@ -231,33 +231,39 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .section-guide-container {
-        max-width: 270px;
+        max-width: 207px;
         .section-guide {
             h4 {
-                font-size: 24px !important;
+                font-size: 20px !important;
             }
             ul > li {
-                height: 35px !important;
+                height: 40px !important;
                 span:nth-child(1) {
                     font-size: 15px !important;
+                    width: 118px !important;
                 }
                 span:nth-child(2) {
                     width: 15px !important;
                     height: 15px !important;
                     margin-right: 50px !important;
                     &::before {
-                        width: 21px !important;
-                        margin: 20px 6px 5px 0 !important;
+                        width: 20px !important;
+                        margin: 20px 5px 0px 0 !important;
                     }
                     &::after {
-                        width: 55px !important;
+                        width: 40px !important;
                     }
                 }
             }
         }
-        #guide-toggler {
-            i {
-                font-size: 50px !important;
+        &.open {
+            #guide-toggler {
+                width: 45px !important;
+                height: 45px !important;
+                padding-right: 6px !important;
+                i {
+                    font-size: 30px !important;
+                }
             }
         }
     }
@@ -640,6 +646,7 @@ $xl-xl-breakpoint: 1600px;
             transform: inherit !important;
             .post-info-flex {
                 margin-right: 0 !important;
+                padding-right: 0 !important;
                 span {
                     font-size: 16px !important;
                 }
@@ -891,7 +898,7 @@ $xl-xl-breakpoint: 1600px;
             &.icons-container {
                 float: left;
                 > span {
-                    border: 15px solid !important;
+                    // border: 15px solid !important;
                     margin: 50px 0 50px 0 !important;
                     &::before {
                         top: calc(100% + 12px) !important;
@@ -959,7 +966,7 @@ $xl-xl-breakpoint: 1600px;
         }
         .section-guide {
             h4 {
-                font-size: 24px !important;
+                font-size: 22px !important;
             }
             ul > li {
                 height: 40px !important;
@@ -975,13 +982,10 @@ $xl-xl-breakpoint: 1600px;
                         margin: 20px 6px 5px 0 !important;
                     }
                     &::after {
-                        width: 55px !important;
+                        width: 50px !important;
                     }
                 }
             }
-        }
-        #guide-toggler {
-            margin-right: 75% !important;
         }
     }
     .daya-logo {
@@ -1212,13 +1216,6 @@ $xl-xl-breakpoint: 1600px;
             margin: 2% !important;
         }
     }
-    .section-guide-container {
-        width: 300px !important;
-        margin: 90px auto 0 -150px !important;
-        &.open {
-            left: 50%;
-        }
-    }
 }
 
 
@@ -1282,9 +1279,6 @@ $xl-xl-breakpoint: 1600px;
     }
     .section-guide-container {
         max-width: 90% !important;
-        &.open {
-            margin: 90px 5% 0 5% !important;
-        }
     }
 }
 
@@ -1350,11 +1344,6 @@ $xl-xl-breakpoint: 1600px;
     .section-guide-container {
         &.close {
             top: 70vh !important;
-        }
-        #guide-toggler {
-            i {
-                font-size: 50px !important;
-            }
         }
     }
     .msg-meta {
@@ -1556,7 +1545,7 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .section-guide-container {
-        max-width: 340px;
+        max-width: 225px;
     }
     .main-service {
         width: 31% !important;
@@ -1604,7 +1593,7 @@ $xl-xl-breakpoint: 1600px;
         }
         .icons-container {
             > span {
-                border: 12px solid !important;
+                // border: 12px solid !important;
                 &::before {
                     border-right: 10px solid transparent !important;
                     border-left:  10px solid transparent !important;
@@ -1616,33 +1605,39 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .section-guide-container {
-        max-width: 290px;
+        max-width: 207px;
         .section-guide {
             h4 {
-                font-size: 24px !important;
+                font-size: 20px !important;
             }
             ul > li {
                 height: 40px !important;
                 span:nth-child(1) {
-                    font-size: 16px !important;
+                    font-size: 15px !important;
+                    width: 118px !important;
                 }
                 span:nth-child(2) {
                     width: 15px !important;
                     height: 15px !important;
-                    margin-right: 52px !important;
+                    margin-right: 50px !important;
                     &::before {
-                        width: 25px !important;
-                        margin: 20px 6px 5px 0 !important;
+                        width: 20px !important;
+                        margin: 20px 5px 0px 0 !important;
                     }
                     &::after {
-                        width: 55px !important;
+                        width: 40px !important;
                     }
                 }
             }
         }
-        #guide-toggler {
-            i {
-                font-size: 50px !important;
+        &.open {
+            #guide-toggler {
+                width: 45px !important;
+                height: 45px !important;
+                padding-right: 6px !important;
+                i {
+                    font-size: 30px !important;
+                }
             }
         }
     }

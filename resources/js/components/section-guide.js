@@ -1,35 +1,35 @@
 if ($(".section-guide-container").length > 0) {
     let open
-    if ($(window).width() >= 786) {
+    if ($(window).width() >= 768) {
         $(".section-guide-container").addClass("open")
-        $(".far.fa-hand-point-left").toggleClass("d-none")
+        $(".section-guide-container .fas.fa-angle-left").toggleClass("d-none")
         open = true
     } else {
         $(".section-guide-container").addClass("close")
-        $(".far.fa-question-circle").toggleClass("d-none")
+        $(".section-guide-container .far.fa-question-circle").toggleClass("d-none")
         open = false
     }
 
     $("#guide-toggler").hover(function() {
-        open ? $(this).find("i.fa-hand-point-left").toggleClass('d-none') : $(this).find("i.fa-question-circle").toggleClass("d-none")
+        open ? null : $(this).find("i.fa-question-circle").toggleClass("d-none")
     })
 
     $("#guide-toggler").blur(function() {
-        open ? $(this).find("i.fa-hand-point-left").toggleClass('d-none') : $(this).find("i.fa-question-circle").toggleClass("d-none")
+        open ? null : $(this).find("i.fa-question-circle").toggleClass("d-none")
     })
 
     const toggle_guide = () => {
         open = !open
-        $(".section-guide-container").toggleClass("rotateInDownLeft rotateOutUpLeft")
+        $(".section-guide-container").toggleClass("bounceInLeft bounceOutLeft")
         setTimeout(() => {
-            $(".section-guide-container").toggleClass("close open rotateInDownLeft rotateOutUpLeft")
+            $(".section-guide-container").toggleClass("close open bounceInLeft bounceOutLeft")
         }, 500)
     }
 
     $("#guide-toggler").click(function() {
         toggle_guide()
         setTimeout(() => {
-            $("i.fas.fa-question-circle, i.fas.fa-hand-point-left").toggleClass('d-none')
+            $("i.fas.fa-question-circle, i.fas.fa-angle-left").toggleClass('d-none')
         }, 500)
     })
 
@@ -55,15 +55,15 @@ if ($(".section-guide-container").length > 0) {
     })
 
     // this is for handling scroll clicks
-    let target_index
+    let target_index, target_position
     $("#guide-list>li").click(function() {
-        target_index = $(this).index()
+        target_index = $(this).index(), target_position = $(window).width() >= 768 ? $(`${section_ids[target_index]}`).offset().top + $("body").scrollTop() - 199 : $(`${section_ids[target_index]}`).offset().top + $("body").scrollTop()
         $("body").animate({
-            scrollTop: $(`${section_ids[target_index]}`).offset().top + $("body").scrollTop()
+            scrollTop: target_position
         }, 500)
         toggle_guide()
         setTimeout(() => {
-            $("i.far.fa-question-circle, i.far.fa-hand-point-left").toggleClass('d-none')
+            $("i.far.fa-question-circle, i.fas.fa-angle-left").toggleClass('d-none')
         }, 500)
     }) 
 }

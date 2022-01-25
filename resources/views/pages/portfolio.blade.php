@@ -6,18 +6,21 @@
 
 @section('content')
 <!-- page section guide -->
-<div class="section-guide-container animated rotateInDownLeft">
-    <div class="section-guide animated">
-        <h4>راهنمای صفحه</h4>
-        <ul id="guide-list">
-            <li class="current"><span>مشخصات کلی لوگو</span> <span></span></li>
-            <li><span>جزئیات سفارش</span> <span></span></li>
-            <li><span>درباره مشتری</span> <span></span></li>
-            <li><span>فلسفه فکری لوگو</span> <span></span></li>
-            <li><span>شروع ثبت سفارش</span> <span></span></li>
-            <li><span>راهنمای دایا</span> <span></span></li>
-            <li><span>طرح های مشابه</span> <span></span></li>
-        </ul>
+
+<div class="section-guide-container animated bounceInLeft">
+    <div class="section-guide-bg">
+        <div class="section-guide">
+            <h4>راهنمای صفحه</h4>
+            <ul id="guide-list">
+                <li class="current"><span>مشخصات کلی لوگو</span> <span></span></li>
+                <li><span>جزئیات سفارش</span> <span></span></li>
+                <li><span>درباره مشتری</span> <span></span></li>
+                <li><span>فلسفه فکری لوگو</span> <span></span></li>
+                <li><span>شروع ثبت سفارش</span> <span></span></li>
+                <li><span>راهنمای دایا</span> <span></span></li>
+                <li><span>طرح های مشابه</span> <span></span></li>
+            </ul>
+        </div>
     </div>
     <span id="guide-toggler">
         <span>
@@ -25,8 +28,7 @@
             <i class="fas fa-question-circle animated bounceIn d-none"></i>
         </span>
         <span>
-            <i class="far fa-hand-point-left animated heartBeat d-none"></i>
-            <i class="fas fa-hand-point-left animated swing d-none"></i>
+            <i class="fas fa-angle-left d-none"></i>
         </span>
     </span>
 </div>
@@ -94,11 +96,11 @@
         <span>99/04/23</span>
     </div>
     <div class="levels-container">
-        <span><i class="fas fa-ellipsis-v"></i> ثبت سفارش</span>
-        <span><i class="fas fa-ellipsis-v"></i> ثبت قرارداد و پیش پرداخت</span>
-        <span><i class="fas fa-ellipsis-v"></i> ارسال اتود ها و دریافت تغییر ها</span>
-        <span><i class="fas fa-ellipsis-v"></i> انجام تغییرات</span>
-        <span><i class="fas fa-ellipsis-v"></i> تصوریه حساب و ارسال فایل</span>
+        <span><i class="fas fa-circle"></i> ثبت سفارش</span>
+        <span><i class="fas fa-circle"></i> ثبت قرارداد و پیش پرداخت</span>
+        <span><i class="fas fa-circle"></i> ارسال اتود ها و دریافت تغییر ها</span>
+        <span><i class="fas fa-circle"></i> انجام تغییرات</span>
+        <span><i class="fas fa-circle"></i> تصوریه حساب و ارسال فایل</span>
     </div>
 </div>
 <!-- end process timeline -->

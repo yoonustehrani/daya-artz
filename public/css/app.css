@@ -10294,9 +10294,6 @@ h3 {
   .process-timeline > div span {
     font-size: 16px !important;
   }
-  .process-timeline .icons-container > span {
-    border: 8px solid !important;
-  }
   .process-timeline .icons-container > span::before {
     border-right: 5px solid transparent !important;
     border-left: 5px solid transparent !important;
@@ -10305,16 +10302,17 @@ h3 {
   }
 
   .section-guide-container {
-    max-width: 270px;
+    max-width: 207px;
   }
   .section-guide-container .section-guide h4 {
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
   .section-guide-container .section-guide ul > li {
-    height: 35px !important;
+    height: 40px !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(1) {
     font-size: 15px !important;
+    width: 118px !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2) {
     width: 15px !important;
@@ -10322,14 +10320,19 @@ h3 {
     margin-right: 50px !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2)::before {
-    width: 21px !important;
-    margin: 20px 6px 5px 0 !important;
+    width: 20px !important;
+    margin: 20px 5px 0px 0 !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2)::after {
-    width: 55px !important;
+    width: 40px !important;
   }
-  .section-guide-container #guide-toggler i {
-    font-size: 50px !important;
+  .section-guide-container.open #guide-toggler {
+    width: 45px !important;
+    height: 45px !important;
+    padding-right: 6px !important;
+  }
+  .section-guide-container.open #guide-toggler i {
+    font-size: 30px !important;
   }
 
   .daya-logo {
@@ -10690,6 +10693,7 @@ h3 {
   }
   .post-info-section div.post-info-container .post-info-flex {
     margin-right: 0 !important;
+    padding-right: 0 !important;
   }
   .post-info-section div.post-info-container .post-info-flex span {
     font-size: 16px !important;
@@ -10949,7 +10953,6 @@ h3 {
     float: left;
   }
   .process-timeline > div.icons-container > span {
-    border: 15px solid !important;
     margin: 50px 0 50px 0 !important;
   }
   .process-timeline > div.icons-container > span::before {
@@ -11013,7 +11016,7 @@ h3 {
     padding-left: 0 !important;
   }
   .section-guide-container .section-guide h4 {
-    font-size: 24px !important;
+    font-size: 22px !important;
   }
   .section-guide-container .section-guide ul > li {
     height: 40px !important;
@@ -11031,10 +11034,7 @@ h3 {
     margin: 20px 6px 5px 0 !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2)::after {
-    width: 55px !important;
-  }
-  .section-guide-container #guide-toggler {
-    margin-right: 75% !important;
+    width: 50px !important;
   }
 
   .daya-logo {
@@ -11269,14 +11269,6 @@ h3 {
     width: 46% !important;
     margin: 2% !important;
   }
-
-  .section-guide-container {
-    width: 300px !important;
-    margin: 90px auto 0 -150px !important;
-  }
-  .section-guide-container.open {
-    left: 50%;
-  }
 }
 @media screen and (max-width: 424px) {
   footer.footer .footer-content {
@@ -11335,9 +11327,6 @@ h3 {
   .section-guide-container {
     max-width: 90% !important;
   }
-  .section-guide-container.open {
-    margin: 90px 5% 0 5% !important;
-  }
 }
 @media screen and (max-width: 360px) {
   .service-item h1 {
@@ -11392,9 +11381,6 @@ h3 {
 
   .section-guide-container.close {
     top: 70vh !important;
-  }
-  .section-guide-container #guide-toggler i {
-    font-size: 50px !important;
   }
 
   .msg-meta span {
@@ -11562,7 +11548,7 @@ h3 {
   }
 
   .section-guide-container {
-    max-width: 340px;
+    max-width: 225px;
   }
 
   .main-service {
@@ -11605,9 +11591,6 @@ h3 {
   .process-timeline > div span {
     font-size: 16px !important;
   }
-  .process-timeline .icons-container > span {
-    border: 12px solid !important;
-  }
   .process-timeline .icons-container > span::before {
     border-right: 10px solid transparent !important;
     border-left: 10px solid transparent !important;
@@ -11616,31 +11599,37 @@ h3 {
   }
 
   .section-guide-container {
-    max-width: 290px;
+    max-width: 207px;
   }
   .section-guide-container .section-guide h4 {
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
   .section-guide-container .section-guide ul > li {
     height: 40px !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(1) {
-    font-size: 16px !important;
+    font-size: 15px !important;
+    width: 118px !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2) {
     width: 15px !important;
     height: 15px !important;
-    margin-right: 52px !important;
+    margin-right: 50px !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2)::before {
-    width: 25px !important;
-    margin: 20px 6px 5px 0 !important;
+    width: 20px !important;
+    margin: 20px 5px 0px 0 !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2)::after {
-    width: 55px !important;
+    width: 40px !important;
   }
-  .section-guide-container #guide-toggler i {
-    font-size: 50px !important;
+  .section-guide-container.open #guide-toggler {
+    width: 45px !important;
+    height: 45px !important;
+    padding-right: 6px !important;
+  }
+  .section-guide-container.open #guide-toggler i {
+    font-size: 30px !important;
   }
 
   .order-ways-section .contact-info h4 {
@@ -13631,18 +13620,18 @@ div.daya-duties .customer-vector img {
 
 div.post-info-section {
   position: relative;
-  height: 250px;
+  height: 220px;
 }
 div.post-info-section div.post-info-container {
-  height: 80%;
-  width: calc(100% - 220px);
+  height: 100%;
+  width: calc(100% - 95px);
   border-radius: 8px;
   box-shadow: 0 0 10px 1px #c5c4c4;
   background: linear-gradient(to left, #6E48AA, #9D50BB);
   position: relative;
   z-index: 5;
 }
-div.post-info-section div.post-info-container h2 {
+div.post-info-section div.post-info-container h1 {
   color: #fff;
   font-size: 26px;
   font-weight: bold;
@@ -13656,6 +13645,7 @@ div.post-info-section div.post-info-container .post-info-flex {
   justify-content: space-between;
   align-items: flex-start;
   margin-right: 5%;
+  padding-right: 110px;
 }
 div.post-info-section div.post-info-container .post-info-flex > div {
   direction: rtl;
@@ -13680,11 +13670,13 @@ div.post-info-section div.post-info-cover {
   position: absolute;
   z-index: 6;
   top: 0;
-  right: 15px;
+  right: 0px;
   height: 100%;
-  width: 250px;
+  width: 220px;
 }
 div.post-info-section div.post-info-cover img {
+  border-radius: 100%;
+  border: 4px solid #fff;
   width: 100%;
   height: 100%;
 }
@@ -14355,20 +14347,12 @@ div.other-services-container > div.other-service button {
 .section-guide-container {
   position: fixed;
   z-index: 21;
-  border-radius: 2%;
-  margin: 90px 0 0 20px;
-  padding: 12px 0 12px;
-  overflow-y: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.section-guide-container::-webkit-scrollbar {
-  display: none;
-}
-.section-guide-container.close {
+  margin-top: 90px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+.section-guide-container.close .section-guide-bg {
   padding: 10px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -14376,66 +14360,102 @@ div.other-services-container > div.other-service button {
   display: flex;
   align-items: flex-end;
 }
-.section-guide-container.close .section-guide {
+.section-guide-container.close .section-guide-bg .section-guide {
   display: none;
+}
+.section-guide-container.close #guide-toggler {
+  margin-left: 10px;
 }
 .section-guide-container.close #guide-toggler span:nth-child(2) {
   display: none !important;
 }
-.section-guide-container.open {
+.section-guide-container.open .section-guide-bg {
   background: linear-gradient(to bottom right, rgba(172, 127, 244, 0.8), rgba(143, 96, 236, 0.8), rgba(98, 50, 222, 0.8));
-  background: linear-gradient(to bottom right, rgba(172, 127, 244, 0.8), rgba(143, 96, 236, 0.8), rgba(98, 50, 222, 0.8));
-  box-shadow: 2px 2px 15px 0px #6232de;
+  background: -webkit-linear-gradient(to bottom right, rgba(172, 127, 244, 0.8), rgba(143, 96, 236, 0.8), rgba(98, 50, 222, 0.8));
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.06);
   height: initial;
   display: block;
-  width: inherit;
   top: initial;
 }
 .section-guide-container.open #guide-toggler {
+  z-index: 9;
+  width: 60px;
+  height: 60px;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(50%);
+  right: 0;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  border-radius: 100%;
+  padding-right: 10px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0 50%, #C2AEF3 50% 100%);
 }
 .section-guide-container.open #guide-toggler span:nth-child(1) {
   display: none !important;
 }
+.section-guide-container.open #guide-toggler span {
+  display: flex;
+}
+.section-guide-container.open #guide-toggler:hover span i {
+  color: #8f60ec;
+}
 .section-guide-container #guide-toggler {
-  transition: 0.5s;
   cursor: pointer;
+  transition: 0.5s;
   display: inline-block;
+}
+.section-guide-container #guide-toggler i {
+  text-shadow: none;
+}
+.section-guide-container #guide-toggler i.fa-angle-left {
+  color: white;
+  font-size: 35px;
+  transition: 0.5s;
+}
+.section-guide-container #guide-toggler i.fa-angle-left.hovered {
+  color: #8f60ec;
+}
+.section-guide-container #guide-toggler i.fa-question-circle {
+  color: #af3acc;
+  font-size: 60px;
+}
+.section-guide-container .section-guide-bg {
+  position: relative;
+  z-index: 10;
+  border-radius: 2%;
+  padding: 12px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.section-guide-container #guide-toggler i.fa-hand-point-left {
-  color: white;
+.section-guide-container .section-guide-bg::-webkit-scrollbar {
+  display: none;
 }
-.section-guide-container #guide-toggler i.fa-question-circle {
-  color: #8f60ec;
-  font-size: 60px;
-}
-.section-guide-container .section-guide {
+.section-guide-container .section-guide-bg .section-guide {
   text-align: center;
   z-index: 19;
 }
-.section-guide-container .section-guide > h4 {
+.section-guide-container .section-guide-bg .section-guide > h4 {
   color: white;
-  font-size: 28px;
+  font-size: 22px;
 }
-.section-guide-container .section-guide ul {
+.section-guide-container .section-guide-bg .section-guide ul {
   list-style-type: none !important;
   padding: 0;
   margin: 0;
 }
-.section-guide-container .section-guide ul li {
+.section-guide-container .section-guide-bg .section-guide ul li {
   color: white;
-  font-size: 19px;
   direction: rtl;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 45px;
   cursor: pointer;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -14443,34 +14463,34 @@ div.other-services-container > div.other-service button {
   margin-left: auto;
   margin-right: auto;
 }
-.section-guide-container .section-guide ul li:hover span:nth-child(1) {
+.section-guide-container .section-guide-bg .section-guide ul li:hover span:nth-child(1) {
   font-weight: bold;
   transform: scale(1.1);
 }
-.section-guide-container .section-guide ul li:hover span:nth-child(2) {
+.section-guide-container .section-guide-bg .section-guide ul li:hover span:nth-child(2) {
   background-color: rgba(255, 255, 255, 0.6);
 }
-.section-guide-container .section-guide ul li span:nth-child(1) {
+.section-guide-container .section-guide-bg .section-guide ul li span:nth-child(1) {
   color: white;
-  font-size: 19px;
-  width: 150px;
+  font-size: 16px;
+  width: 135px;
   transition: 0.5s;
 }
-.section-guide-container .section-guide ul li span:nth-child(2) {
-  width: 20px;
-  height: 20px;
+.section-guide-container .section-guide-bg .section-guide ul li span:nth-child(2) {
+  width: 16px;
+  height: 16px;
   border-radius: 100%;
   background-color: transparent;
   border: 2px solid white;
   display: grid;
-  margin-right: 60px;
+  margin-right: 50px;
   align-items: center;
   transition: 0.5s;
 }
-.section-guide-container .section-guide ul li span:nth-child(2)::after {
+.section-guide-container .section-guide-bg .section-guide ul li span:nth-child(2)::after {
   content: "";
   display: block;
-  width: 50px;
+  width: 45px;
   height: 2px;
   background-color: white;
   margin-right: 10px;
@@ -14479,28 +14499,28 @@ div.other-services-container > div.other-service button {
   transform: rotateZ(180deg);
   transform-origin: right;
 }
-.section-guide-container .section-guide ul li span:nth-child(2)::before {
+.section-guide-container .section-guide-bg .section-guide ul li span:nth-child(2)::before {
   content: "";
   display: block;
-  width: 31px;
+  width: 23px;
   height: 2px;
   background-color: white;
   transform: rotateZ(-90deg);
-  margin: 24px 8px 5px 0;
+  margin: 22px 6px 0px 0;
   transform-origin: right;
   position: absolute;
 }
-.section-guide-container .section-guide ul li.current span:nth-child(1) {
+.section-guide-container .section-guide-bg .section-guide ul li.current span:nth-child(1) {
   font-weight: bold !important;
   transform: scale(1.1) !important;
 }
-.section-guide-container .section-guide ul li.current span:nth-child(2) {
+.section-guide-container .section-guide-bg .section-guide ul li.current span:nth-child(2) {
   background-color: white !important;
 }
-.section-guide-container .section-guide ul li:last-child {
+.section-guide-container .section-guide-bg .section-guide ul li:last-child {
   margin-bottom: 0 !important;
 }
-.section-guide-container .section-guide ul li:last-child span:nth-child(2)::before {
+.section-guide-container .section-guide-bg .section-guide ul li:last-child span:nth-child(2)::before {
   display: none !important;
 }
 
@@ -14674,7 +14694,7 @@ div.other-services-container > div.other-service button {
   margin-top: 25px;
 }
 .process-timeline .icons-container > span {
-  border: 1vw solid;
+  border: 4px solid;
   border-radius: 100%;
   background-color: white;
   position: relative;
@@ -14768,7 +14788,7 @@ div.other-services-container > div.other-service button {
   text-align: center;
 }
 .process-timeline .levels-container > span i {
-  font-size: 2vw;
+  font-size: 12px;
   margin-bottom: 20px;
 }
 
