@@ -170,11 +170,12 @@
     </div>
 </div>
 <!-- end guide section -->
-<!-- other services -->
+
+<!-- printing design services -->
 <div class="section w-100 mt-3 mt-md-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
-            <h2 class="title-text">دیگر خدمات دایا</h2>
+            <h2 class="title-text">خدمات طراحی چاپی</h2>
         </div>
     </div>
     <div class="other-services-container w-100">
@@ -189,7 +190,7 @@
             <h2>بروشور</h2>
             <h3>طراحی انواع بروشور ها</h3>
             <button class="btn btn-gradient">سفارش</button>
-        </div>
+        </div>        
         <div class="other-service">
             <span class="back-aqua"><i class="fas fa-sticky-note"></i></span>
             <h2>تراکت</h2>
@@ -197,21 +198,9 @@
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-image"></i></span>
-            <h2>اسلایدر وب سایت</h2>
-            <h3>طراحی اسلایدر های حرفه ای</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
             <span class="back-aqua"><i class="fab fa-elementor"></i></span>
             <h2>منو رستوران و کافی شاپ</h2>
             <h3>منو های خاص و شکیل</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fab fa-instagram"></i></span>
-            <h2>صفحات مجازی</h2>
-            <h3>طراحی قالب ، کاور ،‌پروفایل و ...</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
@@ -227,12 +216,6 @@
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-guitar"></i></span>
-            <h2>موزیک</h2>
-            <h3>کاور ، تم آلبوم و ...</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
             <span class="back-aqua"><i class="fas fa-calendar-check"></i></span>
             <h2>تقویم</h2>
             <h3>طراحی انواع تقویم و سررسید</h3>
@@ -245,20 +228,63 @@
             <button class="btn btn-gradient">سفارش</button>
         </div>
         <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-book"></i></span>
-            <h2>جلد کتاب</h2>
-            <h3>جلد انواع کتاب ، مجلات و ...</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
             <span class="back-aqua"><i class="fas fa-box"></i></span>
             <h2>بسته بندی</h2>
             <h3>بسته بندی های ساده و خاص</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-book"></i></span>
+            <h2>جلد کتاب</h2>
+            <h3>جلد انواع کتاب ، مجلات و ...</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
     </div>
 </div>
 <!-- end other services -->
+
+<!-- social media design services -->
+<div class="section w-100 mt-3 mt-md-5">
+    <div class="title-section w-100 mb-4">
+        <div class="title-container">
+            <h2 class="title-text">خدمات طراحی فضای مجازی</h2>
+        </div>
+    </div>
+    <div class="other-services-container w-100">
+        <div class="other-service">
+            <span class="back-aqua"><i class="fab fa-instagram"></i></span>
+            <h2>صفحات مجازی</h2>
+            <h3>طراحی قالب ، کاور ،‌پروفایل و ...</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+    </div>
+</div>
+<!-- end social media design services -->
+
+<!-- digital design services -->
+<div class="section w-100 mt-3 mt-md-5">
+    <div class="title-section w-100 mb-4">
+        <div class="title-container">
+            <h2 class="title-text">خدمات طراحی دیجیتالی</h2>
+        </div>
+    </div>
+    <div class="other-services-container w-100">
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-image"></i></span>
+            <h2>اسلایدر وب سایت</h2>
+            <h3>طراحی اسلایدر های حرفه ای</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+        <div class="other-service">
+            <span class="back-aqua"><i class="fas fa-guitar"></i></span>
+            <h2>موزیک</h2>
+            <h3>کاور ، تم آلبوم و ...</h3>
+            <button class="btn btn-gradient">سفارش</button>
+        </div>
+    </div>
+</div>
+<!-- end digital services -->
+
 <!-- quick order -->
 <x-quick-order-form />
 <!-- end quick order -->

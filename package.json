@@ -36,7 +36,7 @@
         "validator": "^13.7.0"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.3",
+        "@fortawesome/fontawesome-pro-5.13.0-web": "^5.13.0",
         "bootstrap": "^4.6.0",
         "immer": "^9.0.6",
         "postcss-preset-env": "^7.2.3",
