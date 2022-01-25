@@ -25,4 +25,9 @@ class Post extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+
+    public function category()
+    {
+        return $this->morphOne(Category::class, 'categoreable');
+    }
 }

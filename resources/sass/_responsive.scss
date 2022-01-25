@@ -70,7 +70,7 @@ $xl-xl-breakpoint: 1600px;
         height: 220px !important;
         .post-info-container {
             width: calc(100% - 190px) !important;
-            h2 {
+            .post-title {
                 font-size: 22px !important;
             }
             .post-info-flex {

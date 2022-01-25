@@ -28,7 +28,7 @@ use App\Http\Controllers\PostController;
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
 
 Route::get('services', [WebsiteController::class, 'services'])->name('services.index');
-Route::get('services/{service}', [WebsiteController::class, 'service'])->name('services.show');
+Route::get('services/{slug}', [WebsiteController::class, 'service'])->name('services.show');
 
 Route::get('blog', [PostController::class, 'index'])->name('blog.index');
 Route::get('blog/{slug}', [PostController::class, 'show'])->name('blog.show');
@@ -56,9 +56,15 @@ Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
     return redirect()->to(route('userarea'));
 })->middleware('signed')->name('verification.email.verify');
 
-Route::get('test', function () {
-    return App\Models\Order::latest()->get();
-    // $user = User::find(2);
+Route::get('test', function (Request $request) {
+    if ($request->has('delete')) {
+        App\Models\Service::whereRaw("1=1")->delete();
+        return redirect()->to(route('tempo'));
+    }
+    return App\Models\Service::all();
+    // return view('test');
+    // return App\Models\Order::latest()->get();
+// $user = User::find(2);
     // $user->notifyNow(new VerificationNotification([SMSChannel::class]));
     // $json_string = '{"name": "yoonus", "age": 18}';
     // dd(json_decode($json_string));
@@ -67,7 +73,7 @@ Route::get('test', function () {
     // $company = Company::first();
     // $company->load('business_type', 'product_type');
     // return $company;
-});
+})->name('tempo');
 
 Route::get('testme', function () {
     return 'hello';

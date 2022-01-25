@@ -2126,6 +2126,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -2179,6 +2181,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var QuickOrder = /*#__PURE__*/function (_Component) {
   _inherits(QuickOrder, _Component);
 
@@ -2219,33 +2222,62 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
-
-      _this.setState({
-        loading: true,
-        error: false,
-        errors: {}
-      }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var _this$state$order, fullname, phone_number, description, order_items, data, response, _response$data, okay, message, _error$response, _data, status, newState;
-
+    _defineProperty(_assertThisInitialized(_this), "handleRecaptcha", function (clb) {
+      var reCAPTCHA_Key = _this.props.reCAPTCHA_Key;
+      grecaptcha.ready( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var token;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return grecaptcha.execute(reCAPTCHA_Key, {
+                  action: 'quick_order'
+                });
+
+              case 3:
+                token = _context.sent;
+                clb(token);
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      })));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleFormSubmit", /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(recaptch_token) {
+        var _this$state$order, fullname, phone_number, description, order_items, data, response, _response$data, okay, message, _error$response, _data, status, newState;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 _this$state$order = _this.state.order, fullname = _this$state$order.fullname, phone_number = _this$state$order.phone_number, description = _this$state$order.description, order_items = _this$state$order.order_items;
                 data = {
                   fullname: fullname,
                   phone_number: phone_number,
                   description: description,
-                  order_items: order_items
+                  order_items: order_items,
+                  recaptch_token: recaptch_token
                 };
-                _context.prev = 2;
-                _context.next = 5;
+                _context2.prev = 2;
+                _context2.next = 5;
                 return axios__WEBPACK_IMPORTED_MODULE_2___default().post(_this.props.targetApi, data);
 
               case 5:
-                response = _context.sent;
+                response = _context2.sent;
                 _response$data = response.data, okay = _response$data.okay, message = _response$data.message;
 
                 if (okay) {
@@ -2262,54 +2294,54 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
                   });
                 }
 
-                _context.next = 28;
+                _context2.next = 28;
                 break;
 
               case 10:
-                _context.prev = 10;
-                _context.t0 = _context["catch"](2);
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](2);
 
-                if (!_context.t0.response) {
-                  _context.next = 27;
+                if (!_context2.t0.response) {
+                  _context2.next = 27;
                   break;
                 }
 
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
-                _error$response = _context.t0.response, _data = _error$response.data, status = _error$response.status;
-                _context.t1 = status;
-                _context.next = _context.t1 === 422 ? 17 : _context.t1 === 403 ? 19 : 21;
+                _error$response = _context2.t0.response, _data = _error$response.data, status = _error$response.status;
+                _context2.t1 = status;
+                _context2.next = _context2.t1 === 422 ? 17 : _context2.t1 === 403 ? 19 : 21;
                 break;
 
               case 17:
                 newState = {
-                  error: "خطا !",
+                  error: "خطا",
                   errors: _data.errors
                 };
-                return _context.abrupt("break", 23);
+                return _context2.abrupt("break", 23);
 
               case 19:
                 newState = {
                   error: _data.message
                 };
-                return _context.abrupt("break", 23);
+                return _context2.abrupt("break", 23);
 
               case 21:
                 newState = {
-                  error: "خطا !"
+                  error: "خطا"
                 };
-                return _context.abrupt("break", 23);
+                return _context2.abrupt("break", 23);
 
               case 23:
                 newState['loading'] = false;
 
                 _this.setState(newState);
 
-                _context.next = 28;
+                _context2.next = 28;
                 break;
 
               case 27:
-                if (_context.t0.request) {
+                if (_context2.t0.request) {
                   // The request was made but no response was received
                   _this.setState({
                     error: "پاسخی از سمت سرور دریافت نشد لطفا مجددا تلاش کنید.",
@@ -2325,11 +2357,25 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
 
               case 28:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, null, [[2, 10]]);
-      })));
+        }, _callee2, null, [[2, 10]]);
+      }));
+
+      return function (_x) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+
+      _this.setState({
+        loading: true,
+        error: false,
+        errors: {}
+      }, _this.handleRecaptcha.bind(_assertThisInitialized(_this), _this.handleFormSubmit));
     });
 
     _this.state = {
@@ -2404,9 +2450,11 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
         children: [error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "alert alert-danger text-right rtl",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
             className: "p-0 m-0",
-            children: error
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+              className: "fas fa-exclamation-circle"
+            }), " ", error]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
             className: "m-0 mr-4 p-0 px-2",
             children: messages.map(function (m, i) {
@@ -2417,8 +2465,10 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
           })]
         }), message && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "alert alert-success text-right rtl",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            children: message
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+              className: "fas fa-check-circle"
+            }), " ", message]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
           action: "#",
@@ -2502,8 +2552,9 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
               className: "form-control",
               placeholder: "\u062A\u0648\u0636\u06CC\u062D\u0627\u062A"
             })
-          }), loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-            children: "Loading ..."
+          }), loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "btn",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {})
           }), !loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             disabled: !active,
             type: "submit",
@@ -2620,6 +2671,7 @@ var quickOrderElement = document.getElementById("react-quick-order");
 
 if (quickOrderElement) {
   (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
     targetApi: quickOrderElement.getAttribute('data-post-api')
   }), quickOrderElement);
 }
@@ -15721,12 +15773,9 @@ return jQuery;
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n     ╷\n1296 │             color: #fff;\r\n     │                        ^\n     ╵\n  resources\\sass\\_elements.scss 1296:24  @import\n  resources\\sass\\theme.scss 2:9          @import\n  D:\\projects\\daya-artz\\resources\\sass\\app.scss 6:9                              root stylesheet\n    at processResult (D:\\projects\\daya-artz\\node_modules\\webpack\\lib\\NormalModule.js:753:19)\n    at D:\\projects\\daya-artz\\node_modules\\webpack\\lib\\NormalModule.js:855:5\n    at D:\\projects\\daya-artz\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at D:\\projects\\daya-artz\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (D:\\projects\\daya-artz\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at D:\\projects\\daya-artz\\node_modules\\sass-loader\\dist\\index.js:73:7\n    at Function.call$2 (D:\\projects\\daya-artz\\node_modules\\sass\\sass.dart.js:96399:16)\n    at render_closure1.call$2 (D:\\projects\\daya-artz\\node_modules\\sass\\sass.dart.js:82305:12)\n    at _RootZone.runBinary$3$3 (D:\\projects\\daya-artz\\node_modules\\sass\\sass.dart.js:28284:18)\n    at _FutureListener.handleError$1 (D:\\projects\\daya-artz\\node_modules\\sass\\sass.dart.js:26806:21)");
 
 /***/ }),
 
@@ -16158,6 +16207,624 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
+
+/***/ }),
+
+/***/ "./node_modules/react-activity/dist/react-activity.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-activity/dist/react-activity.js ***!
+  \************************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+	else {}
+})(this, function(__WEBPACK_EXTERNAL_MODULE__297__) {
+return /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 930:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_647__) => {
+
+
+// EXPORTS
+__nested_webpack_require_647__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Bounce_Bounce)
+});
+
+;// CONCATENATED MODULE: ./src/Bounce/Bounce.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_647__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_647__(438);
+// EXTERNAL MODULE: ./src/shared/getRelativeTime.ts
+var getRelativeTime = __nested_webpack_require_647__(531);
+;// CONCATENATED MODULE: ./src/Bounce/Bounce.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = ( false) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+var Bounce = function (_a) {
+    var _b = _a.speed, speed = _b === void 0 ? 1 : _b, rest = __rest(_a, ["speed"]);
+    var renderSquares = function () {
+        var res = [];
+        for (var i = 1; i <= 3; i++) {
+            res.unshift(external_react_.createElement("div", { key: i, style: {
+                    animationDelay: (0,getRelativeTime/* getRelativeTime */.n)(speed, i / -10),
+                } }));
+        }
+        return res;
+    };
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-bounce", speed: speed, defaultAnimationDuration: 0.8 }, rest), renderSquares()));
+};
+/* harmony default export */ const Bounce_Bounce = (Bounce);
+
+;// CONCATENATED MODULE: ./src/Bounce/index.ts
+
+
+
+/***/ }),
+
+/***/ 843:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_2955__) => {
+
+
+// EXPORTS
+__nested_webpack_require_2955__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Digital_Digital)
+});
+
+;// CONCATENATED MODULE: ./src/Digital/Digital.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_2955__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_2955__(438);
+// EXTERNAL MODULE: ./src/shared/getRelativeTime.ts
+var getRelativeTime = __nested_webpack_require_2955__(531);
+;// CONCATENATED MODULE: ./src/Digital/Digital.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = ( false) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+var Digital = function (_a) {
+    var _b = _a.speed, speed = _b === void 0 ? 1 : _b, rest = __rest(_a, ["speed"]);
+    var rects = [];
+    for (var i = 1; i <= 3; i++) {
+        rects.unshift(external_react_.createElement("div", { key: i, style: {
+                animationDelay: (0,getRelativeTime/* getRelativeTime */.n)(speed, i / -10),
+            } }));
+    }
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-digital", defaultAnimationDuration: 0.8, speed: speed }, rest), rects));
+};
+/* harmony default export */ const Digital_Digital = (Digital);
+
+;// CONCATENATED MODULE: ./src/Digital/index.ts
+
+
+
+/***/ }),
+
+/***/ 266:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_5180__) => {
+
+
+// EXPORTS
+__nested_webpack_require_5180__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Dots_Dots)
+});
+
+;// CONCATENATED MODULE: ./src/Dots/Dots.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_5180__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_5180__(438);
+// EXTERNAL MODULE: ./src/shared/getRelativeTime.ts
+var getRelativeTime = __nested_webpack_require_5180__(531);
+;// CONCATENATED MODULE: ./src/Dots/Dots.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = ( false) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+var Dots = function (_a) {
+    var _b = _a.speed, speed = _b === void 0 ? 1 : _b, rest = __rest(_a, ["speed"]);
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-dots", speed: speed, defaultAnimationDuration: 0.8 }, rest),
+        external_react_.createElement("div", { className: "rai-circle", style: { animationDelay: (0,getRelativeTime/* getRelativeTime */.n)(speed, -0.3) } }),
+        external_react_.createElement("div", { className: "rai-circle", style: { animationDelay: (0,getRelativeTime/* getRelativeTime */.n)(speed, -0.2) } }),
+        external_react_.createElement("div", { className: "rai-circle", style: { animationDelay: (0,getRelativeTime/* getRelativeTime */.n)(speed, -0.1) } })));
+};
+/* harmony default export */ const Dots_Dots = (Dots);
+
+;// CONCATENATED MODULE: ./src/Dots/index.ts
+
+
+
+/***/ }),
+
+/***/ 831:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_7589__) => {
+
+
+// EXPORTS
+__nested_webpack_require_7589__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Levels_Levels)
+});
+
+;// CONCATENATED MODULE: ./src/Levels/Levels.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_7589__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_7589__(438);
+// EXTERNAL MODULE: ./src/shared/getRelativeTime.ts
+var getRelativeTime = __nested_webpack_require_7589__(531);
+;// CONCATENATED MODULE: ./src/Levels/Levels.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = ( false) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+var Levels = function (_a) {
+    var _b = _a.speed, speed = _b === void 0 ? 1 : _b, rest = __rest(_a, ["speed"]);
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-levels", speed: speed, defaultAnimationDuration: 1.5 }, rest),
+        external_react_.createElement("div", { className: "rai-levels-container" },
+            external_react_.createElement("div", { className: "rai-bar" }),
+            external_react_.createElement("div", { className: "rai-bar", style: { animationDelay: (0,getRelativeTime/* getRelativeTime */.n)(speed, -0.25) } }),
+            external_react_.createElement("div", { className: "rai-bar", style: { animationDelay: (0,getRelativeTime/* getRelativeTime */.n)(speed, -0.4) } }))));
+};
+/* harmony default export */ const Levels_Levels = (Levels);
+
+;// CONCATENATED MODULE: ./src/Levels/index.ts
+
+
+
+/***/ }),
+
+/***/ 874:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_10027__) => {
+
+
+// EXPORTS
+__nested_webpack_require_10027__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Sentry_Sentry)
+});
+
+;// CONCATENATED MODULE: ./src/Sentry/Sentry.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_10027__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_10027__(438);
+// EXTERNAL MODULE: ./src/shared/getRelativeTime.ts
+var getRelativeTime = __nested_webpack_require_10027__(531);
+;// CONCATENATED MODULE: ./src/Sentry/Sentry.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = ( false) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+var Sentry = function (_a) {
+    var _b = _a.speed, speed = _b === void 0 ? 1 : _b, rest = __rest(_a, ["speed"]);
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-sentry", speed: speed, defaultAnimationDuration: 0.8 }, rest),
+        external_react_.createElement("div", { className: "rai-wave-container" },
+            external_react_.createElement("div", { className: "rai-wave" })),
+        external_react_.createElement("div", { className: "rai-wave-container" },
+            external_react_.createElement("div", { className: "rai-wave", style: { animationDelay: (0,getRelativeTime/* getRelativeTime */.n)(speed, -0.4) } }))));
+};
+/* harmony default export */ const Sentry_Sentry = (Sentry);
+
+;// CONCATENATED MODULE: ./src/Sentry/index.ts
+
+
+
+/***/ }),
+
+/***/ 752:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_12387__) => {
+
+
+// EXPORTS
+__nested_webpack_require_12387__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Spinner_Spinner)
+});
+
+;// CONCATENATED MODULE: ./src/Spinner/Spinner.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_12387__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_12387__(438);
+;// CONCATENATED MODULE: ./src/Spinner/Spinner.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+
+var Spinner = function (props) {
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-spinner", defaultAnimationDuration: 0.6 }, props),
+        external_react_.createElement("div", { className: "rai-spinner-outer" }),
+        external_react_.createElement("div", { className: "rai-spinner-inner" })));
+};
+/* harmony default export */ const Spinner_Spinner = (Spinner);
+
+;// CONCATENATED MODULE: ./src/Spinner/index.ts
+
+
+
+/***/ }),
+
+/***/ 209:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_13822__) => {
+
+
+// EXPORTS
+__nested_webpack_require_13822__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Squares_Squares)
+});
+
+;// CONCATENATED MODULE: ./src/Squares/Squares.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_13822__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_13822__(438);
+;// CONCATENATED MODULE: ./src/Squares/Squares.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+
+var Squares = function (props) {
+    var squares = [];
+    for (var i = 1; i <= 3; i++) {
+        squares.unshift(external_react_.createElement("div", { key: i, className: "rai-square", style: { animationDelay: "-" + i / 10 + "s" } }));
+    }
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-squares", defaultAnimationDuration: 0.8 }, props), squares));
+};
+/* harmony default export */ const Squares_Squares = (Squares);
+
+;// CONCATENATED MODULE: ./src/Squares/index.ts
+
+
+
+/***/ }),
+
+/***/ 918:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_15312__) => {
+
+
+// EXPORTS
+__nested_webpack_require_15312__.d(__webpack_exports__, {
+  "default": () => (/* reexport */ Windmill_Windmill)
+});
+
+;// CONCATENATED MODULE: ./src/Windmill/Windmill.css
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_15312__(297);
+// EXTERNAL MODULE: ./src/shared/ActivityIndicator/index.ts + 1 modules
+var ActivityIndicator = __nested_webpack_require_15312__(438);
+;// CONCATENATED MODULE: ./src/Windmill/Windmill.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+
+var Windmill = function (props) {
+    return (external_react_.createElement(ActivityIndicator/* default */.Z, __assign({ className: "rai-windmill", defaultAnimationDuration: 0.8 }, props)));
+};
+/* harmony default export */ const Windmill_Windmill = (Windmill);
+
+;// CONCATENATED MODULE: ./src/Windmill/index.ts
+
+
+
+/***/ }),
+
+/***/ 438:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_16595__) => {
+
+
+// EXPORTS
+__nested_webpack_require_16595__.d(__webpack_exports__, {
+  "Z": () => (/* reexport */ ActivityIndicator_ActivityIndicator)
+});
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __nested_webpack_require_16595__(297);
+// EXTERNAL MODULE: ./src/shared/getRelativeTime.ts
+var getRelativeTime = __nested_webpack_require_16595__(531);
+;// CONCATENATED MODULE: ./src/shared/ActivityIndicator/ActivityIndicator.tsx
+var __assign = ( false) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+var ActivityIndicator = function (_a) {
+    var style = _a.style, _b = _a.size, size = _b === void 0 ? 16 : _b, _c = _a.speed, speed = _c === void 0 ? 1 : _c, defaultAnimationDuration = _a.defaultAnimationDuration, color = _a.color, className = _a.className, _d = _a.animating, animating = _d === void 0 ? true : _d, children = _a.children;
+    if (!animating) {
+        return null;
+    }
+    var animationDuration = (0,getRelativeTime/* getRelativeTime */.n)(speed, defaultAnimationDuration);
+    return (external_react_.createElement("div", { "data-testid": "rai-activity-indicator", className: "rai-container " + className, style: __assign({ color: color, fontSize: size + "px", animationDuration: animationDuration }, style) }, children));
+};
+/* harmony default export */ const ActivityIndicator_ActivityIndicator = (ActivityIndicator);
+
+;// CONCATENATED MODULE: ./src/shared/ActivityIndicator/index.ts
+
+
+
+/***/ }),
+
+/***/ 531:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_18395__) => {
+
+/* harmony export */ __nested_webpack_require_18395__.d(__webpack_exports__, {
+/* harmony export */   "n": () => (/* binding */ getRelativeTime)
+/* harmony export */ });
+var getRelativeTime = function (speed, delay) {
+    return (1 / speed) * delay + "s";
+};
+
+
+/***/ }),
+
+/***/ 297:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__297__;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_18995__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_18995__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__nested_webpack_require_18995__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__nested_webpack_require_18995__.o(definition, key) && !__nested_webpack_require_18995__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__nested_webpack_require_18995__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nested_webpack_require_18995__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+__nested_webpack_require_18995__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_18995__.d(__webpack_exports__, {
+/* harmony export */   "Dots": () => (/* reexport safe */ _Dots__WEBPACK_IMPORTED_MODULE_0__.default),
+/* harmony export */   "Bounce": () => (/* reexport safe */ _Bounce__WEBPACK_IMPORTED_MODULE_1__.default),
+/* harmony export */   "Levels": () => (/* reexport safe */ _Levels__WEBPACK_IMPORTED_MODULE_2__.default),
+/* harmony export */   "Sentry": () => (/* reexport safe */ _Sentry__WEBPACK_IMPORTED_MODULE_3__.default),
+/* harmony export */   "Spinner": () => (/* reexport safe */ _Spinner__WEBPACK_IMPORTED_MODULE_4__.default),
+/* harmony export */   "Squares": () => (/* reexport safe */ _Squares__WEBPACK_IMPORTED_MODULE_5__.default),
+/* harmony export */   "Digital": () => (/* reexport safe */ _Digital__WEBPACK_IMPORTED_MODULE_6__.default),
+/* harmony export */   "Windmill": () => (/* reexport safe */ _Windmill__WEBPACK_IMPORTED_MODULE_7__.default)
+/* harmony export */ });
+/* harmony import */ var _Dots__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_18995__(266);
+/* harmony import */ var _Bounce__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_18995__(930);
+/* harmony import */ var _Levels__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_18995__(831);
+/* harmony import */ var _Sentry__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_18995__(874);
+/* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_18995__(752);
+/* harmony import */ var _Squares__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_18995__(209);
+/* harmony import */ var _Digital__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_18995__(843);
+/* harmony import */ var _Windmill__WEBPACK_IMPORTED_MODULE_7__ = __nested_webpack_require_18995__(918);
+
+
+
+
+
+
+
+
+
+
+})();
+
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});
 
 /***/ }),
 
@@ -52288,42 +52955,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -52364,68 +52996,13 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	__webpack_require__("./resources/js/app.js");
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/sass/app.scss");
 /******/ 	
 /******/ })()
 ;

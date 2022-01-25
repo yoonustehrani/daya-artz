@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Spinner } from 'react-activity'
 
 class QuickOrder extends Component {
     constructor(props) {
@@ -72,65 +73,77 @@ class QuickOrder extends Component {
             }
         })
     }
+    handleRecaptcha = (clb) => {
+        let {reCAPTCHA_Key} = this.props
+        grecaptcha.ready(async function() {
+            try {
+                const token = await grecaptcha.execute(reCAPTCHA_Key, {action: 'quick_order'})
+                clb(token)
+            } catch (err) {
+                console.log(err)
+            }
+        });
+    }
+    handleFormSubmit = async (recaptch_token) => {
+        let { fullname, phone_number, description, order_items } = this.state.order
+        let data = {fullname, phone_number, description, order_items, recaptch_token};
+        try {
+            const response = await axios.post(this.props.targetApi, data);
+            let {okay, message} = response.data;
+            if (okay) {
+                this.setState({
+                    message,
+                    order: {
+                        order_items: [],
+                        phone_number: "",
+                        fullname: "",
+                        description: ""
+                    },
+                    loading: false,
+                    active: false
+                })
+            }
+        } catch (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                let {data, status} = error.response
+                let newState;
+                switch (status) {
+                    case 422:
+                        newState = {error: "خطا", errors: data.errors}
+                        break;
+                    case 403:
+                        newState = {error: data.message}
+                        break;
+                    default:
+                        newState = {error: "خطا"}
+                        break;
+                }
+                newState['loading'] = false;
+                this.setState(newState);
+            } else if (error.request) {
+                // The request was made but no response was received
+                this.setState({
+                    error: "پاسخی از سمت سرور دریافت نشد لطفا مجددا تلاش کنید.",
+                    loading: false
+                })
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                this.setState({
+                    error: "مشکلی در ارسال اطلاعات به سمت سرور وجود دارد.",
+                    loading: false
+                })
+            }
+        }
+    }
     handleSubmit = (e) => {
         e.preventDefault()
         this.setState({
             loading: true,
             error: false,
             errors: {}, 
-        }, async () => {
-            let { fullname, phone_number, description, order_items } = this.state.order
-            let data = {fullname, phone_number, description, order_items};
-            try {
-                const response = await axios.post(this.props.targetApi, data);
-                let {okay, message} = response.data;
-                if (okay) {
-                    this.setState({
-                        message,
-                        order: {
-                            order_items: [],
-                            phone_number: "",
-                            fullname: "",
-                            description: ""
-                        },
-                        loading: false,
-                        active: false
-                    })
-                }
-            } catch (error) {
-                if (error.response) {
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
-                    let {data, status} = error.response
-                    let newState;
-                    switch (status) {
-                        case 422:
-                            newState = {error: "خطا !", errors: data.errors}
-                            break;
-                        case 403:
-                            newState = {error: data.message}
-                            break;
-                        default:
-                            newState = {error: "خطا !"}
-                            break;
-                    }
-                    newState['loading'] = false;
-                    this.setState(newState);
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    this.setState({
-                        error: "پاسخی از سمت سرور دریافت نشد لطفا مجددا تلاش کنید.",
-                        loading: false
-                    })
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    this.setState({
-                        error: "مشکلی در ارسال اطلاعات به سمت سرور وجود دارد.",
-                        loading: false
-                    })
-                }
-            }
-        })
+        }, this.handleRecaptcha.bind(this, this.handleFormSubmit))
     }
     render() {
         let { services, order, error, errors, message, active, loading } = this.state
@@ -147,7 +160,7 @@ class QuickOrder extends Component {
             <>
                 {error && 
                     <div className="alert alert-danger text-right rtl">
-                        <span className='p-0 m-0'>{error}</span>
+                        <span className='p-0 m-0'><i className="fas fa-exclamation-circle"></i> {error}</span>
                         <ul className='m-0 mr-4 p-0 px-2'>
                         {messages.map((m, i) => (
                             <li key={i}>{m}</li>
@@ -157,7 +170,7 @@ class QuickOrder extends Component {
                 }
                 {message &&
                     <div className="alert alert-success text-right rtl">
-                        <span>{message}</span>
+                        <span><i className="fas fa-check-circle"></i> {message}</span>
                     </div>
                 }
                 <form action="#" onSubmit={this.handleSubmit}>
@@ -191,7 +204,7 @@ class QuickOrder extends Component {
                     <div className="form-group">
                         <textarea name="fast-order-description" cols="30" rows="10" disabled={! active} value={description} onChange={this.handleChange.bind(this, 'description')} className="form-control" placeholder="توضیحات"></textarea>
                     </div>
-                    {loading && <p>Loading ...</p>}
+                    {loading && <div className='btn'><Spinner /></div>}
                     {! loading && <button disabled={! active} type="submit" style={{ cursor: active ? 'pointer' : 'not-allowed' }} className="btn">ثبت سفارش</button>}
                 </form>
             </>

@@ -259,7 +259,7 @@
     </div>
 </div>
 <!-- end other services -->
-<!-- fast order -->
-    @include('components.fast-order-form')
-<!-- end fast order -->
+<!-- quick order -->
+<x-quick-order-form />
+<!-- end quick order -->
 @endsection

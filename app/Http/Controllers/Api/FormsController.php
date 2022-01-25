@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RecaptchaRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -17,8 +18,9 @@ class FormsController extends Controller
         }
         return $code;
     }
-    public function quickOrder(Request $request)
+    public function quickOrder(RecaptchaRequest $request)
     {
+        abort_if(! $request->validate_captcha('quick_order'), 403, __('messages.google_recaptcha_error'));
         $request->validate([
             'phone_number' => 'required|string|digits:11|regex:/^09[0-9]{9}$/',
             'fullname' => 'required|string|min:3|max:40',

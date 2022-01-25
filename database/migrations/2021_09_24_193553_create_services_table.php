@@ -17,12 +17,13 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->integer('parent_id')->nullable();
             $table->string('title', 60);
+            $table->string('subtitle');
             $table->string('slug');
+            $table->string('icon_class');
             $table->string('group', 60);
             $table->integer('price')->nullable();
             $table->text('description')->nullable();
-            $table->longText('content')->nullable();
-            $table->timestamps();
+            $table->text('content')->nullable();
         });
     }
 

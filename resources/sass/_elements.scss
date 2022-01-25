@@ -1288,7 +1288,11 @@ div.post-info-section {
         // background: linear-gradient(to left, #a044ff, #6a3093); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         position: relative;
         z-index: 5;
+<<<<<<< HEAD
         h1 {
+=======
+        .post-title {
+>>>>>>> f6207c9f8ec7175915de73273ade0c8b3cec174b
             color: #fff;
             font-size: 26px;
             font-weight: bold;
@@ -1364,7 +1368,7 @@ div.post-main-section {
         p {
             font-size: 18px;
             color: $long-txt;
-            text-align: justify;
+            text-align: right;
             margin: 20px 0;
         }
     }
