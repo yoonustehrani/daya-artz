@@ -1,5 +1,9 @@
 @extends('layouts.page')
 
+@push('head')
+    <title>وبلاگ دایا آرتز</title>
+@endpush
+
 @section('header')
 <div class="header-section dotted-background blog-header">
     <div class="float-right p-4 col-lg-6 col-md-7 col-12 my-auto">
@@ -52,13 +56,13 @@
             <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
                 <div class="img-container w-100">
                     <img src="{{ asset($post->image_url) }}" alt="{{ $post->image_alt }}" class="w-100 h-100">
-                    <span class="article-date">{{ $post->created_at->format('M d') }}<br>{{ $post->created_at->format('Y') }}</span>
+                    <span class="article-date">{{ jdate($post->created_at)->format('%e %B') }}<br>{{ jdate($post->created_at)->format('%Y') }}</span>
                 </div>
                 <div class="article-info">
                     {{-- @if ($post->author_id)
                     <p class="blog-post-source">نوشته شده توسط: ویکی پدیا</p>
                     @endif --}}
-                    <h3 class="block">{{ $post->title }}</h3>
+                    <h3 class="block mt-4">{{ $post->title }}</h3>
                     <p class="blog-post-description text-secondary">{{ $post->description }}</p>
                     <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
                 </div>

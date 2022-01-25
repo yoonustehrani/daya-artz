@@ -10152,7 +10152,7 @@ h3 {
   .post-info-section .post-info-container {
     width: calc(100% - 190px) !important;
   }
-  .post-info-section .post-info-container h2 {
+  .post-info-section .post-info-container .post-title {
     font-size: 22px !important;
   }
   .post-info-section .post-info-container .post-info-flex span, .post-info-section .post-info-container .post-info-flex i {
@@ -13642,7 +13642,7 @@ div.post-info-section div.post-info-container {
   position: relative;
   z-index: 5;
 }
-div.post-info-section div.post-info-container h2 {
+div.post-info-section div.post-info-container .post-title {
   color: #fff;
   font-size: 26px;
   font-weight: bold;
@@ -13712,7 +13712,7 @@ div.post-main-section div.post-main-text h2 {
 div.post-main-section div.post-main-text p {
   font-size: 18px;
   color: #4a4a4a;
-  text-align: justify;
+  text-align: right;
   margin: 20px 0;
 }
 div.post-main-section div.recommand-section {
