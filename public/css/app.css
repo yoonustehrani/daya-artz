@@ -13631,11 +13631,7 @@ div.post-info-section div.post-info-container {
   position: relative;
   z-index: 5;
 }
-<<<<<<< HEAD
-div.post-info-section div.post-info-container h1 {
-=======
 div.post-info-section div.post-info-container .post-title {
->>>>>>> f6207c9f8ec7175915de73273ade0c8b3cec174b
   color: #fff;
   font-size: 26px;
   font-weight: bold;
