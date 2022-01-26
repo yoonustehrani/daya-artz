@@ -61,7 +61,7 @@ Route::get('test', function (Request $request) {
         App\Models\Service::whereRaw("1=1")->delete();
         return redirect()->to(route('tempo'));
     }
-    return App\Models\Service::all();
+    return App\Models\Service::all()->groupBy('group');
     // return view('test');
     // return App\Models\Order::latest()->get();
 // $user = User::find(2);

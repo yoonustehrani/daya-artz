@@ -68,6 +68,10 @@ class PostController extends Controller
         if ($post->author_id) {
             $post->load('author');
         }
+        if ($post->tags->count() > 0) {
+            $post->related = $post->related()->take(3)->get();
+        }
+
         return view('pages.posts.show', compact('post'));
     }
 }

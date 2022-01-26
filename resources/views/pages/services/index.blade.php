@@ -4,9 +4,9 @@
 <!-- services Header -->
 <div class="header-section policy-header dotted-background services-header">
     <div class="header-text p-4 col-12 col-md-7">
-        <h2>خدمات <a href="{{ route('home') }}">دایا</a></h2>
+        <h1>خدمات <a class="aqua" href="{{ route('home') }}">دایا آرتز</a></h1>
         <br>
-        <p>تیم طراحی <a href="{{ route('home') }}">دایا آرتز</a> با ارائه لیست کاملی از خدمات طراحی برای شما مشتریان در تلاش است تا ثبت سفارشات شما را به راحت ترین روش ممکن ایجاد کند.</p>
+        <p>تیم طراحی <b class="aqua">دایا آرتز</b> با ارائه لیست کاملی از خدمات طراحی برای شما مشتریان در تلاش است تا ثبت سفارشات شما را به راحت ترین روش ممکن ایجاد کند.</p>
     </div>
     <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
         <img src="{{ asset('images/services.svg') }}" class="rules">
@@ -22,7 +22,7 @@
 <div class="section w-100 mt-5 mb-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
-            <h2 class="title-text">دسته بندی خدمات</h2>
+            <h2 class="title-text">خدمات طراحی گرافیک</h2>
         </div>
     </div>
     <div class="services-groups-container w-100">
@@ -31,7 +31,7 @@
                 <i class="fas fa-desktop computer-icon"></i>
                 <i class="fas fa-print inside-computer"></i>
             </span>
-            <h4 class="group-name">خدمات طراحی چاپی</h4>
+            <h3 class="group-name">طراحی چاپی</h3>
         </div>
         <div class="d-none d-md-block matcher-line match-line-1"></div>
         <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
@@ -39,7 +39,7 @@
                 <i class="fas fa-desktop computer-icon"></i>
                 <i class="fab fa-twitter inside-computer"></i>
             </span>
-            <h4 class="group-name">خدمات طراحی فضای مجازی </h4>
+            <h3 class="group-name">طراحی فضای مجازی </h3>
         </div>
         <div class="d-none d-md-block matcher-line match-line-2"></div>
         <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
@@ -47,7 +47,7 @@
                 <i class="fas fa-desktop computer-icon"></i>
                 <i class="fas fa-pencil-ruler inside-computer"></i>
             </span>
-            <h4 class="group-name">خدمات طراحی دیجیتالی</h4>
+            <h3 class="group-name">طراحی دیجیتالی</h3>
         </div>
     </div>
 </div>
@@ -67,14 +67,14 @@
 <div class="section w-100 mt-5 mb-0 mb-md-3">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
-            <h2 class="title-text">خدمات اصلی دایا آرتز</h2>
+            <h4 class="title-text">خدمات اصلی دایا آرتز</h4>
         </div>
     </div>
     <div class="main-services-container w-100 p-2">
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fab fa-d-and-d"></i></span><h2>لوگو</h2></div>
             <div class="info-container">
-                <h3>طراحی لوگو با بالاترین کیفیت</h3>
+                <p class="title">طراحی لوگو با بالاترین کیفیت</p>
                 <p>لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف ، باور و هسته فعالیت شماست</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
@@ -85,7 +85,7 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-scroll"></i></span><h2>سربرگ</h2></div>
             <div class="info-container">
-                <h3>طراحی سربرگ رسمی و حرفه ای</h3>
+                <p class="title">طراحی سربرگ رسمی و حرفه ای</p>
                 <p>سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
@@ -96,7 +96,7 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-book-open"></i></span><h2>کاتالوگ</h2></div>
             <div class="info-container">
-                <h3>بهترین باز خورد ها با کاتالوگ های خاص</h3>
+                <p class="title">بهترین باز خورد ها با کاتالوگ های خاص</p>
                 <p>کاتالوگ مهم ترین ابزار برای تبلیغ و انتشار تبلیغات فروش یک محصول است. انتقال صحیح به مشتریان از مهم ترین ارمغان های کاتالوگ است</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
@@ -107,7 +107,7 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-address-card"></i></span><h2>کارت ویزیت</h2></div>
             <div class="info-container">
-                <h3>انواع کارت ویزیت های ساده و خاص</h3>
+                <p class="title">انواع کارت ویزیت های ساده و خاص</p>
                 <p>سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
@@ -118,7 +118,7 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-mail-bulk"></i></span><h2>ست اداری</h2></div>
             <div class="info-container">
-                <h3>ویزیت ، سربرگ ، تقویم و سررسید ، خودکار و ...</h3>
+                <p class="title">ویزیت ، سربرگ ، تقویم و سررسید ، خودکار و ...</p>
                 <p>لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند ، و وابسته به هدف و نوع متقاضیان انتخاب می شود</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
@@ -129,7 +129,7 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-plus-circle"></i></span><h2>ترکیبی</h2></div>
             <div class="info-container">
-                <h3>ترکیب خود را بسازید</h3>
+                <p class="title">ترکیب خود را بسازید</p>
                 <p>اگه نیاز به طراحی های متنوع در بخش عا و خدمات مختلف هستید ، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
@@ -144,7 +144,7 @@
 <div class="section w-100 text-center mb-4 daya-guide">
     <div class="title-section w-100">
         <div class="title-container">
-            <h2 class="title-text">راهنمای دایا</h2>
+            <p class="title-text">راهنمای دایا</p>
         </div>
     </div>
     <div class="section contact-us-first-section w-100 text-center">
@@ -160,7 +160,7 @@
             </div>
         </div>
         <div class="contact-us-form">
-            <h4 class="mb-3 mb-md-2 mb-md-4">به راهنمایی احتیاج داری</h4>
+            <p class="title mb-3 mb-md-2 mb-md-4">راهنمایی احتیاج دارید ؟</p>
             <form action="#">
                 <div class="input-group mb-2 mb-md-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
                 <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>
@@ -171,8 +171,33 @@
 </div>
 <!-- end guide section -->
 
-<!-- printing design services -->
+{{-- Service Groups --}}
+@foreach ($service_groups as $group => $services)
 <div class="section w-100 mt-3 mt-md-5">
+    <div class="title-section w-100 mb-4">
+        <div class="title-container">
+            <p class="title-text">{{ $group }}</p>
+        </div>
+    </div>
+    <div class="other-services-container w-100">
+        @foreach ($services as $service)
+        <div class="other-service">
+            <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
+            <p class="title">{{ $service->title }}</p>
+            <a href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
+            <div class="mb-4">
+                <a href="#" class="btn mx-1 btn-gradient">ثبت سفارش</a>
+                <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient">مشاهده نمونه کار</a>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@endforeach
+{{-- End Service Groups --}}
+
+<!-- printing design services -->
+{{-- <div class="section w-100 mt-3 mt-md-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h2 class="title-text">خدمات طراحی چاپی</h2>
@@ -240,52 +265,7 @@
             <button class="btn btn-gradient">سفارش</button>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- end other services -->
-
-<!-- social media design services -->
-<div class="section w-100 mt-3 mt-md-5">
-    <div class="title-section w-100 mb-4">
-        <div class="title-container">
-            <h2 class="title-text">خدمات طراحی فضای مجازی</h2>
-        </div>
-    </div>
-    <div class="other-services-container w-100">
-        <div class="other-service">
-            <span class="back-aqua"><i class="fab fa-instagram"></i></span>
-            <h2>صفحات مجازی</h2>
-            <h3>طراحی قالب ، کاور ،‌پروفایل و ...</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-    </div>
-</div>
-<!-- end social media design services -->
-
-<!-- digital design services -->
-<div class="section w-100 mt-3 mt-md-5">
-    <div class="title-section w-100 mb-4">
-        <div class="title-container">
-            <h2 class="title-text">خدمات طراحی دیجیتالی</h2>
-        </div>
-    </div>
-    <div class="other-services-container w-100">
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-image"></i></span>
-            <h2>اسلایدر وب سایت</h2>
-            <h3>طراحی اسلایدر های حرفه ای</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-guitar"></i></span>
-            <h2>موزیک</h2>
-            <h3>کاور ، تم آلبوم و ...</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-    </div>
-</div>
-<!-- end digital services -->
-
-<!-- quick order -->
 <x-quick-order-form />
-<!-- end quick order -->
 @endsection

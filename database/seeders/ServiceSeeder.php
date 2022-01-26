@@ -63,84 +63,96 @@ class ServiceSeeder extends Seeder
                 "title" => "بنر تبلیغاتی",
                 "subtitle" => "طراحی بنر دیجیتالی و چاپی",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-ad"
             ],
             [
                 "title" => "بروشور",
                 "subtitle" => "طراحی انواع بروشور ها",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-map"
             ],
             [
                 "title" => "تراکت",
                 "subtitle" => "طراحی تراکت در انواع سایز و مدل",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-sticky-note"
             ],
             [
                 "title" => "اسلایدر وب سایت",
                 "subtitle" => "طراحی اسلایدر های حرفه ای",
                 "description" => "",
+                "group" => "خدمات طراحی دیجیتالی",
                 "icon_class" => "fas fa-image"
             ],
             [
                 "title" => "منو رستوران و کافی شاپ",
                 "subtitle" => "منو های خاص و شکیل",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fab fa-elementor"
             ],
             [
                 "title" => "صفحات مجازی",
                 "subtitle" => "طراحی قالب ، کاور ،‌پروفایل و ...",
                 "description" => "",
+                "group" => "خدمات طراحی فضای مجازی",
                 "icon_class" => "fab fa-instagram"
             ],
             [
                 "title" => "پاکت نامه",
                 "subtitle" => "پاکت های نامه رسمی و فانتزی",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-envelope"
             ],
             [
                 "title" => "بیلبورد",
                 "subtitle" => "طراحی انواع بیلبورد و استند و استرابورد",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-images"
             ],
             [
                 "title" => "موزیک",
                 "subtitle" => "کاور ، تم آلبوم و ...",
                 "description" => "",
+                "group" => "خدمات طراحی دیجیتالی",
                 "icon_class" => "fas fa-guitar"
             ],
             [
                 "title" => "تقویم",
                 "subtitle" => "طراحی انواع تقویم و سررسید",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-calendar-check"
             ],
             [
                 "title" => "فاکتور",
                 "subtitle" => "طراحی انواع فاکتور های خاص و اداری",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-receipt"
             ],
             [
                 "title" => "جلد کتاب",
                 "subtitle" => "جلد انواع کتاب ، مجلات و ...",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-book"
             ],
             [
                 "title" => "بسته بندی",
                 "subtitle" => "بسته بندی های ساده و خاص",
                 "description" => "",
+                "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-box"
             ]
         ];
         foreach ($other_service as $service) {
             $service = new Service($service);
-            $service->group = 'other';
             $service->slug = str_replace(' ', '-',$service->title);
             $service->save();
         }

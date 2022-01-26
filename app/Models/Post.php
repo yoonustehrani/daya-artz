@@ -30,4 +30,14 @@ class Post extends Model
     {
         return $this->morphOne(Category::class, 'categoreable');
     }
+
+    public function related()
+    {
+        if (is_null($this->getKey())) {
+            return [];
+        }
+        return static::whereHas('tags', function($q) {
+            $q->whereIn('name', $this->tags->pluck('name'));
+        })->where('id', '<>', $this->getKey());
+    }
 }
