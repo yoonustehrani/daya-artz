@@ -2,20 +2,21 @@
 
 namespace App\Models;
 
+use App\Traits\HasDetailsAttribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
 {
-    use HasFactory;
+    use HasFactory, HasDetailsAttribute;
 
     public function images()
     {
-        return $this->morphedByMany(File::class, 'fileable')->whereType('image');
+        return $this->morphToMany(File::class, 'fileable')->whereType('image')->withPivot('details');
     }
 
-    public function image()
-    {
-        return $this->images()->take(1);
-    }
+    // public function image()
+    // {
+    //     return $this->morp(File::class, 'fileable')->whereType('image')->withPivot('details')->limit(1);
+    // }
 }

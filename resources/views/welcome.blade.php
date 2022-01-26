@@ -195,13 +195,8 @@
     <!-- About Logo -->
     @include('components.info-item')
     <!-- end About Logo -->
-
-    <!-- Portfolio -->
-    @include('components.portfolio')
-    <!-- end Portfolio -->
-
+    <x-portfolio :api-target="route('api.portfolios.index')"/>
     <x-quick-order-form />
-
     <!-- daya blog -->
     @include('components.blog-suggestion')
     <!-- end daya blog -->

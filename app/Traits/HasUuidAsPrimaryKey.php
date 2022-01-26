@@ -6,7 +6,7 @@ use Ramsey\Uuid\Uuid;
 
 trait HasUuidAsPrimaryKey
 {
-    public function bootHasUuidAsPrimaryKey()
+    public static function bootHasUuidAsPrimaryKey()
     {
         static::creating(function ($model) {
             $model->{$model->getKeyName()} = (string) Uuid::uuid4();

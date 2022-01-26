@@ -2119,17 +2119,17 @@ var PortfolioItem = function PortfolioItem(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
     href: url,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      "class": "portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn",
+      className: "portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        "class": "portfolio-avatar",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
-          src: image.url,
-          alt: image.alt
+        className: "portfolio-avatar",
+        children: image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+          src: APP_PATH + image.path,
+          alt: image.name
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        "class": "portfolio-detail",
+        className: "portfolio-detail",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          "class": "title",
+          className: "title",
           children: title
         })
       })]
@@ -2210,7 +2210,11 @@ var PortfolioSection = function PortfolioSection(_ref) {
       className: "d-flex justify-content-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {})
     }), portfolios.length > 0 ? portfolios.map(function (item, i) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_PortfolioItem__WEBPACK_IMPORTED_MODULE_1__["default"], _objectSpread({}, item), i);
+      var _item$images$;
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_PortfolioItem__WEBPACK_IMPORTED_MODULE_1__["default"], _objectSpread({
+        image: (_item$images$ = item.images[0]) !== null && _item$images$ !== void 0 ? _item$images$ : null
+      }, item), i);
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       className: "text-center",
       children: "\u0646\u0645\u0648\u0646\u0647 \u06A9\u0627\u0631\u06CC \u062C\u0647\u062A \u0646\u0645\u0627\u06CC\u0634 \u0648\u062C\u0648\u062F \u0646\u062F\u0627\u0631\u062F"

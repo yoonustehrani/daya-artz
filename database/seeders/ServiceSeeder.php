@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\File;
+use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\ServicePlan;
 use Illuminate\Database\Seeder;
@@ -53,12 +55,12 @@ class ServiceSeeder extends Seeder
             //     "icon_class" => "fas fa-plus-circle"
             // ]
         ];
-        foreach ($services as $service) {
-            $service = new Service($service);
-            $service->group = 'main';
-            $service->slug = str_replace(' ', '-',$service->title);
-            $service->save();
-        }
+        // foreach ($services as $service) {
+        //     $service = new Service($service);
+        //     $service->group = 'main';
+        //     $service->slug = str_replace(' ', '-',$service->title);
+        //     $service->save();
+        // }
         $other_service = [
             [
                 "title" => "بنر تبلیغاتی",
@@ -155,8 +157,25 @@ class ServiceSeeder extends Seeder
         foreach ($other_service as $service) {
             $service = new Service($service);
             $service->slug = str_replace(' ', '-',$service->title);
+            $service->content = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error consequuntur incidunt nulla pariatur reiciendis placeat officia aliquam cum asperiores. Delectus repudiandae necessitatibus ipsum minima dolor sunt culpa, tenetur consequatur nobis.
+            Magni ipsam ab, alias accusamus deserunt fugit id! Similique ipsum, tempore in, ullam error nam dolorum nihil consectetur harum voluptatum deleniti iusto ut. Rerum adipisci nulla saepe necessitatibus ad quidem.
+            Sint consequuntur eos cumque eaque dicta perspiciatis cum voluptates quae, deserunt sapiente neque minima. Unde ut amet fugiat! Ad consequuntur adipisci aut veritatis ratione atque officiis ab iure impedit iste?
+            Dignissimos, ea! Officiis perspiciatis vitae quo quia placeat repellendus quasi unde exercitationem molestias aliquam numquam ratione, est at similique distinctio vel accusamus. Odio voluptatem dolores accusamus repudiandae blanditiis quam eum.
+            Totam odit nulla pariatur velit atque fuga voluptatibus. Assumenda eveniet nisi ipsam error ea repellat id obcaecati est neque eos voluptatem, veniam quos, praesentium doloribus incidunt eum adipisci magni repudiandae?
+            Dignissimos voluptates numquam maiores velit, architecto, enim hic consequuntur voluptatem reiciendis recusandae iusto fugit facilis esse illum quis quam quia neque adipisci debitis beatae? Iusto blanditiis ipsa minus consectetur cum.
+            Explicabo fugiat dignissimos veritatis possimus rerum? Distinctio, ex et repellendus consequatur vel, eius impedit libero adipisci iste autem placeat officiis quidem necessitatibus amet voluptatum minima eum facilis reiciendis optio quasi!
+            Fugit consequatur repellendus aliquid vitae vero modi quisquam, mollitia corrupti, reiciendis dignissimos aperiam accusamus facilis incidunt, magni soluta? Aliquam necessitatibus consequuntur ratione impedit! Temporibus obcaecati explicabo esse, officia exercitationem inventore!
+            Molestias dignissimos enim architecto, hic distinctio expedita dolore quae repellat facilis! Modi suscipit est assumenda officiis perspiciatis laudantium aspernatur facilis. Sit distinctio eius voluptatibus error, sed dicta magni aspernatur nisi.
+            Tenetur labore, impedit laudantium iste maiores minus quisquam numquam neque quae beatae cupiditate ratione, eveniet eum distinctio explicabo architecto aperiam. Consequatur illo facere possimus alias voluptates modi perspiciatis quia labore!</p>";
             if ($service->save()) {
                 $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
+                foreach (File::all() as $file) {
+                    $portfolio = Portfolio::factory(1)->make();
+                    $portfolio = $service->portfolios()->saveMany($portfolio);
+                    $portfolio[0]->images()->attach([
+                        $file->getKey() => ['details' => json_encode(['alt' => $portfolio[0]->title])]
+                    ]);
+                }
             }
         }
     }

@@ -11,11 +11,20 @@ class PortfolioController extends Controller
     public function index($service = null)
     {
         if ($service) {
-            $portfolios = Portfolio::where('service_id', $service);
+            $portfolios = \Cache::rememberForever("service.{$service}.portfolios", function () use($service) {
+                $portfolios = Portfolio::where('service_id', $service)
+                ->get()
+                ->map(function($p) {
+                    $p->url = route('portfolio.show', ['slug' => $p->slug]);
+                    return $p;
+                });
+                $portfolios->load('images');
+                return $portfolios;
+            });
+        } else {
+            $portfolios = Portfolio::take(6)->inRandomOrder()->get();
         }
-
-        $response = $portfolios->get();
-        return response()->json($response);
+        return response()->json($portfolios);
     }
     public function show($slug)
     {

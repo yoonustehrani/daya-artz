@@ -119,7 +119,7 @@
         <div class="title-section w-100 mb-4">
             <div class="title-container">
                 <h2 class="title-text">{{ $service->subtitle }}</h2>
-                <h4 class="subtitle">بسته های هوشمند جهت سفارش {{ $service->title }} های شما</h4>
+                <h4 class="subtitle">بسته های هوشمند جهت سفارش {{ $service->title }} برای شما</h4>
             </div>
         </div>
         <div class="col-12 order-card-container">

@@ -19,7 +19,7 @@ class CreatePortfoliosTable extends Migration
             $table->string('slug')->unique();
             $table->foreignId('service_id');
             $table->string('company');
-            $table->text('about_comapny');
+            $table->text('about_company');
             $table->text('company_opinion');
             $table->json('details');
             $table->json('timeline');
