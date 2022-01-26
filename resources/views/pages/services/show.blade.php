@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-<!-- first-section -->
+    <!-- first-section -->
     <div class="section col-12 mt-4 service-first-section dotted-background">
         <div class="title-section w-100">
             <div class="title-container">
@@ -15,11 +15,9 @@
         @if ($service->content)
         {!! $service->content !!}
         @endif
-        {{-- <p class="text-center col-md-10 offset-md-1 px-4 mb-4">{{ $service->description }}</p> --}}
     </div>
-<!-- end first-section -->
-
-<!-- sevices benefits -->
+    <!-- end first-section -->
+    <!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height p-3">
         <div class="header-text col-12 col-md-8">
             <h4>مزیت های دایا ...</h2>
@@ -34,9 +32,8 @@
         </div>
         <div class="triangle d-none d-md-block"></div>
     </div>
-<!-- end sevices benefits -->
-
-<!-- order steps -->
+    <!-- end sevices benefits -->
+    <!-- order steps -->
     <div class="section col-12 dotted-background">
         <div class="title-section mb-5 mt-4 w-100">
             <div class="title-container">
@@ -110,18 +107,15 @@
             </div>
         </div>
     </div> 
-<!-- end order steps -->
-
-<!-- start order 1 -->
+    <!-- end order steps -->
+    <!-- start order 1 -->
     @include('components.start-order')
-<!-- end start order 1 -->
-
-<!-- Portfolio -->
+    <!-- end start order 1 -->
+    <!-- Portfolio -->
     {{-- @include('components.portfolio') --}}
-<!-- end Portfolio -->
-
-<!-- order packs -->
-    <div class="section w-100 order-packs-section">
+    <!-- end Portfolio -->
+    <!-- order packs -->
+    <div class="section w-100 mt-3 order-packs-section">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
                 <h2 class="title-text">{{ $service->subtitle }}</h2>
@@ -129,56 +123,23 @@
             </div>
         </div>
         <div class="col-12 order-card-container">
-            @foreach ($service->plans as $plan)
+        @foreach ($service->plans->chunk(3) as $plans)
+            @foreach ($plans as $plan)
             <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-4 col-xl-3">
-                <h4 class="card-title">{{ $plan->title }}</h4>
-                <div class="card-price-container"><span class="card-price font-24 bold">4.</span><span class="card-price font-20">00</span><span class="font-16 ltr card-price">/میلیون تومان</span></div>
-                {{-- {!! $plan->caption !!} --}}
-                <ul class="card-options">
-                    <li>ارائه ۴ اتود <span>تایپوگرافی</span></li>
-                    <li>ارائه ۳ اتود <span>تصویری</span></li>
-                    <li>تعداد دفعات ویرایش تا ۵ بار</li>
-                    <li>طراحی بر اساس علم برندینگ</li>
-                    <li>رنگ متناسب کسب و کار بر اساس علم روانشناسی</li>
-                    <li>طراحی و اجرا توسط طراحان ارشد</li>
-                    <li>معرفی رنگ صحیح سازمانی</li>
-                </ul>
+                <h4 class="card-title bold">{{ $plan->title }}</h4>
+                <div class="card-price-container">
+                    <span class="card-price font-24 bold">{{ number_format($plan->price) }}</span>
+                    <span class="font-16 ltr card-price">/تومان</span>
+                </div>
+                {!! $plan->caption !!}
                 <button class="btn btn-outline-light badge-pill">ثبت سفارش</button>
             </div>
             @endforeach
-            {{-- <div class="order-card card-2 col-12 col-md-4 col-xl-3">
-                <h4 class="card-title">یاقوت</h4>
-                <div class="card-price-container"><span class="card-price font-24 bold">5.</span><span class="card-price font-20">500</span><span class="font-16 ltr card-price">/میلیون تومان</span></div>
-                <ul class="card-options">
-                    <li>ارائه ۴ اتود <span>تایپوگرافی</span></li>
-                    <li>ارائه ۳ اتود <span>تصویری</span></li>
-                    <li>تعداد دفعات ویرایش تا ۵ بار</li>
-                    <li>طراحی بر اساس علم برندینگ</li>
-                    <li>رنگ متناسب کسب و کار بر اساس علم روانشناسی</li>
-                    <li>طراحی و اجرا توسط طراحان ارشد</li>
-                    <li>معرفی رنگ صحیح سازمانی</li>
-                </ul>
-                <button class="btn btn-info badge-pill">ثبت سفارش</button>
-            </div> --}}
-            {{-- <div class="order-card card-3 col-12 col-md-4 col-xl-3">
-                <h4 class="card-title">زمرد</h4>
-                <div class="card-price-container"><span class="card-price font-24 bold">5.</span><span class="card-price font-20">500</span><span class="font-16 ltr card-price">/میلیون تومان</span></div>
-                <ul class="card-options">
-                    <li>ارائه ۲ اتود <span>تایپوگرافی</span></li>
-                    <li>ارائه ۱ اتود <span>تصویری</span></li>
-                    <li>تعداد دفعات ویرایش تا ۲ بار</li>
-                    <li>طراحی بر اساس علم برندینگ</li>
-                    <li>رنگ متناسب کسب و کار بر اساس علم روانشناسی</li>
-                    <li>طراحی و اجرا توسط طراحان ارشد</li>
-                    <li>معرفی رنگ صحیح سازمانی</li>
-                </ul>
-                <button class="btn btn-outline badge-pill">ثبت سفارش</button>
-            </div> --}}
+        @endforeach
         </div>
     </div>
-<!-- end order packs -->
-
-<!-- contact ways -->
+    <!-- end order packs -->
+    <!-- contact ways -->
     <div class="section w-100 mt-5 mb-5 order-ways-section">
         <div class="title-section mb-5 w-100">
             <div class="title-container">
@@ -225,9 +186,8 @@
             </div>
         </div>
     </div>
-<!-- end contact ways -->
-
-<!-- guide section -->
+    <!-- end contact ways -->
+    <!-- guide section -->
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
@@ -256,9 +216,8 @@
             </div>
         </div>
     </div>
-<!-- end guide section -->
-
-<!-- FAQ accordion 1 -->
+    <!-- end guide section -->
+    <!-- FAQ accordion 1 -->
     <div class="section w-100 FAQ-section mt-5">
         <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
         <div class="accordion-container p-4">
@@ -327,9 +286,8 @@
             </div>
         </div>
     </div>
-<!-- end FAQ accordion 1 -->
-
-<!-- daya blog -->
+    <!-- end FAQ accordion 1 -->
+    <!-- daya blog -->
     @include('components.blog-suggestion')
-<!-- end daya blog -->
+    <!-- end daya blog -->
 @endsection
