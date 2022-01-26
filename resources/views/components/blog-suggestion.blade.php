@@ -1,3 +1,8 @@
+{{--
+random: route('api.posts.index', ['mode' => 'random', 'limit' => [1-10]])
+latest: route('api.posts.index', ['mode' => 'latest', 'limit' =>  [1-10]])
+order by id: route('api.posts.index', ['limit' => [1-10]])
+--}}
 <div class="section w-100 mt-5">
     <div class="title-section col-12 mb-3">
         <div class="title-container">
