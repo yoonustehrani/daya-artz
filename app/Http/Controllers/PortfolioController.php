@@ -22,7 +22,9 @@ class PortfolioController extends Controller
                 return $portfolios;
             });
         } else {
-            $portfolios = Portfolio::take(6)->inRandomOrder()->get();
+            $portfolios = Portfolio::take(6)->with('images')->inRandomOrder()->get()->each(function($p) {
+                $p->url = route('portfolio.show', ['slug' => $p->slug]);
+            });
         }
         return response()->json($portfolios);
     }
