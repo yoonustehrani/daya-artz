@@ -1,8 +1,8 @@
 @extends('layouts.page')
 
-@section('head')
+@push('head')
     <title>نمونه کار | Daya Artz Blog</title>
-@endsection
+@endpush
 
 @section('content')
 <!-- page section guide -->
@@ -55,8 +55,8 @@
                 <li>نام برند: <h3>Sampi - سامپی</h3></li>
                 <li>طرف قرارداد: <h3>تیم سامپی</h3></li>
                 <li>نوع لوگو: <h3>تایپو گرافی</h3></li>
-                <li>امتیاز لوگو: <h3>8/10</h3></li>
-                <li>نظر کابران: <span class="mr-2"><i class="fab fa-gratipay"></i> 273</span></li>
+                {{-- <li>امتیاز لوگو: <h3>8/10</h3></li> --}}
+                {{-- <li>نظر کابران: <span class="mr-2"><i class="fab fa-gratipay"></i> 273</span></li> --}}
             </ul>
         </div>
     </div>

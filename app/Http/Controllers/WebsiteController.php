@@ -21,11 +21,19 @@ class WebsiteController extends Controller
     }
     public function service($slug)
     {
-        $service = "logo";
+        $service = Service::whereSlug($slug)->firstOrFail();
+        // $service->load(['portfolios' => function($q) {
+        //     $q->limit(6);
+        // }]);
         return view('pages.services.show', compact('service'));
     }
     public function portfolio($slug)
     {
         return view('pages.portfolio');
+    }
+
+    public function portfolioIndexApi($service)
+    {
+        return $service;
     }
 }

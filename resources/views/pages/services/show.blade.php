@@ -1,20 +1,21 @@
 @extends('layouts.page')
 
-@section('head')
-    <title>{{ $service }}</title>
-@endsection
+@push('head')
+    <title>{{ $service->title }}</title>
+@endpush
 
 @section('content')
 <!-- first-section -->
     <div class="section col-12 mt-4 service-first-section dotted-background">
         <div class="title-section w-100">
             <div class="title-container">
-                <h1 class="title-text">لوگو</h1>
+                <h1 class="title-text">{{ $service->title }}</h1>
             </div>
         </div>
-        <h4 class="text-center col-md-10 offset-md-1 px-4 mb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-        </h4>
+        @if ($service->content)
+        {!! $service->content !!}
+        @endif
+        {{-- <p class="text-center col-md-10 offset-md-1 px-4 mb-4">{{ $service->description }}</p> --}}
     </div>
 <!-- end first-section -->
 
@@ -123,18 +124,20 @@
     <div class="section w-100 order-packs-section">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
-                <h2 class="title-text">خدمات طراحی لوگو</h2>
-                <h4 class="subtitle">بسته های هوشمند جهت سفارش لوگو های شما</h4>
+                <h2 class="title-text">{{ $service->subtitle }}</h2>
+                <h4 class="subtitle">بسته های هوشمند جهت سفارش {{ $service->title }} های شما</h4>
             </div>
         </div>
         <div class="col-12 order-card-container">
-            <div class="order-card card-1 col-12 col-md-4 col-xl-3">
-                <h4 class="card-title">لاجورد</h4>
+            @foreach ($service->plans as $plan)
+            <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-4 col-xl-3">
+                <h4 class="card-title">{{ $plan->title }}</h4>
                 <div class="card-price-container"><span class="card-price font-24 bold">4.</span><span class="card-price font-20">00</span><span class="font-16 ltr card-price">/میلیون تومان</span></div>
+                {{-- {!! $plan->caption !!} --}}
                 <ul class="card-options">
-                    <li>ارائه ۳ اتود <span>تایپو گرافی</span></li>
-                    <li>ارائه ۲ اتود <span>تصویری</span></li>
-                    <li>تعداد دفعات ویرایش تا ۳ بار</li>
+                    <li>ارائه ۴ اتود <span>تایپوگرافی</span></li>
+                    <li>ارائه ۳ اتود <span>تصویری</span></li>
+                    <li>تعداد دفعات ویرایش تا ۵ بار</li>
                     <li>طراحی بر اساس علم برندینگ</li>
                     <li>رنگ متناسب کسب و کار بر اساس علم روانشناسی</li>
                     <li>طراحی و اجرا توسط طراحان ارشد</li>
@@ -142,7 +145,8 @@
                 </ul>
                 <button class="btn btn-outline-light badge-pill">ثبت سفارش</button>
             </div>
-            <div class="order-card card-2 col-12 col-md-4 col-xl-3">
+            @endforeach
+            {{-- <div class="order-card card-2 col-12 col-md-4 col-xl-3">
                 <h4 class="card-title">یاقوت</h4>
                 <div class="card-price-container"><span class="card-price font-24 bold">5.</span><span class="card-price font-20">500</span><span class="font-16 ltr card-price">/میلیون تومان</span></div>
                 <ul class="card-options">
@@ -155,8 +159,8 @@
                     <li>معرفی رنگ صحیح سازمانی</li>
                 </ul>
                 <button class="btn btn-info badge-pill">ثبت سفارش</button>
-            </div>
-            <div class="order-card card-3 col-12 col-md-4 col-xl-3">
+            </div> --}}
+            {{-- <div class="order-card card-3 col-12 col-md-4 col-xl-3">
                 <h4 class="card-title">زمرد</h4>
                 <div class="card-price-container"><span class="card-price font-24 bold">5.</span><span class="card-price font-20">500</span><span class="font-16 ltr card-price">/میلیون تومان</span></div>
                 <ul class="card-options">
@@ -169,7 +173,7 @@
                     <li>معرفی رنگ صحیح سازمانی</li>
                 </ul>
                 <button class="btn btn-outline badge-pill">ثبت سفارش</button>
-            </div>
+            </div> --}}
         </div>
     </div>
 <!-- end order packs -->

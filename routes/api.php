@@ -4,7 +4,9 @@ use App\Customer;
 use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +31,7 @@ Route::prefix('forms')->name('forms.')->group(function() {
 });
 
 Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
+Route::get('portfolio/{service?}', [PortfolioController::class, 'index']);
 
 Route::prefix('auth')->name('auth.')->group(function() {
     Route::post('login', [LoginController::class,'login'])->name('login')->middleware('guest'); // 

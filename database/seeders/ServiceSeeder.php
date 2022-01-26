@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Service;
+use App\Models\ServicePlan;
 use Illuminate\Database\Seeder;
 
 class ServiceSeeder extends Seeder
@@ -154,7 +155,9 @@ class ServiceSeeder extends Seeder
         foreach ($other_service as $service) {
             $service = new Service($service);
             $service->slug = str_replace(' ', '-',$service->title);
-            $service->save();
+            if ($service->save()) {
+                $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
+            }
         }
     }
 }
