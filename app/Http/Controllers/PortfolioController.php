@@ -14,9 +14,8 @@ class PortfolioController extends Controller
             $portfolios = \Cache::rememberForever("service.{$service}.portfolios", function () use($service) {
                 $portfolios = Portfolio::where('service_id', $service)
                 ->get()
-                ->map(function($p) {
+                ->each(function($p) {
                     $p->url = route('portfolio.show', ['slug' => $p->slug]);
-                    return $p;
                 });
                 $portfolios->load('images');
                 return $portfolios;

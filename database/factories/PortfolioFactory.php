@@ -13,11 +13,11 @@ class PortfolioFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->unique()->words(2, true);
+        $title = $this->faker->unique()->company();
         return [
             'title' => $title,
             'slug' => \Str::kebab($title),
-            'company' => $this->faker->company(),
+            'company' => $title,
             'about_company' => $this->faker->sentences(2, true),
             'company_opinion' => $this->faker->sentence(12),
             'details' => json_encode([
