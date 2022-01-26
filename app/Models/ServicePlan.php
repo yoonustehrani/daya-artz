@@ -12,4 +12,8 @@ class ServicePlan extends Model
     {
         return $this->belongsTo(Service::class);
     }
+    public function scopeUnexpired($builder)
+    {
+        $builder->whereNull('expires_at')->orWhere('expires_at', '>', now());
+    }
 }

@@ -21,10 +21,9 @@ class WebsiteController extends Controller
     }
     public function service($slug)
     {
-        $service = Service::whereSlug($slug)->firstOrFail();
-        // $service->load(['portfolios' => function($q) {
-        //     $q->limit(6);
-        // }]);
+        $service = Service::whereSlug($slug)
+                    ->with(['plans' => function($q) { $q->unexpired(); }])
+                    ->firstOrFail();
         return view('pages.services.show', compact('service'));
     }
     public function portfolio($slug)

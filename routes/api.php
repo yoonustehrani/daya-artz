@@ -31,7 +31,7 @@ Route::prefix('forms')->name('forms.')->group(function() {
 });
 
 Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
-Route::get('portfolio/{service?}', [PortfolioController::class, 'index']);
+Route::get('portfolio/{service?}', [PortfolioController::class, 'index'])->name('portfolios.index');
 
 Route::prefix('auth')->name('auth.')->group(function() {
     Route::post('login', [LoginController::class,'login'])->name('login')->middleware('guest'); // 

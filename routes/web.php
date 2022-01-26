@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
+use App\Models\Service;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,12 @@ Route::get('portfolio/{slug}', [WebsiteController::class, 'portfolio'])->name('p
 Route::view('about', 'pages.about')->name('about');
 Route::view('contact', 'pages.contact')->name('contact');
 Route::view('policy', 'pages.policy')->name('policy');
+
+Route::post('order/{service}/plan/{plan}', function(Request $request, $service, $plan) {
+    $service = Service::findOrFail($service);
+    $plan = $service->plans()->select('price', 'title', 'expires_at')->unexpired()->findOrFail($plan);
+    return [$service, $plan];
+})->whereNumber(['service', 'plan'])->name('order.store'); // ->middleware('auth:sanctum')
 
 Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('userarea');
 

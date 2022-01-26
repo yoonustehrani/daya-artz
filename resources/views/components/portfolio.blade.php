@@ -5,7 +5,8 @@
             <span class="title-underline"></span>
         </div>
     </div>
-    <div class="col-12 mt-4 float-left portfolio-section p-2">
+    <div class="col-12 mt-4 float-left portfolio-section p-2" react-portfolio-section data-target-api="{{ $apiTarget }}"></div>
+    {{--
         <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
         <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
             <div class="portfolio-avatar">
@@ -101,6 +102,5 @@
                 </ul>
             </div>
         </div>
-        </a>
-    </div>
+        </a> --}}
 </div>

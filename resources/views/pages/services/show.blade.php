@@ -112,7 +112,7 @@
     @include('components.start-order')
     <!-- end start order 1 -->
     <!-- Portfolio -->
-    {{-- @include('components.portfolio') --}}
+    <x-portfolio :api-target="route('api.portfolios.index', ['service' => $service->getKey()])"/>
     <!-- end Portfolio -->
     <!-- order packs -->
     <div class="section w-100 mt-3 order-packs-section">
@@ -132,7 +132,10 @@
                     <span class="font-16 ltr card-price">/تومان</span>
                 </div>
                 {!! $plan->caption !!}
-                <button class="btn btn-outline-light badge-pill">ثبت سفارش</button>
+                <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-light badge-pill">ثبت سفارش</button>
+                </form>
             </div>
             @endforeach
         @endforeach
