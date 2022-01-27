@@ -27,7 +27,7 @@ class CreateOrdersTable extends Migration
             $table->string('status');
             $table->text('status_info')->nullable();
             $table->text('description')->nullable();
-            $table->foreignUuid('user_id')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->foreignUuid('company_id')->nullable();
             $table->foreignId('offer_id')->nullable();
             $table->json('details');

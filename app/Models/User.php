@@ -40,6 +40,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = ['fullname'];
+
+    public function getFullnameAttribute()
+    {
+        if ($this->lastname) {
+            return "{$this->firstname} {$this->lastname}";    
+        }
+        return $this->phone_number ?: $this->email;
+    }
+
     public function verification_codes()
     {
         return $this->hasMany(VerificationCode::class)->where('expires_at', '>', now());
@@ -58,10 +68,6 @@ class User extends Authenticatable
     public function offers()
     {
         return $this->morphToMany(Offer::class, 'offerable')->where('expires_at', '>', now())->withPivot(['max_attempts', 'attempts']);
-    }
-    public function customer()
-    {
-        return $this->hasOne(Customer::class);
     }
     public function company()
     {
