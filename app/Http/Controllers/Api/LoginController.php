@@ -25,6 +25,7 @@ class LoginController extends Controller
         //     return $this->sendLockoutResponse($request);
         // }
         if ($this->attemptLogin($this->credentials($request))) {
+            $request->session()->regenerate();
             return response()->json(['ok' => true, 'message' => 'Login Successful', 'user' => Auth::user()->load('customer', 'company')]);
         }
         // if fail should be run
@@ -36,7 +37,7 @@ class LoginController extends Controller
     }
     public function attemptLogin($credentials)
     {
-        return Auth::guard()->attempt($credentials, false);
+        return Auth::guard()->attempt($credentials, true);
     }
     public function validateLogin(Request $request)
     {

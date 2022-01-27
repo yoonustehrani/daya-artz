@@ -34,12 +34,12 @@ Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
 Route::get('portfolio/{service?}', [PortfolioController::class, 'index'])->name('portfolios.index');
 
 Route::prefix('auth')->name('auth.')->group(function() {
-    Route::post('login', [LoginController::class,'login'])->name('login')->middleware('guest'); // 
+    Route::post('login', [LoginController::class,'login'])->name('login'); // 
     Route::post('logout', [LoginController::class,'logout'])->name('logout')->middleware('auth:sanctum');
-    Route::post('register', [RegisterController::class,'register'])->name('register')->middleware('guest');
+    Route::post('register', [RegisterController::class,'register'])->name('register');
     Route::get('user', function (Request $request) {
         return ['ok' => true, 'user' => $request->user()->load('customer', 'company')];
-    })->name('user')->middleware('auth:sanctum'); // 
+    })->name('user')->middleware('auth:sanctum');
     // Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
     //     Route::post('phone/verify', 'VerificationController@verifyPhoneNumber')->name('phone.verify');
     //     Route::put('phone/edit', function (Request $request) {

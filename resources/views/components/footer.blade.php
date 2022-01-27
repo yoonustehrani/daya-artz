@@ -12,12 +12,12 @@
             <p class="title">لینک های سریع</p>
             <div>
                 <ul class="text-right p-0">
-                    <li><a href="#">حساب من</a></li>
+                    <li><a href="{{ route('userarea', ['path' => 'dashboard']) }}">حساب من</a></li>
                     <li><a href="#">سفارش فوری</a></li>
                     <li><a href="#">سفارش تخصصی</a></li>
                     {{-- <li><a href="#">راهنمای سفارشات</a></li> --}}
                     <li><a href="{{ route('policy') }}">شرایط و ضوابط</a></li>
-                    <li><a href="#">وبلاگ</a></li>
+                    <li><a href="{{ route('blog.index') }}">وبلاگ</a></li>
                 </ul>
             </div>
         </div>
@@ -25,8 +25,8 @@
             <p class="title">پشتیبانی</p>
             <div>
                 <ul class="text-right p-0 mb-4">
-                    <li><a href="#">تماس با ما</a></li>
-                    <li><a href="#">ارسال تیکت</a></li>
+                    <li><a href="{{ route('contact') }}">تماس با ما</a></li>
+                    <li><a href="{{ route('userarea', ['path' => 'tickets']) }}">ارسال تیکت</a></li>
                 </ul>
                 <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" alt="zarin-paal" class="float-right ml-2">
                 <img src="{{ asset('images/gallery/etemad-namad.png') }}" alt="etemead" class="float-right">

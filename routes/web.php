@@ -64,13 +64,14 @@ Route::get('email/verify/{id}/{hash}', function($id, $hash, Request $request) {
 })->middleware('signed')->name('verification.email.verify');
 
 Route::get('test', function (Request $request) {
-    if ($request->has('delete')) {
-        App\Models\Service::whereRaw("1=1")->delete();
-        App\Models\File::whereRaw("1=1")->delete();
-        \DB::delete('delete from fileables where 1=1');
-        return redirect()->to(route('tempo'));
-    }
-    return App\Models\Service::with('plans', 'portfolios.images')->get()->groupBy('group');
+    return config('sanctum');
+    // if ($request->has('delete')) {
+    //     App\Models\Service::whereRaw("1=1")->delete();
+    //     App\Models\File::whereRaw("1=1")->delete();
+    //     \DB::delete('delete from fileables where 1=1');
+    //     return redirect()->to(route('tempo'));
+    // }
+    // return App\Models\Service::with('plans', 'portfolios.images')->get()->groupBy('group');
     // return view('test');
     // return App\Models\Order::latest()->get();
 // $user = User::find(2);
