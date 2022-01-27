@@ -27,13 +27,13 @@ class CreateOrdersTable extends Migration
             $table->string('status');
             $table->text('status_info')->nullable();
             $table->text('description')->nullable();
-            $table->foreignUuid('customer_id')->nullable();
+            $table->foreignUuid('user_id')->nullable();
             $table->foreignUuid('company_id')->nullable();
             $table->foreignId('offer_id')->nullable();
             $table->json('details');
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('customer_id')->references('id')->on('customers')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('company_id')->references('id')->on('companies')->nullOnDelete()->cascadeOnUpdate();
             // $table->foreign('offer_id')->references('id')->on('offers')->nullOnDelete()->cascadeOnUpdate();
         });
