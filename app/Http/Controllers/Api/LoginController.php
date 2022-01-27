@@ -37,7 +37,7 @@ class LoginController extends Controller
     }
     public function attemptLogin($credentials)
     {
-        return Auth::guard()->attempt($credentials, true);
+        return Auth::guard()->attempt($credentials, false);
     }
     public function validateLogin(Request $request)
     {
@@ -74,9 +74,11 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         if (Auth::check()) {
+            Auth::user()->setRememberToken(null);
+            auth()->user()->save();
             $request->session()->invalidate();
     
-            $request->session()->regenerateToken();
+            $request->session()->regenerate();
             return ['ok' => true];
         }
         return ['ok' => false];
