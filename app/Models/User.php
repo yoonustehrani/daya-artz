@@ -71,4 +71,23 @@ class User extends Authenticatable
     // {
     //     return $this->offers()->wherePivot('');
     // }
+
+    /**
+     * Model Scopes
+    */
+
+    public function scopeNormalUser($builder)
+    {
+        return $builder->where('score', 0);
+    }
+
+    public function scopeCustomer($builder)
+    {
+        return $builder->where('score', 1);
+    }
+
+    public function scopeSpecialCustomer($builder)
+    {
+        return $builder->where('score', 2);
+    }
 }
