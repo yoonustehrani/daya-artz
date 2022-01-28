@@ -231,7 +231,10 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .section-guide-container {
-        max-width: 207px;
+        width: 207px;
+        &.closed {
+            left: -207px;
+        }
         .section-guide {
             h4 {
                 font-size: 20px !important;
@@ -442,11 +445,6 @@ $xl-xl-breakpoint: 1600px;
             span {
                 font-size: 18px;
             }
-        }
-    }
-    .section-guide-container {
-        &.close {
-            top: 70vh;
         }
     }
     .sample-images-slider {
@@ -959,10 +957,9 @@ $xl-xl-breakpoint: 1600px;
         transform: none !important;
     }
     .section-guide-container {
-        &.close {
-            margin: 90px 0% 0 2% !important;
-            top: 70vh;
-            padding-left: 0 !important;
+        width: 224px;
+        &.closed {
+            left: -224px;
         }
         .section-guide {
             h4 {
@@ -978,8 +975,8 @@ $xl-xl-breakpoint: 1600px;
                     height: 15px !important;
                     margin-right: 50px !important;
                     &::before {
-                        width: 25px !important;
-                        margin: 20px 6px 5px 0 !important;
+                        width: 20px !important;
+                        margin: 20px 6px 0 0 !important;
                     }
                     &::after {
                         width: 50px !important;
@@ -1277,9 +1274,6 @@ $xl-xl-breakpoint: 1600px;
             margin: 3% !important;
         }
     }
-    .section-guide-container {
-        max-width: 90% !important;
-    }
 }
 
 
@@ -1339,11 +1333,6 @@ $xl-xl-breakpoint: 1600px;
     .dates-line {
         > span {
             font-size: 18px !important;
-        }
-    }
-    .section-guide-container {
-        &.close {
-            top: 70vh !important;
         }
     }
     .msg-meta {
@@ -1545,7 +1534,10 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .section-guide-container {
-        max-width: 225px;
+        width: 225px;
+        &.closed {
+            left: -225px;
+        }
     }
     .main-service {
         width: 31% !important;
@@ -1605,7 +1597,10 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .section-guide-container {
-        max-width: 207px;
+        width: 207px;
+        &.closed {
+            left: -207px;
+        }
         .section-guide {
             h4 {
                 font-size: 20px !important;

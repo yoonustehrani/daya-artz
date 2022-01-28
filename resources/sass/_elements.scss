@@ -346,7 +346,8 @@ span.back-aqua {
     font-size: 60px !important;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% 100%;
+    // background-size: 100% 100%;
+    background-size: contain;
     display: inline-block;
     i {
         font-size: 55px;
@@ -2046,79 +2047,63 @@ div.other-services-container {
     position: fixed;
     z-index: 21;
     margin-top: 90px;
-    width: fit-content;
-    &.close {
-        .section-guide-bg {
-            padding: 10px;
-            height: fit-content;
-            display: flex;
-            align-items: flex-end;
-            .section-guide {
-                display: none;
-            }
-        }
-        #guide-toggler {
-            margin-left: 10px;
-            span:nth-child(2) {
-                display: none !important;
-            }
-        }
-    }
-    &.open {
-        .section-guide-bg {
-            background: linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
-            background: -webkit-linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
-            // box-shadow: 2px 2px 15px 0px #6232de;
-            box-shadow: 0 5px 35px rgb(0 0 0 / 6%);
-            height: initial;
-            display: block;
-            // width: inherit;
-            top: initial;
-        }
-        #guide-toggler {
-            span:nth-child(1) {
-                display: none !important;
-            }
-            span {
-                display: flex;
-            }
-            z-index: 9;
-            width: 60px;
-            height: 60px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%) translateX(50%);
-            right: 0;
-            display: flex;
-            justify-content: right;
-            align-items: center;
-            border-radius: 100%;
-            padding-right: 10px;
-            background: linear-gradient(to right, rgba($color: #fff, $alpha: 0) 0 50%, #C2AEF3 50% 100%);
-            &:hover {
-                span i {
-                    color: #8f60ec;
-                }
-            }
-        }
+    transition: 0.7s;
+    left: 0;
+    .section-guide-bg {
+        background: linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
+        background: -webkit-linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
+        // box-shadow: 2px 2px 15px 0px #6232de;
+        box-shadow: 0 5px 35px rgb(0 0 0 / 6%);
+        height: initial;
+        display: block;
+        // width: inherit;
+        top: initial;
     }
     #guide-toggler {
         cursor: pointer;
         transition: 0.5s;
-        display: inline-block;
-        i {
-            text-shadow: none;
-            &.fa-angle-left {
-                color: white;
-                font-size: 35px;
-                transition: 0.5s;
-                &.hovered {
-                    color: #8f60ec;
+        z-index: 9;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateX(50%);
+        right: 0;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        border-radius: 100%;
+        padding-right: 10px;
+        background: linear-gradient(to right, rgba($color: #fff, $alpha: 0) 0 50%, #C2AEF3 50% 100%);
+        span {
+            display: flex;
+            transition: 0.7s;
+            i {
+                text-shadow: none;
+                &.fa-angle-left {
+                    color: white;
+                    font-size: 35px;
+                    transition: 0.5s;
+                    &.hovered {
+                        color: #2c243b;
+                    }
+                }
+                &.fa-question-circle {
+                    color: $purple;
+                    font-size: 60px;
                 }
             }
-            &.fa-question-circle {
-                color: $purple;
-                font-size: 60px;
+        }
+        &:hover {
+            span i {
+                color: #8f60ec;
+            }
+        }
+    }
+    &.closed {
+        #guide-toggler {
+            span {
+                transform: rotateZ(180deg);
             }
         }
     }

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // this code is for handling the menu in < md sizes
     function toggle_menu() {
         let is_open, menu_el = $(".menu-container").length > 0 ? $(".menu-container") : $(".user-area-sidebar")
         is_open = menu_el.hasClass("open")
@@ -25,4 +26,8 @@ $(document).ready(function() {
             $($(el).closest("li.has-sub")).toggleClass("open")
         }
     })   
+    // this code will set the header navbar fixed according to the window height
+    $("body").on("scroll", function() {
+        console.log($(window).height);
+    })
 })

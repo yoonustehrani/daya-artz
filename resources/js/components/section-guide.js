@@ -1,36 +1,17 @@
 if ($(".section-guide-container").length > 0) {
     let open
     if ($(window).width() >= 768) {
-        $(".section-guide-container").addClass("open")
-        $(".section-guide-container .fas.fa-angle-left").toggleClass("d-none")
+        $(".section-guide-container").removeClass("closed")
         open = true
-    } else {
-        $(".section-guide-container").addClass("close")
-        $(".section-guide-container .far.fa-question-circle").toggleClass("d-none")
-        open = false
     }
-
-    $("#guide-toggler").hover(function() {
-        open ? null : $(this).find("i.fa-question-circle").toggleClass("d-none")
-    })
-
-    $("#guide-toggler").blur(function() {
-        open ? null : $(this).find("i.fa-question-circle").toggleClass("d-none")
-    })
 
     const toggle_guide = () => {
         open = !open
-        $(".section-guide-container").toggleClass("bounceInLeft bounceOutLeft")
-        setTimeout(() => {
-            $(".section-guide-container").toggleClass("close open bounceInLeft bounceOutLeft")
-        }, 500)
+        $(".section-guide-container").toggleClass("closed")
     }
 
     $("#guide-toggler").click(function() {
         toggle_guide()
-        setTimeout(() => {
-            $("i.fas.fa-question-circle, i.fas.fa-angle-left").toggleClass('d-none')
-        }, 500)
     })
 
     // the code below is for checking which element is in viewport
@@ -52,6 +33,7 @@ if ($(".section-guide-container").length > 0) {
                 return
             }
         })
+        $(".section-guide-container").toggleClass("closed", true)
     })
 
     // this is for handling scroll clicks
@@ -62,8 +44,5 @@ if ($(".section-guide-container").length > 0) {
             scrollTop: target_position
         }, 500)
         toggle_guide()
-        setTimeout(() => {
-            $("i.far.fa-question-circle, i.fas.fa-angle-left").toggleClass('d-none')
-        }, 500)
     }) 
 }

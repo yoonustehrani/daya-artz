@@ -10306,7 +10306,10 @@ h3 {
   }
 
   .section-guide-container {
-    max-width: 207px;
+    width: 207px;
+  }
+  .section-guide-container.closed {
+    left: -207px;
   }
   .section-guide-container .section-guide h4 {
     font-size: 20px !important;
@@ -10499,10 +10502,6 @@ h3 {
   }
   .process-timeline .levels-container span {
     font-size: 18px;
-  }
-
-  .section-guide-container.close {
-    top: 70vh;
   }
 
   .sample-images-slider {
@@ -11014,10 +11013,11 @@ h3 {
     transform: none !important;
   }
 
-  .section-guide-container.close {
-    margin: 90px 0% 0 2% !important;
-    top: 70vh;
-    padding-left: 0 !important;
+  .section-guide-container {
+    width: 224px;
+  }
+  .section-guide-container.closed {
+    left: -224px;
   }
   .section-guide-container .section-guide h4 {
     font-size: 22px !important;
@@ -11034,8 +11034,8 @@ h3 {
     margin-right: 50px !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2)::before {
-    width: 25px !important;
-    margin: 20px 6px 5px 0 !important;
+    width: 20px !important;
+    margin: 20px 6px 0 0 !important;
   }
   .section-guide-container .section-guide ul > li span:nth-child(2)::after {
     width: 50px !important;
@@ -11327,10 +11327,6 @@ h3 {
     width: 94% !important;
     margin: 3% !important;
   }
-
-  .section-guide-container {
-    max-width: 90% !important;
-  }
 }
 @media screen and (max-width: 360px) {
   .service-item h1 {
@@ -11381,10 +11377,6 @@ h3 {
 
   .dates-line > span {
     font-size: 18px !important;
-  }
-
-  .section-guide-container.close {
-    top: 70vh !important;
   }
 
   .msg-meta span {
@@ -11552,7 +11544,10 @@ h3 {
   }
 
   .section-guide-container {
-    max-width: 225px;
+    width: 225px;
+  }
+  .section-guide-container.closed {
+    left: -225px;
   }
 
   .main-service {
@@ -11603,7 +11598,10 @@ h3 {
   }
 
   .section-guide-container {
-    max-width: 207px;
+    width: 207px;
+  }
+  .section-guide-container.closed {
+    left: -207px;
   }
   .section-guide-container .section-guide h4 {
     font-size: 20px !important;
@@ -12301,7 +12299,7 @@ span.back-aqua {
   font-size: 60px !important;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%;
+  background-size: contain;
   display: inline-block;
 }
 span.back-aqua i {
@@ -14352,28 +14350,10 @@ div.other-services-container > div.other-service .btn-gradient {
   position: fixed;
   z-index: 21;
   margin-top: 90px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  transition: 0.7s;
+  left: 0;
 }
-.section-guide-container.close .section-guide-bg {
-  padding: 10px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  display: flex;
-  align-items: flex-end;
-}
-.section-guide-container.close .section-guide-bg .section-guide {
-  display: none;
-}
-.section-guide-container.close #guide-toggler {
-  margin-left: 10px;
-}
-.section-guide-container.close #guide-toggler span:nth-child(2) {
-  display: none !important;
-}
-.section-guide-container.open .section-guide-bg {
+.section-guide-container .section-guide-bg {
   background: linear-gradient(to bottom right, rgba(172, 127, 244, 0.8), rgba(143, 96, 236, 0.8), rgba(98, 50, 222, 0.8));
   background: -webkit-linear-gradient(to bottom right, rgba(172, 127, 244, 0.8), rgba(143, 96, 236, 0.8), rgba(98, 50, 222, 0.8));
   box-shadow: 0 5px 35px rgba(0, 0, 0, 0.06);
@@ -14381,7 +14361,9 @@ div.other-services-container > div.other-service .btn-gradient {
   display: block;
   top: initial;
 }
-.section-guide-container.open #guide-toggler {
+.section-guide-container #guide-toggler {
+  cursor: pointer;
+  transition: 0.5s;
   z-index: 9;
   width: 60px;
   height: 60px;
@@ -14396,34 +14378,30 @@ div.other-services-container > div.other-service .btn-gradient {
   padding-right: 10px;
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0 50%, #C2AEF3 50% 100%);
 }
-.section-guide-container.open #guide-toggler span:nth-child(1) {
-  display: none !important;
-}
-.section-guide-container.open #guide-toggler span {
+.section-guide-container #guide-toggler span {
   display: flex;
+  transition: 0.7s;
 }
-.section-guide-container.open #guide-toggler:hover span i {
-  color: #8f60ec;
-}
-.section-guide-container #guide-toggler {
-  cursor: pointer;
-  transition: 0.5s;
-  display: inline-block;
-}
-.section-guide-container #guide-toggler i {
+.section-guide-container #guide-toggler span i {
   text-shadow: none;
 }
-.section-guide-container #guide-toggler i.fa-angle-left {
+.section-guide-container #guide-toggler span i.fa-angle-left {
   color: white;
   font-size: 35px;
   transition: 0.5s;
 }
-.section-guide-container #guide-toggler i.fa-angle-left.hovered {
-  color: #8f60ec;
+.section-guide-container #guide-toggler span i.fa-angle-left.hovered {
+  color: #2c243b;
 }
-.section-guide-container #guide-toggler i.fa-question-circle {
+.section-guide-container #guide-toggler span i.fa-question-circle {
   color: #af3acc;
   font-size: 60px;
+}
+.section-guide-container #guide-toggler:hover span i {
+  color: #8f60ec;
+}
+.section-guide-container.closed #guide-toggler span {
+  transform: rotateZ(180deg);
 }
 .section-guide-container .section-guide-bg {
   position: relative;

@@ -7,7 +7,7 @@
 @section('content')
 <!-- page section guide -->
 
-<div class="section-guide-container animated bounceInLeft">
+<div class="section-guide-container animated slideInLeft closed">
     <div class="section-guide-bg">
         <div class="section-guide">
             <h4>راهنمای صفحه</h4>
@@ -24,11 +24,7 @@
     </div>
     <span id="guide-toggler">
         <span>
-            <i class="far fa-question-circle d-none"></i>
-            <i class="fas fa-question-circle animated bounceIn d-none"></i>
-        </span>
-        <span>
-            <i class="fas fa-angle-left d-none"></i>
+            <i class="fas fa-angle-left"></i>
         </span>
     </span>
 </div>
