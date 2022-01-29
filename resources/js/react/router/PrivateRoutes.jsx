@@ -32,112 +32,112 @@ class PrivateRoutes extends Component {
         {
             path: '/dashboard',
             exact: true,
-            Component: Dashboard,
+            CallableComponent: Dashboard,
         },
         {
             path: '/brandInfo',
             exact: true,
-            Component: BrandInfo,
+            CallableComponent: BrandInfo,
         },
         {
             path: '/registerInfo',
             exact: true,
-            Component: RegisterInfo
+            CallableComponent: RegisterInfo
         },
         {
             path: "/userInfo",
             exact: true,
-            Component: UserInfo
+            CallableComponent: UserInfo
         },
         {
             path: '/orders/:orderId',
             exact: true,
-            Component: Order
+            CallableComponent: Order
         },
         {
             path: '/orders',
             exact: false,
-            Component: Orders,
+            CallableComponent: Orders,
         },
         {
             path: '/finance/invoices/:invoiceId',
             exact: true,
-            Component: Invoice
+            CallableComponent: Invoice
         },
         {
             path: '/finance/invoices',
             exact: true,
-            Component: Invoices,
+            CallableComponent: Invoices,
         },
         {
             path: '/finance/pre-invoices/:pre_invoiceId',
             exact: true,
-            Component: PreInvoice
+            CallableComponent: PreInvoice
         },
         {
             path: '/finance/pre_invoices',
             exact: true,
-            Component: PreInvoices
+            CallableComponent: PreInvoices
         },
         {
             path: '/finance/bills/:billId',
             exact: true,
-            Component: Bill,
+            CallableComponent: Bill,
         },
         {
             path: '/finance/bills',
             exact: true,
-            Component: Bills,
+            CallableComponent: Bills,
         },
         {
             path: '/finance/transactions',
             exact: true,
-            Component: Transactions,
+            CallableComponent: Transactions,
         },
         {
             path: '/finance/discounts',
             exact: true,
-            Component: Discounts,
+            CallableComponent: Discounts,
         },
         {
             path: '/finance',
             exact: true,
-            Component: Finance
+            CallableComponent: Finance
         },
         {
             path: '/tickets/new',
             exact: true,
-            Component: NewTicket
+            CallableComponent: NewTicket
         },
         {
             path: '/tickets/faq',
             exact: true,
-            Component: TicketsFaq
+            CallableComponent: TicketsFaq
         },
         {
             path: '/tickets/:ticketId',
             exact: true,
-            Component: Ticket
+            CallableComponent: Ticket
         },
         {
             path: '/tickets',
             exact: true,
-            Component: Tickets
+            CallableComponent: Tickets
         },
         {
             path: "/contracts/:contractId",
             exact: true,
-            Component: Contract
+            CallableComponent: Contract
         },
         {
             path: "/contracts",
             exact: true,
-            Component: Contracts
+            CallableComponent: Contracts
         },
         {
             path: "contract_sample",
             exact: true,
-            Component: ContractSample
+            CallableComponent: ContractSample
         }
     ]   
 
@@ -146,10 +146,11 @@ class PrivateRoutes extends Component {
         return (
             <Switch>
                 {routes.map((mainRoute, i) => {
-                    let { path, exact, Component, subroutes } = mainRoute
-                    return (
-                        RouteWithSubRoutes(path, exact, Component, subroutes, i)
-                    )
+                    return <RouteWithSubRoutes key={i} {...mainRoute} index={i}/>
+                    // let { path, exact, Component, subroutes } = mainRoute
+                    // return (
+                    //     RouteWithSubRoutes(path, exact, Component, subroutes, i)
+                    // )
                 })}
             </Switch>
         );
