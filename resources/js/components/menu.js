@@ -27,7 +27,32 @@ $(document).ready(function() {
         }
     })   
     // this code will set the header navbar fixed according to the window height
+    function setHeader() {
+        var window_height = window.innerHeight, offset_top = $("body").scrollTop(), target_header = $(".header, .min-header")
+        if ($(window).width() >= 768) {
+            if (offset_top >= window_height && !target_header.hasClass("fixed")) {
+                $(target_header).addClass("fixed")
+                $("#header-nav").addClass("slideInDown")
+                setTimeout(() => {
+                    $("#header-nav").removeClass("slideInDown")
+                }, 200);
+            } else if (offset_top < window_height && target_header.hasClass("fixed")) {
+                $("#header-nav").addClass("slideOutUp")
+                setTimeout(() => {
+                    $(target_header).removeClass("fixed")
+                    $("#header-nav").removeClass("slideOutUp")
+                }, 200)
+            }
+        } else {
+            $(target_header).removeClass("fixed")
+            $("#header-nav").removeClass("slideInDown slideOutUp")
+        }
+    }
+    // we use the above code as a trigger for scroll evenets and resize window events
     $("body").on("scroll", function() {
-        console.log($(window).height);
+        setHeader()
+    })   
+    $(window).resize(function() {
+        setHeader()        
     })
 })

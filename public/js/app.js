@@ -3018,7 +3018,40 @@ $(document).ready(function () {
     if ($(el).closest(".has-sub").length && !$(el).closest(".submenu-m").length) {
       $($(el).closest("li.has-sub")).toggleClass("open");
     }
-  }); // this code will set the header nav fixed 
+  }); // this code will set the header navbar fixed according to the window height
+
+  function setHeader() {
+    var window_height = window.innerHeight,
+        offset_top = $("body").scrollTop(),
+        target_header = $(".header, .min-header");
+
+    if ($(window).width() >= 768) {
+      if (offset_top >= window_height && !target_header.hasClass("fixed")) {
+        $(target_header).addClass("fixed");
+        $("#header-nav").addClass("slideInDown");
+        setTimeout(function () {
+          $("#header-nav").removeClass("slideInDown");
+        }, 200);
+      } else if (offset_top < window_height && target_header.hasClass("fixed")) {
+        $("#header-nav").addClass("slideOutUp");
+        setTimeout(function () {
+          $(target_header).removeClass("fixed");
+          $("#header-nav").removeClass("slideOutUp");
+        }, 200);
+      }
+    } else {
+      $(target_header).removeClass("fixed");
+      $("#header-nav").removeClass("slideInDown slideOutUp");
+    }
+  } // we use the above code as a trigger for scroll evenets and resize window events
+
+
+  $("body").on("scroll", function () {
+    setHeader();
+  });
+  $(window).resize(function () {
+    setHeader();
+  });
 });
 
 /***/ }),

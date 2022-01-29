@@ -1,4 +1,4 @@
-<nav>
+<nav id="header-nav" class="animated">
     <span class="d-md-none ml-2 mr-2 float-right" id="menu-open">
         <i class="fas fa-bars"></i>
     </span>
