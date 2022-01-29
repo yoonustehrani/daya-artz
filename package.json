@@ -38,6 +38,7 @@
     "dependencies": {
         "bootstrap": "^4.6.0",
         "immer": "^9.0.6",
+        "moment-jalaali": "^0.9.4",
         "postcss-preset-env": "^7.2.3",
         "swiper": "^6.8.0"
     }

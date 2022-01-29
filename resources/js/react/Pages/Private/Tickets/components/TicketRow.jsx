@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
+import { useJalaliDate } from '../../../../hooks';
 
-class TicketRow extends Component {
-    render() {
-        let { title, ticket_number, created_at, department, status, href } = this.props, rowInfo = [ title, ticket_number, created_at, department, status ]
-        
-        return (
-            <Link to={href} className="d-contents">
-                <tr>
-                        {rowInfo && rowInfo.length > 0 && rowInfo.map((row, i) => (
-                            <td key={i}>{row}</td>
-                        ))}
-                </tr>
-            </Link>
-        );
-    }
+const TicketRow = function({ index, id, title,  status, tracking_code, created_at, department, closed_at }) {
+    let history = useHistory()
+    let handleNavigation = () => history.push(`/tickets/${id}`)
+    return (
+        <tr className='cursor-pointer' onClick={handleNavigation}>
+            <th>{index}</th>
+            <td>{title}</td>
+            <td>{tracking_code}</td>
+            <td>{status}{closed_at && <span><br />{useJalaliDate(closed_at).format('jYYYY/jM/jD HH:mm:ss')}</span>}</td>
+            <td>{department.name}</td>
+            <td className='ltr'>{useJalaliDate(created_at).format('jYYYY/jM/jD HH:mm:ss')}</td>
+        </tr>
+    )
 }
 
 export default TicketRow;

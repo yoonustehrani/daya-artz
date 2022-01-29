@@ -9,15 +9,6 @@ use Illuminate\Http\Request;
 
 class FormsController extends Controller
 {
-    private function tracking_code($length = 6)
-    {
-        $alpha = str_shuffle("ABCDEFGHJKLMNPQRSTUWXYZ");
-        $code = $alpha[0];
-        for ($i=0; $i < $length; $i++) { 
-            $code .= random_int(0, 9);
-        }
-        return $code;
-    }
     public function quickOrder(RecaptchaRequest $request)
     {
         abort_if(! $request->validate_captcha('quick_order'), 403, __('messages.google_recaptcha_error'));
@@ -39,7 +30,6 @@ class FormsController extends Controller
         $desscription .= "سفارش : " . implode(', ', $order_items) . "\n";
         $order->description = $desscription . $request->input('description');
         $order->details = ['order_items' => $order_items];
-        $order->code = $this->tracking_code();
         if ($order->save()) {
             return response()->json([
                 'okay' => true,

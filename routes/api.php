@@ -4,6 +4,7 @@ use App\Customer;
 use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\UserArea\TicketController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WebsiteController;
@@ -66,6 +67,8 @@ Route::prefix('auth')->name('auth.')->group(function() {
     // });
 });
 Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(function() { // ->middleware('auth:sanctum')
+    Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
+    Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
     Route::prefix('user')->group(function() {
         // Route::put('update', 'UserController@update');
         // Route::post('customer', function (Request $request) {

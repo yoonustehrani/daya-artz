@@ -8,9 +8,10 @@
 </head>
 <body>
     <div>
-        <button onclick="onClick(event)">Submit</button>
+        <p>{{ $ticket->created_at }}</p>
+        {{-- <button onclick="onClick(event)">Submit</button> --}}
     </div>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LfS1jMeAAAAAOFwhsVv7iJ1PPZFsR7E5wKUZtoe"></script>
+    {{-- <script src="https://www.google.com/recaptcha/api.js?render=6LfS1jMeAAAAAOFwhsVv7iJ1PPZFsR7E5wKUZtoe"></script>
     <script>
         function onClick(event) {
             event.preventDefault();
@@ -21,6 +22,6 @@
                 });
             });
         }
-    </script>
+    </script> --}}
 </body>
 </html>

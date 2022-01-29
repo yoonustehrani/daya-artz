@@ -5,33 +5,40 @@ import Activity from '../Layout/components/Activity'
 import TicketTopNav from './components/TicketTopNav';
 import TicketMessages from './components/TicketMessages';
 import TicketInputs from './components/TicketInputs';
+import { useHttpService } from '../../../hooks';
 
 class Ticket extends Component {
-    state = {
-        loading: false,
-        department: "پشتیبانی طراحی",
-        ticketNo: "312349",
-        messages: [
-            {
-                type: "user",
-                user_name: "دانیال طهرانیم",
-                date: "1400/02/09",
-                time: "13:45",
-                content: "سلام خسته نباشید ... جسارتا داخل پروفایل من آخرین سفارشم ثبت نشده امکانش هست پیگیری کنید بنده مبلغ رو واریز کزدم"
-            },
-            {
-                type: "admin",
-                date: "1400/02/09",
-                time: "13:45",
-                content: "سلام قربان خسته نباشید. به روی چشم همین الان بررسی میکنیم و مشکل برطرف میشه. بخاطر ایجاد تاخیر در ثبت عذر خواهی میکنم"
-            },
-        ],
-        hasMore: false,
-        current_page: 1,
-        loading_messages: false,
-        new_message: "",
-        sending: false
+    constructor(props) {
+        super(props)
+        this.state = {
+            loading: false,
+            department: "پشتیبانی طراحی",
+            ticketNo: "312349",
+            messages: [
+                // {
+                //     type: "user",
+                //     user_name: "دانیال طهرانیم",
+                //     date: "1400/02/09",
+                //     time: "13:45",
+                //     content: "سلام خسته نباشید ... جسارتا داخل پروفایل من آخرین سفارشم ثبت نشده امکانش هست پیگیری کنید بنده مبلغ رو واریز کزدم"
+                // },
+                // {
+                //     type: "admin",
+                //     date: "1400/02/09",
+                //     time: "13:45",
+                //     content: "سلام قربان خسته نباشید. به روی چشم همین الان بررسی میکنیم و مشکل برطرف میشه. بخاطر ایجاد تاخیر در ثبت عذر خواهی میکنم"
+                // },
+            ],
+            hasMore: false,
+            current_page: 1,
+            loading_messages: false,
+            new_message: "",
+            sending: false
+        }
+        this.http = useHttpService('/userarea/')
+        this.loadTicket()
     }
+    
 
     setNewMessage = (e) => {
         this.setState({
@@ -58,6 +65,9 @@ class Ticket extends Component {
         //         })
         //     })
         // }
+    }
+    loadTicket = () => {
+
     }
 
     loadMore = () => {

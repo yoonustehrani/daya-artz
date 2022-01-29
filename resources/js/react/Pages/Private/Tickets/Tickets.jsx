@@ -1,33 +1,44 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { useHttpService } from '../../../hooks';
 // custom components
 import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem'
 import TicketRow from './components/TicketRow';
 
+// todo : pagination
 class Tickets extends Component {
-    state = {
-        tickets: [
-            {
-                title: "ادیت سوم",
-                ticket_number: "13907",
-                created_at: "12:39 1400/05/02",
-                department: "پشتیبانی طراحی",
-                status: "در حال انجام",
-                href: "/tickets/1"
-            }
-        ],
-        loading: false
+    constructor(props) {
+        super(props)
+        this.http = useHttpService('/userarea/')
+        this.state = {
+            tickets: [
+                // {
+                //     title: "ادیت سوم",
+                //     ticket_number: "13907",
+                //     created_at: "12:39 1400/05/02",
+                //     department: "پشتیبانی طراحی",
+                //     status: "در حال انجام",
+                //     href: "/tickets/1"
+                // }
+            ],
+            loading: false
+        }
+        this.loadTickets()
     }
-    
+
+    loadTickets = async () => {
+        const response = await this.http.get('tickets')
+        let tickets = response.data
+        this.setState({
+            tickets,
+            loading: false
+        })
+    }
     componentDidMount() {
         document.title = "درخواست های پشتیبانی"
         // axios.get('').then(res => {
         //     let { data } = res
-        //     this.setState({
-        //         tickets: data,
-        //         loading: false
-        //     })
+        //     
         // })
     }
     
@@ -40,16 +51,17 @@ class Tickets extends Component {
                     <table className="table table-striped table-bordered table-hover thead-light table-responsive userarea-table">
                         <thead>
                             <tr>
+                                <th><i className="fas fa-hashtag"></i></th>
                                 <th>عنوان تیکت</th>
                                 <th>شماره تیکت</th>
-                                <th>تاریخ ایجاد</th>
-                                <th>بخش مرتبط</th>
                                 <th>وضعیت تیکت</th>
+                                <th>دپارتمان</th>
+                                <th>تاریخ ایجاد</th>
                             </tr>
                         </thead>
                         <tbody>
                             {tickets.map((ticket, i) => (
-                                <TicketRow key={i} {...ticket} />
+                                <TicketRow key={ticket.id} index={i+1} {...ticket} />
                             ))}
                         </tbody>
                     </table>
