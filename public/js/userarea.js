@@ -12072,12 +12072,7 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
       var routes = this.routes;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_25__.Switch, {
         children: routes.map(function (mainRoute, i) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_23__["default"], _objectSpread(_objectSpread({}, mainRoute), {}, {
-            index: i
-          }), i); // let { path, exact, Component, subroutes } = mainRoute
-          // return (
-          //     RouteWithSubRoutes(path, exact, Component, subroutes, i)
-          // )
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_23__["default"], _objectSpread({}, mainRoute), i);
         })
       });
     }
@@ -12101,8 +12096,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ RouteWithSubRoutes)
 /* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _PrivateRoute__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PrivateRoute */ "./resources/js/react/router/PrivateRoute.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -12110,13 +12112,17 @@ function RouteWithSubRoutes(_ref) {
   var path = _ref.path,
       exact = _ref.exact,
       CallableComponent = _ref.CallableComponent,
-      subroutes = _ref.subroutes,
-      index = _ref.index;
+      subroutes = _ref.subroutes;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_0__["default"], {
     path: path,
     exact: exact,
-    CallableComponent: CallableComponent
-  }, index);
+    CallableComponent: CallableComponent,
+    children: subroutes && subroutes.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Switch, {
+      children: subroutes.map(function (sub, i) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RouteWithSubRoutes, _objectSpread({}, sub), i);
+      })
+    })
+  });
 }
 
 /***/ }),

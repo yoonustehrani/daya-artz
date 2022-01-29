@@ -145,13 +145,7 @@ class PrivateRoutes extends Component {
         let { routes } = this
         return (
             <Switch>
-                {routes.map((mainRoute, i) => {
-                    return <RouteWithSubRoutes key={i} {...mainRoute} index={i}/>
-                    // let { path, exact, Component, subroutes } = mainRoute
-                    // return (
-                    //     RouteWithSubRoutes(path, exact, Component, subroutes, i)
-                    // )
-                })}
+                {routes.map((mainRoute, i) => <RouteWithSubRoutes key={i} {...mainRoute}/>)}
             </Switch>
         );
     }
