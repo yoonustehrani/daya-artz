@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Ticket;
+use App\Models\TicketMessage;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -16,11 +17,22 @@ class TicketSeeder extends Seeder
     public function run()
     {
         $user = User::first();
-
         if ($user) {
-            $user->tickets()->saveMany(
-                Ticket::factory()->count(3)->forDepartment()->make()
-            );
+            Ticket::factory()
+                ->state([
+                    'user_id' => $user->getKey() 
+                ])
+                ->count(3)
+                ->forDepartment()
+                ->has(
+                    TicketMessage::factory()
+                        ->state([
+                            'user_id' => $user->getKey()
+                        ])
+                        ->count(20)
+                    , 'messages'
+                )
+                ->create();
         }
     }
 }
