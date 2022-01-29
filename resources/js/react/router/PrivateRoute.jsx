@@ -5,10 +5,10 @@ import { connect } from 'react-redux'
 
 class PrivateRoute extends Component {
     render() {
-        let {path, children, user, exact} = this.props
+        let {path, children, user, exact, CallableComponent} = this.props
         return (
-            <Route path={path} exact={exact} render={({location}) => (user
-                ? location.pathname === "/" ? <Redirect to={{ pathname: "/dashboard", state: {from: location} }} /> : children
+            <Route path={path} exact={exact} render={({location, match}) => (user
+                ? location.pathname === "/" ? <Redirect to={{ pathname: "/dashboard", state: {from: location} }} /> : <>{CallableComponent && <CallableComponent {...match}/>}{children}</>
                 : <Redirect to={{ pathname: "/auth/login", state: {from: location} }} />
             )
             }
