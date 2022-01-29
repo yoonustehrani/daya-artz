@@ -37,4 +37,8 @@ class Ticket extends Model
     {
         return $this->belongsTo(TicketDepartment::class, 'ticket_department_id');
     }
+    public function messages()
+    {
+        return $this->hasMany(TicketMessage::class);
+    }
 }
