@@ -89,6 +89,7 @@ class Ticket extends Component {
     
     componentDidMount() {
         document.title = "تیکت شماره 1"
+        console.log(this.props);
         // this.loadMore()
         // this.setState({
         //     loading: false

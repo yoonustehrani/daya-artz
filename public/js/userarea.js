@@ -9708,7 +9708,8 @@ var Ticket = /*#__PURE__*/function (_Component) {
   _createClass(Ticket, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.title = "تیکت شماره 1"; // this.loadMore()
+      document.title = "تیکت شماره 1";
+      console.log(this.props); // this.loadMore()
       // this.setState({
       //     loading: false
       // })
@@ -11770,6 +11771,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -11795,6 +11802,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var PrivateRoute = /*#__PURE__*/function (_Component) {
   _inherits(PrivateRoute, _Component);
 
@@ -11813,12 +11822,14 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
           path = _this$props.path,
           children = _this$props.children,
           user = _this$props.user,
-          exact = _this$props.exact;
+          exact = _this$props.exact,
+          CallableComponent = _this$props.CallableComponent;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
         path: path,
         exact: exact,
         render: function render(_ref) {
-          var location = _ref.location;
+          var location = _ref.location,
+              match = _ref.match;
           return user ? location.pathname === "/" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
             to: {
               pathname: "/dashboard",
@@ -11826,7 +11837,9 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
                 from: location
               }
             }
-          }) : children : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+            children: [CallableComponent && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CallableComponent, _objectSpread({}, match)), children]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
             to: {
               pathname: "/auth/login",
               state: {
@@ -12092,18 +12105,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-function RouteWithSubRoutes(path, exact, Component, subroutes, key) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_0__["default"], {
+function RouteWithSubRoutes(path, exact, CallableComponent, subroutes, key) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_0__["default"], {
     path: path,
     exact: exact,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Component, {
-      subroutes: subroutes
-    }), subroutes && subroutes.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Switch, {
+    CallableComponent: CallableComponent,
+    children: subroutes && subroutes.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Switch, {
       children: subroutes.map(function (sub, i) {
         return RouteWithSubRoutes(sub.path, sub.exact, sub.Component, sub.subroutes, i);
       })
-    })]
+    })
   }, key);
 }
 
