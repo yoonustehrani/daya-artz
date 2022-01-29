@@ -10126,13 +10126,13 @@ h3 {
     width: 40% !important;
   }
 
-  div.contact-ways-container > div i.contact-way-icon {
+  .contact-ways-container > div i.contact-way-icon {
     font-size: 40px !important;
   }
-  div.contact-ways-container > div div.address-label .label-icon {
+  .contact-ways-container > div .address-label .label-icon {
     font-size: 22px !important;
   }
-  div.contact-ways-container > div div.address-label h3 {
+  .contact-ways-container > div .address-label h3 {
     font-size: 15px !important;
   }
 
@@ -10394,30 +10394,30 @@ h3 {
     width: 28% !important;
   }
 
-  div.finance-item .top-item-icon i {
+  .finance-item .top-item-icon i {
     font-size: 40px !important;
   }
 
-  div.shapes-back-img, div.finance-item {
+  .shapes-back-img, .finance-item {
     justify-content: center !important;
     flex-wrap: wrap !important;
   }
-  div.shapes-back-img .top-item-info, div.finance-item .top-item-info {
+  .shapes-back-img .top-item-info, .finance-item .top-item-info {
     align-items: center !important;
     margin-top: 5px !important;
   }
-  div.shapes-back-img .top-item-info h4, div.finance-item .top-item-info h4 {
+  .shapes-back-img .top-item-info h4, .finance-item .top-item-info h4 {
     text-align: center !important;
   }
-  div.shapes-back-img .top-item-info > div, div.finance-item .top-item-info > div {
+  .shapes-back-img .top-item-info > div, .finance-item .top-item-info > div {
     text-align: center;
   }
-  div.shapes-back-img .top-item-info > div a, div.finance-item .top-item-info > div a {
+  .shapes-back-img .top-item-info > div a, .finance-item .top-item-info > div a {
     float: initial !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-  div.shapes-back-img .top-item-info span:nth-child(3), div.finance-item .top-item-info span:nth-child(3) {
+  .shapes-back-img .top-item-info span:nth-child(3), .finance-item .top-item-info span:nth-child(3) {
     font-size: 12px !important;
     text-align: center;
   }
@@ -10509,7 +10509,7 @@ h3 {
   }
 }
 @media screen and (min-width: 992px) {
-  div.address-label h3 {
+  .address-label h3 {
     font-size: 22px !important;
   }
 
@@ -10519,7 +10519,7 @@ h3 {
     max-width: unset !important;
   }
 
-  div.daya-duties {
+  .daya-duties {
     width: 80% !important;
     padding: 0 !important;
     margin: 0 auto;
@@ -10535,10 +10535,10 @@ h3 {
   }
 }
 @media screen and (max-width: 767px) {
-  div.order-btn-container {
+  .order-btn-container {
     text-align: center !important;
   }
-  div.order-btn-container .order-btn {
+  .order-btn-container .order-btn {
     font-size: 18px !important;
   }
 
@@ -10600,19 +10600,19 @@ h3 {
     margin: 30px 0px !important;
   }
 
-  div.daya-duties {
+  .daya-duties {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
   }
-  div.daya-duties .customer-vector {
+  .daya-duties .customer-vector {
     width: 90% !important;
     max-width: none !important;
     order: 10;
   }
 
-  .contact-us-first-section div.contact-us-background {
+  .contact-us-first-section .contact-us-background {
     height: auto !important;
   }
   .contact-us-first-section .contact-us-form {
@@ -10648,16 +10648,16 @@ h3 {
     font-size: 16px !important;
   }
 
-  div.contact-ways-container > div {
+  .contact-ways-container > div {
     height: auto !important;
   }
-  div.contact-ways-container > div i.contact-way-icon {
+  .contact-ways-container > div i.contact-way-icon {
     font-size: 40px !important;
   }
-  div.contact-ways-container > div div.address-label .label-icon {
+  .contact-ways-container > div .address-label .label-icon {
     font-size: 25px !important;
   }
-  div.contact-ways-container > div div.address-label h3 {
+  .contact-ways-container > div .address-label h3 {
     font-size: 18px !important;
   }
 
@@ -10688,20 +10688,20 @@ h3 {
     position: static !important;
     float: left !important;
   }
-  .post-info-section div.post-info-container {
+  .post-info-section .post-info-container {
     height: auto !important;
     width: 100% !important;
     position: static !important;
     transform: inherit !important;
   }
-  .post-info-section div.post-info-container .post-info-flex {
+  .post-info-section .post-info-container .post-info-flex {
     margin-right: 0 !important;
     padding-right: 0 !important;
   }
-  .post-info-section div.post-info-container .post-info-flex span {
+  .post-info-section .post-info-container .post-info-flex span {
     font-size: 16px !important;
   }
-  .post-info-section div.post-info-cover {
+  .post-info-section .post-info-cover {
     position: relative !important;
     width: 90% !important;
     top: 0 !important;
@@ -10710,7 +10710,7 @@ h3 {
     left: 50% !important;
     transform: translateX(-50%);
   }
-  .post-info-section div.post-info-cover > img {
+  .post-info-section .post-info-cover > img {
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
@@ -10721,7 +10721,7 @@ h3 {
     -o-object-position: center;
        object-position: center;
   }
-  .post-info-section div.post-info-cover::after {
+  .post-info-section .post-info-cover::after {
     display: block;
     content: "";
     padding-bottom: 100%;
@@ -10734,25 +10734,25 @@ h3 {
     font-size: 16px !important;
   }
 
-  div.post-item {
+  .post-item {
     height: 100px !important;
   }
-  div.post-item div.recommand-post-cover {
+  .post-item .recommand-post-cover {
     width: 100px !important;
   }
-  div.post-item div.recommand-post-info {
+  .post-item .recommand-post-info {
     width: calc(100% - 100px) !important;
   }
 
-  div.service-benefits-section {
+  .service-benefits-section {
     height: auto !important;
     justify-content: center !important;
   }
-  div.service-benefits-section .header-vector {
+  .service-benefits-section .header-vector {
     top: 0 !important;
     transform: initial !important;
   }
-  div.service-benefits-section .header-vector img.rules {
+  .service-benefits-section .header-vector img.rules {
     transform: none !important;
   }
 
@@ -11244,7 +11244,7 @@ h3 {
   .eggplant-btn:nth-child(2) {
     margin-bottom: 10px;
   }
-  .eggplant-btn div.alert {
+  .eggplant-btn .alert {
     margin: 10px 0 0 0 !important;
   }
 }
@@ -11279,14 +11279,14 @@ h3 {
     background-size: unset;
   }
 
-  footer.footer .footer-content div.footer-info-container > div ul li {
+  footer.footer .footer-content .footer-info-container > div ul li {
     display: inline-block;
   }
-  footer.footer .footer-content div.footer-info-container > div img {
+  footer.footer .footer-content .footer-info-container > div img {
     float: left !important;
     margin: 5px;
   }
-  footer.footer .footer-content div.footer-info-container > div .social-media-rows {
+  footer.footer .footer-content .footer-info-container > div .social-media-rows {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -11402,10 +11402,10 @@ h3 {
     height: 400px;
   }
 
-  div.service-benefits-section {
+  .service-benefits-section {
     height: 500px !important;
   }
-  div.service-benefits-section p {
+  .service-benefits-section p {
     font-size: 18px !important;
   }
 
@@ -11417,33 +11417,33 @@ h3 {
     font-size: 16px !important;
   }
 
-  div.contact-us-background {
+  .contact-us-background {
     height: 435px !important;
   }
 
-  div.contact-us-form h4 {
+  .contact-us-form h4 {
     font-size: 22px !important;
   }
-  div.contact-us-form input, div.contact-us-form textarea, div.contact-us-form button {
+  .contact-us-form input, .contact-us-form textarea, .contact-us-form button {
     font-size: 16px !important;
   }
 
-  div.change-form button {
+  .change-form button {
     top: 75% !important;
     font-size: 20px !important;
   }
 
-  div.shapes-back-img .top-item-info > span:first-child, div.finance-item .top-item-info > span:first-child {
+  .shapes-back-img .top-item-info > span:first-child, .finance-item .top-item-info > span:first-child {
     font-size: 30px !important;
   }
-  div.shapes-back-img .top-item-info > div a, div.finance-item .top-item-info > div a {
+  .shapes-back-img .top-item-info > div a, .finance-item .top-item-info > div a {
     font-size: 14px !important;
   }
-  div.shapes-back-img .top-item-info h4, div.finance-item .top-item-info h4 {
+  .shapes-back-img .top-item-info h4, .finance-item .top-item-info h4 {
     font-size: 15px !important;
   }
 
-  div.shapes-back-img .top-item-icon i {
+  .shapes-back-img .top-item-icon i {
     font-size: 40px !important;
   }
 
@@ -11456,7 +11456,7 @@ h3 {
     height: 35px !important;
   }
 
-  .order-items-container > div div.order-title h4 {
+  .order-items-container > div .order-title h4 {
     font-size: 16px !important;
   }
   .order-items-container > div ul li {
@@ -11486,13 +11486,13 @@ h3 {
     width: 20% !important;
   }
 
-  div.shapes-back-img .top-item-info, div.finance-item .top-item-info {
+  .shapes-back-img .top-item-info, .finance-item .top-item-info {
     font-size: 16px !important;
   }
-  div.shapes-back-img .top-item-info > span:first-child, div.finance-item .top-item-info > span:first-child {
+  .shapes-back-img .top-item-info > span:first-child, .finance-item .top-item-info > span:first-child {
     font-size: 34px !important;
   }
-  div.shapes-back-img .top-item-icon i, div.finance-item .top-item-icon i {
+  .shapes-back-img .top-item-icon i, .finance-item .top-item-icon i {
     font-size: 50px !important;
   }
 
@@ -11671,7 +11671,7 @@ h3 {
     margin: 1.15% !important;
   }
 
-  div.finance-item .top-item-icon i {
+  .finance-item .top-item-icon i {
     font-size: 50px !important;
   }
 
@@ -12065,7 +12065,7 @@ button i.fa-phone {
 .about-section > div > div p {
   color: #fff;
 }
-.about-section > div > div.image-box {
+.about-section > div > .image-box {
   display: flex;
   min-height: inherit;
   align-items: center;
@@ -12309,7 +12309,7 @@ span.back-aqua.big-icon {
   background-size: 70% 100% !important;
 }
 
-.order-section-container div.background-order {
+.order-section-container .background-order {
   float: left;
 }
 .order-section-container .order-vectors-container {
@@ -12369,7 +12369,7 @@ span.back-aqua.big-icon {
 .contact-section {
   position: relative;
 }
-.contact-section div.back-aqua {
+.contact-section .back-aqua {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -12472,11 +12472,11 @@ span.back-aqua.big-icon {
   background-color: rgba(23, 9, 60, 0.5);
 }
 
-div.fast-order-container {
+.fast-order-container {
   min-height: 500px;
   height: auto;
 }
-div.fast-order-container .fast-order-section {
+.fast-order-container .fast-order-section {
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
@@ -12486,34 +12486,34 @@ div.fast-order-container .fast-order-section {
   margin-left: auto;
   margin-right: auto;
 }
-div.fast-order-container .fast-order-section .fast-order-form {
+.fast-order-container .fast-order-section .fast-order-form {
   height: 100%;
   padding: 10px;
   box-shadow: 0 5px 35px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 30px 10px;
 }
-div.fast-order-container .fast-order-section .fast-order-form form > div:first-child, div.fast-order-container .fast-order-section .fast-order-form form > div:nth-child(2) {
+.fast-order-container .fast-order-section .fast-order-form form > div:first-child, .fast-order-container .fast-order-section .fast-order-form form > div:nth-child(2) {
   width: 100%;
 }
-div.fast-order-container .fast-order-section .fast-order-form button {
+.fast-order-container .fast-order-section .fast-order-form button {
   background-color: #4d4d54;
   color: #fff;
 }
-div.fast-order-container .fast-order-section .fast-order-form button:hover {
+.fast-order-container .fast-order-section .fast-order-form button:hover {
   background-color: #34167C;
 }
-div.fast-order-container .fast-order-section .fast-order-form input, div.fast-order-container .fast-order-section .fast-order-form textarea {
+.fast-order-container .fast-order-section .fast-order-form input, .fast-order-container .fast-order-section .fast-order-form textarea {
   text-align: right;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types {
+.fast-order-container .fast-order-section .fast-order-form .order-types {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-input {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-input {
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
   clip-path: inset(100%);
@@ -12523,7 +12523,7 @@ div.fast-order-container .fast-order-section .fast-order-form div.order-types .c
   white-space: nowrap;
   width: 1px;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-tile {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12538,7 +12538,7 @@ div.fast-order-container .fast-order-section .fast-order-form div.order-types .c
   cursor: pointer;
   position: relative;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-tile:before {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-tile:before {
   content: "";
   position: absolute;
   display: block;
@@ -12557,71 +12557,71 @@ div.fast-order-container .fast-order-section .fast-order-form div.order-types .c
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-tile:hover {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-tile:hover {
   border-color: #2260ff;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-tile:hover:before {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-tile:hover:before {
   transform: scale(1);
   opacity: 1;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-icon {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-icon {
   transition: 0.375s ease;
   color: #494949;
   margin-bottom: 5px;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-icon svg, div.fast-order-container .fast-order-section .fast-order-form div.order-types img {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-icon svg, .fast-order-container .fast-order-section .fast-order-form .order-types img {
   width: 3rem;
   height: 3rem;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-input:checked + .checkbox-tile .checkbox-icon, div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-input:checked + .checkbox-tile .checkbox-label {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-input:checked + .checkbox-tile .checkbox-icon, .fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-input:checked + .checkbox-tile .checkbox-label {
   color: #2260ff;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-input:checked + .checkbox-tile {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-input:checked + .checkbox-tile {
   border-color: #2260ff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #2260ff;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-input:checked + .checkbox-tile:before {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-input:checked + .checkbox-tile:before {
   transform: scale(1);
   opacity: 1;
   background-color: #2260ff;
   border-color: #2260ff;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-input:focus + .checkbox-tile {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-input:focus + .checkbox-tile {
   border-color: #2260ff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-input:focus + .checkbox-tile:before {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-input:focus + .checkbox-tile:before {
   transform: scale(1);
   opacity: 1;
 }
-div.fast-order-container .fast-order-section .fast-order-form div.order-types .checkbox-label {
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-label {
   color: #707070;
   transition: 0.375s ease;
   text-align: center;
 }
-div.fast-order-container .fast-order-section div.fast-order-guide {
+.fast-order-container .fast-order-section .fast-order-guide {
   height: 100%;
 }
-div.fast-order-container .fast-order-section div.fast-order-guide button {
+.fast-order-container .fast-order-section .fast-order-guide button {
   background-color: #4d4d54;
   color: #fff;
 }
-div.fast-order-container .fast-order-section div.fast-order-guide button:hover {
+.fast-order-container .fast-order-section .fast-order-guide button:hover {
   background-color: #34167C;
 }
-div.fast-order-container .fast-order-section div.fast-order-guide h3, div.fast-order-container .fast-order-section div.fast-order-guide h5, div.fast-order-container .fast-order-section div.fast-order-guide p, div.fast-order-container .fast-order-section div.fast-order-guide li, div.fast-order-container .fast-order-section div.fast-order-guide ul {
+.fast-order-container .fast-order-section .fast-order-guide h3, .fast-order-container .fast-order-section .fast-order-guide h5, .fast-order-container .fast-order-section .fast-order-guide p, .fast-order-container .fast-order-section .fast-order-guide li, .fast-order-container .fast-order-section .fast-order-guide ul {
   text-align: right;
   direction: rtl;
 }
-div.fast-order-container .fast-order-section div.fast-order-guide h3 {
+.fast-order-container .fast-order-section .fast-order-guide h3 {
   font-size: 30px;
   font-weight: bold;
 }
-div.fast-order-container .fast-order-section div.fast-order-guide ul {
+.fast-order-container .fast-order-section .fast-order-guide ul {
   list-style-type: decimal;
 }
-div.fast-order-container .fast-order-section div.fast-order-guide li, div.fast-order-container .fast-order-section div.fast-order-guide p, div.fast-order-container .fast-order-section div.fast-order-guide h5 {
+.fast-order-container .fast-order-section .fast-order-guide li, .fast-order-container .fast-order-section .fast-order-guide p, .fast-order-container .fast-order-section .fast-order-guide h5 {
   font-size: 20px;
 }
 
@@ -12695,15 +12695,15 @@ div.fast-order-container .fast-order-section div.fast-order-guide li, div.fast-o
   transition: 0.3s ease-in-out;
   text-align: right;
 }
-.blog-posts-container .blog-post div.article-time {
+.blog-posts-container .blog-post .article-time {
   text-align: right;
 }
-.blog-posts-container .blog-post div.article-time span {
+.blog-posts-container .blog-post .article-time span {
   display: flex;
   color: #808080;
   font-size: 14px;
 }
-.blog-posts-container .blog-post div.article-time span i {
+.blog-posts-container .blog-post .article-time span i {
   color: inherit;
   font-size: 20px;
   margin-right: 5px;
@@ -12803,17 +12803,17 @@ div.fast-order-container .fast-order-section div.fast-order-guide li, div.fast-o
   background-color: #fff;
   color: #17093c;
 }
-.advantage-section .advantage-box ul.advantages li div.description {
+.advantage-section .advantage-box ul.advantages li .description {
   margin-right: 15px;
 }
 .advantage-section img {
   transform: scaleX(-1);
 }
 
-.daya-guide div.contact-us-background {
+.daya-guide .contact-us-background {
   height: 470px;
 }
-.daya-guide div.contact-us-form {
+.daya-guide .contact-us-form {
   top: 8%;
   width: 40%;
 }
@@ -12822,114 +12822,114 @@ div.fast-order-container .fast-order-section div.fast-order-guide li, div.fast-o
   font-size: 20px;
 }
 
-div.contact-us-first-section.mb-4 div.contact-us-background {
+.contact-us-first-section.mb-4 .contact-us-background {
   height: 570px;
 }
-div.contact-us-first-section.mb-4 div.contact-us-form {
+.contact-us-first-section.mb-4 .contact-us-form {
   top: 22%;
   width: 45%;
 }
 
-div.contact-us-first-section {
+.contact-us-first-section {
   position: relative;
 }
-div.contact-us-first-section div.contact-us-background {
+.contact-us-first-section .contact-us-background {
   position: relative;
   width: auto;
 }
-div.contact-us-first-section div.contact-us-background div.background-left {
+.contact-us-first-section .contact-us-background .background-left {
   position: relative;
   top: 0;
   height: 100%;
   width: 75%;
 }
-div.contact-us-first-section div.contact-us-background div.background-left img {
+.contact-us-first-section .contact-us-background .background-left img {
   height: 100%;
   width: 100%;
 }
-div.contact-us-first-section div.contact-us-background div.background-right {
+.contact-us-first-section .contact-us-background .background-right {
   position: absolute;
   top: 6%;
   right: 8%;
   height: 100%;
   width: auto;
 }
-div.contact-us-first-section div.contact-us-background div.background-right img {
+.contact-us-first-section .contact-us-background .background-right img {
   width: auto;
   height: 100%;
 }
-div.contact-us-first-section div.contact-us-vector-1 {
+.contact-us-first-section .contact-us-vector-1 {
   position: absolute;
   top: 11%;
   height: 100%;
   width: auto;
 }
-div.contact-us-first-section div.contact-us-vector-1 img {
+.contact-us-first-section .contact-us-vector-1 img {
   height: 100%;
 }
-div.contact-us-first-section div.contact-us-form {
+.contact-us-first-section .contact-us-form {
   position: absolute;
   right: 2%;
 }
-div.contact-us-first-section div.contact-us-form h4 {
+.contact-us-first-section .contact-us-form .contact-us-title {
   text-align: right;
   float: right;
   font-size: 32px;
   font-weight: bold;
 }
-div.contact-us-first-section div.contact-us-form input, div.contact-us-first-section div.contact-us-form textarea {
+.contact-us-first-section .contact-us-form input, .contact-us-first-section .contact-us-form textarea {
   font-size: 20px;
   background-color: #EAECFA;
 }
-div.contact-us-first-section div.contact-us-form textarea {
+.contact-us-first-section .contact-us-form textarea {
   height: 200px;
   max-height: 100%;
 }
-div.contact-us-first-section div.contact-us-form button {
+.contact-us-first-section .contact-us-form button {
   min-width: 20%;
   font-size: 18px;
 }
-div.contact-us-first-section div.contact-us-form button:hover {
+.contact-us-first-section .contact-us-form button:hover {
   background-color: #17093c;
 }
 
-div.contact-us-section-2 {
+.contact-us-section-2 {
   background-image: url("/images/dots-background.png");
   background-size: contain;
   background-repeat: repeat;
 }
-div.contact-us-section-2 .title-text {
+.contact-us-section-2 .title-text {
   font-size: 35px !important;
 }
-div.contact-us-section-2 div.contact-ways-container {
+.contact-us-section-2 .contact-ways-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
-div.contact-us-section-2 div.contact-ways-container > div {
+.contact-us-section-2 .contact-ways-container > div {
   background-color: #F1F0F8;
   box-shadow: 4px 4px 15px 2px #dcdcdc;
   height: 420px;
 }
-div.contact-us-section-2 div.contact-ways-container > div i.contact-way-icon {
+.contact-us-section-2 .contact-ways-container > div i.contact-way-icon {
   font-size: 70px;
   color: #000;
 }
-div.contact-us-section-2 div.contact-ways-container > div div.address-label {
+.contact-us-section-2 .contact-ways-container > div .address-label {
   background-color: #DED8F2;
   border-radius: 8px;
   height: 50px;
 }
-div.contact-us-section-2 div.contact-ways-container > div div.address-label i.label-icon {
+.contact-us-section-2 .contact-ways-container > div .address-label i.label-icon {
   font-size: 35px;
   color: #000;
 }
-div.contact-us-section-2 div.contact-ways-container > div div.address-label span {
+.contact-us-section-2 .contact-ways-container > div .address-label span {
   color: #000;
 }
-div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
+.contact-us-section-2 .contact-ways-container > div .address-label h3 {
   color: #000;
   font-size: 24px;
   direction: ltr;
@@ -13137,28 +13137,28 @@ div.contact-us-section-2 div.contact-ways-container > div div.address-label h3 {
   font-weight: bold;
 }
 
-div.daya-duties {
+.daya-duties {
   width: 100%;
   padding: 0 20px !important;
 }
-div.daya-duties .duty-item {
+.daya-duties .duty-item {
   margin-bottom: 25px;
 }
-div.daya-duties .duty-item p {
+.daya-duties .duty-item p {
   color: #000;
   font-size: 18px;
   text-align: right;
   margin-bottom: 0 !important;
 }
-div.daya-duties .duty-item p:first-child {
+.daya-duties .duty-item p:first-child {
   font-weight: bold;
 }
-div.daya-duties .customer-vector {
+.daya-duties .customer-vector {
   width: 50%;
   max-width: 400px;
   float: left;
 }
-div.daya-duties .customer-vector img {
+.daya-duties .customer-vector img {
   width: 100%;
   height: 100%;
 }
@@ -13181,10 +13181,10 @@ div.daya-duties .customer-vector img {
   justify-content: space-evenly;
   align-items: flex-start;
 }
-.FAQ-section .accordion-container div.item-wrapper {
+.FAQ-section .accordion-container .item-wrapper {
   margin-bottom: 30px;
 }
-.FAQ-section .accordion-container div.item-wrapper div.question-wrapper {
+.FAQ-section .accordion-container .item-wrapper .question-wrapper {
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: nowrap;
@@ -13195,30 +13195,30 @@ div.daya-duties .customer-vector img {
   padding: 8px;
   cursor: pointer;
 }
-.FAQ-section .accordion-container div.item-wrapper div.question-wrapper h4 {
+.FAQ-section .accordion-container .item-wrapper .question-wrapper h4 {
   color: #fff;
   font-size: 18px;
   display: inline;
   margin-bottom: 0;
   line-height: 1.5;
 }
-.FAQ-section .accordion-container div.item-wrapper div.question-wrapper span {
+.FAQ-section .accordion-container .item-wrapper .question-wrapper span {
   cursor: pointer;
   margin-right: 10px;
 }
-.FAQ-section .accordion-container div.item-wrapper div.question-wrapper span i {
+.FAQ-section .accordion-container .item-wrapper .question-wrapper span i {
   color: #fff;
   font-size: 16px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.FAQ-section .accordion-container div.item-wrapper .answer {
+.FAQ-section .accordion-container .item-wrapper .answer {
   text-align: right;
   color: #fff;
   font-size: 16px;
   margin-top: 10px;
 }
-.FAQ-section .accordion-container div.item-wrapper ul.answer {
+.FAQ-section .accordion-container .item-wrapper ul.answer {
   list-style-type: decimal;
 }
 
@@ -13620,11 +13620,11 @@ div.daya-duties .customer-vector img {
   margin-right: auto;
 }
 
-div.post-info-section {
+.post-info-section {
   position: relative;
   height: 220px;
 }
-div.post-info-section div.post-info-container {
+.post-info-section .post-info-container {
   height: 100%;
   width: calc(100% - 95px);
   border-radius: 8px;
@@ -13633,14 +13633,14 @@ div.post-info-section div.post-info-container {
   position: relative;
   z-index: 5;
 }
-div.post-info-section div.post-info-container .post-title {
+.post-info-section .post-info-container .post-title {
   color: #fff;
   font-size: 26px;
   font-weight: bold;
   border-right: 3px solid #fff;
   text-align: center;
 }
-div.post-info-section div.post-info-container .post-info-flex {
+.post-info-section .post-info-container .post-info-flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -13649,7 +13649,7 @@ div.post-info-section div.post-info-container .post-info-flex {
   margin-right: 5%;
   padding-right: 110px;
 }
-div.post-info-section div.post-info-container .post-info-flex > div {
+.post-info-section .post-info-container .post-info-flex > div {
   direction: rtl;
   display: flex;
   flex-direction: row;
@@ -13657,18 +13657,18 @@ div.post-info-section div.post-info-container .post-info-flex > div {
   justify-content: right;
   align-items: center;
 }
-div.post-info-section div.post-info-container .post-info-flex > div span:nth-child(3) {
+.post-info-section .post-info-container .post-info-flex > div span:nth-child(3) {
   margin-right: 6px;
 }
-div.post-info-section div.post-info-container .post-info-flex > div span:nth-child(2) {
+.post-info-section .post-info-container .post-info-flex > div span:nth-child(2) {
   margin-right: 10px;
 }
-div.post-info-section div.post-info-container .post-info-flex > div span, div.post-info-section div.post-info-container .post-info-flex > div i {
+.post-info-section .post-info-container .post-info-flex > div span, .post-info-section .post-info-container .post-info-flex > div i {
   color: #fff;
   font-size: 20px;
   display: inline-block;
 }
-div.post-info-section div.post-info-cover {
+.post-info-section .post-info-cover {
   position: absolute;
   z-index: 6;
   top: 0;
@@ -13676,7 +13676,7 @@ div.post-info-section div.post-info-cover {
   height: 100%;
   width: 220px;
 }
-div.post-info-section div.post-info-cover img {
+.post-info-section .post-info-cover img {
   border-radius: 100%;
   border: 4px solid #fff;
   width: 100%;
@@ -13688,33 +13688,33 @@ div.post-info-section div.post-info-cover img {
   background: linear-gradient(to right, #78cad2 0%, #fceeb5 50%, #6332df 100%);
 }
 
-div.post-main-section {
+.post-main-section {
   width: 60%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
 }
-div.post-main-section div.post-main-text {
+.post-main-section .post-main-text {
   padding: 0 1rem;
 }
-div.post-main-section div.post-main-text h2 {
+.post-main-section .post-main-text h2 {
   font-size: 26px;
   font-weight: bold;
   color: #000;
   margin-bottom: 25px;
 }
-div.post-main-section div.post-main-text p {
+.post-main-section .post-main-text p {
   font-size: 18px;
   color: #4a4a4a;
   text-align: right;
   margin: 20px 0;
 }
-div.post-main-section div.recommand-section {
+.post-main-section .recommand-section {
   padding: 8px;
   background-color: #18093c;
   border-radius: 6px;
 }
-div.post-main-section div.recommand-section div.recommand-vector-container {
+.post-main-section .recommand-section .recommand-vector-container {
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -13725,13 +13725,13 @@ div.post-main-section div.recommand-section div.recommand-vector-container {
   width: 250px;
   height: auto;
 }
-div.post-main-section div.recommand-section div.recommand-vector-container > img {
+.post-main-section .recommand-section .recommand-vector-container > img {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   top: 4%;
 }
-div.post-main-section div.recommand-section > h4 {
+.post-main-section .recommand-section > h4 {
   color: #fff;
   font-size: 24px;
   text-align: center;
@@ -13739,11 +13739,11 @@ div.post-main-section div.recommand-section > h4 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-div.post-main-section div.recommand-section div.recommanded-posts > div.post-item {
+.post-main-section .recommand-section .recommanded-posts > .post-item {
   position: relative;
   height: 130px;
 }
-div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-cover {
+.post-main-section .recommand-section .recommanded-posts > .post-item .recommand-post-cover {
   height: 100%;
   width: 130px;
   position: absolute;
@@ -13752,11 +13752,11 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
   z-index: 6;
   box-shadow: -2px -2px 6px 4px rgba(99, 50, 223, 0.25);
 }
-div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-cover img {
+.post-main-section .recommand-section .recommanded-posts > .post-item .recommand-post-cover img {
   width: 100%;
   height: 100%;
 }
-div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info {
+.post-main-section .recommand-section .recommanded-posts > .post-item .recommand-post-info {
   position: relative;
   z-index: 5;
   width: calc(100% - 130px);
@@ -13764,35 +13764,35 @@ div.post-main-section div.recommand-section div.recommanded-posts > div.post-ite
   background-color: #6332df;
   border-radius: 6px;
 }
-div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span {
+.post-main-section .recommand-section .recommanded-posts > .post-item .recommand-post-info span {
   color: #fff;
   text-align: right;
   margin-right: 3%;
 }
-div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-title {
+.post-main-section .recommand-section .recommanded-posts > .post-item .recommand-post-info span.recommand-post-title {
   font-size: 20px;
   display: block;
 }
-div.post-main-section div.recommand-section div.recommanded-posts > div.post-item div.recommand-post-info span.recommand-post-date {
+.post-main-section .recommand-section .recommanded-posts > .post-item .recommand-post-info span.recommand-post-date {
   font-size: 18px;
   display: block;
 }
-div.post-main-section div.recommand-section .recommand-btn button {
+.post-main-section .recommand-section .recommand-btn button {
   font-weight: bold;
 }
 
-div.blog-post-end img {
+.blog-post-end img {
   width: 100%;
   height: auto;
 }
 
-div.service-first-section h4 {
+.service-first-section h4 {
   font-size: 20px;
   color: #000;
   line-height: 2;
 }
 
-div.service-benefits-section {
+.service-benefits-section {
   height: 400px;
   background-image: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
   background-image: -webkit-gradient(to right, #ac7ff4, #8f60ec, #6232de);
@@ -13800,10 +13800,10 @@ div.service-benefits-section {
   flex-direction: row-reverse;
   align-items: center !important;
 }
-div.service-benefits-section div.header-text {
+.service-benefits-section .header-text {
   height: auto !important;
 }
-div.service-benefits-section h4 {
+.service-benefits-section h4 {
   color: #fff;
   border-right: 3px solid #fff;
   font-weight: bold;
@@ -13811,15 +13811,15 @@ div.service-benefits-section h4 {
   font-size: 34px;
   margin-bottom: 35px;
 }
-div.service-benefits-section p {
+.service-benefits-section p {
   line-height: unset !important;
   font-size: 20px;
   margin-bottom: 30px;
 }
-div.service-benefits-section .header-vector {
+.service-benefits-section .header-vector {
   height: 90% !important;
 }
-div.service-benefits-section .header-vector img.customer-profile {
+.service-benefits-section .header-vector img.customer-profile {
   height: 95% !important;
   transform: translateY(5%);
 }
@@ -13832,7 +13832,7 @@ div.service-benefits-section .header-vector img.customer-profile {
   position: absolute !important;
 }
 
-div.step-container {
+.step-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -13844,35 +13844,35 @@ div.step-container {
   margin-right: auto;
   margin-bottom: 12%;
 }
-div.step-container .step-item-container {
+.step-container .step-item-container {
   position: absolute;
 }
-div.step-container .step-item-container.t-0 {
+.step-container .step-item-container.t-0 {
   top: 0%;
   transform: none !important;
 }
-div.step-container .step-item-container.t-0 .step-info {
+.step-container .step-item-container.t-0 .step-info {
   right: 0%;
   margin-top: 15%;
 }
-div.step-container .step-item-container.b-0 {
+.step-container .step-item-container.b-0 {
   bottom: 50px;
   transform: none !important;
 }
-div.step-container .step-item-container.l-75 .step-info {
+.step-container .step-item-container.l-75 .step-info {
   transform: translateX(calc((2640px - 100vw) / -4 + 260px)) translateY(calc((2640px - 100vw) / -6 + 230px));
 }
-div.step-container .step-item-container.l-25 .step-info {
+.step-container .step-item-container.l-25 .step-info {
   transform: translateX(calc((2640px - 100vw) / -4 + 245px)) translateY(calc((2640px - 100vw) / -6 + 230px));
 }
-div.step-container .step-item-container .step-info {
+.step-container .step-item-container .step-info {
   position: absolute;
   width: 200px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
-div.step-container .step-item-container .step-info h4 {
+.step-container .step-item-container .step-info h4 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -13887,43 +13887,43 @@ div.step-container .step-item-container .step-info h4 {
   width: -moz-fit-content;
   width: fit-content;
 }
-div.step-container .step-item-container .step-info p {
+.step-container .step-item-container .step-info p {
   font-size: 16px;
   line-height: unset !important;
 }
-div.step-container .l-0 {
+.step-container .l-0 {
   left: 0%;
 }
-div.step-container .r-0 {
+.step-container .r-0 {
   right: 0%;
 }
-div.step-container .t-0 {
+.step-container .t-0 {
   transform: rotateX(45deg) rotateZ(45deg) perspective(1000px);
 }
-div.step-container .b-0 {
+.step-container .b-0 {
   transform: rotateX(45deg) rotateZ(45deg) perspective(1000px) translateX(calc((1500px - 100vw) / -3 + 16px));
 }
-div.step-container .l-25 {
+.step-container .l-25 {
   left: 284px;
 }
-div.step-container .l-50 {
+.step-container .l-50 {
   transform: rotateX(45deg) rotateZ(45deg) perspective(1000px);
 }
-div.step-container .l-75 {
+.step-container .l-75 {
   margin-left: 570px;
 }
-div.step-container div.step-shape {
+.step-container .step-shape {
   border-radius: 35px;
   width: 150px;
   position: absolute;
   z-index: 5;
 }
-div.step-container div.step-shape::after {
+.step-container .step-shape::after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
-div.step-container .match-line {
+.step-container .match-line {
   position: absolute;
   width: 22vw;
   height: 20px;
@@ -13932,28 +13932,28 @@ div.step-container .match-line {
   top: 50%;
   z-index: -1;
 }
-div.step-container .count-clock {
+.step-container .count-clock {
   transform: rotateZ(-90deg);
   transform-origin: left;
   left: 50% !important;
   top: -3% !important;
 }
-div.step-container .step-icon {
+.step-container .step-icon {
   float: left;
   margin-left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 50%;
 }
-div.step-container .step-icon i {
+.step-container .step-icon i {
   font-size: 50px;
 }
-div.step-container .step-index {
+.step-container .step-index {
   position: absolute;
   font-size: 55px;
   font-weight: bold;
   transform: rotate3d(0, 1, 1, -90deg) translate3d(-280px, -300px, 0px);
 }
-div.step-container .step-item {
+.step-container .step-item {
   transform-style: preserve-3d;
   perspective-origin: top;
   width: 150px;
@@ -14073,13 +14073,13 @@ div.step-container .step-item {
   margin-left: auto;
   margin-right: auto;
 }
-.order-packs-section .order-card-container div.order-card {
+.order-packs-section .order-card-container .order-card {
   height: 490px;
   text-align: center;
   padding: 20px;
   margin: 0;
 }
-.order-packs-section .order-card-container div.order-card .card-title {
+.order-packs-section .order-card-container .order-card .card-title {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -14094,21 +14094,21 @@ div.step-container .step-item {
   margin-left: auto;
   margin-right: auto;
 }
-.order-packs-section .order-card-container div.order-card .card-price-container {
+.order-packs-section .order-card-container .order-card .card-price-container {
   margin-bottom: 16px;
 }
-.order-packs-section .order-card-container div.order-card ul.card-options {
+.order-packs-section .order-card-container .order-card ul.card-options {
   list-style-type: none;
   margin-bottom: 20px;
   padding: 0;
 }
-.order-packs-section .order-card-container div.order-card ul.card-options li {
+.order-packs-section .order-card-container .order-card ul.card-options li {
   margin-bottom: 12px;
 }
-.order-packs-section .order-card-container div.order-card ul.card-options li span {
+.order-packs-section .order-card-container .order-card ul.card-options li span {
   font-weight: bold;
 }
-.order-packs-section .order-card-container div.order-card ul.card-options li::before {
+.order-packs-section .order-card-container .order-card ul.card-options li::before {
   content: "✓ ";
   margin-left: 4px;
 }
@@ -14182,10 +14182,10 @@ div.step-container .step-item {
   position: relative;
   flex-wrap: wrap;
 }
-.services-groups-container > div.group-item {
+.services-groups-container > .group-item {
   text-align: center;
 }
-.services-groups-container > div.group-item .computer-container {
+.services-groups-container > .group-item .computer-container {
   background-image: url(/images/icon-background-purple.png);
   font-size: 60px !important;
   background-repeat: no-repeat;
@@ -14197,10 +14197,10 @@ div.step-container .step-item {
   width: fit-content;
   position: relative;
 }
-.services-groups-container > div.group-item .computer-container i.computer-icon {
+.services-groups-container > .group-item .computer-container i.computer-icon {
   font-size: 150px;
 }
-.services-groups-container > div.group-item .computer-container i.inside-computer {
+.services-groups-container > .group-item .computer-container i.inside-computer {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -14209,7 +14209,7 @@ div.step-container .step-item {
   margin-right: auto;
   font-size: 40px;
 }
-.services-groups-container > div.group-item .group-name {
+.services-groups-container > .group-item .group-name {
   color: #18093c;
   font-size: 24px;
   font-weight: bold;
@@ -14234,14 +14234,14 @@ div.step-container .step-item {
   background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
 }
 
-div.main-services-container {
+.main-services-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
   align-items: stretch;
   flex-wrap: wrap;
 }
-div.main-services-container > div.main-service {
+.main-services-container > .main-service {
   padding: 20px;
   margin-bottom: 40px;
   background-color: white;
@@ -14252,27 +14252,27 @@ div.main-services-container > div.main-service {
   margin-left: 1%;
   margin-right: 1%;
 }
-div.main-services-container > div.main-service .icon-container {
+.main-services-container > .main-service .icon-container {
   width: 30%;
   float: right;
   text-align: center;
   position: relative;
   top: 10%;
 }
-div.main-services-container > div.main-service .icon-container span {
+.main-services-container > .main-service .icon-container span {
   margin-bottom: 30px;
   width: 100% !important;
   font-size: unset !important;
 }
-div.main-services-container > div.main-service .icon-container span i {
+.main-services-container > .main-service .icon-container span i {
   font-size: 70px;
   color: #000;
 }
-div.main-services-container > div.main-service .icon-container h2 {
+.main-services-container > .main-service .icon-container h2 {
   font-weight: bold;
   font-size: 26px;
 }
-div.main-services-container > div.main-service .info-container {
+.main-services-container > .main-service .info-container {
   text-align: center;
   width: 70%;
   height: 100%;
@@ -14280,42 +14280,42 @@ div.main-services-container > div.main-service .info-container {
   flex-direction: column;
   justify-content: space-evenly;
 }
-div.main-services-container > div.main-service .info-container h3 {
+.main-services-container > .main-service .info-container .service-title {
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 20px;
 }
-div.main-services-container > div.main-service .info-container p {
+.main-services-container > .main-service .info-container .service-description {
   margin-bottom: 10px;
   font-size: 16px;
 }
-div.main-services-container > div.main-service .info-container div.button-container {
+.main-services-container > .main-service .info-container .button-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-end;
 }
-div.main-services-container > div.main-service .info-container div.button-container button:first-child {
+.main-services-container > .main-service .info-container .button-container button:first-child {
   background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
   background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
 }
-div.main-services-container > div.main-service .info-container div.button-container button:nth-child(2) {
+.main-services-container > .main-service .info-container .button-container button:nth-child(2) {
   background-color: #18093c;
   transition: 0.5s;
   color: white;
 }
-div.main-services-container > div.main-service .info-container div.button-container button:nth-child(2):hover {
+.main-services-container > .main-service .info-container .button-container button:nth-child(2):hover {
   background-color: #777DD1;
 }
 
-div.other-services-container {
+.other-services-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-div.other-services-container > div.other-service {
+.other-services-container > .other-service {
   background-color: white;
   box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.06);
   text-align: center;
@@ -14323,20 +14323,20 @@ div.other-services-container > div.other-service {
   width: 22%;
   margin: 20px 1% 20px 1%;
 }
-div.other-services-container > div.other-service span {
+.other-services-container > .other-service span {
   margin-bottom: 10px;
   background-size: contain !important;
 }
-div.other-services-container > div.other-service h2 {
+.other-services-container > .other-service h2 {
   font-size: 20px;
   margin-bottom: 12px;
   font-weight: bold;
 }
-div.other-services-container > div.other-service h3 {
+.other-services-container > .other-service h3 {
   font-size: 18px;
   margin-bottom: 20px;
 }
-div.other-services-container > div.other-service .btn-gradient {
+.other-services-container > .other-service .btn-gradient {
   background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
   background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
 }
@@ -14510,11 +14510,11 @@ div.other-services-container > div.other-service .btn-gradient {
   width: 45%;
   max-width: 400px;
 }
-.sample-images-slider div.showing-image {
+.sample-images-slider .showing-image {
   position: relative;
   width: 100%;
 }
-.sample-images-slider div.showing-image > img {
+.sample-images-slider .showing-image > img {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -14528,7 +14528,7 @@ div.other-services-container > div.other-service .btn-gradient {
      object-position: center;
   box-shadow: 4px 4px 8px #b5bfd9;
 }
-.sample-images-slider div.showing-image::after {
+.sample-images-slider .showing-image::after {
   content: "";
   display: block;
   padding-bottom: 90%;
