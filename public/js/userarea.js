@@ -11901,6 +11901,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -11972,91 +11976,91 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "routes", [{
       path: '/dashboard',
       exact: true,
-      Component: _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"]
+      CallableComponent: _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"]
     }, {
       path: '/brandInfo',
       exact: true,
-      Component: _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_5__["default"]
+      CallableComponent: _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_5__["default"]
     }, {
       path: '/registerInfo',
       exact: true,
-      Component: _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_6__["default"]
+      CallableComponent: _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_6__["default"]
     }, {
       path: "/userInfo",
       exact: true,
-      Component: _Pages_Private_Profile_UserInfo__WEBPACK_IMPORTED_MODULE_7__["default"]
+      CallableComponent: _Pages_Private_Profile_UserInfo__WEBPACK_IMPORTED_MODULE_7__["default"]
     }, {
       path: '/orders/:orderId',
       exact: true,
-      Component: _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_10__["default"]
+      CallableComponent: _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_10__["default"]
     }, {
       path: '/orders',
       exact: false,
-      Component: _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_2__["default"]
+      CallableComponent: _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_2__["default"]
     }, {
       path: '/finance/invoices/:invoiceId',
       exact: true,
-      Component: _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_14__["default"]
+      CallableComponent: _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_14__["default"]
     }, {
       path: '/finance/invoices',
       exact: true,
-      Component: _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_13__["default"]
+      CallableComponent: _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_13__["default"]
     }, {
       path: '/finance/pre-invoices/:pre_invoiceId',
       exact: true,
-      Component: _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_17__["default"]
+      CallableComponent: _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_17__["default"]
     }, {
       path: '/finance/pre_invoices',
       exact: true,
-      Component: _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_16__["default"]
+      CallableComponent: _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_16__["default"]
     }, {
       path: '/finance/bills/:billId',
       exact: true,
-      Component: _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_18__["default"]
+      CallableComponent: _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_18__["default"]
     }, {
       path: '/finance/bills',
       exact: true,
-      Component: _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_19__["default"]
+      CallableComponent: _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_19__["default"]
     }, {
       path: '/finance/transactions',
       exact: true,
-      Component: _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_20__["default"]
+      CallableComponent: _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_20__["default"]
     }, {
       path: '/finance/discounts',
       exact: true,
-      Component: _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_21__["default"]
+      CallableComponent: _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_21__["default"]
     }, {
       path: '/finance',
       exact: true,
-      Component: _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_4__["default"]
+      CallableComponent: _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_4__["default"]
     }, {
       path: '/tickets/new',
       exact: true,
-      Component: _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_12__["default"]
+      CallableComponent: _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_12__["default"]
     }, {
       path: '/tickets/faq',
       exact: true,
-      Component: _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_15__["default"]
+      CallableComponent: _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_15__["default"]
     }, {
       path: '/tickets/:ticketId',
       exact: true,
-      Component: _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_11__["default"]
+      CallableComponent: _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_11__["default"]
     }, {
       path: '/tickets',
       exact: true,
-      Component: _Pages_Private_Tickets_Tickets__WEBPACK_IMPORTED_MODULE_3__["default"]
+      CallableComponent: _Pages_Private_Tickets_Tickets__WEBPACK_IMPORTED_MODULE_3__["default"]
     }, {
       path: "/contracts/:contractId",
       exact: true,
-      Component: _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_22__["default"]
+      CallableComponent: _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_22__["default"]
     }, {
       path: "/contracts",
       exact: true,
-      Component: _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_8__["default"]
+      CallableComponent: _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_8__["default"]
     }, {
       path: "contract_sample",
       exact: true,
-      Component: _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_9__["default"]
+      CallableComponent: _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_9__["default"]
     }]);
 
     return _this;
@@ -12068,11 +12072,12 @@ var PrivateRoutes = /*#__PURE__*/function (_Component) {
       var routes = this.routes;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_25__.Switch, {
         children: routes.map(function (mainRoute, i) {
-          var path = mainRoute.path,
-              exact = mainRoute.exact,
-              Component = mainRoute.Component,
-              subroutes = mainRoute.subroutes;
-          return (0,_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_23__["default"])(path, exact, Component, subroutes, i);
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_23__["default"], _objectSpread(_objectSpread({}, mainRoute), {}, {
+            index: i
+          }), i); // let { path, exact, Component, subroutes } = mainRoute
+          // return (
+          //     RouteWithSubRoutes(path, exact, Component, subroutes, i)
+          // )
         })
       });
     }
@@ -12096,23 +12101,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ RouteWithSubRoutes)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _PrivateRoute__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PrivateRoute */ "./resources/js/react/router/PrivateRoute.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
-function RouteWithSubRoutes(path, exact, CallableComponent, subroutes, key) {
+function RouteWithSubRoutes(_ref) {
+  var path = _ref.path,
+      exact = _ref.exact,
+      CallableComponent = _ref.CallableComponent,
+      subroutes = _ref.subroutes,
+      index = _ref.index;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_0__["default"], {
     path: path,
     exact: exact,
-    CallableComponent: CallableComponent,
-    children: subroutes && subroutes.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Switch, {
-      children: subroutes.map(function (sub, i) {
-        return RouteWithSubRoutes(sub.path, sub.exact, sub.Component, sub.subroutes, i);
-      })
-    })
-  }, key);
+    CallableComponent: CallableComponent
+  }, index);
 }
 
 /***/ }),
