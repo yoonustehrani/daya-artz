@@ -14811,12 +14811,24 @@ div.other-services-container > div.other-service .btn-gradient {
   width: 100%;
   float: left;
 }
+.header.fixed, .min-header.fixed {
+  padding-top: 70px;
+}
+.header.fixed #header-nav, .min-header.fixed #header-nav {
+  position: fixed;
+  background: linear-gradient(to right, #a77cf2, #6332de);
+  background: -webkit-linear-gradient(to right, #a77cf2, #6332de);
+}
 .header > nav, .min-header > nav {
   float: right;
   width: 100%;
   padding-left: 50px;
   height: 70px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 200;
+  -webkit-animation-duration: 0.2s !important;
+          animation-duration: 0.2s !important;
+  top: 0;
 }
 .header > nav > .logo-container, .min-header > nav > .logo-container {
   width: 70px;
