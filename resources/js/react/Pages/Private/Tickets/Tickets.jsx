@@ -11,19 +11,9 @@ class Tickets extends Component {
         super(props)
         this.http = useHttpService('/userarea/')
         this.state = {
-            tickets: [
-                // {
-                //     title: "ادیت سوم",
-                //     ticket_number: "13907",
-                //     created_at: "12:39 1400/05/02",
-                //     department: "پشتیبانی طراحی",
-                //     status: "در حال انجام",
-                //     href: "/tickets/1"
-                // }
-            ],
-            loading: false
+            tickets: [],
+            loading: true
         }
-        this.loadTickets()
     }
 
     loadTickets = async () => {
@@ -36,10 +26,7 @@ class Tickets extends Component {
     }
     componentDidMount() {
         document.title = "درخواست های پشتیبانی"
-        // axios.get('').then(res => {
-        //     let { data } = res
-        //     
-        // })
+        this.loadTickets()
     }
     
     render() {

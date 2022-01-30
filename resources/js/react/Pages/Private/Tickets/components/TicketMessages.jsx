@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import TicketMessage from './TicketMessage';
-import { Squares } from 'react-activity';
+import { Spinner, Squares } from 'react-activity';
 
 class TicketMessages extends Component {
     constructor(props) {
         super(props);
         this.scrollerRef = React.createRef()
     }
-    
     render() {
-        let { messages, loadMore, loading_messages,hasMore } = this.props
+        let { messages, loadMore, loading_messages, hasMore } = this.props
         return (
-            <div className="ticket-messages" ref={(ref) => this.scrollerRef = ref}>
+            <div className="ticket-messages d-flex flex-column-reverse" id='userarea-ticket-scroller' ref={this.scrollerRef}>
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={loadMore}
                     hasMore={hasMore && !loading_messages}
-                    loader={<Squares color="#6332df" size={28} />}
                     useWindow={false}
-                    getScrollParent={() => this.scrollerRef}
+                    getScrollParent={() => document.getElementById('userarea-ticket-scroller')}
                     isReverse={true}
                 >
-                    {messages && messages.length > 0 && messages.map((message, i) => (
-                        <TicketMessage key={i} {...message} />
-                    ))}
+                {loading_messages && <div className='w-100 mt-3 d-flex justify-content-center'><Spinner color="#6332df" size={28}/></div>}
+                {messages.map((message, i) => <TicketMessage key={i} {...message} />)} 
                 </InfiniteScroll>
             </div>
         );

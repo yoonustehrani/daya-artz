@@ -30,7 +30,7 @@ class TicketPolicy
      */
     public function view(User $user, Ticket $ticket)
     {
-        return $user->getKey() === $ticket->getKey();
+        return $user->getKey() === $ticket->user_id;
     }
 
     /**

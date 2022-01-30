@@ -19,11 +19,17 @@ class TicketController extends Controller
         return response()->json($tickets);
     }
 
-    public function show(Request $request, Ticket $ticket)
+    public function show(Request $request, $ticket_id)
     {
+        $ticket = $request->user()
+                    ->tickets()
+                    ->select('id', 'title', 'user_id', 'tracking_code', 'status', 'ticket_department_id', 'closed_at', 'created_at')
+                    ->findOrFail($ticket_id);
         $this->authorize('view', $ticket);
-        $ticket->load('department');
-        $messages = $ticket->messages()->cursorPaginate(10);
+        if (! $request->has('cursor')) {
+            $ticket->load('department');
+        }
+        $messages = $ticket->messages()->orderBy('created_at', 'desc')->simplePaginate(5);
         return response()->json(compact('ticket', 'messages'));
     }
 
