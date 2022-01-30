@@ -197,7 +197,7 @@
                 margin-right: auto;
                 margin-left: auto;
             }
-            div.form-title {
+            .form-title {
                 width: fit-content;
                 margin-top: 20px;
                 h4 {
@@ -251,7 +251,7 @@
                 justify-content: flex-start;
                 align-items: flex-start;
                 flex-wrap: wrap;
-                div.alert {
+                .alert {
                     margin: 0 10px 0 0;
                     span {
                         display: inline-block;
@@ -341,7 +341,7 @@
                         background-color: $navy-blue;
                         width: 100%;
                         border-radius: 8px;
-                        div.shapes-back-img {
+                        .shapes-back-img {
                             background-image: url("/images/footer-background.png");
                             background-size: cover;
                             width: 100%;
@@ -512,7 +512,7 @@
                     box-shadow: 0 0 3px #DED8F2;
                     width: 22%;
                     margin: 1.5%;
-                    div.order-title {
+                    .order-title {
                         width: 100%;
                         display: flex;
                         flex-wrap: nowrap;
@@ -593,13 +593,13 @@
                 * {
                     color: #fff;
                 }
-                > div.finance-items-container {
+                > .finance-items-container {
                     width: 80%;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-evenly;
                     align-items: center;
-                    > div.finance-item {
+                    > .finance-item {
                         width: 47%;
                         height: 200px;
                         margin: 1.5%;
@@ -631,7 +631,7 @@
                         }
                     }
                 }
-                > div.finance-quick-buttons {
+                > .finance-quick-buttons {
                     width: 17%;
                     display: flex;
                     flex-direction: column;
@@ -847,7 +847,7 @@
                         > div:nth-child(2) {
                             float: left;
                         }
-                        > div.input-group {
+                        > .input-group {
                             height: 75%;
                             margin-bottom: 9px;
                             textarea {

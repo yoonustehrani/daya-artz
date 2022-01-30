@@ -110,7 +110,7 @@ button {
                 color: $white;
             }
         }
-        > div.image-box {
+        > .image-box {
             display: flex;
             min-height: inherit;
             align-items: center;
@@ -343,7 +343,7 @@ button.silver-progress-button:hover > p.after {
 
 span.back-aqua {
     background-image: url(/images/item-background.png);
-    font-size: 60px !important;
+    // font-size: 60px !important;
     background-repeat: no-repeat;
     background-position: center;
     // background-size: 100% 100%;
@@ -358,7 +358,7 @@ span.back-aqua {
 }
 
 .order-section-container {
-    div.background-order {
+    .background-order {
         float: left;
     }
     .order-vectors-container {
@@ -419,7 +419,7 @@ span.back-aqua {
 //contact daya
 .contact-section {
     position: relative;
-    div.back-aqua {
+    .back-aqua {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -530,7 +530,7 @@ span.back-aqua {
 }
 
 // fast-order
-div.fast-order-container {
+.fast-order-container {
     min-height: 500px;
     height: auto;
     .fast-order-section {
@@ -564,7 +564,7 @@ div.fast-order-container {
             input, textarea {
                 text-align: right;
             }
-            div.order-types {
+            .order-types {
                 display: flex;
                 flex-direction: row-reverse;
                 justify-content: space-between;
@@ -662,7 +662,7 @@ div.fast-order-container {
                 }
             }
         }
-        div.fast-order-guide {
+        .fast-order-guide {
             height: 100%;
             button {
                 background-color: $aqua-purple;
@@ -759,7 +759,7 @@ div.fast-order-container {
             transition: 0.3s ease-in-out;
             text-align: right;
         }
-        div.article-time {
+        .article-time {
             text-align: right;
             span {
                 display: flex;
@@ -867,7 +867,7 @@ div.fast-order-container {
                         color: $eggplant;
                     }
                 }
-                div.description {
+                .description {
                     margin-right: 15px;
                 }
             }
@@ -882,10 +882,10 @@ div.fast-order-container {
 // end About us
 
 .daya-guide {
-    div.contact-us-background {
+    .contact-us-background {
         height: 470px;
     }
-    div.contact-us-form {
+    .contact-us-form {
         top: 8%;
         width: 40%;
     }
@@ -895,21 +895,21 @@ div.fast-order-container {
 .contact-p {
     font-size: 20px;
 }
-div.contact-us-first-section.mb-4 {
-    div.contact-us-background {
+.contact-us-first-section.mb-4 {
+    .contact-us-background {
         height: 570px;
     }
-    div.contact-us-form {
+    .contact-us-form {
         top: 22%;
         width: 45%;
     }
 }
-div.contact-us-first-section {
+.contact-us-first-section {
     position: relative;
-    div.contact-us-background {
+    .contact-us-background {
         position: relative;
         width: auto;
-        div.background-left {
+        .background-left {
             position: relative;
             top: 0;
             height: 100%;
@@ -919,7 +919,7 @@ div.contact-us-first-section {
                 width: 100%;
             }
         }
-        div.background-right {
+        .background-right {
             position: absolute;
             top: 6%;
             right: 8%;
@@ -931,7 +931,7 @@ div.contact-us-first-section {
             }
         }
     }
-    div.contact-us-vector-1 {
+    .contact-us-vector-1 {
         position: absolute;
         top: 11%;
         height: 100%;
@@ -940,10 +940,10 @@ div.contact-us-first-section {
             height: 100%;
         }
     }
-    div.contact-us-form {
+    .contact-us-form {
         position: absolute;
         right: 2%;
-        h4 {
+        .contact-us-title {
           text-align: right;  
           float: right;
           font-size: 32px;
@@ -966,14 +966,14 @@ div.contact-us-first-section {
         }
     }
 }
-div.contact-us-section-2 {
+.contact-us-section-2 {
     background-image: url("/images/dots-background.png");
     background-size: contain;
     background-repeat: repeat;
     .title-text {
         font-size: 35px !important;
     }
-    div.contact-ways-container {
+    .contact-ways-container {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -987,7 +987,7 @@ div.contact-us-section-2 {
                 font-size: 70px;
                 color: #000;
             }
-            div.address-label {
+            .address-label {
                 background-color: $purple-bg;
                 border-radius: 8px;
                 height: 50px;
@@ -1016,7 +1016,7 @@ div.contact-us-section-2 {
 .bold {
     font-weight: bold;
 }
-div.daya-duties {
+.daya-duties {
     width: 100%;
     padding: 0 20px !important;
     .duty-item {
@@ -1058,9 +1058,9 @@ div.daya-duties {
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: flex-start;
-        div.item-wrapper {
+        .item-wrapper {
             margin-bottom: 30px;
-            div.question-wrapper {
+            .question-wrapper {
                 display: flex;
                 flex-direction: row-reverse;
                 flex-wrap: nowrap;
@@ -1276,10 +1276,10 @@ $labelData: '';
     margin-left: auto;
     margin-right: auto;
 }
-div.post-info-section {
+.post-info-section {
     position: relative;
     height: 220px;
-    div.post-info-container {
+    .post-info-container {
         height: 100%;       
         width: calc(100% - 95px);
         border-radius: 8px;
@@ -1329,7 +1329,7 @@ div.post-info-section {
             }
         }
     }
-    div.post-info-cover {
+    .post-info-cover {
         position: absolute;
         z-index: 6;
         top: 0;
@@ -1349,12 +1349,12 @@ div.post-info-section {
     background: -webkit-gradient(to right, $aqua 0%, $sand 50%, $horny-eggplant 100%);
     background: linear-gradient(to right, $aqua 0%, $sand 50%, $horny-eggplant 100%);
 }
-div.post-main-section {
+.post-main-section {
     width: 60%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    div.post-main-text {
+    .post-main-text {
         padding: 0 1rem;
         h2 {
             font-size: 26px;
@@ -1369,11 +1369,11 @@ div.post-main-section {
             margin: 20px 0;
         }
     }
-    div.recommand-section {
+    .recommand-section {
         padding: 8px;
         background-color: $dark-blue;
         border-radius: 6px;
-        div.recommand-vector-container {
+        .recommand-vector-container {
             margin-left: auto;
             margin-right: auto;
             position: relative;
@@ -1398,11 +1398,11 @@ div.post-main-section {
             margin-top: 20px;
             margin-bottom: 20px;
         }
-        div.recommanded-posts {
-            > div.post-item {
+        .recommanded-posts {
+            > .post-item {
                 position: relative;
                 height: 130px;
-                div.recommand-post-cover {
+                .recommand-post-cover {
                     height: 100%;
                     width: 130px;
                     position: absolute;
@@ -1415,7 +1415,7 @@ div.post-main-section {
                         height: 100%;
                     }
                 }
-                div.recommand-post-info {
+                .recommand-post-info {
                     position: relative;
                     z-index: 5;
                     width: calc(100% - 130px);
@@ -1446,7 +1446,7 @@ div.post-main-section {
     }
 }
 
-div.blog-post-end {
+.blog-post-end {
     img {
         width: 100%;
         height: auto;
@@ -1455,21 +1455,21 @@ div.blog-post-end {
 // end blog post
 
 // service
-div.service-first-section {
+.service-first-section {
     h4 {
         font-size: 20px;
         color: #000;
         line-height: 2;
     }
 }
-div.service-benefits-section {
+.service-benefits-section {
     height: 400px;
     background-image: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
     background-image: -webkit-gradient(to right, #ac7ff4, #8f60ec, #6232de);
     position: relative;
     flex-direction: row-reverse;
     align-items: center !important;
-    div.header-text {
+    .header-text {
         height: auto !important;
     }
     h4 {
@@ -1499,7 +1499,7 @@ div.service-benefits-section {
 .p-abs {
     position: absolute !important;
 }
-div.step-container {
+.step-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -1578,7 +1578,7 @@ div.step-container {
     .l-75 {
         margin-left: 570px;
     }
-    div.step-shape {
+    .step-shape {
         border-radius: 35px;
         width: 150px;
         position: absolute;
@@ -1746,7 +1746,7 @@ div.step-container {
         align-items: center;
         margin-left: auto;
         margin-right: auto;
-        div.order-card {
+        .order-card {
             height: 490px;
             text-align: center;
             padding: 20px;
@@ -1878,7 +1878,7 @@ div.step-container {
     align-items: flex-start;
     position: relative;
     flex-wrap: wrap;
-    > div.group-item {
+    > .group-item {
         text-align: center;
         .computer-container {
             background-image: url(/images/icon-background-purple.png);
@@ -1889,6 +1889,10 @@ div.step-container {
             display: inline-block;
             width: fit-content;
             position: relative;
+            cursor: pointer;
+            i {
+                transition: 0.5s;
+            }
             i.computer-icon {
                 font-size: 150px;
             }
@@ -1906,7 +1910,23 @@ div.step-container {
             color: #18093c;
             font-size: 24px;
             font-weight: bold;
-            margin-top: 50px;
+            margin: 25px auto;
+            width: fit-content;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        &.hovered {
+            .group-name {
+                color: #854bc4;
+                transform: scale(1.1);
+            }
+            i.inside-computer {
+                transform: translateY(-50%) translateX(-50%) scale(1.1);
+                color: #8f4eff;
+            }
+            i.computer-icon {
+                color: $horny-bg-msg
+            }
         }
     }
     .matcher-line {
@@ -1914,7 +1934,7 @@ div.step-container {
         height: 10px;
         background-color: #000000;
         position: absolute;
-        top: 25%;
+        top: 26%;
     }
     .match-line-2 {
         left: 27%;
@@ -1928,13 +1948,13 @@ div.step-container {
     background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
 }
 // main-services
-div.main-services-container {
+.main-services-container {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    > div.main-service {
+    > .main-service {
         padding: 20px;
         margin-bottom: 40px;
         background-color: white;
@@ -1971,16 +1991,16 @@ div.main-services-container {
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            h3 {
+            .service-title {
                 margin-bottom: 20px;
                 font-weight: bold;
                 font-size: 20px;
             }
-            p {
+            .service-description {
                 margin-bottom: 10px;
                 font-size: 16px;
             }
-            div.button-container {
+            .button-container {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
@@ -2004,30 +2024,36 @@ div.main-services-container {
 } 
 // endmain services 
 // other services
-div.other-services-container {
+.other-services-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    > div.other-service {
+    > .other-service {
         background-color: white;
-        box-shadow: 0px 0px 12px 1px rgb(0 0 0 / 6%);
+        box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 4%);
         text-align: center;
-        padding: 10px;
+        padding: 20px 10px;
         width: 22%;
-        margin: 20px 1% 20px 1%;
+        margin: 20px 1%;
         span {
             margin-bottom: 10px;
             background-size: contain !important;
         }
-        h2 {
+        p {
             font-size: 20px;
-            margin-bottom: 12px;
+            margin-bottom: 5px;
             font-weight: bold;
         }
-        h3 {
+        a.service-subtitle {
             font-size: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
+            display: inline-block;
+            color: rgb(0 0 0 / 60%);
+            transition: 0.5s;
+            &:hover {
+                color: #000;
+            }
         }
         .btn-gradient {
             background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
@@ -2216,7 +2242,7 @@ div.other-services-container {
 .sample-images-slider {
     width: 45%;
     max-width: 400px;
-    div.showing-image {
+    .showing-image {
         position: relative;
         width: 100%;
         > img {

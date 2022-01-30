@@ -38,12 +38,12 @@ $xl-xl-breakpoint: 1600px;
     .customer-vector {
         width: 40% !important;
     }
-    div.contact-ways-container {
+    .contact-ways-container {
         > div {
             i.contact-way-icon {
                 font-size: 40px !important;
             }
-            div.address-label {
+            .address-label {
                 .label-icon {
                     font-size: 22px !important;
                 }
@@ -320,14 +320,14 @@ $xl-xl-breakpoint: 1600px;
     .state-code {
         width: 28% !important;
     }
-    div.finance-item {
+    .finance-item {
         .top-item-icon {
             i {
                 font-size: 40px !important;
             }
         }
     }
-    div.shapes-back-img, div.finance-item {
+    .shapes-back-img, .finance-item {
         justify-content: center !important;
         flex-wrap: wrap !important;
         .top-item-info {
@@ -454,7 +454,7 @@ $xl-xl-breakpoint: 1600px;
 
 //large and above
 @media screen and (min-width: $lg-breakpoint) {
-    div.address-label {
+    .address-label {
         h3 {
             font-size: 22px !important;
         }
@@ -464,7 +464,7 @@ $xl-xl-breakpoint: 1600px;
         flex: unset !important;
         max-width: unset !important;
     }
-    div.daya-duties {
+    .daya-duties {
         width: 80% !important;
         padding: 0 !important;
         margin: 0 auto;
@@ -485,7 +485,7 @@ $xl-xl-breakpoint: 1600px;
 
 // Tablet & Mobile
 @media screen and (max-width: $md-breakpoint - 1px) {
-    div.order-btn-container {
+    .order-btn-container {
         text-align: center !important;
         .order-btn {
             font-size: 18px !important;
@@ -545,7 +545,7 @@ $xl-xl-breakpoint: 1600px;
     .blog-post {
         margin: 30px 0px !important;
     }
-    div.daya-duties {
+    .daya-duties {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -557,7 +557,7 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .contact-us-first-section {
-        div.contact-us-background {
+        .contact-us-background {
             height: auto !important;
         }
         .contact-us-form {
@@ -592,13 +592,13 @@ $xl-xl-breakpoint: 1600px;
     .contact-p {
         font-size: 16px !important;
     }
-    div.contact-ways-container {
+    .contact-ways-container {
         > div {
             height: auto !important;
             i.contact-way-icon {
                 font-size: 40px !important;
             }
-            div.address-label {
+            .address-label {
                 .label-icon {
                     font-size: 25px !important;
                 }
@@ -637,7 +637,7 @@ $xl-xl-breakpoint: 1600px;
         height: initial !important;
         position: static !important;
         float: left !important;
-        div.post-info-container {
+        .post-info-container {
             height: auto !important;
             width: 100% !important;
             position: static !important;
@@ -650,7 +650,7 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
         }
-        div.post-info-cover {
+        .post-info-cover {
             position: relative !important;
             width: 90% !important;
             top: 0 !important;
@@ -682,16 +682,16 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
-    div.post-item {
+    .post-item {
         height: 100px !important;
-        div.recommand-post-cover {
+        .recommand-post-cover {
             width: 100px !important;
         }
-        div.recommand-post-info {
+        .recommand-post-info {
             width: calc(100% - 100px) !important;
         }
     }
-    div.service-benefits-section {
+    .service-benefits-section {
         height: auto !important;
         justify-content: center !important;
         .header-vector {
@@ -1177,7 +1177,7 @@ $xl-xl-breakpoint: 1600px;
         &:nth-child(2) {
             margin-bottom: 10px;
         }
-        div.alert {
+        .alert {
             margin: 10px 0 0 0 !important;
         }
     }
@@ -1221,7 +1221,7 @@ $xl-xl-breakpoint: 1600px;
     footer.footer .footer-content {
         background-size: unset;
     }
-    footer.footer .footer-content div.footer-info-container > div {
+    footer.footer .footer-content .footer-info-container > div {
         ul li {
             display: inline-block;
         }
@@ -1366,7 +1366,7 @@ $xl-xl-breakpoint: 1600px;
     .policy-header {
         height: 400px;
     }
-    div.service-benefits-section {
+    .service-benefits-section {
         height: 500px !important;
         p {
             font-size: 18px !important;
@@ -1378,10 +1378,10 @@ $xl-xl-breakpoint: 1600px;
     .recommand-post-date {
         font-size: 16px !important;
     }
-    div.contact-us-background {
+    .contact-us-background {
         height: 435px !important;
     }
-    div.contact-us-form {
+    .contact-us-form {
         h4 {
             font-size: 22px !important;
         }
@@ -1389,13 +1389,13 @@ $xl-xl-breakpoint: 1600px;
             font-size: 16px !important;
         }
     }
-    div.change-form {
+    .change-form {
         button {
             top: 75% !important;
             font-size: 20px !important;
         }
     }
-    div.shapes-back-img, div.finance-item {
+    .shapes-back-img, .finance-item {
         .top-item-info {
             > span:first-child {
                 font-size: 30px !important;
@@ -1410,7 +1410,7 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
-    div.shapes-back-img {
+    .shapes-back-img {
         .top-item-icon {
             i {
                 font-size: 40px !important;
@@ -1433,7 +1433,7 @@ $xl-xl-breakpoint: 1600px;
     }
     .order-items-container {
         > div {
-            div.order-title {
+            .order-title {
                 h4 {
                     font-size: 16px !important;
                 }
@@ -1469,7 +1469,7 @@ $xl-xl-breakpoint: 1600px;
     .user-area-sidebar {
         width: 20% !important;
     }
-    div.shapes-back-img, div.finance-item {
+    .shapes-back-img, .finance-item {
         .top-item-info {
             > span:first-child {
                 font-size: 34px !important;
@@ -1676,7 +1676,7 @@ $xl-xl-breakpoint: 1600px;
             margin: 1.15% !important;
         }
     }
-    div.finance-item {
+    .finance-item {
         .top-item-icon {
             i {
                 font-size: 50px !important;

@@ -37,17 +37,17 @@
         <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
             <span class="computer-container">
                 <i class="fas fa-desktop computer-icon"></i>
-                <i class="fab fa-twitter inside-computer"></i>
+                <i class="fas fa-pencil-ruler inside-computer"></i>
             </span>
-            <h3 class="group-name">طراحی فضای مجازی </h3>
+            <h3 class="group-name">طراحی دیجیتالی</h3>
         </div>
         <div class="d-none d-md-block matcher-line match-line-2"></div>
         <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
             <span class="computer-container">
                 <i class="fas fa-desktop computer-icon"></i>
-                <i class="fas fa-pencil-ruler inside-computer"></i>
+                <i class="fab fa-twitter inside-computer"></i>
             </span>
-            <h3 class="group-name">طراحی دیجیتالی</h3>
+            <h3 class="group-name">طراحی فضای مجازی </h3>
         </div>
     </div>
 </div>
@@ -74,8 +74,8 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fab fa-d-and-d"></i></span><h2>لوگو</h2></div>
             <div class="info-container">
-                <p class="title">طراحی لوگو با بالاترین کیفیت</p>
-                <p>لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف ، باور و هسته فعالیت شماست</p>
+                <p class="title service-title">طراحی لوگو با بالاترین کیفیت</p>
+                <p class="service-description">لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف ، باور و هسته فعالیت شماست</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -85,8 +85,8 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-scroll"></i></span><h2>سربرگ</h2></div>
             <div class="info-container">
-                <p class="title">طراحی سربرگ رسمی و حرفه ای</p>
-                <p>سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
+                <p class="title service-title">طراحی سربرگ رسمی و حرفه ای</p>
+                <p class="service-description">سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -96,8 +96,8 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-book-open"></i></span><h2>کاتالوگ</h2></div>
             <div class="info-container">
-                <p class="title">بهترین باز خورد ها با کاتالوگ های خاص</p>
-                <p>کاتالوگ مهم ترین ابزار برای تبلیغ و انتشار تبلیغات فروش یک محصول است. انتقال صحیح به مشتریان از مهم ترین ارمغان های کاتالوگ است</p>
+                <p class="title service-title">بهترین باز خورد ها با کاتالوگ های خاص</p>
+                <p class="service-description">کاتالوگ مهم ترین ابزار برای تبلیغ و انتشار تبلیغات فروش یک محصول است. انتقال صحیح به مشتریان از مهم ترین ارمغان های کاتالوگ است</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -107,8 +107,8 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-address-card"></i></span><h2>کارت ویزیت</h2></div>
             <div class="info-container">
-                <p class="title">انواع کارت ویزیت های ساده و خاص</p>
-                <p>سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
+                <p class="title service-title">انواع کارت ویزیت های ساده و خاص</p>
+                <p class="service-description">سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -118,8 +118,8 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-mail-bulk"></i></span><h2>ست اداری</h2></div>
             <div class="info-container">
-                <p class="title">ویزیت ، سربرگ ، تقویم و سررسید ، خودکار و ...</p>
-                <p>لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند ، و وابسته به هدف و نوع متقاضیان انتخاب می شود</p>
+                <p class="title service-title">ویزیت ، سربرگ ، تقویم و سررسید ، خودکار و ...</p>
+                <p class="service-description">لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند ، و وابسته به هدف و نوع متقاضیان انتخاب می شود</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -129,8 +129,8 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-plus-circle"></i></span><h2>ترکیبی</h2></div>
             <div class="info-container">
-                <p class="title">ترکیب خود را بسازید</p>
-                <p>اگه نیاز به طراحی های متنوع در بخش عا و خدمات مختلف هستید ، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
+                <p class="title service-title">ترکیب خود را بسازید</p>
+                <p class="service-description">اگه نیاز به طراحی های متنوع در بخش عا و خدمات مختلف هستید ، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -160,7 +160,7 @@
             </div>
         </div>
         <div class="contact-us-form">
-            <p class="title mb-3 mb-md-2 mb-md-4">راهنمایی احتیاج دارید ؟</p>
+            <p class="title contact-us-title mb-3 mb-md-2 mb-md-4">راهنمایی احتیاج دارید ؟</p>
             <form action="#">
                 <div class="input-group mb-2 mb-md-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
                 <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>
@@ -172,28 +172,30 @@
 <!-- end guide section -->
 
 {{-- Service Groups --}}
-@foreach ($service_groups as $group => $services)
-<div class="section w-100 mt-3 mt-md-5">
-    <div class="title-section w-100 mb-4">
-        <div class="title-container">
-            <p class="title-text">{{ $group }}</p>
-        </div>
-    </div>
-    <div class="other-services-container w-100">
-        @foreach ($services as $service)
-        <div class="other-service">
-            <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
-            <p class="title">{{ $service->title }}</p>
-            <a href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
-            <div class="mb-4">
-                <a href="#" class="btn mx-1 btn-gradient">ثبت سفارش</a>
-                <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient">مشاهده نمونه کار</a>
+<div class="service-groups-container">
+    @foreach ($service_groups as $group => $services)
+    <div class="section w-100 mt-3 mt-md-5">
+        <div class="title-section w-100 mb-4">
+            <div class="title-container">
+                <p class="title-text">{{ $group }}</p>
             </div>
         </div>
-        @endforeach
+        <div class="other-services-container w-100">
+            @foreach ($services as $service)
+            <div class="other-service">
+                <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
+                <p class="title service-title">{{ $service->title }}</p>
+                <a class="service-subtitle" href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
+                <div class="button-container">
+                    <a href="#" class="btn mx-1 my-1 my-md-0 btn-gradient">ثبت سفارش</a>
+                    <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient my-1 my-md-0">مشاهده نمونه کار</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
+    @endforeach
 </div>
-@endforeach
 {{-- End Service Groups --}}
 
 <!-- printing design services -->

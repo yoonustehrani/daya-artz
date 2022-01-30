@@ -39,7 +39,7 @@
                 }
             }
         }
-        div.change-form, div.login-form {
+        .change-form, .login-form {
             position: relative;
             top: 0;
             bottom: 0;
@@ -210,7 +210,7 @@
             h2, .login-icons, button, a {
                 margin: 20px 0 20px 0;
             } 
-            div.input-group, p {
+            .input-group, p {
                 margin: 10px 0 10px 0;
             }
             .default-style {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-
 class PrivateRoute extends Component {
     render() {
         let {path, children, user, exact, CallableComponent} = this.props

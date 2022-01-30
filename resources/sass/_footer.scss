@@ -9,7 +9,7 @@
         min-height: 350px;
         height: auto;
         float: left;
-        > div.logo-container {
+        > .logo-container {
             img {
                 width: 40px;
                 height: auto;
@@ -21,7 +21,7 @@
                 font-size: 18px;
             }
         }
-        div.footer-info-container {
+        .footer-info-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
