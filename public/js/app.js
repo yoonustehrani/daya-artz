@@ -3107,7 +3107,7 @@ if ($(".section-guide-container").length > 0) {
   var target_index, target_position;
   $("#guide-list>li").click(function () {
     target_index = $(this).index(), target_position = $("".concat(section_ids[target_index])).offset().top + $("body").scrollTop();
-    $(window).width() >= 768 ? target_position - 199 : null;
+    $(window).width() >= 768 ? target_position -= 199 : null;
     $("body").animate({
       scrollTop: target_position
     }, 500);
@@ -3133,7 +3133,7 @@ $(".services-groups-container > .group-item").each(function (index, elem) {
   $(elem).find(".group-name, .computer-container").click(function () {
     var target_elem = $(".service-groups-container").children().eq(index),
         target_position = $(target_elem).offset().top + $("body").scrollTop();
-    $(window).width >= 768 ? target_position - 100 : null;
+    $(window).width() >= 768 ? target_position -= 100 : null;
     $("body").animate({
       scrollTop: target_position
     }, 500);
