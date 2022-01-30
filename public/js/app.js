@@ -2799,9 +2799,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _section_guide__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_section_guide__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var select2_dist_js_select2_min_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! select2/dist/js/select2.min.js */ "./node_modules/select2/dist/js/select2.min.js");
 /* harmony import */ var select2_dist_js_select2_min_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(select2_dist_js_select2_min_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _PortfolioSection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./PortfolioSection */ "./resources/js/components/PortfolioSection/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./services */ "./resources/js/components/services.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_services__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _PortfolioSection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./PortfolioSection */ "./resources/js/components/PortfolioSection/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 // import React from "react";
+
 
 
 
@@ -2817,7 +2820,7 @@ __webpack_require__.r(__webpack_exports__);
 var quickOrderElement = document.getElementById("react-quick-order");
 
 if (quickOrderElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
     reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
     targetApi: quickOrderElement.getAttribute('data-post-api')
   }), quickOrderElement);
@@ -2826,7 +2829,7 @@ if (quickOrderElement) {
 var portfolioSectionElement = document.querySelector("div[react-portfolio-section]");
 
 if (portfolioSectionElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_PortfolioSection__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_PortfolioSection__WEBPACK_IMPORTED_MODULE_11__["default"], {
     targetApi: portfolioSectionElement.getAttribute('data-target-api')
   }), portfolioSectionElement);
 }
@@ -3103,13 +3106,39 @@ if ($(".section-guide-container").length > 0) {
 
   var target_index, target_position;
   $("#guide-list>li").click(function () {
-    target_index = $(this).index(), target_position = $(window).width() >= 768 ? $("".concat(section_ids[target_index])).offset().top + $("body").scrollTop() - 199 : $("".concat(section_ids[target_index])).offset().top + $("body").scrollTop();
+    target_index = $(this).index(), target_position = $("".concat(section_ids[target_index])).offset().top + $("body").scrollTop();
+    $(window).width() >= 768 ? target_position - 199 : null;
     $("body").animate({
       scrollTop: target_position
     }, 500);
     toggle_guide();
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/services.js":
+/*!*********************************************!*\
+  !*** ./resources/js/components/services.js ***!
+  \*********************************************/
+/***/ (() => {
+
+$(".services-groups-container > .group-item").each(function (index, elem) {
+  $(elem).find(".group-name, .computer-container").mouseenter(function () {
+    $(elem).addClass("hovered");
+  });
+  $(elem).find(".group-name, .computer-container").mouseleave(function () {
+    $(elem).removeClass("hovered");
+  });
+  $(elem).find(".group-name, .computer-container").click(function () {
+    var target_elem = $(".service-groups-container").children().eq(index),
+        target_position = $(target_elem).offset().top + $("body").scrollTop();
+    $(window).width >= 768 ? target_position - 100 : null;
+    $("body").animate({
+      scrollTop: target_position
+    }, 500);
+  });
+});
 
 /***/ }),
 

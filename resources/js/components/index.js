@@ -9,6 +9,7 @@ import './accordion'
 import './animation'
 import './section-guide'
 import 'select2/dist/js/select2.min.js'
+import './services'
 import PortfolioSection from "./PortfolioSection";
 
 const quickOrderElement = document.getElementById("react-quick-order")

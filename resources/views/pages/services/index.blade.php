@@ -37,17 +37,17 @@
         <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
             <span class="computer-container">
                 <i class="fas fa-desktop computer-icon"></i>
-                <i class="fab fa-twitter inside-computer"></i>
+                <i class="fas fa-pencil-ruler inside-computer"></i>
             </span>
-            <h3 class="group-name">طراحی فضای مجازی </h3>
+            <h3 class="group-name">طراحی دیجیتالی</h3>
         </div>
         <div class="d-none d-md-block matcher-line match-line-2"></div>
         <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
             <span class="computer-container">
                 <i class="fas fa-desktop computer-icon"></i>
-                <i class="fas fa-pencil-ruler inside-computer"></i>
+                <i class="fab fa-twitter inside-computer"></i>
             </span>
-            <h3 class="group-name">طراحی دیجیتالی</h3>
+            <h3 class="group-name">طراحی فضای مجازی </h3>
         </div>
     </div>
 </div>
@@ -172,28 +172,30 @@
 <!-- end guide section -->
 
 {{-- Service Groups --}}
-@foreach ($service_groups as $group => $services)
-<div class="section w-100 mt-3 mt-md-5">
-    <div class="title-section w-100 mb-4">
-        <div class="title-container">
-            <p class="title-text">{{ $group }}</p>
-        </div>
-    </div>
-    <div class="other-services-container w-100">
-        @foreach ($services as $service)
-        <div class="other-service">
-            <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
-            <p class="title service-title">{{ $service->title }}</p>
-            <a href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
-            <div class="mb-4">
-                <a href="#" class="btn mx-1 btn-gradient">ثبت سفارش</a>
-                <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient">مشاهده نمونه کار</a>
+<div class="service-groups-container">
+    @foreach ($service_groups as $group => $services)
+    <div class="section w-100 mt-3 mt-md-5">
+        <div class="title-section w-100 mb-4">
+            <div class="title-container">
+                <p class="title-text">{{ $group }}</p>
             </div>
         </div>
-        @endforeach
+        <div class="other-services-container w-100">
+            @foreach ($services as $service)
+            <div class="other-service">
+                <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
+                <p class="title service-title">{{ $service->title }}</p>
+                <a class="service-subtitle" href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
+                <div class="button-container">
+                    <a href="#" class="btn mx-1 my-1 my-md-0 btn-gradient">ثبت سفارش</a>
+                    <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient my-1 my-md-0">مشاهده نمونه کار</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
+    @endforeach
 </div>
-@endforeach
 {{-- End Service Groups --}}
 
 <!-- printing design services -->

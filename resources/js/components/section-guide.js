@@ -39,7 +39,8 @@ if ($(".section-guide-container").length > 0) {
     // this is for handling scroll clicks
     let target_index, target_position
     $("#guide-list>li").click(function() {
-        target_index = $(this).index(), target_position = $(window).width() >= 768 ? $(`${section_ids[target_index]}`).offset().top + $("body").scrollTop() - 199 : $(`${section_ids[target_index]}`).offset().top + $("body").scrollTop()
+        target_index = $(this).index(), target_position = $(`${section_ids[target_index]}`).offset().top + $("body").scrollTop()
+        $(window).width() >= 768 ? target_position - 199 : null
         $("body").animate({
             scrollTop: target_position
         }, 500)
