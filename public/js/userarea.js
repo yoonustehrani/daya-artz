@@ -9588,6 +9588,18 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9693,18 +9705,19 @@ var Ticket = /*#__PURE__*/function (_Component) {
                 document.title = "".concat(ticket.title, " |\u200C \u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC \u062F\u0627\u06CC\u0627 \u0622\u0631\u062A\u0632");
               }
 
-              messages.data.reverse();
-
               _this.setState(function (prev) {
+                var newMessages = messages.data.sort(function (a, b) {
+                  return new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1;
+                });
                 return _objectSpread(_objectSpread({}, appends), {}, {
                   loading_messages: false,
                   next_page_url: messages.next_page_url,
                   hasMore: messages.next_page_url !== null,
-                  messages: messages.data.concat(prev.messages)
+                  messages: newMessages.concat(_toConsumableArray(prev.messages))
                 });
               });
 
-            case 9:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -10195,17 +10208,24 @@ function TicketMessage(_ref) {
   var side = _ref.side,
       created_at = _ref.created_at,
       body = _ref.body;
+  var date = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: side === "customer" ? "right-msg" : "left-msg",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "msg-meta"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "msg-content",
+      className: "msg-content pb-1",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
         children: body
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        className: "text-left ltr",
-        children: (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at).format('jYYYY/jM/jD HH:mm:ss')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "text-left ltr m-0",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "mx-1 far fa-calendar"
+          }), date.format('jYYYY/jM/jD'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "mx-1 far fa-clock"
+          }), date.format('HH:mm:ss')]
+        })
       })]
     })]
   });
@@ -10292,7 +10312,7 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
           loading_messages = _this$props.loading_messages,
           hasMore = _this$props.hasMore;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "ticket-messages d-flex flex-column-reverse",
+        className: "ticket-messages",
         id: "userarea-ticket-scroller",
         ref: this.scrollerRef,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)((react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1___default()), {
@@ -10304,14 +10324,15 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
             return document.getElementById('userarea-ticket-scroller');
           },
           isReverse: true,
+          initialLoad: false,
           children: [loading_messages && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "w-100 mt-3 d-flex justify-content-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {
               color: "#6332df",
               size: 28
             })
-          }), messages.map(function (message, i) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TicketMessage__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({}, message), i);
+          }), messages.map(function (message) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TicketMessage__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({}, message), "".concat(message.id));
           })]
         })
       });

@@ -59,15 +59,16 @@ class Ticket extends Component {
             appends = {ticket, loading: false};
             document.title = `${ticket.title} |‌ پشتیبانی دایا آرتز`
         }
-        messages.data.reverse()
-        
-        this.setState(prev => ({
-            ...appends,
-            loading_messages: false,
-            next_page_url: messages.next_page_url,
-            hasMore: messages.next_page_url !== null,
-            messages: messages.data.concat(prev.messages)
-        }))
+        this.setState(prev => {
+            let newMessages = messages.data.sort((a,b) => new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1)
+            return {
+                ...appends,
+                loading_messages: false,
+                next_page_url: messages.next_page_url,
+                hasMore: messages.next_page_url !== null,
+                messages: newMessages.concat([...prev.messages])
+            }
+        })
     }
 
     loadMore = () => {
