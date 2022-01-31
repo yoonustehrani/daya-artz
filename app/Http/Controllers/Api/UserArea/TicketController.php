@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\UserArea;
 use App\Http\Controllers\Controller;
 use App\Models\Ticket;
 use App\Models\TicketDepartment;
+use App\Models\TicketMessage;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -40,7 +41,20 @@ class TicketController extends Controller
 
     public function update(Request $request, Ticket $ticket)
     {
-
+        $this->authorize('update', $ticket);
+        $request->validate([
+            'message' => 'required|string|min:3|max:2000'
+        ]);
+        // abort_if(403, );
+        $message = new TicketMessage;
+        $message->side = 'customer';
+        $message->body = $request->input('message');
+        $message->user_id = $request->user()->id;
+        $ticket->messages()->save($message);
+        return response()->json([
+            'okay' => true,
+            'message' => $message
+        ]);
     }
 
     public function destroy(Request $request)
