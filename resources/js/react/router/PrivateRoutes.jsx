@@ -1,30 +1,35 @@
+import { lazy, Suspense } from 'react';
 import { Switch } from 'react-router-dom';
 // Main Routes
-import Dashboard from '../Pages/Private/Dashboard';
-import Orders from '../Pages/Private/Orders';
-import Tickets from '../Pages/Private/Tickets/Tickets';
-import Finance from '../Pages/Private/Finance';
-import BrandInfo from '../Pages/Private/Profile/BrandInfo';
-import RegisterInfo from '../Pages/Private/Profile/RegisterInfo';
-import UserInfo from '../Pages/Private/Profile/UserInfo';
-import Contracts from '../Pages/Private/Contracts/Contracts';
-import ContractSample from '../Pages/Private/Contracts/ContractSample';
+const Dashboard = lazy(() => import('../Pages/Private/Dashboard'))
+const Orders = lazy(() => import('../Pages/Private/Orders'))
+const Tickets = lazy(() => import('../Pages/Private/Tickets/Tickets'))
+const Finance = lazy(() => import('../Pages/Private/Finance'))
+const BrandInfo = lazy(() => import('../Pages/Private/Profile/BrandInfo'))
+const RegisterInfo = lazy(() => import('../Pages/Private/Profile/RegisterInfo'))
+const UserInfo = lazy(() => import('../Pages/Private/Profile/UserInfo'))
+const Contracts = lazy(() => import('../Pages/Private/Contracts/Contracts'))
+const ContractSample = lazy(() => import('../Pages/Private/Contracts/ContractSample'))
 // SubRoutes
-import Order from '../Pages/Private/Orders/Order';
-import Ticket from '../Pages/Private/Tickets/Ticket';
-import NewTicket from '../Pages/Private/Tickets/NewTicket';
-import Invoices from '../Pages/Private/Finance/Invoices/Invoices';
-import Invoice from '../Pages/Private/Finance/Invoices/Invoice';
-import TicketsFaq from '../Pages/Private/Tickets/TicketsFaq';
-import PreInvoices from '../Pages/Private/Finance/Pre Invoices/PreInvoices';
-import PreInvoice from '../Pages/Private/Finance/Pre Invoices/PreInvoice';
-import Bill from '../Pages/Private/Finance/Bills/Bill';
-import Bills from '../Pages/Private/Finance/Bills/Bills';
-import Transactions from '../Pages/Private/Finance/Transactions/Transactions';
-import Discounts from '../Pages/Private/Finance/Discounts/Discounts';
-import Contract from '../Pages/Private/Contracts/Contract';
+const Order = lazy(() => import('../Pages/Private/Orders/Order'))
+const Ticket = lazy(() => import('../Pages/Private/Tickets/Ticket'))
+const NewTicket = lazy(() => import('../Pages/Private/Tickets/NewTicket'))
+const Invoices = lazy(() => import('../Pages/Private/Finance/Invoices/Invoices'))
+const Invoice = lazy(() => import('../Pages/Private/Finance/Invoices/Invoice'))
+const TicketsFaq = lazy(() => import('../Pages/Private/Tickets/TicketsFaq'))
+const PreInvoices = lazy(() => import('../Pages/Private/Finance/Pre Invoices/PreInvoices'))
+const PreInvoice = lazy(() => import('../Pages/Private/Finance/Pre Invoices/PreInvoice'))
+const Bill = lazy(() => import('../Pages/Private/Finance/Bills/Bill'))
+const Bills = lazy(() => import('../Pages/Private/Finance/Bills/Bills'))
+const Transactions = lazy(() => import('../Pages/Private/Finance/Transactions/Transactions'))
+const Discounts = lazy(() => import('../Pages/Private/Finance/Discounts/Discounts'))
+const Contract = lazy(() => import('../Pages/Private/Contracts/Contract'))
+
+// import LoaderComponent from '../components/LoaderComponent';
+
 // Route component
 import RouteWithSubRoutes from './RouteWithSubRoutes';
+import LoaderComponent from '../components/LoaderComponent';
 
 function PrivateRoutes() {
     const routes = [
@@ -141,7 +146,9 @@ function PrivateRoutes() {
     ]
     return (
         <Switch>
-            {routes.map((mainRoute, i) => <RouteWithSubRoutes key={i} {...mainRoute}/>)}
+            <Suspense fallback={<LoaderComponent />}>
+                {routes.map((mainRoute, i) => <RouteWithSubRoutes key={i} {...mainRoute}/>)}
+            </Suspense>
         </Switch>
     );
 }

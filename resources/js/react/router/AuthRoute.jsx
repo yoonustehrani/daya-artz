@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom'
-import axios from 'axios';
+import React, { Component, lazy, Suspense } from 'react';
+import { Route, Switch } from 'react-router-dom'
 import HttpClient from '../../services/HttpClient'
 import { getCookie } from '../../services/CookieService'
 // Redux
 import { connect } from 'react-redux';
 import { logInUsingCredentials, registerUser, verifyUserPhone } from '../redux/actions';
 // Routes
-import Login from '../Pages/Auth/Login';
-import Signup from '../Pages/Auth/Signup';
-import ForgetPassword from '../Pages/Auth/ForgetPassword';
+const Login = lazy(() => import('../Pages/Auth/Login'));
+const Signup = lazy(() => import('../Pages/Auth/Signup'));
+const ForgetPassword = lazy(() => import('../Pages/Auth/ForgetPassword'));
 // custom components
 import Background from '../Pages/Auth/components/Background';
 import DayaLogo from '../Pages/Auth/components/DayaLogo';
@@ -19,6 +18,7 @@ import PrivateRoute from './PrivateRoute';
 import EmailValidation from '../Pages/Auth/EmailValidation';
 import PhoneValidation from '../Pages/Auth/PhoneValidation';
 import NoMatch from './NoMatch';
+import LoaderComponent from '../components/LoaderComponent';
 
 const httpService = new HttpClient({
     baseURL: `${API_BASE_URL}/auth`,
@@ -208,15 +208,19 @@ class AuthRoute extends Component {
                     <div className={`login-form animated ${state === 'login' || state === "forgetPassword" ? "right-40" : ""}`}>
                         <Switch>
                             <Route exact path={`/auth/signup`} children={(props) => (
-                                <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />
+                                <Suspense fallback={<LoaderComponent />}>
+                                    <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />
+                                </Suspense>
                             )} />
-
                             <Route exact path={`/auth/login`} children={(props) => (
-                                <Login {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />
+                                <Suspense fallback={<LoaderComponent />}>
+                                    <Login {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />
+                                </Suspense>
                             )} />
-
                             <Route exact path={`/auth/forgetPassword`} children={(props) => (
-                                <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
+                                <Suspense fallback={<LoaderComponent />}>
+                                    <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
+                                </Suspense>
                             )} />
                             <PrivateRoute exact={true} path="/auth/verification/email">
                                 <EmailValidation handleResend={this.handleResend}/>
