@@ -10612,6 +10612,10 @@ h3 {
     order: 10;
   }
 
+  .blog-posts-container {
+    width: 100% !important;
+  }
+
   .contact-us-first-section .contact-us-background {
     height: auto !important;
   }
@@ -11407,6 +11411,10 @@ h3 {
   }
   .service-benefits-section p {
     font-size: 18px !important;
+  }
+
+  .blog-posts-container {
+    width: 90% !important;
   }
 
   .recommand-post-title {
@@ -12757,6 +12765,58 @@ span.back-aqua.big-icon {
   border-top-left-radius: 0;
   transition: 0.5s;
   background-color: #fff;
+}
+
+.pagination-nav {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination-nav .page-index {
+  font-size: 20px;
+  border: 2px solid #a184ec;
+  color: #a184ec;
+  font-weight: bold;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  white-space: nowrap;
+}
+.pagination-nav .pagination-btn {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin: 0 10px;
+  padding: 8px 20px;
+  border: 2px solid #a184ec;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+.pagination-nav .pagination-btn * {
+  transition: 0.5s;
+  color: #a184ec;
+}
+.pagination-nav .pagination-btn span {
+  font-size: 20px;
+}
+.pagination-nav .pagination-btn i {
+  font-size: 15px;
+}
+.pagination-nav .pagination-btn:hover {
+  background-color: #a184ec;
+}
+.pagination-nav .pagination-btn:hover span, .pagination-nav .pagination-btn:hover i {
+  color: #fff;
+}
+.pagination-nav .pagination-btn.disabled {
+  pointer-events: none;
+  border-color: #C2AEF3;
+}
+.pagination-nav .pagination-btn.disabled * {
+  color: #C2AEF3;
 }
 
 .advantage-section {
@@ -16396,6 +16456,7 @@ span.back-aqua.big-icon {
   font-size: 20px;
   float: left;
   height: 20%;
+  border: none;
 }
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-text-input > div:nth-child(2) {
   float: left;

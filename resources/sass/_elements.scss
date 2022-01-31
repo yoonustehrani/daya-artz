@@ -824,6 +824,57 @@ span.back-aqua {
         }
     }
 }
+.pagination-nav {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .page-index {
+        font-size: 20px;
+        border: 2px solid #a184ec;
+        color: #a184ec;
+        font-weight: bold;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        white-space: nowrap;
+    }
+    .pagination-btn {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        margin: 0 10px;
+        padding: 8px 20px;
+        border: 2px solid #a184ec;
+        border-radius: 8px;
+        transition: 0.5s;
+        * {
+            transition: 0.5s;
+            color: #a184ec;
+        }
+        span {
+            font-size: 20px;
+        }
+        i {
+            font-size: 15px;
+        }
+        &:hover {
+            background-color: #a184ec;
+            span, i {
+                color: #fff;
+            }
+        }
+        &.disabled {
+            pointer-events: none;
+            border-color: $light-eggplant;
+            * {
+                color: $light-eggplant;
+            }
+        }
+    }
+}
 // end daya blog
 
 

@@ -556,6 +556,9 @@ $xl-xl-breakpoint: 1600px;
             order: 10;
         }
     }
+    .blog-posts-container {
+        width: 100% !important;
+    }
     .contact-us-first-section {
         .contact-us-background {
             height: auto !important;
@@ -1371,6 +1374,9 @@ $xl-xl-breakpoint: 1600px;
         p {
             font-size: 18px !important;
         }
+    }
+    .blog-posts-container {
+        width: 90% !important;
     }
     .recommand-post-title {
         font-size: 16px !important;
