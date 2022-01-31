@@ -11,7 +11,8 @@ class TicketMessages extends Component {
     render() {
         let { messages, loadMore, loading_messages, hasMore } = this.props
         return (
-            <div className="ticket-messages d-flex flex-column-reverse" id='userarea-ticket-scroller' ref={this.scrollerRef}>
+            <div className="ticket-messages" id='userarea-ticket-scroller' ref={this.scrollerRef}>
+                {/* d-flex flex-column-reverse */}
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={loadMore}
@@ -19,9 +20,10 @@ class TicketMessages extends Component {
                     useWindow={false}
                     getScrollParent={() => document.getElementById('userarea-ticket-scroller')}
                     isReverse={true}
+                    initialLoad={false}
                 >
                 {loading_messages && <div className='w-100 mt-3 d-flex justify-content-center'><Spinner color="#6332df" size={28}/></div>}
-                {messages.map((message, i) => <TicketMessage key={i} {...message} />)} 
+                {messages.map((message) => <TicketMessage key={`${message.id}`} {...message} />)} 
                 </InfiniteScroll>
             </div>
         );

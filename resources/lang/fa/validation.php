@@ -162,6 +162,7 @@ return [
         'phone_number' => 'شماره تلفن همراه',
         'fullname' => 'نام و نام خانوادگی',
         'description' => 'توضیحات',
-        'order_items' => 'خدمات درخواستی'
+        'order_items' => 'خدمات درخواستی',
+        'message' => 'متن پیام'
     ],
 ];

@@ -8,10 +8,10 @@ class TicketInputs extends Component {
             <div className="ticket-inputs">
                 <div className="ticket-text-input">
                     <div className="input-group">
-                        <textarea className="form-control" placeholder="متن پیام :" value={messageText} onChange={setNewMessage.bind(this)}></textarea>
+                        <textarea disabled={sending} className="form-control" placeholder="متن پیام :" value={messageText} onChange={setNewMessage.bind(this)}></textarea>
                     </div>
                     {sending ? <Spinner color="#6332df" size={20} /> :
-                        <button className="badge badge-pill purple-btn" onClick={sendMessage.bind(this)}>ارسال</button>
+                        <button className="badge badge-pill purple-btn" type='button' onClick={sendMessage}>ارسال</button>
                     }
                 </div>
                 <div className="ticket-file-inputs">

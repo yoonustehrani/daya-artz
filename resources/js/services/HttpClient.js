@@ -72,7 +72,7 @@ export default class HttpClient
                     message = data
                     break
             }
-            this.Alert.error({title, html: message})
+            this.Alert.error({title: 'خطا', html: message})
             return data
         } else if (err.request) {
             // The request was made but no response was received
