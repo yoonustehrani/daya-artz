@@ -144,7 +144,7 @@
     <div class="section w-100 mt-5 mb-5">
         <div class="absolute-contact w-100">
             <div class="contact-section section w-100">
-                <div class="col-md-11 back-aqua d-none d-md-block"></div>
+                <div class="col-md-11 contact-section-back d-none d-md-block"></div>
                 <div class="section contact-info w-100">
                     <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-phone"></i></span>

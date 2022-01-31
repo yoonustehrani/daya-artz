@@ -419,7 +419,7 @@ span.back-aqua {
 //contact daya
 .contact-section {
     position: relative;
-    .back-aqua {
+    .contact-section-back {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -1669,7 +1669,7 @@ $labelData: '';
         position: absolute;
         font-size: 55px;
         font-weight: bold;
-        transform: rotate3d(0, 1, 1, -90deg) translate3d(-280px, -300px, 0px);
+        transform: rotate3d(0, 1, 1, -90deg) translate3d(-260px, -300px, 0px);
     }
     .step-item {
         transform-style: preserve-3d;
