@@ -4,7 +4,7 @@ import { useJalaliDate } from '../../../../hooks';
 
 const TicketRow = function({ index, id, title,  status, tracking_code, created_at, department, closed_at }) {
     let history = useHistory()
-    let handleNavigation = () => history.push(`/tickets/${id}`)
+    let handleNavigation = () => history.push(`/tickets/${id}`, {ticketId: id})
     return (
         <tr className='cursor-pointer' onClick={handleNavigation}>
             <th>{index}</th>

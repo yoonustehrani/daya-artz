@@ -9544,11 +9544,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -9605,41 +9617,74 @@ var Ticket = /*#__PURE__*/function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "sendMessage", function () {
-      var new_message = _this.state.new_message; // if (new_message.length > 0) {
-      //     this.setState({
-      //         sending: true
-      //     }, () => {
-      //         axios.post('', {message: new_message}).then(res => {
-      //             let { data } = res
-      //             this.setState(prevState => ({
-      //                 new_message: "",
-      //                 sending: false,
-      //                 messages: [
-      //                       ...prevState.ticket.messages,
-      //                       data.message
-      //                   ],
-      //             }))
-      //         })
-      //     })
-      // }
+    _defineProperty(_assertThisInitialized(_this), "sendMessage", function (e) {
+      e.preventDefault();
+      var _this$state = _this.state,
+          new_message = _this$state.new_message,
+          sending = _this$state.sending;
+
+      if (new_message.length > 0 && !sending) {
+        _this.setState({
+          sending: true
+        }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.next = 2;
+                  return _this.http.put("tickets/".concat(_this.props.params.ticketId), {
+                    message: new_message
+                  });
+
+                case 2:
+                  response = _context.sent;
+
+                  if (!response.okay) {
+                    _context.next = 6;
+                    break;
+                  }
+
+                  _this.setState(function (prevState) {
+                    return {
+                      new_message: "",
+                      sending: false,
+                      messages: [].concat(_toConsumableArray(prevState.messages), [response.message])
+                    };
+                  });
+
+                  return _context.abrupt("return");
+
+                case 6:
+                  _this.setState({
+                    sending: false
+                  });
+
+                case 7:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        })));
+      }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "loadTicket", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+    _defineProperty(_assertThisInitialized(_this), "loadTicket", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
       var _this$state$next_page;
 
       var ticketId, url, appends, _yield$_this$http$get, ticket, messages;
 
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               ticketId = _this.props.params.ticketId, url = (_this$state$next_page = _this.state.next_page_url) !== null && _this$state$next_page !== void 0 ? _this$state$next_page : "tickets/".concat(ticketId), appends = {};
-              _context.next = 3;
+              _context2.next = 3;
               return _this.http.get(url);
 
             case 3:
-              _yield$_this$http$get = _context.sent;
+              _yield$_this$http$get = _context2.sent;
               ticket = _yield$_this$http$get.ticket;
               messages = _yield$_this$http$get.messages;
 
@@ -9651,23 +9696,24 @@ var Ticket = /*#__PURE__*/function (_Component) {
                 document.title = "".concat(ticket.title, " |\u200C \u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC \u062F\u0627\u06CC\u0627 \u0622\u0631\u062A\u0632");
               }
 
-              messages.data.reverse();
-
               _this.setState(function (prev) {
+                var newMessages = messages.data.sort(function (a, b) {
+                  return new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1;
+                });
                 return _objectSpread(_objectSpread({}, appends), {}, {
                   loading_messages: false,
                   next_page_url: messages.next_page_url,
                   hasMore: messages.next_page_url !== null,
-                  messages: messages.data.concat(prev.messages)
+                  messages: newMessages.concat(_toConsumableArray(prev.messages))
                 });
               });
 
-            case 9:
+            case 8:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     })));
 
     _defineProperty(_assertThisInitialized(_this), "loadMore", function () {
@@ -9701,15 +9747,15 @@ var Ticket = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          loading = _this$state.loading,
-          ticket = _this$state.ticket,
-          new_message = _this$state.new_message,
-          sending = _this$state.sending,
-          messages = _this$state.messages,
-          hasMore = _this$state.hasMore,
-          current_page = _this$state.current_page,
-          loading_messages = _this$state.loading_messages;
+      var _this$state2 = this.state,
+          loading = _this$state2.loading,
+          ticket = _this$state2.ticket,
+          new_message = _this$state2.new_message,
+          sending = _this$state2.sending,
+          messages = _this$state2.messages,
+          hasMore = _this$state2.hasMore,
+          current_page = _this$state2.current_page,
+          loading_messages = _this$state2.loading_messages;
       return !loading && ticket !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "ticket-container",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketTopNav__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, ticket)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketMessages__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -9718,11 +9764,17 @@ var Ticket = /*#__PURE__*/function (_Component) {
           current_page: current_page,
           loading_messages: loading_messages,
           loadMore: this.loadMore
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketInputs__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }), ticket.messaging_is_allowed ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketInputs__WEBPACK_IMPORTED_MODULE_6__["default"], {
           messageText: new_message,
           setNewMessage: this.setNewMessage,
           sendMessage: this.sendMessage,
           sending: sending
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: "alert alert-info",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+            className: "m-0",
+            children: "\u062F\u0631 \u0627\u06CC\u0646 \u062F\u0631\u062E\u0648\u0627\u0633\u062A \u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC \u0628\u062F\u0644\u06CC\u0644 \u0648\u0636\u0639\u06CC\u062A \u0641\u0639\u0644\u06CC \u062A\u06CC\u06A9\u062A \u0645\u062C\u0627\u0632 \u0628\u0647 \u0627\u0631\u0633\u0627\u0644 \u067E\u06CC\u0627\u0645 \u0646\u06CC\u0633\u062A\u06CC\u062F. \u0645\u06CC \u062A\u0648\u0627\u0646\u06CC\u062F \u062F\u0631 \u0635\u0648\u0631\u062A \u0644\u0632\u0648\u0645 \u0645\u0631\u0627\u062A\u0628 \u0631\u0627 \u0627\u0632 \u0637\u0631\u06CC\u0642 \u062A\u0645\u0627\u0633 \u0628\u0627 \u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC \u0631\u0641\u0639 \u0631\u062C\u0648\u0639 \u06A9\u0646\u06CC\u062F."
+          })
         })]
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__["default"], {});
     }
@@ -10084,6 +10136,7 @@ var TicketInputs = /*#__PURE__*/function (_Component) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "input-group",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+              disabled: sending,
               className: "form-control",
               placeholder: "\u0645\u062A\u0646 \u067E\u06CC\u0627\u0645 :",
               value: messageText,
@@ -10094,7 +10147,8 @@ var TicketInputs = /*#__PURE__*/function (_Component) {
             size: 20
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
             className: "badge badge-pill purple-btn",
-            onClick: sendMessage.bind(this),
+            type: "button",
+            onClick: sendMessage,
             children: "\u0627\u0631\u0633\u0627\u0644"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -10153,17 +10207,24 @@ function TicketMessage(_ref) {
   var side = _ref.side,
       created_at = _ref.created_at,
       body = _ref.body;
+  var date = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: side === "customer" ? "right-msg" : "left-msg",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "msg-meta"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "msg-content",
+      className: "msg-content pb-1",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
         children: body
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        className: "text-left ltr",
-        children: (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at).format('jYYYY/jM/jD HH:mm:ss')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "text-left ltr m-0",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "mx-1 far fa-calendar"
+          }), date.format('jYYYY/jM/jD'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "mx-1 far fa-clock"
+          }), date.format('HH:mm:ss')]
+        })
       })]
     })]
   });
@@ -10250,7 +10311,7 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
           loading_messages = _this$props.loading_messages,
           hasMore = _this$props.hasMore;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "ticket-messages d-flex flex-column-reverse",
+        className: "ticket-messages",
         id: "userarea-ticket-scroller",
         ref: this.scrollerRef,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)((react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1___default()), {
@@ -10262,14 +10323,15 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
             return document.getElementById('userarea-ticket-scroller');
           },
           isReverse: true,
+          initialLoad: false,
           children: [loading_messages && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "w-100 mt-3 d-flex justify-content-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {
               color: "#6332df",
               size: 28
             })
-          }), messages.map(function (message, i) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TicketMessage__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({}, message), i);
+          }), messages.map(function (message) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TicketMessage__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({}, message), "".concat(message.id));
           })]
         })
       });
@@ -10315,7 +10377,9 @@ var TicketRow = function TicketRow(_ref) {
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useHistory)();
 
   var handleNavigation = function handleNavigation() {
-    return history.push("/tickets/".concat(id));
+    return history.push("/tickets/".concat(id), {
+      ticketId: id
+    });
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
@@ -12337,7 +12401,7 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
       }
 
       _this.Alert.error({
-        title: title,
+        title: 'خطا',
         html: message
       });
 
@@ -84555,7 +84619,7 @@ function _setPrototypeOf(o, p) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\\\daya-artz"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\projects\\\\test\\\\daya-artz","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

@@ -69,6 +69,7 @@ Route::prefix('auth')->name('auth.')->group(function() {
 Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(function() { // ->middleware('auth:sanctum')
     Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
     Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
+    Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
     Route::prefix('user')->group(function() {
         // Route::put('update', 'UserController@update');
         // Route::post('customer', function (Request $request) {

@@ -10,9 +10,12 @@ class Ticket extends Model
 {
     use HasFactory, HasUuidAsPrimaryKey;
 
+    const ALLOWED_STATUSES = ['open', 'in-progress', 'awaiting-reply', 'reviewd'];
+
     protected $casts = [
         'closed_at' => 'datetime',
     ];
+    public $appends = ['messaging_is_allowed'];
 
     public static function booted()
     {
@@ -40,5 +43,9 @@ class Ticket extends Model
     public function messages()
     {
         return $this->hasMany(TicketMessage::class);
+    }
+    public function getMessagingIsAllowedAttribute()
+    {
+        return is_null($this->closed_at) || in_array($this->getRawOriginal('status'), static::ALLOWED_STATUSES);
     }
 }

@@ -72,31 +72,17 @@
         </article>
         @endforeach
     </div>
+    <nav class="pagination-nav mt-4">
+        <a class="pagination-btn {{  $pagination['prev_page_url'] ? "" : "disabled" }}" href="{{ $pagination['prev_page_url'] }}">
+            <i class="fad fa-chevron-double-left mr-1"></i>
+            <span>قبلی</span>
+        </a>
+        <span class="page-index">{{ $pagination['current_page'] }}</span>
+        <a class="pagination-btn {{ $pagination['next_page_url'] ? "" : "disabled" }}" href="{{ $pagination['next_page_url'] }}">
+            <span>بعدی</span>
+            <i class="fad fa-chevron-double-right ml-1"></i>
+        </a>
+    </nav>
     @endif
-    <div>
-        <table class="table text-center">
-            <thead>
-                <tr>
-                    <th>name</th>
-                    <th>key</th>
-                    <th>current value</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (['current_page', 'first_page_url', 'next_page_url', 'prev_page_url', 'per_page'] as $item)
-                <tr>
-                    <td>{{ ucwords(str_replace('_', ' ', $item)) }}</td>
-                    <td>$pagination['{{ $item }}']</td>
-                    @if (! is_array($pagination[$item]))
-                    <td>{{ $pagination[$item] ?? 'null' }}</td>
-                    @else
-                    <td>Array</td>
-                    @endif
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {{-- {{ $posts->links() }} --}}
-    </div>
 </div>
 @endsection

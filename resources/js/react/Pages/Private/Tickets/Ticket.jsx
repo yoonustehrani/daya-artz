@@ -30,25 +30,28 @@ class Ticket extends Component {
         })
     }
 
-    sendMessage = () => {
-        let { new_message } = this.state
-        // if (new_message.length > 0) {
-        //     this.setState({
-        //         sending: true
-        //     }, () => {
-        //         axios.post('', {message: new_message}).then(res => {
-        //             let { data } = res
-        //             this.setState(prevState => ({
-        //                 new_message: "",
-        //                 sending: false,
-        //                 messages: [
-        //                       ...prevState.ticket.messages,
-        //                       data.message
-        //                   ],
-        //             }))
-        //         })
-        //     })
-        // }
+    sendMessage = (e) => {
+        e.preventDefault()
+        let { new_message, sending } = this.state
+        if (new_message.length > 0 && ! sending) {
+            this.setState({
+                sending: true
+            }, async () => {
+                const response = await this.http.put(`tickets/${this.props.params.ticketId}`, {message: new_message})
+                if (response.okay) {
+                    this.setState(prevState => ({
+                        new_message: "",
+                        sending: false,
+                        messages: [
+                            ...prevState.messages,
+                            response.message
+                        ],
+                    }))
+                    return
+                }
+                this.setState({sending: false})
+            })
+        }
     }
     loadTicket = async () => {
         let {ticketId} = this.props.params,
@@ -59,15 +62,16 @@ class Ticket extends Component {
             appends = {ticket, loading: false};
             document.title = `${ticket.title} |‌ پشتیبانی دایا آرتز`
         }
-        messages.data.reverse()
-        
-        this.setState(prev => ({
-            ...appends,
-            loading_messages: false,
-            next_page_url: messages.next_page_url,
-            hasMore: messages.next_page_url !== null,
-            messages: messages.data.concat(prev.messages)
-        }))
+        this.setState(prev => {
+            let newMessages = messages.data.sort((a,b) => new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1)
+            return {
+                ...appends,
+                loading_messages: false,
+                next_page_url: messages.next_page_url,
+                hasMore: messages.next_page_url !== null,
+                messages: newMessages.concat([...prev.messages])
+            }
+        })
     }
 
     loadMore = () => {
@@ -89,7 +93,12 @@ class Ticket extends Component {
             ?   <div className='ticket-container'>
                     <TicketTopNav {...ticket}/>
                     <TicketMessages messages={messages} hasMore={hasMore} current_page={current_page} loading_messages={loading_messages} loadMore={this.loadMore} />
-                    <TicketInputs messageText={new_message} setNewMessage={this.setNewMessage} sendMessage={this.sendMessage} sending={sending} />
+                    {ticket.messaging_is_allowed 
+                    ? <TicketInputs messageText={new_message} setNewMessage={this.setNewMessage} sendMessage={this.sendMessage} sending={sending} />
+                    :   <div className='alert alert-info'>
+                            <p className='m-0'>در این درخواست پشتیبانی بدلیل وضعیت فعلی تیکت مجاز به ارسال پیام نیستید. می توانید در صورت لزوم مراتب را از طریق تماس با پشتیبانی رفع رجوع کنید.</p>
+                        </div>
+                    }
                 </div>
             :   <Activity/> 
         );
