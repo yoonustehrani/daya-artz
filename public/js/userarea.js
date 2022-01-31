@@ -6869,37 +6869,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Sidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Sidebar */ "./resources/js/react/Pages/Private/Layout/components/Sidebar.jsx");
-/* harmony import */ var _components_TopBackground__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/TopBackground */ "./resources/js/react/Pages/Private/Layout/components/TopBackground.jsx");
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/react/Pages/Private/Layout/components/Footer.jsx");
-/* harmony import */ var _router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../router/PrivateRoutes */ "./resources/js/react/router/PrivateRoutes.jsx");
-/* harmony import */ var _router_PrivateRoute__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../router/PrivateRoute */ "./resources/js/react/router/PrivateRoute.jsx");
-/* harmony import */ var _components_VerifiedMiddleware__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/VerifiedMiddleware */ "./resources/js/react/components/VerifiedMiddleware.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
- // custom components
+/* harmony import */ var _components_Sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Sidebar */ "./resources/js/react/Pages/Private/Layout/components/Sidebar.jsx");
+/* harmony import */ var _components_TopBackground__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/TopBackground */ "./resources/js/react/Pages/Private/Layout/components/TopBackground.jsx");
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/react/Pages/Private/Layout/components/Footer.jsx");
+/* harmony import */ var _router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../router/PrivateRoutes */ "./resources/js/react/router/PrivateRoutes.jsx");
+/* harmony import */ var _router_PrivateRoute__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../router/PrivateRoute */ "./resources/js/react/router/PrivateRoute.jsx");
+/* harmony import */ var _components_VerifiedMiddleware__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/VerifiedMiddleware */ "./resources/js/react/components/VerifiedMiddleware.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -6909,40 +6885,22 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
-var Layout = /*#__PURE__*/function (_Component) {
-  _inherits(Layout, _Component);
-
-  var _super = _createSuper(Layout);
-
-  function Layout() {
-    _classCallCheck(this, Layout);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Layout, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_router_PrivateRoute__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        exact: false,
-        path: "/",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_VerifiedMiddleware__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: "user-area-layout-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_TopBackground__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "user-area-panel",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "main-content-container",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Sidebar__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
-        })]
-      });
-    }
-  }]);
-
-  return Layout;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+function Layout() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_router_PrivateRoute__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    exact: false,
+    path: "/",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VerifiedMiddleware__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "user-area-layout-container",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TopBackground__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "user-area-panel",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "main-content-container",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Sidebar__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+    })]
+  });
+}
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
 
@@ -10523,7 +10481,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // custom components
 
 
 
@@ -10551,7 +10508,7 @@ var UserArea = /*#__PURE__*/function (_Component) {
   _createClass(UserArea, [{
     key: "render",
     value: function render() {
-      if (this.props.loadingApp) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("center", {
+      return this.props.loadingApp ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("center", {
         className: "centered-by-translate",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)((react_activity_dist_Spinner__WEBPACK_IMPORTED_MODULE_5___default()), {
           color: "#8F60EC",
@@ -10559,8 +10516,7 @@ var UserArea = /*#__PURE__*/function (_Component) {
           speed: 0.8,
           animating: true
         })
-      });
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.BrowserRouter, {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.BrowserRouter, {
         basename: "/userarea",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
@@ -10601,8 +10557,8 @@ function VerifiedMiddleware() {
   var location = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useLocation)(),
       user = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
     return state.auth.user;
-  });
-  var email_verified_at = user.email_verified_at,
+  }),
+      email_verified_at = user.email_verified_at,
       phone_verified = user.phone_verified,
       email = user.email; // should be redirected
 
@@ -11806,60 +11762,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Pages/Private/Dashboard */ "./resources/js/react/Pages/Private/Dashboard/index.js");
-/* harmony import */ var _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Pages/Private/Orders */ "./resources/js/react/Pages/Private/Orders/index.js");
-/* harmony import */ var _Pages_Private_Tickets_Tickets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Pages/Private/Tickets/Tickets */ "./resources/js/react/Pages/Private/Tickets/Tickets.jsx");
-/* harmony import */ var _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/Private/Finance */ "./resources/js/react/Pages/Private/Finance/index.js");
-/* harmony import */ var _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Pages/Private/Profile/BrandInfo */ "./resources/js/react/Pages/Private/Profile/BrandInfo.jsx");
-/* harmony import */ var _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Pages/Private/Profile/RegisterInfo */ "./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx");
-/* harmony import */ var _Pages_Private_Profile_UserInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Pages/Private/Profile/UserInfo */ "./resources/js/react/Pages/Private/Profile/UserInfo.jsx");
-/* harmony import */ var _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/Private/Contracts/Contracts */ "./resources/js/react/Pages/Private/Contracts/Contracts.jsx");
-/* harmony import */ var _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Pages/Private/Contracts/ContractSample */ "./resources/js/react/Pages/Private/Contracts/ContractSample.jsx");
-/* harmony import */ var _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Pages/Private/Orders/Order */ "./resources/js/react/Pages/Private/Orders/Order.jsx");
-/* harmony import */ var _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Pages/Private/Tickets/Ticket */ "./resources/js/react/Pages/Private/Tickets/Ticket.jsx");
-/* harmony import */ var _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Pages/Private/Tickets/NewTicket */ "./resources/js/react/Pages/Private/Tickets/NewTicket.jsx");
-/* harmony import */ var _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Pages/Private/Finance/Invoices/Invoices */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoices.jsx");
-/* harmony import */ var _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Pages/Private/Finance/Invoices/Invoice */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoice.jsx");
-/* harmony import */ var _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Pages/Private/Tickets/TicketsFaq */ "./resources/js/react/Pages/Private/Tickets/TicketsFaq.jsx");
-/* harmony import */ var _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Pages/Private/Finance/Pre Invoices/PreInvoices */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoices.jsx");
-/* harmony import */ var _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Pages/Private/Finance/Pre Invoices/PreInvoice */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoice.jsx");
-/* harmony import */ var _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Pages/Private/Finance/Bills/Bill */ "./resources/js/react/Pages/Private/Finance/Bills/Bill.jsx");
-/* harmony import */ var _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../Pages/Private/Finance/Bills/Bills */ "./resources/js/react/Pages/Private/Finance/Bills/Bills.jsx");
-/* harmony import */ var _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../Pages/Private/Finance/Transactions/Transactions */ "./resources/js/react/Pages/Private/Finance/Transactions/Transactions.jsx");
-/* harmony import */ var _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../Pages/Private/Finance/Discounts/Discounts */ "./resources/js/react/Pages/Private/Finance/Discounts/Discounts.jsx");
-/* harmony import */ var _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../Pages/Private/Contracts/Contract */ "./resources/js/react/Pages/Private/Contracts/Contract.jsx");
-/* harmony import */ var _RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./RouteWithSubRoutes */ "./resources/js/react/router/RouteWithSubRoutes.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Pages/Private/Dashboard */ "./resources/js/react/Pages/Private/Dashboard/index.js");
+/* harmony import */ var _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Pages/Private/Orders */ "./resources/js/react/Pages/Private/Orders/index.js");
+/* harmony import */ var _Pages_Private_Tickets_Tickets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Pages/Private/Tickets/Tickets */ "./resources/js/react/Pages/Private/Tickets/Tickets.jsx");
+/* harmony import */ var _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Pages/Private/Finance */ "./resources/js/react/Pages/Private/Finance/index.js");
+/* harmony import */ var _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/Private/Profile/BrandInfo */ "./resources/js/react/Pages/Private/Profile/BrandInfo.jsx");
+/* harmony import */ var _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Pages/Private/Profile/RegisterInfo */ "./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx");
+/* harmony import */ var _Pages_Private_Profile_UserInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Pages/Private/Profile/UserInfo */ "./resources/js/react/Pages/Private/Profile/UserInfo.jsx");
+/* harmony import */ var _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Pages/Private/Contracts/Contracts */ "./resources/js/react/Pages/Private/Contracts/Contracts.jsx");
+/* harmony import */ var _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/Private/Contracts/ContractSample */ "./resources/js/react/Pages/Private/Contracts/ContractSample.jsx");
+/* harmony import */ var _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Pages/Private/Orders/Order */ "./resources/js/react/Pages/Private/Orders/Order.jsx");
+/* harmony import */ var _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Pages/Private/Tickets/Ticket */ "./resources/js/react/Pages/Private/Tickets/Ticket.jsx");
+/* harmony import */ var _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Pages/Private/Tickets/NewTicket */ "./resources/js/react/Pages/Private/Tickets/NewTicket.jsx");
+/* harmony import */ var _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Pages/Private/Finance/Invoices/Invoices */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoices.jsx");
+/* harmony import */ var _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Pages/Private/Finance/Invoices/Invoice */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoice.jsx");
+/* harmony import */ var _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Pages/Private/Tickets/TicketsFaq */ "./resources/js/react/Pages/Private/Tickets/TicketsFaq.jsx");
+/* harmony import */ var _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Pages/Private/Finance/Pre Invoices/PreInvoices */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoices.jsx");
+/* harmony import */ var _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Pages/Private/Finance/Pre Invoices/PreInvoice */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoice.jsx");
+/* harmony import */ var _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Pages/Private/Finance/Bills/Bill */ "./resources/js/react/Pages/Private/Finance/Bills/Bill.jsx");
+/* harmony import */ var _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Pages/Private/Finance/Bills/Bills */ "./resources/js/react/Pages/Private/Finance/Bills/Bills.jsx");
+/* harmony import */ var _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../Pages/Private/Finance/Transactions/Transactions */ "./resources/js/react/Pages/Private/Finance/Transactions/Transactions.jsx");
+/* harmony import */ var _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../Pages/Private/Finance/Discounts/Discounts */ "./resources/js/react/Pages/Private/Finance/Discounts/Discounts.jsx");
+/* harmony import */ var _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../Pages/Private/Contracts/Contract */ "./resources/js/react/Pages/Private/Contracts/Contract.jsx");
+/* harmony import */ var _RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./RouteWithSubRoutes */ "./resources/js/react/router/RouteWithSubRoutes.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
  // Main Routes
 
@@ -11890,129 +11822,102 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var PrivateRoutes = /*#__PURE__*/function (_Component) {
-  _inherits(PrivateRoutes, _Component);
-
-  var _super = _createSuper(PrivateRoutes);
-
-  function PrivateRoutes() {
-    var _this;
-
-    _classCallCheck(this, PrivateRoutes);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "routes", [{
-      path: '/dashboard',
-      exact: true,
-      CallableComponent: _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"]
-    }, {
-      path: '/brandInfo',
-      exact: true,
-      CallableComponent: _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_5__["default"]
-    }, {
-      path: '/registerInfo',
-      exact: true,
-      CallableComponent: _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_6__["default"]
-    }, {
-      path: "/userInfo",
-      exact: true,
-      CallableComponent: _Pages_Private_Profile_UserInfo__WEBPACK_IMPORTED_MODULE_7__["default"]
-    }, {
-      path: '/orders/:orderId',
-      exact: true,
-      CallableComponent: _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_10__["default"]
-    }, {
-      path: '/orders',
-      exact: false,
-      CallableComponent: _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_2__["default"]
-    }, {
-      path: '/finance/invoices/:invoiceId',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_14__["default"]
-    }, {
-      path: '/finance/invoices',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_13__["default"]
-    }, {
-      path: '/finance/pre-invoices/:pre_invoiceId',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_17__["default"]
-    }, {
-      path: '/finance/pre_invoices',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_16__["default"]
-    }, {
-      path: '/finance/bills/:billId',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_18__["default"]
-    }, {
-      path: '/finance/bills',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_19__["default"]
-    }, {
-      path: '/finance/transactions',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_20__["default"]
-    }, {
-      path: '/finance/discounts',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_21__["default"]
-    }, {
-      path: '/finance',
-      exact: true,
-      CallableComponent: _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_4__["default"]
-    }, {
-      path: '/tickets/new',
-      exact: true,
-      CallableComponent: _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_12__["default"]
-    }, {
-      path: '/tickets/faq',
-      exact: true,
-      CallableComponent: _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_15__["default"]
-    }, {
-      path: '/tickets/:ticketId',
-      exact: true,
-      CallableComponent: _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_11__["default"]
-    }, {
-      path: '/tickets',
-      exact: true,
-      CallableComponent: _Pages_Private_Tickets_Tickets__WEBPACK_IMPORTED_MODULE_3__["default"]
-    }, {
-      path: "/contracts/:contractId",
-      exact: true,
-      CallableComponent: _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_22__["default"]
-    }, {
-      path: "/contracts",
-      exact: true,
-      CallableComponent: _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_8__["default"]
-    }, {
-      path: "contract_sample",
-      exact: true,
-      CallableComponent: _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_9__["default"]
-    }]);
-
-    return _this;
-  }
-
-  _createClass(PrivateRoutes, [{
-    key: "render",
-    value: function render() {
-      var routes = this.routes;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_25__.Switch, {
-        children: routes.map(function (mainRoute, i) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_23__["default"], _objectSpread({}, mainRoute), i);
-        })
-      });
-    }
-  }]);
-
-  return PrivateRoutes;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+function PrivateRoutes() {
+  var routes = [{
+    path: '/dashboard',
+    exact: true,
+    CallableComponent: _Pages_Private_Dashboard__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }, {
+    path: '/brandInfo',
+    exact: true,
+    CallableComponent: _Pages_Private_Profile_BrandInfo__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, {
+    path: '/registerInfo',
+    exact: true,
+    CallableComponent: _Pages_Private_Profile_RegisterInfo__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }, {
+    path: "/userInfo",
+    exact: true,
+    CallableComponent: _Pages_Private_Profile_UserInfo__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }, {
+    path: '/orders/:orderId',
+    exact: true,
+    CallableComponent: _Pages_Private_Orders_Order__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }, {
+    path: '/orders',
+    exact: false,
+    CallableComponent: _Pages_Private_Orders__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }, {
+    path: '/finance/invoices/:invoiceId',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance_Invoices_Invoice__WEBPACK_IMPORTED_MODULE_13__["default"]
+  }, {
+    path: '/finance/invoices',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance_Invoices_Invoices__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }, {
+    path: '/finance/pre-invoices/:pre_invoiceId',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance_Pre_Invoices_PreInvoice__WEBPACK_IMPORTED_MODULE_16__["default"]
+  }, {
+    path: '/finance/pre_invoices',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance_Pre_Invoices_PreInvoices__WEBPACK_IMPORTED_MODULE_15__["default"]
+  }, {
+    path: '/finance/bills/:billId',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance_Bills_Bill__WEBPACK_IMPORTED_MODULE_17__["default"]
+  }, {
+    path: '/finance/bills',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance_Bills_Bills__WEBPACK_IMPORTED_MODULE_18__["default"]
+  }, {
+    path: '/finance/transactions',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance_Transactions_Transactions__WEBPACK_IMPORTED_MODULE_19__["default"]
+  }, {
+    path: '/finance/discounts',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance_Discounts_Discounts__WEBPACK_IMPORTED_MODULE_20__["default"]
+  }, {
+    path: '/finance',
+    exact: true,
+    CallableComponent: _Pages_Private_Finance__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }, {
+    path: '/tickets/new',
+    exact: true,
+    CallableComponent: _Pages_Private_Tickets_NewTicket__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }, {
+    path: '/tickets/faq',
+    exact: true,
+    CallableComponent: _Pages_Private_Tickets_TicketsFaq__WEBPACK_IMPORTED_MODULE_14__["default"]
+  }, {
+    path: '/tickets/:ticketId',
+    exact: true,
+    CallableComponent: _Pages_Private_Tickets_Ticket__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }, {
+    path: '/tickets',
+    exact: true,
+    CallableComponent: _Pages_Private_Tickets_Tickets__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: "/contracts/:contractId",
+    exact: true,
+    CallableComponent: _Pages_Private_Contracts_Contract__WEBPACK_IMPORTED_MODULE_21__["default"]
+  }, {
+    path: "/contracts",
+    exact: true,
+    CallableComponent: _Pages_Private_Contracts_Contracts__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }, {
+    path: "contract_sample",
+    exact: true,
+    CallableComponent: _Pages_Private_Contracts_ContractSample__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Switch, {
+    children: routes.map(function (mainRoute, i) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_22__["default"], _objectSpread({}, mainRoute), i);
+    })
+  });
+}
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PrivateRoutes);
 
@@ -84771,7 +84676,6 @@ __webpack_require__.r(__webpack_exports__);
 var elem = document.getElementById('main');
 
 if (elem) {
-  // elem.getAttribute('data-base-url')
   _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
   (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, {

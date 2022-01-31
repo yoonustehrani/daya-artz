@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { Switch } from 'react-router-dom';
 // Main Routes
 import Dashboard from '../Pages/Private/Dashboard';
@@ -27,8 +26,8 @@ import Contract from '../Pages/Private/Contracts/Contract';
 // Route component
 import RouteWithSubRoutes from './RouteWithSubRoutes';
 
-class PrivateRoutes extends Component {
-    routes = [
+function PrivateRoutes() {
+    const routes = [
         {
             path: '/dashboard',
             exact: true,
@@ -139,16 +138,12 @@ class PrivateRoutes extends Component {
             exact: true,
             CallableComponent: ContractSample
         }
-    ]   
-
-    render() {
-        let { routes } = this
-        return (
-            <Switch>
-                {routes.map((mainRoute, i) => <RouteWithSubRoutes key={i} {...mainRoute}/>)}
-            </Switch>
-        );
-    }
+    ]
+    return (
+        <Switch>
+            {routes.map((mainRoute, i) => <RouteWithSubRoutes key={i} {...mainRoute}/>)}
+        </Switch>
+    );
 }
 
 export default PrivateRoutes;
