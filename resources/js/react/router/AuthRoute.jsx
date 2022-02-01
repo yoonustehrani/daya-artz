@@ -1,32 +1,23 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom'
-import HttpClient from '../../services/HttpClient'
-import { getCookie } from '../../services/CookieService'
+import { useHttpService } from '../hooks';
 // Redux
 import { connect } from 'react-redux';
 import { logInUsingCredentials, registerUser, verifyUserPhone } from '../redux/actions';
-// Routes
-const Login = lazy(() => import('../Pages/Auth/Login'));
-const Signup = lazy(() => import('../Pages/Auth/Signup'));
-const ForgetPassword = lazy(() => import('../Pages/Auth/ForgetPassword'));
 // custom components
 import Background from '../Pages/Auth/components/Background';
 import DayaLogo from '../Pages/Auth/components/DayaLogo';
 import Welcome from '../Pages/Auth/components/Welcome';
 import GuestMiddleware from '../components/GuestMiddleware';
 import PrivateRoute from './PrivateRoute';
-import EmailValidation from '../Pages/Auth/EmailValidation';
-import PhoneValidation from '../Pages/Auth/PhoneValidation';
 import NoMatch from './NoMatch';
 import LoaderComponent from '../components/LoaderComponent';
 
-const httpService = new HttpClient({
-    baseURL: `${API_BASE_URL}/auth`,
-    headers: {
-        'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
-        'Accept': 'application/json'
-    }
-})
+const Login = lazy(() => import('../Pages/Auth/Login'));
+const Signup = lazy(() => import('../Pages/Auth/Signup'));
+const ForgetPassword = lazy(() => import('../Pages/Auth/ForgetPassword'));
+const EmailValidation = lazy(() => import('../Pages/Auth/EmailValidation'));
+const PhoneValidation = lazy(() => import('../Pages/Auth/PhoneValidation'));
 const route_regex = /[^/]*$/
 
 class AuthRoute extends Component {
@@ -54,6 +45,7 @@ class AuthRoute extends Component {
             state: route_regex.exec(this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(this.props.location.pathname)[0],
             login_method: "email",
         }
+        this.http = useHttpService('/auth')
     }
 
     onChangeField = (fieldType, field, e) => {
@@ -143,13 +135,15 @@ class AuthRoute extends Component {
         })
     }
 
-    handleResend = (type) => httpService.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
+    handleResend = type => {
+        return this.http.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
+    }
     
     checkCodeForPhoneValidation = (e) => {
         e.preventDefault();
         let {code} = this.state.validation;
         if (code.length === 6) {
-            httpService.post('/verification/phone/verify', {code}).then(({okay, verified}) => {
+            this.http.post('/verification/phone/verify', {code}).then(({okay, verified}) => {
                 if (verified) {
                     this.props.verifyPhone()
                 }
@@ -199,42 +193,38 @@ class AuthRoute extends Component {
         let {signup, login, forgetPassword, validation, login_method, state} = this.state, { history, location, match, user } = this.props
         return (
             <>
-            <GuestMiddleware exception={['/auth/verification/email/', '/auth/verification/phone/']} location={location}/>
-            <div className="auth-container">
-                <div className="login-bg">
-                    <DayaLogo state={state} />
-                    <Background state={state} history={history} changeSection={this.changeSection} />
-                    <Welcome state={state} />
-                    <div className={`login-form animated ${state === 'login' || state === "forgetPassword" ? "right-40" : ""}`}>
-                        <Switch>
-                            <Route exact path={`/auth/signup`} children={(props) => (
-                                <Suspense fallback={<LoaderComponent />}>
-                                    <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />
-                                </Suspense>
-                            )} />
-                            <Route exact path={`/auth/login`} children={(props) => (
-                                <Suspense fallback={<LoaderComponent />}>
-                                    <Login {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />
-                                </Suspense>
-                            )} />
-                            <Route exact path={`/auth/forgetPassword`} children={(props) => (
-                                <Suspense fallback={<LoaderComponent />}>
-                                    <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />
-                                </Suspense>
-                            )} />
-                            <PrivateRoute exact={true} path="/auth/verification/email">
-                                <EmailValidation handleResend={this.handleResend}/>
-                            </PrivateRoute>
-                            <PrivateRoute exact={true} path="/auth/verification/phone">
-                                <PhoneValidation handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
-                            </PrivateRoute>
-                            <Route path="*">
-                                <NoMatch redirect="/auth/login"/>
-                            </Route>
-                        </Switch>
+                <GuestMiddleware exception={['/auth/verification/email/', '/auth/verification/phone/']} location={location}/>
+                <div className="auth-container">
+                    <div className="login-bg">
+                        <DayaLogo state={state} />
+                        <Background state={state} history={history} changeSection={this.changeSection} />
+                        <Welcome state={state} />
+                        <div className={`login-form animated ${state === 'login' || state === "forgetPassword" ? "right-40" : ""}`}>
+                        <Suspense fallback={<LoaderComponent />}>
+                            <Switch>
+                                <Route exact path={`/auth/signup`} children={(props) => (
+                                    <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />                                    
+                                )} />
+                                <Route exact path={`/auth/login`} children={(props) => (
+                                    <Login {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />                                    
+                                )} />
+                                <Route exact path={`/auth/forgetPassword`} children={(props) => (
+                                    <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />                                    
+                                )} />
+                                <PrivateRoute exact={true} path="/auth/verification/email">
+                                    <EmailValidation handleResend={this.handleResend}/>                                    
+                                </PrivateRoute>
+                                <PrivateRoute exact={true} path="/auth/verification/phone">
+                                    <PhoneValidation handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
+                                </PrivateRoute>
+                                <Route path="*">
+                                    <NoMatch redirect="/auth/login"/>
+                                </Route>
+                            </Switch>
+                        </Suspense>
+                        </div>
                     </div>
                 </div>
-            </div>
             </>
         );
     }

@@ -16,7 +16,7 @@ class UserController extends Controller
                 'nullable',
                 Rule::requiredIf(is_null($request->input('phone_number'))),
                 'string',
-                'email:filter,dns',
+                'email:filter', // ,dns
                 Rule::unique('users')->ignore($request->user()->id)
             ],
             'phone_number' => [
@@ -35,13 +35,13 @@ class UserController extends Controller
         }
         if ($request->input('phone_number') && $user->phone_number !== $request->phone_number) {
             $user->phone_number = $request->phone_number;
-            $user->phone_verified = null;
+            $user->phone_verified = false;
         }
         if ($request->input('password')) {
             $user->password = bcrypt($request->input('password'));
         }
         return response()->json([
-            'okay' => $user->save(),
+            'okay' => $user->isDirty() ? $user->save() : true,
             'user' => $user
         ]);
     }
@@ -75,7 +75,5 @@ class UserController extends Controller
         // $company->market_type = $request->input('market_type') === 'classic' ? 'classic' : 'modern';
         // $company->intro = $request->input('intro');
         // $company->details = $request->input('details');
-
-
     }
 }

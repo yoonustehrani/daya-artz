@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AuthRoute from '../router/AuthRoute';
 import Layout from '../Pages/Private/Layout';
-import Spinner from "react-activity/dist/Spinner";
+import { Spinner } from 'react-activity';
 
 const mapStateToProps = (state) => ({
     loadingApp: state.auth.loading

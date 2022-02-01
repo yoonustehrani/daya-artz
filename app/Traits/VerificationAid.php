@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use App\VerificationCode;
+use App\Models\VerificationCode;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;
 

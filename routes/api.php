@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\UserArea\TicketController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\VerificationController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WebsiteController;
@@ -41,31 +42,31 @@ Route::prefix('auth')->name('auth.')->group(function() {
     Route::post('register', [RegisterController::class,'register'])->name('register');
     Route::get('user', function (Request $request) {
         $request->user()->load('company');
-        return ['ok' => true, 'user' => auth()->user()];
+        return ['okay' => true, 'user' => auth()->user()];
     })->name('user')->middleware('auth:sanctum');
-    // Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
-    //     Route::post('phone/verify', 'VerificationController@verifyPhoneNumber')->name('phone.verify');
-    //     Route::put('phone/edit', function (Request $request) {
-    //         $request->validate([
-    //             'phone_number' => 'required|string|regex:/^9[0-9]{9}$/|unique:users'
-    //         ]);
-    //         $user = $request->user();
-    //         abort_if($user->phone_verified, 422, "Phone already verified");
-    //         $user->phone_number = $request->input('phone_number');
-    //         return ['okay' => $user->save()];
-    //     });
-    //     Route::put('email/edit', function (Request $request) {
-    //         $request->validate([
-    //             'email' => 'required|email:filter,dns|unique:users'
-    //         ]);
-    //         $user = $request->user();
-    //         abort_if(!! $user->email_verified_at, 422, "email already verified");
-    //         $user->email = $request->input('email');
-    //         return ['okay' => $user->save()];
-    //     });
-    //     Route::post('phone/resend', 'VerificationController@resendSmsCode');
-    //     Route::post('email/resend', 'VerificationController@resendEmail');
-    // });
+    Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
+        Route::post('phone/verify', [VerificationController::class, 'verifyPhoneNumber'])->name('phone.verify');
+        Route::put('phone/edit', function (Request $request) {
+            $request->validate([
+                'phone_number' => 'required|string|regex:/^9[0-9]{9}$/|unique:users'
+            ]);
+            $user = $request->user();
+            abort_if($user->phone_verified, 422, "Phone already verified");
+            $user->phone_number = $request->input('phone_number');
+            return ['okay' => $user->save()];
+        });
+        Route::put('email/edit', function (Request $request) {
+            $request->validate([
+                'email' => 'required|email:filter,dns|unique:users'
+            ]);
+            $user = $request->user();
+            abort_if(!! $user->email_verified_at, 422, "email already verified");
+            $user->email = $request->input('email');
+            return ['okay' => $user->save()];
+        });
+        Route::post('phone/resend', [VerificationController::class, 'resendSmsCode']);
+        Route::post('email/resend', [VerificationController::class, 'resendEmail']);
+    });
 });
 Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(function() { // ->middleware('auth:sanctum')
     Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
@@ -91,7 +92,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
         //     // $customer->lastname = $request->lastname;
         //     // $customer->phone_number = $request->phone_number;
         //     // return [
-        //     //     'ok' => $user->customer()->save($customer),
+        //     //     'okay' => $user->customer()->save($customer),
         //     //     'customer' => $customer->toArray()
         //     // ];
         // });

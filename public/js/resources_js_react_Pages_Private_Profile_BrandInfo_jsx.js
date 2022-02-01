@@ -1153,88 +1153,87 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "updateInfo", function () {
       var _this$props = _this.props,
           controller = _this$props.controller,
-          changeCustomerInfo = _this$props.changeCustomerInfo,
+          modifyUser = _this$props.modifyUser,
+          modifyCustomer = _this$props.modifyCustomer,
+          modifyCompany = _this$props.modifyCompany,
           _this$state = _this.state,
           user = _this$state.user,
           company = _this$state.company,
           customer = _this$state.customer,
           errs = _this$state.errs;
 
-      _this.setState({
-        showSuccess: false,
-        showErr: false
-      });
-
       if ((0,_helpers__WEBPACK_IMPORTED_MODULE_3__.isObjEmpty)(errs)) {
         _this.setState({
-          sending_data: true
+          sending_data: true,
+          showSuccess: false,
+          showErr: false
         }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
           var response;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  _context.prev = 0;
                   _context.t0 = controller;
-                  _context.next = _context.t0 === "user" ? 4 : _context.t0 === "customer" ? 6 : 10;
+                  _context.next = _context.t0 === "user" ? 3 : _context.t0 === "company" ? 7 : _context.t0 === "customer" ? 11 : 15;
                   break;
 
-                case 4:
-                  // changeUserInfo(user).then(res => {
-                  _this.setState({
-                    sending_data: false,
-                    showSuccess: true
-                  }); // })
+                case 3:
+                  _context.next = 5;
+                  return modifyUser(user);
 
-
-                  return _context.abrupt("break", 11);
-
-                case 6:
-                  _context.next = 8;
-                  return changeCustomerInfo(customer);
-
-                case 8:
+                case 5:
                   response = _context.sent;
-                  return _context.abrupt("break", 11);
+                  return _context.abrupt("break", 15);
 
-                case 10:
-                  return _context.abrupt("break", 11);
+                case 7:
+                  _context.next = 9;
+                  return modifyCompany(company);
+
+                case 9:
+                  response = _context.sent;
+                  return _context.abrupt("break", 15);
 
                 case 11:
-                  setTimeout(function () {
-                    _this.setState({
-                      showSuccess: false
-                    });
-                  }, 5000);
-                  _context.next = 18;
-                  break;
+                  _context.next = 13;
+                  return modifyCustomer(customer);
 
-                case 14:
-                  _context.prev = 14;
-                  _context.t1 = _context["catch"](0);
+                case 13:
+                  response = _context.sent;
+                  return _context.abrupt("break", 15);
 
-                  _this.setState({
-                    showErr: true
+                case 15:
+                  console.log(response);
+
+                  _this.setState(function (prevState) {
+                    return !response.error ? {
+                      sending_data: false,
+                      showSuccess: true
+                    } : {
+                      sending_data: false,
+                      showErr: true
+                    };
                   });
 
-                  console.log(_context.t1);
+                  if (!response.error) {
+                    setTimeout(function () {
+                      _this.setState({
+                        showSuccess: false
+                      });
+                    }, 5000);
+                  }
 
                 case 18:
-                  _this.setState({
-                    sending_data: false
-                  });
-
-                case 19:
                 case "end":
                   return _context.stop();
               }
             }
-          }, _callee, null, [[0, 14]]);
+          }, _callee);
         })));
       } else {
-        _this.setState({
-          showErr: true
-        });
+        _this.setState(_defineProperty({
+          showErr: true,
+          showSuccess: false
+        }, "showErr", false));
 
         setTimeout(function () {
           _this.setState({
@@ -1320,11 +1319,14 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDispathToProps = function mapDispathToProps(dispatch) {
   return {
-    changeUserInfo: function changeUserInfo(user) {
-      return dispatch(updateUserInfo(user));
+    modifyUser: function modifyUser(user) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.updateUserInfo)(user));
     },
-    changeCustomerInfo: function changeCustomerInfo(customer) {
+    modifyCustomer: function modifyCustomer(customer) {
       return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.updateCustomerInfo)(customer));
+    },
+    modifyCompany: function modifyCompany(company) {
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.updateCompanyInfo)(company));
     }
   };
 };
