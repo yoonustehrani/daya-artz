@@ -62,26 +62,27 @@ class BrandInfo extends Component {
             path: "details.policy",
             validate_types: ["paragraph"]
         },
-        {
-            component: Select,
-            title: "نوع کسب و کار",
-            placeholder: "نوع کسب و کار خود را از میان گزینه های موجود انتخاب کنید",
-            options: [
-                {value: "service", text: "خدمات"},
-                {value: "sales", text: "فروش"},
-                {value: "other", text: "..."}
-            ],
-            path: "business_type"
-        },
+        // {
+        //     component: Select,
+        //     title: "نوع کسب و کار",
+        //     placeholder: "نوع کسب و کار خود را از میان گزینه های موجود انتخاب کنید",
+        //     options: [
+        //         {value: "service", text: "خدمات"},
+        //         {value: "sales", text: "فروش"},
+        //         // {value: "other", text: "..."}
+        //     ],
+        //     path: "business_type"
+        // },
         {
             component: Radio,
-            title: "شیوه بازار یابی",
+            title: "شیوه بازاریابی",
             name: "market_type",
             options: [
                 {id: "classic", text: "کلاسیک"},
                 {id: "modern", text: "مدرن"}
             ],
-            path: "marketType"
+            default_value: "modern",
+            path: "market_type"
         },
         {
             component: ColorPicker,
@@ -89,7 +90,7 @@ class BrandInfo extends Component {
             path: "details.color",
             validate_types: ["color"]
         },
-    ]  
+    ]
     
     componentDidMount() {
         document.title = this.title

@@ -67,10 +67,19 @@ const updateUserInfo = createAsyncThunk('auth/user/editInfo', async({email, phon
     return response.user
 })
 
+const updateCustomerInfo = createAsyncThunk('user/customer/edit', async(attributes, {rejectWithValue}) => {
+    // let {firstname, lastname} = attributes
+    // console.log(firstname, lastname);
+    // console.log('whatever you want');
+    console.log(attributes);
+    // return attributes
+})
+
 const logUserIn = user => ({ type: USER_LOGGED_IN, payload: user })
 const verifyUserPhone = () => ({type: USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: APP_STATUS_CHANGED, payload: !! status })
 const changeEmail = email => ({type: USER_EMAIL_CHANGED, payload: email})
+// const changeCustomerInfo = customerInfo => ({type: 'user/customer/edit', payload: customerInfo})
 
 const checkAuth = async (dispatch, getState) => {
     const response = await httpService.get('/auth/user', null, false)
@@ -89,5 +98,6 @@ export {
     logoutUser,
     changeUserPhoneNumber,
     changeUserEmail,
-    updateUserInfo
+    updateUserInfo,
+    updateCustomerInfo
 }
