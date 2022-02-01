@@ -1030,17 +1030,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
-/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! validator */ "./node_modules/validator/index.js");
-/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(validator__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _helpers_Validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../helpers/Validator */ "./resources/js/helpers/Validator.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../helpers */ "./resources/js/helpers/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/react/redux/actions.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! validator */ "./node_modules/validator/index.js");
+/* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(validator__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _helpers_Validator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../helpers/Validator */ "./resources/js/helpers/Validator.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../helpers */ "./resources/js/helpers/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../redux/actions */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -1108,10 +1116,10 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
         not_null: not_null !== null && not_null !== void 0 ? not_null : false
       }];
 
-      if (!only_number || validator__WEBPACK_IMPORTED_MODULE_6___default().isNumeric(value, {
+      if (!only_number || validator__WEBPACK_IMPORTED_MODULE_7___default().isNumeric(value, {
         no_symbols: true
       }) || value === "") {
-        validate_types ? errors = (0,_helpers_Validator__WEBPACK_IMPORTED_MODULE_1__["default"])(input_validate) : null;
+        validate_types ? errors = (0,_helpers_Validator__WEBPACK_IMPORTED_MODULE_2__["default"])(input_validate) : null;
         $(target).parent(".input-group").siblings("span.text-danger").each(function (i, el) {
           return $(el).remove();
         });
@@ -1136,7 +1144,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
           });
         }
 
-        var newData = new _helpers__WEBPACK_IMPORTED_MODULE_2__.NestedObj(targetObj, path, value);
+        var newData = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(targetObj, path, value);
 
         _this.setState(_defineProperty({}, controller, newData.make()));
       }
@@ -1157,46 +1165,72 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
         showErr: false
       });
 
-      if ((0,_helpers__WEBPACK_IMPORTED_MODULE_2__.isObjEmpty)(errs)) {
+      if ((0,_helpers__WEBPACK_IMPORTED_MODULE_3__.isObjEmpty)(errs)) {
         _this.setState({
           sending_data: true
-        }, function () {
-          switch (controller) {
-            case "customer":
-              var response = changeCustomerInfo(customer); // console.log(response);
+        }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  _context.t0 = controller;
+                  _context.next = _context.t0 === "user" ? 4 : _context.t0 === "customer" ? 6 : 10;
+                  break;
 
-              console.log('fuck'); // this.setState()
+                case 4:
+                  // changeUserInfo(user).then(res => {
+                  _this.setState({
+                    sending_data: false,
+                    showSuccess: true
+                  }); // })
 
-              break;
-          } //     try {
-          //         // here you can use your desired url or method to send your req using controller variable
-          //         switch (controller) {
-          //             case "user":
-          //                 // changeUserInfo(user).then(res => {
-          //                     this.setState({sending_data: false, showSuccess: true})
-          //                 // })
-          //                 break;
-          //             // case "company":
-          //             //     break;
-          //             case "customer":
-          //                 const response = await changeCustomerInfo(customer)
-          //                 // console.log(response);
-          //                 console.log('fuck');
-          //                 // this.setState()
-          //                 break;
-          //             default:
-          //                 break;
-          //             // setTimeout(() => {
-          //             //     this.setState({showSuccess: false})
-          //             // }, 5000)
-          //         }
-          //     } catch (error) {
-          //         this.setState({showErr: true})
-          //         console.log(error);
-          //     }
-          //     this.setState({sending_data: false})
 
-        });
+                  return _context.abrupt("break", 11);
+
+                case 6:
+                  _context.next = 8;
+                  return changeCustomerInfo(customer);
+
+                case 8:
+                  response = _context.sent;
+                  return _context.abrupt("break", 11);
+
+                case 10:
+                  return _context.abrupt("break", 11);
+
+                case 11:
+                  setTimeout(function () {
+                    _this.setState({
+                      showSuccess: false
+                    });
+                  }, 5000);
+                  _context.next = 18;
+                  break;
+
+                case 14:
+                  _context.prev = 14;
+                  _context.t1 = _context["catch"](0);
+
+                  _this.setState({
+                    showErr: true
+                  });
+
+                  console.log(_context.t1);
+
+                case 18:
+                  _this.setState({
+                    sending_data: false
+                  });
+
+                case 19:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[0, 14]]);
+        })));
       } else {
         _this.setState({
           showErr: true
@@ -1215,7 +1249,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
       showSuccess: false,
       showErr: false,
       errs: {}
-    }, props.controller, (_props$props$controll = props[props.controller]) !== null && _props$props$controll !== void 0 ? _props$props$controll : {});
+    }, props.controller, (_props$props$controll = _objectSpread({}, props[props.controller])) !== null && _props$props$controll !== void 0 ? _props$props$controll : {});
     return _this;
   }
 
@@ -1233,37 +1267,37 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
           showSuccess = _this$state3.showSuccess,
           showErr = _this$state3.showErr,
           errs = _this$state3.errs;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "form-title",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
             children: title
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "fields-container",
           children: fields.map(function (field, i) {
-            var value = new _helpers__WEBPACK_IMPORTED_MODULE_2__.NestedObj(_this2.state[controller], field.path).get();
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(field.component, _objectSpread({
+            var value = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(_this2.state[controller], field.path).get();
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(field.component, _objectSpread({
               onChangeHandler: _this2.changeInfo,
               value: value
             }, field), i);
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "eggplant-btn col-12",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
             className: "btn btn-lg col-12 col-md-3 col-lg-2 ".concat(sending_data ? "disabled" : ""),
             disabled: sending_data,
             onClick: this.updateInfo,
             children: "\u062B\u0628\u062A"
-          }), sending_data && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_7__.Windmill, {
+          }), sending_data && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_8__.Windmill, {
             size: 30,
             color: "#6332df"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "col-12 col-md-7 col-lg-4 alert animated fadeIn ".concat(!showSuccess && !showErr ? "d-none" : showErr ? "alert-danger" : "alert-success"),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
               className: showErr ? "d-none" : null,
               children: "\u062A\u063A\u06CC\u06CC\u0631\u0627\u062A \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u062B\u0628\u062A \u0634\u062F"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
               className: showSuccess ? "d-none" : null,
               children: "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062A \u062E\u0648\u062F \u0631\u0627 \u0628\u0647 \u062F\u0631\u0633\u062A\u06CC \u0648\u0627\u0631\u062F \u06A9\u0646\u06CC\u062F"
             })]
@@ -1274,7 +1308,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
   }]);
 
   return ProfileLayout;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
@@ -1290,12 +1324,12 @@ var mapDispathToProps = function mapDispathToProps(dispatch) {
       return dispatch(updateUserInfo(user));
     },
     changeCustomerInfo: function changeCustomerInfo(customer) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_4__.updateCustomerInfo)(customer));
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_5__.updateCustomerInfo)(customer));
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_3__.connect)(mapStateToProps, mapDispathToProps)(ProfileLayout));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_4__.connect)(mapStateToProps, mapDispathToProps)(ProfileLayout));
 
 /***/ }),
 
