@@ -27,3 +27,5 @@ const swiper = new Swiper('.swiper-container', {
         prevEl: '.swiper-button-prev',
     },
 })
+
+// ajax reqs for getting blog suggeestions

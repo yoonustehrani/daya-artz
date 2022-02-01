@@ -2,7 +2,7 @@
 import { render } from "react-dom";
 import QuickOrder from "./QuickOrder";
 import './menu'
-import './swiper'
+import './blogSwiper'
 import './logo-fade'
 import './item-info'
 import './accordion'
