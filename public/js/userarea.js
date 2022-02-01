@@ -5855,7 +5855,7 @@ function PrivateRoutes() {
     exact: true,
     CallableComponent: TicketsFaq
   }, {
-    path: '/tickets/:ticketId',
+    path: '/tickets/:ticketId([0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12})',
     exact: true,
     CallableComponent: Ticket
   }, {
