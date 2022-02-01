@@ -1,68 +1,69 @@
+import produce from 'immer';
 import {
-    APP_STATUS_CHANGED,
-    USER_LOGGED_IN,
-    USER_VERIFIED_PHONE,
-} from "../actionTypes"
+    actionTypes,
+    logInUsingCredentials,
+    registerUser,
+    logoutUser,
+    changeUserPhoneNumber,
+    changeUserEmail,
+    updateUserInfo,
+    updateCustomerInfo
+} from '../actions';
 
-import { logInUsingCredentials, registerUser, logoutUser, changeUserPhoneNumber, changeUserEmail, updateUserInfo } from '../actions'
+let {APP_STATUS_CHANGED, USER_LOGGED_IN, USER_VERIFIED_PHONE} = actionTypes
 
-var stateCopy, defaultState = {
+const defaultState = {
     loading: true,
     user: null
 }
 
-const copyState = (state) => {
-    stateCopy = Object.assign({}, state)
-}
-
-const loginReducer = (state = defaultState, action) => {
-    copyState(state)
+const loginReducer = produce((draft, action) => {
     switch (action.type) {
         case logInUsingCredentials.fulfilled.toString():
         case registerUser.fulfilled.toString():
         case updateUserInfo.fulfilled.toString():
         case USER_LOGGED_IN:
-            stateCopy.user = action.payload
+        case updateCustomerInfo.fulfilled.toString():
+            draft.user = action.payload
             break
         case logoutUser.fulfilled.toString():
-            stateCopy.user = null
-            stateCopy.loading = false
+            draft.user = null
+            draft.loading = false
             break
         case logInUsingCredentials.rejected.toString():
             // action.payload contains the error data
             // console.log("action is ", action);
             break
         case logoutUser.pending.toString():
-            stateCopy.loading = true
+            draft.loading = true
             break
         case logoutUser.rejected.toString():
-            stateCopy.loading = false
+            draft.loading = false
             break
         case USER_VERIFIED_PHONE:
-            stateCopy.user = {
-                ...stateCopy.user,
+            draft.user = {
+                ...draft.user,
                 phone_verified: true
             }
             break
         case changeUserPhoneNumber.fulfilled.toString():
-            stateCopy.user = {
-                ...stateCopy.user,
+            draft.user = {
+                ...draft.user,
                 phone_number: action.payload.phone_number
             }
             break
         case changeUserEmail.fulfilled.toString():
-            stateCopy.user = {
-                ...stateCopy.user,
+            draft.user = {
+                ...draft.user,
                 email: action.payload.email
             }
             break
         case APP_STATUS_CHANGED:
-            stateCopy.loading = action.payload
+            draft.loading = action.payload
             break
-        default:
-            return state;
+        // default:
+        //     return state;
     }
-    return stateCopy
-}
+}, defaultState)
 
 export default loginReducer

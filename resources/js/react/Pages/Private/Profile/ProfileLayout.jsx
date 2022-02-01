@@ -6,7 +6,7 @@ import validate from '../../../../helpers/Validator'
 import { isObjEmpty, NestedObj } from '../../../../helpers';
 // redux
 import { connect } from 'react-redux';
-import { updateUserInfo } from '../../../redux/actions'
+import { updateCustomerInfo } from '../../../redux/actions'
 
 class ProfileLayout extends Component {
     constructor(props) {
@@ -16,10 +16,9 @@ class ProfileLayout extends Component {
             showSuccess: false,
             showErr: false,
             errs: {},
-            [this.props.controller]: this.props[this.props.controller]??{},
+            [props.controller]: {...props[props.controller]}??{},
         }
     }
-    
     changeInfo = (path, target, validate_types, title, not_null, only_number=false) => {
         let { controller } = this.props, {errs} = this.state, targetObj = this.state[controller], {value} = target, errors = [], input_validate = [{validate_types: validate_types, value: value, title: title, not_null: not_null??false}]
         if (!only_number || validator.isNumeric(value, {no_symbols: true}) || value === "") {
@@ -42,10 +41,11 @@ class ProfileLayout extends Component {
     }
 
     updateInfo = () => {
-        let { controller, changeUserInfo } = this.props, { user, company, customer, errs } = this.state
+        let { controller, changeCustomerInfo } = this.props, { user, company, customer, errs } = this.state
         this.setState({showSuccess: false, showErr: false})
         if (isObjEmpty(errs)) {
-            this.setState({sending_data: true}, () => {
+            this.setState({sending_data: true}, async () => {
+            try {
                 // here you can use your desired url or method to send your req using controller variable
                 switch (controller) {
                     case "user":
@@ -55,14 +55,23 @@ class ProfileLayout extends Component {
                         break;
                     // case "company":
                     //     break;
-                    // case "customer":
-                    //     break;
+                    case "customer":
+                        const response = await changeCustomerInfo(customer)
+                        // console.log(response);
+                        // console.log('fuck');
+                        // this.setState()
+                        break;
                     default:
                         break;
                 }
                 setTimeout(() => {
                     this.setState({showSuccess: false})
                 }, 5000)
+            } catch (error) {
+                this.setState({showErr: true})
+                console.log(error);
+            }
+            this.setState({sending_data: false})
             })
         } else {
             this.setState({showErr: true})
@@ -103,10 +112,11 @@ class ProfileLayout extends Component {
 const mapStateToProps = (state) => ({
     user: state.auth.user,
     company: state.user.company,
-    customer: state.user.customer
+    customer: state.auth.user
 })
 const mapDispathToProps = (dispatch) => ({
-    changeUserInfo: user => dispatch(updateUserInfo(user))
+    changeUserInfo: user => dispatch(updateUserInfo(user)),
+    changeCustomerInfo: customer => dispatch(updateCustomerInfo(customer))
 })
 
 export default connect(mapStateToProps, mapDispathToProps)(ProfileLayout);

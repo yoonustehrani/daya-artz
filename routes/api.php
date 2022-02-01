@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\UserArea\TicketController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WebsiteController;
@@ -71,6 +72,9 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
     Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
     Route::prefix('user')->group(function() {
+        Route::put('auth', [UserController::class, 'update']);
+        Route::put('customer', [UserController::class, 'updateInfo']);
+        Route::put('company', [UserController::class, 'updateCompany']);
         // Route::put('update', 'UserController@update');
         // Route::post('customer', function (Request $request) {
         //     \Gate::authorize('create', Customer::class);

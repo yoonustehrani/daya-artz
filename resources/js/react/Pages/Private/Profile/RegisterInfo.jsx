@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
 // components
 import TextInput from './Components/TextInput';
-import PhoneInput from './Components/PhoneInput';
+// import PhoneInput from './Components/PhoneInput';
 import ProfileLayout from './ProfileLayout';
+import { useEffect } from 'react';
 
-class RegisterInfo extends Component {
-    title = "مشخصات فردی"
-    fields = [
+function RegisterInfo() {
+    let title = "مشخصات فردی"
+    let fields = [
         {
             component: TextInput,
             title: "نام",
@@ -19,28 +19,24 @@ class RegisterInfo extends Component {
             path: "lastname",
             validate_types: ["short_text", "alpha-fa"]
         },
-        {
-            component: PhoneInput,
-            title: "شماره تلفن (جهت پاسخگویی)",
-            path: "phone_number",
-            phone_type: "both",
-            validate_types: ["phone_number"]
-        },
-    ]   
-
-    componentDidMount() {
-        document.title = this.title
-    }
-    
-    render() {
-        return (
-            <ProfileLayout 
-                fields = {this.fields} 
-                title = {this.title} 
-                controller = "customer" 
-            />
-        );
-    }
+        // {
+        //     component: PhoneInput,
+        //     title: "شماره تلفن (جهت پاسخگویی)",
+        //     path: "phone_number",
+        //     phone_type: "both",
+        //     validate_types: ["phone_number"]
+        // },
+    ]
+    useEffect(() => {
+        document.title = title
+    }, [title])
+    return (
+        <ProfileLayout 
+            fields={fields} 
+            title={title} 
+            controller = "customer" 
+        />
+    );
 }
 
 export default (RegisterInfo);

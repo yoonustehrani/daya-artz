@@ -160,6 +160,8 @@ return [
     'attributes' => [
         'q' => 'سوژه جستجو',
         'phone_number' => 'شماره تلفن همراه',
+        'firstname' => 'نام',
+        'lastname' => 'نام خانوادگی',
         'fullname' => 'نام و نام خانوادگی',
         'description' => 'توضیحات',
         'order_items' => 'خدمات درخواستی',

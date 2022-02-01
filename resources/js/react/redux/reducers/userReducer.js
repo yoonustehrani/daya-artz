@@ -1,9 +1,7 @@
 import { produce } from "immer";
 
 const initialState = {
-    company: null,
-    customer: null,
-    test: false
+    company: null
 }
 
 const userReducer = produce((draft, action) => {

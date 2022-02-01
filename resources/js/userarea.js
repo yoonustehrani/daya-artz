@@ -8,7 +8,6 @@ import { checkAuth } from './react/redux/actions'
 const elem = document.getElementById('main')
 
 if (elem) {
-    // elem.getAttribute('data-base-url')
     store.dispatch(checkAuth);
     render(
         <StrictMode>
