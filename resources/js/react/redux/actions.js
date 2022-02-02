@@ -13,16 +13,13 @@ const actionTypes = {
 
 const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, {rejectWithValue}) => {
     const response = await http.post('/auth/login', credentials)
-    if ((typeof response.error) !== 'undefined') {
-        return rejectWithValue(response.error)
-    }
-    return response.user
+    return response.okay ? response.user : rejectWithValue(response.error)
 })
 
 const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState, rejectWithValue}) => {
     if (getState().auth.user) {
         const response = await http.post('/auth/logout')
-        if (response.ok) {
+        if (response.okay) {
             return response
         }
     }
@@ -31,10 +28,7 @@ const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState, 
 
 const registerUser = createAsyncThunk('auth/registerUser', async (information, {rejectWithValue}) => {
     const response = await http.post('/auth/register', information)
-    if ((typeof response.error) !== 'undefined') {
-        return rejectWithValue(response.error)
-    }
-    return response.user
+    return response.okay ? response.user : rejectWithValue(response.error)
 })
 
 const changeUserPhoneNumber = createAsyncThunk('auth/user/changePhoneNumber', async (phone_number, {rejectWithValue}) => {
@@ -52,20 +46,19 @@ const changeUserEmail = createAsyncThunk('auth/user/changeEmail', async (email, 
     return {email}
 })
 
-const updateUserInfo = createAsyncThunk('auth/user/editInfo', async({email, phone_number, password = null, password_confirmation = null}, {rejectWithValue}) => {
-    const response = await http.put('/userarea/user/update', {email, phone_number, password, password_confirmation})
-    if ((typeof response.error) !== 'undefined') {
-        return rejectWithValue(response.error)
-    }
-    return response.user
+const updateUserInfo = createAsyncThunk('auth/user/modify', async({email, phone_number, password = null, password_confirmation = null}, {rejectWithValue}) => {
+    const response = await http.put('/userarea/user/auth', {email, phone_number, password, password_confirmation})
+    return response.okay ? response.user : rejectWithValue(response.error)
 })
 
-const updateCustomerInfo = createAsyncThunk('user/customer/edit', async({firstname, lastname}, {rejectWithValue}) => {
+const updateCustomerInfo = createAsyncThunk('user/customer/modify', async({firstname, lastname}, {rejectWithValue}) => {
     const response = await http.put('/userarea/user/customer', {firstname, lastname})
-    if ((typeof response.error) !== 'undefined') {
-        return rejectWithValue(response.error)
-    }
-    return response.user
+    return response.okay ? response.user : rejectWithValue(response.error)
+})
+
+const updateCompanyInfo = createAsyncThunk('user/company/modify', async(params, {rejectWithValue}) => {
+    const response = await http.put('/userarea/user/company', params)
+    return response.okay ? response.company : rejectWithValue(response.error)
 })
 
 const logUserIn = user => ({ type: actionTypes.USER_LOGGED_IN, payload: user })
@@ -92,5 +85,6 @@ export {
     changeUserPhoneNumber,
     changeUserEmail,
     updateUserInfo,
-    updateCustomerInfo
+    updateCustomerInfo,
+    updateCompanyInfo
 }

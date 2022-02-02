@@ -6,7 +6,7 @@ import validate from '../../../../helpers/Validator'
 import { isObjEmpty, NestedObj } from '../../../../helpers';
 // redux
 import { connect } from 'react-redux';
-import { updateCustomerInfo } from '../../../redux/actions'
+import { updateCustomerInfo, updateCompanyInfo, updateUserInfo } from '../../../redux/actions'
 
 class ProfileLayout extends Component {
     constructor(props) {
@@ -41,40 +41,36 @@ class ProfileLayout extends Component {
     }
 
     updateInfo = () => {
-        let { controller, changeCustomerInfo } = this.props, { user, company, customer, errs } = this.state
-        this.setState({showSuccess: false, showErr: false})
+        let { controller, modifyUser, modifyCustomer, modifyCompany } = this.props, { user, company, customer, errs } = this.state
         if (isObjEmpty(errs)) {
-            this.setState({sending_data: true}, async () => {
-            try {
-                // here you can use your desired url or method to send your req using controller variable
-                switch (controller) {
-                    case "user":
-                        // changeUserInfo(user).then(res => {
-                            this.setState({sending_data: false, showSuccess: true})
-                        // })
-                        break;
-                    // case "company":
-                    //     break;
-                    case "customer":
-                        const response = await changeCustomerInfo(customer)
-                        // console.log(response);
-                        // console.log('fuck');
-                        // this.setState()
-                        break;
-                    default:
-                        break;
+            this.setState(
+                {sending_data: true, showSuccess: false, showErr: false},
+                async () => {
+                    let response;
+                    switch (controller) {
+                        case "user":
+                            response = await modifyUser(user)
+                            break;
+                        case "company":
+                            response = await modifyCompany(company)
+                            break;
+                        case "customer":
+                            response = await modifyCustomer(customer)
+                            break;
+                    }
+                    console.log(response);
+                    this.setState(prevState => {
+                        return ! response.error ? {sending_data: false, showSuccess: true} : {sending_data: false, showErr: true}
+                    })
+                    if (! response.error) {
+                        setTimeout(() => {
+                            this.setState({showSuccess: false})
+                        }, 5000)
+                    }
                 }
-                setTimeout(() => {
-                    this.setState({showSuccess: false})
-                }, 5000)
-            } catch (error) {
-                this.setState({showErr: true})
-                console.log(error);
-            }
-            this.setState({sending_data: false})
-            })
+            )
         } else {
-            this.setState({showErr: true})
+            this.setState({showErr: true, showSuccess: false, showErr: false})
             setTimeout(() => {
                 this.setState({showErr: false})
             }, 5000)
@@ -115,8 +111,9 @@ const mapStateToProps = (state) => ({
     customer: state.auth.user
 })
 const mapDispathToProps = (dispatch) => ({
-    changeUserInfo: user => dispatch(updateUserInfo(user)),
-    changeCustomerInfo: customer => dispatch(updateCustomerInfo(customer))
+    modifyUser: user => dispatch(updateUserInfo(user)),
+    modifyCustomer: customer => dispatch(updateCustomerInfo(customer)),
+    modifyCompany: company => dispatch(updateCompanyInfo(company))
 })
 
 export default connect(mapStateToProps, mapDispathToProps)(ProfileLayout);

@@ -1,6 +1,21 @@
 @extends('layouts.default')
 @push('head')
     <title>Daya Artz</title>
+    <style>
+        .grecaptcha-badge {
+            width: 70px !important;
+            overflow: hidden !important;
+            transition: all 0.3s ease !important;
+            left: 0px !important;
+            opacity: 0.5;
+        }
+        
+        .grecaptcha-badge:hover {
+            width: 256px !important;
+            transition: 0.3s !important;
+            opacity: 1;
+        }
+    </style>
 @endpush
 <!-- Header -->
 @section('header')
@@ -102,11 +117,11 @@
                         <img src="{{ asset('images/speed-order.svg') }}" alt="fast-order">
                     </div>
                     <div class="order-detail">
-                        <h3 class="mb-4">سفارش فوری</h3>
+                        <h3 class="mb-4">سفارش سریع</h3>
                         <h4 class="mb-3">تسریع زمان ثبت<span><i class="check fas fa-check-circle"></i></span></h4>
-                        <h4 class="mb-3">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4>
-                        <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4>
-                        <h4 class="mb-4">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4>
+                        {{-- <h4 class="mb-3">تحویل فوری لوگو<span><i class="check fas fa-check-circle"></i></span></h4> --}}
+                        {{-- <h4 class="mb-3">تعداد ادیت کم<span><i class="times fas fa-times-circle"></i></span></h4> --}}
+                        {{-- <h4 class="mb-4">کیفیت پایین نسبت به تخصصی<span><i class="times fas fa-times-circle"></i></span></h4> --}}
                         <div class="order-btn-container mt-lg-4">
                             <button class="btn btn-gradient silver-progress-button reverse">
                                 <p class="before">شروع سفارش</p>
@@ -186,7 +201,7 @@
                 <p class="title cyan">درباره دایا</p>
                 <p>تیم طراحی گرافیک دایا آرتز فعالیت خود را درسال 1396 آغاز نمود و سهم متناسبی از  بازار طراحی های دیجیتال به دست آورد. در سال های 1399 تیم فنی- هنری دایا آرتز تحقیقات خود را در زمینه رویکرد استارتاپی و شناخت نیاز گروه های مختلف و درک تفاوت های نیاز مشتریان بازار طراحی دیجیتال را به ویژه در طراحی لوگو شروع کرد و حاصل دو سال پیاپی ادغام تحقیق و تجربه و فناوری ، پلتفرم الکترونیک دایا آرتز را سرپا ساخت .
                 <br>
-                <a href="#" class="btn btn-info badge-pill float-left">بیشتر بخوانید</a></p>
+                <a href="{{ route('about') }}" class="btn btn-info badge-pill float-left">بیشتر بخوانید</a></p>
             </div>
         </div>
     </div>

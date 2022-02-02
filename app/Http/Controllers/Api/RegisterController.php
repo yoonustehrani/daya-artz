@@ -22,7 +22,7 @@ class RegisterController extends Controller
         \Auth::guard()->login($user);
         event(new UserRegistered($user));
         return response()->json([
-            'ok' => true, 'message' => 'Registered Successfully', 'user' => $user
+            'okay' => true, 'message' => 'Registered Successfully', 'user' => $user
         ]);
     }
     public function credentials(Request $request)

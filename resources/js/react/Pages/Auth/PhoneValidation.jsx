@@ -16,7 +16,7 @@ class PhoneValidation extends Component {
         this.interval = null
     }
     componentDidMount() {
-        this.setResendTime(60)
+        // this.setResendTime(60)
     }
     componentWillUnmount() {
         clearInterval(this.interval)
@@ -38,11 +38,12 @@ class PhoneValidation extends Component {
     handleResend = () => {
         let {handleResend} = this.props;
         handleResend('phone').then(res => {
-            let {okay, left_attempts, next_attempt_in_seconds} = res.data;
-            this.setResendTime(next_attempt_in_seconds)
-            this.setState({
-                left_attempts: left_attempts
-            })
+            console.log(res.data);
+            // let {okay, left_attempts, next_attempt_in_seconds} = res.data;
+            // this.setResendTime(next_attempt_in_seconds)
+            // this.setState({
+            //     left_attempts: left_attempts
+            // })
         }).catch(err => console.log(err))
     }
     handleEdit = (e) => {

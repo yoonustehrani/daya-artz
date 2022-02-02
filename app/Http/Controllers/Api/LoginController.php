@@ -26,7 +26,7 @@ class LoginController extends Controller
         // }
         if ($this->attemptLogin($this->credentials($request))) {
             $request->session()->regenerate();
-            return response()->json(['ok' => true, 'message' => 'Login Successful', 'user' => Auth::user()]);
+            return response()->json(['okay' => true, 'message' => 'Login Successful', 'user' => Auth::user()]);
         }
         // if fail should be run
         // $this->incrementLoginAttempts($request);
@@ -79,8 +79,8 @@ class LoginController extends Controller
             $request->session()->invalidate();
     
             $request->session()->regenerate();
-            return ['ok' => true];
+            return ['okay' => true];
         }
-        return ['ok' => false];
+        return ['okay' => false];
     }
 }

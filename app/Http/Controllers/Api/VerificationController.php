@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Broadcasting\SMSChannel;
 use App\Http\Controllers\Controller;
 use App\Notifications\VerificationNotification;
-use App\User;
+use App\Models\User;
 use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
