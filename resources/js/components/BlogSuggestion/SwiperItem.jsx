@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment-jalaali';
-import jMoment from 'moment-jalaali';
+require('moment/locale/fa')
+moment.loadPersian({
+    usePersianDigits: true,
+    dialect: "persian-modern"
+})
 
 class SwiperItem extends Component {
     render() {
@@ -10,7 +14,7 @@ class SwiperItem extends Component {
                 <a href={url}>
                     <div className="img-container w-100">
                         <img src={APP_PATH + image_url} alt={image_alt} className="w-100 h-100" />
-                        <span className="article-date">{"jmoment..."}</span>
+                        <span className="article-date">{moment(created_at).format('jDD jMMMM')} <br/> {moment(created_at).format("jYYYY")}</span>
                     </div>
                     <div className="article-info">
                         <p className="blog-post-source">نوشته شده توسط دابا آرتز</p>
