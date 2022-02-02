@@ -1,4 +1,5 @@
 import { produce } from "immer";
+import { actionTypes } from "../actions";
 
 const initialState = {
     company: null
@@ -6,10 +7,8 @@ const initialState = {
 
 const userReducer = produce((draft, action) => {
     switch (action.type) {
-        case 'test':
-            draft.test = true
-            break;
-        default:
+        case actionTypes.COMPANY_DETECTED:
+            draft.company = action.payload
             break;
     }
 }, initialState)

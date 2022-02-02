@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { useEffect } from 'react';
 // components
 import TextInput from './Components/TextInput';
 import Select from './Components/Select';
@@ -8,9 +8,9 @@ import Textarea from './Components/Textarea';
 import Radio from './Components/Radio';
 import ProfileLayout from './ProfileLayout';
 
-class BrandInfo extends Component {
-    title = "مشخصات کسب و کار"
-    fields = [
+function BrandInfo() {
+    let title = "مشخصات کسب و کار"
+    let fields = [
         {
             component: TextInput,
             title: "عنوان برند",
@@ -91,20 +91,17 @@ class BrandInfo extends Component {
             validate_types: ["color"]
         },
     ]
-    
-    componentDidMount() {
-        document.title = this.title
-    }
+    useEffect(() => {
+        document.title = title
+    }, [title])
 
-    render() {
-        return (
-            <ProfileLayout 
-                fields = {this.fields} 
-                title = {this.title} 
-                controller="company"
-            />
-        );
-    }
+    return (
+        <ProfileLayout 
+            fields = {fields} 
+            title = {title} 
+            controller="company"
+        />
+    );
 }
 
 export default (BrandInfo);

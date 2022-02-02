@@ -9,6 +9,15 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function show(Request $request)
+    {
+        $company = $request->user()->company()->first();
+        return response()->json([
+            'okay' => true,
+            'user' => $request->user(),
+            'company' => $company
+        ]);
+    }
     public function update(Request $request)
     {
         $request->validate([

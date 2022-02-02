@@ -46,6 +46,6 @@ class Ticket extends Model
     }
     public function getMessagingIsAllowedAttribute()
     {
-        return is_null($this->closed_at) || in_array($this->getRawOriginal('status'), static::ALLOWED_STATUSES);
+        return in_array($this->getRawOriginal('status'), static::ALLOWED_STATUSES) && is_null($this->closed_at);
     }
 }

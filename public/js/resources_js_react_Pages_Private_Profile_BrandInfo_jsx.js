@@ -228,30 +228,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Radio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/Radio */ "./resources/js/react/Pages/Private/Profile/Components/Radio.jsx");
 /* harmony import */ var _ProfileLayout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ProfileLayout */ "./resources/js/react/Pages/Private/Profile/ProfileLayout.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
  // components
 
 
@@ -263,119 +239,90 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var BrandInfo = /*#__PURE__*/function (_Component) {
-  _inherits(BrandInfo, _Component);
-
-  var _super = _createSuper(BrandInfo);
-
-  function BrandInfo() {
-    var _this;
-
-    _classCallCheck(this, BrandInfo);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "title", "مشخصات کسب و کار");
-
-    _defineProperty(_assertThisInitialized(_this), "fields", [{
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "عنوان برند",
-      path: "title",
-      validate_types: ["short_text", "alpha-numeric-fa"]
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "عنوان انگلیسی برند",
-      path: "title_en",
-      validate_types: ["short_text", "alpha-numeric-en"]
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "تگ لاین یا شعار",
-      path: "details.tagline",
-      validate_types: ["short_text"]
-    }, {
-      component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_3__["default"],
-      title: "شماره تلفن",
-      phone_type: "telephone",
-      path: "phone_number",
-      validate_types: ["phone_number"]
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "آدرس وب سایت",
-      path: "website",
-      validate_types: ["url"]
-    }, {
-      component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
-      title: "آدرس",
-      path: "address",
-      validate_types: ["long_text"]
-    }, {
-      component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
-      title: "معرفی کسب و کار",
-      placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
-      path: "intro",
-      validate_types: ["paragraph"]
-    }, {
-      component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
-      title: "توصیف عقاید و چهارچوب های سازمانی",
-      placeHolder: "",
-      path: "details.policy",
-      validate_types: ["paragraph"]
-    }, // {
-    //     component: Select,
-    //     title: "نوع کسب و کار",
-    //     placeholder: "نوع کسب و کار خود را از میان گزینه های موجود انتخاب کنید",
-    //     options: [
-    //         {value: "service", text: "خدمات"},
-    //         {value: "sales", text: "فروش"},
-    //         // {value: "other", text: "..."}
-    //     ],
-    //     path: "business_type"
-    // },
-    {
-      component: _Components_Radio__WEBPACK_IMPORTED_MODULE_6__["default"],
-      title: "شیوه بازاریابی",
-      name: "market_type",
-      options: [{
-        id: "classic",
-        text: "کلاسیک"
-      }, {
-        id: "modern",
-        text: "مدرن"
-      }],
-      default_value: "modern",
-      path: "market_type"
-    }, {
-      component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
-      title: "رنگ سازمانی",
-      path: "details.color",
-      validate_types: ["color"]
-    }]);
-
-    return _this;
-  }
-
-  _createClass(BrandInfo, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      document.title = this.title;
-    }
+function BrandInfo() {
+  var title = "مشخصات کسب و کار";
+  var fields = [{
+    component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+    title: "عنوان برند",
+    path: "title",
+    validate_types: ["short_text", "alpha-numeric-fa"]
   }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        fields: this.fields,
-        title: this.title,
-        controller: "company"
-      });
-    }
-  }]);
-
-  return BrandInfo;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+    component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+    title: "عنوان انگلیسی برند",
+    path: "title_en",
+    validate_types: ["short_text", "alpha-numeric-en"]
+  }, {
+    component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+    title: "تگ لاین یا شعار",
+    path: "details.tagline",
+    validate_types: ["short_text"]
+  }, {
+    component: _Components_PhoneInput__WEBPACK_IMPORTED_MODULE_3__["default"],
+    title: "شماره تلفن",
+    phone_type: "telephone",
+    path: "phone_number",
+    validate_types: ["phone_number"]
+  }, {
+    component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+    title: "آدرس وب سایت",
+    path: "website",
+    validate_types: ["url"]
+  }, {
+    component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
+    title: "آدرس",
+    path: "address",
+    validate_types: ["long_text"]
+  }, {
+    component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
+    title: "معرفی کسب و کار",
+    placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
+    path: "intro",
+    validate_types: ["paragraph"]
+  }, {
+    component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
+    title: "توصیف عقاید و چهارچوب های سازمانی",
+    placeHolder: "",
+    path: "details.policy",
+    validate_types: ["paragraph"]
+  }, // {
+  //     component: Select,
+  //     title: "نوع کسب و کار",
+  //     placeholder: "نوع کسب و کار خود را از میان گزینه های موجود انتخاب کنید",
+  //     options: [
+  //         {value: "service", text: "خدمات"},
+  //         {value: "sales", text: "فروش"},
+  //         // {value: "other", text: "..."}
+  //     ],
+  //     path: "business_type"
+  // },
+  {
+    component: _Components_Radio__WEBPACK_IMPORTED_MODULE_6__["default"],
+    title: "شیوه بازاریابی",
+    name: "market_type",
+    options: [{
+      id: "classic",
+      text: "کلاسیک"
+    }, {
+      id: "modern",
+      text: "مدرن"
+    }],
+    default_value: "modern",
+    path: "market_type"
+  }, {
+    component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
+    title: "رنگ سازمانی",
+    path: "details.color",
+    validate_types: ["color"]
+  }];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    document.title = title;
+  }, [title]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    fields: fields,
+    title: title,
+    controller: "company"
+  });
+}
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BrandInfo);
 
