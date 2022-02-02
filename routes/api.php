@@ -40,10 +40,7 @@ Route::prefix('auth')->name('auth.')->group(function() {
     Route::post('login', [LoginController::class,'login'])->name('login'); // 
     Route::post('logout', [LoginController::class,'logout'])->name('logout')->middleware('auth:sanctum');
     Route::post('register', [RegisterController::class,'register'])->name('register');
-    Route::get('user', function (Request $request) {
-        $request->user()->load('company');
-        return ['okay' => true, 'user' => auth()->user()];
-    })->name('user')->middleware('auth:sanctum');
+    Route::get('user', [UserController::class, 'show'])->name('user')->middleware('auth:sanctum');
     Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
         Route::post('phone/verify', [VerificationController::class, 'verifyPhoneNumber'])->name('phone.verify');
         Route::put('phone/edit', function (Request $request) {

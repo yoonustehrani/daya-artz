@@ -3749,6 +3749,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -3771,6 +3772,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -3831,7 +3833,7 @@ var Footer = /*#__PURE__*/function (_Component) {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
                       href: "#",
-                      children: "\u0633\u0641\u0627\u0631\u0634 \u0641\u0648\u0631\u06CC"
+                      children: "\u0633\u0641\u0627\u0631\u0634 \u0633\u0631\u06CC\u0639"
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
@@ -3865,8 +3867,8 @@ var Footer = /*#__PURE__*/function (_Component) {
                       children: "\u062A\u0645\u0627\u0633 \u0628\u0627 \u0645\u0627"
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                      href: "#",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                      to: "/tickets/new",
                       children: "\u0627\u0631\u0633\u0627\u0644 \u062A\u06CC\u06A9\u062A"
                     })
                   })]
@@ -3995,9 +3997,10 @@ var Sidebar = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this = this;
 
-      var _this$props$user = this.props.user,
-          fullname = _this$props$user.fullname,
-          company = _this$props$user.company;
+      var _this$props$company = this.props.company,
+          title = _this$props$company.title,
+          title_en = _this$props$company.title_en;
+      var fullname = this.props.user.fullname;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         id: "m-menu",
         className: "user-area-sidebar d-none d-md-inline-block",
@@ -4014,8 +4017,8 @@ var Sidebar = /*#__PURE__*/function (_Component) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
             children: fullname
-          }), company && company.title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            children: company.title
+          }), this.props.company && (title || title_en) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: [title, title_en].join(' - ')
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
           className: "menu-items-container p-0",
@@ -4205,7 +4208,8 @@ var Sidebar = /*#__PURE__*/function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    user: state.auth.user
+    user: state.auth.user,
+    company: state.user.company
   };
 };
 
@@ -4612,24 +4616,38 @@ var actionTypes = {
   USER_VERIFIED_PHONE: "".concat(reducerKeys.auth, "/userVerifiedPhoneNumber"),
   USER_PHONE_NUMBER_CHANGED: "".concat(reducerKeys.auth, "/userChangedPhoneNumber"),
   USER_EMAIL_CHANGED: "".concat(reducerKeys.auth, "/userChangedEmail"),
-  APP_STATUS_CHANGED: "".concat(reducerKeys.auth, "/appStatusChanged")
+  APP_STATUS_CHANGED: "".concat(reducerKeys.auth, "/appStatusChanged"),
+  COMPANY_DETECTED: "".concat(reducerKeys.user, "/companyWasSet")
 };
 var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/loginUser', /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(credentials, _ref) {
-    var rejectWithValue, response;
+    var rejectWithValue, dispatch, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            rejectWithValue = _ref.rejectWithValue;
+            rejectWithValue = _ref.rejectWithValue, dispatch = _ref.dispatch;
             _context.next = 3;
             return http.post('/auth/login', credentials);
 
           case 3:
             response = _context.sent;
-            return _context.abrupt("return", response.okay ? response.user : rejectWithValue(response.error));
 
-          case 5:
+            if (!response.okay) {
+              _context.next = 7;
+              break;
+            }
+
+            if (response.company) {
+              dispatch(setCompany(response.company));
+            }
+
+            return _context.abrupt("return", response.user);
+
+          case 7:
+            return _context.abrupt("return", rejectWithValue(response.error));
+
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -4651,7 +4669,7 @@ var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThu
             getState = _ref3.getState, rejectWithValue = _ref3.rejectWithValue;
 
             if (!getState().auth.user) {
-              _context2.next = 7;
+              _context2.next = 8;
               break;
             }
 
@@ -4662,16 +4680,17 @@ var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThu
             response = _context2.sent;
 
             if (!response.okay) {
-              _context2.next = 7;
+              _context2.next = 8;
               break;
             }
 
+            dispatch(setCompany(null));
             return _context2.abrupt("return", response);
 
-          case 7:
+          case 8:
             throw new Error();
 
-          case 8:
+          case 9:
           case "end":
             return _context2.stop();
         }
@@ -4890,6 +4909,13 @@ var logUserIn = function logUserIn(user) {
   };
 };
 
+var setCompany = function setCompany(company) {
+  return {
+    type: actionTypes.COMPANY_DETECTED,
+    payload: company
+  };
+};
+
 var verifyUserPhone = function verifyUserPhone() {
   return {
     type: actionTypes.USER_VERIFIED_PHONE
@@ -4923,8 +4949,12 @@ var checkAuth = /*#__PURE__*/function () {
           case 2:
             response = _context9.sent;
 
-            if (response.user) {
+            if (response.okay) {
               dispatch(logUserIn(response.user));
+
+              if (response.company) {
+                dispatch(setCompany(response.company));
+              }
             }
 
             dispatch(changeAppStatus(false));
@@ -5067,18 +5097,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.esm.js");
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.esm.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./resources/js/react/redux/actions.js");
+
 
 var initialState = {
   company: null
 };
-var userReducer = (0,immer__WEBPACK_IMPORTED_MODULE_0__.produce)(function (draft, action) {
+var userReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__.produce)(function (draft, action) {
   switch (action.type) {
-    case 'test':
-      draft.test = true;
-      break;
-
-    default:
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.actionTypes.COMPANY_DETECTED:
+      draft.company = action.payload;
       break;
   }
 }, initialState);

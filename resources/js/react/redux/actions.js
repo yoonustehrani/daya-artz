@@ -9,17 +9,25 @@ const actionTypes = {
     USER_PHONE_NUMBER_CHANGED: `${reducerKeys.auth}/userChangedPhoneNumber`,
     USER_EMAIL_CHANGED: `${reducerKeys.auth}/userChangedEmail`,
     APP_STATUS_CHANGED: `${reducerKeys.auth}/appStatusChanged`,
+    COMPANY_DETECTED: `${reducerKeys.user}/companyWasSet`
 }
 
-const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, {rejectWithValue}) => {
+const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, {rejectWithValue, dispatch}) => {
     const response = await http.post('/auth/login', credentials)
-    return response.okay ? response.user : rejectWithValue(response.error)
+    if (response.okay) {
+        if (response.company) {
+            dispatch(setCompany(response.company));
+        }
+        return response.user
+    }
+    return rejectWithValue(response.error)
 })
 
 const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState, rejectWithValue}) => {
     if (getState().auth.user) {
         const response = await http.post('/auth/logout')
         if (response.okay) {
+            dispatch(setCompany(null));
             return response
         }
     }
@@ -62,14 +70,18 @@ const updateCompanyInfo = createAsyncThunk('user/company/modify', async(params, 
 })
 
 const logUserIn = user => ({ type: actionTypes.USER_LOGGED_IN, payload: user })
+const setCompany = company => ({type: actionTypes.COMPANY_DETECTED, payload: company})
 const verifyUserPhone = () => ({type: actionTypes.USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: actionTypes.APP_STATUS_CHANGED, payload: !! status })
 const changeEmail = email => ({type: actionTypes.USER_EMAIL_CHANGED, payload: email})
 
 const checkAuth = async (dispatch, getState) => {
     const response = await http.get('/auth/user', null, false)
-    if (response.user) {
+    if (response.okay) {
         dispatch(logUserIn(response.user));
+        if (response.company) {
+            dispatch(setCompany(response.company));
+        }
     }
     dispatch(changeAppStatus(false))
 }

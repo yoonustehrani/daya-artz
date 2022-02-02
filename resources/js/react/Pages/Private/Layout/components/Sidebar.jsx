@@ -5,14 +5,15 @@ import { logoutUser } from '../../../../redux/actions'
 
 class Sidebar extends Component {
     render() {
-        let { fullname, company } = this.props.user
+        let {title, title_en} = this.props.company
+        let { fullname } = this.props.user
         return (
             <div id="m-menu" className="user-area-sidebar d-none d-md-inline-block">
                 <i id="menu-close" className="fas fa-times float-right d-md-none"></i>
                 <div className="user-info">
                     <div className="user-avatar"><img src={`${APP_PATH}images/user-avatar.png`} alt="user-avatar"/></div>
                     <p>{fullname}</p>
-                    {company&&company.title&&<span>{company.title}</span>}
+                    { this.props.company && (title || title_en) && <span>{[title, title_en].join(' - ')}</span>}
                 </div>
                 <ul className="menu-items-container p-0">
                     <li>
@@ -96,7 +97,8 @@ class Sidebar extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.auth.user
+    user: state.auth.user,
+    company: state.user.company
 })
 
 export default connect(mapStateToProps)(Sidebar);

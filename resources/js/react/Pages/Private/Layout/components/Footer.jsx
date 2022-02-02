@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Footer extends Component {
     render() {
@@ -19,7 +20,7 @@ class Footer extends Component {
                             <div>
                                 <ul className="text-right p-0">
                                     <li><a href="#">حساب من</a></li>
-                                    <li><a href="#">سفارش فوری</a></li>
+                                    <li><a href="#">سفارش سریع</a></li>
                                     <li><a href="#">سفارش تخصصی</a></li>
                                     {/* <li><a href="#">راهنمای سفارشات</a></li> */}
                                     <li><a href={`${APP_PATH}/policy`}>شرایط و ضوابط</a></li>
@@ -32,7 +33,7 @@ class Footer extends Component {
                             <div>
                                 <ul className="text-right p-0 mb-4">
                                     <li><a href="#">تماس با ما</a></li>
-                                    <li><a href="#">ارسال تیکت</a></li>
+                                    <li><Link to="/tickets/new">ارسال تیکت</Link></li>
                                 </ul>
                                 <img src={`${APP_PATH}images/gallery/zarin-paal.jpg`} alt="zarin-paal" className="float-right ml-2" />
                                 <img src={`${APP_PATH}images/gallery/etemad-namad.png`} alt="etemead" className="float-right" />
