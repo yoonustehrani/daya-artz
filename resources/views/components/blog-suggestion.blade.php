@@ -1,8 +1,3 @@
-{{--
-random: route('api.posts.index', ['mode' => 'random', 'limit' => [1-10]])
-latest: route('api.posts.index', ['mode' => 'latest', 'limit' =>  [1-10]])
-order by id: route('api.posts.index', ['limit' => [1-10]])
---}}
 <div class="section w-100 mt-5">
     <div class="title-section col-12 mb-3">
         <div class="title-container">
@@ -10,7 +5,7 @@ order by id: route('api.posts.index', ['limit' => [1-10]])
             <span class="title-underline"></span>
         </div>
     </div>
-    <div class="blog-posts-container swiper-container w-100">
+    <div class="blog-posts-container swiper-container w-100" api-target-random="{{ route('api.posts.index', ['mode' => 'random', 'limit' => '8']) }}" api-target-latest="{{ route('api.posts.index', ['mode' => 'latest', 'limit' => '8']) }}">
         <div class="swiper-wrapper">
             <article class="blog-post col-12 col-md-4 col-lg-3 swiper-slide">
                 <a href="#">

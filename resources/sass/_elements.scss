@@ -1327,6 +1327,13 @@ $labelData: '';
     margin-left: auto;
     margin-right: auto;
 }
+.loader-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    float: left;
+    margin-top: 15px;
+}
 .post-info-section {
     position: relative;
     height: 220px;

@@ -213,6 +213,6 @@
     <x-portfolio :api-target="route('api.portfolios.index')"/>
     <x-quick-order-form />
     <!-- daya blog -->
-    @include('components.blog-suggestion')
+    <div id="blog-suggestion-react" api-target-random="{{ route('api.posts.index', ['mode' => 'random', 'limit' => '8']) }}" api-target-latest="{{ route('api.posts.index', ['mode' => 'latest', 'limit' => '8']) }}"></div>
     <!-- end daya blog -->
 @endsection
