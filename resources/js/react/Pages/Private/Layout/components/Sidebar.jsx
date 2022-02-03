@@ -6,7 +6,6 @@ import { logoutUser } from '../../../../redux/actions'
 class Sidebar extends Component {
     render() {
         let title = this.props.company?.title, title_en = this.props.company?.title_en
-        console.log(title, title_en);
         let { fullname } = this.props.user
         return (
             <div id="m-menu" className="user-area-sidebar d-none d-md-inline-block">

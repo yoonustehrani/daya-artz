@@ -81,7 +81,7 @@ function BrandInfo() {
                 {id: "classic", text: "کلاسیک"},
                 {id: "modern", text: "مدرن"}
             ],
-            default_value: "modern",
+            default_value: "",
             path: "market_type"
         },
         {

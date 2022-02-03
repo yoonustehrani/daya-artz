@@ -4001,7 +4001,6 @@ var Sidebar = /*#__PURE__*/function (_Component) {
 
       var title = (_this$props$company = this.props.company) === null || _this$props$company === void 0 ? void 0 : _this$props$company.title,
           title_en = (_this$props$company2 = this.props.company) === null || _this$props$company2 === void 0 ? void 0 : _this$props$company2.title_en;
-      console.log(title, title_en);
       var fullname = this.props.user.fullname;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         id: "m-menu",

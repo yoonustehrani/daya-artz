@@ -36,7 +36,6 @@ class ProfileLayout extends Component {
                 this.setState({errs: errs})
             }
             let newData = new NestedObj(targetObj, path, value)
-            // console.log(newData.make());
             this.setState({[controller]: newData.make()})
         }
     }
@@ -59,7 +58,6 @@ class ProfileLayout extends Component {
                             response = await modifyCustomer(customer)
                             break;
                     }
-                    console.log(response);
                     this.setState(prevState => {
                         return ! response.error ? {sending_data: false, showSuccess: true} : {sending_data: false, showErr: true}
                     })

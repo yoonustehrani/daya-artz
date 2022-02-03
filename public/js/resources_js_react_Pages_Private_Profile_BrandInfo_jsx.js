@@ -306,7 +306,7 @@ function BrandInfo() {
       id: "modern",
       text: "مدرن"
     }],
-    default_value: "modern",
+    default_value: "",
     path: "market_type"
   }, {
     component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -1094,7 +1094,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
           });
         }
 
-        var newData = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(targetObj, path, value); // console.log(newData.make());
+        var newData = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(targetObj, path, value);
 
         _this.setState(_defineProperty({}, controller, newData.make()));
       }
@@ -1152,8 +1152,6 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
                   return _context.abrupt("break", 15);
 
                 case 15:
-                  console.log(response);
-
                   _this.setState(function (prevState) {
                     return !response.error ? {
                       sending_data: false,
@@ -1172,7 +1170,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
                     }, 5000);
                   }
 
-                case 18:
+                case 17:
                 case "end":
                   return _context.stop();
               }
