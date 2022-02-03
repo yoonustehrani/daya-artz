@@ -69,7 +69,7 @@ export default class HttpClient
                     message = message.trim().replace(/\n{1,}/g, "<br>")
                     break
                 default:
-                    message = data
+                    message = "خطای سرور"
                     break
             }
             this.Alert.error({title: 'خطا', html: message})

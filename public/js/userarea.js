@@ -5108,6 +5108,7 @@ var initialState = {
 var userReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__.produce)(function (draft, action) {
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__.actionTypes.COMPANY_DETECTED:
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.updateCompanyInfo.fulfilled.toString():
       draft.company = action.payload;
       break;
   }
@@ -5742,71 +5743,71 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
  // Main Routes
 
-var Dashboard = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Dashboard = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Dashboard_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Dashboard */ "./resources/js/react/Pages/Private/Dashboard/index.js"));
 });
-var Orders = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Orders = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Orders_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Orders */ "./resources/js/react/Pages/Private/Orders/index.js"));
 });
-var Tickets = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Tickets = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_Tickets_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Tickets/Tickets */ "./resources/js/react/Pages/Private/Tickets/Tickets.jsx"));
 });
-var Finance = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Finance = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance */ "./resources/js/react/Pages/Private/Finance/index.js"));
 });
-var BrandInfo = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var BrandInfo = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Profile_BrandInfo_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Profile/BrandInfo */ "./resources/js/react/Pages/Private/Profile/BrandInfo.jsx"));
 });
-var RegisterInfo = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var RegisterInfo = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Profile_RegisterInfo_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Profile/RegisterInfo */ "./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx"));
 });
-var UserInfo = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var UserInfo = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Profile_UserInfo_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Profile/UserInfo */ "./resources/js/react/Pages/Private/Profile/UserInfo.jsx"));
 });
-var Contracts = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Contracts = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_Contracts_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Contracts/Contracts */ "./resources/js/react/Pages/Private/Contracts/Contracts.jsx"));
 });
-var ContractSample = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var ContractSample = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_ContractSample_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Contracts/ContractSample */ "./resources/js/react/Pages/Private/Contracts/ContractSample.jsx"));
 }); // SubRoutes
 
-var Order = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Order = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Orders_Order_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Orders/Order */ "./resources/js/react/Pages/Private/Orders/Order.jsx"));
 });
-var Ticket = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Ticket = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_Ticket_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Tickets/Ticket */ "./resources/js/react/Pages/Private/Tickets/Ticket.jsx"));
 });
-var NewTicket = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var NewTicket = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_NewTicket_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Tickets/NewTicket */ "./resources/js/react/Pages/Private/Tickets/NewTicket.jsx"));
 });
-var Invoices = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Invoices = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Invoices_Invoices_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Invoices/Invoices */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoices.jsx"));
 });
-var Invoice = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Invoice = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Invoices/Invoice */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoice.jsx"));
 });
-var TicketsFaq = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var TicketsFaq = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Tickets/TicketsFaq */ "./resources/js/react/Pages/Private/Tickets/TicketsFaq.jsx"));
 });
-var PreInvoices = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var PreInvoices = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoices_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Pre Invoices/PreInvoices */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoices.jsx"));
 });
-var PreInvoice = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var PreInvoice = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoice_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Pre Invoices/PreInvoice */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoice.jsx"));
 });
-var Bill = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Bill = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Bills_Bill_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Bills/Bill */ "./resources/js/react/Pages/Private/Finance/Bills/Bill.jsx"));
 });
-var Bills = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Bills = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Bills_Bills_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Bills/Bills */ "./resources/js/react/Pages/Private/Finance/Bills/Bills.jsx"));
 });
-var Transactions = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Transactions = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Transactions/Transactions */ "./resources/js/react/Pages/Private/Finance/Transactions/Transactions.jsx"));
 });
-var Discounts = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Discounts = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Discounts_Discounts_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Discounts/Discounts */ "./resources/js/react/Pages/Private/Finance/Discounts/Discounts.jsx"));
 });
-var Contract = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Contract = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_Contract_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Contracts/Contract */ "./resources/js/react/Pages/Private/Contracts/Contract.jsx"));
 }); // import LoaderComponent from '../components/LoaderComponent';
 // Route component
@@ -6328,7 +6329,7 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
           break;
 
         default:
-          message = data;
+          message = "خطای سرور";
           break;
       }
 
@@ -70465,7 +70466,7 @@ function _setPrototypeOf(o, p) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\\\daya-artz"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\projects\\\\test\\\\daya-artz","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 
@@ -70763,13 +70764,14 @@ __webpack_require__.r(__webpack_exports__);
 var elem = document.getElementById('main');
 
 if (elem) {
-  _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
   (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, {
       store: _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"],
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__["default"], {})
     })
-  }), elem);
+  }), elem, function () {
+    return _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
+  });
 }
 })();
 
