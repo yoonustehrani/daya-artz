@@ -88,7 +88,8 @@ function BrandInfo() {
             component: ColorPicker,
             title: "رنگ سازمانی",
             path: "details.color",
-            validate_types: ["color"]
+            validate_types: ["color"],
+            default_value: "#000000",
         },
     ]
     useEffect(() => {

@@ -312,7 +312,8 @@ function BrandInfo() {
     component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
     title: "رنگ سازمانی",
     path: "details.color",
-    validate_types: ["color"]
+    validate_types: ["color"],
+    default_value: "#000000"
   }];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     document.title = title;
@@ -387,7 +388,8 @@ var ColorPicker = /*#__PURE__*/function (_Component) {
           onChangeHandler = _this$props.onChangeHandler,
           _this$props$validate_ = _this$props.validate_types,
           validate_types = _this$props$validate_ === void 0 ? null : _this$props$validate_,
-          not_null = _this$props.not_null;
+          not_null = _this$props.not_null,
+          default_value = _this$props.default_value;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
@@ -396,7 +398,7 @@ var ColorPicker = /*#__PURE__*/function (_Component) {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "color",
-            value: value,
+            value: value ? value : default_value,
             onChange: function onChange(e) {
               return onChangeHandler(path, e.target, validate_types, title, not_null);
             }
