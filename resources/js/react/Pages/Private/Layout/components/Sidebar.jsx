@@ -5,7 +5,8 @@ import { logoutUser } from '../../../../redux/actions'
 
 class Sidebar extends Component {
     render() {
-        let {title, title_en} = this.props.company
+        let title = this.props.company?.title, title_en = this.props.company?.title_en
+        console.log(title, title_en);
         let { fullname } = this.props.user
         return (
             <div id="m-menu" className="user-area-sidebar d-none d-md-inline-block">
@@ -13,7 +14,7 @@ class Sidebar extends Component {
                 <div className="user-info">
                     <div className="user-avatar"><img src={`${APP_PATH}images/user-avatar.png`} alt="user-avatar"/></div>
                     <p>{fullname}</p>
-                    { this.props.company && (title || title_en) && <span>{[title, title_en].join(' - ')}</span>}
+                    { this.props.company && (title || title_en) && <span>{![title, title_en].includes(null) ? [title, title_en].join(' - ') : title || title_en}</span>}
                 </div>
                 <ul className="menu-items-container p-0">
                     <li>

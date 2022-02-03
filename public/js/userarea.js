@@ -3995,11 +3995,13 @@ var Sidebar = /*#__PURE__*/function (_Component) {
   _createClass(Sidebar, [{
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this$props$company,
+          _this$props$company2,
+          _this = this;
 
-      var _this$props$company = this.props.company,
-          title = _this$props$company.title,
-          title_en = _this$props$company.title_en;
+      var title = (_this$props$company = this.props.company) === null || _this$props$company === void 0 ? void 0 : _this$props$company.title,
+          title_en = (_this$props$company2 = this.props.company) === null || _this$props$company2 === void 0 ? void 0 : _this$props$company2.title_en;
+      console.log(title, title_en);
       var fullname = this.props.user.fullname;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         id: "m-menu",
@@ -4018,7 +4020,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
             children: fullname
           }), this.props.company && (title || title_en) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            children: [title, title_en].join(' - ')
+            children: ![title, title_en].includes(null) ? [title, title_en].join(' - ') : title || title_en
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
           className: "menu-items-container p-0",
