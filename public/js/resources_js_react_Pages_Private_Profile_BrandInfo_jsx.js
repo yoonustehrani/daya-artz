@@ -398,9 +398,8 @@ var ColorPicker = /*#__PURE__*/function (_Component) {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "color",
-            value: value ? value : default_value,
             onChange: function onChange(e) {
-              return onChangeHandler(path, e.target, validate_types, title, not_null);
+              onChangeHandler(path, e.target, validate_types, title, not_null);
             }
           })
         })]
@@ -659,6 +658,7 @@ var Radio = /*#__PURE__*/function (_Component) {
                 type: "radio",
                 className: "form-check-input",
                 id: id,
+                value: id,
                 defaultChecked: value === id || default_value === id,
                 name: name,
                 onChange: function onChange(e) {
@@ -1094,6 +1094,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
         }
 
         var newData = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(targetObj, path, value);
+        console.log(newData.make());
 
         _this.setState(_defineProperty({}, controller, newData.make()));
       }

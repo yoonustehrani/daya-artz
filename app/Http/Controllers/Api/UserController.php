@@ -70,19 +70,30 @@ class UserController extends Controller
     }
     public function updateCompany(Request $request)
     {
+        $request->validate([
+            'title' => 'required|string|min:3',
+            'title_en' => 'nullable|string|alpha|min:3',
+            'phone_number' => 'required|string|numeric',
+            'address' => 'nullable|string|min:10|max:300',
+            'website' => 'nullable|string',
+            'market_type' => ['required', Rule::in(['modern', 'classic'])],
+            'intro' => 'required|string|min:10|max:2000',
+            'details' => 'array'
+        ]);
         $user_company = $request->user()->company()->first();
+        $company = $user_company ?? new Company();
+        $company->title = $request->input('title');
+        $company->title_en = $request->input('title_en');
+        $company->phone_number = $request->input('phone_number');
+        $company->address = $request->input('address');
+        $company->website = $request->input('website');
+        $company->market_type = $request->input('market_type') === 'classic' ? 'classic' : 'modern';
+        $company->intro = $request->input('intro');
+        $company->details = $request->input('details');
 
-        return response()->json($user_company);
-        // if (! $company) {
-        //     $company = new Company();
-        // }
-        // $company->title = $request->input('title');
-        // $company->title_en = $request->input('title_en');
-        // $company->phone_number = $request->input('phone_number');
-        // $company->address = $request->input('address');
-        // $company->website = $request->input('website');
-        // $company->market_type = $request->input('market_type') === 'classic' ? 'classic' : 'modern';
-        // $company->intro = $request->input('intro');
-        // $company->details = $request->input('details');
+        return response()->json([
+            'okay' => $company->save(),
+            'company' => $company
+        ]);
     }
 }

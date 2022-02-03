@@ -588,6 +588,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
         }
 
         var newData = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(targetObj, path, value);
+        console.log(newData.make());
 
         _this.setState(_defineProperty({}, controller, newData.make()));
       }

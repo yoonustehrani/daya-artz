@@ -11,7 +11,10 @@ class Radio extends Component {
                         let { text, id } = option
                         return (
                             <div className="form-check form-check-inline" key={i}>
-                                <input type="radio" className="form-check-input" id={id} defaultChecked={value === id || default_value === id} name={name} onChange={(e) => onChangeHandler(path, e.target, validate_types, title, not_null)} />
+                                <input type="radio" className="form-check-input" id={id} value={id}
+                                defaultChecked={value === id || default_value === id} name={name}
+                                onChange={(e) => onChangeHandler(path, e.target, validate_types, title, not_null)}
+                                />
                                 <label htmlFor={id} className="form-check-label mr-1">{text}</label>
                             </div>
                         )
