@@ -12,8 +12,8 @@ class QuickAccess extends Component {
                 </div>
                 <div>
                     <div>
-                        <h4>تصویه بدهی ها</h4>
-                        <Link to="#pay" className="badge badge-pill purple-pill">تصویه حساب</Link>
+                        <h4>تسویه بدهی ها</h4>
+                        <Link to="#pay" className="badge badge-pill purple-pill">تسویه حساب</Link>
                     </div>
                     <div>
                         <h4>پیش پرداخت ها</h4>

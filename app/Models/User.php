@@ -77,6 +77,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ticket::class);
     }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
     // public function available_offers()
     // {
     //     return $this->offers()->wherePivot('');
