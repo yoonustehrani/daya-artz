@@ -6,10 +6,13 @@ class ColorPicker extends Component {
         return (
             <div className="field-item col-12 col-md-3">
                 <span>{title}:</span>
-                {/* value={value ? value : default_value} */}
-                <div className="input-group"><input type="color" onChange={(e) => {
-                    onChangeHandler(path, e.target, validate_types, title, not_null)
-                }} /></div>
+                <div className="input-group">
+                    <input type="color"
+                        value={value ? value : default_value}
+                        onChange={(e) => {
+                            onChangeHandler(path, e.target, validate_types, title, not_null)
+                        }} />
+                </div>
             </div>
         );
     }

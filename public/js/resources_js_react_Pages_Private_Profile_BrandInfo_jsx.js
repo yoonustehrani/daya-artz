@@ -398,6 +398,7 @@ var ColorPicker = /*#__PURE__*/function (_Component) {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "color",
+            value: value ? value : default_value,
             onChange: function onChange(e) {
               onChangeHandler(path, e.target, validate_types, title, not_null);
             }
