@@ -1,6 +1,6 @@
 export class NestedObj {
     constructor(targetObj, path, value=null) {
-        this.targetObj = targetObj
+        this.targetObj = JSON.parse(JSON.stringify(targetObj))
         this.value = value
         let keys = path.split(".")
         if (keys.length > 1) {
@@ -9,7 +9,7 @@ export class NestedObj {
                 targetObj[key] = targetObj[key] || {}
             , this.targetObj)
         } else {
-            this.lastObj = targetObj
+            this.lastObj = this.targetObj
             this.lastKey = path
         }
     }

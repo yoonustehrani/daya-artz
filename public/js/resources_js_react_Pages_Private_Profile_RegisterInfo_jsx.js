@@ -135,7 +135,7 @@ var NestedObj = /*#__PURE__*/function () {
 
     _classCallCheck(this, NestedObj);
 
-    this.targetObj = targetObj;
+    this.targetObj = JSON.parse(JSON.stringify(targetObj));
     this.value = value;
     var keys = path.split(".");
 
@@ -145,7 +145,7 @@ var NestedObj = /*#__PURE__*/function () {
         return targetObj[key] = targetObj[key] || {};
       }, this.targetObj);
     } else {
-      this.lastObj = targetObj;
+      this.lastObj = this.targetObj;
       this.lastKey = path;
     }
   }
@@ -385,8 +385,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
           });
         }
 
-        var newData = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(targetObj, path, value);
-        console.log(newData.make());
+        var newData = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(targetObj, path, value); // console.log(newData.make());
 
         _this.setState(_defineProperty({}, controller, newData.make()));
       }

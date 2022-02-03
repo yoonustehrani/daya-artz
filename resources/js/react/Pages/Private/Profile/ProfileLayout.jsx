@@ -36,7 +36,7 @@ class ProfileLayout extends Component {
                 this.setState({errs: errs})
             }
             let newData = new NestedObj(targetObj, path, value)
-            console.log(newData.make());
+            // console.log(newData.make());
             this.setState({[controller]: newData.make()})
         }
     }
