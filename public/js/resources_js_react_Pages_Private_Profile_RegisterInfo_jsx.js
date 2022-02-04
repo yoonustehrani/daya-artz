@@ -448,8 +448,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
                       sending_data: false,
                       showSuccess: true
                     } : {
-                      sending_data: false,
-                      showErr: true
+                      sending_data: false
                     };
                   });
 

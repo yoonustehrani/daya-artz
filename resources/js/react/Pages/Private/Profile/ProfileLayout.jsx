@@ -59,7 +59,7 @@ class ProfileLayout extends Component {
                             break;
                     }
                     this.setState(prevState => {
-                        return ! response.error ? {sending_data: false, showSuccess: true} : {sending_data: false, showErr: true}
+                        return ! response.error ? {sending_data: false, showSuccess: true} : {sending_data: false}
                     })
                     if (! response.error) {
                         setTimeout(() => {
