@@ -13,7 +13,7 @@
         <span class="top-logo d-md-none"><img src="{{ asset('images/daya-logo-circular.png') }}"> DAYAARTZ</span>
         <ul class="main-menu menu-items-container p-md-0 m-md-0">
             <li>
-                <a href="{{ route('home') }}"><i class="d-md-none fas fa-home"></i> خانه</a>
+                <a href="{{ route('home') }}"><i class="d-md-none fa fa-home"></i> خانه</a>
             </li>
             <li class="has-sub">
                 <a href="{{ route('services.index') }}"><i class="d-md-none fas fa-paint-brush"></i> طراحی گرافیک</a>
@@ -25,7 +25,10 @@
                     <li class="animated"><a href="#">زیرمجموعه 5</a></li>
                 </ul>
             </li>
-            <li class="has-sub">
+            <li>
+                <a href="{{ route('userarea') }}"><i class="d-md-none far fa-user"></i> حساب کاربری</a>
+            </li>
+            {{-- <li class="has-sub">
                 <a href="#"><i class="d-md-none fas fa-layer-group"></i> زیرمجموعه دار</a>
                 <ul class="submenu-m submenu">
                     <li class="animated"><a href="#">زیرمجموعه 1</a></li>
@@ -33,7 +36,7 @@
                     <li class="animated"><a href="#2">زیرمجموعه یخورده طولانی تر</a></li>
                     <li class="animated"><a href="#3">زیرمجموعه خیلــــــــی طولانی</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li><a href="{{ route('blog.index') }}"><i class="d-md-none fas fa-blog"></i> مقالات</a></li>
             <li><a href="{{ route('about') }}"><i class="d-md-none fas fa-building"></i> درباره ما</a></li>
             <li><a href="{{ route('contact') }}"><i class="d-md-none fas fa-headset"></i> تماس با ما</a></li>
