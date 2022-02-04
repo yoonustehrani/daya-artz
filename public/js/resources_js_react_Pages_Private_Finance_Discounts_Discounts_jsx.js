@@ -38,21 +38,65 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var Discounts = /*#__PURE__*/function (_Component) {
   _inherits(Discounts, _Component);
 
   var _super = _createSuper(Discounts);
 
-  function Discounts() {
+  function Discounts(props) {
+    var _this;
+
     _classCallCheck(this, Discounts);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      offers: [{
+        id: 1,
+        code: 'Javan2022'
+      }]
+    };
+    return _this;
   }
 
   _createClass(Discounts, [{
+    key: "copyToClipboard",
+    value: function copyToClipboard(code) {
+      console.log(code);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
+      var _this2 = this;
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+        children: this.state.offers.map(function (discount) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "col-lg-3 p-0 discount-item rounded-lg",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: "w-100 p-2 text-white",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                src: APP_PATH + 'images/discount-icon.png'
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                className: "shadowed-text",
+                children: "5% \u062A\u062E\u0641\u06CC\u0641 \u0645\u0634\u062A\u0631\u06CC \u0647\u0627\u06CC \u062E\u0627\u0635"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+                className: "shadowed-text",
+                children: ["\u062F\u0627\u0646\u06CC\u0627\u0644 \u0639\u0632\u06CC\u0632 \u0634\u0645\u0627 \u0628\u0627 \u0627\u0633\u062A\u0641\u0627\u062F\u0647 \u0627\u0632 \u0627\u06CC\u0646 \u06A9\u062F", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "\u062A\u062E\u0641\u06CC\u0641 \u0645\u06CC\u062A\u0648\u0646\u06CC \u0627\u0632 5% \u062F\u0631\u0635\u062F \u062A\u062E\u0641\u06CC\u0641", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "\u0628\u0631 \u0631\u0648\u06CC \u0633\u0641\u0627\u0631\u0634 \u0628\u0639\u062F\u06CC\u062A \u0627\u0633\u062A\u0641\u0627\u062F\u0647 \u06A9\u0646\u06CC.."]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+                onClick: function onClick() {
+                  return _this2.copyToClipboard(discount.code);
+                },
+                className: "cursor-pointer w-50 badge bg-pink p-2 rounded-pill bold ltr",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+                  className: "fas fa-copy mr-2"
+                }), discount.code]
+              })]
+            })
+          }, discount.id);
+        })
+      });
     }
   }]);
 
