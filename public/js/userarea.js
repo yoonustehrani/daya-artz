@@ -6023,7 +6023,10 @@ var AlertService = /*#__PURE__*/function () {
         icon: icon,
         timer: timer,
         timerProgressBar: true,
-        html: html
+        html: html,
+        customClass: {
+          htmlContainer: "rtl"
+        }
       });
     }
   }, {
