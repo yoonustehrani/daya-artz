@@ -4272,9 +4272,12 @@ var TopBackground = /*#__PURE__*/function (_Component) {
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "top-background d-flex justify-content-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-          className: "h-100 w-auto",
-          src: APP_PATH + 'images/daya-white-logo.png'
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          href: APP_PATH,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            className: "h-25 mt-4",
+            src: APP_PATH + 'images/logo-with-inner-shadow.png'
+          })
         })
       });
     }
