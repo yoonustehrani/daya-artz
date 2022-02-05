@@ -71,6 +71,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
     Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
     Route::get('transactions', [ReportController::class, 'transactions'])->name('transactions.index');
+    Route::get('offers', [ReportController::class, 'offers'])->name('offers.index');
     Route::prefix('user')->group(function() {
         Route::put('auth', [UserController::class, 'update']);
         Route::put('customer', [UserController::class, 'updateInfo']);

@@ -82,7 +82,7 @@ export default class HttpClient
             // console.log(err.request);
         } else {
             // Something happened in setting up the request that triggered an Error
-            console.log('Error', err.message);
+            // console.log('Error', err.message);
         }
         return {data: {message: "Error"}}
         //   console.log(err.config);

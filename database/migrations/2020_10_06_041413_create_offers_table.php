@@ -15,10 +15,13 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
             $table->string('code');
             $table->integer('value');
             $table->enum('value_type', ['amount', 'percentage']);
-            $table->integer('max_attempts_for_user')->default(1);
+            $table->integer('attempts')->default(0);
+            $table->integer('max_attempts')->default(1);
             $table->json('details');
             $table->timestamp('expires_at')->nullable();
             $table->softDeletes();

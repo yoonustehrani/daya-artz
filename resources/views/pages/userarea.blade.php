@@ -24,7 +24,8 @@
         .discount-item {
             background-image: linear-gradient(to right top,
             #a97df3,
-            #6332df)
+            #6332df);
+            height: fit-content;
         }
         .discount-item > div {
             display: grid;
@@ -36,6 +37,14 @@
         }
         .bg-pink {
             background-color: #ea8e9a;
+        }
+    </style>
+    <style>
+        .discount-container {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.5rem;
+            /** responsive in mobile => grid-template-columns: repeat(2, minmax(0, 1fr)); */
         }
     </style>
 </head>

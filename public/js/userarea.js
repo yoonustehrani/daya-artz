@@ -6353,9 +6353,8 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
       // http.ClientRequest in node.js
       // console.log(err.request);
 
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log('Error', err.message);
+    } else {// Something happened in setting up the request that triggered an Error
+      // console.log('Error', err.message);
     }
 
     return {

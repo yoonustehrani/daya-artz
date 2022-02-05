@@ -8,8 +8,13 @@ class ReportController extends Controller
 {
     public function transactions()
     {
-        $transactions = request()->user()->transactions()->simplePaginate();
+        $transactions = request()->user()->transactions()->paginate(12);
         $transactions->load('bill');
-        return $transactions;
+        return response()->json($transactions);
+    }
+    public function offers()
+    {
+        $offers = request()->user()->offers()->paginate(12); // ->orderBy('expires_at', 'desc')
+        return response()->json($offers);
     }
 }
