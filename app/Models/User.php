@@ -85,7 +85,6 @@ class User extends Authenticatable
     // {
     //     return $this->offers()->wherePivot('');
     // }
-
     /**
      * Model Scopes
     */

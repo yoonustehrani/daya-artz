@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\UserArea;
 
 use App\Http\Controllers\Controller;
+use App\Models\Offer;
 
 class ReportController extends Controller
 {
@@ -14,7 +15,7 @@ class ReportController extends Controller
     }
     public function offers()
     {
-        $offers = request()->user()->offers()->paginate(12); // ->orderBy('expires_at', 'desc')
+        $offers = request()->user()->offers()->orderBy('expires_at', 'asc')->cursorPaginate(12);
         return response()->json($offers);
     }
 }
