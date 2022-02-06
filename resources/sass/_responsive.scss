@@ -320,6 +320,14 @@ $xl-xl-breakpoint: 1600px;
     .state-code {
         width: 28% !important;
     }
+    .order-box-bg {
+        width: 90%;
+        margin: 5%;
+        .service-order-item {
+            width: 115px;
+            margin: 10px;
+        }
+    }
     .finance-item {
         .top-item-icon {
             i {
@@ -1072,6 +1080,14 @@ $xl-xl-breakpoint: 1600px;
     .dashboard-item-container {
         margin-top: 30px !important;
     }
+    .order-box-bg {
+        width: 100%;
+        margin-bottom: 20px;
+        .service-order-item {
+            width: 110px;
+            margin: 8px;
+        }
+    }
     .orders-filter {
         h4 {
             width: 100%;
@@ -1554,6 +1570,14 @@ $xl-xl-breakpoint: 1600px;
     .blog-posts-container {
         width: 80%;
     }
+    .order-box-bg {
+        width: 47%;
+        margin: 1.5%;
+        .service-order-item {
+            width: 100px;
+            margin: 10px;
+        }
+    }
 }
 
 // lg;
@@ -1675,6 +1699,14 @@ $xl-xl-breakpoint: 1600px;
     }
     .state-code {
         width: 26% !important;
+    }
+    .order-box-bg {
+        width: 47%;
+        margin: 1.5%;
+        .service-order-item {
+            width: 100px;
+            margin: 10px;
+        }
     }
     .order-items-container {
         > div {

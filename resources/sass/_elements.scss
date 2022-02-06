@@ -824,11 +824,30 @@ span.back-aqua {
         }
     }
 }
+.square {
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+    > div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
 .pagination-nav {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    direction: ltr !important;
     .page-index {
         font-size: 20px;
         border: 2px solid #a184ec;

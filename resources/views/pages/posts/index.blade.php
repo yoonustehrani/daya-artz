@@ -72,7 +72,7 @@
         </article>
         @endforeach
     </div>
-    <nav class="pagination-nav mt-4">
+    <nav class="pagination-nav">
         <a class="pagination-btn {{  $pagination['prev_page_url'] ? "" : "disabled" }}" href="{{ $pagination['prev_page_url'] }}">
             <i class="fad fa-chevron-double-left mr-1"></i>
             <span>قبلی</span>
