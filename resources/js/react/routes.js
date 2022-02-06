@@ -24,6 +24,8 @@ const Transactions = lazy(() => import('./Pages/Private/Finance/Transactions/Tra
 const Discounts = lazy(() => import('./Pages/Private/Finance/Discounts/Discounts'))
 const Contract = lazy(() => import('./Pages/Private/Contracts/Contract'))
 
+const uuidRegex = '[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}';
+
 const routes = [
     {
         path: '/dashboard',
@@ -46,13 +48,13 @@ const routes = [
         CallableComponent: UserInfo
     },
     {
-        path: '/orders/:orderId',
+        path: `/orders/:orderId(${uuidRegex})`,
         exact: true,
         CallableComponent: Order
     },
     {
         path: '/orders',
-        exact: false,
+        exact: true,
         CallableComponent: Orders,
     },
     {
@@ -111,7 +113,7 @@ const routes = [
         CallableComponent: TicketsFaq
     },
     {
-        path: '/tickets/:ticketId([0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12})',
+        path: `/tickets/:ticketId(${uuidRegex})`,
         exact: true,
         CallableComponent: Ticket
     },
