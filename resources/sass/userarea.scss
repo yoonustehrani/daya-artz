@@ -443,6 +443,74 @@
                 justify-content: center;
                 align-items: center;
             }
+            .orders-container {
+                width: 100%;
+                float: right;
+                .order-box-bg {
+                    background: linear-gradient(to bottom left, #6232de, #8f60ec, #ac7ff4);
+                    background: -webkit-linear-gradient(to bottom left, #6232de, #8f60ec, #ac7ff4);
+                    float: right;
+                    height: auto;
+                    border-radius: 8px;
+                    position: relative;
+                    .order-box {
+                        width: 100%;
+                        height: auto;
+                        float: right;
+                        padding: 30px 10px;
+                        background-image: url(/images/footer-background.png);
+                        background-position: bottom;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        min-height: 200px;
+                        border-radius: 8px;
+                        .order-date {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            width: auto;
+                            text-align: center;
+                            color: #fff;
+                            background-color: $horny-bg-msg;
+                            padding: 4px;
+                            border-top-right-radius: 8px;
+                            border-bottom-left-radius: 8px;
+                            font-size: 12px;
+                        }
+                        .service-order-items-container {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            justify-content: space-evenly;
+                            align-items: flex-start;
+                            width: 100%;
+                            .service-order-item {
+                                border-radius: 8px;
+                                padding: 6px;
+                                background-color: #fff;
+                                box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 15%);
+                                max-width: 120px;
+                                > div {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+                                    .service-order-item-icon {
+                                        i {
+                                            font-size: 45px !important;
+                                        }
+                                    }
+                                    .service-order-item-title {
+                                        color: #000;
+                                        font-size: 18px;
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             .orders-filter {
                 width: 100%;
                 float: right;
@@ -962,6 +1030,39 @@
                     }
                 }
             }
+            // discounts
+            .cursor-pointer {
+                cursor: pointer;
+            }
+            .shadowed-text {
+                text-shadow: 0 0 5px rgba(255,255,255,0.3),
+                0 0 10px rgba(255,255,255,0.3),
+                0 0 15px rgba(255,255,255,0.3),
+                0 0 20px rgba(255,255,255,0.3),
+                0 0 30px rgba(255,255,255,0.3);
+            }
+            /* .discounts {
+                display: grid;
+                
+            } */
+            .discount-item {
+                background-image: linear-gradient(to right top,
+                #a97df3,
+                #6332df);
+                height: fit-content;
+            }
+            .discount-item > div {
+                display: grid;
+                place-content: center;
+                place-items: center;
+                background-image: url('/images/discount-background.png');
+                background-size: cover;
+                background-position: top;
+            }
+            .bg-pink {
+                background-color: #ea8e9a;
+            }
+            
         }
     }
 }

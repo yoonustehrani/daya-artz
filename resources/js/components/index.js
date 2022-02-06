@@ -11,6 +11,11 @@ import './section-guide'
 import 'select2/dist/js/select2.min.js'
 import './services'
 import PortfolioSection from "./PortfolioSection";
+require('moment/locale/fa')
+moment.loadPersian({
+    usePersianDigits: true,
+    dialect: "persian-modern"
+})
 
 // quick order
 const quickOrderElement = document.getElementById("react-quick-order")

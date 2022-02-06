@@ -1,79 +1,102 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // custom components
-import FilterBar from './components/FlterBar';
-import OrderItem from './components/OrderItem';
 import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem';
+import OrderContainer from '../Orders/components/OrderContainer'
+import Paginate from '../../../../components/Paginate';
 
 class Orders extends Component {
     state = {
         loading: false,
-        filter: "all",
-        items: [
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-        ]
+        data: {}
     }
 
-    sendFilterReq = () => {
-        let { filter } = this.state
-        // this.setState({loading: true}, () => {
-        //     axios.get(`?filter${filter}`).then(res => {
+    getOrders = (page) => {
+        // this.setState({
+        //     loading: true,
+        //     data: {}
+        // }, () => {
+        //     axios.get('orders api addres according to the give page index in the arguments').then(res => {
         //         let { data } = res
         //         this.setState({
-        //             items: data,
+        //             data: data,
         //             loading: false
         //         })
         //     })
         // })
-    }
 
-    onFilterClick = (newFilter) => {
+        // the below code is just for testing the react without sending any requets. after making the api the above code will replace with the below one
         this.setState({
-            filter: newFilter
+            loading: true,
+            data: {}
         }, () => {
-            this.sendFilterReq()
+            console.log(`send get ajax to orders api at page ${page}`);
+            setTimeout(() => {
+                this.setState({
+                    data: {
+                        orders: [
+                            {
+                                order_items: [
+                                    {service_title: "لوگو", icon: "fab fa-d-and-d"},
+                                    {service_title: "سربرگ", icon: "fas fa-scroll"},
+                                    {service_title: "اسلایدر", icon: "fas fa-image"},
+                                    {service_title: "موزیک", icon: "fas fa-guitar"},
+                                    {service_title: "لوگو", icon: "fab fa-d-and-d"},
+                                    {service_title: "سربرگ", icon: "fas fa-scroll"},
+                                    {service_title: "اسلایدر", icon: "fas fa-image"},
+                                    {service_title: "موزیک", icon: "fas fa-guitar"},
+                                ],
+                                created_at: '2022/02/06 16:40',
+                                id: "order-item"
+                            },
+                            {
+                                order_items: [
+                                    {service_title: "لوگو", icon: "fab fa-d-and-d"},
+                                    {service_title: "سربرگ", icon: "fas fa-scroll"},
+                                    {service_title: "اسلایدر", icon: "fas fa-image"},
+                                    {service_title: "موزیک", icon: "fas fa-guitar"},
+            
+                                ],
+                                created_at: '2022/02/06 16:40',
+                                id: "order-item"
+                            },
+                            {
+                                order_items: [
+                                    {service_title: "لوگو", icon: "fab fa-d-and-d"},
+            
+                                ],
+                                created_at: '2022/02/06 16:40',
+                                id: "order-item"
+                            },
+                        ],
+                        current_page_index: page,
+                        last_page_index: 10,
+                    },
+                    loading: false
+                })
+                console.log(`got the results and new data has been set`);
+            }, 1000);
         })
     }
 
     componentDidMount() {
         document.title = "سفارشات"
-        this.sendFilterReq()
+        this.getOrders(1)
     }
     
-    
     render() {
-        let { loading, items } = this.state
+        let { loading, data } = this.state, { orders, current_page_index, last_page_index } = data
         return (
             <div>
-                <FilterBar onFilterClick={this.onFilterClick} />
                 {
                     loading ? <Activity/>
-                    : items && items.length > 0
-                    ? <div className="order-items-container">
-                        {items.map((item, i) => (
-                            <OrderItem key={i} {...item} />
+                    : orders && orders.length > 0
+                    ? <div className="orders-container">
+                        {orders.map((order, i) => (
+                            <OrderContainer key={i} {...order} />
                         ))}
+                        <Paginate current_page_index={current_page_index} last_page_index={last_page_index} next_page_handler={() => this.getOrders(current_page_index += 1)} prev_page_handler={() => this.getOrders(current_page_index -= 1)} />
                     </div>
                     : <NoItem/>
                 }

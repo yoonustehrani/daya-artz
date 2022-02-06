@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import moment from 'moment-jalaali';
-require('moment/locale/fa')
-moment.loadPersian({
-    usePersianDigits: true,
-    dialect: "persian-modern"
-})
 
 class SwiperItem extends Component {
     render() {
