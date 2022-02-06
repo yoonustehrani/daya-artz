@@ -76,7 +76,7 @@ class Orders extends Component {
                     loading: false
                 })
                 console.log(`got the results and new data has been set`);
-            }, 2000);
+            }, 1000);
         })
     }
 

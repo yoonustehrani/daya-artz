@@ -389,7 +389,7 @@ var Orders = /*#__PURE__*/function (_Component) {
           });
 
           console.log("got the results and new data has been set");
-        }, 2000);
+        }, 1000);
       });
     });
 

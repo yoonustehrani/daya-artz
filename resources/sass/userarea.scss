@@ -1030,6 +1030,39 @@
                     }
                 }
             }
+            // discounts
+            .cursor-pointer {
+                cursor: pointer;
+            }
+            .shadowed-text {
+                text-shadow: 0 0 5px rgba(255,255,255,0.3),
+                0 0 10px rgba(255,255,255,0.3),
+                0 0 15px rgba(255,255,255,0.3),
+                0 0 20px rgba(255,255,255,0.3),
+                0 0 30px rgba(255,255,255,0.3);
+            }
+            /* .discounts {
+                display: grid;
+                
+            } */
+            .discount-item {
+                background-image: linear-gradient(to right top,
+                #a97df3,
+                #6332df);
+                height: fit-content;
+            }
+            .discount-item > div {
+                display: grid;
+                place-content: center;
+                place-items: center;
+                background-image: url('{{ asset("images/discount-background.png") }}');
+                background-size: cover;
+                background-position: top;
+            }
+            .bg-pink {
+                background-color: #ea8e9a;
+            }
+            
         }
     }
 }
