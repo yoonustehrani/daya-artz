@@ -12,6 +12,7 @@ const Contracts = lazy(() => import('../Pages/Private/Contracts/Contracts'))
 const ContractSample = lazy(() => import('../Pages/Private/Contracts/ContractSample'))
 // SubRoutes
 const Order = lazy(() => import('../Pages/Private/Orders/Order'))
+const SpecialOrder = lazy(() => import('../Pages/Private/Orders/specialOrder'))
 const Ticket = lazy(() => import('../Pages/Private/Tickets/Ticket'))
 const NewTicket = lazy(() => import('../Pages/Private/Tickets/NewTicket'))
 const Invoices = lazy(() => import('../Pages/Private/Finance/Invoices/Invoices'))
@@ -54,13 +55,18 @@ function PrivateRoutes() {
             CallableComponent: UserInfo
         },
         {
-            path: '/orders/:orderId',
+            path: '/orders/new',
+            exact: true,
+            CallableComponent: SpecialOrder
+        },
+        {
+            path: '/orders/:orderId([0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12})', // here you can set your desired regex for path
             exact: true,
             CallableComponent: Order
         },
         {
             path: '/orders',
-            exact: false,
+            exact: true,
             CallableComponent: Orders,
         },
         {

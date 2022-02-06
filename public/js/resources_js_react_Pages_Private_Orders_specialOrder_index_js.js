@@ -1,10 +1,25 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_react_Pages_Private_Orders_Order_jsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_react_Pages_Private_Orders_specialOrder_index_js"],{
 
-/***/ "./resources/js/react/Pages/Private/Orders/Order.jsx":
-/*!***********************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Orders/Order.jsx ***!
-  \***********************************************************/
+/***/ "./resources/js/react/Pages/Private/Orders/specialOrder/index.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Orders/specialOrder/index.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _speciaOrder__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _speciaOrder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./speciaOrder */ "./resources/js/react/Pages/Private/Orders/specialOrder/speciaOrder.jsx");
+
+
+/***/ }),
+
+/***/ "./resources/js/react/Pages/Private/Orders/specialOrder/speciaOrder.jsx":
+/*!******************************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Orders/specialOrder/speciaOrder.jsx ***!
+  \******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -38,30 +53,30 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var Order = /*#__PURE__*/function (_Component) {
-  _inherits(Order, _Component);
+var speciaOrder = /*#__PURE__*/function (_Component) {
+  _inherits(speciaOrder, _Component);
 
-  var _super = _createSuper(Order);
+  var _super = _createSuper(speciaOrder);
 
-  function Order() {
-    _classCallCheck(this, Order);
+  function speciaOrder() {
+    _classCallCheck(this, speciaOrder);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Order, [{
+  _createClass(speciaOrder, [{
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        children: "order Item"
+        children: "this will be the special order page in the future"
       });
     }
   }]);
 
-  return Order;
+  return speciaOrder;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (speciaOrder);
 
 /***/ })
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Order extends Component {
+class speciaOrder extends Component {
     render() {
         return (
             <div>
-                order Item
+                this will be the special order page in the future
             </div>
         );
     }
 }
 
-export default Order;
+export default speciaOrder;
