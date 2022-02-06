@@ -382,7 +382,7 @@ var Orders = /*#__PURE__*/function (_Component) {
                 created_at: '2022/02/06 16:40',
                 id: "order-item"
               }],
-              current_page_index: 1,
+              current_page_index: page,
               last_page_index: 10
             },
             loading: false

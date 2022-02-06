@@ -70,7 +70,7 @@ class Orders extends Component {
                                 id: "order-item"
                             },
                         ],
-                        current_page_index: 1,
+                        current_page_index: page,
                         last_page_index: 10,
                     },
                     loading: false
