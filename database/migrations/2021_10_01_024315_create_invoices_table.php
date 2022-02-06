@@ -20,7 +20,6 @@ class CreateInvoicesTable extends Migration
             $table->unsignedInteger('payment_rule_id');
             $table->boolean('paid')->default(false);
             $table->timestamps();
-            // $table->foreign('');
             $table->foreign('payment_rule_id')->references('id')->on('payment_rules')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }

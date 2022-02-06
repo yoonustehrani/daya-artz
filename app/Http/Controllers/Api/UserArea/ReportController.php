@@ -18,4 +18,9 @@ class ReportController extends Controller
         $offers = request()->user()->offers()->orderBy('expires_at', 'asc')->cursorPaginate(12);
         return response()->json($offers);
     }
+    public function invoices()
+    {
+        $invoices = request()->user()->invoices()->cursorPaginate(10);
+        return response()->json($invoices);
+    }
 }
