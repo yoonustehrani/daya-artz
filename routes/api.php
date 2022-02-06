@@ -4,6 +4,7 @@ use App\Customer;
 use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\UserArea\ReportController;
 use App\Http\Controllers\Api\UserArea\TicketController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VerificationController;
@@ -65,10 +66,12 @@ Route::prefix('auth')->name('auth.')->group(function() {
         Route::post('email/resend', [VerificationController::class, 'resendEmail']);
     });
 });
-Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(function() { // ->middleware('auth:sanctum')
+Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(function() {
     Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
     Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
     Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+    Route::get('transactions', [ReportController::class, 'transactions'])->name('transactions.index');
+    Route::get('offers', [ReportController::class, 'offers'])->name('offers.index');
     Route::prefix('user')->group(function() {
         Route::put('auth', [UserController::class, 'update']);
         Route::put('customer', [UserController::class, 'updateInfo']);

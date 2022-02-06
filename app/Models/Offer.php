@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\HasDetailsAttribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
+    use HasFactory, HasDetailsAttribute;
     public function services()
     {
         return $this->morphedByMany(Service::class, 'offerable');

@@ -385,11 +385,11 @@ var QuickAccess = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
-              children: "\u062A\u0635\u0648\u06CC\u0647 \u0628\u062F\u0647\u06CC \u0647\u0627"
+              children: "\u062A\u0633\u0648\u06CC\u0647 \u0628\u062F\u0647\u06CC \u0647\u0627"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
               to: "#pay",
               className: "badge badge-pill purple-pill",
-              children: "\u062A\u0635\u0648\u06CC\u0647 \u062D\u0633\u0627\u0628"
+              children: "\u062A\u0633\u0648\u06CC\u0647 \u062D\u0633\u0627\u0628"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {

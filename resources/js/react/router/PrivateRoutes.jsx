@@ -1,15 +1,15 @@
-import { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Switch } from 'react-router-dom';
 // Main Routes
-const Dashboard = lazy(() => import('../Pages/Private/Dashboard'))
-const Orders = lazy(() => import('../Pages/Private/Orders'))
-const Tickets = lazy(() => import('../Pages/Private/Tickets/Tickets'))
-const Finance = lazy(() => import('../Pages/Private/Finance'))
-const BrandInfo = lazy(() => import('../Pages/Private/Profile/BrandInfo'))
-const RegisterInfo = lazy(() => import('../Pages/Private/Profile/RegisterInfo'))
-const UserInfo = lazy(() => import('../Pages/Private/Profile/UserInfo'))
-const Contracts = lazy(() => import('../Pages/Private/Contracts/Contracts'))
-const ContractSample = lazy(() => import('../Pages/Private/Contracts/ContractSample'))
+const Dashboard = React.lazy(() => import('../Pages/Private/Dashboard'))
+const Orders = React.lazy(() => import('../Pages/Private/Orders'))
+const Tickets = React.lazy(() => import('../Pages/Private/Tickets/Tickets'))
+const Finance = React.lazy(() => import('../Pages/Private/Finance'))
+const BrandInfo = React.lazy(() => import('../Pages/Private/Profile/BrandInfo'))
+const RegisterInfo = React.lazy(() => import('../Pages/Private/Profile/RegisterInfo'))
+const UserInfo = React.lazy(() => import('../Pages/Private/Profile/UserInfo'))
+const Contracts = React.lazy(() => import('../Pages/Private/Contracts/Contracts'))
+const ContractSample = React.lazy(() => import('../Pages/Private/Contracts/ContractSample'))
 // SubRoutes
 const Order = lazy(() => import('../Pages/Private/Orders/Order'))
 const SpecialOrder = lazy(() => import('../Pages/Private/Orders/specialOrder'))

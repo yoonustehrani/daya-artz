@@ -4271,10 +4271,13 @@ var TopBackground = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "top-background",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-          id: "menu-open",
-          className: "float-right d-md-none fas fa-bars"
+        className: "top-background d-flex justify-content-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          href: APP_PATH,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            className: "h-25 mt-4",
+            src: APP_PATH + 'images/logo-with-inner-shadow.png'
+          })
         })
       });
     }
@@ -5108,6 +5111,7 @@ var initialState = {
 var userReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__.produce)(function (draft, action) {
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__.actionTypes.COMPANY_DETECTED:
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.updateCompanyInfo.fulfilled.toString():
       draft.company = action.payload;
       break;
   }
@@ -5742,74 +5746,74 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
  // Main Routes
 
-var Dashboard = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Dashboard = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Dashboard_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Dashboard */ "./resources/js/react/Pages/Private/Dashboard/index.js"));
 });
-var Orders = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Orders = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Orders_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Orders */ "./resources/js/react/Pages/Private/Orders/index.js"));
 });
-var Tickets = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Tickets = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_Tickets_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Tickets/Tickets */ "./resources/js/react/Pages/Private/Tickets/Tickets.jsx"));
 });
-var Finance = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Finance = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance */ "./resources/js/react/Pages/Private/Finance/index.js"));
 });
-var BrandInfo = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var BrandInfo = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Profile_BrandInfo_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Profile/BrandInfo */ "./resources/js/react/Pages/Private/Profile/BrandInfo.jsx"));
 });
-var RegisterInfo = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var RegisterInfo = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Profile_RegisterInfo_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Profile/RegisterInfo */ "./resources/js/react/Pages/Private/Profile/RegisterInfo.jsx"));
 });
-var UserInfo = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var UserInfo = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Profile_UserInfo_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Profile/UserInfo */ "./resources/js/react/Pages/Private/Profile/UserInfo.jsx"));
 });
-var Contracts = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Contracts = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_Contracts_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Contracts/Contracts */ "./resources/js/react/Pages/Private/Contracts/Contracts.jsx"));
 });
-var ContractSample = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var ContractSample = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_ContractSample_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Contracts/ContractSample */ "./resources/js/react/Pages/Private/Contracts/ContractSample.jsx"));
 }); // SubRoutes
 
-var Order = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Order = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Orders_Order_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Orders/Order */ "./resources/js/react/Pages/Private/Orders/Order.jsx"));
 });
-var SpecialOrder = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var SpecialOrder = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Orders_specialOrder_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Orders/specialOrder */ "./resources/js/react/Pages/Private/Orders/specialOrder/index.js"));
 });
-var Ticket = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Ticket = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_Ticket_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Tickets/Ticket */ "./resources/js/react/Pages/Private/Tickets/Ticket.jsx"));
 });
-var NewTicket = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var NewTicket = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_NewTicket_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Tickets/NewTicket */ "./resources/js/react/Pages/Private/Tickets/NewTicket.jsx"));
 });
-var Invoices = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Invoices = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Invoices_Invoices_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Invoices/Invoices */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoices.jsx"));
 });
-var Invoice = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Invoice = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Invoices/Invoice */ "./resources/js/react/Pages/Private/Finance/Invoices/Invoice.jsx"));
 });
-var TicketsFaq = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var TicketsFaq = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Tickets/TicketsFaq */ "./resources/js/react/Pages/Private/Tickets/TicketsFaq.jsx"));
 });
-var PreInvoices = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var PreInvoices = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoices_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Pre Invoices/PreInvoices */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoices.jsx"));
 });
-var PreInvoice = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var PreInvoice = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoice_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Pre Invoices/PreInvoice */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoice.jsx"));
 });
-var Bill = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Bill = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Bills_Bill_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Bills/Bill */ "./resources/js/react/Pages/Private/Finance/Bills/Bill.jsx"));
 });
-var Bills = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Bills = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Bills_Bills_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Bills/Bills */ "./resources/js/react/Pages/Private/Finance/Bills/Bills.jsx"));
 });
-var Transactions = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Transactions = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Transactions/Transactions */ "./resources/js/react/Pages/Private/Finance/Transactions/Transactions.jsx"));
 });
-var Discounts = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Discounts = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Discounts_Discounts_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Finance/Discounts/Discounts */ "./resources/js/react/Pages/Private/Finance/Discounts/Discounts.jsx"));
 });
-var Contract = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+var Contract = lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_Contract_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Private/Contracts/Contract */ "./resources/js/react/Pages/Private/Contracts/Contract.jsx"));
 }); // import LoaderComponent from '../components/LoaderComponent';
 // Route component
@@ -6030,7 +6034,10 @@ var AlertService = /*#__PURE__*/function () {
         icon: icon,
         timer: timer,
         timerProgressBar: true,
-        html: html
+        html: html,
+        customClass: {
+          htmlContainer: "rtl"
+        }
       });
     }
   }, {
@@ -6336,7 +6343,7 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
           break;
 
         default:
-          message = data;
+          message = "خطای سرور";
           break;
       }
 
@@ -6347,13 +6354,15 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
 
       return data;
     } else if (err.request) {
-      // The request was made but no response was received
+      _this.Alert.error({
+        title: 'خطا در ارتباط با سرور'
+      }); // The request was made but no response was received
       // `err.request` is an instance of XMLHttpRequest in the browser and an instance of
       // http.ClientRequest in node.js
-      console.log(err.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log('Error', err.message);
+      // console.log(err.request);
+
+    } else {// Something happened in setting up the request that triggered an Error
+      // console.log('Error', err.message);
     }
 
     return {
@@ -6396,13 +6405,14 @@ __webpack_require__.r(__webpack_exports__);
 var elem = document.getElementById('main');
 
 if (elem) {
-  _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
   (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, {
       store: _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"],
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__["default"], {})
     })
-  }), elem);
+  }), elem, function () {
+    return _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
+  });
 }
 
 /***/ }),

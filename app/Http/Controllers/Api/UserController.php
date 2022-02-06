@@ -92,7 +92,7 @@ class UserController extends Controller
         $company->details = $request->input('details');
 
         return response()->json([
-            'okay' => $company->save(),
+            'okay' => $user_company ? $company->save() : $request->user()->company()->save($company),
             'company' => $company
         ]);
     }
