@@ -1080,12 +1080,6 @@ $xl-xl-breakpoint: 1600px;
     .dashboard-item-container {
         margin-top: 30px !important;
     }
-    .discount-container {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.5rem;
-        /** responsive in mobile => grid-template-columns: repeat(2, minmax(0, 1fr)); */
-    }
     .order-box-bg {
         width: 100%;
         margin-bottom: 20px;
