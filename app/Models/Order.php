@@ -15,6 +15,20 @@ class Order extends Model
             $order->code = $order->tracking_code();
         });
     }
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function getMethodAttribute($method)
+    {
+        return __("userarea.orders.method.{$method}");
+    }
+
     private function tracking_code($length = 6)
     {
         $alpha = str_shuffle("ABCDEFGHJKLMNPQRSTUWXYZ");
@@ -23,13 +37,5 @@ class Order extends Model
             $code .= random_int(0, 9);
         }
         return $code;
-    }
-    public function items()
-    {
-        return $this->hasMany(OrderItem::class);
-    }
-    public function company()
-    {
-        return $this->belongsTo(Company::class);
     }
 }

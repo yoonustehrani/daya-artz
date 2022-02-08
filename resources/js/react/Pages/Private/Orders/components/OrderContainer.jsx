@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import ServiceOrderItem from './ServiceOrdertem';
-import moment from 'moment-jalaali';
+import { useJalaliDate } from '../../../../hooks';
 
-const OrderContainer = ({order_items, created_at, id}) => {
+const OrderContainer = ({items, created_at, id}) => {
     let history = useHistory()
+    let date = useJalaliDate(created_at)
     return (
         <div className="order-box-bg">
             <div className='order-box'>
-                <span className="order-date">{moment(created_at).format("jYYYY/jMM/jDD")}</span>
+                <span className="order-date">{date.format("jYYYY/jMM/jDD")}</span>
                 <div className="service-order-items-container">
-                    {order_items.map((item, i) => (
-                        <ServiceOrderItem {...item} key={i} />
+                    {items.map(item => (
+                        <ServiceOrderItem {...item} key={item.id} />
                     ))}
                 </div>
-                <div className="w-100 text-center mt-3"><button className="btn btn-light" onClick={() => history.push(`/orders/${id}`, {order_id: id})}>اطلاعات بیشتر</button></div>
+                <div className="w-100 text-center mt-3"><button className="btn btn-light" onClick={() => history.push(`/orders/${id}`)}>اطلاعات بیشتر</button></div>
             </div>
         </div>
     );

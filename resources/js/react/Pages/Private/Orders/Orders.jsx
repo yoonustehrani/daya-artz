@@ -1,93 +1,44 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 // custom components
 import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem';
 import OrderContainer from '../Orders/components/OrderContainer'
 import Paginate from '../../../../components/Paginate';
+import { useHttpService } from '../../../hooks';
 
 class Orders extends Component {
     state = {
         loading: false,
-        data: {}
+        orders: [],
+        paginateInfo: null
     }
-
-    getOrders = (page) => {
-        // this.setState({
-        //     loading: true,
-        //     data: {}
-        // }, () => {
-        //     axios.get('orders api addres according to the give page index in the arguments').then(res => {
-        //         let { data } = res
-        //         this.setState({
-        //             data: data,
-        //             loading: false
-        //         })
-        //     })
-        // })
-
-        // the below code is just for testing the react without sending any requets. after making the api the above code will replace with the below one
+    loadOrders = () => {
         this.setState({
             loading: true,
-            data: {}
-        }, () => {
-            console.log(`send get ajax to orders api at page ${page}`);
-            setTimeout(() => {
+        }, async () => {
+            // let http = this.state.paginateInfo ?  : useHttpService()
+            const response = await useHttpService('/userarea/orders').get('')
+            if (response.data) {
+                let {data, next_page_url, prev_page_url, current_page} = response
                 this.setState({
-                    data: [
-                        {
-                            order_items: [
-                                {service_title: "لوگو", icon: "fab fa-d-and-d"},
-                                {service_title: "سربرگ", icon: "fas fa-scroll"},
-                                {service_title: "اسلایدر", icon: "fas fa-image"},
-                                {service_title: "موزیک", icon: "fas fa-guitar"},
-                                {service_title: "لوگو", icon: "fab fa-d-and-d"},
-                                {service_title: "سربرگ", icon: "fas fa-scroll"},
-                                {service_title: "اسلایدر", icon: "fas fa-image"},
-                                {service_title: "موزیک", icon: "fas fa-guitar"},
-                            ],
-                            created_at: '2022/02/06 16:40',
-                            id: "order-item"
-                        },
-                        {
-                            order_items: [
-                                {service_title: "لوگو", icon: "fab fa-d-and-d"},
-                                {service_title: "سربرگ", icon: "fas fa-scroll"},
-                                {service_title: "اسلایدر", icon: "fas fa-image"},
-                                {service_title: "موزیک", icon: "fas fa-guitar"},
-        
-                            ],
-                            created_at: '2022/02/06 16:40',
-                            id: "order-item"
-                        },
-                        {
-                            order_items: [
-                                {service_title: "لوگو", icon: "fab fa-d-and-d"},
-        
-                            ],
-                            created_at: '2022/02/06 16:40',
-                            id: "order-item"
-                        },
-                    ],
+                    loading: false,
+                    orders: data,
                     paginateInfo: {
-                        prev_page_url: "",
-                        next_page_url: "",
-                        current_page_index: ""
+                        next_page_url,
+                        prev_page_url,
+                        current_page
                     }
-                    loading: false
                 })
-                console.log(`got the results and new data has been set`);
-            }, 1000);
+            }
         })
     }
-
     componentDidMount() {
         document.title = "سفارشات"
-        this.getOrders(1)
+        this.loadOrders()
     }
-    
     render() {
-        let { loading, data } = this.state, { orders, current_page_index, last_page_index } = data
+        let { loading, orders } = this.state
+        // { current_page_index, last_page_index } = data
         return (
             <div>
                 {
@@ -95,9 +46,9 @@ class Orders extends Component {
                     : orders && orders.length > 0
                     ? <div className="orders-container">
                         {orders.map((order, i) => (
-                            <OrderContainer key={i} {...order} />
+                            <OrderContainer key={order.id} {...order} />
                         ))}
-                        <Paginate current_page_index={current_page_index} last_page_index={last_page_index} next_page_handler={() => this.getOrders(current_page_index += 1)} prev_page_handler={() => this.getOrders(current_page_index -= 1)} />
+                        {/* <Paginate current_page_index={current_page_index} last_page_index={last_page_index} next_page_handler={() => this.getOrders(current_page_index += 1)} prev_page_handler={() => this.getOrders(current_page_index -= 1)} /> */}
                     </div>
                     : <NoItem/>
                 }

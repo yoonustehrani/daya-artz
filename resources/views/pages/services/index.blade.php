@@ -72,7 +72,7 @@
     </div>
     <div class="main-services-container w-100 p-2">
         <div class="main-service">
-            <div class="icon-container"><span class="back-aqua big-icon"><i class="fab fa-d-and-d"></i></span><h2>لوگو</h2></div>
+            <div class="icon-container"><span class="back-aqua big-icon"><i class="fab fa-apple"></i></span><h2>لوگو</h2></div>
             <div class="info-container">
                 <p class="title service-title">طراحی لوگو با بالاترین کیفیت</p>
                 <p class="service-description">لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف ، باور و هسته فعالیت شماست</p>
