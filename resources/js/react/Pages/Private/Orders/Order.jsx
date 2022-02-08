@@ -12,6 +12,7 @@ class Order extends Component {
         this.state = {
             loading: false,
             filter: "all",
+            order: {},
             items: [
                 {
                     title: "لوگو تصویری",
@@ -58,16 +59,22 @@ class Order extends Component {
             this.sendFilterReq()
         })
     }
-
-    componentDidMount() {
+    loadOrder = async () => {
         let { orderId } = this.props.params;
+        const response = await this.http.get(orderId)
+        if (response.okay) {
+            let {order} = response
+            this.setState({
+                loading: false,
+                order
+            })
+            document.title += ` ${order.code}`
+        }
+    }
+    componentDidMount() {
         document.title = `مشاهده سفارش`
-        const response = this.http.get(orderId)
-        console.log(response);
-        // if (response.) {
-            
-        // }
-        this.sendFilterReq()
+        this.setState({loading: true}, this.loadOrder)
+        // this.sendFilterReq()
     }
     render() {
         let { loading, items } = this.state
