@@ -293,6 +293,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Orders = /*#__PURE__*/function (_Component) {
   _inherits(Orders, _Component);
 
@@ -365,16 +366,28 @@ var Orders = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$state = this.state,
           loading = _this$state.loading,
-          orders = _this$state.orders; // { current_page_index, last_page_index } = data
+          orders = _this$state.orders,
+          paginateInfo = _this$state.paginateInfo; // { current_page_index, last_page_index } = data
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : orders && orders.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : orders && orders.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "orders-container",
-          children: orders.map(function (order, i) {
+          children: [orders.map(function (order, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Orders_components_OrderContainer__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, order), order.id);
-          })
+          }), paginateInfo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            current_page_index: current_page_index,
+            last_page_index: last_page_index,
+            next_page_handler: function next_page_handler() {
+              return _this2.getOrders(current_page_index += 1);
+            },
+            prev_page_handler: function prev_page_handler() {
+              return _this2.getOrders(current_page_index -= 1);
+            }
+          }) : null]
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_3__["default"], {})
       });
     }

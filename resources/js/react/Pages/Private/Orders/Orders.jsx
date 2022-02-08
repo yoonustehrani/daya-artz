@@ -37,7 +37,7 @@ class Orders extends Component {
         this.loadOrders()
     }
     render() {
-        let { loading, orders } = this.state
+        let { loading, orders, paginateInfo } = this.state
         // { current_page_index, last_page_index } = data
         return (
             <div>
@@ -48,7 +48,7 @@ class Orders extends Component {
                         {orders.map((order, i) => (
                             <OrderContainer key={order.id} {...order} />
                         ))}
-                        {/* <Paginate current_page_index={current_page_index} last_page_index={last_page_index} next_page_handler={() => this.getOrders(current_page_index += 1)} prev_page_handler={() => this.getOrders(current_page_index -= 1)} /> */}
+                        {paginateInfo ? <Paginate current_page_index={current_page_index} last_page_index={last_page_index} next_page_handler={() => this.getOrders(current_page_index += 1)} prev_page_handler={() => this.getOrders(current_page_index -= 1)} /> : null}
                     </div>
                     : <NoItem/>
                 }
