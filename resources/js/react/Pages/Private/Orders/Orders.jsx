@@ -32,6 +32,12 @@ class Orders extends Component {
             }
         })
     }
+    handleNextPage = () => {
+        console.log("called next page handler");
+    }
+    prev_page_handler = () => {
+        console.log("called prev page handler");
+    }
     componentDidMount() {
         document.title = "سفارشات"
         this.loadOrders()
@@ -48,7 +54,7 @@ class Orders extends Component {
                         {orders.map((order, i) => (
                             <OrderContainer key={order.id} {...order} />
                         ))}
-                        {paginateInfo ? <Paginate current_page_index={current_page_index} last_page_index={last_page_index} next_page_handler={() => this.getOrders(current_page_index += 1)} prev_page_handler={() => this.getOrders(current_page_index -= 1)} /> : null}
+                        {paginateInfo ? <Paginate  {...paginateInfo} next_page_handler={() => this.handleNextPage()} prev_page_handler={() => this.handlePrevPage()} /> : null}
                     </div>
                     : <NoItem/>
                 }
