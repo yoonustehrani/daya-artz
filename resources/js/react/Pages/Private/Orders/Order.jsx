@@ -4,34 +4,40 @@ import FilterBar from './components/FlterBar';
 import OrderItem from './components/OrderItem';
 import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem';
+import { useHttpService } from '../../../hooks';
 
 class Order extends Component {
-    state = {
-        loading: false,
-        filter: "all",
-        items: [
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-        ]
+    constructor(props) {
+        super(props)
+        this.state = {
+            loading: false,
+            filter: "all",
+            order: {},
+            items: [
+                {
+                    title: "لوگو تصویری",
+                    type: "logo",
+                    status: 'in_progress',
+                    created_at: "1400/10/14",
+                    due_date: "5"
+                },
+                {
+                    title: "لوگو تصویری",
+                    type: "logo",
+                    status: 'in_progress',
+                    created_at: "1400/10/14",
+                    due_date: "5"
+                },
+                {
+                    title: "لوگو تصویری",
+                    type: "logo",
+                    status: 'in_progress',
+                    created_at: "1400/10/14",
+                    due_date: "5"
+                },
+            ]
+        }
+        this.http = useHttpService(`/userarea/orders/`)
     }
 
     sendFilterReq = () => {
@@ -53,10 +59,22 @@ class Order extends Component {
             this.sendFilterReq()
         })
     }
-
+    loadOrder = async () => {
+        let { orderId } = this.props.params;
+        const response = await this.http.get(orderId)
+        if (response.okay) {
+            let {order} = response
+            this.setState({
+                loading: false,
+                order
+            })
+            document.title += ` ${order.code}`
+        }
+    }
     componentDidMount() {
-        document.title = `سفارش شماره ...`
-        this.sendFilterReq()
+        document.title = `مشاهده سفارش`
+        this.setState({loading: true}, this.loadOrder)
+        // this.sendFilterReq()
     }
     render() {
         let { loading, items } = this.state

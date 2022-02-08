@@ -16,7 +16,6 @@ class Orders extends Component {
         this.setState({
             loading: true,
         }, async () => {
-            // let http = this.state.paginateInfo ?  : useHttpService()
             const response = await useHttpService('/userarea/orders').get('')
             if (response.data) {
                 let {data, next_page_url, prev_page_url, current_page} = response
