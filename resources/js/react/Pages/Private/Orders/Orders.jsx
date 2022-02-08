@@ -34,45 +34,46 @@ class Orders extends Component {
             console.log(`send get ajax to orders api at page ${page}`);
             setTimeout(() => {
                 this.setState({
-                    data: {
-                        orders: [
-                            {
-                                order_items: [
-                                    {service_title: "لوگو", icon: "fab fa-d-and-d"},
-                                    {service_title: "سربرگ", icon: "fas fa-scroll"},
-                                    {service_title: "اسلایدر", icon: "fas fa-image"},
-                                    {service_title: "موزیک", icon: "fas fa-guitar"},
-                                    {service_title: "لوگو", icon: "fab fa-d-and-d"},
-                                    {service_title: "سربرگ", icon: "fas fa-scroll"},
-                                    {service_title: "اسلایدر", icon: "fas fa-image"},
-                                    {service_title: "موزیک", icon: "fas fa-guitar"},
-                                ],
-                                created_at: '2022/02/06 16:40',
-                                id: "order-item"
-                            },
-                            {
-                                order_items: [
-                                    {service_title: "لوگو", icon: "fab fa-d-and-d"},
-                                    {service_title: "سربرگ", icon: "fas fa-scroll"},
-                                    {service_title: "اسلایدر", icon: "fas fa-image"},
-                                    {service_title: "موزیک", icon: "fas fa-guitar"},
-            
-                                ],
-                                created_at: '2022/02/06 16:40',
-                                id: "order-item"
-                            },
-                            {
-                                order_items: [
-                                    {service_title: "لوگو", icon: "fab fa-d-and-d"},
-            
-                                ],
-                                created_at: '2022/02/06 16:40',
-                                id: "order-item"
-                            },
-                        ],
-                        current_page_index: page,
-                        last_page_index: 10,
-                    },
+                    data: [
+                        {
+                            order_items: [
+                                {service_title: "لوگو", icon: "fab fa-d-and-d"},
+                                {service_title: "سربرگ", icon: "fas fa-scroll"},
+                                {service_title: "اسلایدر", icon: "fas fa-image"},
+                                {service_title: "موزیک", icon: "fas fa-guitar"},
+                                {service_title: "لوگو", icon: "fab fa-d-and-d"},
+                                {service_title: "سربرگ", icon: "fas fa-scroll"},
+                                {service_title: "اسلایدر", icon: "fas fa-image"},
+                                {service_title: "موزیک", icon: "fas fa-guitar"},
+                            ],
+                            created_at: '2022/02/06 16:40',
+                            id: "order-item"
+                        },
+                        {
+                            order_items: [
+                                {service_title: "لوگو", icon: "fab fa-d-and-d"},
+                                {service_title: "سربرگ", icon: "fas fa-scroll"},
+                                {service_title: "اسلایدر", icon: "fas fa-image"},
+                                {service_title: "موزیک", icon: "fas fa-guitar"},
+        
+                            ],
+                            created_at: '2022/02/06 16:40',
+                            id: "order-item"
+                        },
+                        {
+                            order_items: [
+                                {service_title: "لوگو", icon: "fab fa-d-and-d"},
+        
+                            ],
+                            created_at: '2022/02/06 16:40',
+                            id: "order-item"
+                        },
+                    ],
+                    paginateInfo: {
+                        prev_page_url: "",
+                        next_page_url: "",
+                        current_page_index: ""
+                    }
                     loading: false
                 })
                 console.log(`got the results and new data has been set`);
