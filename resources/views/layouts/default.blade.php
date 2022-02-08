@@ -6,20 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>@yield('title') | دایا آرتز</title>
     @stack('head')
 </head>
 <body>
     <header class="header">
-        @include('components.header')
+        <x-header />
         @yield('header')
     </header>
     @yield('content')
     <footer class="section w-100 footer mt-5">
-        @include('components.footer')
+        <x-footer />
     </footer>
-    <script>
-        APP_PATH = "{{ asset('/') }}"
-    </script>
+    <script>APP_PATH = "{{ asset('/') }}";</script>
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')
 </body>

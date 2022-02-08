@@ -10,5 +10,18 @@ return [
             'reviewd' => 'توسط تیم پشتیبانی مشاهده شده',
             'closed' => 'بسته شده'
         ]
+    ],
+    'orders' => [
+        'method' => [
+            'quick-order' => 'سفارش سریع',
+            'professional' => 'سفارش تخصصی',
+            'tele-order' => 'سفارش تلفنی',
+            'telegram-bot' => 'سفارش با ربات تلگرامی',
+            'messanger' => 'سفارش از پیامرسان ها'
+        ],
+        'type' => [
+            'manual' => 'دستی',
+            'automate' => 'سیستمی'
+        ]
     ]
 ];

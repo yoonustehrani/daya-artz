@@ -1,23 +1,7 @@
 @extends('layouts.default')
-@push('head')
-    <title>Daya Artz</title>
-    <style>
-        .grecaptcha-badge {
-            width: 70px !important;
-            overflow: hidden !important;
-            transition: all 0.3s ease !important;
-            left: 0px !important;
-            opacity: 0.5;
-        }
-        
-        .grecaptcha-badge:hover {
-            width: 256px !important;
-            transition: 0.3s !important;
-            opacity: 1;
-        }
-    </style>
-@endpush
-<!-- Header -->
+
+@section('title', 'طراحی لوگو - طراحی گرافیک - گرافیک دیزاین')
+
 @section('header')
     <div class="header-section">
         <div class="header-text p-4 col-12 col-md-6">
@@ -36,9 +20,8 @@
         </div>
     </div>
 @endsection
-<!-- end Header -->
+
 @section('content')
-<!-- Services -->
     <div class="section col-12 p-4">
         <div class="col-12 title-section mb-3">
             <div class="title-container">
@@ -52,7 +35,7 @@
         <div class="services-container">
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fab fa-mixer"></i></span>
+                    <span class="service-icon back-aqua"><i class="fab fa-apple"></i></span>
                     <h1 class="block w-100 text-center">لوگو</h1>
                     <h3 class="block w-100 text-center">طراحی لوگو با بالاترین کیفیت</h3>
                     <button class="btn btn-gradient">سفارش</button>
@@ -100,9 +83,6 @@
             </div>
         </div>
     </div>
-    <!-- end Services -->
-
-    <!-- Ordering Methods -->
     <div class="section w-100 order-section-container">
         <div class="background-order dotted-background w-100 p-0">
             <div class="title-section col-12 mb-3 mb-md-0 mt-3">
@@ -153,9 +133,6 @@
             </div>
         </div>
     </div>
-    <!-- end Ordering Methods -->
-
-    <!-- contact daya -->
     <div class="section w-100 mt-5 mb-5">
         <div class="absolute-contact w-100">
             <div class="contact-section section w-100">
@@ -185,13 +162,7 @@
             </div>
         </div>
     </div>
-    <!-- end contact daya -->
-
-    <!-- progress bars -->
     @include('components.circular-percentage')
-    <!-- end progress bars -->
-
-    <!-- About Daya -->
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
             <div class="image-box col-xl-2 col-lg-3 col-sm-3 col-12">
@@ -205,14 +176,8 @@
             </div>
         </div>
     </div>
-    <!-- end About Daya -->
-
-    <!-- About Logo -->
-    @include('components.info-item')
-    <!-- end About Logo -->
+    <x-info-item />
     <x-portfolio :api-target="route('api.portfolios.index')"/>
     <x-quick-order-form />
-    <!-- daya blog -->
     <div id="blog-suggestion-react" api-target-random="{{ route('api.posts.index', ['mode' => 'random', 'limit' => '8']) }}" api-target-latest="{{ route('api.posts.index', ['mode' => 'latest', 'limit' => '8']) }}"></div>
-    <!-- end daya blog -->
 @endsection

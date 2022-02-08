@@ -4563,8 +4563,9 @@ var useJalaliDate = function useJalaliDate(datetime) {
 
 var useHttpService = function useHttpService() {
   var base_path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  var baseURL = base_path !== null ? API_BASE_URL + base_path : null;
   return new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default"]({
-    baseURL: API_BASE_URL + base_path,
+    baseURL: baseURL,
     headers: {
       'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_1__.getCookie)('XSRF-TOKEN'),
       'Accept': 'application/json'

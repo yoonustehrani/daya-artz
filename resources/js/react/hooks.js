@@ -11,8 +11,9 @@ const useJalaliDate = (datetime) => {
 }
 
 const useHttpService = (base_path = "") => {
+    let baseURL = base_path !== null ? API_BASE_URL + base_path : null
     return new HttpClient({
-        baseURL: API_BASE_URL + base_path,
+        baseURL,
         headers: {
             'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
             'Accept': 'application/json'

@@ -241,19 +241,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Layout/components/Activity */ "./resources/js/react/Pages/Private/Layout/components/Activity.jsx");
 /* harmony import */ var _Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Layout/components/NoItem */ "./resources/js/react/Pages/Private/Layout/components/NoItem.jsx");
 /* harmony import */ var _Orders_components_OrderContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Orders/components/OrderContainer */ "./resources/js/react/Pages/Private/Orders/components/OrderContainer.jsx");
 /* harmony import */ var _components_Paginate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components/Paginate */ "./resources/js/components/Paginate/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../hooks */ "./resources/js/react/hooks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -276,7 +283,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
  // custom components
 
@@ -305,92 +311,46 @@ var Orders = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       loading: false,
-      data: {}
+      orders: [],
+      paginateInfo: null
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getOrders", function (page) {
-      // this.setState({
-      //     loading: true,
-      //     data: {}
-      // }, () => {
-      //     axios.get('orders api addres according to the give page index in the arguments').then(res => {
-      //         let { data } = res
-      //         this.setState({
-      //             data: data,
-      //             loading: false
-      //         })
-      //     })
-      // })
-      // the below code is just for testing the react without sending any requets. after making the api the above code will replace with the below one
+    _defineProperty(_assertThisInitialized(_this), "loadOrders", function () {
       _this.setState({
-        loading: true,
-        data: {}
-      }, function () {
-        console.log("send get ajax to orders api at page ".concat(page));
-        setTimeout(function () {
-          _this.setState({
-            data: {
-              orders: [{
-                order_items: [{
-                  service_title: "لوگو",
-                  icon: "fab fa-d-and-d"
-                }, {
-                  service_title: "سربرگ",
-                  icon: "fas fa-scroll"
-                }, {
-                  service_title: "اسلایدر",
-                  icon: "fas fa-image"
-                }, {
-                  service_title: "موزیک",
-                  icon: "fas fa-guitar"
-                }, {
-                  service_title: "لوگو",
-                  icon: "fab fa-d-and-d"
-                }, {
-                  service_title: "سربرگ",
-                  icon: "fas fa-scroll"
-                }, {
-                  service_title: "اسلایدر",
-                  icon: "fas fa-image"
-                }, {
-                  service_title: "موزیک",
-                  icon: "fas fa-guitar"
-                }],
-                created_at: '2022/02/06 16:40',
-                id: "order-item"
-              }, {
-                order_items: [{
-                  service_title: "لوگو",
-                  icon: "fab fa-d-and-d"
-                }, {
-                  service_title: "سربرگ",
-                  icon: "fas fa-scroll"
-                }, {
-                  service_title: "اسلایدر",
-                  icon: "fas fa-image"
-                }, {
-                  service_title: "موزیک",
-                  icon: "fas fa-guitar"
-                }],
-                created_at: '2022/02/06 16:40',
-                id: "order-item"
-              }, {
-                order_items: [{
-                  service_title: "لوگو",
-                  icon: "fab fa-d-and-d"
-                }],
-                created_at: '2022/02/06 16:40',
-                id: "order-item"
-              }],
-              current_page_index: page,
-              last_page_index: 10
-            },
-            loading: false
-          });
+        loading: true
+      }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response, data, next_page_url, prev_page_url, current_page;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return (0,_hooks__WEBPACK_IMPORTED_MODULE_6__.useHttpService)('/userarea/orders').get('');
 
-          console.log("got the results and new data has been set");
-        }, 1000);
-      });
+              case 2:
+                response = _context.sent;
+
+                if (response.data) {
+                  data = response.data, next_page_url = response.next_page_url, prev_page_url = response.prev_page_url, current_page = response.current_page;
+
+                  _this.setState({
+                    loading: false,
+                    orders: data,
+                    paginateInfo: {
+                      next_page_url: next_page_url,
+                      prev_page_url: prev_page_url,
+                      current_page: current_page
+                    }
+                  });
+                }
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      })));
     });
 
     return _this;
@@ -400,41 +360,28 @@ var Orders = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       document.title = "سفارشات";
-      this.getOrders(1);
+      this.loadOrders();
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       var _this$state = this.state,
           loading = _this$state.loading,
-          data = _this$state.data,
-          orders = data.orders,
-          current_page_index = data.current_page_index,
-          last_page_index = data.last_page_index;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : orders && orders.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          orders = _this$state.orders; // { current_page_index, last_page_index } = data
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : orders && orders.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "orders-container",
-          children: [orders.map(function (order, i) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Orders_components_OrderContainer__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, order), i);
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            current_page_index: current_page_index,
-            last_page_index: last_page_index,
-            next_page_handler: function next_page_handler() {
-              return _this2.getOrders(current_page_index += 1);
-            },
-            prev_page_handler: function prev_page_handler() {
-              return _this2.getOrders(current_page_index -= 1);
-            }
-          })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+          children: orders.map(function (order, i) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Orders_components_OrderContainer__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, order), order.id);
+          })
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_3__["default"], {})
       });
     }
   }]);
 
   return Orders;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Orders);
 
@@ -450,12 +397,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _ServiceOrdertem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ServiceOrdertem */ "./resources/js/react/Pages/Private/Orders/components/ServiceOrdertem.jsx");
-/* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment-jalaali */ "./node_modules/moment-jalaali/index.js");
-/* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment_jalaali__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ServiceOrdertem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ServiceOrdertem */ "./resources/js/react/Pages/Private/Orders/components/ServiceOrdertem.jsx");
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../hooks */ "./resources/js/react/hooks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -469,34 +415,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 var OrderContainer = function OrderContainer(_ref) {
-  var order_items = _ref.order_items,
+  var items = _ref.items,
       created_at = _ref.created_at,
       id = _ref.id;
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useHistory)();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  var date = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "order-box-bg",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "order-box",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
         className: "order-date",
-        children: moment_jalaali__WEBPACK_IMPORTED_MODULE_2___default()(created_at).format("jYYYY/jMM/jDD")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: date.format("jYYYY/jMM/jDD")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "service-order-items-container",
-        children: order_items.map(function (item, i) {
-          return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ServiceOrdertem__WEBPACK_IMPORTED_MODULE_1__["default"], _objectSpread(_objectSpread({}, item), {}, {
-            key: i
+        children: items.map(function (item) {
+          return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createElement)(_ServiceOrdertem__WEBPACK_IMPORTED_MODULE_0__["default"], _objectSpread(_objectSpread({}, item), {}, {
+            key: item.id
           }));
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "w-100 text-center mt-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           className: "btn btn-light",
           onClick: function onClick() {
-            return history.push("/orders/".concat(id), {
-              order_id: id
-            });
+            return history.push("/orders/".concat(id));
           },
           children: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0628\u06CC\u0634\u062A\u0631"
         })
