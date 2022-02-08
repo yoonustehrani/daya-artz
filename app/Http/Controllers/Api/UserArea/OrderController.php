@@ -26,9 +26,8 @@ class OrderController extends Controller
     }
     public function show($order)
     {
-        $order = Order::findOrFail($order);
+        $order = request()->user()->orders()->findOrFail($order);
         // policy here
-        $order->load('items');
         return response()->json([
             'okay' => true,
             'order' => $order

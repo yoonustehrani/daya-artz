@@ -53,7 +53,7 @@ class Orders extends Component {
                         {orders.map((order, i) => (
                             <OrderContainer key={order.id} {...order} />
                         ))}
-                        {paginateInfo ? <Paginate  {...paginateInfo} next_page_handler={() => this.handleNextPage()} prev_page_handler={() => this.handlePrevPage()} /> : null}
+                        {paginateInfo && <Paginate {...paginateInfo} next_page_handler={() => this.handleNextPage()} prev_page_handler={() => this.handlePrevPage()} />}
                     </div>
                     : <NoItem/>
                 }

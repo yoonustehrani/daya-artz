@@ -387,14 +387,14 @@ var Orders = /*#__PURE__*/function (_Component) {
           className: "orders-container",
           children: [orders.map(function (order, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Orders_components_OrderContainer__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, order), order.id);
-          }), paginateInfo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_5__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
+          }), paginateInfo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_5__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
             next_page_handler: function next_page_handler() {
               return _this2.handleNextPage();
             },
             prev_page_handler: function prev_page_handler() {
               return _this2.handlePrevPage();
             }
-          })) : null]
+          }))]
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_3__["default"], {})
       });
     }

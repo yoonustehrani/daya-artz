@@ -267,7 +267,7 @@ var Order = /*#__PURE__*/function (_Component) {
     _this.state = {
       loading: false,
       filter: "all",
-      order: {},
+      order: null,
       items: [{
         title: "لوگو تصویری",
         type: "logo",
@@ -298,7 +298,7 @@ var Order = /*#__PURE__*/function (_Component) {
       document.title = "\u0645\u0634\u0627\u0647\u062F\u0647 \u0633\u0641\u0627\u0631\u0634";
       this.setState({
         loading: true
-      }, this.loadOrder); // this.sendFilterReq()
+      }, this.loadOrder);
     }
   }, {
     key: "render",
