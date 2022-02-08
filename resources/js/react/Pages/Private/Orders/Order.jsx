@@ -4,34 +4,39 @@ import FilterBar from './components/FlterBar';
 import OrderItem from './components/OrderItem';
 import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem';
+import { useHttpService } from '../../../hooks';
 
 class Order extends Component {
-    state = {
-        loading: false,
-        filter: "all",
-        items: [
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-            {
-                title: "لوگو تصویری",
-                type: "logo",
-                status: 'in_progress',
-                created_at: "1400/10/14",
-                due_date: "5"
-            },
-        ]
+    constructor(props) {
+        super(props)
+        this.state = {
+            loading: false,
+            filter: "all",
+            items: [
+                {
+                    title: "لوگو تصویری",
+                    type: "logo",
+                    status: 'in_progress',
+                    created_at: "1400/10/14",
+                    due_date: "5"
+                },
+                {
+                    title: "لوگو تصویری",
+                    type: "logo",
+                    status: 'in_progress',
+                    created_at: "1400/10/14",
+                    due_date: "5"
+                },
+                {
+                    title: "لوگو تصویری",
+                    type: "logo",
+                    status: 'in_progress',
+                    created_at: "1400/10/14",
+                    due_date: "5"
+                },
+            ]
+        }
+        this.http = useHttpService(`/userarea/orders/`)
     }
 
     sendFilterReq = () => {
@@ -55,7 +60,13 @@ class Order extends Component {
     }
 
     componentDidMount() {
-        document.title = `سفارش شماره ...`
+        let { orderId } = this.props.params;
+        document.title = `مشاهده سفارش`
+        const response = this.http.get(orderId)
+        console.log(response);
+        // if (response.) {
+            
+        // }
         this.sendFilterReq()
     }
     render() {

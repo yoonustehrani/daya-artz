@@ -152,7 +152,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_OrderItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/OrderItem */ "./resources/js/react/Pages/Private/Orders/components/OrderItem.jsx");
 /* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Layout/components/Activity */ "./resources/js/react/Pages/Private/Layout/components/Activity.jsx");
 /* harmony import */ var _Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Layout/components/NoItem */ "./resources/js/react/Pages/Private/Layout/components/NoItem.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../hooks */ "./resources/js/react/hooks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -190,45 +191,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Order = /*#__PURE__*/function (_Component) {
   _inherits(Order, _Component);
 
   var _super = _createSuper(Order);
 
-  function Order() {
+  function Order(props) {
     var _this;
 
     _classCallCheck(this, Order);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      loading: false,
-      filter: "all",
-      items: [{
-        title: "لوگو تصویری",
-        type: "logo",
-        status: 'in_progress',
-        created_at: "1400/10/14",
-        due_date: "5"
-      }, {
-        title: "لوگو تصویری",
-        type: "logo",
-        status: 'in_progress',
-        created_at: "1400/10/14",
-        due_date: "5"
-      }, {
-        title: "لوگو تصویری",
-        type: "logo",
-        status: 'in_progress',
-        created_at: "1400/10/14",
-        due_date: "5"
-      }]
-    });
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "sendFilterReq", function () {
       var filter = _this.state.filter; // this.setState({loading: true}, () => {
@@ -250,13 +224,42 @@ var Order = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _this.state = {
+      loading: false,
+      filter: "all",
+      items: [{
+        title: "لوگو تصویری",
+        type: "logo",
+        status: 'in_progress',
+        created_at: "1400/10/14",
+        due_date: "5"
+      }, {
+        title: "لوگو تصویری",
+        type: "logo",
+        status: 'in_progress',
+        created_at: "1400/10/14",
+        due_date: "5"
+      }, {
+        title: "لوگو تصویری",
+        type: "logo",
+        status: 'in_progress',
+        created_at: "1400/10/14",
+        due_date: "5"
+      }]
+    };
+    _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_5__.useHttpService)("/userarea/orders/");
     return _this;
   }
 
   _createClass(Order, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.title = "\u0633\u0641\u0627\u0631\u0634 \u0634\u0645\u0627\u0631\u0647 ...";
+      var orderId = this.props.params.orderId;
+      document.title = "\u0645\u0634\u0627\u0647\u062F\u0647 \u0633\u0641\u0627\u0631\u0634";
+      var response = this.http.get(orderId);
+      console.log(response); // if (response.) {
+      // }
+
       this.sendFilterReq();
     }
   }, {
@@ -265,15 +268,15 @@ var Order = /*#__PURE__*/function (_Component) {
       var _this$state = this.state,
           loading = _this$state.loading,
           items = _this$state.items;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_FlterBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_FlterBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
           onFilterClick: this.onFilterClick
-        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : items && items.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : items && items.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "order-items-container",
           children: items.map(function (item, i) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_OrderItem__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({}, item), i);
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_OrderItem__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({}, item), i);
           })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
       });
     }
   }]);
