@@ -4563,9 +4563,8 @@ var useJalaliDate = function useJalaliDate(datetime) {
 
 var useHttpService = function useHttpService() {
   var base_path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-  var baseURL = base_path !== null ? API_BASE_URL + base_path : null;
   return new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default"]({
-    baseURL: baseURL,
+    baseURL: API_BASE_URL + base_path,
     headers: {
       'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_1__.getCookie)('XSRF-TOKEN'),
       'Accept': 'application/json'
@@ -4624,6 +4623,41 @@ var actionTypes = {
   APP_STATUS_CHANGED: "".concat(reducerKeys.auth, "/appStatusChanged"),
   COMPANY_DETECTED: "".concat(reducerKeys.user, "/companyWasSet")
 };
+
+var logUserIn = function logUserIn(user) {
+  return {
+    type: actionTypes.USER_LOGGED_IN,
+    payload: user
+  };
+};
+
+var setCompany = function setCompany(company) {
+  return {
+    type: actionTypes.COMPANY_DETECTED,
+    payload: company
+  };
+};
+
+var verifyUserPhone = function verifyUserPhone() {
+  return {
+    type: actionTypes.USER_VERIFIED_PHONE
+  };
+};
+
+var changeAppStatus = function changeAppStatus(status) {
+  return {
+    type: actionTypes.APP_STATUS_CHANGED,
+    payload: !!status
+  };
+};
+
+var changeEmail = function changeEmail(email) {
+  return {
+    type: actionTypes.USER_EMAIL_CHANGED,
+    payload: email
+  };
+};
+
 var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/loginUser', /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(credentials, _ref) {
     var rejectWithValue, dispatch, response;
@@ -4666,12 +4700,12 @@ var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.cre
 }());
 var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/logoutUser', /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(param, _ref3) {
-    var getState, rejectWithValue, response;
+    var getState, dispatch, rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            getState = _ref3.getState, rejectWithValue = _ref3.rejectWithValue;
+            getState = _ref3.getState, dispatch = _ref3.dispatch, rejectWithValue = _ref3.rejectWithValue;
 
             if (!getState().auth.user) {
               _context2.next = 8;
@@ -4693,7 +4727,9 @@ var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThu
             return _context2.abrupt("return", response);
 
           case 8:
-            throw new Error();
+            return _context2.abrupt("return", rejectWithValue({
+              error: true
+            }));
 
           case 9:
           case "end":
@@ -4906,40 +4942,6 @@ var updateCompanyInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createA
     return _ref18.apply(this, arguments);
   };
 }());
-
-var logUserIn = function logUserIn(user) {
-  return {
-    type: actionTypes.USER_LOGGED_IN,
-    payload: user
-  };
-};
-
-var setCompany = function setCompany(company) {
-  return {
-    type: actionTypes.COMPANY_DETECTED,
-    payload: company
-  };
-};
-
-var verifyUserPhone = function verifyUserPhone() {
-  return {
-    type: actionTypes.USER_VERIFIED_PHONE
-  };
-};
-
-var changeAppStatus = function changeAppStatus(status) {
-  return {
-    type: actionTypes.APP_STATUS_CHANGED,
-    payload: !!status
-  };
-};
-
-var changeEmail = function changeEmail(email) {
-  return {
-    type: actionTypes.USER_EMAIL_CHANGED,
-    payload: email
-  };
-};
 
 var checkAuth = /*#__PURE__*/function () {
   var _ref19 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9(dispatch, getState) {
