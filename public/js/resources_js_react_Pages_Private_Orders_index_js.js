@@ -260,36 +260,29 @@ var Orders = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Orders);
 
-  function Orders() {
+  function Orders(props) {
     var _this;
 
     _classCallCheck(this, Orders);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      loading: false,
-      orders: [],
-      paginateInfo: null
-    });
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "loadOrders", function () {
+      var customUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
       _this.setState({
         loading: true
       }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response, data, next_page_url, prev_page_url, current_page;
+        var url, response, data, next_page_url, prev_page_url, current_page;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return (0,_hooks__WEBPACK_IMPORTED_MODULE_6__.useHttpService)('/userarea/orders').get('');
+                url = customUrl ? customUrl : '';
+                _context.next = 3;
+                return _this.http.get(url);
 
-              case 2:
+              case 3:
                 response = _context.sent;
 
                 if (response.data) {
@@ -306,7 +299,7 @@ var Orders = /*#__PURE__*/function (_Component) {
                   });
                 }
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -315,14 +308,23 @@ var Orders = /*#__PURE__*/function (_Component) {
       })));
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleNextPage", function () {
-      console.log("called next page handler");
+    _defineProperty(_assertThisInitialized(_this), "handlePageChange", function () {
+      var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var paginateInfo = _this.state.paginateInfo;
+
+      if (paginateInfo) {
+        var url = next ? paginateInfo.next_page_url : paginateInfo.prev_page_url;
+
+        _this.loadOrders(url);
+      }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "prev_page_handler", function () {
-      console.log("called prev page handler");
-    });
-
+    _this.state = {
+      loading: false,
+      orders: [],
+      paginateInfo: null
+    };
+    _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_6__.useHttpService)('/userarea/orders');
     return _this;
   }
 
@@ -335,25 +337,18 @@ var Orders = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       var _this$state = this.state,
           loading = _this$state.loading,
           orders = _this$state.orders,
-          paginateInfo = _this$state.paginateInfo; // { current_page_index, last_page_index } = data
-
+          paginateInfo = _this$state.paginateInfo;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : orders && orders.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "orders-container",
           children: [orders.map(function (order, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Orders_components_OrderContainer__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, order), order.id);
           }), paginateInfo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_5__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
-            next_page_handler: function next_page_handler() {
-              return _this2.handleNextPage();
-            },
-            prev_page_handler: function prev_page_handler() {
-              return _this2.handlePrevPage();
-            }
+            next_page_handler: this.handlePageChange.bind(this),
+            prev_page_handler: this.handlePageChange.bind(this, false)
           }))]
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_3__["default"], {})
       });
