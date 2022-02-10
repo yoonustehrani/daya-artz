@@ -3,10 +3,9 @@ import AlertService from "./AlertService";
 
 export default class HttpClient
 {
-    constructor(config = {}, errorCallback = null) {
+    constructor(config = {}) {
         this.Http = axios.create(config)
         this.Alert = new AlertService()
-        this.ErrorCallBack = errorCallback
     }
     
     get = async (url, config = null, handleErrors = true) => {

@@ -12,7 +12,7 @@ class Order extends Component {
         this.state = {
             loading: false,
             filter: "all",
-            order: {},
+            order: null,
             items: [
                 {
                     title: "لوگو تصویری",
@@ -74,7 +74,6 @@ class Order extends Component {
     componentDidMount() {
         document.title = `مشاهده سفارش`
         this.setState({loading: true}, this.loadOrder)
-        // this.sendFilterReq()
     }
     render() {
         let { loading, items } = this.state

@@ -4543,12 +4543,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment-jalaali */ "./node_modules/moment-jalaali/index.js");
 /* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment_jalaali__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _services_CookieService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/CookieService */ "./resources/js/services/CookieService.js");
-/* harmony import */ var _services_HttpClient__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/HttpClient */ "./resources/js/services/HttpClient.js");
-/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./redux/actions */ "./resources/js/react/redux/actions.js");
-
-
+/* harmony import */ var _services_CookieService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/CookieService */ "./resources/js/services/CookieService.js");
+/* harmony import */ var _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/HttpClient */ "./resources/js/services/HttpClient.js");
 
 
 
@@ -4568,19 +4564,11 @@ var useJalaliDate = function useJalaliDate(datetime) {
 var useHttpService = function useHttpService() {
   var base_path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
   var baseURL = base_path !== null ? API_BASE_URL + base_path : null;
-  return new _services_HttpClient__WEBPACK_IMPORTED_MODULE_3__["default"]({
+  return new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default"]({
     baseURL: baseURL,
     headers: {
-      'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_2__.getCookie)('XSRF-TOKEN'),
+      'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_1__.getCookie)('XSRF-TOKEN'),
       'Accept': 'application/json'
-    }
-  }, function (err) {
-    if (err.response) {
-      var status = err.response.status;
-
-      if (status === 401) {
-        (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useStore)().dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_4__.logoutUser)());
-      }
     }
   });
 };
@@ -6181,8 +6169,6 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
 
   var _config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-  var errorCallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
   _classCallCheck(this, HttpClient);
 
   _defineProperty(this, "get", /*#__PURE__*/function () {
@@ -6395,7 +6381,6 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
 
   this.Http = axios__WEBPACK_IMPORTED_MODULE_1___default().create(_config);
   this.Alert = new _AlertService__WEBPACK_IMPORTED_MODULE_2__["default"]();
-  this.ErrorCallBack = errorCallback;
 });
 
 
