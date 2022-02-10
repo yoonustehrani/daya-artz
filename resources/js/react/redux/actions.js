@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { useHttpService } from "../hooks";
-
 const http = useHttpService()
 const reducerKeys = {auth: 'auth', user: 'user'}
 const actionTypes = {
