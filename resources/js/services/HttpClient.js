@@ -3,9 +3,10 @@ import AlertService from "./AlertService";
 
 export default class HttpClient
 {
-    constructor(config = {}) {
+    constructor(config = {}, errorCallback = null) {
         this.Http = axios.create(config)
         this.Alert = new AlertService()
+        this.ErrorCallBack = errorCallback
     }
     
     get = async (url, config = null, handleErrors = true) => {
@@ -42,6 +43,9 @@ export default class HttpClient
         return this.Http.delete(url, config)
     }
     handleErr = (err, handle) => {
+        if (typeof this.ErrorCallBack === 'function') {
+            this.ErrorCallBack(err);
+        }
         if (! handle) {
             return
         }
@@ -49,28 +53,18 @@ export default class HttpClient
             let {data, status} = err.response
             let message = ""
             let title = data.message
-            // console.log('service catched error !');
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            switch (status) {
-                case 401:
-                    // Unauthorized
-                    break
-                case 422:
-                    // Custom Error
-                    let errors = Object.keys(data.errors)
-                    errors.map(item => {
-                        let msg = ""
-                        data.errors[item].forEach(m => {
-                            msg += (m + "\n")
-                        });
-                        message += (msg + "\n")
-                    })
-                    message = message.trim().replace(/\n{1,}/g, "<br>")
-                    break
-                default:
-                    message = "خطای سرور"
-                    break
+            if (status === 422) {
+                let errors = Object.keys(data.errors)
+                errors.map(item => {
+                    let msg = ""
+                    data.errors[item].forEach(m => {
+                        msg += (m + "\n")
+                    });
+                    message += (msg + "\n")
+                })
+                message = message.trim().replace(/\n{1,}/g, "<br>")
+            } else {
+                message = "خطای سرور"
             }
             this.Alert.error({title: 'خطا', html: message})
             return data
