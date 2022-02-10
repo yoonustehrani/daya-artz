@@ -4,7 +4,7 @@ import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem';
 import OrderContainer from '../Orders/components/OrderContainer'
 import Paginate from '../../../../components/Paginate';
-import { useHttpService } from '../../../hooks';
+import { useHttpService, useJalaliDate } from '../../../hooks';
 
 class Orders extends Component {
     constructor(props) {
@@ -48,6 +48,7 @@ class Orders extends Component {
         this.loadOrders()
     }
     render() {
+        console.log(useJalaliDate("2022-02-10 08:44:09").format("jYYYY"));
         let { loading, orders, paginateInfo } = this.state
         return (
             <div>
