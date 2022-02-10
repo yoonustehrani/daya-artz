@@ -7,16 +7,21 @@ import Paginate from '../../../../components/Paginate';
 import { useHttpService, useJalaliDate } from '../../../hooks';
 
 class Orders extends Component {
-    state = {
-        loading: false,
-        orders: [],
-        paginateInfo: null
+    constructor(props) {
+        super(props)
+        this.state = {
+            loading: false,
+            orders: [],
+            paginateInfo: null
+        }
+        this.http = useHttpService('/userarea/orders')
     }
-    loadOrders = () => {
+    loadOrders = (customUrl = false) => {
         this.setState({
             loading: true,
         }, async () => {
-            const response = await useHttpService('/userarea/orders').get('')
+            let url = customUrl ? customUrl : ''
+            const response = await this.http.get(url)
             if (response.data) {
                 let {data, next_page_url, prev_page_url, current_page} = response
                 this.setState({
@@ -31,11 +36,12 @@ class Orders extends Component {
             }
         })
     }
-    handleNextPage = () => {
-        console.log("called next page handler");
-    }
-    prev_page_handler = () => {
-        console.log("called prev page handler");
+    handlePageChange = (next = true) => {
+        let {paginateInfo} = this.state
+        if (paginateInfo) {
+            let url = next ? paginateInfo.next_page_url : paginateInfo.prev_page_url
+            this.loadOrders(url)
+        }
     }
     componentDidMount() {
         document.title = "سفارشات"
@@ -44,7 +50,6 @@ class Orders extends Component {
     render() {
         console.log(useJalaliDate("2022-02-10 08:44:09").format("jYYYY"));
         let { loading, orders, paginateInfo } = this.state
-        // { current_page_index, last_page_index } = data
         return (
             <div>
                 {
@@ -54,7 +59,7 @@ class Orders extends Component {
                         {orders.map((order, i) => (
                             <OrderContainer key={order.id} {...order} />
                         ))}
-                        {paginateInfo && <Paginate {...paginateInfo} next_page_handler={() => this.handleNextPage()} prev_page_handler={() => this.handlePrevPage()} />}
+                        {paginateInfo && <Paginate {...paginateInfo} next_page_handler={this.handlePageChange.bind(this)} prev_page_handler={this.handlePageChange.bind(this, false)} />}
                     </div>
                     : <NoItem/>
                 }
