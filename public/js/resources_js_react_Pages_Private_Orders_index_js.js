@@ -337,6 +337,7 @@ var Orders = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log((0,_hooks__WEBPACK_IMPORTED_MODULE_6__.useJalaliDate)("2022-02-10 08:44:09").format("jYYYY"));
       var _this$state = this.state,
           loading = _this$state.loading,
           orders = _this$state.orders,
