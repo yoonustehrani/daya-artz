@@ -10,9 +10,7 @@ const OrderContainer = ({items, created_at, id}) => {
             <div className='order-box'>
                 <span className="order-date">{date.format("jYYYY/jMM/jDD")}</span>
                 <div className="service-order-items-container">
-                    {items.map(item => (
-                        <ServiceOrderItem {...item} key={item.id} />
-                    ))}
+                    {items.map(item => <ServiceOrderItem {...item} key={item.id} />)}
                 </div>
                 <div className="w-100 text-center mt-3"><button className="btn btn-light" onClick={() => history.push(`/orders/${id}`)}>اطلاعات بیشتر</button></div>
             </div>

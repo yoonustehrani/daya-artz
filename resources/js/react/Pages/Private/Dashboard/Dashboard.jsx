@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // components
-import BottomItem from './components/BottomItem';
-import MiddleItem from './components/MiddleItem';
-import TopItem from './components/TopItem';
+const BottomItem = React.lazy(() => import('./components/BottomItem'));
+const MiddleItem = React.lazy(() => import('./components/MiddleItem'));
+const TopItem    = React.lazy(() => import('./components/TopItem'));
 
 class Dashboard extends Component {
     constructor(props) {
@@ -21,13 +21,11 @@ class Dashboard extends Component {
                 {title: "لوگو تایپ", href: "#"},
                 {title: "کارت ویزیت", href: "#"}
             ],
-            recent_pais: [
-
-            ],
+            recent_pais: [],
             recent_messages: [
-                {title: "سلام ساک میزنی؟", href: "#"}
+                {title: "سلام", href: "#"}
             ]
-        }    
+        }
         this.dashboard_items = {
             top_items: [
                 {
@@ -73,12 +71,6 @@ class Dashboard extends Component {
 
     componentDidMount() {
         document.title = "داشبورد"
-        // axios.get("").then(res => {
-        //     let {  } = res.data
-        //     this.setState({
-
-        //     })
-        // })
     }
 
     render() {

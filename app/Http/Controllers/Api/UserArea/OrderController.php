@@ -17,7 +17,8 @@ class OrderController extends Controller
                     'code',
                     'method',
                     'status',
-                    'type'
+                    'type',
+                    'created_at'
                 ])
                 ->latest()
                 ->simplePaginate(4);
