@@ -323,10 +323,6 @@ $xl-xl-breakpoint: 1600px;
     .order-box-bg {
         width: 90%;
         margin: 5%;
-        .service-order-item {
-            width: 115px;
-            margin: 10px;
-        }
     }
     .finance-item {
         .top-item-icon {
@@ -1084,8 +1080,16 @@ $xl-xl-breakpoint: 1600px;
         width: 100%;
         margin-bottom: 20px;
         .service-order-item {
-            width: 110px;
-            margin: 8px;
+            width: 110px !important;
+            margin: 8px !important;
+            .service-order-item-icon {
+                i {
+                    font-size: 35px !important;
+                }
+            }
+            .service-order-item-title {
+                font-size: 14px !important;
+            }
         }
     }
     .orders-filter {
@@ -1574,8 +1578,10 @@ $xl-xl-breakpoint: 1600px;
         width: 47%;
         margin: 1.5%;
         .service-order-item {
-            width: 100px;
-            margin: 10px;
+            width: 130px !important;
+            .service-order-item-title {
+                font-size: 17px !important;
+            }
         }
     }
 }
@@ -1703,10 +1709,6 @@ $xl-xl-breakpoint: 1600px;
     .order-box-bg {
         width: 47%;
         margin: 1.5%;
-        .service-order-item {
-            width: 100px;
-            margin: 10px;
-        }
     }
     .order-items-container {
         > div {

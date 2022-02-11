@@ -10398,10 +10398,6 @@ h3 {
     width: 90%;
     margin: 5%;
   }
-  .order-box-bg .service-order-item {
-    width: 115px;
-    margin: 10px;
-  }
 
   .finance-item .top-item-icon i {
     font-size: 40px !important;
@@ -11152,8 +11148,14 @@ h3 {
     margin-bottom: 20px;
   }
   .order-box-bg .service-order-item {
-    width: 110px;
-    margin: 8px;
+    width: 110px !important;
+    margin: 8px !important;
+  }
+  .order-box-bg .service-order-item .service-order-item-icon i {
+    font-size: 35px !important;
+  }
+  .order-box-bg .service-order-item .service-order-item-title {
+    font-size: 14px !important;
   }
 
   .orders-filter h4 {
@@ -11593,8 +11595,10 @@ h3 {
     margin: 1.5%;
   }
   .order-box-bg .service-order-item {
-    width: 100px;
-    margin: 10px;
+    width: 130px !important;
+  }
+  .order-box-bg .service-order-item .service-order-item-title {
+    font-size: 17px !important;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -11704,10 +11708,6 @@ h3 {
   .order-box-bg {
     width: 47%;
     margin: 1.5%;
-  }
-  .order-box-bg .service-order-item {
-    width: 100px;
-    margin: 10px;
   }
 
   .order-items-container > div {
@@ -16181,24 +16181,26 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .orders-container .order-box-bg .order-box .service-order-items-container .service-order-item {
   border-radius: 8px;
-  padding: 6px;
   background-color: #fff;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.15);
-  max-width: 120px;
+  width: 120px;
+  margin: 10px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .orders-container .order-box-bg .order-box .service-order-items-container .service-order-item > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 6px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .orders-container .order-box-bg .order-box .service-order-items-container .service-order-item > div .service-order-item-icon i {
   font-size: 45px !important;
 }
 .user-area-layout-container .user-area-panel .main-content-container .orders-container .order-box-bg .order-box .service-order-items-container .service-order-item > div .service-order-item-title {
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
+  text-align: center;
 }
 .user-area-layout-container .user-area-panel .main-content-container .orders-filter {
   width: 100%;

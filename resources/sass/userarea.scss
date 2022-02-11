@@ -486,15 +486,16 @@
                             width: 100%;
                             .service-order-item {
                                 border-radius: 8px;
-                                padding: 6px;
                                 background-color: #fff;
                                 box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 15%);
-                                max-width: 120px;
+                                width: 120px;
+                                margin: 10px;
                                 > div {
                                         display: flex;
                                         flex-direction: column;
                                         justify-content: center;
                                         align-items: center;
+                                        padding: 6px;
                                     .service-order-item-icon {
                                         i {
                                             font-size: 45px !important;
@@ -502,8 +503,9 @@
                                     }
                                     .service-order-item-title {
                                         color: #000;
-                                        font-size: 18px;
+                                        font-size: 16px;
                                         margin: 0;
+                                        text-align: center;
                                     }
                                 }
                             }
