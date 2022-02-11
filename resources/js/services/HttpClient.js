@@ -52,18 +52,24 @@ export default class HttpClient
             let {data, status} = err.response
             let message = ""
             let title = data.message
-            if (status === 422) {
-                let errors = Object.keys(data.errors)
-                errors.map(item => {
-                    let msg = ""
-                    data.errors[item].forEach(m => {
-                        msg += (m + "\n")
-                    });
-                    message += (msg + "\n")
-                })
-                message = message.trim().replace(/\n{1,}/g, "<br>")
-            } else {
-                message = "خطای سرور"
+            switch (status) {
+                case 422:
+                    let errors = Object.keys(data.errors)
+                    errors.map(item => {
+                        let msg = ""
+                        data.errors[item].forEach(m => {
+                            msg += (m + "\n")
+                        });
+                        message += (msg + "\n")
+                    })
+                    message = message.trim().replace(/\n{1,}/g, "<br>")
+                    break
+                case 404:
+                    message = "صفحه موردنظر پیدا نشد"
+                    break
+                default:
+                    message = "خطای سرور"
+                    break
             }
             this.Alert.error({title: 'خطا', html: message})
             return data

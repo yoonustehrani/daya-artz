@@ -4,7 +4,7 @@ import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem';
 import OrderContainer from '../Orders/components/OrderContainer'
 import Paginate from '../../../../components/Paginate';
-import { useHttpService, useJalaliDate } from '../../../hooks';
+import { useHttpService } from '../../../hooks';
 
 class Orders extends Component {
     constructor(props) {
@@ -16,11 +16,11 @@ class Orders extends Component {
         }
         this.http = useHttpService('/userarea/orders')
     }
-    loadOrders = (customUrl = false) => {
+    loadOrders = (customUrl = null) => {
         this.setState({
             loading: true,
         }, async () => {
-            let url = customUrl ? customUrl : ''
+            let url = customUrl ?? ''
             const response = await this.http.get(url)
             if (response.data) {
                 let {data, next_page_url, prev_page_url, current_page} = response
@@ -48,7 +48,6 @@ class Orders extends Component {
         this.loadOrders()
     }
     render() {
-        console.log(useJalaliDate("2022-02-10 08:44:09").format("jYYYY"));
         let { loading, orders, paginateInfo } = this.state
         return (
             <div>
@@ -56,9 +55,7 @@ class Orders extends Component {
                     loading ? <Activity/>
                     : orders && orders.length > 0
                     ? <div className="orders-container">
-                        {orders.map((order, i) => (
-                            <OrderContainer key={order.id} {...order} />
-                        ))}
+                        {orders.map((order, i) => <OrderContainer key={order.id} {...order} />)}
                         {paginateInfo && <Paginate {...paginateInfo} next_page_handler={this.handlePageChange.bind(this)} prev_page_handler={this.handlePageChange.bind(this, false)} />}
                     </div>
                     : <NoItem/>

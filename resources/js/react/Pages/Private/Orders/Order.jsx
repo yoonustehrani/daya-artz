@@ -60,16 +60,14 @@ class Order extends Component {
         })
     }
     loadOrder = async () => {
-        let { orderId } = this.props.params;
+        let { orderId } = this.props.params
+        let order = null
         const response = await this.http.get(orderId)
         if (response.okay) {
-            let {order} = response
-            this.setState({
-                loading: false,
-                order
-            })
+            order = response.order
             document.title += ` ${order.code}`
         }
+        this.setState({loading: false, order})
     }
     componentDidMount() {
         document.title = `مشاهده سفارش`

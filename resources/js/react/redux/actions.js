@@ -12,6 +12,12 @@ const actionTypes = {
     COMPANY_DETECTED: `${reducerKeys.user}/companyWasSet`
 }
 
+const logUserIn = user => ({ type: actionTypes.USER_LOGGED_IN, payload: user })
+const setCompany = company => ({type: actionTypes.COMPANY_DETECTED, payload: company})
+const verifyUserPhone = () => ({type: actionTypes.USER_VERIFIED_PHONE})
+const changeAppStatus = status => ({ type: actionTypes.APP_STATUS_CHANGED, payload: !! status })
+const changeEmail = email => ({type: actionTypes.USER_EMAIL_CHANGED, payload: email})
+
 const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, {rejectWithValue, dispatch}) => {
     const response = await http.post('/auth/login', credentials)
     if (response.okay) {
@@ -23,15 +29,17 @@ const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credenti
     return rejectWithValue(response.error)
 })
 
-const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState, rejectWithValue}) => {
+const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState, dispatch, rejectWithValue}) => {
     if (getState().auth.user) {
         const response = await http.post('/auth/logout')
         if (response.okay) {
-            dispatch(setCompany(null));
+            dispatch(setCompany(null))
             return response
         }
     }
-    throw new Error()
+    return rejectWithValue({
+        error: true
+    })
 })
 
 const registerUser = createAsyncThunk('auth/registerUser', async (information, {rejectWithValue}) => {
@@ -68,12 +76,6 @@ const updateCompanyInfo = createAsyncThunk('user/company/modify', async(params, 
     const response = await http.put('/userarea/user/company', params)
     return response.okay ? response.company : rejectWithValue(response.error)
 })
-
-const logUserIn = user => ({ type: actionTypes.USER_LOGGED_IN, payload: user })
-const setCompany = company => ({type: actionTypes.COMPANY_DETECTED, payload: company})
-const verifyUserPhone = () => ({type: actionTypes.USER_VERIFIED_PHONE})
-const changeAppStatus = status => ({ type: actionTypes.APP_STATUS_CHANGED, payload: !! status })
-const changeEmail = email => ({type: actionTypes.USER_EMAIL_CHANGED, payload: email})
 
 const checkAuth = async (dispatch, getState) => {
     const response = await http.get('/auth/user', null, false)

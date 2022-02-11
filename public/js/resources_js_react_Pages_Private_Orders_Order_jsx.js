@@ -233,30 +233,30 @@ var Order = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "loadOrder", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var orderId, response, order;
+      var orderId, order, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               orderId = _this.props.params.orderId;
-              _context.next = 3;
+              order = null;
+              _context.next = 4;
               return _this.http.get(orderId);
 
-            case 3:
+            case 4:
               response = _context.sent;
 
               if (response.okay) {
                 order = response.order;
-
-                _this.setState({
-                  loading: false,
-                  order: order
-                });
-
                 document.title += " ".concat(order.code);
               }
 
-            case 5:
+              _this.setState({
+                loading: false,
+                order: order
+              });
+
+            case 7:
             case "end":
               return _context.stop();
           }

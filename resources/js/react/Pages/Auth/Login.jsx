@@ -24,8 +24,8 @@ class Login extends Component {
                 <form onSubmit={handleLogin} className="form-group default-style">
                     <div className="email-phone-container input-group">
                         <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
-                                <input type="text" className="form-control" value={email} placeholder="ایمیل یا نام کاربری" onChange={onChangeField.bind(this, "login", "email")} />
-                                <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>
+                            <input type="text" className="form-control" value={email} placeholder="ایمیل یا نام کاربری" onChange={onChangeField.bind(this, "login", "email")} />
+                            <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>
                         </div>
                         <div className={`input-group animated ${login_method === "phone"  ? "" : "d-none"}`}>
                             <div className="input-group-prepend">

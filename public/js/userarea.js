@@ -4563,9 +4563,8 @@ var useJalaliDate = function useJalaliDate(datetime) {
 
 var useHttpService = function useHttpService() {
   var base_path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-  var baseURL = base_path !== null ? API_BASE_URL + base_path : null;
   return new _services_HttpClient__WEBPACK_IMPORTED_MODULE_2__["default"]({
-    baseURL: baseURL,
+    baseURL: API_BASE_URL + base_path,
     headers: {
       'X-XSRF-TOKEN': (0,_services_CookieService__WEBPACK_IMPORTED_MODULE_1__.getCookie)('XSRF-TOKEN'),
       'Accept': 'application/json'
@@ -4624,6 +4623,41 @@ var actionTypes = {
   APP_STATUS_CHANGED: "".concat(reducerKeys.auth, "/appStatusChanged"),
   COMPANY_DETECTED: "".concat(reducerKeys.user, "/companyWasSet")
 };
+
+var logUserIn = function logUserIn(user) {
+  return {
+    type: actionTypes.USER_LOGGED_IN,
+    payload: user
+  };
+};
+
+var setCompany = function setCompany(company) {
+  return {
+    type: actionTypes.COMPANY_DETECTED,
+    payload: company
+  };
+};
+
+var verifyUserPhone = function verifyUserPhone() {
+  return {
+    type: actionTypes.USER_VERIFIED_PHONE
+  };
+};
+
+var changeAppStatus = function changeAppStatus(status) {
+  return {
+    type: actionTypes.APP_STATUS_CHANGED,
+    payload: !!status
+  };
+};
+
+var changeEmail = function changeEmail(email) {
+  return {
+    type: actionTypes.USER_EMAIL_CHANGED,
+    payload: email
+  };
+};
+
 var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/loginUser', /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(credentials, _ref) {
     var rejectWithValue, dispatch, response;
@@ -4666,12 +4700,12 @@ var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.cre
 }());
 var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/logoutUser', /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(param, _ref3) {
-    var getState, rejectWithValue, response;
+    var getState, dispatch, rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            getState = _ref3.getState, rejectWithValue = _ref3.rejectWithValue;
+            getState = _ref3.getState, dispatch = _ref3.dispatch, rejectWithValue = _ref3.rejectWithValue;
 
             if (!getState().auth.user) {
               _context2.next = 8;
@@ -4693,7 +4727,9 @@ var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThu
             return _context2.abrupt("return", response);
 
           case 8:
-            throw new Error();
+            return _context2.abrupt("return", rejectWithValue({
+              error: true
+            }));
 
           case 9:
           case "end":
@@ -4906,40 +4942,6 @@ var updateCompanyInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createA
     return _ref18.apply(this, arguments);
   };
 }());
-
-var logUserIn = function logUserIn(user) {
-  return {
-    type: actionTypes.USER_LOGGED_IN,
-    payload: user
-  };
-};
-
-var setCompany = function setCompany(company) {
-  return {
-    type: actionTypes.COMPANY_DETECTED,
-    payload: company
-  };
-};
-
-var verifyUserPhone = function verifyUserPhone() {
-  return {
-    type: actionTypes.USER_VERIFIED_PHONE
-  };
-};
-
-var changeAppStatus = function changeAppStatus(status) {
-  return {
-    type: actionTypes.APP_STATUS_CHANGED,
-    payload: !!status
-  };
-};
-
-var changeEmail = function changeEmail(email) {
-  return {
-    type: actionTypes.USER_EMAIL_CHANGED,
-    payload: email
-  };
-};
 
 var checkAuth = /*#__PURE__*/function () {
   var _ref19 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9(dispatch, getState) {
@@ -5685,7 +5687,8 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
         path: path,
         exact: exact,
         render: function render(_ref) {
-          var location = _ref.location,
+          var history = _ref.history,
+              location = _ref.location,
               match = _ref.match;
           return user ? location.pathname === "/" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
             to: {
@@ -5695,7 +5698,10 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
               }
             }
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-            children: [CallableComponent && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CallableComponent, _objectSpread({}, match)), children]
+            children: [CallableComponent && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CallableComponent, _objectSpread({
+              history: history,
+              location: location
+            }, match)), children]
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
             to: {
               pathname: "/auth/login",
@@ -5747,8 +5753,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
- // import LoaderComponent from '../components/LoaderComponent';
-// Route component
+
 
 
 
@@ -5756,12 +5761,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function PrivateRoutes() {
   var AppRoutes = _routes__WEBPACK_IMPORTED_MODULE_1__["default"];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Switch, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
-      children: AppRoutes.map(function (mainRoute, i) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+    fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Switch, {
+      children: [AppRoutes.map(function (mainRoute, i) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({}, mainRoute), i);
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+        path: "*",
+        render: function render(_ref) {
+          var location = _ref.location;
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Redirect, {
+            to: {
+              pathname: "/dashboard",
+              state: {
+                from: location,
+                error: 404
+              }
+            }
+          });
+        }
+      })]
     })
   });
 }
@@ -5911,14 +5930,19 @@ var routes = [{
   exact: true,
   CallableComponent: UserInfo
 }, {
-  path: "/orders/:orderId(".concat(uuidRegex, ")"),
-  exact: true,
-  CallableComponent: Order
-}, {
   path: '/orders',
   exact: true,
   CallableComponent: Orders
 }, {
+  path: "/orders/:orderId(".concat(uuidRegex, ")"),
+  exact: true,
+  CallableComponent: Order
+}, // {
+//     path: `/orders/:orderId(${uuidRegex})/items/:itemId`,
+//     exact: true,
+//     CallableComponent: Order
+// },
+{
   path: '/finance/invoices',
   exact: true,
   CallableComponent: Invoices
@@ -5979,7 +6003,7 @@ var routes = [{
   exact: true,
   CallableComponent: Contracts
 }, {
-  path: "contract_sample",
+  path: "/contract_sample",
   exact: true,
   CallableComponent: ContractSample
 }];
@@ -6340,18 +6364,26 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
       var message = "";
       var title = data.message;
 
-      if (status === 422) {
-        var errors = Object.keys(data.errors);
-        errors.map(function (item) {
-          var msg = "";
-          data.errors[item].forEach(function (m) {
-            msg += m + "\n";
+      switch (status) {
+        case 422:
+          var errors = Object.keys(data.errors);
+          errors.map(function (item) {
+            var msg = "";
+            data.errors[item].forEach(function (m) {
+              msg += m + "\n";
+            });
+            message += msg + "\n";
           });
-          message += msg + "\n";
-        });
-        message = message.trim().replace(/\n{1,}/g, "<br>");
-      } else {
-        message = "خطای سرور";
+          message = message.trim().replace(/\n{1,}/g, "<br>");
+          break;
+
+        case 404:
+          message = "صفحه موردنظر پیدا نشد";
+          break;
+
+        default:
+          message = "خطای سرور";
+          break;
       }
 
       _this.Alert.error({
@@ -70489,7 +70521,7 @@ function _setPrototypeOf(o, p) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\\\daya-artz"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\projects\\\\test\\\\daya-artz","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 
@@ -70568,7 +70600,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_react_Pages_Auth_Login_jsx":1,"resources_js_react_Pages_Auth_Signup_jsx":1,"resources_js_react_Pages_Auth_ForgetPassword_jsx":1,"resources_js_react_Pages_Auth_EmailValidation_jsx":1,"resources_js_react_Pages_Auth_PhoneValidation_jsx":1,"resources_js_react_Pages_Private_Dashboard_index_js":1,"resources_js_react_Pages_Private_Orders_index_js":1,"resources_js_react_Pages_Private_Tickets_Tickets_jsx":1,"resources_js_react_Pages_Private_Finance_index_js":1,"resources_js_react_Pages_Private_Profile_BrandInfo_jsx":1,"resources_js_react_Pages_Private_Profile_RegisterInfo_jsx":1,"resources_js_react_Pages_Private_Profile_UserInfo_jsx":1,"resources_js_react_Pages_Private_Contracts_Contracts_jsx":1,"resources_js_react_Pages_Private_Contracts_ContractSample_jsx":1,"resources_js_react_Pages_Private_Orders_Order_jsx":1,"resources_js_react_Pages_Private_Tickets_Ticket_jsx":1,"resources_js_react_Pages_Private_Tickets_NewTicket_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoices_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx":1,"resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx":1,"resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoices_jsx":1,"resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoice_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bill_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bills_jsx":1,"resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx":1,"resources_js_react_Pages_Private_Finance_Discounts_Discounts_jsx":1,"resources_js_react_Pages_Private_Contracts_Contract_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_react_Pages_Auth_Login_jsx":1,"resources_js_react_Pages_Auth_Signup_jsx":1,"resources_js_react_Pages_Auth_ForgetPassword_jsx":1,"resources_js_react_Pages_Auth_EmailValidation_jsx":1,"resources_js_react_Pages_Auth_PhoneValidation_jsx":1,"resources_js_react_Pages_Private_Dashboard_index_js":1,"resources_js_react_Pages_Private_Orders_index_js":1,"resources_js_react_Pages_Private_Tickets_Tickets_jsx":1,"resources_js_react_Pages_Private_Finance_index_js":1,"resources_js_react_Pages_Private_Profile_BrandInfo_jsx":1,"resources_js_react_Pages_Private_Profile_RegisterInfo_jsx":1,"resources_js_react_Pages_Private_Profile_UserInfo_jsx":1,"resources_js_react_Pages_Private_Contracts_Contracts_jsx":1,"resources_js_react_Pages_Private_Contracts_ContractSample_jsx":1,"resources_js_react_Pages_Private_Orders_Order_jsx":1,"resources_js_react_Pages_Private_Tickets_Ticket_jsx":1,"resources_js_react_Pages_Private_Tickets_NewTicket_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoices_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx":1,"resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx":1,"resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoices_jsx":1,"resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoice_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bill_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bills_jsx":1,"resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx":1,"resources_js_react_Pages_Private_Finance_Discounts_Discounts_jsx":1,"resources_js_react_Pages_Private_Contracts_Contract_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_BottomItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_MiddleItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_TopItem_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

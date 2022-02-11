@@ -48,15 +48,20 @@ const routes = [
         CallableComponent: UserInfo
     },
     {
-        path: `/orders/:orderId(${uuidRegex})`,
-        exact: true,
-        CallableComponent: Order
-    },
-    {
         path: '/orders',
         exact: true,
         CallableComponent: Orders,
     },
+    {
+        path: `/orders/:orderId(${uuidRegex})`,
+        exact: true,
+        CallableComponent: Order
+    },
+    // {
+    //     path: `/orders/:orderId(${uuidRegex})/items/:itemId`,
+    //     exact: true,
+    //     CallableComponent: Order
+    // },
     {
         path: '/finance/invoices',
         exact: true,
@@ -133,7 +138,7 @@ const routes = [
         CallableComponent: Contracts
     },
     {
-        path: "contract_sample",
+        path: "/contract_sample",
         exact: true,
         CallableComponent: ContractSample
     }
