@@ -22,7 +22,19 @@ class OrderController extends Controller
                 ])
                 ->latest()
                 ->simplePaginate(4);
-        $orders->load('items.service');
+        $orders->load([
+            'items' => function($q) {
+                $q->select([
+                    'id',
+                    'service_id',
+                    'order_id'
+                ])->with(['service' => function($q) {
+                    $q->select([
+                        'id', 'title', 'icon_class'
+                    ]);
+                }]);
+            }
+        ]);
         return response()->json($orders);
     }
     public function show($order)

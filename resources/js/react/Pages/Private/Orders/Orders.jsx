@@ -16,11 +16,11 @@ class Orders extends Component {
         }
         this.http = useHttpService('/userarea/orders')
     }
-    loadOrders = (customUrl = false) => {
+    loadOrders = (customUrl = null) => {
         this.setState({
             loading: true,
         }, async () => {
-            let url = customUrl ? customUrl : ''
+            let url = customUrl ?? ''
             const response = await this.http.get(url)
             if (response.data) {
                 let {data, next_page_url, prev_page_url, current_page} = response

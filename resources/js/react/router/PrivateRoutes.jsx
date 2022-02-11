@@ -1,20 +1,18 @@
 import React, { Suspense, lazy } from 'react';
-import { Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import routes from '../routes';
-// import LoaderComponent from '../components/LoaderComponent';
-
-// Route component
 import RouteWithSubRoutes from './RouteWithSubRoutes';
 import LoaderComponent from '../components/LoaderComponent';
 
 function PrivateRoutes() {
     const AppRoutes = routes
     return (
-        <Switch>
-            <Suspense fallback={<LoaderComponent />}>
+        <Suspense fallback={<LoaderComponent />}>
+            <Switch>
                 {AppRoutes.map((mainRoute, i) => <RouteWithSubRoutes key={i} {...mainRoute}/>)}
-            </Suspense>
-        </Switch>
+                <Route path="*" render={({location}) => <Redirect to={{ pathname: "/dashboard", state: {from: location, error: 404} }} />} />
+            </Switch>
+        </Suspense>
     );
 }
 

@@ -5687,7 +5687,8 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
         path: path,
         exact: exact,
         render: function render(_ref) {
-          var location = _ref.location,
+          var history = _ref.history,
+              location = _ref.location,
               match = _ref.match;
           return user ? location.pathname === "/" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
             to: {
@@ -5697,7 +5698,10 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
               }
             }
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-            children: [CallableComponent && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CallableComponent, _objectSpread({}, match)), children]
+            children: [CallableComponent && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CallableComponent, _objectSpread({
+              history: history,
+              location: location
+            }, match)), children]
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
             to: {
               pathname: "/auth/login",
@@ -5749,8 +5753,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
- // import LoaderComponent from '../components/LoaderComponent';
-// Route component
+
 
 
 
@@ -5758,12 +5761,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function PrivateRoutes() {
   var AppRoutes = _routes__WEBPACK_IMPORTED_MODULE_1__["default"];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Switch, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
-      children: AppRoutes.map(function (mainRoute, i) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+    fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Switch, {
+      children: [AppRoutes.map(function (mainRoute, i) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_RouteWithSubRoutes__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({}, mainRoute), i);
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+        path: "*",
+        render: function render(_ref) {
+          var location = _ref.location;
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Redirect, {
+            to: {
+              pathname: "/dashboard",
+              state: {
+                from: location,
+                error: 404
+              }
+            }
+          });
+        }
+      })]
     })
   });
 }
@@ -5913,14 +5930,19 @@ var routes = [{
   exact: true,
   CallableComponent: UserInfo
 }, {
-  path: "/orders/:orderId(".concat(uuidRegex, ")"),
-  exact: true,
-  CallableComponent: Order
-}, {
   path: '/orders',
   exact: true,
   CallableComponent: Orders
 }, {
+  path: "/orders/:orderId(".concat(uuidRegex, ")"),
+  exact: true,
+  CallableComponent: Order
+}, // {
+//     path: `/orders/:orderId(${uuidRegex})/items/:itemId`,
+//     exact: true,
+//     CallableComponent: Order
+// },
+{
   path: '/finance/invoices',
   exact: true,
   CallableComponent: Invoices
@@ -5981,7 +6003,7 @@ var routes = [{
   exact: true,
   CallableComponent: Contracts
 }, {
-  path: "contract_sample",
+  path: "/contract_sample",
   exact: true,
   CallableComponent: ContractSample
 }];
@@ -6342,18 +6364,26 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
       var message = "";
       var title = data.message;
 
-      if (status === 422) {
-        var errors = Object.keys(data.errors);
-        errors.map(function (item) {
-          var msg = "";
-          data.errors[item].forEach(function (m) {
-            msg += m + "\n";
+      switch (status) {
+        case 422:
+          var errors = Object.keys(data.errors);
+          errors.map(function (item) {
+            var msg = "";
+            data.errors[item].forEach(function (m) {
+              msg += m + "\n";
+            });
+            message += msg + "\n";
           });
-          message += msg + "\n";
-        });
-        message = message.trim().replace(/\n{1,}/g, "<br>");
-      } else {
-        message = "خطای سرور";
+          message = message.trim().replace(/\n{1,}/g, "<br>");
+          break;
+
+        case 404:
+          message = "صفحه موردنظر پیدا نشد";
+          break;
+
+        default:
+          message = "خطای سرور";
+          break;
       }
 
       _this.Alert.error({
