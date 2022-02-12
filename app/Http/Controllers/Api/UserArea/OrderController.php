@@ -40,10 +40,11 @@ class OrderController extends Controller
     public function show($order)
     {
         $order = request()->user()->orders()->findOrFail($order);
-        // policy here
+        $items = $order->items()->with('service')->get();
         return response()->json([
             'okay' => true,
-            'order' => $order
+            'order' => $order,
+            'items' => $items
         ]);
     }
 }

@@ -48,7 +48,7 @@ var validate = function validate(inputsArray) {
               case "long_text":
                 !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
                   min: 0,
-                  max: 60
+                  max: 80
                 }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0634\u0635\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
                 break;
 
@@ -142,7 +142,7 @@ var NestedObj = /*#__PURE__*/function () {
     if (keys.length > 1) {
       this.lastKey = keys.pop();
       this.lastObj = keys.reduce(function (targetObj, key) {
-        return targetObj[key] = targetObj[key] || {};
+        return targetObj[key] = !Array.isArray(targetObj[key]) ? targetObj[key] : {};
       }, this.targetObj);
     } else {
       this.lastObj = this.targetObj;

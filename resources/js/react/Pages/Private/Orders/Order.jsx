@@ -13,29 +13,7 @@ class Order extends Component {
             loading: false,
             filter: "all",
             order: null,
-            items: [
-                {
-                    title: "لوگو تصویری",
-                    type: "logo",
-                    status: 'in_progress',
-                    created_at: "1400/10/14",
-                    due_date: "5"
-                },
-                {
-                    title: "لوگو تصویری",
-                    type: "logo",
-                    status: 'in_progress',
-                    created_at: "1400/10/14",
-                    due_date: "5"
-                },
-                {
-                    title: "لوگو تصویری",
-                    type: "logo",
-                    status: 'in_progress',
-                    created_at: "1400/10/14",
-                    due_date: "5"
-                },
-            ]
+            items: []
         }
         this.http = useHttpService(`/userarea/orders/`)
     }
@@ -61,13 +39,14 @@ class Order extends Component {
     }
     loadOrder = async () => {
         let { orderId } = this.props.params
-        let order = null
+        let newState = {};
         const response = await this.http.get(orderId)
         if (response.okay) {
-            order = response.order
+            let {order, items} = response
+            newState = {order, items}
             document.title += ` ${order.code}`
         }
-        this.setState({loading: false, order})
+        this.setState({loading: false, ...newState})
     }
     componentDidMount() {
         document.title = `مشاهده سفارش`
@@ -82,12 +61,12 @@ class Order extends Component {
                     loading ? <Activity/>
                     : items && items.length > 0
                     ? <div className="order-items-container">
-                        {items.map((item, i) => (
+                        {items.length > 0 && items.map((item, i) => (
                             <OrderItem key={i} {...item} />
                         ))}
                     </div>
                     : <NoItem/>
-                }            
+                }
             </div>
         );
     }

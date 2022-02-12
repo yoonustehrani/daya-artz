@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import { useJalaliDate } from "../../../../hooks"
 
-class OrderItem extends Component {
-    render() {
-        let { title, type, status, created_at, due_date } = this.props
-        return (
-            <div>
-                <div className="order-title">
-                    <img src={APP_PATH + 'images/brand.svg'} />
-                    <h4>{title}</h4>
-                </div>
-                <ul className="order-details">
-                    <li>وضعیت: <span>{status}</span></li>
-                    <li>تاریخ ثبت سفارش: <span>{created_at}</span></li>
-                    <li>{due_date} روز تا پایان پروژه</li>
-                </ul>
-                <span className={status}>در حال انجام</span>
+export default function OrderItem({ service, title, status, status_info, created_at, due_date }) {
+    return (
+        <div>
+            <div className="order-title">
+                {/* <i className={service.icon_class}></i> */}
+                <img src={APP_PATH + 'images/brand.svg'} />
+                <h4>{service.title}</h4>
             </div>
-        )
-    }
-}
-
-export default OrderItem;
+            <ul className="order-details">
+                <li>وضعیت: <span>{status}</span></li>
+                <li>{status_info}</li>
+                <li>تاریخ ثبت سفارش: <span>{useJalaliDate(created_at).format("jYYYY/jMM/jDD")}</span></li>
+                {due_date && <li>تاریخ پایان پروژه: <span>{useJalaliDate(due_date).format("jYYYY/jMM/jDD")}</span></li>}
+            </ul>
+            {/* TODO BACKEND AND FRONTEND */}
+            <span className={status}>در حال انجام</span>
+        </div>
+    )
+};

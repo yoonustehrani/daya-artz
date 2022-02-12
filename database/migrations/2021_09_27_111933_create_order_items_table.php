@@ -15,14 +15,16 @@ class CreateOrderItemsTable extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->foreignUuid('order_id');
             $table->foreignId('service_id')->nullable();
             $table->foreignId('plan_id')->nullable();
             $table->foreignUuid('company_id')->nullable();
             $table->foreignId('offer_id')->nullable();
-            $table->string('status', 20); // TO BE DISCUSSED
+            $table->string('status');
             $table->text('status_info')->nullable();
             $table->bigInteger('price')->default(0);
+            $table->timestamp('due_date')->nullable();
             $table->timestamp('expires_at')->nullable();
             $table->softDeletes();
             $table->timestamps();

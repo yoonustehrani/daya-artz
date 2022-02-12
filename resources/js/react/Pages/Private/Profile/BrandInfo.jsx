@@ -27,7 +27,7 @@ function BrandInfo() {
             component: TextInput,
             title: "تگ لاین یا شعار",
             path: "details.tagline",
-            validate_types: ["short_text"]
+            validate_types: ["long_text"]
         },
         {
             component: PhoneInput,

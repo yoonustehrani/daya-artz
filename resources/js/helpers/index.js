@@ -6,7 +6,7 @@ export class NestedObj {
         if (keys.length > 1) {
             this.lastKey = keys.pop()
             this.lastObj = keys.reduce((targetObj, key) => 
-                targetObj[key] = targetObj[key] || {}
+                targetObj[key] = !Array.isArray(targetObj[key]) ? targetObj[key] : {}
             , this.targetObj)
         } else {
             this.lastObj = this.targetObj

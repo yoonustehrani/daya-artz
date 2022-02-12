@@ -20,7 +20,7 @@ const validate = (inputsArray) => {
                                 ! validator.isLength(value, {min: 0, max: 20}) ? err = `طول فیلد ${title} حداکثر بیست کاراکتر میباشد` : null
                                 break
                             case "long_text":
-                                ! validator.isLength(value, {min: 0, max: 60}) ? err = `طول فیلد ${title} حداکثر شصت کاراکتر میباشد` : null
+                                ! validator.isLength(value, {min: 0, max: 80}) ? err = `طول فیلد ${title} حداکثر شصت کاراکتر میباشد` : null
                                 break
                             case "paragraph":
                                 ! validator.isLength(value, {min: 0, max: 500}) ? err = `طول فیلد ${title} حداکثر پانصد کاراکتر میباشد` : null
