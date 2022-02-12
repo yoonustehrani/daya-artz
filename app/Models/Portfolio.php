@@ -15,6 +15,10 @@ class Portfolio extends Model
         return $this->morphToMany(File::class, 'fileable')->whereType('image')->withPivot('details');
     }
 
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
     // public function image()
     // {
     //     return $this->morp(File::class, 'fileable')->whereType('image')->withPivot('details')->limit(1);

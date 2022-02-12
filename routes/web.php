@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ Route::get('services/{slug}', [WebsiteController::class, 'service'])->name('serv
 Route::get('blog', [PostController::class, 'index'])->name('blog.index');
 Route::get('blog/{slug}', [PostController::class, 'show'])->name('blog.show');
 
-Route::get('portfolio/{slug}', [WebsiteController::class, 'portfolio'])->name('portfolio.show');
+Route::get('portfolio/{slug}', [PortfolioController::class, 'show'])->name('portfolio.show');
 
 Route::view('about', 'pages.about')->name('about');
 Route::view('contact', 'pages.contact')->name('contact');

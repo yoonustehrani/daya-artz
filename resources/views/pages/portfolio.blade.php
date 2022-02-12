@@ -5,111 +5,53 @@
 @endpush
 
 @section('content')
-<!-- page section guide -->
-
-<div class="section-guide-container animated slideInLeft closed">
-    <div class="section-guide-bg">
-        <div class="section-guide">
-            <h4>راهنمای صفحه</h4>
-            <ul id="guide-list">
-                <li class="current"><span>مشخصات کلی لوگو</span> <span></span></li>
-                <li><span>جزئیات سفارش</span> <span></span></li>
-                <li><span>درباره مشتری</span> <span></span></li>
-                <li><span>فلسفه فکری لوگو</span> <span></span></li>
-                <li><span>شروع ثبت سفارش</span> <span></span></li>
-                <li><span>راهنمای دایا</span> <span></span></li>
-                <li><span>طرح های مشابه</span> <span></span></li>
-            </ul>
-        </div>
-    </div>
-    <span id="guide-toggler">
-        <span>
-            <i class="fas fa-angle-left"></i>
-        </span>
-    </span>
-</div>
-<!-- end section guide -->
-
-<!-- sample info -->
 <div id="logo-info" class="w-100 float-left dotted-background p-4 p-md-2 p-lg-5">
     <div class="float-right col-12 col-md-8">
         <div class="sample-images-slider">
+            @if ($portfolio->images->count() > 0)
             <div class="showing-image">
-                <img src="{{ asset('images/gallery/sampi-logo.jpg') }}">
+                <x-file-image :path="$portfolio->images[0]->path" :details="$portfolio->images[0]->pivot->details"/>
             </div>
             <div class="small-items-container">
                 <span><i class="fas fa-chevron-left"></i></span>
-                <div><img src="{{ asset('images/gallery/reverse-logo.jpg') }}" alt=""></div>
-                <div><img src="{{ asset('images/gallery/tehran-tejarat-logo.jpg') }}" alt=""></div>
-                <div><img src="{{ asset('images/gallery/elnovel-logo.jpg') }}" alt=""></div>
+                @foreach ($portfolio->images as $item)
+                <div>
+                    <x-file-image :path="$item->path" :details="$item->pivot->details"/>
+                </div>
+                @endforeach
                 <span><i class="fas fa-chevron-right"></i></span>
             </div>
+            @endif
         </div>
         <div class="sample-info mt-4 mt-md-0">
-            <h3>مشخصات کلی لوگو</h3>
-            <ul class="p-0">
-                <li>نام برند: <h3>Sampi - سامپی</h3></li>
-                <li>طرف قرارداد: <h3>تیم سامپی</h3></li>
-                <li>نوع لوگو: <h3>تایپو گرافی</h3></li>
+            <h1>نمونه طراحی {{ $portfolio->service->title }}</h1>
+            <ul class="p-0 m-0 w-100">
+                <li>نام برند: <h3>{{ $portfolio->title }}</h3></li>
+                <li>طرف قرارداد: <h3>{{ $portfolio->company }}</h3></li>
+                {{-- <li>نوع لوگو: <h3>تایپو گرافی</h3></li> --}}
                 {{-- <li>امتیاز لوگو: <h3>8/10</h3></li> --}}
                 {{-- <li>نظر کابران: <span class="mr-2"><i class="fab fa-gratipay"></i> 273</span></li> --}}
             </ul>
         </div>
     </div>
 </div>
-<!-- end sample info -->
+@if ($portfolio->details)
+    @isset($portfolio->details->order)
+        <x-portfolio-details :details="collect($portfolio->details->order)"/>
+    @endisset
+    @isset ($portfolio->details->timeline)
+        <x-portfolio-timeline :timeline="collect($portfolio->details->timeline)"/>
+    @endisset
+@endif
 
-<!-- start order detail -->
-<div id="order-detail" class="w-100 float-left portfolio-order-detail">
-    <div class="w-100 h-100 dotted-background">
-        <h4 class="pt-4">جزئیات سفارش</h4>
-        <ul class="detail-box w-100 p-4 rtl">
-            <li><h4>تعداد ادیت درخواستی: <span>3</span></h4></li>
-            <li><h4>تعداد ادیت استفاده شده: <span>1</span></h4></li>
-            <li><h4>نوع یا شیوه سفارش: <span>سفارش تخصصی از طریق وبسایت</span></h4></li>
-            <li><h4>تعداد کل اتودها: <span>۳</span></h4></li>
-            <li><h4>تعداد اتود تایید شده: <span>1</span></h4></li>
-            <li><h4>نوع پکیج: <span>بسته لاجوردی</span></h4></li>
-        </ul>
-    </div>
-</div>
-<!-- end order detail -->
-
-<!-- start process timeline-->
-<div id="time-line" class="w-100 float-left p-4 process-timeline dotted-background">
-    <div class="icons-container">
-        <span><i class="far fa-hand-pointer"></i></span>
-        <span><i class="far fa-credit-card"></i></span>
-        <span><i class="far fa-handshake"></i></span>
-        <span><i class="far fa-edit"></i></span>
-        <span><i class="far fa-check-square"></i></span>
-    </div>
-    <div class="dates-line">
-        <span>99/04/23</span>
-        <span>99/04/23</span>
-        <span>99/04/23</span>
-        <span>99/04/23</span>
-        <span>99/04/23</span>
-    </div>
-    <div class="levels-container">
-        <span><i class="fas fa-circle"></i> ثبت سفارش</span>
-        <span><i class="fas fa-circle"></i> ثبت قرارداد و پیش پرداخت</span>
-        <span><i class="fas fa-circle"></i> ارسال اتود ها و دریافت تغییر ها</span>
-        <span><i class="fas fa-circle"></i> انجام تغییرات</span>
-        <span><i class="fas fa-circle"></i> تصوریه حساب و ارسال فایل</span>
-    </div>
-</div>
-<!-- end process timeline -->
-
-<!-- start customer detail -->
 <div id="customer-detail" class="header-section service-benefits-section auto-height p-3">
     <div class="header-text col-12 col-md-8">
         <ul>
-            <li>نام شرکت: <h3>تیم سامپی تِک | Sampi Tech</h3></li>
+            <li>نام شرکت: <h3>{{ $portfolio->company }}</h3></li>
             <br>
-            <li>درباره شرکت: <p>شرکت “سامپی تِک” با فعالیت در زمینه استارت آپ و ایده های مدرن ، آغاز کننده بسیاری از بیزینس ها و نوآوری ها می باشد .</p></li>
+            <li>درباره شرکت: <p>{{ $portfolio->about_company }}</p></li>
             <br>
-            <li>نطر شرگت سامپی درباره کار با دایاآرتز: <p>با تشکر فراوان از تیم جوان و ایده پرداز “دایا” برای برخورد بسیار حرفه ای و طراحان خوش ذهن ، بسیار خرسندیم که با شما کار کردیم .</p></li>
+            <li>نطر شرکت سامپی درباره کار با دایاآرتز: <p>{{ $portfolio->company_opinion }}</p></li>
         </ul>
     </div>
     <div class="header-vector col-10 col-sm-8 col-md-4 mb-3 mb-md-0">
@@ -117,47 +59,12 @@
         <img src="{{ asset('images/profile-back.svg') }}" class="rules-back">
     </div>
 </div>
-<!-- end customer detail -->
-
-<!-- start logo info item -->
-<div id="about-logo" class="col-12 float-left p-3 mt-4">
-    <div class="w-100 title-section">
-        <div class="title-container">
-            <h2 class="title-text">فلسفه فکری لوگو</h2>
-        </div>
-    </div>
-    <div class="tab-element mt-2">
-        <ul class="tabs-container col-12 float-left p-0">
-            <li class="tab badge badge-pill eggplant active">طرح</li>
-            <li class="tab badge badge-pill eggplant">رنگ</li>
-            <li class="tab badge badge-pill eggplant">قالب</li>
-            <li class="tab badge badge-pill eggplant">جزئیات</li>
-        </ul>
-        <div class="tab-contents col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12 float-left mt-3">
-            <article class="tab-content active">
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-            </article>
-            <article class="tab-content">
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-            </article>
-            <article class="tab-content">
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-            </article>
-            <article class="tab-content">
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-            </article>
-        </div>
-    </div>
-</div>
-<!-- end logo infp item -->
-
-<!-- start order -->
+@isset($portfolio->details->tabular)
+    <x-portfolio-tabular :tabular="collect($portfolio->details->tabular)"/> 
+@endisset
 <div id="start-order" class="float-left w-100">
-    @include('components.start-order')
+    <x-start-order />
 </div>
-<!-- end start order -->
-
-<!-- daya guide -->
 <div id="daya-guide" class="section w-100 text-center mt-5 daya-guide">
     <div class="title-section w-100">
         <div class="title-container">
@@ -186,10 +93,7 @@
         </div>
     </div>
 </div>
-<!-- end daya guide -->
-
-<!-- daya samples -->
-<div id="daya-samples" class="section col-12 p-4 mt-5">
+{{-- <div id="daya-samples" class="section col-12 p-4 mt-5">
     <div class="col-12 title-section">
         <div class="title-container">
             <h2 class="title-text">طرح های مشابه</h2>
@@ -293,6 +197,26 @@
         </div>
         </a>
     </div>
+</div> --}}
+<div class="section-guide-container animated slideInLeft closed">
+    <div class="section-guide-bg">
+        <div class="section-guide">
+            <h4>راهنمای صفحه</h4>
+            <ul id="guide-list">
+                <li class="current"><span>مشخصات کلی لوگو</span> <span></span></li>
+                <li><span>جزئیات سفارش</span> <span></span></li>
+                <li><span>درباره مشتری</span> <span></span></li>
+                <li><span>فلسفه فکری لوگو</span> <span></span></li>
+                <li><span>شروع ثبت سفارش</span> <span></span></li>
+                <li><span>راهنمای دایا</span> <span></span></li>
+                <li><span>طرح های مشابه</span> <span></span></li>
+            </ul>
+        </div>
+    </div>
+    <span id="guide-toggler">
+        <span>
+            <i class="fas fa-angle-left"></i>
+        </span>
+    </span>
 </div>
-<!-- end daya samples -->
 @endsection

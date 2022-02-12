@@ -26,11 +26,6 @@ class WebsiteController extends Controller
                     ->firstOrFail();
         return view('pages.services.show', compact('service'));
     }
-    public function portfolio($slug)
-    {
-        return view('pages.portfolio');
-    }
-
     public function portfolioIndexApi($service)
     {
         return $service;

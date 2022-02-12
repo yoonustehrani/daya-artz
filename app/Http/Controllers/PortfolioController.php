@@ -29,7 +29,10 @@ class PortfolioController extends Controller
     }
     public function show($slug)
     {
-        $portfolio = Portfolio::whereSlug($slug)->with('service')->firstOrFail();
-        return $portfolio;
+        $portfolio = Portfolio::whereSlug($slug)->with('service', 'images')->firstOrFail();
+        if (request()->has('debug')) {
+            return $portfolio;
+        }
+        return view('pages.portfolio', compact('portfolio'));
     }
 }
