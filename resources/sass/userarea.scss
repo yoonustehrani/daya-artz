@@ -201,10 +201,10 @@
                 width: fit-content;
                 margin-top: 20px;
                 h4 {
-                    font-size: 20px;
+                    font-size: 22px;
                     font-weight: bold;
-                    padding-bottom: 8px;
-                    border-bottom: 2px solid #000;
+                    padding: 5px 8px;
+                    border-right: 2px solid #000;
                 }
             }
             .fields-container {
@@ -484,28 +484,31 @@
                             justify-content: space-evenly;
                             align-items: flex-start;
                             width: 100%;
-                            .service-order-item {
-                                border-radius: 8px;
-                                background-color: #fff;
-                                box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 15%);
-                                width: 120px;
-                                margin: 10px;
-                                > div {
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: center;
-                                        align-items: center;
-                                        padding: 6px;
-                                    .service-order-item-icon {
-                                        i {
-                                            font-size: 45px !important;
+                            > a {
+                                color: #000;
+                                .service-order-item {
+                                    border-radius: 8px;
+                                    background-color: #fff;
+                                    box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 15%);
+                                    width: 120px;
+                                    margin: 10px;
+                                    > div {
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;
+                                            padding: 6px;
+                                        .service-order-item-icon {
+                                            i {
+                                                font-size: 45px !important;
+                                            }
                                         }
-                                    }
-                                    .service-order-item-title {
-                                        color: #000;
-                                        font-size: 16px;
-                                        margin: 0;
-                                        text-align: center;
+                                        .service-order-item-title {
+                                            color: #000;
+                                            font-size: 16px;
+                                            margin: 0;
+                                            text-align: center;
+                                        }
                                     }
                                 }
                             }

@@ -846,17 +846,17 @@ span.back-aqua {
     align-items: center;
     width: 100%;
     float: left;
-    margin-top: 20px;
+    margin: 20px 0;
     direction: ltr !important;
     .page-index {
-        font-size: 20px;
+        font-size: 16px;
         border: 2px solid #a184ec;
         color: #a184ec;
         font-weight: bold;
         border-radius: 100%;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
         white-space: nowrap;
     }
     .pagination-btn {
@@ -865,7 +865,7 @@ span.back-aqua {
         align-items: center;
         flex-direction: row-reverse;
         margin: 0 10px;
-        padding: 8px 20px;
+        padding: 4px 12px;
         border: 2px solid #a184ec;
         border-radius: 8px;
         transition: 0.5s;
@@ -874,10 +874,10 @@ span.back-aqua {
             color: #a184ec;
         }
         span {
-            font-size: 20px;
+            font-size: 16px;
         }
         i {
-            font-size: 15px;
+            font-size: 10px;
         }
         &:hover {
             background-color: #a184ec;

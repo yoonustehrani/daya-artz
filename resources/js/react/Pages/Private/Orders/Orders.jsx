@@ -9,6 +9,7 @@ import { useHttpService } from '../../../hooks';
 class Orders extends Component {
     constructor(props) {
         super(props)
+        this.title = "سفارشات"
         this.state = {
             loading: false,
             orders: [],
@@ -44,13 +45,16 @@ class Orders extends Component {
         }
     }
     componentDidMount() {
-        document.title = "سفارشات"
+        document.title = this.title
         this.loadOrders()
     }
     render() {
         let { loading, orders, paginateInfo } = this.state
         return (
             <div>
+                <div className="form-title">
+                    <h4>{this.title}</h4>
+                </div>
                 {
                     loading ? <Activity/>
                     : orders && orders.length > 0
