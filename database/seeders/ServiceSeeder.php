@@ -22,7 +22,7 @@ class ServiceSeeder extends Seeder
                 "title" => "لوگو",
                 "subtitle" => "طراحی لوگو با بالاترین کیفیت",
                 "description" => "لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف ، باور و هسته فعالیت شماست",
-                "icon_class" => "fab fa-d-and-d"
+                "icon_class" => "fab fa-apple"
             ],
             [
                 "title" => "سربرگ",
@@ -55,12 +55,12 @@ class ServiceSeeder extends Seeder
             //     "icon_class" => "fas fa-plus-circle"
             // ]
         ];
-        // foreach ($services as $service) {
-        //     $service = new Service($service);
-        //     $service->group = 'main';
-        //     $service->slug = str_replace(' ', '-',$service->title);
-        //     $service->save();
-        // }
+        foreach ($services as $service) {
+            $service = new Service($service);
+            $service->group = 'main';
+            $service->slug = str_replace(' ', '-',$service->title);
+            $service->save();
+        }
         $other_service = [
             [
                 "title" => "بنر تبلیغاتی",
