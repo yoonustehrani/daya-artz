@@ -319,6 +319,7 @@ var Orders = /*#__PURE__*/function (_Component) {
       }
     });
 
+    _this.title = "سفارشات";
     _this.state = {
       loading: false,
       orders: [],
@@ -331,7 +332,7 @@ var Orders = /*#__PURE__*/function (_Component) {
   _createClass(Orders, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.title = "سفارشات";
+      document.title = this.title;
       this.loadOrders();
     }
   }, {
@@ -341,8 +342,13 @@ var Orders = /*#__PURE__*/function (_Component) {
           loading = _this$state.loading,
           orders = _this$state.orders,
           paginateInfo = _this$state.paginateInfo;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : orders && orders.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "form-title",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+            children: this.title
+          })
+        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : orders && orders.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "orders-container",
           children: [orders.map(function (order, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Orders_components_OrderContainer__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, order), order.id);
@@ -350,7 +356,7 @@ var Orders = /*#__PURE__*/function (_Component) {
             next_page_handler: this.handlePageChange.bind(this),
             prev_page_handler: this.handlePageChange.bind(this, false)
           }))]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
       });
     }
   }]);

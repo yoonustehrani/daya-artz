@@ -26,6 +26,6 @@ var { res, pub } = src
 
 mix.disableNotifications()
 
-// mix.js(res.js + 'app.js', pub.js).react()
+mix.js(res.js + 'app.js', pub.js).react()
 mix.js(res.js + "userarea.js", pub.js).react()
-    // .sass( res.sass + 'app.scss', pub.css)
+    .sass( res.sass + 'app.scss', pub.css)
