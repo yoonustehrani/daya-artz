@@ -3,7 +3,7 @@
         <i class="fas fa-bars"></i>
     </span>
     <div class="logo-container">
-        <img src="{{ asset('images/daya-white-logo.png') }}">
+        <img src="{{ asset(get_setting('header.menu.logo')) }}">
     </div>
     <div id="m-menu" class="menu-container d-none d-md-inline-block">
         <div class="menu-header p-3 d-md-none">
@@ -43,7 +43,8 @@
         </ul>
     </div>
     <div class="last-item">
-        <a href="#" class="btn-white">+‌ سفارش</a>
+        <a href="{{ get_setting('header.menu.button.href') }}" class="btn-white">{{ get_setting('header.menu.button.text') }}</a>
         <button class="btn-phone mr-3"><i class="fas fa-phone"></i></button>
+        {{-- <a href="tel:+989015045025"><i class="fas fa-phone"></i></a> --}}
     </div>
 </nav>

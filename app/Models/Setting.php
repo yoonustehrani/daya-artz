@@ -9,6 +9,7 @@ class Setting extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $fillable = ['key', 'value'];
 
     public function setValueAttribute($value)
     {
