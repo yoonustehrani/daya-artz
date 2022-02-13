@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
 use App\Models\Service;
+use App\Models\Setting;
 use App\Models\Ticket;
 
 /*
@@ -86,12 +87,6 @@ Route::get('test', function (Request $request) {
     // $company->load('business_type', 'product_type');
     // return $company;
 })->name('tempo');
-
-Route::get('testme', function () {
-    $ticket = Ticket::first();
-    // return $request;
-    return view('test', compact('ticket'));
-});
 
 Route::get('orders', function() {
     return App\Models\Order::latest()->get();

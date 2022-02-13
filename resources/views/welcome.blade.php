@@ -5,7 +5,7 @@
 @section('header')
     <div class="header-section">
         <div class="header-text p-4 col-12 col-md-6">
-            <h1><span>دایا آرتز</span> گامی تا مدرنیته</h1>
+            <h1>{!! get_setting('mainpage.header.h1') !!}</h1>
             <br>
             <p><b>دایا آرتز</b> ؛ نخستین مرکز طراحی گرافیک با رویکرد استارت آپی<br>
             تیم طراحی دایا آرتز ارائه دهنده خدمات گرافیکی با رویکردی متفاوت است؛ در دایا آرتز رنگ ها و ترسیمات از زیر ذره بین ایده و مفهوم می گذرند تا جلایی تازه به هویت برند شما بخشیده شود و همچنین پوسته ظاهر و برند فعالیت شما، به رنگ هسته ایده و هویت حقیقی اش برسد . دایا آرتز تزریق رنگ ایده هایتان به شخصیت شماست. امروز دایا آرتز را کشف کنید.</p>
@@ -13,9 +13,13 @@
                 <button class="btn badge-pill bg-purple ml-4">کشف ما</button>
                 <button class="btn btn-gradient bg-aqua">آغاز سفارش</button>
             </div>
+            {{-- <p>{!! get_setting('mainpage.header.h1.subtitle') !!}</p>
+            <div class="header-btn-container mt-4 mt-md-0">
+                {!! get_setting('mainpage.header.buttons') !!}
+            </div> --}}
         </div>
         <div class="header-vector col-12 col-md-6">
-            <img src="{{ asset('images/header-vector.svg') }}" alt="header-vector">
+            <img src="{{ get_setting('mainpage.header.svg-header') }}" alt="دایا آرتز مکانی برای تحقق رویای گرافیکی">
             <div class="triangle d-none d-md-block"></div>
         </div>
     </div>
