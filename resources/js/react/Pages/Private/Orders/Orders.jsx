@@ -58,10 +58,12 @@ class Orders extends Component {
                 {
                     loading ? <Activity/>
                     : orders && orders.length > 0
-                    ? <div className="orders-container">
-                        {orders.map((order, i) => <OrderContainer key={order.id} {...order} />)}
+                    ? <>
+                        <div className="orders-container">
+                            {orders.map((order, i) => <OrderContainer key={order.id} {...order} />)}
+                        </div>
                         {paginateInfo && <Paginate {...paginateInfo} next_page_handler={this.handlePageChange.bind(this)} prev_page_handler={this.handlePageChange.bind(this, false)} />}
-                    </div>
+                      </>                        
                     : <NoItem/>
                 }
             </div>

@@ -18,9 +18,9 @@ class FilterBar extends Component {
                 <h4>فیلتر کردن سفارشات:</h4>
                 <ul className="filter-items clickable">
                     <li id="all" className="active">همه سفارشات <span className='bg-dark-blue'></span></li>
-                    <li id="in_progress">سفارشات در حال انجام <span className='bg-peach'></span></li>
-                    <li id="waiting">سفارشات در انتظار <span className="bg-horny-eggplant"></span></li>
-                    <li id="done">سفارشات انجام شده <span className="bg-green"></span></li>
+                    <li id="just-recieved">سفارشات در انتظار <span className="bg-horny-eggplant"></span></li>
+                    <li id="in-progress">سفارشات در حال انجام <span className='bg-peach'></span></li>
+                    <li id="finished">سفارشات انجام شده <span className="bg-green"></span></li>
                 </ul>
             </nav>
         );

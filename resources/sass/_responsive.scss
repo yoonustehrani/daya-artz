@@ -320,9 +320,8 @@ $xl-xl-breakpoint: 1600px;
     .state-code {
         width: 28% !important;
     }
-    .order-box-bg {
-        width: 90%;
-        margin: 5%;
+    .orders-container {
+        columns: 1 !important;
     }
     .finance-item {
         .top-item-icon {
@@ -426,6 +425,13 @@ $xl-xl-breakpoint: 1600px;
             height: 200px !important;
         }
     }
+    .order-box-detail {
+        columns: 2 !important;
+        text-align: center !important;
+        li {
+            display: inline-block;
+        }
+    }
 }
 
 // medium and above
@@ -453,6 +459,11 @@ $xl-xl-breakpoint: 1600px;
     }
     .sample-images-slider {
         float: right;
+    }
+    .field-item {
+        &:nth-child(1), &:nth-child(2) {
+            margin-top: 10px !important;
+        }
     }
 }
 
@@ -1076,19 +1087,26 @@ $xl-xl-breakpoint: 1600px;
     .dashboard-item-container {
         margin-top: 30px !important;
     }
-    .order-box-bg {
-        width: 100%;
-        margin-bottom: 20px;
-        .service-order-item {
-            width: 110px !important;
-            margin: 8px !important;
-            .service-order-item-icon {
-                i {
-                    font-size: 35px !important;
+    .field-item {
+        margin-top: 25px !important;
+        &:nth-child(1) {
+            margin-top: 10px !important;
+        }
+    }
+    .orders-container {
+        columns: 1 !important;
+        .order-box-bg {
+            .service-order-item {
+                width: 110px !important;
+                margin: 8px !important;
+                .service-order-item-icon {
+                    i {
+                        font-size: 35px !important;
+                    }
                 }
-            }
-            .service-order-item-title {
-                font-size: 14px !important;
+                .service-order-item-title {
+                    font-size: 14px !important;
+                }
             }
         }
     }
@@ -1100,7 +1118,7 @@ $xl-xl-breakpoint: 1600px;
             width: 100%;
             padding: 0;
             li {
-                margin: 15px 0 0 15px !important;
+                margin: 10px 0 0 15px !important;
             }
         }
     }
@@ -1575,8 +1593,13 @@ $xl-xl-breakpoint: 1600px;
         width: 80%;
     }
     .order-box-bg {
-        width: 47%;
-        margin: 1.5%;
+        .order-box-detail {
+            columns: 2 !important;
+            text-align: center !important;
+            li {
+                display: inline-block;
+            }
+        }
         .service-order-item {
             width: 130px !important;
             .service-order-item-title {
@@ -1705,10 +1728,6 @@ $xl-xl-breakpoint: 1600px;
     }
     .state-code {
         width: 26% !important;
-    }
-    .order-box-bg {
-        width: 47%;
-        margin: 1.5%;
     }
     .order-items-container {
         > div {

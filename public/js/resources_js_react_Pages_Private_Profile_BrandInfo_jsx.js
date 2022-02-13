@@ -157,7 +157,8 @@ var validate = function validate(inputsArray) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "NestedObj": () => (/* binding */ NestedObj),
-/* harmony export */   "isObjEmpty": () => (/* binding */ isObjEmpty)
+/* harmony export */   "isObjEmpty": () => (/* binding */ isObjEmpty),
+/* harmony export */   "translate": () => (/* binding */ translate)
 /* harmony export */ });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -178,7 +179,7 @@ var NestedObj = /*#__PURE__*/function () {
     if (keys.length > 1) {
       this.lastKey = keys.pop();
       this.lastObj = keys.reduce(function (targetObj, key) {
-        return targetObj[key] = !Array.isArray(targetObj[key]) ? targetObj[key] : {};
+        return targetObj[key] = targetObj[key] && !Array.isArray(targetObj[key]) ? targetObj[key] : {};
       }, this.targetObj);
     } else {
       this.lastObj = this.targetObj;
@@ -206,6 +207,27 @@ var NestedObj = /*#__PURE__*/function () {
 function isObjEmpty(obj) {
   return !Object.keys(obj).length;
 }
+var translate = function translate(key) {
+  switch (key) {
+    case "automate":
+      return "اتومات";
+
+    case "manual":
+      return "دستی";
+
+    case "just-recieved":
+      return "دریافت شده";
+
+    case "in-progress":
+      return "در حال انجام";
+
+    case "finished":
+      return "تمام شده";
+
+    default:
+      break;
+  }
+};
 
 /***/ }),
 

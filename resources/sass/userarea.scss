@@ -199,7 +199,7 @@
             }
             .form-title {
                 width: fit-content;
-                margin-top: 20px;
+                margin: 0 0 15px;
                 h4 {
                     font-size: 22px;
                     font-weight: bold;
@@ -446,17 +446,20 @@
             .orders-container {
                 width: 100%;
                 float: right;
+                columns: 2;
+                margin-top: 10px;
                 .order-box-bg {
                     background: linear-gradient(to bottom left, #6232de, #8f60ec, #ac7ff4);
                     background: -webkit-linear-gradient(to bottom left, #6232de, #8f60ec, #ac7ff4);
-                    float: right;
+                    width: 100%;
                     height: auto;
                     border-radius: 8px;
                     position: relative;
+                    margin-bottom: 15px;
+                    display: inline-block;
                     .order-box {
                         width: 100%;
                         height: auto;
-                        float: right;
                         padding: 30px 10px;
                         background-image: url(/images/footer-background.png);
                         background-position: bottom;
@@ -516,10 +519,47 @@
                     }
                 }
             }
+            .order-box-detail {
+                padding: 0;
+                margin: 8px;
+                text-align: right;
+                columns: 1;
+                list-style-type: none;
+                li {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #fff;
+                    margin: 5px 0;
+                    * {
+                        color: inherit;
+                    }
+                    span {
+                        font-weight: normal;
+                    }
+                    i {
+                        font-size: 18px;
+                        margin-left: 5px;
+                    }
+                }
+            }
+            .order-info-container {
+                @extend .order-box-detail;
+                columns: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                text-align: right;
+                margin: 0px auto 25px;
+                border-bottom: 2px solid rgb( 0 0 0 / 20%);
+                width: fit-content;
+                li {
+                    color: #000;
+                    margin: 5px 0 5px 20px;
+                }
+            }
             .orders-filter {
                 width: 100%;
                 float: right;
-                margin-bottom: 30px;
                 h4 {
                     font-size: 16px;
                     float: right;
@@ -537,11 +577,12 @@
                         align-items: center;
                         justify-content: center;
                         flex-wrap: nowrap;
-                        margin: 0 0 15px 20px;
+                        margin: 0 0 15px 25px;
                         transition: 0.5s;
                         color: $gray;
                         &.active {
                             color: #000;
+                            transform: scale(1.1);
                             span {
                                 transform: scale(1.3);
                             }
@@ -564,6 +605,7 @@
                             cursor: pointer;
                             &:hover {
                                 color: #000;
+                                transform: scale(1.1);
                                 span {
                                     transform: scale(1.3);
                                 }
@@ -582,31 +624,33 @@
                 > div {
                     padding: 10px;
                     border-radius: 8px;
-                    box-shadow: 0 0 3px #DED8F2;
+                    box-shadow: 2px 2px 10px 0px rgb(0 0 0 / 6%);
                     width: 22%;
-                    margin: 1.5%;
+                    margin: 0 1.5% 1.5%;
+                    background: #fefffc;
                     .order-title {
                         width: 100%;
                         display: flex;
                         flex-wrap: nowrap;
                         justify-content: right;
                         align-items: center;
-                        height: 45px;
-                        h4 {
+                        .order-item-icon {
+                            margin-left: 10px;
+                            i {
+                                font-size: 40px;
+                            }
+                        }
+                        .order-item-title {
                             font-size: 18px;
                             font-weight: bold;
+                            margin: 0;
                         }
-                        img {
-                            background-image: url(/images/item-background.png);
-                            background-repeat: no-repeat;
-                            background-position: center;
-                            background-size: 100% 100%;
-                            width: auto;
-                            height: inherit;
-                            margin-left: 8px;
+                        .order-item-subtitle {
+                            font-size: 14px;
+                            color: $gray;
                         }
                     }
-                    ul.order-details {
+                    .order-details {
                         width: 100%;
                         padding: 0;
                         margin: 12px 0 0;
@@ -615,9 +659,15 @@
                             font-size: 14px;
                             margin-top: 5px;
                             font-weight: bold;
-                            span {
-                                font-size: 12px;
+                            * {
                                 font-weight: normal;
+                            }
+                            span {
+                                font-size: 14px;
+                            }
+                            p {
+                                font-size: 12px;
+                                display: inline;
                             }
                         }
                     }
@@ -635,13 +685,13 @@
                             margin-left: 6px;
                             border-radius: 100px;
                         }
-                        &.in_progress::before {
+                        &.in-progress::before {
                             background-color: $peach;
                         }
-                        &.waiting::before {
+                        &.just-recieved::before {
                             background-color: $horny-eggplant;
                         }
-                        &.done::before {
+                        &.finished::before {
                             background-color: $green;
                         }
                     }
