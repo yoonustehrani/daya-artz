@@ -57,15 +57,20 @@ const loginReducer = produce((draft, action) => {
             }
             break
         case changeUserPhoneNumber.rejected.toString():
-            let {reason} = action.payload
-            if (reason && reason === 'already_verified') {
+            if (action.payload.reason && action.payload.reason === 'already_verified') {
                 draft.user.phone_verified = true
             }
             break
         case changeUserEmail.fulfilled.toString():
-            draft.user = {
-                ...draft.user,
-                email: action.payload.email
+            draft.user.email = action.payload.email
+            draft.resend = {
+                next_attempt_in_seconds: 60,
+                left_attempts: 3
+            }
+            break
+        case changeUserEmail.rejected.toString():
+            if (action.payload.reason && action.payload.reason === 'already_verified') {
+                draft.user.email_verified_at = new Date().toUTCString()
             }
             break
         case APP_STATUS_CHANGED:
@@ -75,9 +80,15 @@ const loginReducer = produce((draft, action) => {
             draft.resend = action.payload
             break
         case resendBasedOnAuthMethod.rejected.toString():
-            let {available_in} = action.payload
+            let {available_in, reason} = action.payload
             if (available_in) {
                 draft.resend.next_attempt_in_seconds = available_in
+            } else if(reason && reason === 'already_verified') {
+                if (action.payload.method === 'phone') {
+                    draft.user.phone_verified = true
+                } else {
+                    draft.user.email_verified_at = new Date().toUTCString()
+                }
             }
             break
     }

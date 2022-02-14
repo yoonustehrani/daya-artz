@@ -194,10 +194,10 @@ class AuthRoute extends Component {
                                     <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />                                    
                                 )} />
                                 <PrivateRoute exact={true} path="/auth/verification/email">
-                                    <EmailValidation handleResend={() => authResend('email')}/>                                    
+                                    <EmailValidation/>                                    
                                 </PrivateRoute>
                                 <PrivateRoute exact={true} path="/auth/verification/phone">
-                                    <PhoneValidation code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
+                                    <PhoneValidation code={validation.code} onChangeField={this.onChangeField}/>
                                 </PrivateRoute>
                                 <Route path="*">
                                     <NoMatch redirect="/auth/login"/>

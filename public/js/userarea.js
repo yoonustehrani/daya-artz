@@ -5067,12 +5067,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.esm.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./resources/js/react/redux/actions.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 var APP_STATUS_CHANGED = _actions__WEBPACK_IMPORTED_MODULE_0__.actionTypes.APP_STATUS_CHANGED,
@@ -5127,18 +5121,25 @@ var loginReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__["default"])(function (d
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.changeUserPhoneNumber.rejected.toString():
-      var reason = action.payload.reason;
-
-      if (reason && reason === 'already_verified') {
+      if (action.payload.reason && action.payload.reason === 'already_verified') {
         draft.user.phone_verified = true;
       }
 
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.changeUserEmail.fulfilled.toString():
-      draft.user = _objectSpread(_objectSpread({}, draft.user), {}, {
-        email: action.payload.email
-      });
+      draft.user.email = action.payload.email;
+      draft.resend = {
+        next_attempt_in_seconds: 60,
+        left_attempts: 3
+      };
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.changeUserEmail.rejected.toString():
+      if (action.payload.reason && action.payload.reason === 'already_verified') {
+        draft.user.email_verified_at = new Date().toUTCString();
+      }
+
       break;
 
     case APP_STATUS_CHANGED:
@@ -5150,10 +5151,18 @@ var loginReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__["default"])(function (d
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.resendBasedOnAuthMethod.rejected.toString():
-      var available_in = action.payload.available_in;
+      var _action$payload = action.payload,
+          available_in = _action$payload.available_in,
+          reason = _action$payload.reason;
 
       if (available_in) {
         draft.resend.next_attempt_in_seconds = available_in;
+      } else if (reason && reason === 'already_verified') {
+        if (action.payload.method === 'phone') {
+          draft.user.phone_verified = true;
+        } else {
+          draft.user.email_verified_at = new Date().toUTCString();
+        }
       }
 
       break;
@@ -5604,18 +5613,13 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_7__["default"], {
                     exact: true,
                     path: "/auth/verification/email",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(EmailValidation, {
-                      handleResend: function handleResend() {
-                        return authResend('email');
-                      }
-                    })
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(EmailValidation, {})
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_7__["default"], {
                     exact: true,
                     path: "/auth/verification/phone",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(PhoneValidation, {
                       code: validation.code,
-                      onChangeField: this.onChangeField,
-                      checkCode: this.checkCodeForPhoneValidation
+                      onChangeField: this.onChangeField
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
                     path: "*",

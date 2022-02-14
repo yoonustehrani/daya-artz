@@ -45,18 +45,10 @@ Route::prefix('auth')->name('auth.')->group(function() {
     Route::get('user', [UserController::class, 'show'])->name('user')->middleware('auth:sanctum');
     Route::prefix('verification')->name('verification.')->middleware('auth:sanctum')->group(function() {
         Route::post('phone/verify', [VerificationController::class, 'verifyPhoneNumber'])->name('phone.verify');
-        Route::put('phone/edit', [VerificationController::class, 'editPhoneNumber']);
-        Route::put('email/edit', function (Request $request) {
-            $request->validate([
-                'email' => 'required|email:filter,dns|unique:users'
-            ]);
-            $user = $request->user();
-            abort_if(!! $user->email_verified_at, 422, "email already verified");
-            $user->email = $request->input('email');
-            return ['okay' => $user->save()];
-        });
-        Route::post('phone/resend', [VerificationController::class, 'resendSmsCode']);
-        Route::post('email/resend', [VerificationController::class, 'resendEmail']);
+        Route::put('phone/edit', [VerificationController::class, 'editPhoneNumber'])->name('phone.edit');
+        Route::put('email/edit', [VerificationController::class, 'editEmail'])->name('email.edit');
+        Route::post('phone/resend', [VerificationController::class, 'resendSmsCode'])->name('phone.resend');
+        Route::post('email/resend', [VerificationController::class, 'resendEmail'])->name('email.resend');
     });
 });
 Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(function() {

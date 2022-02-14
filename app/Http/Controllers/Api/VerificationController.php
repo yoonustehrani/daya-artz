@@ -18,6 +18,13 @@ class VerificationController extends Controller
     public function resendSmsCode(Request $request)
     {
         $user = $request->user();
+        if ($user->phone_verified) {
+            return response()->json([
+                'message' => __('auth.already_verified', ['field' => __('validation.attributes.phone_number')]),
+                'reason' => 'already_verified',
+                'method' => 'phone'
+            ], 403);
+        }
         $key = "phone-validation-user-{$user->phone_number}";
         $attempt_key = $key . "@ttempts";
         $attempts = Cache::rememberForever($key, function() { return 0;});
@@ -50,6 +57,13 @@ class VerificationController extends Controller
     public function resendEmail(Request $request)
     {
         $user = $request->user();
+        if ($user->email_verified_at) {
+            return response()->json([
+                'message' => __('auth.already_verified', ['field' => __('validation.attributes.email')]),
+                'reason' => 'already_verified',
+                'method' => 'email'
+            ], 403);
+        }
         $key = "email-validation-user-{$user->email}";
         $attempt_key = $key . "@ttempts";
         $attempts = Cache::rememberForever($key, function() { return 0;});
@@ -64,7 +78,8 @@ class VerificationController extends Controller
         if ($this->limiter()->tooManyAttempts($attempt_key, 1)) {
             return response()->json([
                 'error' => 'TooManyAttempts',
-                'message' => 'request will be available in ' . $this->limiter()->availableIn($attempt_key),
+                'message' => __('auth.attempts', ['seconds' => $this->limiter()->availableIn($attempt_key)]),
+                'available_in' => $this->limiter()->availableIn($attempt_key)
             ], 429);
         }
         $retry_in = $this->decay_seconds * (($attempts / 2) + 1);
@@ -102,12 +117,32 @@ class VerificationController extends Controller
         if ($user->phone_verified) {
             return response()->json([
                 'message' => __('auth.already_verified', ['field' => __('validation.attributes.phone_number')]),
-                'reason' => 'already_verified'
+                'reason' => 'already_verified',
+                'method' => 'phone'
             ], 403);
         }
         $user->phone_number = $request->input('phone_number');
         if ($user->save()) {
             $user->notify(new VerificationNotification([SMSChannel::class]));
+            return ['okay' => true];
+        }
+    }
+    public function editEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email:filter,dns|unique:users,email,' . $request->user()->getKey()
+        ]);
+        $user = $request->user();
+        if ($user->email_verified_at) {
+            return response()->json([
+                'message' => __('auth.already_verified', ['field' => __('validation.attributes.email')]),
+                'reason' => 'already_verified',
+                'method' => 'email'
+            ], 403);
+        }
+        $user->email = $request->input('email');
+        if ($user->save()) {
+            $user->notify(new VerificationNotification(['mail']));
             return ['okay' => true];
         }
     }
