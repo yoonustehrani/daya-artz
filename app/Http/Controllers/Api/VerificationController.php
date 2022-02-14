@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Broadcasting\SMSChannel;
 use App\Http\Controllers\Controller;
-use App\Notifications\VerificationNotification;
-use App\Models\User;
 use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -19,11 +16,7 @@ class VerificationController extends Controller
     {
         $user = $request->user();
         if ($user->phone_verified) {
-            return response()->json([
-                'message' => __('auth.already_verified', ['field' => __('validation.attributes.phone_number')]),
-                'reason' => 'already_verified',
-                'method' => 'phone'
-            ], 403);
+            return $this->phoneAlreadyVerifiedResponse();
         }
         $key = "phone-validation-user-{$user->phone_number}";
         $attempt_key = $key . "@ttempts";
@@ -37,16 +30,12 @@ class VerificationController extends Controller
         }
         // Returns error if the one attempt after specified decay time is attempted
         if ($this->limiter()->tooManyAttempts($attempt_key, 1)) {
-            return response()->json([
-                'error' => 'TooManyAttempts',
-                'message' => __('auth.attempts', ['seconds' => $this->limiter()->availableIn($attempt_key)]),
-                'available_in' => $this->limiter()->availableIn($attempt_key),
-            ], 429);
+            return $this->tooManyAttemptsResponse($attempt_key);
         }
         $retry_in = $this->decay_seconds * (($attempts / 2) + 1);
         $attempted = Cache::increment($key, 1);
         $this->limiter()->hit($attempt_key, $retry_in);
-        $user->notify(new VerificationNotification([SMSChannel::class]));
+        $user->resendSms();
         return [
             'okay' => true,
             'left_attempts' => $this->sms_max_attempts - $attempted,
@@ -58,11 +47,7 @@ class VerificationController extends Controller
     {
         $user = $request->user();
         if ($user->email_verified_at) {
-            return response()->json([
-                'message' => __('auth.already_verified', ['field' => __('validation.attributes.email')]),
-                'reason' => 'already_verified',
-                'method' => 'email'
-            ], 403);
+            return $this->emailAlreadyVerifiedResponse();
         }
         $key = "email-validation-user-{$user->email}";
         $attempt_key = $key . "@ttempts";
@@ -76,16 +61,12 @@ class VerificationController extends Controller
         }
         // Returns error if the one attempt after specified decay time is attempted
         if ($this->limiter()->tooManyAttempts($attempt_key, 1)) {
-            return response()->json([
-                'error' => 'TooManyAttempts',
-                'message' => __('auth.attempts', ['seconds' => $this->limiter()->availableIn($attempt_key)]),
-                'available_in' => $this->limiter()->availableIn($attempt_key)
-            ], 429);
+            return $this->tooManyAttemptsResponse($attempt_key);
         }
         $retry_in = $this->decay_seconds * (($attempts / 2) + 1);
         $attempted = Cache::increment($key, 1);
         $this->limiter()->hit($attempt_key, $retry_in);
-        $user->notify(new VerificationNotification(['mail']));
+        $user->resendEmail();
         return [
             'okay' => true,
             'left_attempts' => $this->email_max_attempts - $attempted,
@@ -115,15 +96,11 @@ class VerificationController extends Controller
         ]);
         $user = $request->user();
         if ($user->phone_verified) {
-            return response()->json([
-                'message' => __('auth.already_verified', ['field' => __('validation.attributes.phone_number')]),
-                'reason' => 'already_verified',
-                'method' => 'phone'
-            ], 403);
+            return $this->phoneAlreadyVerifiedResponse();
         }
         $user->phone_number = $request->input('phone_number');
         if ($user->save()) {
-            $user->notify(new VerificationNotification([SMSChannel::class]));
+            $user->resendSms();
             return ['okay' => true];
         }
     }
@@ -134,20 +111,42 @@ class VerificationController extends Controller
         ]);
         $user = $request->user();
         if ($user->email_verified_at) {
-            return response()->json([
-                'message' => __('auth.already_verified', ['field' => __('validation.attributes.email')]),
-                'reason' => 'already_verified',
-                'method' => 'email'
-            ], 403);
+            return $this->emailAlreadyVerifiedResponse();
         }
         $user->email = $request->input('email');
         if ($user->save()) {
-            $user->notify(new VerificationNotification(['mail']));
+            $user->resendEmail();
             return ['okay' => true];
         }
     }
+
     private function limiter()
     {
         return app(RateLimiter::class);
+    }
+
+    private function emailAlreadyVerifiedResponse()
+    {
+        return response()->json([
+            'message' => __('auth.already_verified', ['field' => __('validation.attributes.email')]),
+            'reason' => 'already_verified',
+            'method' => 'email'
+        ], 403);
+    }
+    private function phoneAlreadyVerifiedResponse()
+    {
+        return response()->json([
+            'message' => __('auth.already_verified', ['field' => __('validation.attributes.phone_number')]),
+            'reason' => 'already_verified',
+            'method' => 'phone'
+        ], 403);
+    }
+    private function tooManyAttemptsResponse($attempt_key)
+    {
+        return response()->json([
+            'error' => 'TooManyAttempts',
+            'message' => __('auth.attempts', ['seconds' => $this->limiter()->availableIn($attempt_key)]),
+            'available_in' => $this->limiter()->availableIn($attempt_key)
+        ], 429);
     }
 }
