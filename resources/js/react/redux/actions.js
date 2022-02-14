@@ -9,20 +9,30 @@ const actionTypes = {
     USER_PHONE_NUMBER_CHANGED: `${reducerKeys.auth}/userChangedPhoneNumber`,
     USER_EMAIL_CHANGED: `${reducerKeys.auth}/userChangedEmail`,
     APP_STATUS_CHANGED: `${reducerKeys.auth}/appStatusChanged`,
-    COMPANY_DETECTED: `${reducerKeys.user}/companyWasSet`
+    COMPANY_DETECTED: `${reducerKeys.user}/companyWasSet`,
+    PHONE_VERIFICATION: `${reducerKeys.auth}/verification/phoneNumber`
 }
 
 const logUserIn = user => ({ type: actionTypes.USER_LOGGED_IN, payload: user })
 const setCompany = company => ({type: actionTypes.COMPANY_DETECTED, payload: company})
-const verifyUserPhone = () => ({type: actionTypes.USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: actionTypes.APP_STATUS_CHANGED, payload: !! status })
 const changeEmail = email => ({type: actionTypes.USER_EMAIL_CHANGED, payload: email})
 
 const resendBasedOnAuthMethod = createAsyncThunk('auth/resend', async(method, {rejectWithValue, dispatch}) => {
-    const response = await http.post(`/verification/${method == 'phone' ? 'phone' : 'email'}/resend`);
-    if (condition) {
-        
+    const response = await http.post(`/auth/verification/${method == 'phone' ? 'phone' : 'email'}/resend`);
+    if (response.okay) {
+        return response
     }
+    return rejectWithValue(response.error)
+})
+
+const verifyPhoneNumber = createAsyncThunk(actionTypes.PHONE_VERIFICATION, async(code, {rejectWithValue}) => {
+    const response = await http.post('/auth/verification/phone/verify', {code})
+    if (response.okay) {
+        return response
+    }
+    let rejection = typeof response.error === 'undefined' ? response : response.error
+    return rejectWithValue(rejection)
 })
 
 const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, {rejectWithValue, dispatch}) => {
@@ -99,7 +109,6 @@ export {
     actionTypes,
     logUserIn,
     checkAuth,
-    verifyUserPhone,
     logInUsingCredentials,
     registerUser,
     logoutUser,
@@ -108,5 +117,6 @@ export {
     updateUserInfo,
     updateCustomerInfo,
     updateCompanyInfo,
-    resendBasedOnAuthMethod
+    resendBasedOnAuthMethod,
+    verifyPhoneNumber
 }

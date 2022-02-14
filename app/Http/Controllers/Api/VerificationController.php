@@ -25,14 +25,15 @@ class VerificationController extends Controller
         if ($attempts >= $this->sms_max_attempts) {
             return response()->json([
                 'error' => 'NumberBlocked',
-                'message' => 'This Phone Number is blocked on our server for attempting too much resend sms requests'
-            ], 422);
+                'message' => __('auth.phone_block')
+            ], 403);
         }
         // Returns error if the one attempt after specified decay time is attempted
         if ($this->limiter()->tooManyAttempts($attempt_key, 1)) {
             return response()->json([
                 'error' => 'TooManyAttempts',
-                'message' => 'request will be available in ' . $this->limiter()->availableIn($attempt_key),
+                'message' => __('auth.attempts', ['seconds' => $this->limiter()->availableIn($attempt_key)]),
+                'available_in' => $this->limiter()->availableIn($attempt_key),
             ], 429);
         }
         $retry_in = $this->decay_seconds * (($attempts / 2) + 1);
@@ -56,8 +57,8 @@ class VerificationController extends Controller
         if ($attempts >= $this->sms_max_attempts) {
             return response()->json([
                 'error' => 'EmailBlocked',
-                'message' => 'This Email is blocked on our server for attempting too much resend requests'
-            ], 422);
+                'message' => __('auth.email_block')
+            ], 403);
         }
         // Returns error if the one attempt after specified decay time is attempted
         if ($this->limiter()->tooManyAttempts($attempt_key, 1)) {
@@ -91,6 +92,24 @@ class VerificationController extends Controller
             }
         }
         return ['okay' => false, 'verified' => !! $user->phone_verified];
+    }
+    public function editPhoneNumber(Request $request)
+    {
+        $request->validate([
+            'phone_number' => 'required|string|regex:/^9[0-9]{9}$/|unique:users,phone_number,' . $request->user()->getKey()
+        ]);
+        $user = $request->user();
+        if ($user->phone_verified) {
+            return response()->json([
+                'message' => __('auth.already_verified', ['field' => __('validation.attributes.phone_number')]),
+                'reason' => 'already_verified'
+            ], 403);
+        }
+        $user->phone_number = $request->input('phone_number');
+        if ($user->save()) {
+            $user->notify(new VerificationNotification([SMSChannel::class]));
+            return ['okay' => true];
+        }
     }
     private function limiter()
     {

@@ -2,7 +2,7 @@ import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom'
 // Redux
 import { connect } from 'react-redux';
-import { logInUsingCredentials, registerUser, resendBasedOnAuthMethod, verifyUserPhone } from '../redux/actions';
+import { logInUsingCredentials, registerUser } from '../redux/actions';
 // custom components
 import Background from '../Pages/Auth/components/Background';
 import DayaLogo from '../Pages/Auth/components/DayaLogo';
@@ -133,22 +133,6 @@ class AuthRoute extends Component {
         })
     }
 
-    // handleResend = type => {
-    //     return this.http.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
-    // }
-    
-    checkCodeForPhoneValidation = (e) => {
-        e.preventDefault();
-        // let {code} = this.state.validation;
-        // if (code.length === 6) {
-        //     this.http.post('/verification/phone/verify', {code}).then(({okay, verified}) => {
-        //         if (verified) {
-        //             this.props.verifyPhone()
-        //         }
-        //     }).catch(err => null)
-        // }
-    }
-
     changeLoginMethod = () => {
         this.setState(prevState => ({
             login_method: prevState.login_method === "email" ? "phone" : "email"
@@ -213,7 +197,7 @@ class AuthRoute extends Component {
                                     <EmailValidation handleResend={() => authResend('email')}/>                                    
                                 </PrivateRoute>
                                 <PrivateRoute exact={true} path="/auth/verification/phone">
-                                    <PhoneValidation handleResend={() => authResend('phone')} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
+                                    <PhoneValidation code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
                                 </PrivateRoute>
                                 <Route path="*">
                                     <NoMatch redirect="/auth/login"/>
@@ -234,9 +218,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     authLogin: credentials => dispatch(logInUsingCredentials(credentials)),
-    authRegister: information => dispatch(registerUser(information)),
-    verifyPhone: () => dispatch(verifyUserPhone()),
-    authResend: method => dispatch(resendBasedOnAuthMethod(method))
+    authRegister: information => dispatch(registerUser(information))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthRoute)
