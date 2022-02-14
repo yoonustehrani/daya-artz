@@ -18,6 +18,13 @@ const verifyUserPhone = () => ({type: actionTypes.USER_VERIFIED_PHONE})
 const changeAppStatus = status => ({ type: actionTypes.APP_STATUS_CHANGED, payload: !! status })
 const changeEmail = email => ({type: actionTypes.USER_EMAIL_CHANGED, payload: email})
 
+const resendBasedOnAuthMethod = createAsyncThunk('auth/resend', async(method, {rejectWithValue, dispatch}) => {
+    const response = await http.post(`/verification/${method == 'phone' ? 'phone' : 'email'}/resend`);
+    if (condition) {
+        
+    }
+})
+
 const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credentials, {rejectWithValue, dispatch}) => {
     const response = await http.post('/auth/login', credentials)
     if (response.okay) {
@@ -100,5 +107,6 @@ export {
     changeUserEmail,
     updateUserInfo,
     updateCustomerInfo,
-    updateCompanyInfo
+    updateCompanyInfo,
+    resendBasedOnAuthMethod
 }

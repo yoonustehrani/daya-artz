@@ -1,9 +1,8 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom'
-import { useHttpService } from '../hooks';
 // Redux
 import { connect } from 'react-redux';
-import { logInUsingCredentials, registerUser, verifyUserPhone } from '../redux/actions';
+import { logInUsingCredentials, registerUser, resendBasedOnAuthMethod, verifyUserPhone } from '../redux/actions';
 // custom components
 import Background from '../Pages/Auth/components/Background';
 import DayaLogo from '../Pages/Auth/components/DayaLogo';
@@ -45,7 +44,6 @@ class AuthRoute extends Component {
             state: route_regex.exec(this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(this.props.location.pathname)[0],
             login_method: "email",
         }
-        this.http = useHttpService('/auth')
     }
 
     onChangeField = (fieldType, field, e) => {
@@ -135,20 +133,20 @@ class AuthRoute extends Component {
         })
     }
 
-    handleResend = type => {
-        return this.http.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
-    }
+    // handleResend = type => {
+    //     return this.http.post(`/verification/${type == 'phone' ? 'phone' : 'email'}/resend`)
+    // }
     
     checkCodeForPhoneValidation = (e) => {
         e.preventDefault();
-        let {code} = this.state.validation;
-        if (code.length === 6) {
-            this.http.post('/verification/phone/verify', {code}).then(({okay, verified}) => {
-                if (verified) {
-                    this.props.verifyPhone()
-                }
-            }).catch(err => null)
-        }
+        // let {code} = this.state.validation;
+        // if (code.length === 6) {
+        //     this.http.post('/verification/phone/verify', {code}).then(({okay, verified}) => {
+        //         if (verified) {
+        //             this.props.verifyPhone()
+        //         }
+        //     }).catch(err => null)
+        // }
     }
 
     changeLoginMethod = () => {
@@ -190,7 +188,7 @@ class AuthRoute extends Component {
     }
 
     render() {
-        let {signup, login, forgetPassword, validation, login_method, state} = this.state, { history, location, match, user } = this.props
+        let {signup, login, forgetPassword, validation, login_method, state} = this.state, { history, location, match, user, authResend } = this.props
         return (
             <>
                 <GuestMiddleware exception={['/auth/verification/email/', '/auth/verification/phone/']} location={location}/>
@@ -212,10 +210,10 @@ class AuthRoute extends Component {
                                     <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />                                    
                                 )} />
                                 <PrivateRoute exact={true} path="/auth/verification/email">
-                                    <EmailValidation handleResend={this.handleResend}/>                                    
+                                    <EmailValidation handleResend={() => authResend('email')}/>                                    
                                 </PrivateRoute>
                                 <PrivateRoute exact={true} path="/auth/verification/phone">
-                                    <PhoneValidation handleResend={this.handleResend} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
+                                    <PhoneValidation handleResend={() => authResend('phone')} code={validation.code} onChangeField={this.onChangeField} checkCode={this.checkCodeForPhoneValidation}/>
                                 </PrivateRoute>
                                 <Route path="*">
                                     <NoMatch redirect="/auth/login"/>
@@ -238,6 +236,7 @@ const mapDispatchToProps = (dispatch) => ({
     authLogin: credentials => dispatch(logInUsingCredentials(credentials)),
     authRegister: information => dispatch(registerUser(information)),
     verifyPhone: () => dispatch(verifyUserPhone()),
+    authResend: method => dispatch(resendBasedOnAuthMethod(method))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthRoute)

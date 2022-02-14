@@ -35,16 +35,18 @@ class PhoneValidation extends Component {
             }, 1000);
         })
     }
-    handleResend = () => {
-        let {handleResend} = this.props;
-        handleResend('phone').then(res => {
-            console.log(res.data);
-            // let {okay, left_attempts, next_attempt_in_seconds} = res.data;
-            // this.setResendTime(next_attempt_in_seconds)
-            // this.setState({
-            //     left_attempts: left_attempts
-            // })
-        }).catch(err => console.log(err))
+    handleResend = async () => {
+        const result = await this.props.handleResend()
+        console.log(result);
+        // let {handleResend} = this.props;
+        // handleResend('phone').then(res => {
+        //     console.log(res.data);
+        //     // let {okay, left_attempts, next_attempt_in_seconds} = res.data;
+        //     // this.setResendTime(next_attempt_in_seconds)
+        //     // this.setState({
+        //     //     left_attempts: left_attempts
+        //     // })
+        // }).catch(err => console.log(err))
     }
     handleEdit = (e) => {
         e.preventDefault()
