@@ -11,7 +11,7 @@ class Signup extends Component {
         let { changeLoginMethod, changeSection, onChangeField, handleRegister, fields_info, login_method, history } = this.props, { email, phone_number, password, password_confirmation } = fields_info
         return (
             <div>
-                <h2>ثبت نام در دایا</h2>
+                <h2>ثبت نام در دایا آرتز</h2>
                 <div className="login-icons">
                     <span><i className="fab fa-google"></i></span>
                     <span><i className="fab fa-linkedin-in"></i></span>
@@ -51,7 +51,7 @@ class Signup extends Component {
                     </div>
                     <button className="btn btn-lg badge-pill" type="submit">ثبت نام</button>
                 </form>
-                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, false)}>برای ورود به دایا کلیک کنید!</span>
+                <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, false)}>برای ورود به دایا آرتز کلیک کنید!</span>
             </div>
         );
     }

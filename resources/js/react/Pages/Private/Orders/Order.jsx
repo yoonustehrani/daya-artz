@@ -20,6 +20,7 @@ class Order extends Component {
     }
 
     onFilterClick = (newFilter) => {
+        $("#no-item-elem").remove()
         this.setState({
             filter: newFilter
         }, () => {
@@ -27,11 +28,11 @@ class Order extends Component {
             $(".order-items-container").children().each((i, elem) => {
                 if (!$(elem).hasClass("d-none")) {
                     console.log(`elem ${i} is not none`);
-                    noItem = 0
-                    return false
+                    return noItem = false
                 }
             })
-            noItem ? $('#order-container').append(React.createElement(NoItem)) : null
+            console.log(React.createElement("h1", {}, "hello"))
+            noItem ? $('#order-container').append(React.createElement("h1", {}, "hello")) : null
         })
     }
 

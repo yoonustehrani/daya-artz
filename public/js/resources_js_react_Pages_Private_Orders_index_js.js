@@ -224,6 +224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    id: "no-item-elem",
     className: "activity-container alert alert-light",
     children: "\u0645\u0648\u0631\u062F\u06CC \u0628\u0631\u0627\u06CC \u0646\u0645\u0627\u06CC\u0634 \u0648\u062C\u0648\u062F \u0646\u062F\u0627\u0631\u062F"
   });

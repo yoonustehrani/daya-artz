@@ -11,7 +11,7 @@ class Login extends Component {
         let { changeLoginMethod, changeSection, onChangeField, fields_info, login_method, handleLogin, history } = this.props, { email, phone_number, password } = fields_info
         return (
             <div>
-                <h2>ورود به دایا</h2>
+                <h2>ورود به دایا آرتز</h2>
                 <div className="login-icons">
                     <span><i className="fab fa-google"></i></span>
                     <span><i className="fab fa-linkedin-in"></i></span>

@@ -8,7 +8,7 @@ class SignupConfirm extends Component {
         return (
             <div>
                 <h2>اتمام پروسه ثبت نام</h2>
-                <p>با وارد کردن کد ارسال شده به ایمیل یا شماره تلفن خود، پروسه ثبت نام خود را نهایی کنید و از تمامی خدمات دایا بهره مند شوید.</p>
+                <p>با وارد کردن کد ارسال شده به ایمیل یا شماره تلفن خود، پروسه ثبت نام خود را نهایی کنید و از تمامی خدمات دایا آرتز بهره مند شوید.</p>
                 <div className="input-group">
                     <input type="text" value={code} className="form-control" placeholder="کد ارسالی" onChange={onChangeField.bind(this, "signupConfirm", "code")}/>
                     <div className="input-group-append"><span className="input-group-text"><i className="fas fa-user"></i></span></div>

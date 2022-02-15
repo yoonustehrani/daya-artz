@@ -194,7 +194,7 @@
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
-                <h2 class="title-text">راهنمای دایا</h2>
+                <h2 class="title-text">راهنمای دایا آرتز</h2>
             </div>
         </div>
         <div class="section contact-us-first-section w-100 text-center">
@@ -210,7 +210,7 @@
                 </div>
             </div>
             <div class="contact-us-form">
-                <h4 class="mb-3 mb-md-2 mb-md-4">به راهنمایی احتیاج داری</h4>
+                <h4 class="mb-3 mb-md-2 mb-md-4">به راهنمایی احتیاج داری؟</h4>
                 <form action="#">
                     <div class="input-group mb-2 mb-md-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
                     <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>

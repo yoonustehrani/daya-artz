@@ -169,6 +169,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    id: "no-item-elem",
     className: "activity-container alert alert-light",
     children: "\u0645\u0648\u0631\u062F\u06CC \u0628\u0631\u0627\u06CC \u0646\u0645\u0627\u06CC\u0634 \u0648\u062C\u0648\u062F \u0646\u062F\u0627\u0631\u062F"
   });
@@ -254,6 +255,8 @@ var Order = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "onFilterClick", function (newFilter) {
+      $("#no-item-elem").remove();
+
       _this.setState({
         filter: newFilter
       }, function () {
@@ -261,11 +264,11 @@ var Order = /*#__PURE__*/function (_Component) {
         $(".order-items-container").children().each(function (i, elem) {
           if (!$(elem).hasClass("d-none")) {
             console.log("elem ".concat(i, " is not none"));
-            noItem = 0;
-            return false;
+            return noItem = false;
           }
         });
-        noItem ? $('#order-container').append( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"])) : null;
+        console.log( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", {}, "hello"));
+        noItem ? $('#order-container').append( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", {}, "hello")) : null;
       });
     });
 

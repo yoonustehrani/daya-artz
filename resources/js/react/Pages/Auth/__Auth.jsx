@@ -170,9 +170,9 @@ class Auth extends Component {
                         </div>
                         <div className="change-form-content left-20 d-md-flex d-none">
                             <h2 className="">!خوش آمدید</h2>
-                            <p className="">اگر در حال حاضر داخل دایا حساب دارید با زدن دکمه زیر وارد صفحه ورود شوید ...</p>
+                            <p className="">اگر در حال حاضر داخل دایا آرتز حساب دارید با زدن دکمه زیر وارد صفحه ورود شوید...</p>
                             <h2 className="d-none">!سلام دوست عزیز</h2>
-                            <p className="d-none">اگه هنوز ثبت نام نکردی میتونی با زدن دکمه زیر ثبت نام در دایا رو آغاز کنی ...</p>
+                            <p className="d-none">اگه هنوز ثبت نام نکردی با زدن دکمه زیر ثبت نامت رو آغاز کن...</p>
                         </div>
                         <div className={`login-form animated ${state === 'login' ? "right-40" : ""}`}>
                             { !isLoggingIn && <Signup changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} signup={signup} login_method={login_method} select2Config={this.select2_config} />}

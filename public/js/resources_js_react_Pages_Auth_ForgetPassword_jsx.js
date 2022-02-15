@@ -195,7 +195,7 @@ var ForgetPassword = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
           to: "/auth/login",
           className: "change-form-mobile mt-2",
-          children: "\u0628\u0631\u0627\u06CC \u0648\u0631\u0648\u062F \u0628\u0647 \u062F\u0627\u06CC\u0627 \u06A9\u0644\u06CC\u06A9 \u06A9\u0646\u06CC\u062F!"
+          children: "\u0628\u0631\u0627\u06CC \u0648\u0631\u0648\u062F \u0628\u0647 \u062F\u0627\u06CC\u0627 \u0622\u0631\u062A\u0632 \u06A9\u0644\u06CC\u06A9 \u06A9\u0646\u06CC\u062F!"
         })]
       });
     }

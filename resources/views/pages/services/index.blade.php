@@ -75,7 +75,7 @@
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fab fa-apple"></i></span><h2>لوگو</h2></div>
             <div class="info-container">
                 <p class="title service-title">طراحی لوگو با بالاترین کیفیت</p>
-                <p class="service-description">لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف ، باور و هسته فعالیت شماست</p>
+                <p class="service-description">لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف، باور و هسته فعالیت شماست</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -107,7 +107,7 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-address-card"></i></span><h2>کارت ویزیت</h2></div>
             <div class="info-container">
-                <p class="title service-title">انواع کارت ویزیت های ساده و خاص</p>
+                <p class="title service-title">انواع کارت ویزیت های ساده و جذاب</p>
                 <p class="service-description">سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
@@ -118,8 +118,8 @@
         <div class="main-service">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-mail-bulk"></i></span><h2>ست اداری</h2></div>
             <div class="info-container">
-                <p class="title service-title">ویزیت ، سربرگ ، تقویم و سررسید ، خودکار و ...</p>
-                <p class="service-description">لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند ، و وابسته به هدف و نوع متقاضیان انتخاب می شود</p>
+                <p class="title service-title">کارت ویزیت، سربرگ، تقویم و سررسید، خودکار و...</p>
+                <p class="service-description">لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند، و وابسته به هدف و نوع متقاضیان انتخاب می شود</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -130,7 +130,7 @@
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-plus-circle"></i></span><h2>ترکیبی</h2></div>
             <div class="info-container">
                 <p class="title service-title">ترکیب خود را بسازید</p>
-                <p class="service-description">اگه نیاز به طراحی های متنوع در بخش عا و خدمات مختلف هستید ، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
+                <p class="service-description">اگه نیاز به طراحی های متنوع در بخش ها و خدمات مختلف هستید، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
                 <div class="button-container">
                     <button class="btn btn-gradient mr-2">سفارش</button>
                     <button class="btn badge-pill">ادامه متن</button>
@@ -263,7 +263,7 @@
         <div class="other-service">
             <span class="back-aqua"><i class="fas fa-book"></i></span>
             <h2>جلد کتاب</h2>
-            <h3>جلد انواع کتاب ، مجلات و ...</h3>
+            <h3>جلد انواع کتاب، مجلات و...</h3>
             <button class="btn btn-gradient">سفارش</button>
         </div>
     </div>

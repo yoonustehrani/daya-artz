@@ -962,9 +962,6 @@ span.back-aqua {
 }
 
 // contact us page
-.contact-p {
-    font-size: 20px;
-}
 .contact-us-first-section.mb-4 {
     .contact-us-background {
         height: 570px;
@@ -972,6 +969,27 @@ span.back-aqua {
     .contact-us-form {
         top: 22%;
         width: 45%;
+    }
+}
+.contact-us-text {
+    text-align: right;
+    float: left;
+    background-color: #EEEFFA;
+    padding: 15px;
+    * {
+        margin: 0;
+    }
+    .contact-us-tagline {
+        font-size: 22px;
+        padding-right: 8px;
+        border-right: 2px solid #000;
+        font-weight: bold;
+        span {
+            color: $aqua;
+        }
+    }
+    .contact-p {
+        font-size: 18px;
     }
 }
 .contact-us-first-section {
@@ -1050,6 +1068,7 @@ span.back-aqua {
         align-items: center;
         flex-wrap: wrap;
         > div {
+            max-width: 400px;
             background-color: $light;
             box-shadow: 4px 4px 15px 2px #dcdcdc;
             height: 420px;
@@ -1202,7 +1221,7 @@ $configs: (
 		animationDelay: 0s
     ),
     chart-two: (
-        percentage: 20,
+        percentage: 55,
         svgSize: 170px,
 		strokeWidth: 15px,
 		backgroundColor: $light-bg-msg,
@@ -1213,17 +1232,6 @@ $configs: (
 		animationDelay: 0s
     ),
     chart-three: (
-        percentage: 30,
-        svgSize: 170px,
-		strokeWidth: 15px,
-		backgroundColor: $light-bg-msg,
-		foregroundColor: $navy-purple,
-		labelColor: #000,
-		labelFontSize: 2.5rem,
-		duration: 2s,
-		animationDelay: 0s
-    ),
-    chart-four: (
         percentage: 15,
         svgSize: 170px,
 		strokeWidth: 15px,
@@ -1234,15 +1242,15 @@ $configs: (
 		duration: 2s,
 		animationDelay: 0s
     ),
-    chart-five: (
-        percentage: 25,
+    chart-four: (
+        percentage: 20,
         svgSize: 170px,
 		strokeWidth: 15px,
 		backgroundColor: $light-bg-msg,
 		foregroundColor: $navy-purple,
 		labelColor: #000,
 		labelFontSize: 2.5rem,
-		duration: 3s,
+		duration: 2s,
 		animationDelay: 0s
     ),
 );
