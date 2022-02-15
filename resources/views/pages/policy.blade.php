@@ -64,66 +64,63 @@
     <div class="accordion-container p-4">
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>چگونه سفارش را ثبت کنیم؟</h4>
+                <h4>دایا آرتز برای چه کسب و کار هایی طراحی می کنه ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">سفارش هارو میتونید به دو روش تخصصی و فوری ثبت کنید، برای اطلاعات بیشتر میتونید به صفحه راهنمای ثبت سفارش مراجعه کنید.</p>
+            <p class="answer animated flipInY d-none">دایا آرتز برای تمامی مشاغل و کسب و کار های موجود، فعالیت طراحی گرافیک را به شکل حرفه ایی دنبال می کند . از رستوران و کافی شاپ تا استارتاپ ها و شرکت های توسعه فناوری ؛ نیاز هایشان توسط دایا آرتز سنجیده شده تا بهترین خدمات را دریافت کنند.</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>تفاوت سفارش فوری با تخصصی چیست؟</h4>
+                <h4>دایا آرتز چگونه ما را پشتیبانی و پیگیری می کند ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">در سفارش فوری با پر کردن فرم همکاران ما با شما تماس خواهند گرفت، در سفارش تخصصی با پر کردن فرم ها سفارش خود را ثبت خواهید کرد.</p>
+            <p class="answer animated flipInY d-none">دایا آرتز دارای یک سیستم پشتیبانی منظم و فعال آنلاین می باشد که منظم به سوالات شما پاسخ می دهد و همچنین در یک اقدام فوق العاده امکان پیگیری های چند جانبه شما را از طریق پنل شخصی کارفرما ایجاد کرده است . ضمنا دایا آرتز از طریق تماس تلفنی و شبکه های اجتماعی نیز پشتیبان و پیگیر مخاطبان خود می باشد .</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>ثبت سفارش تخصصی چگونه است؟</h4>
+                <h4>به چه روش هایی امکان سفارش داریم ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">با انتخاب کردن تعرفه مورد نظر خود که در سه بسته تقسیم بندی شده، منتظر ارسال اتود های مورد نظر خود که در بازه زمانی ۱۵ الی ۲۰ روزه می باشد، باشید.</p>
+            <p class="answer animated flipInY d-none">سفارش تلفنی، سفارش از طریق ربات تلگرام، سفارش از طریق سیستم شبکه های اجتماعی، سفارش فوری و همچنین امکان خاص و ویژه سفارش تخصصی برای تمامی مخاطبان قابل استفاده است.</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>چگونه به دایا اعتماد کنیم؟</h4>
+                <h4>سفارش تخصصی چیست ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">گروه طراحی دایا قدرت گرفته شده از تیم بزرگ سمپی با شماره ثبت ۳۲۳۵۰۵۰ و دارای نشان اعتماد و درگاه پرداخت زرین پال است.</p>
+            <p class="answer animated flipInY d-none">روش هوشمند و ویژه که دایا آرتز برای ثبت سفارش با جزئیات کامل، توسعه داده است. سفارش تخصصی فراهم گردیده است که به جزئیات اهمیت دهد و روند سفارش را برای شما دقیق و هیجان انگیز کند.</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>شرایط ثبت سفارش چیست؟</h4>
+                <h4>دایا آرتز و امنیت فوق العاده ؛ محرمانه ها چیستند ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">مطالعه دقیق شرایط و ظوابط و سپس تعرفه های سفارش، پر کردن فرم درخواست سفارش و در انتها پرداخت مبلغ یا بیعانه بر اساس نوع سفارش</p>
+            <p class="answer animated flipInY d-none">دایا آرتز متعهد می شود که در قبال اطلاعات شما و به ویژه استارت آپ ها مطابق قرارداد محرمانگی در حفظ اطلاعات و امنیت بصری هویت برند شما کوشا باشد و صیانت از آن را در اولویت خود قرار دهد .</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>روش های پرداخت چیست؟</h4>
+                <h4>نحوه ارائه طراحی های آماده شده و دریافت فایل ها به چه شکل است ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <ul class="answer animated flipInY d-none">
-                <li>از طریق درگاه های اینترنتی سایت</li>
-                <li>از طریق کارت به کارت</li>
-            </ul>
+            <p class="answer animated flipInY d-none">فایل های طراحی شده به صورت آماده و فرمت مورد نظر شما از طریق پنل کاربر و همچنین از طریق واتساپ و تلگرام قابل دریافت و دانلود می باشند</p>
         </div>
     </div>
 </div>
@@ -173,53 +170,53 @@
     <div class="accordion-container p-4">
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>چگونه سفارش را ثبت کنیم؟</h4>
+                <h4>دایا آرتز چه جور کسب و کاری است ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">سفارش هارو میتونید به دو روش تخصصی و فوری ثبت کنید، برای اطلاعات بیشتر میتونید به صفحه راهنمای ثبت سفارش مراجعه کنید.</p>
+            <p class="answer animated flipInY d-none">دایا آرتز به عنوان یک کسب و کار نوپا فعالیت نوآورانه خود را در زمینه کسب و کار های دیجیتال آغاز کرده است</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>تفاوت سفارش فوری با تخصصی چیست؟</h4>
+                <h4>مراحل پرداخت و تسویه سفارش چگونه است ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">در سفارش فوری با پر کردن فرم همکاران ما با شما تماس خواهند گرفت، در سفارش تخصصی با پر کردن فرم ها سفارش خود را ثبت خواهید کرد.</p>
+            <p class="answer animated flipInY d-none">پرداخت و تسویه سفارش در دو نوبت انجام می شود. نخست مبلغ نصف سفارش به عنوان پیش پرداختی برای طراحی اتود های اولیه تسویه می شود و سپس پس از دریافت نهایی پروژه تسویه باقی مانده مبلغ سفارش امکان پذیر است.</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>ثبت سفارش تخصصی چگونه است؟</h4>
+                <h4>چرا نیاز است بخشی از مبلغ سفارش پیش پرداخت شود ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">با انتخاب کردن تعرفه مورد نظر خود که در سه بسته تقسیم بندی شده، منتظر ارسال اتود های مورد نظر خود که در بازه زمانی ۱۵ الی ۲۰ روزه می باشد، باشید.</p>
+            <p class="answer animated flipInY d-none">درواقع این عمل به نفع مشتریان است چراکه مخاطب ضمن پرداخت بخشی از مبلغ سفارش خود، درواقع دارد آن هزینه را برای طراحی اتود های اولیه اش پرداخت می کند، این مسئله یعنی مشتریان مالکیت حقوقی اتود ها را دارا هستند و می توانند با دریافت اتود های اولیه خود از ادامه پروژه صرف نظر کنند.</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>چگونه به دایا اعتماد کنیم؟</h4>
+                <h4>آیا امکان تسویه کامل وجود دارد ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">گروه طراحی دایا قدرت گرفته شده از تیم بزرگ سمپی با شماره ثبت ۳۲۳۵۰۵۰ و دارای نشان اعتماد و درگاه پرداخت زرین پال است.</p>
+            <p class="answer animated flipInY d-none">بله، امکان تسویه کامل وجود دارد.</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
-                <h4>شرایط ثبت سفارش چیست؟</h4>
+                <h4>آیا عودت مبالغ پرداخت شده امکان پذیر است ؟</h4>
                 <span>
                     <i class="fas fa-plus animated rotateIn"></i>
                     <i class="fas fa-minus animated rotateIn d-none"></i>
                 </span>
             </div>
-            <p class="answer animated flipInY d-none">مطالعه دقیق شرایط و ظوابط و سپس تعرفه های سفارش، پر کردن فرم درخواست سفارش و در انتها پرداخت مبلغ یا بیعانه بر اساس نوع سفارش</p>
+            <p class="answer animated flipInY d-none">بله قطعا، می توانید جزئیات شرایط عودت مبالغ پرداخت شده را در تفاهمنامه دایا آرتز و مشتریان دریافت کنید.</p>
         </div>
         <div class="item-wrapper col-12 col-md-6">
             <div class="question-wrapper">
