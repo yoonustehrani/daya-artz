@@ -169,6 +169,14 @@ input.eggplant {
         text-align: justify;
         color: $eggplant;
     }
+    .info-item-title {
+        font-weight: bold;
+    }
+    .info-item-list {
+        li {
+            margin-bottom: 12px;
+        }
+    }
 }
 .services-container {
     display: flex;
