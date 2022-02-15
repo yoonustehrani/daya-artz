@@ -67,6 +67,10 @@ export default class HttpClient
                 case 404:
                     message = "صفحه موردنظر پیدا نشد"
                     break
+                case 429:
+                case 403:
+                    message = data.message
+                    break
                 default:
                     message = "خطای سرور"
                     break

@@ -10,8 +10,8 @@ export default class AlertService {
         html = "",
         icon = "info",
         timer = false,
-        confirmButtonText = null,
-        cancelButtonText = null,
+        confirmButtonText = 'تایید',
+        cancelButtonText = 'لغو',
         confirmButton = false,
         cancelButton = false
     }) {
@@ -23,7 +23,9 @@ export default class AlertService {
             html: html,
             customClass: {
                 htmlContainer: "rtl"
-            }
+            },
+            confirmButtonText,
+            cancelButtonText
         })
     }
     success(config)

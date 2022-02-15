@@ -4588,7 +4588,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "actionTypes": () => (/* binding */ actionTypes),
 /* harmony export */   "logUserIn": () => (/* binding */ logUserIn),
 /* harmony export */   "checkAuth": () => (/* binding */ checkAuth),
-/* harmony export */   "verifyUserPhone": () => (/* binding */ verifyUserPhone),
 /* harmony export */   "logInUsingCredentials": () => (/* binding */ logInUsingCredentials),
 /* harmony export */   "registerUser": () => (/* binding */ registerUser),
 /* harmony export */   "logoutUser": () => (/* binding */ logoutUser),
@@ -4596,7 +4595,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "changeUserEmail": () => (/* binding */ changeUserEmail),
 /* harmony export */   "updateUserInfo": () => (/* binding */ updateUserInfo),
 /* harmony export */   "updateCustomerInfo": () => (/* binding */ updateCustomerInfo),
-/* harmony export */   "updateCompanyInfo": () => (/* binding */ updateCompanyInfo)
+/* harmony export */   "updateCompanyInfo": () => (/* binding */ updateCompanyInfo),
+/* harmony export */   "resendBasedOnAuthMethod": () => (/* binding */ resendBasedOnAuthMethod),
+/* harmony export */   "verifyPhoneNumber": () => (/* binding */ verifyPhoneNumber)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -4621,7 +4622,8 @@ var actionTypes = {
   USER_PHONE_NUMBER_CHANGED: "".concat(reducerKeys.auth, "/userChangedPhoneNumber"),
   USER_EMAIL_CHANGED: "".concat(reducerKeys.auth, "/userChangedEmail"),
   APP_STATUS_CHANGED: "".concat(reducerKeys.auth, "/appStatusChanged"),
-  COMPANY_DETECTED: "".concat(reducerKeys.user, "/companyWasSet")
+  COMPANY_DETECTED: "".concat(reducerKeys.user, "/companyWasSet"),
+  PHONE_VERIFICATION: "".concat(reducerKeys.auth, "/verification/phoneNumber")
 };
 
 var logUserIn = function logUserIn(user) {
@@ -4635,12 +4637,6 @@ var setCompany = function setCompany(company) {
   return {
     type: actionTypes.COMPANY_DETECTED,
     payload: company
-  };
-};
-
-var verifyUserPhone = function verifyUserPhone() {
-  return {
-    type: actionTypes.USER_VERIFIED_PHONE
   };
 };
 
@@ -4658,8 +4654,8 @@ var changeEmail = function changeEmail(email) {
   };
 };
 
-var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/loginUser', /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(credentials, _ref) {
+var resendBasedOnAuthMethod = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/resend', /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(method, _ref) {
     var rejectWithValue, dispatch, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
@@ -4667,26 +4663,22 @@ var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.cre
           case 0:
             rejectWithValue = _ref.rejectWithValue, dispatch = _ref.dispatch;
             _context.next = 3;
-            return http.post('/auth/login', credentials);
+            return http.post("/auth/verification/".concat(method == 'phone' ? 'phone' : 'email', "/resend"));
 
           case 3:
             response = _context.sent;
 
             if (!response.okay) {
-              _context.next = 7;
+              _context.next = 6;
               break;
             }
 
-            if (response.company) {
-              dispatch(setCompany(response.company));
-            }
+            return _context.abrupt("return", response);
 
-            return _context.abrupt("return", response.user);
-
-          case 7:
+          case 6:
             return _context.abrupt("return", rejectWithValue(response.error));
 
-          case 8:
+          case 7:
           case "end":
             return _context.stop();
         }
@@ -4698,40 +4690,34 @@ var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.cre
     return _ref2.apply(this, arguments);
   };
 }());
-var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/logoutUser', /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(param, _ref3) {
-    var getState, dispatch, rejectWithValue, response;
+var verifyPhoneNumber = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)(actionTypes.PHONE_VERIFICATION, /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(code, _ref3) {
+    var rejectWithValue, response, rejection;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            getState = _ref3.getState, dispatch = _ref3.dispatch, rejectWithValue = _ref3.rejectWithValue;
+            rejectWithValue = _ref3.rejectWithValue;
+            _context2.next = 3;
+            return http.post('/auth/verification/phone/verify', {
+              code: code
+            });
 
-            if (!getState().auth.user) {
-              _context2.next = 8;
-              break;
-            }
-
-            _context2.next = 4;
-            return http.post('/auth/logout');
-
-          case 4:
+          case 3:
             response = _context2.sent;
 
             if (!response.okay) {
-              _context2.next = 8;
+              _context2.next = 6;
               break;
             }
 
-            dispatch(setCompany(null));
             return _context2.abrupt("return", response);
 
-          case 8:
-            return _context2.abrupt("return", rejectWithValue({
-              error: true
-            }));
+          case 6:
+            rejection = typeof response.error === 'undefined' ? response : response.error;
+            return _context2.abrupt("return", rejectWithValue(rejection));
 
-          case 9:
+          case 8:
           case "end":
             return _context2.stop();
         }
@@ -4743,22 +4729,35 @@ var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThu
     return _ref4.apply(this, arguments);
   };
 }());
-var registerUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/registerUser', /*#__PURE__*/function () {
-  var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(information, _ref5) {
-    var rejectWithValue, response;
+var logInUsingCredentials = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/loginUser', /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(credentials, _ref5) {
+    var rejectWithValue, dispatch, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            rejectWithValue = _ref5.rejectWithValue;
+            rejectWithValue = _ref5.rejectWithValue, dispatch = _ref5.dispatch;
             _context3.next = 3;
-            return http.post('/auth/register', information);
+            return http.post('/auth/login', credentials);
 
           case 3:
             response = _context3.sent;
-            return _context3.abrupt("return", response.okay ? response.user : rejectWithValue(response.error));
 
-          case 5:
+            if (!response.okay) {
+              _context3.next = 7;
+              break;
+            }
+
+            if (response.company) {
+              dispatch(setCompany(response.company));
+            }
+
+            return _context3.abrupt("return", response.user);
+
+          case 7:
+            return _context3.abrupt("return", rejectWithValue(response.error));
+
+          case 8:
           case "end":
             return _context3.stop();
         }
@@ -4770,35 +4769,40 @@ var registerUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncT
     return _ref6.apply(this, arguments);
   };
 }());
-var changeUserPhoneNumber = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/user/changePhoneNumber', /*#__PURE__*/function () {
-  var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(phone_number, _ref7) {
-    var rejectWithValue, response;
+var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/logoutUser', /*#__PURE__*/function () {
+  var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(param, _ref7) {
+    var getState, dispatch, rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            rejectWithValue = _ref7.rejectWithValue;
-            _context4.next = 3;
-            return http.put("/auth/verification/phone/edit", {
-              phone_number: phone_number
-            });
+            getState = _ref7.getState, dispatch = _ref7.dispatch, rejectWithValue = _ref7.rejectWithValue;
 
-          case 3:
-            response = _context4.sent;
-
-            if (!(typeof response.error !== 'undefined')) {
-              _context4.next = 6;
+            if (!getState().auth.user) {
+              _context4.next = 8;
               break;
             }
 
-            return _context4.abrupt("return", rejectWithValue(response.error));
+            _context4.next = 4;
+            return http.post('/auth/logout');
 
-          case 6:
-            return _context4.abrupt("return", {
-              phone_number: phone_number
-            });
+          case 4:
+            response = _context4.sent;
 
-          case 7:
+            if (!response.okay) {
+              _context4.next = 8;
+              break;
+            }
+
+            dispatch(setCompany(null));
+            return _context4.abrupt("return", response);
+
+          case 8:
+            return _context4.abrupt("return", rejectWithValue({
+              error: true
+            }));
+
+          case 9:
           case "end":
             return _context4.stop();
         }
@@ -4810,8 +4814,8 @@ var changeUserPhoneNumber = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.cre
     return _ref8.apply(this, arguments);
   };
 }());
-var changeUserEmail = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/user/changeEmail', /*#__PURE__*/function () {
-  var _ref10 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(email, _ref9) {
+var registerUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/registerUser', /*#__PURE__*/function () {
+  var _ref10 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(information, _ref9) {
     var rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
       while (1) {
@@ -4819,26 +4823,13 @@ var changeUserEmail = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsy
           case 0:
             rejectWithValue = _ref9.rejectWithValue;
             _context5.next = 3;
-            return http.put("/auth/verification/email/edit", {
-              email: email
-            });
+            return http.post('/auth/register', information);
 
           case 3:
             response = _context5.sent;
+            return _context5.abrupt("return", response.okay ? response.user : rejectWithValue(response.error));
 
-            if (!(typeof response.error !== 'undefined')) {
-              _context5.next = 6;
-              break;
-            }
-
-            return _context5.abrupt("return", rejectWithValue(response.error));
-
-          case 6:
-            return _context5.abrupt("return", {
-              email: email
-            });
-
-          case 7:
+          case 5:
           case "end":
             return _context5.stop();
         }
@@ -4850,29 +4841,35 @@ var changeUserEmail = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsy
     return _ref10.apply(this, arguments);
   };
 }());
-var updateUserInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/user/modify', /*#__PURE__*/function () {
-  var _ref13 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(_ref11, _ref12) {
-    var email, phone_number, _ref11$password, password, _ref11$password_confi, password_confirmation, rejectWithValue, response;
-
+var changeUserPhoneNumber = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/user/changePhoneNumber', /*#__PURE__*/function () {
+  var _ref12 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(phone_number, _ref11) {
+    var rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
-            email = _ref11.email, phone_number = _ref11.phone_number, _ref11$password = _ref11.password, password = _ref11$password === void 0 ? null : _ref11$password, _ref11$password_confi = _ref11.password_confirmation, password_confirmation = _ref11$password_confi === void 0 ? null : _ref11$password_confi;
-            rejectWithValue = _ref12.rejectWithValue;
-            _context6.next = 4;
-            return http.put('/userarea/user/auth', {
-              email: email,
-              phone_number: phone_number,
-              password: password,
-              password_confirmation: password_confirmation
+            rejectWithValue = _ref11.rejectWithValue;
+            _context6.next = 3;
+            return http.put("/auth/verification/phone/edit", {
+              phone_number: phone_number
             });
 
-          case 4:
+          case 3:
             response = _context6.sent;
-            return _context6.abrupt("return", response.okay ? response.user : rejectWithValue(response.error));
+
+            if (!(typeof response.error !== 'undefined')) {
+              _context6.next = 6;
+              break;
+            }
+
+            return _context6.abrupt("return", rejectWithValue(response.error));
 
           case 6:
+            return _context6.abrupt("return", {
+              phone_number: phone_number
+            });
+
+          case 7:
           case "end":
             return _context6.stop();
         }
@@ -4881,29 +4878,38 @@ var updateUserInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyn
   }));
 
   return function (_x11, _x12) {
-    return _ref13.apply(this, arguments);
+    return _ref12.apply(this, arguments);
   };
 }());
-var updateCustomerInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('user/customer/modify', /*#__PURE__*/function () {
-  var _ref16 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(_ref14, _ref15) {
-    var firstname, lastname, rejectWithValue, response;
+var changeUserEmail = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/user/changeEmail', /*#__PURE__*/function () {
+  var _ref14 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(email, _ref13) {
+    var rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
       while (1) {
         switch (_context7.prev = _context7.next) {
           case 0:
-            firstname = _ref14.firstname, lastname = _ref14.lastname;
-            rejectWithValue = _ref15.rejectWithValue;
-            _context7.next = 4;
-            return http.put('/userarea/user/customer', {
-              firstname: firstname,
-              lastname: lastname
+            rejectWithValue = _ref13.rejectWithValue;
+            _context7.next = 3;
+            return http.put("/auth/verification/email/edit", {
+              email: email
             });
 
-          case 4:
+          case 3:
             response = _context7.sent;
-            return _context7.abrupt("return", response.okay ? response.user : rejectWithValue(response.error));
+
+            if (!(typeof response.error !== 'undefined')) {
+              _context7.next = 6;
+              break;
+            }
+
+            return _context7.abrupt("return", rejectWithValue(response.error));
 
           case 6:
+            return _context7.abrupt("return", {
+              email: email
+            });
+
+          case 7:
           case "end":
             return _context7.stop();
         }
@@ -4912,25 +4918,32 @@ var updateCustomerInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.create
   }));
 
   return function (_x13, _x14) {
-    return _ref16.apply(this, arguments);
+    return _ref14.apply(this, arguments);
   };
 }());
-var updateCompanyInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('user/company/modify', /*#__PURE__*/function () {
-  var _ref18 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8(params, _ref17) {
-    var rejectWithValue, response;
+var updateUserInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('auth/user/modify', /*#__PURE__*/function () {
+  var _ref17 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8(_ref15, _ref16) {
+    var email, phone_number, _ref15$password, password, _ref15$password_confi, password_confirmation, rejectWithValue, response;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
       while (1) {
         switch (_context8.prev = _context8.next) {
           case 0:
-            rejectWithValue = _ref17.rejectWithValue;
-            _context8.next = 3;
-            return http.put('/userarea/user/company', params);
+            email = _ref15.email, phone_number = _ref15.phone_number, _ref15$password = _ref15.password, password = _ref15$password === void 0 ? null : _ref15$password, _ref15$password_confi = _ref15.password_confirmation, password_confirmation = _ref15$password_confi === void 0 ? null : _ref15$password_confi;
+            rejectWithValue = _ref16.rejectWithValue;
+            _context8.next = 4;
+            return http.put('/userarea/user/auth', {
+              email: email,
+              phone_number: phone_number,
+              password: password,
+              password_confirmation: password_confirmation
+            });
 
-          case 3:
+          case 4:
             response = _context8.sent;
-            return _context8.abrupt("return", response.okay ? response.company : rejectWithValue(response.error));
+            return _context8.abrupt("return", response.okay ? response.user : rejectWithValue(response.error));
 
-          case 5:
+          case 6:
           case "end":
             return _context8.stop();
         }
@@ -4939,22 +4952,80 @@ var updateCompanyInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createA
   }));
 
   return function (_x15, _x16) {
-    return _ref18.apply(this, arguments);
+    return _ref17.apply(this, arguments);
   };
 }());
-
-var checkAuth = /*#__PURE__*/function () {
-  var _ref19 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9(dispatch, getState) {
-    var response;
+var updateCustomerInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('user/customer/modify', /*#__PURE__*/function () {
+  var _ref20 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9(_ref18, _ref19) {
+    var firstname, lastname, rejectWithValue, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
       while (1) {
         switch (_context9.prev = _context9.next) {
           case 0:
-            _context9.next = 2;
+            firstname = _ref18.firstname, lastname = _ref18.lastname;
+            rejectWithValue = _ref19.rejectWithValue;
+            _context9.next = 4;
+            return http.put('/userarea/user/customer', {
+              firstname: firstname,
+              lastname: lastname
+            });
+
+          case 4:
+            response = _context9.sent;
+            return _context9.abrupt("return", response.okay ? response.user : rejectWithValue(response.error));
+
+          case 6:
+          case "end":
+            return _context9.stop();
+        }
+      }
+    }, _callee9);
+  }));
+
+  return function (_x17, _x18) {
+    return _ref20.apply(this, arguments);
+  };
+}());
+var updateCompanyInfo = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)('user/company/modify', /*#__PURE__*/function () {
+  var _ref22 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10(params, _ref21) {
+    var rejectWithValue, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+      while (1) {
+        switch (_context10.prev = _context10.next) {
+          case 0:
+            rejectWithValue = _ref21.rejectWithValue;
+            _context10.next = 3;
+            return http.put('/userarea/user/company', params);
+
+          case 3:
+            response = _context10.sent;
+            return _context10.abrupt("return", response.okay ? response.company : rejectWithValue(response.error));
+
+          case 5:
+          case "end":
+            return _context10.stop();
+        }
+      }
+    }, _callee10);
+  }));
+
+  return function (_x19, _x20) {
+    return _ref22.apply(this, arguments);
+  };
+}());
+
+var checkAuth = /*#__PURE__*/function () {
+  var _ref23 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee11(dispatch, getState) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee11$(_context11) {
+      while (1) {
+        switch (_context11.prev = _context11.next) {
+          case 0:
+            _context11.next = 2;
             return http.get('/auth/user', null, false);
 
           case 2:
-            response = _context9.sent;
+            response = _context11.sent;
 
             if (response.okay) {
               dispatch(logUserIn(response.user));
@@ -4968,14 +5039,14 @@ var checkAuth = /*#__PURE__*/function () {
 
           case 5:
           case "end":
-            return _context9.stop();
+            return _context11.stop();
         }
       }
-    }, _callee9);
+    }, _callee11);
   }));
 
-  return function checkAuth(_x17, _x18) {
-    return _ref19.apply(this, arguments);
+  return function checkAuth(_x21, _x22) {
+    return _ref23.apply(this, arguments);
   };
 }();
 
@@ -4996,12 +5067,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.esm.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./resources/js/react/redux/actions.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 var APP_STATUS_CHANGED = _actions__WEBPACK_IMPORTED_MODULE_0__.actionTypes.APP_STATUS_CHANGED,
@@ -5009,7 +5074,11 @@ var APP_STATUS_CHANGED = _actions__WEBPACK_IMPORTED_MODULE_0__.actionTypes.APP_S
     USER_VERIFIED_PHONE = _actions__WEBPACK_IMPORTED_MODULE_0__.actionTypes.USER_VERIFIED_PHONE;
 var defaultState = {
   loading: true,
-  user: null
+  user: null,
+  resend: {
+    next_attempt_in_seconds: 0,
+    left_attempts: 1
+  }
 };
 var loginReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__["default"])(function (draft, action) {
   switch (action.type) {
@@ -5039,29 +5108,64 @@ var loginReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__["default"])(function (d
       draft.loading = false;
       break;
 
-    case USER_VERIFIED_PHONE:
-      draft.user = _objectSpread(_objectSpread({}, draft.user), {}, {
-        phone_verified: true
-      });
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.verifyPhoneNumber.fulfilled.toString():
+      draft.user.phone_verified = !!action.payload.verified;
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.changeUserPhoneNumber.fulfilled.toString():
-      draft.user = _objectSpread(_objectSpread({}, draft.user), {}, {
-        phone_number: action.payload.phone_number
-      });
+      draft.user.phone_number = action.payload.phone_number;
+      draft.resend = {
+        next_attempt_in_seconds: 60,
+        left_attempts: 3
+      };
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.changeUserPhoneNumber.rejected.toString():
+      if (action.payload.reason && action.payload.reason === 'already_verified') {
+        draft.user.phone_verified = true;
+      }
+
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.changeUserEmail.fulfilled.toString():
-      draft.user = _objectSpread(_objectSpread({}, draft.user), {}, {
-        email: action.payload.email
-      });
+      draft.user.email = action.payload.email;
+      draft.resend = {
+        next_attempt_in_seconds: 60,
+        left_attempts: 3
+      };
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.changeUserEmail.rejected.toString():
+      if (action.payload.reason && action.payload.reason === 'already_verified') {
+        draft.user.email_verified_at = new Date().toUTCString();
+      }
+
       break;
 
     case APP_STATUS_CHANGED:
       draft.loading = action.payload;
       break;
-    // default:
-    //     return state;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.resendBasedOnAuthMethod.fulfilled.toString():
+      draft.resend = action.payload;
+      break;
+
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.resendBasedOnAuthMethod.rejected.toString():
+      var _action$payload = action.payload,
+          available_in = _action$payload.available_in,
+          reason = _action$payload.reason;
+
+      if (available_in) {
+        draft.resend.next_attempt_in_seconds = available_in;
+      } else if (reason && reason === 'already_verified') {
+        if (action.payload.method === 'phone') {
+          draft.user.phone_verified = true;
+        } else {
+          draft.user.email_verified_at = new Date().toUTCString();
+        }
+      }
+
+      break;
   }
 }, defaultState);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loginReducer);
@@ -5158,18 +5262,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks */ "./resources/js/react/hooks.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../redux/actions */ "./resources/js/react/redux/actions.js");
-/* harmony import */ var _Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/Auth/components/Background */ "./resources/js/react/Pages/Auth/components/Background.jsx");
-/* harmony import */ var _Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Pages/Auth/components/DayaLogo */ "./resources/js/react/Pages/Auth/components/DayaLogo.jsx");
-/* harmony import */ var _Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Pages/Auth/components/Welcome */ "./resources/js/react/Pages/Auth/components/Welcome.jsx");
-/* harmony import */ var _components_GuestMiddleware__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/GuestMiddleware */ "./resources/js/react/components/GuestMiddleware.jsx");
-/* harmony import */ var _PrivateRoute__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./PrivateRoute */ "./resources/js/react/router/PrivateRoute.jsx");
-/* harmony import */ var _NoMatch__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./NoMatch */ "./resources/js/react/router/NoMatch.jsx");
-/* harmony import */ var _components_LoaderComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/LoaderComponent */ "./resources/js/react/components/LoaderComponent.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/actions */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var _Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Pages/Auth/components/Background */ "./resources/js/react/Pages/Auth/components/Background.jsx");
+/* harmony import */ var _Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/Auth/components/DayaLogo */ "./resources/js/react/Pages/Auth/components/DayaLogo.jsx");
+/* harmony import */ var _Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Pages/Auth/components/Welcome */ "./resources/js/react/Pages/Auth/components/Welcome.jsx");
+/* harmony import */ var _components_GuestMiddleware__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/GuestMiddleware */ "./resources/js/react/components/GuestMiddleware.jsx");
+/* harmony import */ var _PrivateRoute__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./PrivateRoute */ "./resources/js/react/router/PrivateRoute.jsx");
+/* harmony import */ var _NoMatch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./NoMatch */ "./resources/js/react/router/NoMatch.jsx");
+/* harmony import */ var _components_LoaderComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/LoaderComponent */ "./resources/js/react/components/LoaderComponent.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -5197,7 +5300,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
  // Redux
@@ -5353,30 +5455,6 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleResend", function (type) {
-      return _this.http.post("/verification/".concat(type == 'phone' ? 'phone' : 'email', "/resend"));
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "checkCodeForPhoneValidation", function (e) {
-      e.preventDefault();
-      var code = _this.state.validation.code;
-
-      if (code.length === 6) {
-        _this.http.post('/verification/phone/verify', {
-          code: code
-        }).then(function (_ref2) {
-          var okay = _ref2.okay,
-              verified = _ref2.verified;
-
-          if (verified) {
-            _this.props.verifyPhone();
-          }
-        })["catch"](function (err) {
-          return null;
-        });
-      }
-    });
-
     _defineProperty(_assertThisInitialized(_this), "changeLoginMethod", function () {
       _this.setState(function (prevState) {
         return {
@@ -5421,7 +5499,6 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
       state: route_regex.exec(_this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(_this.props.location.pathname)[0],
       login_method: "email"
     };
-    _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useHttpService)('/auth');
     return _this;
   }
 
@@ -5471,33 +5548,34 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           history = _this$props.history,
           location = _this$props.location,
           match = _this$props.match,
-          user = _this$props.user;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_GuestMiddleware__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          user = _this$props.user,
+          authResend = _this$props.authResend;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_GuestMiddleware__WEBPACK_IMPORTED_MODULE_6__["default"], {
           exception: ['/auth/verification/email/', '/auth/verification/phone/'],
           location: location
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "auth-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "login-bg",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Pages_Auth_components_DayaLogo__WEBPACK_IMPORTED_MODULE_4__["default"], {
               state: state
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Pages_Auth_components_Background__WEBPACK_IMPORTED_MODULE_3__["default"], {
               state: state,
               history: history,
               changeSection: this.changeSection
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Pages_Auth_components_Welcome__WEBPACK_IMPORTED_MODULE_5__["default"], {
               state: state
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
               className: "login-form animated ".concat(state === 'login' || state === "forgetPassword" ? "right-40" : ""),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-                fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_10__["default"], {}),
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Switch, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+                fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Switch, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
                     exact: true,
                     path: "/auth/signup",
                     children: function children(props) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(Signup, _objectSpread(_objectSpread({}, props), {}, {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(Signup, _objectSpread(_objectSpread({}, props), {}, {
                         changeLoginMethod: _this4.changeLoginMethod,
                         changeSection: _this4.changeSection,
                         onChangeField: _this4.onChangeField,
@@ -5506,11 +5584,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                         login_method: login_method
                       }));
                     }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
                     exact: true,
                     path: "/auth/login",
                     children: function children(props) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(Login, _objectSpread(_objectSpread({}, props), {}, {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(Login, _objectSpread(_objectSpread({}, props), {}, {
                         changeLoginMethod: _this4.changeLoginMethod,
                         changeSection: _this4.changeSection,
                         onChangeField: _this4.onChangeField,
@@ -5519,11 +5597,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                         login_method: login_method
                       }));
                     }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
                     exact: true,
                     path: "/auth/forgetPassword",
                     children: function children(props) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(ForgetPassword, _objectSpread(_objectSpread({}, props), {}, {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(ForgetPassword, _objectSpread(_objectSpread({}, props), {}, {
                         changeLoginMethod: _this4.changeLoginMethod,
                         changeSection: _this4.changeSection,
                         onChangeField: _this4.onChangeField,
@@ -5532,24 +5610,20 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
                         login_method: login_method
                       }));
                     }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_7__["default"], {
                     exact: true,
                     path: "/auth/verification/email",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(EmailValidation, {
-                      handleResend: this.handleResend
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(EmailValidation, {})
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_7__["default"], {
                     exact: true,
                     path: "/auth/verification/phone",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(PhoneValidation, {
-                      handleResend: this.handleResend,
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(PhoneValidation, {
                       code: validation.code,
-                      onChangeField: this.onChangeField,
-                      checkCode: this.checkCodeForPhoneValidation
+                      onChangeField: this.onChangeField
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
                     path: "*",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_NoMatch__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_NoMatch__WEBPACK_IMPORTED_MODULE_8__["default"], {
                       redirect: "/auth/login"
                     })
                   })]
@@ -5574,18 +5648,15 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     authLogin: function authLogin(credentials) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.logInUsingCredentials)(credentials));
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.logInUsingCredentials)(credentials));
     },
     authRegister: function authRegister(information) {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.registerUser)(information));
-    },
-    verifyPhone: function verifyPhone() {
-      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_3__.verifyUserPhone)());
+      return dispatch((0,_redux_actions__WEBPACK_IMPORTED_MODULE_2__.registerUser)(information));
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps, mapDispatchToProps)(AuthRoute));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(AuthRoute));
 
 /***/ }),
 
@@ -6060,9 +6131,9 @@ var AlertService = /*#__PURE__*/function () {
           _ref$timer = _ref.timer,
           timer = _ref$timer === void 0 ? false : _ref$timer,
           _ref$confirmButtonTex = _ref.confirmButtonText,
-          confirmButtonText = _ref$confirmButtonTex === void 0 ? null : _ref$confirmButtonTex,
+          confirmButtonText = _ref$confirmButtonTex === void 0 ? 'تایید' : _ref$confirmButtonTex,
           _ref$cancelButtonText = _ref.cancelButtonText,
-          cancelButtonText = _ref$cancelButtonText === void 0 ? null : _ref$cancelButtonText,
+          cancelButtonText = _ref$cancelButtonText === void 0 ? 'لغو' : _ref$cancelButtonText,
           _ref$confirmButton = _ref.confirmButton,
           confirmButton = _ref$confirmButton === void 0 ? false : _ref$confirmButton,
           _ref$cancelButton = _ref.cancelButton,
@@ -6075,7 +6146,9 @@ var AlertService = /*#__PURE__*/function () {
         html: html,
         customClass: {
           htmlContainer: "rtl"
-        }
+        },
+        confirmButtonText: confirmButtonText,
+        cancelButtonText: cancelButtonText
       });
     }
   }, {
@@ -6379,6 +6452,11 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
 
         case 404:
           message = "صفحه موردنظر پیدا نشد";
+          break;
+
+        case 429:
+        case 403:
+          message = data.message;
           break;
 
         default:
@@ -70521,7 +70599,7 @@ function _setPrototypeOf(o, p) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\\\daya-artz"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\projects\\\\test\\\\daya-artz","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 
