@@ -79,18 +79,14 @@
                     <span class="title-underline"></span>
                 </div>
             </div>
-            <div class="col-12 col-lg-10 offset-lg-1 float-left p-3 px-4 mt-3 text">
-                <p class="ltr text-left">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquid quas, nisi, reiciendis molestiae quod dolorum quae velit atque consectetur nemo ipsa enim eligendi dicta temporibus inventore minima explicabo ullam.
-                    Delectus rem quo consectetur nihil modi, pariatur, id animi repellendus ad fugiat minima quibusdam quis consequuntur laudantium ab? Laudantium quasi temporibus nostrum officia amet placeat expedita vero natus vitae! Dolorum.
-                    Expedita, magnam id iure sunt ullam dignissimos similique facilis itaque voluptates, neque fuga repudiandae dolor perspiciatis vitae, eveniet qui sequi hic reprehenderit sit nemo! Ducimus in facilis sequi eius tenetur.
-                    Perferendis vel perspiciatis id accusamus eligendi natus iste? Reprehenderit quam commodi dolore aut ab totam consequatur recusandae explicabo, eos dolor nisi sed laudantium deserunt. Tempora, dolore recusandae. Eaque, maiores necessitatibus.
-                    Tempore laboriosam nobis asperiores nam vitae esse! Recusandae eveniet pariatur dolore suscipit porro rem laborum velit, accusantium possimus repudiandae veniam? Mollitia natus ab cum aperiam itaque explicabo hic maiores quasi.
+            <div class="col-12 col-lg-10 offset-lg-1 float-left px-4 mt-3 text">
+                <p>
+                    لوگو دایا آرتز متشکل از ترکیب حروف و چینش زیرکانه آن ها است. حروف لغت DAYA با هوشمندی تمام در هم بافته شده اند و چرخش 180 درجه در مرکز حروف تکرار حرف A را حذف کرده که از ابتکار های کلاسیک طراحی لوگو به شمار می رود.  انعطاف و کشش از خصوصیت های اخلاقی یک طراح موفق است، از همین جهت لوگو دایا آرتز به عنوان نشانی از یک طراح موفق با کشش و انعطاف طراحی شده. انحنا و پیچ و تاب حروف نمادی از پیچ و تاب ذهن هوشیار یک طراح هستند. خطوط موازی که در جهت بالا کشیده شده اند، نمایشی از اوج و بینهایت هستند چراکه دو خط موازی هرگز یکدیگر را قطع نکرده و تا فضا بینهایت ادامه می یابند. تقارن چرخشی در مرکز لوگو نسب بی نظیری بین حروف d و y به وجود آورده است. تزریق رنگ سازمانی دایا آرتز به لوگو، معجزه معنایی واقعی را به وجود آورده است. اصلی ترین مزیت لوگو های نوشتاری رسمی بودن و شخصیت غالب داشتن ایشان است. رنگ سازمانی دایا آرتز نیز با این خصوصیت های لوگو نوشتاری مطابقت دارد. این ها همه بخشی از فلسفه فکری طراح است که در طراحی لوگو به کار رفته. دایا آرتز؛ گامی تا مدرنیته.
                 </p>
             </div>
         </div>
     </article>
-    <div class="section col-lg-10 offset-lg-1 col-12 p-3 px-4 px-md-5 mt-3">
+    <div class="section col-lg-10 offset-lg-1 col-12 px-4">
         <p>هسته محوری هر کالا یا محصول در شرکت ها، انجمن ها و مخصوصا استارت آپ ها "ایده" است. ایده نمی تواند توسط موجودی غیر از انسان پدید آید، از همین جهت هر محصول یا فعالیتی که دارای ایده باشد همانند انسان است و دارای شخصیت و هویت به شمار می آید. متاسفانه نمی شود در نخستین نگاه، مغز یک انسان را شکافت و ایده و شخصیتش را بررسی کرد بنابراین دیدگاه اولیه انسان ها به افراد ناشناس بر اساس آنچه از ظاهر دیده می شود شکل می گیرد، حال اگر شخصیت و هویت ایده هر محصول تجاری یا هسته فعالیت شما متناسب با ظاهرشان نباشد چه می شود ؟ درست است ؛ قضاوت نادرستی از طرف مخاطبان شما به وجود می آید که براولین برداشت مشتریان و مخاطبان اثر ضیان باری می گذراد که تغییرش سخت و زمان بر است. در نتیجه نیاز است تا ایده شما مورد بحث طراحان و ناظران مختلفی قرار بگیرد تا بتوان ظاهری چشم نواز و شکیل برای آن ترسیم نمود.
         پلتفرم دایا آرتز(dayaartz) با رویکرد هنری و شناختی، ایده و شخصیت فعالیت های شما را در قالب های گرافیکی مختلف طراحی می کند. دایا آرتز پشتیبان برندینگ و هویت ظاهری فعالیت شما است تا با خاطری آسوده هویت تجاری-اجتماعی ایده هایتان درخشنده ترین انعکاس را در زمینه برندینگ از خود به جا گذارند.</p>
         <p>دایا آرتز با موشکافی بسیار و جزئی نگری به اطلاعات و نیاز ها و خواسته های شما می پردازد تا کوچک ترین مفهوم قابل پردازش را برای استفاده در هویت بصری برند شما از دست ندهد، همانطور که با جزئیات تمام به هویت بصری خود در لوگو اش پرداخته است.</p>

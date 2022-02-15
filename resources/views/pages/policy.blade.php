@@ -228,7 +228,7 @@
             </div>
             <ul class="answer animated flipInY d-none">
                 <li>از طریق درگاه های اینترنتی سایت</li>
-                <li>از طریق کارت به کارت</li>
+                <li>از طریق کارت به کارت و واریز وجه</li>
             </ul>
         </div>
     </div>
