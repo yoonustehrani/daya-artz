@@ -1049,23 +1049,23 @@
                 }
             }
             // tickets faq
-            .ticekts-faq {
+            .tickets-faq {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
                 > div {
-                    width: 100%;
                     background-color: $light-bg-msg;
                     border-radius: 10px;
                     border: 2px solid $horny-bg-msg;
                     text-align: right;
                     padding: 8px 15px 8px 15px;
-                    margin-bottom: 15px;
+                    margin: 0 0 30px;
                     h4 {
                         font-size: 18px;
                         display: inline;
+                        line-height: 1.8;
                     }
                     span {
                         margin-left: 20px;

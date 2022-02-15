@@ -11291,6 +11291,16 @@ h3 {
   .eggplant-btn .alert {
     margin: 10px 0 0 0 !important;
   }
+
+  .tickets-faq > div h4 {
+    font-size: 16px !important;
+  }
+  .tickets-faq > div span {
+    margin-left: 6px !important;
+  }
+  .tickets-faq > div span i {
+    font-size: 16px !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -11316,6 +11326,10 @@ h3 {
   .order-items-container > div {
     width: 46% !important;
     margin: 2% !important;
+  }
+
+  .tickets-faq > div {
+    width: 90%;
   }
 }
 @media screen and (max-width: 424px) {
@@ -11370,6 +11384,10 @@ h3 {
   .order-items-container > div {
     width: 94% !important;
     margin: 3% !important;
+  }
+
+  .tickets-faq > div {
+    width: 100%;
   }
 }
 @media screen and (max-width: 360px) {
@@ -11516,6 +11534,10 @@ h3 {
   .order-items-container > div > span {
     font-size: 14px !important;
   }
+
+  .tickets-faq > div {
+    width: 100% !important;
+  }
 }
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
   .portfolio-detail {
@@ -11623,6 +11645,11 @@ h3 {
   }
   .order-box-bg .service-order-item .service-order-item-title {
     font-size: 17px !important;
+  }
+
+  .tickets-faq > div {
+    margin: 0 15px 30px !important;
+    width: calc(50% - 30px);
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -16700,39 +16727,39 @@ span.back-aqua.big-icon {
   font-size: 14px;
   margin-top: 5px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticekts-faq {
+.user-area-layout-container .user-area-panel .main-content-container .tickets-faq {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticekts-faq > div {
-  width: 100%;
+.user-area-layout-container .user-area-panel .main-content-container .tickets-faq > div {
   background-color: #E4DBFA;
   border-radius: 10px;
   border: 2px solid #C5AEF6;
   text-align: right;
   padding: 8px 15px 8px 15px;
-  margin-bottom: 15px;
+  margin: 0 0 30px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticekts-faq > div h4 {
+.user-area-layout-container .user-area-panel .main-content-container .tickets-faq > div h4 {
   font-size: 18px;
   display: inline;
+  line-height: 1.8;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticekts-faq > div span {
+.user-area-layout-container .user-area-panel .main-content-container .tickets-faq > div span {
   margin-left: 20px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticekts-faq > div span i {
+.user-area-layout-container .user-area-panel .main-content-container .tickets-faq > div span i {
   font-size: 20px;
   color: #000;
   cursor: pointer;
   transition: 0.4s;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticekts-faq > div span i:hover {
+.user-area-layout-container .user-area-panel .main-content-container .tickets-faq > div span i:hover {
   color: #DC47DE;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticekts-faq > div p {
+.user-area-layout-container .user-area-panel .main-content-container .tickets-faq > div p {
   font-size: 16px;
   margin-top: 10px;
 }

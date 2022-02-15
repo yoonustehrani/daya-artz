@@ -1222,6 +1222,19 @@ $xl-xl-breakpoint: 1600px;
             margin: 10px 0 0 0 !important;
         }
     }
+    .tickets-faq {
+        > div {
+            h4 {
+                font-size: 16px !important;
+            }
+            span {
+                margin-left: 6px !important;
+                i {
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
 }
 
 // tablet
@@ -1252,6 +1265,11 @@ $xl-xl-breakpoint: 1600px;
         > div {
             width: 46% !important;
             margin: 2% !important;
+        }
+    }
+    .tickets-faq {
+        > div {
+            width: 90%;
         }
     }
 }
@@ -1313,6 +1331,11 @@ $xl-xl-breakpoint: 1600px;
         > div {
             width: 94% !important;
             margin: 3% !important;
+        }
+    }
+    .tickets-faq {
+        > div {
+            width: 100%;
         }
     }
 }
@@ -1495,6 +1518,11 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
+    .tickets-faq {
+        > div {
+            width: 100% !important;
+        }
+    }
 }
 
 // xl
@@ -1605,6 +1633,12 @@ $xl-xl-breakpoint: 1600px;
             .service-order-item-title {
                 font-size: 17px !important;
             }
+        }
+    }
+    .tickets-faq {
+        > div {
+            margin: 0 15px 30px !important;
+            width: calc(50% - 30px);
         }
     }
 }
