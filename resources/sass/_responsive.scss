@@ -432,7 +432,7 @@ $xl-xl-breakpoint: 1600px;
             display: inline-block;
         }
     }
-}
+} // end md
 
 // medium and above
 @media screen and (min-width: $md-breakpoint) {
@@ -465,7 +465,7 @@ $xl-xl-breakpoint: 1600px;
             margin-top: 10px !important;
         }
     }
-}
+} // end medium and above
 
 //large and above
 @media screen and (min-width: $lg-breakpoint) {
@@ -496,7 +496,7 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
-}
+} // end large and above
 
 // Tablet & Mobile
 @media screen and (max-width: $md-breakpoint - 1px) {
@@ -1235,7 +1235,10 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
-}
+    .order-info-container {
+        width: fit-content !important;
+    }
+} // end tablet and mobile
 
 // tablet
 @media screen and (min-width: 425px) and (max-width: $md-breakpoint - 1px) {
@@ -1272,7 +1275,7 @@ $xl-xl-breakpoint: 1600px;
             width: 90%;
         }
     }
-}
+} // end tablet
 
 
 // Mobile
@@ -1338,7 +1341,7 @@ $xl-xl-breakpoint: 1600px;
             width: 100%;
         }
     }
-}
+} // end mobile
 
 
 // Mobile small
@@ -1416,7 +1419,7 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
-}
+} // end mobile small
 
 @media screen and (min-width: 1800px) {
     .col-xl-xl-2 {
@@ -1523,7 +1526,7 @@ $xl-xl-breakpoint: 1600px;
             width: 100% !important;
         }
     }
-}
+} // end medium-xl
 
 // xl
 @media screen and (min-width: $xl-breakpoint) and (max-width: $xl-xl-breakpoint) {
@@ -1568,7 +1571,7 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
-}
+} // end xl
 
 // xl and above
 @media screen and (min-width: $xl-breakpoint) {
@@ -1641,7 +1644,10 @@ $xl-xl-breakpoint: 1600px;
             width: calc(50% - 30px);
         }
     }
-}
+    .order-info-container {
+        width: 90% !important;
+    }
+} // end xl and above
 
 // lg;
 @media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint - 1px) {
@@ -1825,4 +1831,4 @@ $xl-xl-breakpoint: 1600px;
     .post-main-section {
         width: 80% !important;
     }
-}
+} // end lg

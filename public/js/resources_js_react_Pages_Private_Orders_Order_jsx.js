@@ -255,20 +255,20 @@ var Order = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "onFilterClick", function (newFilter) {
-      $("#no-item-elem").remove();
-
       _this.setState({
-        filter: newFilter
+        filter: newFilter,
+        noFilteredItem: false
       }, function () {
         var noItem = true;
         $(".order-items-container").children().each(function (i, elem) {
           if (!$(elem).hasClass("d-none")) {
-            console.log("elem ".concat(i, " is not none"));
             return noItem = false;
           }
         });
-        console.log( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", {}, "hello"));
-        noItem ? $('#order-container').append( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", {}, "hello")) : null;
+
+        _this.setState({
+          noFilteredItem: noItem
+        });
       });
     });
 
@@ -311,7 +311,8 @@ var Order = /*#__PURE__*/function (_Component) {
       loading: false,
       filter: "all",
       order: null,
-      items: []
+      items: [],
+      noFilteredItem: false
     };
     _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_7__.useHttpService)("/userarea/orders/");
     return _this;
@@ -332,7 +333,8 @@ var Order = /*#__PURE__*/function (_Component) {
           loading = _this$state.loading,
           items = _this$state.items,
           order = _this$state.order,
-          filter = _this$state.filter;
+          filter = _this$state.filter,
+          noFilteredItem = _this$state.noFilteredItem;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         id: "order-container",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_OrderInfo__WEBPACK_IMPORTED_MODULE_3__["default"], _objectSpread({}, order)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_FlterBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -344,7 +346,7 @@ var Order = /*#__PURE__*/function (_Component) {
               filter: filter
             }, item), item.id);
           })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"], {}), noFilteredItem && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
       });
     }
   }]);

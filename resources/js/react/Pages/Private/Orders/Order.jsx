@@ -14,25 +14,26 @@ class Order extends Component {
             loading: false,
             filter: "all",
             order: null,
-            items: []
+            items: [],
+            noFilteredItem: false
         }
         this.http = useHttpService(`/userarea/orders/`)
     }
 
     onFilterClick = (newFilter) => {
-        $("#no-item-elem").remove()
         this.setState({
-            filter: newFilter
+            filter: newFilter,
+            noFilteredItem: false
         }, () => {
             let noItem = true
             $(".order-items-container").children().each((i, elem) => {
                 if (!$(elem).hasClass("d-none")) {
-                    console.log(`elem ${i} is not none`);
                     return noItem = false
                 }
             })
-            console.log(React.createElement("h1", {}, "hello"))
-            noItem ? $('#order-container').append(React.createElement("h1", {}, "hello")) : null
+            this.setState({
+                noFilteredItem: noItem
+            })
         })
     }
 
@@ -52,7 +53,7 @@ class Order extends Component {
         this.setState({loading: true}, this.loadOrder)
     }
     render() {
-        let { loading, items, order, filter } = this.state
+        let { loading, items, order, filter, noFilteredItem } = this.state
         return (
             <div id='order-container'>
                 <OrderInfo {...order} />
@@ -67,6 +68,7 @@ class Order extends Component {
                     </div>
                     : <NoItem/>
                 }
+                {noFilteredItem&&<NoItem />}
             </div>
         );
     }

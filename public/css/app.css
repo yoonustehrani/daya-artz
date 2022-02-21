@@ -11301,6 +11301,12 @@ h3 {
   .tickets-faq > div span i {
     font-size: 16px !important;
   }
+
+  .order-info-container {
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -11650,6 +11656,10 @@ h3 {
   .tickets-faq > div {
     margin: 0 15px 30px !important;
     width: calc(50% - 30px);
+  }
+
+  .order-info-container {
+    width: 90% !important;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -16248,7 +16258,7 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-info-container li {
   color: #000;
-  margin: 5px 0 5px 20px;
+  margin: 5px 10px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .orders-filter {
   width: 100%;
