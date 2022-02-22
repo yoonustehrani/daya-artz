@@ -21,8 +21,9 @@ class ReportController extends Controller
     }
     public function invoices()
     {
-        $invoices = request()->user()->invoices()->cursorPaginate(10);
-        return response()->json($invoices);
+        return response()->json([]);
+        // $invoices = request()->user()->invoices()->cursorPaginate(10);
+        // return response()->json($invoices);
     }
     public function orders(ReportRequest $request)
     {
