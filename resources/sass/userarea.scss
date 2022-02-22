@@ -831,6 +831,89 @@
                     }
                 }
             }
+            .factor-container {
+                background-color: $on-white;
+                box-shadow: 2px 2px 10px 0px rgb(0 0 0 / 6%);
+                width: 100%;
+                margin: auto;
+                display: flow-root;
+                border-radius: 10px;
+                .factor-due {
+                    border-right: 2px solid $secondary;
+                    border-left: 2px solid $secondary;
+                    padding: 0 5px;
+                    font-size: 16px;
+                    width: fit-content;
+                }
+                .factor-section-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 25px;
+                    border-right: 2px solid #000;
+                    padding-right: 6px;
+                }
+                .factor-first-section {
+                    .factor-date {
+                        float: right;
+                        font-size: 18px;
+                        font-weight: bold;
+                        display: block;
+                        width: 100%;
+                    }
+                    > div {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        width: 100%;
+                        float: right;
+                        > ul {
+                            padding: 0;
+                            list-style-type: none;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            &:nth-child(1) {
+                                li.contact-info {
+                                    color: $gray;
+                                    font-weight: normal;
+                                    font-size: 14px;
+                                    margin-bottom: 2px;
+                                }
+                                li {
+                                    margin-bottom: 8px;
+                                    font-weight: bold;
+                                    font-size: 18px;
+                                    text-align: right;
+                                    span {
+                                        font-weight: normal;
+                                        color: $gray;
+                                        font-size: 16px !important;
+                                        display: inline-block;
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            &:nth-child(2) {
+                                li {
+                                    margin-bottom: 15px;
+                                    font-weight: normal;
+                                    span {
+                                        margin-left: 6px;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .factor-info {
+                    td {
+                        text-align: left;
+                    }
+                }
+            }
             .ticket-container {
                 > * {
                     width: 100%;

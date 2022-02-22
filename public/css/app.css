@@ -11661,6 +11661,10 @@ h3 {
   .order-info-container {
     width: 90% !important;
   }
+
+  .factor-container {
+    width: 800px !important;
+  }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .contact-us-first-section.mb-4 .contact-us-form {
@@ -12065,6 +12069,10 @@ a:hover {
 
 .relative {
   position: relative !important;
+}
+
+.table-hover {
+  cursor: pointer;
 }
 
 .btn-white {
@@ -13743,6 +13751,11 @@ span.back-aqua.big-icon {
 .horizontal-centerlize-w {
   margin-left: auto;
   margin-right: auto;
+}
+
+.horizontal-center-left {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .loader-container {
@@ -16524,6 +16537,83 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .userarea-table tbody tr:last-child td {
   border-bottom: none !important;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container {
+  background-color: #fefffc;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  margin: auto;
+  display: flow-root;
+  border-radius: 10px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-due {
+  border-right: 2px solid #292b2c;
+  border-left: 2px solid #292b2c;
+  padding: 0 5px;
+  font-size: 16px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  border-right: 2px solid #000;
+  padding-right: 6px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-first-section .factor-date {
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-first-section > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  float: right;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-first-section > div > ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-first-section > div > ul:nth-child(1) li.contact-info {
+  color: #808080;
+  font-weight: normal;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-first-section > div > ul:nth-child(1) li {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: right;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-first-section > div > ul:nth-child(1) li span {
+  font-weight: normal;
+  color: #808080;
+  font-size: 16px !important;
+  display: inline-block;
+  width: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-first-section > div > ul:nth-child(2) li {
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-first-section > div > ul:nth-child(2) li span {
+  margin-left: 6px;
+  font-weight: bold;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .factor-info td {
+  text-align: left;
 }
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container > * {
   width: 100%;

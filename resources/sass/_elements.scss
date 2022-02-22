@@ -12,6 +12,10 @@
     position: relative !important;
 }
 
+.table-hover {
+    cursor: pointer;
+}
+
 .btn-white {
     border: 2px solid #ffffff !important;
     border-radius: 16px;
@@ -1361,6 +1365,10 @@ $labelData: '';
 .horizontal-centerlize-w {
     margin-left: auto;
     margin-right: auto;
+}
+.horizontal-center-left {
+    left: 50%;
+    transform: translateX(-50%);
 }
 .loader-container {
     width: 100%;
