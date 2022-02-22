@@ -8,6 +8,11 @@ class Zarinpal extends Gateway
     public $sandbox = false;
     public $description = "";
     public $metadata = [];
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setMerchantId('00000000-0000-0000-0000-000000000000');
+    }
     /**
      * Requesting a Zarinpal gateway
      * @param int $amount
@@ -27,20 +32,19 @@ class Zarinpal extends Gateway
                 $this->authority = $body['Authority'];
                 return [
                     'okay' => true,
-                    'gateway' => $this->getRedirection()
-                ];
-            } else {
-                return [
-                    'okay' => false
+                    'gateway' => $this->getRedirection(),
+                    'transaction_id' => $this->authority
                 ];
             }
+            return ['okay' => false];
         }
         $data = $body['data'];
         if (isset($data['code']) && $data['code'] === 100 && $data['authority']) {
             $this->authority = $data['authority'];
             return [
                 'okay' => true,
-                'gateway' => $this->getRedirection()
+                'gateway' => $this->getRedirection(),
+                'transaction_id' => $this->authority
             ];
         }
         return [
@@ -48,6 +52,9 @@ class Zarinpal extends Gateway
             'errors' => $body['errors']
         ];
     }
+    /**
+     * Verifiying the returned transaction
+     */
     public function verify($amount, $authority)
     {
         $this->amount = $amount;
@@ -135,16 +142,14 @@ class Zarinpal extends Gateway
     
     public function getPurchaseUri(): string
     {
-        $url = $this->getBaseUri();
-        $url .= $this->isSandbox() ? 'PaymentRequest.json' : 'request.json';
-        return $url;
+        $append = $this->isSandbox() ? 'PaymentRequest.json' : 'request.json';
+        return $this->getBaseUri() . $append;
     }
 
     public function getVerifyUri(): string
     {
-        $url = $this->getBaseUri();
-        $url .= $this->isSandbox() ? 'PaymentVerification.json' : 'verify.json';
-        return $url;
+        $append = $this->isSandbox() ? 'PaymentVerification.json' : 'verify.json';
+        return $this->getBaseUri() . $append;
     }
 
     public function getRedirection(): string

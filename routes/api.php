@@ -90,11 +90,12 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
         // });
     });
 });
-
-Route::post('bills/{bill}/pay', [PaymentController::class, 'store']);
 // Route::get('/',function() {
 //     return ['hello'];
 // })->middleware('auth:sanctum');
 // Route::prefix('userarea')
 
 // Route::post('login')
+
+
+Route::post('bills/{bill}/pay', [PaymentController::class, 'store'])->name('bills.pay');

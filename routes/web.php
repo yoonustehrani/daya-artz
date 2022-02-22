@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LandingsController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\User;
@@ -38,7 +39,7 @@ Route::get('blog', [PostController::class, 'index'])->name('blog.index');
 Route::get('blog/{slug}', [PostController::class, 'show'])->name('blog.show');
 
 Route::get('portfolio/{slug}', [PortfolioController::class, 'show'])->name('portfolio.show');
-
+Route::get('landing/{slug}', [LandingsController::class, 'show'])->name('landings.show');
 Route::view('about', 'pages.about')->name('about');
 Route::view('contact', 'pages.contact')->name('contact');
 Route::view('policy', 'pages.policy')->name('policy');
@@ -90,12 +91,12 @@ Route::get('test', function (Request $request) {
 
 
 Route::get('payment', function() {
-    $zp = (new \App\Utils\Payment)->getDriver('zarinpal');
-    if ($zp) {
-        $zp->setMerchantId('00000000-0000-0000-0000-000000000000');
-        $zp->sandbox();
-        return $zp->purchase(1000, "تست درگاه دایا", []);
-    }
+    // $zp =;
+    // if ($zp) {
+    //     $zp->setMerchantId('00000000-0000-0000-0000-000000000000');
+    //     $zp->sandbox();
+    //     return $zp->purchase(1000, "تست درگاه دایا", []);
+    // }
 });
 
 Route::match(['get', 'post'], 'payment/{driver}/verify', function($driver) {
