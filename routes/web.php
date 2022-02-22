@@ -88,6 +88,24 @@ Route::get('test', function (Request $request) {
     // return $company;
 })->name('tempo');
 
+
+Route::get('payment', function() {
+    $zp = (new \App\Utils\Payment)->getDriver('zarinpal');
+    if ($zp) {
+        $zp->setMerchantId('00000000-0000-0000-0000-000000000000');
+        $zp->sandbox();
+        return $zp->purchase(1000, "تست درگاه دایا", []);
+    }
+});
+
+Route::match(['get', 'post'], 'payment/{driver}/verify', function($driver) {
+    return [
+        'driver' => $driver,
+        'request' => request()->all()
+    ];
+})->name('payment.verify');
+
+
 Route::get('orders', function() {
     return App\Models\Order::latest()->get();
 });

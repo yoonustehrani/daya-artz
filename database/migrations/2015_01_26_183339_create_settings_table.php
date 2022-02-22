@@ -17,6 +17,7 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->string('group')->default('main');
             $table->string('title');
+            $table->string('type')->default('text');
             $table->string('key')->unique();
             $table->text('value');
         });

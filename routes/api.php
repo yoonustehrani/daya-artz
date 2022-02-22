@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\UserArea\ReportController;
 use App\Http\Controllers\Api\UserArea\TicketController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VerificationController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WebsiteController;
@@ -105,6 +106,8 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
         // });
     });
 });
+
+Route::post('bills/{bill}/pay', [PaymentController::class, 'store']);
 // Route::get('/',function() {
 //     return ['hello'];
 // })->middleware('auth:sanctum');
