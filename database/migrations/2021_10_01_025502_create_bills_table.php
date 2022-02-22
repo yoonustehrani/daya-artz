@@ -24,7 +24,7 @@ class CreateBillsTable extends Migration
             ]);
             $table->foreignId('invoice_id');
             $table->timestamps();
-            $table->foreign('invoice_id')->references('id')->on('invoices')->cascadeOnDelete()->cascadeOnUpdate();
+            // $table->foreign('invoice_id')->references('id')->on('invoices')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
