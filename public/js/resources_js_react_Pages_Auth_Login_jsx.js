@@ -111,7 +111,7 @@ var Login = /*#__PURE__*/function (_Component) {
           password = fields_info.password;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          children: "\u0648\u0631\u0648\u062F \u0628\u0647 \u062F\u0627\u06CC\u0627"
+          children: "\u0648\u0631\u0648\u062F \u0628\u0647 \u062F\u0627\u06CC\u0627 \u0622\u0631\u062A\u0632"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "login-icons",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {

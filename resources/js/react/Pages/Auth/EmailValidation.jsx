@@ -1,60 +1,66 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { changeUserEmail } from '../../redux/actions';
+import AlertService from '../../../services/AlertService';
+import { changeUserEmail, resendBasedOnAuthMethod } from '../../redux/actions';
 
 class EmailValidation extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            resendIn: 0,
-            resend: true,
-            left_attempts: 3,
-            edit: false,
             email: props.user.email,
+            edit: false,
+            editing: false,
+            resendIn: props.resend.next_attempt_in_seconds
         }
         this.interval = null
+        this.Alert = new AlertService()
     }
     componentDidMount() {
-        this.setResendTime(60)
+        document.title = 'تایید ایمیل'
     }
     componentWillUnmount() {
         clearInterval(this.interval)
     }
-    setResendTime = (time) => {
+    setResendTime = () => {
+        let {next_attempt_in_seconds} = this.props.resend
         clearInterval(this.interval)
-        this.setState({resendIn: time}, () => {
-            this.interval = setInterval(() => {
-                if (this.state.resendIn <= 0) {
-                    clearInterval(this.interval)
-                } else {
-                    this.setState(prevState => ({
-                        resendIn: prevState.resendIn - 1
-                    }))
-                }
-            }, 1000);
-        })
+        if (next_attempt_in_seconds > 0) {
+            this.setState({resendIn: next_attempt_in_seconds}, () => {
+                this.interval = setInterval(() => {
+                    if (this.state.resendIn <= 0) {
+                        clearInterval(this.interval)
+                    } else {
+                        this.setState(prevState => ({
+                            resendIn: prevState.resendIn - 1
+                        }))
+                    }
+                }, 1000);
+            })
+        }
     }
     handleEdit = (e) => {
         e.preventDefault()
-        // send http request here
-        this.props.editEmail(this.state.email).then(res => {
-            console.log(res);
+        this.setState({editing: true}, async () => {
+            const response = await this.props.editEmail(this.state.email)
+            this.setState({edit: typeof response.error !== 'undefined', editing: false}, this.setResendTime)
         })
     }
-    handleResend = () => {
-        let {handleResend} = this.props;
-        handleResend('email').then(res => {
-            console.log(res);
-        })
+    handleResend = async () => {
+        const result = await this.props.authResend('email');
+        this.setResendTime()
+        let {okay} = result.payload
+        if (okay) this.Alert.success({title: 'ایمیل حاوی لینک تایید حساب ارسال شد', timer: 2000})
     }
     render() {
-        let { user } = this.props
+        let { user, resend } = this.props
+        let { edit, resendIn, editing } = this.state
+        let {left_attempts} = resend
         return user.email && user.email_verified_at || user.phone_number && ! user.phone_verified
         ? <Redirect to="/dashboard"/>
         : (
             <>
-            {! this.state.edit
+            {! edit
             ?   <div>
                     <h2>تایید آدرس ایمیل</h2>
                     <p>
@@ -62,11 +68,11 @@ class EmailValidation extends Component {
                         <br />
                         با کلیک کردن روی دکمه یا لینک قرار داده شده در داخل ایمیلی که از سمت ما برایتان ارسال شده می توانید حساب کاربری تان را فعال کنید
                     </p>
-                    {this.state.left_attempts > 0 && 
+                    {left_attempts > 0 && 
                         <button 
-                        disabled={this.state.resendIn > 0}
+                        disabled={resendIn > 0}
                         onClick={this.handleResend}
-                        className="btn btn-lg">{this.state.resendIn > 0 ? this.state.resendIn : "ارسال مجدد ایمیل"}</button>
+                        className="btn btn-lg">{resendIn > 0 ? resendIn : "ارسال مجدد ایمیل"}</button>
                     }
                     <p className="text-right mt-5 text-small">آدرس ایمیل {user.email} اشتباه است ؟ <a onClick={() => this.setState({edit: true})} href="#edit">ویرایش</a></p>
                 </div>
@@ -75,7 +81,7 @@ class EmailValidation extends Component {
                     <form onSubmit={this.handleEdit} className="form-group w-50">
                         <div className="input-group">
                             <div className="input-group-prepend">
-                                <button className="btn btn-def m-0 w-auto btn-success" type="submit">ویرایش</button>
+                                <button disabled={editing} className="btn btn-def m-0 w-auto btn-success" type="submit">ویرایش</button>
                             </div>
                             <input type="text" className="form-control text-left ltr" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})}/>
                         </div>
@@ -89,11 +95,13 @@ class EmailValidation extends Component {
 }
 
 const mapStateToProps = state => ({
-    user: state.auth.user
+    user: state.auth.user,
+    resend: state.auth.resend
 })
 
 const mapDispatchToProps = dispatch => ({
-    editEmail: email => dispatch(changeUserEmail(email))
+    editEmail: email => dispatch(changeUserEmail(email)),
+    authResend: method => dispatch(resendBasedOnAuthMethod(method))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmailValidation);

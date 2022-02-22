@@ -13,7 +13,7 @@ class Footer extends Component {
                     <div className="col-12 float-left px-3 footer-info-container">
                         <div className="col-lg-3 col-md-6 col-12">
                             <p className="title">درباره ما</p>
-                            <div><p>گروه طراحی دایا متشکل از تیمی با تجربه و حرفه ای در زمینه های طراحی گرافیـکی و تبلیغاتی در تلاش است بستر مناسبی را برای کسانی که نیازمند طراحی یا طراحی با کیفیت و در سطح بین المللی و همچنین درامدزایی برای طراحان حرفه ای و درجه یک کشور ایران ایجاد سازد.</p></div>
+                            <div><p>گروه طراحی دایا آرتز متشکل از تیمی با تجربه و حرفه ای در زمینه های طراحی گرافیـکی و تبلیغاتی در تلاش است بستر مناسبی را برای کسانی که نیازمند طراحی یا طراحی با کیفیت و در سطح بین المللی و همچنین درآمدزایی برای طراحان حرفه ای و درجه یک کشور ایران ایجاد سازد.</p></div>
                         </div>
                         <div className="col-lg-2 col-md-6 col-12">
                             <p className="title">لینک های سریع</p>
@@ -48,7 +48,7 @@ class Footer extends Component {
                                 </div>
                                 <div className="social-media-container">
                                     <a href="https://linkedin.com/"><i className="fab fa-linkedin-in"></i></a>
-                                    <a href="https://wa.me/+989015074027"><i className="fab fa-whatsapp ml-4"></i></a>
+                                    <a href="https://wa.me/+989016045025"><i className="fab fa-whatsapp ml-4"></i></a>
                                 </div>
                             </div>
                             <p className="ltr m-text-center">

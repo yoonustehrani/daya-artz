@@ -3,25 +3,29 @@ import React, { Component } from 'react';
 class TicketsFaq extends Component {
     faqs = [
         {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+            question: "دایا آرتز برای چه کسب و کار هایی طراحی می کنه ؟",
+            answer: "دایا آرتز برای تمامی مشاغل و کسب و کار های موجود، فعالیت طراحی گرافیک را به شکل حرفه ایی دنبال می کند . از رستوران و کافی شاپ تا استارتاپ ها و شرکت های توسعه فناوری ؛ نیاز هایشان توسط دایا آرتز سنجیده شده تا بهترین خدمات را دریافت کنند."
         },
         {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+            question: "دایا آرتز چگونه ما را پشتیبانی و پیگیری می کند ؟",
+            answer: "دایا آرتز دارای یک سیستم پشتیبانی منظم و فعال آنلاین می باشد که منظم به سوالات شما پاسخ می دهد و همچنین در یک اقدام فوق العاده امکان پیگیری های چند جانبه شما را از طریق پنل شخصی کارفرما ایجاد کرده است . ضمنا دایا آرتز از طریق تماس تلفنی و شبکه های اجتماعی نیز پشتیبان و پیگیر مخاطبان خود می باشد ."
         },
         {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+            question: "به چه روش هایی امکان سفارش داریم ؟",
+            answer: "سفارش تلفنی، سفارش از طریق ربات تلگرام، سفارش از طریق سیستم شبکه های اجتماعی، سفارش فوری و همچنین امکان خاص و ویژه سفارش تخصصی برای تمامی مخاطبان قابل استفاده است."
         },
         {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+            question: "اپراتور های دایا آرتزدر چه ساعتی پاسخ گو خواهند بود ؟",
+            answer: "بخش پشتیبانی تلفنی دایا آرتز در شیفت صبح از ساعت ... تا ساعت ... و در شیفت عصر از ساعت ... تا ساعت ... فعال است . البته در شبکه های اجتماعی و راه های ارتباطی آنلاین دایا آرتز تمام وقت تلاش بر نظارت و پاسخگویی دارد . فراموش نکنید دای آرتز: پیکسل به پیکسل با شماست."
         },
         {
-            question: "پشتیبانی دایا چگونه انجام میشود؟",
-            answer: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum. Odit id minima officia enim. Fugiat nisi velit quasi vitae totam, harum corporis pariatur ipsa sint, facilis quas? Non, itaque?"
+            question: "آیا برای پیگیری از سفارش خود می توانیم با پشتیبانی تماس بگیریم ؟ ",
+            answer: "پشتیبانی دایا آرتز همه جانبه آماده پاسخگویی به پیگیری های شماست اما در جهت سهولت روند پیگیری امکان ثبت تیکت و پیگیری از طریق صفحه کاربری را برای شما به وجود آورده است"
         },
+        {
+            question: "دایا آرتز چه جور کسب و کاری است ؟",
+            answer: "دایا آرتز به عنوان یک کسب و کار نوپا فعالیت نوآورانه خود را در زمینه کسب و کار های دیجیتال آغاز کرده است."
+        }
     ]
 
     openfaq = (e) => {
@@ -31,7 +35,7 @@ class TicketsFaq extends Component {
 
     render() {
         return (
-            <div className="ticekts-faq">
+            <div className="tickets-faq">
                 {this.faqs.map((item, i) => (
                     <div key={i}>
                         <span><i onClick={this.openfaq.bind(this)} className="fas fa-plus"></i></span>

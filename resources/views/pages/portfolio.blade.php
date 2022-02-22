@@ -51,7 +51,7 @@
             <br>
             <li>درباره شرکت: <p>{{ $portfolio->about_company }}</p></li>
             <br>
-            <li>نطر شرکت سامپی درباره کار با دایاآرتز: <p>{{ $portfolio->company_opinion }}</p></li>
+            <li>نظر شرکت {{ $portfolio->company }} درباره کار با دایا آرتز: <p>{{ $portfolio->company_opinion }}</p></li>
         </ul>
     </div>
     <div class="header-vector col-10 col-sm-8 col-md-4 mb-3 mb-md-0">

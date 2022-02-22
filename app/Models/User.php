@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Broadcasting\SMSChannel;
+use App\Notifications\VerificationNotification;
 use App\Traits\VerificationAid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -106,5 +108,14 @@ class User extends Authenticatable
     public function scopeSpecialCustomer($builder)
     {
         return $builder->where('score', 2);
+    }
+
+    public function resendEmail()
+    {
+        $this->notify(new VerificationNotification(['mail']));
+    }
+    public function resendSms()
+    {
+        $this->notify(new VerificationNotification([SMSChannel::class]));
     }
 }

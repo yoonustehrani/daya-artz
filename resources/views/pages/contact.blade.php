@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="contact-us-form">
-        <h4 class="mb-3 mb-md-2 mb-lg-4">ما منتظر شنیدن صدای شما هستیم</h4>
+        <h4 class="mb-3 mb-md-2 mb-lg-4">ما منتظر دریافت پیام شما هستیم</h4>
         <form action="#">
             <div class="input-group mb-2 mb-lg-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
             <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>
@@ -30,7 +30,8 @@
 </div>
 <!-- end contact us form and vector -->
 <!-- contact us text -->
-<div class="col-12 col-md-10 offset-md-1 float-left mt-md-5 text-center">
+<div class="col-12 col-md-10 offset-md-1 mt-md-5 contact-us-text">
+    <p class="contact-us-tagline"><span>دایا آرتز</span> پشتیبان خوش ذوق ها</p>
     <p class="contact-p p-2">
         تیم طراحی گرافیک دایا آرتز در مقام یک پلتفرم هنری متعهد شده است که پشتیبان کارفرمایان و متقاضیان سرویس های طراحی گرافیک به بهترین شکل ممکن باشد . مشاورین و مدیران ارشد تکریم مشتریان آماده به خدمت و دریافت پیشنهادات و انتقادات شما و برطرف سازی مشکلات و نیاز های تمامی شما عزیزان هستند.
         <br>
@@ -55,7 +56,6 @@
                 <a href="tel:+989016045025">
                     <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-mobile"></i></span><h3 class="text-center vertical-center">(+98) 901 604 50 25</h3></div>
                 </a>
-                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-phone"></i></span><h3 class="text-center vertical-center">(021) 950 4434</h3></div>
             </div>
         </div>
         <div class="text-center mb-4 col-10 col-md-3">
@@ -68,7 +68,7 @@
                     <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-telegram-plane"></i></span><h3 class="text-center vertical-center">@@DayaArtz</h3></div>
                 </a>
                 <a href="https://wa.me/989015045025?text={{ urlencode('سلام من به پشتیبانی احتیاج دارم') }}">
-                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-whatsapp"></i></span><h3 class="text-center vertical-center">(+98) 901 504 5025</h3></div>
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-whatsapp"></i></span><h3 class="text-center vertical-center">(+98) 901 604 5025</h3></div>
                 </a>
             </div>
         </div>

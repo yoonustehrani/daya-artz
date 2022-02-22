@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // custom components
 import FilterBar from './components/FlterBar';
+import OrderInfo from './components/OrderInfo';
 import OrderItem from './components/OrderItem';
 import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem';
@@ -13,30 +14,29 @@ class Order extends Component {
             loading: false,
             filter: "all",
             order: null,
-            items: []
+            items: [],
+            noFilteredItem: false
         }
         this.http = useHttpService(`/userarea/orders/`)
     }
 
-    sendFilterReq = () => {
-        let { filter } = this.state
-        // this.setState({loading: true}, () => {
-        //     axios.get(`?filter${filter}`).then(res => {
-        //         let { data } = res
-        //         this.setState({
-        //             items: data,
-        //             loading: false
-        //         })
-        //     })
-        // })
-    }
     onFilterClick = (newFilter) => {
         this.setState({
-            filter: newFilter
+            filter: newFilter,
+            noFilteredItem: false
         }, () => {
-            this.sendFilterReq()
+            let noItem = true
+            $(".order-items-container").children().each((i, elem) => {
+                if (!$(elem).hasClass("d-none")) {
+                    return noItem = false
+                }
+            })
+            this.setState({
+                noFilteredItem: noItem
+            })
         })
     }
+
     loadOrder = async () => {
         let { orderId } = this.props.params
         let newState = {};
@@ -53,20 +53,22 @@ class Order extends Component {
         this.setState({loading: true}, this.loadOrder)
     }
     render() {
-        let { loading, items } = this.state
+        let { loading, items, order, filter, noFilteredItem } = this.state
         return (
-            <div>
+            <div id='order-container'>
+                <OrderInfo {...order} />
                 <FilterBar onFilterClick={this.onFilterClick} />
                 {
                     loading ? <Activity/>
                     : items && items.length > 0
                     ? <div className="order-items-container">
                         {items.length > 0 && items.map((item, i) => (
-                            <OrderItem key={i} {...item} />
+                            <OrderItem key={item.id} filter={filter} {...item} />
                         ))}
                     </div>
                     : <NoItem/>
                 }
+                {noFilteredItem&&<NoItem />}
             </div>
         );
     }

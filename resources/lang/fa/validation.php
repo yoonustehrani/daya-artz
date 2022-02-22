@@ -159,6 +159,7 @@ return [
 
     'attributes' => [
         'q' => 'سوژه جستجو',
+        'email' => 'آدرس ایمیل',
         'phone_number' => 'شماره تلفن همراه',
         'firstname' => 'نام',
         'lastname' => 'نام خانوادگی',

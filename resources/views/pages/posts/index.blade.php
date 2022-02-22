@@ -38,7 +38,7 @@
 <div class="section col-12 mt-4" itemscope itemtype="https://schema.org/Blog">
     <div class="title-section col-12 mb-3">
         <div class="title-container">
-            <h2 class="title-text">مقالات دایا</h2>
+            <h2 class="title-text">مقالات دایا آرتز</h2>
             <span class="title-underline"></span>
         </div>
     </div>

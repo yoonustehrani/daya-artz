@@ -42,7 +42,7 @@ class ForgetPassword extends Component {
                     </div>
                 </div>
                 <button className="btn btn-lg badge-pill " onClick={this.checkCode.bind(this)}>ارسال کد</button>
-                <Link to="/auth/login" className="change-form-mobile mt-2">برای ورود به دایا کلیک کنید!</Link>
+                <Link to="/auth/login" className="change-form-mobile mt-2">برای ورود به دایا آرتز کلیک کنید!</Link>
             </div>
         );
     }
