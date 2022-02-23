@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->uuid('id')->primary();
             $table->bigInteger('amount');
             $table->enum('status', [
-                'validated',
+                'verified',
                 'approved',
                 'canceled',
                 'pending'

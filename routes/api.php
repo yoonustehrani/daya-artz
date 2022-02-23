@@ -61,6 +61,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::get('invoices', [ReportController::class, 'invoices'])->name('invoices.index');
     Route::get('orders', [OrderController::class, 'index']);
     Route::get('orders/{order}', [OrderController::class, 'show']);
+    Route::post('bills/{bill}/pay/{method}', [PaymentController::class, 'store'])->name('bills.pay');
     Route::prefix('user')->group(function() {
         Route::put('auth', [UserController::class, 'update']);
         Route::put('customer', [UserController::class, 'updateInfo']);
@@ -97,5 +98,4 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
 
 // Route::post('login')
 
-
-Route::post('bills/{bill}/pay', [PaymentController::class, 'store'])->name('bills.pay');
+// 7808b50d-b0bf-4987-bc45-4978b935ad8b
