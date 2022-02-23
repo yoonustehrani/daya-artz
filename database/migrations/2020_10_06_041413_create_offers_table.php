@@ -16,13 +16,15 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
-            $table->string('code');
+            $table->text('description')->nullable();
+            $table->string('code')->unique();
             $table->integer('value');
             $table->enum('value_type', ['amount', 'percentage']);
+            $table->boolean('available_for_all')->default(false);
             $table->integer('attempts')->default(0);
-            $table->integer('max_attempts')->default(1);
-            $table->json('details');
+            $table->integer('max_attempts');
+            $table->integer('min_total')->nullable();
+            $table->integer('max_total')->nullable();
             $table->timestamp('expires_at')->nullable();
             $table->softDeletes();
             $table->timestamps();

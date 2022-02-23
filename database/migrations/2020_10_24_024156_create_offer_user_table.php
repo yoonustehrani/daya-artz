@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOfferablesTable extends Migration
+class CreateOfferUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateOfferablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('offerables', function (Blueprint $table) {
+        Schema::create('offer_user', function (Blueprint $table) {
+            $table->foreignId('user_id');
             $table->foreignId('offer_id');
-            $table->morphs('offerable');
-            $table->integer('max_attempts')->default(1);
-            $table->integer('attempts')->default(0);
+            $table->integer('user_attempts')->default(0);
+            $table->primary(['user_id', 'offer_id']);
         });
     }
 
@@ -28,6 +28,6 @@ class CreateOfferablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offerables');
+        Schema::dropIfExists('offer_user');
     }
 }

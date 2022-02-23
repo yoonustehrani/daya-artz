@@ -21,6 +21,7 @@ class CreateServicesTable extends Migration
             $table->string('slug');
             $table->string('icon_class');
             $table->string('group', 60);
+            $table->boolean('package');
             $table->integer('price')->nullable();
             $table->text('description')->nullable();
             $table->text('content')->nullable();
