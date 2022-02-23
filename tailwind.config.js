@@ -4,7 +4,8 @@ const colors = require('tailwindcss/colors')
 module.exports = {
     content: [
         "./resources/views/pages/landing/opening.blade.php",
-        "./resources/views/components/layout/landing.blade.php"        
+        "./resources/views/components/layout/landing.blade.php" ,
+        "./resources/views/components/layout/menu.blade.php"       
     ],
     theme: {
         fontFamily: {
