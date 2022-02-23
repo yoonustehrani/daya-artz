@@ -31,6 +31,11 @@ class Post extends Model
         return $this->morphOne(Category::class, 'categoreable');
     }
 
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
     public function related()
     {
         if (is_null($this->getKey())) {
