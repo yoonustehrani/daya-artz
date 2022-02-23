@@ -8,7 +8,7 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    <header class="h- w-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-900">
+    <header class="h-30 w-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-900">
         <nav>
             <div class="float-left">
                 <a href="{{ route("home") }}"><img src="{{ asset(get_setting("header.menu.logo")) }}" alt="daya-logo" class="float-right h-full ml-4"></a>
