@@ -13,19 +13,29 @@ const mix = require('laravel-mix');
 
  const src = {
     res: {
-        js: "resources/js/",
+        css: "resources/css/",
         sass: "resources/sass/",
-        react: "resources/js/react/Pages"
+        js: "resources/js/",
+        react: "resources/js/react/Pages",
+        webfonts: "resources/webfonts"
     },
     pub: {
         js: "public/js/",
-        css: "public/css/"
+        css: "public/css/",
+        fonts: "public/fonts/"
     }
 }
 var { res, pub } = src
 
 mix.disableNotifications()
 
-mix.js(res.js + 'app.js', pub.js).react()
-mix.js(res.js + "userarea.js", pub.js).react()
-    .sass( res.sass + 'app.scss', pub.css)
+// mix.js(res.js + 'app.js', pub.js).react()
+// mix.js(res.js + "userarea.js", pub.js).react()
+//     .sass( res.sass + 'app.scss', pub.css)
+mix.postCss(res.css + "landing.css", pub.css, [
+    require('postcss-import'),
+    require('tailwindcss/nesting'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+])
+    .copy(pub.fonts + "fa-**", res.webfonts)

@@ -1,4 +1,8 @@
 <x-layout.landing :title="$page->title">
-{{-- this component is extending from `resources/views/components/landing.blade.php` --}}
-{{-- Content goes here --}}
+    @section('header')
+        
+    @endsection
+    @section('content')
+        
+    @endsection
 </x-layout.landing>
