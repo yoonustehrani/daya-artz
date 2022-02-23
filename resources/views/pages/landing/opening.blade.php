@@ -1,8 +1,6 @@
 <x-layout.landing :title="$page->title">
-    @section('header')
-        
-    @endsection
-    @section('content')
-        
-    @endsection
+    <x-slot name="header">
+        header test
+    </x-slot>
+    content test
 </x-layout.landing>

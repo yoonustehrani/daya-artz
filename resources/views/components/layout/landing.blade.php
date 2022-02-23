@@ -10,7 +10,7 @@
 <body>
     <header class="h-auto w-full py-2 px-6 bg-gradient-to-r from-indigo-500 to-indigo-600">
         @include('components.layout.menu')
-        @yield('header')
+        {{ $header }}
     </header>
     {{ $slot }}
 </body>
