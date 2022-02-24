@@ -15,21 +15,21 @@ class FileSeeder extends Seeder
      */
     public function run()
     {
-        if (File::count() < 1) {
-            $files = Storage::allFiles('public/images');
-            foreach ($files as $f) {
-                if (! str_contains($f, '.gitignore')) {
-                    $file_name = str_replace('public/images/', '', $f);
-                    $file = new File([
-                        'path' => 'storage/images/' . $file_name,
-                        'thumbnail_path' => 'storage/images/' . $file_name,
-                        'name' => str_replace('.jpg', '',$file_name),
-                        'type' => 'image',
-                        'ext' => '.jpg'
-                    ]);
-                    $file->save();
-                }
-            }
-        }
+        // if (File::count() < 1) {
+        //     $files = Storage::allFiles('public/images');
+        //     foreach ($files as $f) {
+        //         if (! str_contains($f, '.gitignore')) {
+        //             $file_name = str_replace('public/images/', '', $f);
+        //             $file = new File([
+        //                 'path' => 'storage/images/' . $file_name,
+        //                 'thumbnail_path' => 'storage/images/' . $file_name,
+        //                 'name' => str_replace('.jpg', '',$file_name),
+        //                 'type' => 'image',
+        //                 'ext' => '.jpg'
+        //             ]);
+        //             $file->save();
+        //         }
+        //     }
+        // }
     }
 }
