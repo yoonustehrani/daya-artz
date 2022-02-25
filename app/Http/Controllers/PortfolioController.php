@@ -17,11 +17,11 @@ class PortfolioController extends Controller
                 ->each(function($p) {
                     $p->url = route('portfolio.show', ['slug' => $p->slug]);
                 });
-                $portfolios->load('images');
+                $portfolios->load('images.file');
                 return $portfolios;
             });
         } else {
-            $portfolios = Portfolio::take(6)->with('images')->inRandomOrder()->get()->each(function($p) {
+            $portfolios = Portfolio::take(6)->with('images.file')->inRandomOrder()->get()->each(function($p) {
                 $p->url = route('portfolio.show', ['slug' => $p->slug]);
             });
         }
@@ -29,7 +29,7 @@ class PortfolioController extends Controller
     }
     public function show($slug)
     {
-        $portfolio = Portfolio::whereSlug($slug)->with('service', 'images')->firstOrFail();
+        $portfolio = Portfolio::whereSlug($slug)->with('service', 'images.file')->firstOrFail();
         if (request()->has('debug')) {
             return $portfolio;
         }

@@ -18,24 +18,7 @@ class BlogSeeder extends Seeder
      */
     public function run()
     {
-        $dir = scandir(__DIR__ . '/../../public/seed/images');
-        $images = collect([]);
-        foreach ($dir as $f) {
-            if (! in_array($f, ['.', '..'])) {
-                $fname = 'blogpost-' . Uuid::uuid4();
-                $path = "seed/images/{$f}";
-                $file = new File([
-                    'path' => $path,
-                    'thumbnail_path' => $path,
-                    'name' => $fname,
-                    'type' => 'image',
-                    'ext' => '.jpeg'
-                ]);
-                if ($file->save()) {
-                    $images->push($file->getKey());
-                }
-            }
-        }
+        $images = File::all();
         $posts = Post::factory()
                 ->count($images->count())
                 ->hasTags(2)
@@ -44,7 +27,7 @@ class BlogSeeder extends Seeder
         $posts_count = $posts->count();
         for ($i=0; $i < $posts_count; $i++) { 
             $posts[$i]->image()->create([
-                'file_id' => $images[$i],
+                'file_id' => $images[$i]->getKey(),
                 'alt' => \Str::random(50),
             ]);
         }

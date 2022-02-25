@@ -72,7 +72,10 @@ Route::get('test', function (Request $request) {
     if ($request->has('delete')) {
         App\Models\Service::whereRaw("1=1")->delete();
         App\Models\File::whereRaw("1=1")->delete();
-        \DB::delete('delete from fileables where 1=1');
+        App\Models\Image::whereRaw("1=1")->delete();
+        App\Models\Post::whereRaw("1=1")->delete();
+        App\Models\Tag::whereRaw("1=1")->delete();
+        App\Models\Category::whereRaw("1=1")->delete();
         return redirect()->to(route('tempo'));
     }
     return App\Models\Service::with('plans', 'portfolios.images')->get()->groupBy('group');
