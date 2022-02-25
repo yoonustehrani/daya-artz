@@ -21,7 +21,7 @@ class OrderSeeder extends Seeder
     {
         $user = User::first();
         $services = Service::all();
-        if ($user && $services) {
+        if ($user && $services->count()) {
             $items = OrderItem::factory(3)->sequence(fn() => [
                 'service_id' => $services->random()
             ])->count(3);

@@ -10,13 +10,17 @@
         <div class="sample-images-slider">
             @if ($portfolio->images->count() > 0)
             <div class="showing-image">
-                <x-file-image :path="$portfolio->images[0]->path" :details="$portfolio->images[0]->pivot->details"/>
+                <img src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
+                data-src="{{ asset($portfolio->images[0]->file->path) }}"
+                alt="{{ $portfolio->images[0]->alt }}">
             </div>
             <div class="small-items-container">
                 <span><i class="fas fa-chevron-left"></i></span>
                 @foreach ($portfolio->images as $item)
                 <div>
-                    <x-file-image :path="$item->path" :details="$item->pivot->details"/>
+                    <img src="{{ asset($item->file->thumbnail_path) }}"
+                    data-src="{{ asset($item->file->path) }}"
+                    alt="{{ $item->alt }}">
                 </div>
                 @endforeach
                 <span><i class="fas fa-chevron-right"></i></span>

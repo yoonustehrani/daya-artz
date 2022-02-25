@@ -55,12 +55,26 @@ class ServiceSeeder extends Seeder
             //     "icon_class" => "fas fa-plus-circle"
             // ]
         ];
-        foreach ($services as $service) {
-            $service = new Service($service);
-            $service->group = 'main';
-            $service->slug = str_replace(' ', '-',$service->title);
-            $service->save();
-        }
+        // foreach ($services as $service) {
+        //     $service = new Service($service);
+        //     $service->group = 'main';
+        //     $service->slug = str_replace(' ', '-',$service->title);
+        //     $service->package = false;
+        //     // $service->save();
+        //     if ($service->save()) {
+        //         $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
+        //         $files = File::where('type', 'image')->take(5)->inRandomOrder()->get()->map(function($file) {
+        //             return [
+        //                 'file_id' => $file->id,
+        //                 'alt' => \Str::random(16)
+        //             ];
+        //         })->toArray();
+        //         $portfolios = $service->portfolios()->saveMany(Portfolio::factory()->count(3)->make());
+        //         foreach ($portfolios as $p) {
+        //             $p->images()->createMany($files);
+        //         }
+        //     }
+        // }
         $other_service = [
             [
                 "title" => "بنر تبلیغاتی",
@@ -156,6 +170,7 @@ class ServiceSeeder extends Seeder
         ];
         foreach ($other_service as $service) {
             $service = new Service($service);
+            $service->package = false;
             $service->slug = str_replace(' ', '-',$service->title);
             $service->content = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error consequuntur incidunt nulla pariatur reiciendis placeat officia aliquam cum asperiores. Delectus repudiandae necessitatibus ipsum minima dolor sunt culpa, tenetur consequatur nobis.
             Magni ipsam ab, alias accusamus deserunt fugit id! Similique ipsum, tempore in, ullam error nam dolorum nihil consectetur harum voluptatum deleniti iusto ut. Rerum adipisci nulla saepe necessitatibus ad quidem.
@@ -169,12 +184,15 @@ class ServiceSeeder extends Seeder
             Tenetur labore, impedit laudantium iste maiores minus quisquam numquam neque quae beatae cupiditate ratione, eveniet eum distinctio explicabo architecto aperiam. Consequatur illo facere possimus alias voluptates modi perspiciatis quia labore!</p>";
             if ($service->save()) {
                 $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
-                foreach (File::all() as $file) {
-                    $portfolio = Portfolio::factory(1)->make();
-                    $portfolio = $service->portfolios()->saveMany($portfolio);
-                    $portfolio[0]->images()->attach([
-                        $file->getKey() => ['details' => json_encode(['alt' => $portfolio[0]->title])]
-                    ]);
+                $portfolios = $service->portfolios()->saveMany(Portfolio::factory()->count(5)->make());
+                foreach ($portfolios as $p) {
+                    $files = File::where('type', 'image')->take(3)->inRandomOrder()->get()->map(function($file) {
+                        return [
+                            'file_id' => $file->id,
+                            'alt' => \Str::random(16)
+                        ];
+                    })->toArray();
+                    $p->images()->createMany($files);
                 }
             }
         }
