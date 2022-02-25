@@ -10,6 +10,10 @@ class Invoice extends Model
     {
         return $this->morphTo();
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function children()
     {
         return $this->morphMany(Invoice::class, 'invoiceable');

@@ -4,6 +4,7 @@ use App\Customer;
 use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\UserArea\InvoiceController;
 use App\Http\Controllers\Api\UserArea\OrderController;
 use App\Http\Controllers\Api\UserArea\ReportController;
 use App\Http\Controllers\Api\UserArea\TicketController;
@@ -58,7 +59,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
     Route::get('transactions', [ReportController::class, 'transactions'])->name('transactions.index');
     Route::get('offers', [ReportController::class, 'offers'])->name('offers.index');
-    Route::get('invoices', [ReportController::class, 'invoices'])->name('invoices.index');
+    Route::get('invoices', [InvoiceController::class, 'index'])->name('invoices.index');
     Route::get('orders', [OrderController::class, 'index']);
     Route::get('orders/{order}', [OrderController::class, 'show']);
     Route::post('bills/{bill}/pay/{method}', [PaymentController::class, 'store'])->name('bills.pay');
