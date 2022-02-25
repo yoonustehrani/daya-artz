@@ -30,7 +30,7 @@ class OrderSeeder extends Seeder
             ])->count(3);
             Order::factory()->count(12)->state([
                 'user_id' => $user
-            ])->has($items, 'items')->create();
+            ])->has($items, 'items')->hasInvoice(['user_id' => $user->getKey()])->create();
         }
     }
 }

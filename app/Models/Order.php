@@ -21,6 +21,10 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+    public function invoice()
+    {
+        return $this->hasOne(Invoice::class);
+    }
     public function company()
     {
         return $this->belongsTo(Company::class);
@@ -30,7 +34,6 @@ class Order extends Model
     {
         return __("userarea.orders.method.{$method}");
     }
-
     private function tracking_code($length = 6)
     {
         $alpha = str_shuffle("ABCDEFGHJKLMNPQRSTUWXYZ");

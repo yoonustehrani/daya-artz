@@ -14,7 +14,9 @@ class InvoiceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence(),
+            'amount' => $this->faker->numberBetween(50, 1000) * 1000,
+            'expires_at' => now()->addDays($this->faker->numberBetween(3, 7)),
         ];
     }
 }

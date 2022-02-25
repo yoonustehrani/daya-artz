@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useHttpService } from '../../../../hooks';
+import { useHistory } from 'react-router-dom';
+import { useHttpService, useJalaliDate } from '../../../../hooks';
 
 function Invoices(props) {
     const http = useHttpService("/userarea")
     const [invoices, setInvoices] = useState([])
+    let history = useHistory()
+    let handleNavigation = invoiceId => history.push(`/finance/invoices/${invoiceId}`)
     useEffect(() => {
         async function getInvoices() {
             const response = await http.get('/invoices');
@@ -21,23 +23,25 @@ function Invoices(props) {
                 <tr>
                     <th><i className="fas fa-hashtag"></i></th>
                     <th>مبلغ (تومان)</th>
-                    <th>بابت</th>
+                    <th>عنوان</th>
                     <th>وضعیت</th>
-                    <th>دروازه پرداختی</th>
-                    <th>آخرین تغییر وضعیت</th>
                     <th>تاریخ ایجاد</th>
                 </tr>
             </thead>
             <tbody>
-            {invoices.map((transaction, i) => (
-                <tr key={transaction.id}>
+            {invoices.map((invoice, i) => (
+                <tr className='cursor-pointer' onClick={() => handleNavigation(invoice.id)} key={invoice.id}>
                     <td>{i + 1}</td>
-                    <td>{Number(transaction.amount).toLocaleString('en-US')}</td>
-                    <td>{transaction.bill.title}</td>
-                    <td>{transaction.status}</td>
-                    <td>{transaction.provider}</td>
-                    <td>{transaction.updated_at}</td>
-                    <td>{transaction.created_at}</td>
+                    <td>{Number(invoice.amount).toLocaleString('en-US')}</td>
+                    <td>{invoice.title}</td>
+                    <td>
+                        {
+                            invoice.paid_at ? 
+                            'پرداخت شده' :
+                            'پرداخت نشده'
+                        }
+                    </td>
+                    <td>{useJalaliDate(invoice.created_at).format('jYYYY/jM/jD HH:mm:ss')}</td>
                 </tr>
             ))}
             </tbody>
