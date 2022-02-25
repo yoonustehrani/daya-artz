@@ -12,15 +12,14 @@ class Portfolio extends Model
 
     public function images()
     {
-        return $this->morphToMany(File::class, 'fileable')->whereType('image')->withPivot('details');
+        return $this->morphMany(Image::class, 'imageable');
     }
-
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable')->latest();
+    }
     public function service()
     {
         return $this->belongsTo(Service::class);
     }
-    // public function image()
-    // {
-    //     return $this->morp(File::class, 'fileable')->whereType('image')->withPivot('details')->limit(1);
-    // }
 }

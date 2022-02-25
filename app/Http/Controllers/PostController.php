@@ -18,11 +18,9 @@ class PostController extends Controller
         request()->validate([
             'q' => 'nullable|string|min:3',
         ]);
-        $posts = Post::select([
-                    'id', 'title', 'slug',
-                    'description', 'reading_time',
-                    'image_url', 'image_alt', 'created_at'
-                ])->latest();
+        $posts = Post::select(['id','title', 'slug', 'description', 'reading_time', 'created_at'])
+            ->with('image.file')
+            ->latest();
         $query = request()->query('q');
         if ($query) {
             $posts->where('title', 'like', "%{$query}%")->orWhere('description', 'like', "%{$query}%");
@@ -37,11 +35,11 @@ class PostController extends Controller
             'limit' => 'required|numeric|min:1|max:10',
             'mode' => ['nullable', Rule::in(['latest', 'random'])]
         ]);
-        $posts = Post::select([
-            'id', 'title', 'slug',
-            'description', 'reading_time',
-            'image_url', 'image_alt', 'created_at'
-        ])->limit(intval($request->query('limit')));
+        $posts = Post::select(
+                ['id','title', 'slug', 'description', 'reading_time', 'created_at']
+            )->with('image.file')->limit(
+                intval($request->query('limit'))
+            );
         switch ($request->query('mode')) {
             case 'latest':
                 $posts->latest();
@@ -64,14 +62,14 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        $post = Post::with('tags', 'category')->whereSlug($slug)->firstOrFail();
+        $post = Post::with('image.file')->whereSlug($slug)->firstOrFail();
+        $post->load('tags', 'category');
         if ($post->author_id) {
             $post->load('author');
         }
         if ($post->tags->count() > 0) {
             $post->related = $post->related()->take(3)->get();
         }
-
         return view('pages.posts.show', compact('post'));
     }
 }

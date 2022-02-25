@@ -11,7 +11,7 @@ class Post extends Model
 
     public function scopePublished($builder)
     {
-        $builder->where('published', 1);
+        $builder->where('published', true);
     }
 
     public function author()
