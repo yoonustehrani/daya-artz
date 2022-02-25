@@ -19,9 +19,9 @@ if (! function_exists('get_setting')) {
     function get_setting($key, $default = null)
     {
         $cache_key = "site-settings.{$key}";
-        $value = \Cache::rememberForever($cache_key, function () use($key) {
+        $value = cache()->rememberForever($cache_key, function() use($key) {
             $setting = \App\Models\Setting::select('value')->where('key', $key)->first();
-            return $setting ? $setting->value : null;
+            return $setting->value ?? '';
         });
         return $value ?: $default;
     }
