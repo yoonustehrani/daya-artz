@@ -3,6 +3,7 @@ import { getCookie } from '../services/CookieService';
 import HttpClient from '../services/HttpClient';
 
 const useJalaliDate = (datetime) => {
+    moment.loadPersian({usePersianDigits: true, dialect: "persian-modern"})
     let date = moment(datetime)
     let formatToJalai = format => date.format(format)
     return {

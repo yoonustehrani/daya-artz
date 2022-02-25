@@ -1,0 +1,5 @@
+@layer base {
+    .header-icon:hover i {
+        @apply text-purple-500;
+    }
+}
