@@ -2358,14 +2358,11 @@ var SwiperItem = /*#__PURE__*/function (_Component) {
               className: "w-100 h-100"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
               className: "article-date",
-              children: [(0,_react_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at).format("jDD jMMMM"), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), " ", (0,_react_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at).format("jYYYY")]
+              children: [(0,_react_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at).format("jD jMMMM"), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), " ", (0,_react_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at).format("jYYYY")]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "article-info",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "blog-post-source",
-              children: "\u0646\u0648\u0634\u062A\u0647 \u0634\u062F\u0647 \u062A\u0648\u0633\u0637 \u062F\u0627\u0628\u0627 \u0622\u0631\u062A\u0632"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
               className: "title block",
               children: title
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
