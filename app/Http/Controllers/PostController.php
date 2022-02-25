@@ -35,22 +35,24 @@ class PostController extends Controller
             'limit' => 'required|numeric|min:1|max:10',
             'mode' => ['nullable', Rule::in(['latest', 'random'])]
         ]);
-        $posts = Post::select(
+        $mode = $request->query('mode');
+        $limit = intval($request->query('limit'));
+        $result = cache()->remember("api.posts.index::{$mode}", 60 * 60, function() use($mode, $limit) {
+            $posts = Post::select(
                 ['id','title', 'slug', 'description', 'reading_time', 'created_at']
-            )->with('image.file')->limit(
-                intval($request->query('limit'))
-            );
-        switch ($request->query('mode')) {
-            case 'latest':
-                $posts->latest();
-                break;
-            case 'random':
-                $posts->inRandomOrder();
-                break;
-        }
-        $result = $posts->get()->map(function($post) {
-            $post->url = route('blog.show', ['slug' => $post->slug]);
-            return $post;
+            )->with('image.file')->limit($limit);
+            switch ($mode) {
+                case 'latest':
+                    $posts->latest();
+                    break;
+                case 'random':
+                    $posts->inRandomOrder();
+                    break;
+            }
+            return $posts->get()->map(function($post) {
+                $post->url = route('blog.show', ['slug' => $post->slug]);
+                return $post;
+            });
         });
         return response()->json($result);
     }
