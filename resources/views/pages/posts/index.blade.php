@@ -55,7 +55,9 @@
         <article class="blog-post col-12 col-md-6 col-lg-4" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
             <a itemprop="url" href="{{ route('blog.show', ['slug' => $post->slug]) }}">
                 <div class="img-container w-100">
-                    <img itemprop="image" src="{{ asset($post->image_url) }}" alt="{{ $post->image_alt }}" class="w-100 h-100">
+                    @if ($post->image && $post->image->file)
+                        <img itemprop="image" data-src="{{ asset($post->image->file->path) }}" src="{{ asset($post->image->file->thumbnail_path) }}" alt="{{ $post->image->alt }}" class="w-100 h-100">
+                    @endif
                     <span class="article-date">
                         <time itemprop="datePublished" datetime="{{ $post->created_at->format('Y-m-d') }}">{{ jdate($post->created_at)->format('%e %B') }}<br>{{ jdate($post->created_at)->format('%Y') }}</time>
                     </span>

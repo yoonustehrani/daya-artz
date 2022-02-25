@@ -18,11 +18,9 @@ class PostController extends Controller
         request()->validate([
             'q' => 'nullable|string|min:3',
         ]);
-        $posts = Post::select([
-                    'id', 'title', 'slug',
-                    'description', 'reading_time',
-                    'image_url', 'image_alt', 'created_at'
-                ])->latest();
+        $posts = Post::select(['id','title', 'slug', 'description', 'reading_time', 'created_at'])
+            ->with('image.file')
+            ->latest();
         $query = request()->query('q');
         if ($query) {
             $posts->where('title', 'like', "%{$query}%")->orWhere('description', 'like', "%{$query}%");

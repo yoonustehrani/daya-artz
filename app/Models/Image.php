@@ -16,6 +16,6 @@ class Image extends Model
     }
     public function file()
     {
-        return $this->belongsTo(File::class);
+        return $this->belongsTo(File::class)->where('type', 'image')->select('id','path', 'thumbnail_path');
     }
 }
