@@ -3,7 +3,9 @@
         <i class="fas fa-bars"></i>
     </span>
     <div class="logo-container">
-        <img src="{{ asset(get_setting('header.menu.logo')) }}">
+        @if (setting_exists('header.menu.logo'))
+            <img src="{{ asset(get_setting('header.menu.logo')) }}">
+        @endif
     </div>
     <div id="m-menu" class="menu-container d-none d-md-inline-block">
         <div class="menu-header p-3 d-md-none">

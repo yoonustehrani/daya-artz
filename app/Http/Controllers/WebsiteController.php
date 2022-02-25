@@ -10,6 +10,7 @@ class WebsiteController extends Controller
 {
     public function index()
     {
+        // \Log::alert('run home' . time());
         // return route('api.forms.orders.quick');
         return view('welcome');
     }

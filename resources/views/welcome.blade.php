@@ -13,10 +13,10 @@
                 <button class="btn badge-pill bg-purple ml-4">کشف ما</button>
                 <button class="btn btn-gradient bg-aqua">آغاز سفارش</button>
             </div>
-            {{-- <p>{!! get_setting('mainpage.header.h1.subtitle') !!}</p>
+            <p>{!! get_setting('mainpage.header.h1.subtitle') !!}</p>
             <div class="header-btn-container mt-4 mt-md-0">
                 {!! get_setting('mainpage.header.buttons') !!}
-            </div> --}}
+            </div>
         </div>
         <div class="header-vector col-12 col-md-6">
             <img src="{{ get_setting('mainpage.header.svg-header') }}" alt="دایا آرتز مکانی برای تحقق رویای گرافیکی">

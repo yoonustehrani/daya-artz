@@ -26,3 +26,10 @@ if (! function_exists('get_setting')) {
         return $value ?: $default;
     }
 }
+
+if (! function_exists('setting_exists')) {
+    function setting_exists($key)
+    {
+        return cache()->has("site-settings.{$key}");
+    }
+}
