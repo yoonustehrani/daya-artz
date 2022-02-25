@@ -2341,9 +2341,12 @@ var SwiperItem = /*#__PURE__*/function (_Component) {
           description = _this$props.description,
           reading_time = _this$props.reading_time,
           url = _this$props.url,
-          image_url = _this$props.image_url,
-          image_alt = _this$props.image_alt,
-          created_at = _this$props.created_at;
+          created_at = _this$props.created_at,
+          image = _this$props.image,
+          alt = image.alt,
+          file = image.file,
+          path = file.path,
+          thumbnail_path = file.thumbnail_path;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("article", {
         className: "blog-post col-12 col-md-4 col-lg-3 swiper-slide",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
@@ -2351,8 +2354,8 @@ var SwiperItem = /*#__PURE__*/function (_Component) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "img-container w-100",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: APP_PATH + image_url,
-              alt: image_alt,
+              src: APP_PATH + path,
+              alt: alt,
               className: "w-100 h-100"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
               className: "article-date",
@@ -16591,10 +16594,10 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
+/***/ "./resources/css/landing.css":
+/*!***********************************!*\
+  !*** ./resources/css/landing.css ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -76247,7 +76250,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/landing": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -76297,8 +76300,8 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/css/landing.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

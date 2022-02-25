@@ -3,12 +3,12 @@ import moment from 'moment-jalaali';
 
 class SwiperItem extends Component {
     render() {
-        let { title, description, reading_time, url, image_url, image_alt, created_at } = this.props
+        let { title, description, reading_time, url, created_at, image } = this.props, {alt, file} = image, { path, thumbnail_path } = file
         return (
             <article className="blog-post col-12 col-md-4 col-lg-3 swiper-slide">
                 <a href={url}>
                     <div className="img-container w-100">
-                        <img src={APP_PATH + image_url} alt={image_alt} className="w-100 h-100" />
+                        <img src={APP_PATH + path} alt={alt} className="w-100 h-100" />
                         <span className="article-date">{moment(created_at).format('jDD jMMMM')} <br/> {moment(created_at).format("jYYYY")}</span>
                     </div>
                     <div className="article-info">
