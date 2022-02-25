@@ -175,7 +175,7 @@
                     <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-space-shuttle"></i></span>
                         <h4>سفارش فوری</h4>
-                        <p class="text-secondary">ثبت صفارش شما به صورت فوری و سریع توسط فرم ها</p>
+                        <p class="text-secondary">ثبت سفارش شما به صورت فوری و سریع توسط فرم ها</p>
                         <button class="btn btn-gradient ltr">سفارش</button>
                     </div>
                     <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
