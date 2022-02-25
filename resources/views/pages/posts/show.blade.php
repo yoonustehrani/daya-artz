@@ -30,7 +30,13 @@
                     </div>
                 </div>
                 <div class="post-info-cover float-left mt-2 mt-md-0">
-                    <img src="{{ asset($post->image_url) }}" alt="{{ $post->image_alt }}">
+                    @if ($post->image && $post->image->file)
+                        <img itemprop="image"
+                            class="w-100 h-100"
+                            src="{{ asset($post->image->file->thumbnail_path) }}"
+                            data-src="{{ asset($post->image->file->path) }}"
+                            alt="{{ $post->image->alt }}">
+                    @endif
                 </div>
             </div>
         </div>
