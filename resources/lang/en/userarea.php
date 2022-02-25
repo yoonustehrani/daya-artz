@@ -10,5 +10,19 @@ return [
             'reviewd' => 'Reviewed',
             'closed' => 'Closed'
         ]
+    ],
+    'orders' => [
+        'status' => [
+            'submitted' => 'Submitted',
+            'reviewd' => 'Reviewd',
+            'designing' => 'Designing',
+            'finished' => 'Design finished',
+            'checked-out' => 'Checked out',
+            'processing' => 'Processing',
+            'editing' => 'Editing design',
+            'canceled' => 'Canceled',
+            'suspened' => 'Project suspended',
+            'ready' => 'Ready to present'
+        ]
     ]
 ];
