@@ -16,7 +16,8 @@ module.exports = {
 
         extend: {
             colors: {
-                'aqua': "#78cad2"
+                'aqua': "#78cad2",
+                'on-white': "#fefffc"
             },
             backgroundImage: {
                 'shaped': "url('/images/shaped-background.png')",
