@@ -20,8 +20,8 @@
         </div>
     </div>
     <div class="contact-us-form">
-        <h4 class="mb-3 mb-md-2 mb-lg-4">ما منتظر دریافت پیام شما هستیم</h4>
-        <form action="{{ route('api.forms.contact') }}" class="form-group p-3" method="POST">
+        <h4>ما منتظر دریافت پیام شما هستیم</h4>
+        <form action="{{ route('api.forms.contact') }}" class="form-group" method="POST">
             @csrf
             <div class="input-group col-12 mt-3">
                 <input class="form-control" type="text" name="fullname" placeholder="نام و نام خانوادگی">
@@ -33,7 +33,7 @@
                 @endforeach
                 </ul>
             @enderror
-            <div class="input-group col-12 col-lg-6 mt-3">
+            <div class="input-group col-12 col-lg-6 mt-3 float-right">
                 <input class="form-control" type="text" name="phone_number" placeholder="شماره تلفن">
                 @error('phone_number')
                     <ul class="w-full">
@@ -43,7 +43,7 @@
                     </ul>
                 @enderror
             </div>
-            <div class="input-group col-12 col-lg-6 mt-3">
+            <div class="input-group col-12 col-lg-6 mt-3 float-left">
                 <input class="form-control" type="email" name="email" placeholder="ایمیل">
                 @error('email')
                     <ul class="w-full">
@@ -53,7 +53,7 @@
                     </ul>
                 @enderror
             </div>
-            <div class="input-group p-3 mt-3">
+            <div class="input-group p-3 mt-2">
                 <textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea>
                 @error('message')
                     <ul class="w-full">

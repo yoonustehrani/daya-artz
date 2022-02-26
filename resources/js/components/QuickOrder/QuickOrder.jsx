@@ -159,7 +159,7 @@ class QuickOrder extends Component {
         return (
             <>
                 {error && 
-                    <div className="alert alert-danger text-right rtl">
+                    <div className="alert alert-danger text-right rtl text-red-600 bg-red-300 p-5">
                         <span className='p-0 m-0'><i className="fas fa-exclamation-circle"></i> {error}</span>
                         <ul className='m-0 mr-4 p-0 px-2'>
                         {messages.map((m, i) => (
@@ -169,7 +169,7 @@ class QuickOrder extends Component {
                     </div>
                 }
                 {message &&
-                    <div className="alert alert-success text-right rtl">
+                    <div className="alert alert-success text-right rtl text-green-600 bg-green-200 p-5">
                         <span><i className="fas fa-check-circle"></i> {message}</span>
                     </div>
                 }
@@ -205,7 +205,7 @@ class QuickOrder extends Component {
                         <textarea name="fast-order-description" cols="30" rows="10" disabled={! active} value={description} onChange={this.handleChange.bind(this, 'description')} className="form-control" placeholder="توضیحات"></textarea>
                     </div>
                     {loading && <div className='btn'><Spinner /></div>}
-                    {! loading && <button disabled={! active} type="submit" style={{ cursor: active ? 'pointer' : 'not-allowed' }} className="btn">ثبت سفارش</button>}
+                    {! loading && <button disabled={! active} type="submit" style={{ cursor: active ? 'pointer' : 'not-allowed' }} className="btn rounded-lg text-xl text-slate-50 duration-300">ثبت سفارش</button>}
                 </form>
             </>
         );

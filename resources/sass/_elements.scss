@@ -188,6 +188,7 @@ input.eggplant {
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
+    direction: rtl;
     .service-container {
         .service-item {
             h1 {
@@ -480,6 +481,8 @@ span.back-aqua {
 //end contact daya
 
 .portfolio-section {
+    display: flex;
+    align-items: stretch;
     .portfolio {
         float: left;
         margin: 0px;
@@ -489,7 +492,7 @@ span.back-aqua {
             float: left;
             width: 100%;
             overflow: hidden;
-            height: fit-content;
+            height: 100%;
             > img {
                 transition: 0.3s;
                 width: 100%;
@@ -979,8 +982,18 @@ span.back-aqua {
         height: 570px;
     }
     .contact-us-form {
-        top: 22%;
+        top: 17%;
         width: 45%;
+        form {
+            direction: rtl;
+        }
+        .input-group.col-lg-6 {
+            display: inline-flex;
+            // width: fit-content;
+        }
+        h4 {
+            font-weight: bold;
+        }
     }
 }
 .contact-us-text {
@@ -1054,7 +1067,7 @@ span.back-aqua {
             background-color: #EAECFA;
         }
         textarea {
-            height: 200px;
+            height: 150px;
             max-height: 100%;
         }
         button {

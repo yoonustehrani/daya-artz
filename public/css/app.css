@@ -10137,7 +10137,10 @@ h3 {
   }
 
   .contact-us-first-section.mb-4 .contact-us-form {
-    top: 14% !important;
+    top: 8% !important;
+  }
+  .contact-us-first-section.mb-4 .contact-us-form textarea {
+    height: 130px !important;
   }
 
   .rules-back {
@@ -11490,7 +11493,7 @@ h3 {
   }
 
   .contact-us-background {
-    height: 435px !important;
+    height: 455px !important;
   }
 
   .contact-us-form h4 {
@@ -11665,10 +11668,17 @@ h3 {
   .factor-container {
     width: 800px !important;
   }
+
+  .contact-us-form textarea {
+    height: 200px !important;
+  }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .contact-us-first-section.mb-4 .contact-us-form {
-    top: 8% !important;
+    top: 12% !important;
+  }
+  .contact-us-first-section.mb-4 .contact-us-form textarea {
+    height: 160px !important;
   }
 
   .step-container {
@@ -12241,6 +12251,7 @@ input.eggplant:focus {
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
+  direction: rtl;
 }
 .services-container .service-container .service-item h1 {
   font-size: 20px;
@@ -12525,6 +12536,10 @@ span.back-aqua.big-icon {
   margin-top: 12%;
 }
 
+.portfolio-section {
+  display: flex;
+  align-items: stretch;
+}
 .portfolio-section .portfolio {
   float: left;
   margin: 0px;
@@ -12535,9 +12550,7 @@ span.back-aqua.big-icon {
   float: left;
   width: 100%;
   overflow: hidden;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100%;
 }
 .portfolio-section .portfolio .portfolio-avatar > img {
   transition: 0.3s;
@@ -13007,8 +13020,17 @@ span.back-aqua.big-icon {
   height: 570px;
 }
 .contact-us-first-section.mb-4 .contact-us-form {
-  top: 22%;
+  top: 17%;
   width: 45%;
+}
+.contact-us-first-section.mb-4 .contact-us-form form {
+  direction: rtl;
+}
+.contact-us-first-section.mb-4 .contact-us-form .input-group.col-lg-6 {
+  display: inline-flex;
+}
+.contact-us-first-section.mb-4 .contact-us-form h4 {
+  font-weight: bold;
 }
 
 .contact-us-text {
@@ -13085,7 +13107,7 @@ span.back-aqua.big-icon {
   background-color: #EAECFA;
 }
 .contact-us-first-section .contact-us-form textarea {
-  height: 200px;
+  height: 150px;
   max-height: 100%;
 }
 .contact-us-first-section .contact-us-form button {
@@ -15046,7 +15068,7 @@ span.back-aqua.big-icon {
     transition: 0.3s;
     border-bottom: 2px solid transparent;
   }
-  .header > nav .menu-container ul li > a:hover, .min-header > nav .menu-container ul li > a:hover {
+  .header > nav .menu-container ul li > a:hover, .header > nav .menu-container ul li .active, .min-header > nav .menu-container ul li > a:hover, .min-header > nav .menu-container ul li .active {
     border-color: #78cad2;
     transition: 0.3s;
   }

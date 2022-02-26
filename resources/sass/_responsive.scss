@@ -55,7 +55,10 @@ $xl-xl-breakpoint: 1600px;
     }
     .contact-us-first-section.mb-4 {
         .contact-us-form {
-            top: 14% !important;
+            top: 8% !important;
+            textarea {
+                height: 130px !important;
+            }
         }
     }
     .rules-back {
@@ -1449,7 +1452,7 @@ $xl-xl-breakpoint: 1600px;
         font-size: 16px !important;
     }
     .contact-us-background {
-        height: 435px !important;
+        height: 455px !important;
     }
     .contact-us-form {
         h4 {
@@ -1650,13 +1653,21 @@ $xl-xl-breakpoint: 1600px;
     .factor-container {
         width: 800px !important;
     }
+    .contact-us-form {
+        textarea {
+            height: 200px !important;
+        }
+    }
 } // end xl and above
 
 // lg;
 @media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint - 1px) {
     .contact-us-first-section.mb-4 {
         .contact-us-form {
-            top: 8% !important;
+            top: 12% !important;
+            textarea {
+                height: 160px !important;
+            }
         }
     }
     .step-container {
