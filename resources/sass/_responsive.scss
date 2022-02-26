@@ -53,13 +53,42 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
-    .contact-us-first-section.mb-4 {
+    .contact-us-first-section {
+        .contact-us-background {
+            height: auto !important;
+        }
         .contact-us-form {
-            top: 8% !important;
-            textarea {
-                height: 130px !important;
+            position: relative !important;
+            top: 0 !important;
+            right: 0 !important;
+            left: 0 !important;
+            width: 90% !important;
+            margin-left: auto;
+            margin-right: auto;
+            transform: none !important;
+            h4 {
+                font-size: 20px !important;
+            }
+            input, textarea {
+                font-size: 16px !important;
+            }
+            button {
+                font-size: 16px !important;
             }
         }
+        .background-left {
+            width: 100% !important;
+        }
+        .background-right {
+            top: 2% !important;
+        }
+        .contact-us-vector-1 {
+            top: 2% !important;
+            width: 100%;
+        }
+    }
+    .contact-p {
+        font-size: 16px !important;
     }
     .rules-back {
         height: auto !important;
@@ -589,6 +618,7 @@ $xl-xl-breakpoint: 1600px;
             width: 90% !important;
             margin-left: auto;
             margin-right: auto;
+            transform: none !important;
             h4 {
                 font-size: 20px !important;
             }
@@ -1451,17 +1481,6 @@ $xl-xl-breakpoint: 1600px;
     .recommand-post-date {
         font-size: 16px !important;
     }
-    .contact-us-background {
-        height: 455px !important;
-    }
-    .contact-us-form {
-        h4 {
-            font-size: 22px !important;
-        }
-        input, textarea, button {
-            font-size: 16px !important;
-        }
-    }
     .change-form {
         button {
             top: 75% !important;
@@ -1664,11 +1683,19 @@ $xl-xl-breakpoint: 1600px;
 @media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint - 1px) {
     .contact-us-first-section.mb-4 {
         .contact-us-form {
-            top: 12% !important;
             textarea {
                 height: 160px !important;
             }
+            h4 {
+                font-size: 22px !important;
+            }
+            input, textarea, button {
+                font-size: 16px !important;
+            }
         }
+    }
+    .contact-us-background {
+        height: 550px !important;
     }
     .step-container {
         margin-bottom: 10% !important;

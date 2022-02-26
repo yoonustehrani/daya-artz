@@ -126,18 +126,90 @@
     {{-- end order methods --}}
     {{-- start services --}}
     <div class="w-full h-auto my-6 px-10">
-        <p class="mb-6 font-bold text-2xl w-full text-indigo-600"><span class="ml-2 align-middle relative inline-block h-fit"><i class="fas fa-arrow-alt-down text-7xl text-indigo-200"></i><i class="fal fa-percent absolute text-xs left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-fuchsia-800 after:content-['OFF'] after:text-xs after:mt-px after:font-bold flex flex-col items-center"></i></span>عناصر اصلی طراحی گرافیک  برندینگ آماده سفارش و طراح !</p>
+        <p class="mb-4 font-bold text-2xl w-full text-indigo-600"><span class="ml-2 align-middle relative inline-block h-fit"><i class="fas fa-arrow-alt-down text-7xl text-indigo-200"></i><i class="fal fa-percent absolute text-xs left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-fuchsia-800 after:content-['OFF'] after:text-xs after:mt-px after:font-bold flex flex-col items-center"></i></span>عناصر اصلی طراحی گرافیک  برندینگ آماده سفارش و طراح !</p>
         <div class="w-full flex justify-evenly items-stretch flex-wrap">
-            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-slate-50 py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
                 <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="fab fa-pied-piper-pp"></i></span>
-                <h3 class="text-2xl my-3 font-bold">لوگو ترکیبی</h3>
-                <p class="text-lg my-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <h3 class="text-2xl my-5 font-bold">لوگو ترکیبی</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
                 <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
-                <button class="my-2 rounded-md bg-sky-400 px-5 py-2 duration-300 hover:bg-sky-600 text-slate-50">ثبت سفارش</button>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
+            </div>
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="fab fa-pied-piper-pp"></i></span>
+                <h3 class="text-2xl my-5 font-bold">لوگو ترکیبی</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
+            </div>
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="fab fa-pied-piper-pp"></i></span>
+                <h3 class="text-2xl my-5 font-bold">لوگو ترکیبی</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
+            </div>
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="far fa-sticky-note"></i></span>
+                <h3 class="text-2xl my-5 font-bold">تراکت</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
+            </div>
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="fab fa-elementor"></i></span>
+                <h3 class="text-2xl my-5 font-bold">منو رستوران و کافی شاپ</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
+            </div>
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="fab fa-cc-discover"></i></span>
+                <h3 class="text-2xl my-5 font-bold">کارت ویزیت</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
+            </div>
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="far fa-sticky-note"></i></span>
+                <h3 class="text-2xl my-5 font-bold">تراکت</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
+            </div>
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="fab fa-elementor"></i></span>
+                <h3 class="text-2xl my-5 font-bold">منو رستوران و کافی شاپ</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
+            </div>
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 text-6xl text-sky-200"><i class="fas fa-badge after:content-['25%'] after:text-black after:text-xl after:font-sans after:font-bold after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></i></span>
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="fab fa-cc-discover"></i></span>
+                <h3 class="text-2xl my-5 font-bold">کارت ویزیت</h3>
+                <p class="text-lg my-2 line-through decoration-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
             </div>
         </div>
     </div>
     {{-- end services --}}
+    {{-- start daya opening --}}
+    <div class="w-full my-6 bg-gradient-to-r from-indigo-600 to-indigo-400">
+        <div class="w-full h-full py-6 px-10 bg-shaped bg-cover">
+            
+        </div>
+    </div>
+    {{-- end daya opening --}}
     {{-- start scripts --}}
     <script>APP_PATH = "{{ asset("/") }}"</script>
     <script src="{{ asset("/js/landing-opening.js") }}"></script>

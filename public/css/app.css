@@ -10136,11 +10136,41 @@ h3 {
     font-size: 15px !important;
   }
 
-  .contact-us-first-section.mb-4 .contact-us-form {
-    top: 8% !important;
+  .contact-us-first-section .contact-us-background {
+    height: auto !important;
   }
-  .contact-us-first-section.mb-4 .contact-us-form textarea {
-    height: 130px !important;
+  .contact-us-first-section .contact-us-form {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
+    transform: none !important;
+  }
+  .contact-us-first-section .contact-us-form h4 {
+    font-size: 20px !important;
+  }
+  .contact-us-first-section .contact-us-form input, .contact-us-first-section .contact-us-form textarea {
+    font-size: 16px !important;
+  }
+  .contact-us-first-section .contact-us-form button {
+    font-size: 16px !important;
+  }
+  .contact-us-first-section .background-left {
+    width: 100% !important;
+  }
+  .contact-us-first-section .background-right {
+    top: 2% !important;
+  }
+  .contact-us-first-section .contact-us-vector-1 {
+    top: 2% !important;
+    width: 100%;
+  }
+
+  .contact-p {
+    font-size: 16px !important;
   }
 
   .rules-back {
@@ -10648,6 +10678,7 @@ h3 {
     width: 90% !important;
     margin-left: auto;
     margin-right: auto;
+    transform: none !important;
   }
   .contact-us-first-section .contact-us-form h4 {
     font-size: 20px !important;
@@ -11492,17 +11523,6 @@ h3 {
     font-size: 16px !important;
   }
 
-  .contact-us-background {
-    height: 455px !important;
-  }
-
-  .contact-us-form h4 {
-    font-size: 22px !important;
-  }
-  .contact-us-form input, .contact-us-form textarea, .contact-us-form button {
-    font-size: 16px !important;
-  }
-
   .change-form button {
     top: 75% !important;
     font-size: 20px !important;
@@ -11674,11 +11694,18 @@ h3 {
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .contact-us-first-section.mb-4 .contact-us-form {
-    top: 12% !important;
-  }
   .contact-us-first-section.mb-4 .contact-us-form textarea {
     height: 160px !important;
+  }
+  .contact-us-first-section.mb-4 .contact-us-form h4 {
+    font-size: 22px !important;
+  }
+  .contact-us-first-section.mb-4 .contact-us-form input, .contact-us-first-section.mb-4 .contact-us-form textarea, .contact-us-first-section.mb-4 .contact-us-form button {
+    font-size: 16px !important;
+  }
+
+  .contact-us-background {
+    height: 550px !important;
   }
 
   .step-container {
@@ -13020,14 +13047,26 @@ span.back-aqua.big-icon {
   height: 570px;
 }
 .contact-us-first-section.mb-4 .contact-us-form {
-  top: 17%;
+  top: 50%;
+  transform: translateY(-50%);
   width: 45%;
 }
 .contact-us-first-section.mb-4 .contact-us-form form {
   direction: rtl;
 }
-.contact-us-first-section.mb-4 .contact-us-form .input-group.col-lg-6 {
+.contact-us-first-section.mb-4 .contact-us-form .input-group.col-md-6 {
   display: inline-flex;
+}
+.contact-us-first-section.mb-4 .contact-us-form .input-group {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.contact-us-first-section.mb-4 .contact-us-form .input-group input, .contact-us-first-section.mb-4 .contact-us-form .input-group textarea {
+  width: 100%;
+}
+.contact-us-first-section.mb-4 .contact-us-form .input-group ul.w-full {
+  margin-bottom: 0;
+  text-align: right;
 }
 .contact-us-first-section.mb-4 .contact-us-form h4 {
   font-weight: bold;

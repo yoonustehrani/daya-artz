@@ -24,17 +24,17 @@
         <form action="{{ route('api.forms.contact') }}" class="form-group" method="POST">
             @csrf
             <div class="input-group col-12 mt-3">
-                <input class="form-control mb-2" type="text" name="fullname" placeholder="نام و نام خانوادگی">
+                <input class="form-control" type="text" name="fullname" placeholder="نام و نام خانوادگی">
                 @error('fullname')
-                    <ul class="w-100 text-right">
-                    @foreach ($errors->get('fullname') as $err)
-                        <li class="text-danger">{{ $err }}</li>
-                    @endforeach
-                    </ul>
-                @enderror
+                <ul class="w-full">
+                @foreach ($errors->get('fullname') as $err)
+                    <li class="text-danger">{{ $err }}</li>
+                @endforeach
+                </ul>
+            @enderror
             </div>
-            <div class="input-group col-12 col-lg-6 mt-3 float-right">
-                <input class="form-control mb-2" type="text" name="phone_number" placeholder="شماره تلفن">
+            <div class="input-group col-12 col-md-6 mt-3 float-right">
+                <input class="form-control" type="text" name="phone_number" placeholder="شماره تلفن">
                 @error('phone_number')
                     <ul class="w-100 m-0 text-right">
                     @foreach ($errors->get('phone_number') as $err)
@@ -43,8 +43,8 @@
                     </ul>
                 @enderror
             </div>
-            <div class="input-group col-12 col-lg-6 mt-3 float-left">
-                <input class="form-control mb-2" type="email" name="email" placeholder="ایمیل">
+            <div class="input-group col-12 col-md-6 mt-3 float-left">
+                <input class="form-control" type="email" name="email" placeholder="ایمیل">
                 @error('email')
                     <ul class="w-100 m-0 text-right">
                     @foreach ($errors->get('email') as $err)
@@ -111,7 +111,7 @@
                 </a>
             </div>
         </div>
-        <div class="text-center mb-4 col-10 col-md-3 mb-4">
+        <div class="text-center mb-4 col-10 col-md-3">
             <span><i class="contact-way-icon fas fa-robot mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
             <div>
                 <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-robot"></i></span><h3 class="text-center vertical-center">@Dayaartzbot</h3></div>
