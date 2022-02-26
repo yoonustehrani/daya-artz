@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory;
+    public function scopeActive($builder)
+    {
+        return $builder->where('active', true);
+    }
     public function order()
     {
         return $this->belongsTo(Order::class);
