@@ -15,9 +15,17 @@ class InvoiceController extends Controller
     public function show(Request $request, $invoice)
     {
         $invoice = $request->user()->invoices()->with('order.items')->findOrFail($invoice);
+        $order = $invoice->order()
+            ->select(['id', 'code'])
+            ->with('items')
+            ->firstOrFail();
         if ($invoice->active) {
             $invoice->load('bills');
         }
-        return response()->json($invoice);
+        return response()->json([
+            'okay' => true,
+            'invoice' => $invoice,
+            'order' => $order
+        ]);
     }
 }
