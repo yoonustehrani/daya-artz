@@ -82,9 +82,15 @@
                             transition: 0.3s;
                             border-bottom: 2px solid transparent;
                         }
-                        > a:hover, .active {
+                        > a:hover {
                             border-color: #78cad2;
                             transition: 0.3s;
+                        }
+                        &.active {
+                            a {
+                                border-color: #78cad2;
+                                transition: 0.3s;
+                            }
                         }
                     }
                     ul.submenu {

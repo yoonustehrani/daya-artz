@@ -127,9 +127,13 @@
     {{-- start services --}}
     <div class="w-full h-auto my-6 px-10">
         <p class="mb-6 font-bold text-2xl w-full text-indigo-600"><span class="ml-2 align-middle relative inline-block h-fit"><i class="fas fa-arrow-alt-down text-7xl text-indigo-200"></i><i class="fal fa-percent absolute text-xs left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-fuchsia-800 after:content-['OFF'] after:text-xs after:mt-px after:font-bold flex flex-col items-center"></i></span>عناصر اصلی طراحی گرافیک  برندینگ آماده سفارش و طراح !</p>
-        <div class="w-full flex justify-between items-stretch flex-wrap">
-            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-white py-8 px-5 text-neutral-900 shadow-xl text-center rounded-lg my-8">
-                <span class=""><i class="far fa- "></i></span>
+        <div class="w-full flex justify-evenly items-stretch flex-wrap">
+            <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-slate-50 py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
+                <span class="bg-icon text-6xl h-full bg-contain bg-no-repeat bg-center"><i class="fab fa-pied-piper-pp"></i></span>
+                <h3 class="text-2xl my-3 font-bold">لوگو ترکیبی</h3>
+                <p class="text-lg my-2"><span class="text-sm">تومان / </span>5,500,000</p>
+                <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
+                <button class="my-2 rounded-md bg-sky-400 px-5 py-2 duration-300 hover:bg-sky-600">ثبت سفارش</button>
             </div>
         </div>
     </div>

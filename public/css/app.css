@@ -15068,7 +15068,11 @@ span.back-aqua.big-icon {
     transition: 0.3s;
     border-bottom: 2px solid transparent;
   }
-  .header > nav .menu-container ul li > a:hover, .header > nav .menu-container ul li .active, .min-header > nav .menu-container ul li > a:hover, .min-header > nav .menu-container ul li .active {
+  .header > nav .menu-container ul li > a:hover, .min-header > nav .menu-container ul li > a:hover {
+    border-color: #78cad2;
+    transition: 0.3s;
+  }
+  .header > nav .menu-container ul li.active a, .min-header > nav .menu-container ul li.active a {
     border-color: #78cad2;
     transition: 0.3s;
   }

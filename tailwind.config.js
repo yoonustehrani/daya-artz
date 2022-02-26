@@ -16,10 +16,11 @@ module.exports = {
 
         extend: {
             colors: {
-
+                'aqua': "#78cad2"
             },
             backgroundImage: {
-                'shaped': "url('/images/shaped-background.png')"
+                'shaped': "url('/images/shaped-background.png')",
+                "icon": "url('/images/item-background.png')"
             }
         },
     },
