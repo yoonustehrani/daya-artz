@@ -1,10 +1,3 @@
 {
-<<<<<<< HEAD
-    "/js/app.js": "/js/app.js",
-    "/js/landing-opening.js": "/js/landing-opening.js",
-    "/css/app.css": "/css/app.css",
-    "/css/landing.css": "/css/landing.css"
-=======
-    "/js/userarea.js": "/js/userarea.js"
->>>>>>> 84c86a08dc4b73231afc5f7d2f8cda3a5650ce3f
+    "/css/app.css": "/css/app.css"
 }
