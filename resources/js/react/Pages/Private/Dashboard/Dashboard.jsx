@@ -43,7 +43,7 @@ class Dashboard extends Component {
                     icon: "fas fa-file-invoice-dollar",
                     buttons: [
                         {title: "پرداخت فاکتور ها", href: "#factors_pay"},
-                        {title: "لیست فاکتور ها", href: "/finance/factors"}
+                        {title: "لیست فاکتور ها", href: "/finance/invoices"}
                     ]
                 },
                 {

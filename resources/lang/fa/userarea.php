@@ -22,6 +22,18 @@ return [
         'type' => [
             'manual' => 'دستی',
             'automate' => 'سیستمی'
+        ],
+        'status' => [
+            'submitted' => 'ثبت شده',
+            'reviewd' => 'دریافت و بررسی شده',
+            'designing' => 'در حال طراحی',
+            'finished' => 'پایان یافته',
+            'checked-out' => 'تسویه شده',
+            'processing' => 'پردازش اطلاعات',
+            'editing' => 'در حال ویرایش',
+            'canceled' => 'کنسل شده',
+            'suspened' => 'معلق',
+            'ready' => 'آماده ارایه'
         ]
-    ]
+    ],
 ];

@@ -15,12 +15,18 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->morphs('invoiceable');
+            $table->boolean('active')->default(false);
+            $table->string('title');
+            $table->foreignId('user_id');
             $table->bigInteger('amount');
-            $table->unsignedInteger('payment_rule_id');
-            $table->boolean('paid')->default(false);
+            $table->foreignId('discount_id')->nullable();
+            $table->foreignId('offer_id')->nullable();
+            $table->foreignUuid('order_id');
+            $table->timestamp('expires_at')->nullable();
+            // $table->unsignedInteger('payment_rule_id');
+            $table->timestamp('paid_at')->nullable();
             $table->timestamps();
-            $table->foreign('payment_rule_id')->references('id')->on('payment_rules')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

@@ -14,7 +14,9 @@ class CreateBillsTable extends Migration
     public function up()
     {
         Schema::create('bills', function (Blueprint $table) {
+            // tracking code
             $table->uuid('id')->primary();
+            $table->string('code', 12);
             $table->bigInteger('amount');
             $table->string('title')->nullable();
             $table->enum('status', [

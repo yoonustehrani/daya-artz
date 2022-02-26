@@ -44,7 +44,8 @@ class OrderController extends Controller
         return response()->json([
             'okay' => true,
             'order' => $order,
-            'items' => $items
+            'items' => $items,
+            'statuses' => __('userarea.orders.status')
         ]);
     }
 }

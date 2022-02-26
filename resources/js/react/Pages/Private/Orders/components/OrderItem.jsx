@@ -1,6 +1,6 @@
-import { translate } from "../../../../../helpers"
 import { useJalaliDate } from "../../../../hooks"
-export default function OrderItem({ filter, service, title, status, status_info, created_at, due_date }) {
+
+export default function OrderItem({ filter, service, title, status, statusName, status_info, created_at, due_date }) {
     return (
         <div className={filter !== "all" && filter !== status ? "d-none" : ""}>
             <div className="order-title">
@@ -16,7 +16,7 @@ export default function OrderItem({ filter, service, title, status, status_info,
                 <li>تاریخ ثبت سفارش: <span>{useJalaliDate(created_at).format("jYYYY/jMM/jDD")}</span></li>
                 {due_date && <li>تاریخ پایان پروژه: <span>{useJalaliDate(due_date).format("jYYYY/jMM/jDD")}</span></li>}
             </ul>
-            <span className={status}>{translate(status)}</span>
+            <span className={status}>{statusName}</span>
         </div>
     )
 };

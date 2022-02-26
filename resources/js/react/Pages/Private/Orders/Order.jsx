@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // custom components
-import FilterBar from './components/FlterBar';
+import FilterBar from './components/FilterBar';
 import OrderInfo from './components/OrderInfo';
 import OrderItem from './components/OrderItem';
 import Activity from '../Layout/components/Activity';
@@ -13,6 +13,7 @@ class Order extends Component {
         this.state = {
             loading: false,
             filter: "all",
+            statuses: null,
             order: null,
             items: [],
             noFilteredItem: false
@@ -20,21 +21,13 @@ class Order extends Component {
         this.http = useHttpService(`/userarea/orders/`)
     }
 
-    onFilterClick = (newFilter) => {
-        this.setState({
-            filter: newFilter,
-            noFilteredItem: false
-        }, () => {
-            let noItem = true
-            $(".order-items-container").children().each((i, elem) => {
-                if (!$(elem).hasClass("d-none")) {
-                    return noItem = false
-                }
-            })
+    onFilterClick = (e) => {
+        let {value} = e.target;
+        if (value) {
             this.setState({
-                noFilteredItem: noItem
+                filter: value
             })
-        })
+        }
     }
 
     loadOrder = async () => {
@@ -42,28 +35,34 @@ class Order extends Component {
         let newState = {};
         const response = await this.http.get(orderId)
         if (response.okay) {
-            let {order, items} = response
-            newState = {order, items}
+            let {order, items, statuses} = response
+            newState = {order, items, statuses: {...statuses, all: "همه سفارشات"}}
             document.title += ` ${order.code}`
         }
         this.setState({loading: false, ...newState})
+    }
+    filteredItems = () => {
+        let {items, filter} = this.state
+        return filter === 'all' 
+            ? items
+            : this.state.items.filter(j => j.status && j.status === filter)
     }
     componentDidMount() {
         document.title = `مشاهده سفارش`
         this.setState({loading: true}, this.loadOrder)
     }
     render() {
-        let { loading, items, order, filter, noFilteredItem } = this.state
+        let { loading, items, order, filter, noFilteredItem, statuses } = this.state
         return (
             <div id='order-container'>
                 <OrderInfo {...order} />
-                <FilterBar onFilterClick={this.onFilterClick} />
+                {statuses && <FilterBar onFilterClick={this.onFilterClick} current={filter} filters={statuses}/>}
                 {
                     loading ? <Activity/>
                     : items && items.length > 0
                     ? <div className="order-items-container">
-                        {items.length > 0 && items.map((item, i) => (
-                            <OrderItem key={item.id} filter={filter} {...item} />
+                        {items.length > 0 && this.filteredItems().map((item, i) => (
+                            <OrderItem key={item.id} statusName={statuses[item.status] ?? ''} filter={filter} {...item} />
                         ))}
                     </div>
                     : <NoItem/>

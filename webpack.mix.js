@@ -29,6 +29,7 @@ var { res, pub } = src
 
 mix.disableNotifications()
 
+<<<<<<< HEAD
 mix.js(res.js + 'app.js', pub.js).react()
 // mix.js(res.js + "userarea.js", pub.js).react()
     .sass( res.sass + 'app.scss', pub.css)
@@ -39,4 +40,15 @@ mix.postCss(res.css + "landing.css", pub.css, [
     require('autoprefixer'),
 ])
     .js(res.js + "landing-opening.js", pub.js).react()
+=======
+// mix.js(res.js + 'app.js', pub.js).react()
+mix.js(res.js + "userarea.js", pub.js).react()
+//     .sass( res.sass + 'app.scss', pub.css)
+// mix.postCss(res.css + "landing.css", pub.css, [
+//     require('postcss-import'),
+//     require('tailwindcss/nesting'),
+//     require('tailwindcss'),
+//     require('autoprefixer'),
+// ])
+>>>>>>> 84c86a08dc4b73231afc5f7d2f8cda3a5650ce3f
 //     .copy(pub.fonts + "fa-**", res.webfonts)

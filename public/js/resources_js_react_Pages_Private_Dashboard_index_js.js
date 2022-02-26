@@ -110,7 +110,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           href: "#factors_pay"
         }, {
           title: "لیست فاکتور ها",
-          href: "/finance/factors"
+          href: "/finance/invoices"
         }]
       }, {
         title: "تیکت های در حال بررسی",

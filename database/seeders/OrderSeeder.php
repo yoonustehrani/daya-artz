@@ -21,13 +21,16 @@ class OrderSeeder extends Seeder
     {
         $user = User::first();
         $services = Service::all();
+        $statuses = collect(array_keys(__('userarea.orders.status')));
         if ($user && $services->count()) {
-            $items = OrderItem::factory(3)->sequence(fn() => [
-                'service_id' => $services->random()
+            $items = OrderItem::factory(3)
+            ->sequence(fn() => [
+                'service_id' => $services->random(),
+                'status' => $statuses->random()
             ])->count(3);
             Order::factory()->count(12)->state([
                 'user_id' => $user
-            ])->has($items, 'items')->create();
+            ])->has($items, 'items')->hasInvoice(['user_id' => $user->getKey()])->create();
         }
     }
 }

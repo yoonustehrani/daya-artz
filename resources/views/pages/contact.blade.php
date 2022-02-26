@@ -21,10 +21,49 @@
     </div>
     <div class="contact-us-form">
         <h4 class="mb-3 mb-md-2 mb-lg-4">ما منتظر دریافت پیام شما هستیم</h4>
-        <form action="#">
-            <div class="input-group mb-2 mb-lg-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
-            <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>
-            <button class="float-left btn btn-dark">ارسال پیام</button>
+        <form action="{{ route('api.forms.contact') }}" class="form-group p-3" method="POST">
+            @csrf
+            <div class="input-group col-12 mt-3">
+                <input class="form-control" type="text" name="fullname" placeholder="نام و نام خانوادگی">
+            </div>
+            @error('fullname')
+                <ul class="col-12">
+                @foreach ($errors->get('fullname') as $err)
+                    <li class="text-danger">{{ $err }}</li>
+                @endforeach
+                </ul>
+            @enderror
+            <div class="input-group col-12 col-lg-6 mt-3">
+                <input class="form-control" type="text" name="phone_number" placeholder="شماره تلفن">
+                @error('phone_number')
+                    <ul class="w-full">
+                    @foreach ($errors->get('phone_number') as $err)
+                        <li class="text-danger">{{ $err }}</li>
+                    @endforeach
+                    </ul>
+                @enderror
+            </div>
+            <div class="input-group col-12 col-lg-6 mt-3">
+                <input class="form-control" type="email" name="email" placeholder="ایمیل">
+                @error('email')
+                    <ul class="w-full">
+                    @foreach ($errors->get('email') as $err)
+                        <li class="text-danger">{{ $err }}</li>
+                    @endforeach
+                    </ul>
+                @enderror
+            </div>
+            <div class="input-group p-3 mt-3">
+                <textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea>
+                @error('message')
+                    <ul class="w-full">
+                    @foreach ($errors->get('message') as $err)
+                        <li class="text-danger">{{ $err }}</li>
+                    @endforeach
+                    </ul>
+                @enderror
+            </div>
+            <button class="ml-3 float-left btn btn-dark">ارسال پیام</button>
         </form>
     </div>
 </div>

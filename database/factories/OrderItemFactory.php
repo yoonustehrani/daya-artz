@@ -17,7 +17,7 @@ class OrderItemFactory extends Factory
             'title' => $this->faker->company(),
             'status' => $this->faker->randomElement(['just-recieved', 'finished']),
             'status_info' => $this->faker->paragraph(),
-            'price' => intval($this->faker->randomFloat(2, 1, 8.1) * 1_000_000),
+            'total' => intval($this->faker->randomFloat(2, 1, 8.1) * 1_000_000),
         ];
     }
 }
