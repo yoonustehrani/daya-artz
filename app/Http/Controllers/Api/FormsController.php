@@ -41,8 +41,14 @@ class FormsController extends Controller
             'message' => __('messages.order.error')
         ], 403);
     }
-    public function contact()
+    public function contact(Request $request)
     {
-        
+        $request->validate([
+            'phone_number' => 'required|string|digits:11|regex:/^09[0-9]{9}$/',
+            'fullname' => 'required|string|min:3|max:40',
+            'message' => 'required|string|min:20|max:1000',
+            'email' => 'required|email:filter,dns|max:255'
+        ]);
+        return redirect()->to(route('contact'));
     }
 }
