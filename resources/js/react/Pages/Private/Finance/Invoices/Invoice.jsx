@@ -26,6 +26,7 @@ class Invoice extends Component {
                 // offer here as well
                 return item
             }))
+            document.title = `${invoice.active ? ' ' : 'پیش '}فاکتور شماره ${invoice.id}`
             this.setState({
                 invoice : {...invoice, calc: {subtotal}},
                 order: {...order, items: items},
@@ -47,10 +48,7 @@ class Invoice extends Component {
                         <ul>
                             <li>
                             <span>
-                            {invoice.active ? 
-                            'فاکتور' :
-                            'پیش فاکتور'
-                            } برای :</span> آقا / خانم {user.lastname}</li>
+                            {invoice.active ? ' ' :'پیش '} فاکتور برای :</span> آقا / خانم {user.lastname}</li>
                             {company && (
                                 <>
                                     <li><span>نام شرکت:</span> {[company.title, company.title_en].join(' - ')}</li>

@@ -96,6 +96,7 @@ var Invoice = /*#__PURE__*/function (_Component) {
 
                   return item;
                 });
+                document.title = "".concat(invoice.active ? ' ' : 'پیش ', "\u0641\u0627\u06A9\u062A\u0648\u0631 \u0634\u0645\u0627\u0631\u0647 ").concat(invoice.id);
 
                 _this.setState({
                   invoice: _objectSpread(_objectSpread({}, invoice), {}, {
@@ -149,7 +150,7 @@ var Invoice = /*#__PURE__*/function (_Component) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
-                  children: [invoice.active ? 'فاکتور' : 'پیش فاکتور', " \u0628\u0631\u0627\u06CC :"]
+                  children: [invoice.active ? ' ' : 'پیش ', " \u0641\u0627\u06A9\u062A\u0648\u0631 \u0628\u0631\u0627\u06CC :"]
                 }), " \u0622\u0642\u0627 / \u062E\u0627\u0646\u0645 ", user.lastname]
               }), company && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
