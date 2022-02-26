@@ -1,8 +1,8 @@
 @extends('layouts.page')
 
-@section('head')
+@push('head')
     <title>Contact us | Daya Artz</title>
-@endsection
+@endpush
 
 
 @section('content')

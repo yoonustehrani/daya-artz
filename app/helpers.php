@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 if (! function_exists('generate_code')) {
     function generate_code($length = 6, $charType = 'number')
     {
@@ -31,5 +33,30 @@ if (! function_exists('setting_exists')) {
     function setting_exists($key)
     {
         return cache()->has("site-settings.{$key}");
+    }
+}
+
+if (! function_exists('custom_route')) {
+    /**
+     * Safely returns path if route exists
+     * @param string $route_name
+     * @param array|null $params
+     * @return string path or #
+     */
+    function custom_route($route_name, $params = []) {
+        return Route::has($route_name) ? route($route_name, $params) : '#';
+    }
+}
+
+if (! function_exists('get_menu_items')) {
+    function get_menu_items($menu_name) {
+        $menu = \Cache::rememberForever("site.menus.{$menu_name}", function () use($menu_name) {
+            $menu = App\Models\Menu::where('name', $menu_name)->with('items')->first();
+            if ($menu) {
+                return $menu->items->toArray();
+            }
+            return [];
+        });
+        return $menu;
     }
 }
