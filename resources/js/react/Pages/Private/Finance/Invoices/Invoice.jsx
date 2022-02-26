@@ -10,6 +10,7 @@ class Invoice extends Component {
         super(props)
         this.state = {
             invoice: null,
+            order: null,
             loading: true
         }
         this.http = useHttpService('/userarea/')
@@ -17,39 +18,49 @@ class Invoice extends Component {
     loadInvoice = async () => {
         let {invoiceId} = this.props.params
         const response = await this.http.get(`invoices/${invoiceId}`)
-        if (response.error) {
-            return
+        if (response.okay) {
+            let { order, invoice } = response
+            let subtotal = 0
+            let items = order.items.map((item => {
+                subtotal += item.total
+                // offer here as well
+                return item
+            }))
+            document.title = `${invoice.active ? ' ' : 'پیش '}فاکتور شماره ${invoice.id}`
+            this.setState({
+                invoice : {...invoice, calc: {subtotal}},
+                order: {...order, items: items},
+                loading: false
+            })
         }
-        this.setState({
-            invoice: response,
-            loading: false
-        })
     }
     componentDidMount() {
         this.loadInvoice()
     }
     render() {
         let { user, company } = this.props
-        let { invoice } = this.state
-        return ! invoice ? <LoaderComponent /> : (
+        let { invoice, order } = this.state
+        return ! invoice && ! order ? <LoaderComponent /> : (
             <div className='factor-container p-3 p-md-4 '>
                 <div className="factor-first-section">
                     {/* <span className="factor-date mb-3">9 آذر 1400</span> */}
                     <div>
                         <ul>
-                            <li><span>فاکتور پیش پرداخت برای:</span> آقا / خانم {user.lastname}</li>
+                            <li>
+                            <span>
+                            {invoice.active ? ' ' :'پیش '} فاکتور برای :</span> آقا / خانم {user.lastname}</li>
                             {company && (
                                 <>
                                     <li><span>نام شرکت:</span> {[company.title, company.title_en].join(' - ')}</li>
                                     <li><span>آدرس شرکت:</span> خیابان سجاد - سجاد 21 - پلاک 124</li>
                                 </>
                             )}
-                            {user.email && <li className='contact-info'>{user.email}</li>}
-                            {user.phone_number && <li className='contact-info'>{user.phone_number}</li>}
+                            <li className='contact-info'>{user.email}</li>
+                            <li className='contact-info'>{user.phone_number}</li>
                         </ul>
                         <ul>
                             <li><span>شماره فاکتور:</span>{invoice.id}</li>
-                            <li><span>شماره سفارش:</span>{invoice.order.code}</li>
+                            <li><span>شماره سفارش:</span>{order.code}</li>
                             <li><span>تاریخ فاکتور:</span>{useJalaliDate(invoice.created_at).format('jYYYY/jMM/jDD')}</li>
                             {/* <li className='alert alert-danger'>مبلغ سر رسید: {invoice} تومان</li> */}
                         </ul>
@@ -68,7 +79,7 @@ class Invoice extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {invoice.order && invoice.order.items.map((item, i) => (
+                            {order && order.items.map((item, i) => (
                                 <tr key={item.id}>
                                     <th>{i + 1}</th>
                                     <th scope='row'>{item.title}</th>
@@ -84,22 +95,22 @@ class Invoice extends Component {
                     <h3 className='factor-section-title'>هزینه کلی</h3>
                     <table className="table">
                         <tbody>
-                            {/* <tr>
+                            <tr>
                                 <th scope='row'>مبلغ کل سفارش</th>
-                                <td>10,000,000 تومان</td>
+                                <td>{invoice.calc.subtotal.toLocaleString('en-US')} تومان</td>
                             </tr> 
-                             <tr>
+                            {/* <tr>
                                 <th scope='row'>مالیات</th>
                                 <td>0</td>
-                            </tr> 
-                             <tr>
+                            </tr> */}
+                            {/* <tr>
                                 <th scope='row'>تخفیف</th>
                                 <td>500,000 تومان</td>
-                            </tr> 
-                             <tr>
+                            </tr> */}
+                            <tr>
                                 <th scope='row'>قابل پرداخت</th>
-                                <td>9,500,000 تومان</td>
-                            </tr>*/}
+                                <td>{Number(invoice.calc.subtotal).toLocaleString('en-US')} تومان</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

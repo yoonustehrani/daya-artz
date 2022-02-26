@@ -22,6 +22,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -72,7 +76,7 @@ var Invoice = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "loadInvoice", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var invoiceId, response;
+      var invoiceId, response, order, invoice, subtotal, items;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -84,20 +88,30 @@ var Invoice = /*#__PURE__*/function (_Component) {
             case 3:
               response = _context.sent;
 
-              if (!response.error) {
-                _context.next = 6;
-                break;
+              if (response.okay) {
+                order = response.order, invoice = response.invoice;
+                subtotal = 0;
+                items = order.items.map(function (item) {
+                  subtotal += item.total; // offer here as well
+
+                  return item;
+                });
+                document.title = "".concat(invoice.active ? ' ' : 'پیش ', "\u0641\u0627\u06A9\u062A\u0648\u0631 \u0634\u0645\u0627\u0631\u0647 ").concat(invoice.id);
+
+                _this.setState({
+                  invoice: _objectSpread(_objectSpread({}, invoice), {}, {
+                    calc: {
+                      subtotal: subtotal
+                    }
+                  }),
+                  order: _objectSpread(_objectSpread({}, order), {}, {
+                    items: items
+                  }),
+                  loading: false
+                });
               }
 
-              return _context.abrupt("return");
-
-            case 6:
-              _this.setState({
-                invoice: response,
-                loading: false
-              });
-
-            case 7:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -107,6 +121,7 @@ var Invoice = /*#__PURE__*/function (_Component) {
 
     _this.state = {
       invoice: null,
+      order: null,
       loading: true
     };
     _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_4__.useHttpService)('/userarea/');
@@ -124,16 +139,18 @@ var Invoice = /*#__PURE__*/function (_Component) {
       var _this$props = this.props,
           user = _this$props.user,
           company = _this$props.company;
-      var invoice = this.state.invoice;
-      return !invoice ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      var _this$state = this.state,
+          invoice = _this$state.invoice,
+          order = _this$state.order;
+      return !invoice && !order ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "factor-container p-3 p-md-4 ",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "factor-first-section",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-                  children: "\u0641\u0627\u06A9\u062A\u0648\u0631 \u067E\u06CC\u0634 \u067E\u0631\u062F\u0627\u062E\u062A \u0628\u0631\u0627\u06CC:"
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+                  children: [invoice.active ? ' ' : 'پیش ', " \u0641\u0627\u06A9\u062A\u0648\u0631 \u0628\u0631\u0627\u06CC :"]
                 }), " \u0622\u0642\u0627 / \u062E\u0627\u0646\u0645 ", user.lastname]
               }), company && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
@@ -145,10 +162,10 @@ var Invoice = /*#__PURE__*/function (_Component) {
                     children: "\u0622\u062F\u0631\u0633 \u0634\u0631\u06A9\u062A:"
                   }), " \u062E\u06CC\u0627\u0628\u0627\u0646 \u0633\u062C\u0627\u062F - \u0633\u062C\u0627\u062F 21 - \u067E\u0644\u0627\u06A9 124"]
                 })]
-              }), user.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
                 className: "contact-info",
                 children: user.email
-              }), user.phone_number && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
                 className: "contact-info",
                 children: user.phone_number
               })]
@@ -160,7 +177,7 @@ var Invoice = /*#__PURE__*/function (_Component) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                   children: "\u0634\u0645\u0627\u0631\u0647 \u0633\u0641\u0627\u0631\u0634:"
-                }), invoice.order.code]
+                }), order.code]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                   children: "\u062A\u0627\u0631\u06CC\u062E \u0641\u0627\u06A9\u062A\u0648\u0631:"
@@ -190,7 +207,7 @@ var Invoice = /*#__PURE__*/function (_Component) {
                 })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("tbody", {
-              children: invoice.order && invoice.order.items.map(function (item, i) {
+              children: order && order.items.map(function (item, i) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: i + 1
@@ -215,7 +232,23 @@ var Invoice = /*#__PURE__*/function (_Component) {
             children: "\u0647\u0632\u06CC\u0646\u0647 \u06A9\u0644\u06CC"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("table", {
             className: "table",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("tbody", {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tbody", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                  scope: "row",
+                  children: "\u0645\u0628\u0644\u063A \u06A9\u0644 \u0633\u0641\u0627\u0631\u0634"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
+                  children: [invoice.calc.subtotal.toLocaleString('en-US'), " \u062A\u0648\u0645\u0627\u0646"]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                  scope: "row",
+                  children: "\u0642\u0627\u0628\u0644 \u067E\u0631\u062F\u0627\u062E\u062A"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
+                  children: [Number(invoice.calc.subtotal).toLocaleString('en-US'), " \u062A\u0648\u0645\u0627\u0646"]
+                })]
+              })]
+            })
           })]
         }), invoice.active && invoice.bills ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
           fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
