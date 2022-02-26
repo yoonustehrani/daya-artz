@@ -133,7 +133,7 @@
                 <h3 class="text-2xl my-3 font-bold">لوگو ترکیبی</h3>
                 <p class="text-lg my-2"><span class="text-sm">تومان / </span>5,500,000</p>
                 <p class="text-2xl font-bold my-2"><span class="text-sm font-normal">تومان / </span>4,125,000</p>
-                <button class="my-2 rounded-md bg-sky-400 px-5 py-2 duration-300 hover:bg-sky-600">ثبت سفارش</button>
+                <button class="my-2 rounded-md bg-sky-400 px-5 py-2 duration-300 hover:bg-sky-600 text-slate-50">ثبت سفارش</button>
             </div>
         </div>
     </div>
