@@ -9,9 +9,15 @@ class InvoiceController extends Controller
 {
     public function index(Request $request)
     {
-        $user = $request->user();
-        $invoices = $user->invoices()->latest()->simplePaginate(10);
-
+        $invoices = $request->user()->invoices()->latest()->simplePaginate(10);
         return response()->json($invoices);
+    }
+    public function show(Request $request, $invoice)
+    {
+        $invoice = $request->user()->invoices()->with('order.items')->findOrFail($invoice);
+        if ($invoice->active) {
+            $invoice->load('bills');
+        }
+        return response()->json($invoice);
     }
 }

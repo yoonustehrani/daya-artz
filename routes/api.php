@@ -60,6 +60,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::get('transactions', [ReportController::class, 'transactions'])->name('transactions.index');
     Route::get('offers', [ReportController::class, 'offers'])->name('offers.index');
     Route::get('invoices', [InvoiceController::class, 'index'])->name('invoices.index');
+    Route::get('invoices/{invoice}', [InvoiceController::class, 'show'])->name('invoices.show');
     Route::get('orders', [OrderController::class, 'index']);
     Route::get('orders/{order}', [OrderController::class, 'show']);
     Route::post('bills/{bill}/pay/{method}', [PaymentController::class, 'store'])->name('bills.pay');

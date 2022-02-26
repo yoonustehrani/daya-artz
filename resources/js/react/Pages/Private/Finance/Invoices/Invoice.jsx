@@ -1,25 +1,57 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import LoaderComponent from '../../../../components/LoaderComponent';
+import { useHttpService, useJalaliDate } from '../../../../hooks';
+const Bills = React.lazy(() => import('./components/Bills'))
 // custom components
 
 class Invoice extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            invoice: null,
+            loading: true
+        }
+        this.http = useHttpService('/userarea/')
+    }
+    loadInvoice = async () => {
+        let {invoiceId} = this.props.params
+        const response = await this.http.get(`invoices/${invoiceId}`)
+        if (response.error) {
+            return
+        }
+        this.setState({
+            invoice: response,
+            loading: false
+        })
+    }
+    componentDidMount() {
+        this.loadInvoice()
+    }
     render() {
-        return (
+        let { user, company } = this.props
+        let { invoice } = this.state
+        return ! invoice ? <LoaderComponent /> : (
             <div className='factor-container p-3 p-md-4 '>
                 <div className="factor-first-section">
                     {/* <span className="factor-date mb-3">9 آذر 1400</span> */}
                     <div>
                         <ul>
-                            <li><span>فاکتور پیش پرداخت برای:</span> آقا / خانم نخعی</li>
-                            <li><span>نام شرکت:</span> خایه های امام باقر</li>
-                            <li><span>آدرس شرکت:</span> خیابان سجاد - سجاد 21 - پلاک 124</li>
-                            <li className='contact-info'>amir@gmail.com</li>
-                            <li className='contact-info'>09012032190</li>
+                            <li><span>فاکتور پیش پرداخت برای:</span> آقا / خانم {user.lastname}</li>
+                            {company && (
+                                <>
+                                    <li><span>نام شرکت:</span> {[company.title, company.title_en].join(' - ')}</li>
+                                    <li><span>آدرس شرکت:</span> خیابان سجاد - سجاد 21 - پلاک 124</li>
+                                </>
+                            )}
+                            {user.email && <li className='contact-info'>{user.email}</li>}
+                            {user.phone_number && <li className='contact-info'>{user.phone_number}</li>}
                         </ul>
                         <ul>
-                            <li><span>شماره فاکتور:</span>13895874</li>
-                            <li><span>شماره سفارش:</span>319987</li>
-                            <li><span>تاریخ فاکتور:</span>1400/12/23</li>
-                            <li className='alert alert-danger'>مبلغ سر رسید: 5,280,000 تومان</li>
+                            <li><span>شماره فاکتور:</span>{invoice.id}</li>
+                            <li><span>شماره سفارش:</span>{invoice.order.code}</li>
+                            <li><span>تاریخ فاکتور:</span>{useJalaliDate(invoice.created_at).format('jYYYY/jMM/jDD')}</li>
+                            {/* <li className='alert alert-danger'>مبلغ سر رسید: {invoice} تومان</li> */}
                         </ul>
                     </div>
                 </div>
@@ -28,31 +60,23 @@ class Invoice extends Component {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope='col'>عنوان سفارش</th>
-                                <th scope='col'>قیمت</th>
-                                <th scope='col'>تخفیف</th>
-                                <th scope='col'>مبلغ نهایی</th>
+                                <th>#</th>
+                                <th>عنوان سفارش</th>
+                                <th>قیمت</th>
+                                <th>تخفیف</th>
+                                <th>مبلغ نهایی</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope='row'>راحی لوگو تصویری</th>
-                                <td>2,800,000 تومان</td>
-                                <td>500,000 تومان</td>
-                                <td>2,300,000 تومان</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>طراحی بروشور برای گی</th>
-                                <td>2,800,000 تومان</td>
-                                <td>500,000 تومان</td>
-                                <td>2,300,000 تومان</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>گایش امام حسین با دیلدو</th>
-                                <td>2,800,000 تومان</td>
-                                <td>500,000 تومان</td>
-                                <td>2,300,000 تومان</td>
-                            </tr>
+                            {invoice.order && invoice.order.items.map((item, i) => (
+                                <tr key={item.id}>
+                                    <th>{i + 1}</th>
+                                    <th scope='row'>{item.title}</th>
+                                    <td>{item.total.toLocaleString('en-US')} تومان</td>
+                                    <td>0 تومان</td>
+                                    <td>{item.total.toLocaleString('en-US')} تومان</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
@@ -60,59 +84,41 @@ class Invoice extends Component {
                     <h3 className='factor-section-title'>هزینه کلی</h3>
                     <table className="table">
                         <tbody>
-                            <tr>
+                            {/* <tr>
                                 <th scope='row'>مبلغ کل سفارش</th>
                                 <td>10,000,000 تومان</td>
-                            </tr>
-                            <tr>
+                            </tr> 
+                             <tr>
                                 <th scope='row'>مالیات</th>
                                 <td>0</td>
-                            </tr>
-                            <tr>
+                            </tr> 
+                             <tr>
                                 <th scope='row'>تخفیف</th>
                                 <td>500,000 تومان</td>
-                            </tr>
-                            <tr>
+                            </tr> 
+                             <tr>
                                 <th scope='row'>قابل پرداخت</th>
                                 <td>9,500,000 تومان</td>
-                            </tr>
+                            </tr>*/}
                         </tbody>
                     </table>
                 </div>
-                <div className="float-left w-100 table-responsive mt-5">
-                    <h3 className="factor-section-title">وضعیت پرداختی</h3>
-                    <table className="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope='col'>نوع</th>
-                                <th scope='col'>شماره قبض</th>
-                                <th scope='col'>عنوان</th>
-                                <th scope='col'>مقدار</th>
-                                <th scope='col'>وضعیت پرداخت</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope='row'>پیش پرداخت</th>
-                                <td>31435</td>
-                                <td>پیش پرداخت لوگوی تصویری</td>
-                                <td>2,000,000 تومان</td>
-                                <td>پرداخت شده <i className='far fa-check text-success'></i></td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>تسویه</th>
-                                <td>31436</td>
-                                <td>تسویه لوگوی تصویری</td>
-                                <td>2,000,000 تومان</td>
-                                <td><a href="#" className='btn btn-sm btn-primary'>پرداخت</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div className='float-left alert alert-light text-center mt-5 horizontal-center-left'>مهلت پرداخت تسویه فاکتور شما به شماره 425f45، تا تاریخ 1400/12/34 میباشد.</div>
+                {
+                    invoice.active && invoice.bills ? 
+                    <React.Suspense fallback={<LoaderComponent />}>
+                        <Bills bills={invoice.bills}/>
+                    </React.Suspense>
+                    : null
+                }
+                {/* <div className='float-left alert alert-light text-center mt-5 horizontal-center-left'>مهلت پرداخت تسویه فاکتور شما به شماره {invoice.id}، تا تاریخ 1400/12/34 میباشد.</div> */}
             </div>
         );
     }
 }
 
-export default Invoice;
+const mapStateToProps = state => ({
+    user: state.auth.user,
+    company: state.user.company
+})
+
+export default connect(mapStateToProps)(Invoice);
