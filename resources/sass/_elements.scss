@@ -982,14 +982,25 @@ span.back-aqua {
         height: 570px;
     }
     .contact-us-form {
-        top: 17%;
+        top: 50%;
+        transform: translateY(-50%);
         width: 45%;
         form {
             direction: rtl;
         }
-        .input-group.col-lg-6 {
+        .input-group.col-md-6 {
             display: inline-flex;
-            // width: fit-content;
+        }
+        .input-group {
+            flex-direction: column;
+            align-items: flex-start;
+            input, textarea {
+                width: 100%;
+            }
+            ul.w-full {
+                margin-bottom: 0;
+                text-align: right;
+            }
         }
         h4 {
             font-weight: bold;
