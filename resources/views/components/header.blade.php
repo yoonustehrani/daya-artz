@@ -12,10 +12,10 @@
         </div>
         <span class="top-logo d-md-none"><img src="{{ asset('images/daya-logo-circular.png') }}"> DAYAARTZ</span>
         <ul class="main-menu menu-items-container p-md-0 m-md-0">
-            <li>
+            <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
                 <a href="{{ route('home') }}"><i class="d-md-none fa fa-home"></i> خانه</a>
             </li>
-            <li class="has-sub">
+            <li class="has-sub {{ request()->routeIs('services.index') ? 'active' : '' }}">
                 <a href="{{ route('services.index') }}"><i class="d-md-none fas fa-paint-brush"></i>خدمات طراحی گرافیک</a>
                 <ul class="submenu-m submenu">
                     <li class="animated"><a href="#">طراحی چاپی</a></li>
@@ -35,10 +35,18 @@
                     <li class="animated"><a href="#3">زیرمجموعه خیلــــــــی طولانی</a></li>
                 </ul>
             </li> --}}
-            <li><a href="{{ route('blog.index') }}"><i class="d-md-none fas fa-blog"></i> مقالات</a></li>
-            <li><a href="{{ route('about') }}"><i class="d-md-none fas fa-building"></i> درباره ما</a></li>
-            <li><a href="{{ route('contact') }}"><i class="d-md-none fas fa-headset"></i> تماس با ما</a></li>
-            <li><a href="{{ route('policy') }}"><i class="d-md-none fas fa-rule"></i> سوالات متداول</a></li>
+            <li class="{{ request()->routeIs('blog.index') ? 'active' : '' }}">
+                <a href="{{ route('blog.index') }}"><i class="d-md-none fas fa-blog"></i> مقالات</a>
+            </li>
+            <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                <a href="{{ route('about') }}"><i class="d-md-none fas fa-building"></i> درباره ما</a>
+            </li>
+            <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+                <a href="{{ route('contact') }}"><i class="d-md-none fas fa-headset"></i> تماس با ما</a>
+            </li>
+            <li class="{{ request()->routeIs('policy') ? 'active' : '' }}">
+                <a href="{{ route('policy') }}"><i class="d-md-none fas fa-rule"></i> سوالات متداول</a>
+            </li>
         </ul>
     </div>
     <div class="last-item">
