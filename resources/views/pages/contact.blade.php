@@ -24,19 +24,19 @@
         <form action="{{ route('api.forms.contact') }}" class="form-group" method="POST">
             @csrf
             <div class="input-group col-12 mt-3">
-                <input class="form-control" type="text" name="fullname" placeholder="نام و نام خانوادگی">
+                <input class="form-control mb-2" type="text" name="fullname" placeholder="نام و نام خانوادگی">
+                @error('fullname')
+                    <ul class="w-100 text-right">
+                    @foreach ($errors->get('fullname') as $err)
+                        <li class="text-danger">{{ $err }}</li>
+                    @endforeach
+                    </ul>
+                @enderror
             </div>
-            @error('fullname')
-                <ul class="col-12">
-                @foreach ($errors->get('fullname') as $err)
-                    <li class="text-danger">{{ $err }}</li>
-                @endforeach
-                </ul>
-            @enderror
             <div class="input-group col-12 col-lg-6 mt-3 float-right">
-                <input class="form-control" type="text" name="phone_number" placeholder="شماره تلفن">
+                <input class="form-control mb-2" type="text" name="phone_number" placeholder="شماره تلفن">
                 @error('phone_number')
-                    <ul class="w-full">
+                    <ul class="w-100 m-0 text-right">
                     @foreach ($errors->get('phone_number') as $err)
                         <li class="text-danger">{{ $err }}</li>
                     @endforeach
@@ -44,9 +44,9 @@
                 @enderror
             </div>
             <div class="input-group col-12 col-lg-6 mt-3 float-left">
-                <input class="form-control" type="email" name="email" placeholder="ایمیل">
+                <input class="form-control mb-2" type="email" name="email" placeholder="ایمیل">
                 @error('email')
-                    <ul class="w-full">
+                    <ul class="w-100 m-0 text-right">
                     @foreach ($errors->get('email') as $err)
                         <li class="text-danger">{{ $err }}</li>
                     @endforeach
@@ -54,9 +54,9 @@
                 @enderror
             </div>
             <div class="input-group p-3 mt-2">
-                <textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea>
+                <textarea class="form-control mb-2" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea>
                 @error('message')
-                    <ul class="w-full">
+                    <ul class="w-100 m-0 text-right">
                     @foreach ($errors->get('message') as $err)
                         <li class="text-danger">{{ $err }}</li>
                     @endforeach
