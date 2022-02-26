@@ -1,4 +1,4 @@
-<nav class="h-14 w-full py-2 px-6 bg-gradient-to-r from-indigo-700 to-indigo-900 flex flex-nowrap justify-between">
+<nav class="h-14 w-full py-2 px-6 bg-gradient-to-r from-indigo-500 to-indigo-700 flex flex-nowrap justify-between">
     <div class="flex flex-nowrap items-center">
         <a href="{{ route("home") }}" class="ml-3"><img src="{{ asset(get_setting("header.menu.logo")) }}" alt="daya-logo" class="w-12"></a>
         <ul class="p-0 flex flex-nowrap justify-start w-fit">

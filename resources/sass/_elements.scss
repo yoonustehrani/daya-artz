@@ -480,6 +480,8 @@ span.back-aqua {
 //end contact daya
 
 .portfolio-section {
+    display: flex;
+    align-items: stretch;
     .portfolio {
         float: left;
         margin: 0px;
@@ -489,7 +491,7 @@ span.back-aqua {
             float: left;
             width: 100%;
             overflow: hidden;
-            height: fit-content;
+            height: 100%;
             > img {
                 transition: 0.3s;
                 width: 100%;
