@@ -7,7 +7,8 @@ module.exports = {
         "./resources/views/components/layout/landing.blade.php" ,
         "./resources/views/components/layout/menu.blade.php",
         "./resources/views/components/quick-order-form.blade.php",
-        "./resources/js/components/QickOrder/QuickOrder.jsx"  
+        "./resources/js/components/QickOrder/QuickOrder.jsx",
+        "./resources/views/components/layout/footer.blade.php" 
     ],
     theme: {
         fontFamily: {

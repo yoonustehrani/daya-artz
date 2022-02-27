@@ -2573,19 +2573,6 @@ if (quickOrderElement) {
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./resources/css/landing.css":
 /*!***********************************!*\
   !*** ./resources/css/landing.css ***!
@@ -33739,7 +33726,6 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/landing-opening": 0,
-/******/ 			"css/app": 0,
 /******/ 			"css/landing": 0
 /******/ 		};
 /******/ 		
@@ -33790,9 +33776,8 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/landing"], () => (__webpack_require__("./resources/js/landing-opening.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/landing"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/landing"], () => (__webpack_require__("./resources/css/landing.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/js/landing-opening.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/css/landing.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -206,7 +206,28 @@
     {{-- start daya opening --}}
     <div class="w-full my-6 bg-gradient-to-r from-indigo-600 to-indigo-400">
         <div class="w-full h-full py-6 px-10 bg-shaped bg-cover">
-            
+            <p class="mb-8 font-bold text-3xl w-full text-blue-200"><img src="{{ asset("/images/fire-off.png") }}" class="ml-2 align-middle relative inline-block w-11" />جشنواره افتتاحیه دایا آرتز و مزیت های آن</p>
+            <div class="w-5/6 px-16 text-slate-50 text-right my-8 mx-auto">
+                <p class="mb-4 font-bold text-2xl w-full"><span class="ml-2 align-middle inline-block h-fit"><i class="far fa-business-time text-4xl text-blue-200"></i></span>سفارش سریع</p>
+                <p class="leading-loose text-xl ">امکان سفارش سریع برای تمامی مخاطبان دایا آرتز فراهم شده تا در <b>سریع ترین روش ممکن</b> به دریافت سفارش شما بپردازد</p>
+                <div class="w-full my-4 text-center">
+                    <button class="mx-auto p-2 rounded-full text-gray-900 bg-blue-200 hover:bg-blue-500 duration-300">شروع سفارش سریع</button>
+                </div>
+            </div>
+            <div class="w-5/6 px-16 text-slate-50 text-right my-8 mx-auto">
+                <p class="mb-4 font-bold text-2xl w-full"><span class="ml-2 align-middle inline-block h-fit"><i class="far fa-box-full text-4xl text-blue-200"></i></span>بسته های همه جانبه</p>
+                <p class="leading-loose text-xl ">بسته ها و پکیج های <b>هدفمند و همه جانبه</b> برای شما ضمن <b>بهینه شدن اقتصادی</b> آماده استفاده و سفارش هستن</p>
+                <div class="w-full my-4 text-center">
+                    <button class="mx-auto p-2 rounded-full text-gray-900 bg-blue-200 hover:bg-blue-500 duration-300">پکیج های من</button>
+                </div>
+            </div>
+            <div class="w-5/6 px-16 text-slate-50 text-right my-8 mx-auto">
+                <p class="mb-4 font-bold text-2xl w-full"><span class="ml-2 align-middle inline-block h-fit"><i class="far fa-sack-dollar text-4xl text-blue-200"></i></span>صرفه جویی در هزینه</p>
+                <p class="leading-loose text-xl ">خدمات اصلی طراحی گرافیک به صورت موردی برای شما فراهم شده اند تا ضمن دریافت <b>تخفیف ویژه افتتاحیه، ابزار قدرتمند <b>برند شما</b> باشند</b></p>
+                <div class="w-full my-4 text-center">
+                    <button class="mx-auto p-2 rounded-full text-gray-900 bg-blue-200 hover:bg-blue-500 duration-300">خدمات اصلی من</button>
+                </div>
+            </div>
         </div>
     </div>
     {{-- end daya opening --}}
