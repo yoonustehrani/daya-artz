@@ -16,5 +16,6 @@ class InvoiceSeeder extends Seeder
     public function run()
     {
         Invoice::factory()->count(4)->state(['user_id' => User::first()->id])->create();
+        Invoice::factory()->count(4)->state(['user_id' => User::first()->id, 'active' => true])->create();
     }
 }
