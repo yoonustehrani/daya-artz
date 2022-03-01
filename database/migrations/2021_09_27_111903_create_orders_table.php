@@ -31,6 +31,7 @@ class CreateOrdersTable extends Migration
             $table->foreignUuid('company_id')->nullable();
             // $table->foreignId('offer_id')->nullable();
             $table->json('details');
+            $table->timestamp('finished_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();

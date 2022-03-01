@@ -50,9 +50,9 @@ class Sidebar extends Component {
                             <li>
                                 <Link to="/finance/invoices" className="link">پیش فاکتور ها</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to="/finance/bills" className="link">صورت حساب ها</Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link to="/finance/transactions" className="link">تراکنش ها</Link>
                             </li>
@@ -75,7 +75,7 @@ class Sidebar extends Component {
                             </li>
                         </ul>
                     </li>
-                    <li className="has-sub">
+                    {/* <li className="has-sub">
                         <a href="#contracts"><i className="fas fa-file-signature"></i> قرارداد ها</a>
                         <ul className="submenu-m">
                             <li>
@@ -85,7 +85,7 @@ class Sidebar extends Component {
                                 <Link to="/contract_sample" className="link">نمونه قرارداد ها</Link>
                             </li>
                         </ul>
-                    </li>
+                    </li> */}
                     <li>
                         <a onClick={() => this.props.dispatch(logoutUser())} href="#logout"><i className="fas fa-power-off"></i>خروج</a>
                     </li>

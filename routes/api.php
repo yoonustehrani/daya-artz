@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::get('/', fn() => ['okay' => true]);
+Route::get('test', [ReportController::class, 'general'])->name('test');
 
 Route::prefix('forms')->name('forms.')->group(function() {
     Route::post('quick-order', [FormsController::class, 'quickOrder'])->name('orders.quick');
@@ -71,6 +72,9 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::get('orders', [OrderController::class, 'index']);
     Route::get('orders/{order}', [OrderController::class, 'show']);
     Route::post('bills/{bill}/pay/{method}', [PaymentController::class, 'store'])->name('bills.pay');
+    // Route::prefix('stats')->group(function() {
+    //     Route::get('orders', [ReportController::class, 'ordersStat']);
+    // });
     Route::prefix('user')->group(function() {
         Route::put('auth', [UserController::class, 'update']);
         Route::put('customer', [UserController::class, 'updateInfo']);

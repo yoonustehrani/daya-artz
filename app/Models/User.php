@@ -69,7 +69,8 @@ class User extends Authenticatable
 
     public function offers()
     {
-        return $this->morphToMany(Offer::class, 'offerable')->where('expires_at', '>', now())->withPivot(['max_attempts', 'attempts']);
+        return $this->belongsToMany(Offer::class)->withPivot(['user_attempts']);
+        // return $this->morphToMany(Offer::class, 'offerable')->where('expires_at', '>', now())->withPivot(['max_attempts', 'attempts']);
     }
     public function company()
     {
