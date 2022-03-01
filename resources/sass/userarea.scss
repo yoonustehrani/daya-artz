@@ -365,11 +365,7 @@
                                     background-color: $navy-purple;
                                     float: right;
                                     font-weight: normal;
-                                    margin-bottom: 5px;
                                     transition: 0.4s;
-                                    &:nth-child(1) {
-                                        margin-left: 6px;
-                                    }
                                     &:hover {
                                         background-color: $purple;
                                     }

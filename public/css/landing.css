@@ -5213,11 +5213,6 @@ p {
   margin-bottom: 1.5rem;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -5346,20 +5341,16 @@ p {
   height: 3.5rem;
 }
 
+.h-\[calc\(100\%_\+_0\.5rem\)\] {
+  height: calc(100% + 0.5rem);
+}
+
 .h-10 {
   height: 2.5rem;
 }
 
 .h-9 {
   height: 2.25rem;
-}
-
-.h-\[calc\(100\%_\+_1rem\)\] {
-  height: calc(100% + 1rem);
-}
-
-.h-\[calc\(100\%_\+_0\.5rem\)\] {
-  height: calc(100% + 0.5rem);
 }
 
 .w-full {
@@ -5732,17 +5723,10 @@ p {
   padding-right: 0.75rem;
 }
 
-.pb-3 {
-  padding-bottom: 0.75rem;
-}
-
-<<<<<<< HEAD
 .pb-2 {
   padding-bottom: 0.5rem;
 }
 
-=======
->>>>>>> 81044c367e88af5fbde5b447715f2e5712a11331
 .text-center {
   text-align: center;
 }

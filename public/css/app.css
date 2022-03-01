@@ -16180,11 +16180,7 @@ span.back-aqua.big-icon {
   background-color: #5C318B;
   float: right;
   font-weight: normal;
-  margin-bottom: 5px;
   transition: 0.4s;
-}
-.user-area-layout-container .user-area-panel .main-content-container .dashboard-container .dashboard-item-container .dashboard-top-item .top-item-info > div a:nth-child(1) {
-  margin-left: 6px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .dashboard-container .dashboard-item-container .dashboard-top-item .top-item-info > div a:hover {
   background-color: #af3acc;
