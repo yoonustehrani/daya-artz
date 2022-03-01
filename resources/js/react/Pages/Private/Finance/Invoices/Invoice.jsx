@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import LoaderComponent from '../../../../components/LoaderComponent';
 import { useHttpService, useJalaliDate } from '../../../../hooks';
 import { number_format } from '../../../../../helpers';
-const Bills = React.lazy(() => import('./components/Bills'))
 // custom components
+const Bills = React.lazy(() => import('./components/Bills'))
+const PaymentMethod = React.lazy(() => import ('./components/PaymentMethod'))
+
 class Invoice extends Component {
     constructor(props) {
         super(props)
@@ -118,7 +120,9 @@ class Invoice extends Component {
                     <React.Suspense fallback={<LoaderComponent />}>
                         <Bills bills={invoice.bills}/>
                     </React.Suspense>
-                    : null
+                    : <React.Suspense fallback={<LoaderComponent />}>
+                        <PaymentMethod/>
+                    </React.Suspense>
                 }
                 {/* <div className='float-left alert alert-light text-center mt-5 horizontal-center-left'>مهلت پرداخت تسویه فاکتور شما به شماره {invoice.id}، تا تاریخ 1400/12/34 میباشد.</div> */}
             </div>

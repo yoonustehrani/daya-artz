@@ -81,7 +81,7 @@ var TopItem = /*#__PURE__*/function (_Component) {
                 children: buttons.map(function (button, i) {
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
                     to: button.href,
-                    className: "badge badge-pill",
+                    className: "badge badge-pill m-1",
                     children: button.title
                   }, i);
                 })

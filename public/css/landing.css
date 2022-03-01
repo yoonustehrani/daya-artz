@@ -4206,9 +4206,11 @@
 .far{font-weight:400}
 @font-face{font-family:"Font Awesome 5 Pro";font-style:normal;font-weight:900;font-display:block;src:url(/fonts/fa-solid-900.eot?86cb227acb2081cb78f93ec55fd3fd6c);src:url(/fonts/fa-solid-900.eot?86cb227acb2081cb78f93ec55fd3fd6c?#iefix) format("embedded-opentype"),url(/fonts/fa-solid-900.woff2?35fd7cacd394b3837eee881f8f6456df) format("woff2"),url(/fonts/fa-solid-900.woff?947ecf34df074260dc7af9c8443c0d83) format("woff"),url(/fonts/fa-solid-900.ttf?113c9fd1226fcc1b036de39ef66469a1) format("truetype"),url(/fonts/fa-solid-900.svg?c4054b9e4c6b8fad2407d91bc9b6e69f#fontawesome) format("svg")}
 .fa,.fas{font-family:"Font Awesome 5 Pro";font-weight:900}
+/* tailwind requirements */
+
+/* ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com */
+
 /*
-! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
-*//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
@@ -4548,6 +4550,7 @@ button,
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
+
 :disabled {
   cursor: default;
 }
@@ -4753,19 +4756,31 @@ select {
 [type='file']:focus {
   outline: 1px auto -webkit-focus-ring-color;
 }
-    .header-icon:hover i {
+
+.header-icon:hover i {
   --tw-text-opacity: 1;
   color: rgb(168 85 247 / var(--tw-text-opacity));
 }
-    i {
+
+i {
   vertical-align: middle;
 }
-    /* fontawesome */
 
-    /* custom fonts */
-    @font-face {
+/* fontawesome */
+
+/* custom fonts */
+
+@font-face {
         font-family: 'IranSansWeb';
         src: url(/fonts/IRANSansWeb.ttf) format("truetype");
+    }
+
+/* animatecss */
+
+/* @import '~animate.css/animate.min.css'; */
+
+.kir {
+        dispaly: none;
     }
 
 *, ::before, ::after {
@@ -5199,6 +5214,10 @@ p {
   z-index: 20;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -5207,11 +5226,6 @@ p {
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .my-8 {
@@ -5252,12 +5266,16 @@ p {
   margin-top: 1rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .mb-4 {
@@ -5266,6 +5284,10 @@ p {
 
 .ml-3 {
   margin-left: 0.75rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .mt-6 {
@@ -5278,10 +5300,6 @@ p {
 
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
 }
 
 .mb-3 {
@@ -5312,6 +5330,10 @@ p {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
@@ -5336,6 +5358,10 @@ p {
 
 .h-14 {
   height: 3.5rem;
+}
+
+.h-\[calc\(100\%_\+_0\.5rem\)\] {
+  height: calc(100% + 0.5rem);
 }
 
 .h-10 {
@@ -5366,10 +5392,6 @@ p {
 
 .w-5\/6 {
   width: 83.333333%;
-}
-
-.w-12 {
-  width: 3rem;
 }
 
 .w-10 {
@@ -5472,6 +5494,18 @@ p {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .rounded-md {
@@ -5708,8 +5742,8 @@ p {
   padding-right: 0.75rem;
 }
 
-.pb-3 {
-  padding-bottom: 0.75rem;
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 
 .text-center {
@@ -5905,6 +5939,8 @@ p {
   direction: ltr;
 }
 
+/* custom requirements */
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
@@ -6014,6 +6050,10 @@ p {
   background-color: rgb(248 250 252 / var(--tw-bg-opacity));
 }
 
+.hover\:font-bold:hover {
+  font-weight: 700;
+}
+
 .hover\:text-slate-50:hover {
   --tw-text-opacity: 1;
   color: rgb(248 250 252 / var(--tw-text-opacity));
@@ -6033,27 +6073,27 @@ p {
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:bg-whatsapp {
+.group:hover .group-hover\:bg-social-media-whatsapp {
   --tw-bg-opacity: 1;
   background-color: rgb(37 211 102 / var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:bg-telegram {
+.group:hover .group-hover\:bg-social-media-telegram {
   --tw-bg-opacity: 1;
   background-color: rgb(34 158 217 / var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:bg-instagram {
+.group:hover .group-hover\:bg-social-media-instagram {
   --tw-bg-opacity: 1;
   background-color: rgb(225 48 108 / var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:bg-linkedin {
+.group:hover .group-hover\:bg-social-media-linkedin {
   --tw-bg-opacity: 1;
   background-color: rgb(14 118 168 / var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:bg-email {
+.group:hover .group-hover\:bg-social-media-email {
   --tw-bg-opacity: 1;
   background-color: rgb(199 22 16 / var(--tw-bg-opacity));
 }
@@ -6082,12 +6122,25 @@ p {
     margin-top: 0px;
   }
 
+  .md\:inline {
+    display: inline;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:w-2\/5 {
     width: 40%;
   }
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .md\:pl-4 {

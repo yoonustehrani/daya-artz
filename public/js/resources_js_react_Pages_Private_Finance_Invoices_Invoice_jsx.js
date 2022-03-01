@@ -145,13 +145,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+ // custom components
 
 
 
 
 var Bills = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Invoices_components_Bills_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Bills */ "./resources/js/react/Pages/Private/Finance/Invoices/components/Bills.jsx"));
-}); // custom components
+});
+var PaymentMethod = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.lazy(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Invoices_components_PaymentMethod_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./components/PaymentMethod */ "./resources/js/react/Pages/Private/Finance/Invoices/components/PaymentMethod.jsx"));
+});
 
 var Invoice = /*#__PURE__*/function (_Component) {
   _inherits(Invoice, _Component);
@@ -343,7 +347,10 @@ var Invoice = /*#__PURE__*/function (_Component) {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Bills, {
             bills: invoice.bills
           })
-        }) : null]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+          fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(PaymentMethod, {})
+        })]
       });
     }
   }]);

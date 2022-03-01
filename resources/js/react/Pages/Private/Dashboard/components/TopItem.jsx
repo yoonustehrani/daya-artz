@@ -14,7 +14,7 @@ class TopItem extends Component {
                             <h4>{title}</h4>
                             <div>
                                 {buttons.map((button, i) => (
-                                    <Link key={i} to={button.href} className="badge badge-pill">{button.title}</Link>
+                                    <Link key={i} to={button.href} className="badge badge-pill m-1">{button.title}</Link>
                                 ))}
                             </div>
                         </div>

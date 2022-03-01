@@ -464,6 +464,18 @@ $xl-xl-breakpoint: 1600px;
             display: inline-block;
         }
     }
+    .payment-method-container {
+        flex-wrap: wrap;
+        height: fit-content !important;
+        .option {
+            height: 55px !important;
+            width: 190px !important;
+            margin: 10px 0 !important;
+        }
+        .input-group {
+            margin: 10px 0 !important;
+        }
+    }
 } // end md
 
 // medium and above
@@ -1270,6 +1282,17 @@ $xl-xl-breakpoint: 1600px;
     }
     .order-info-container {
         width: fit-content !important;
+    }
+    .payment-method-container {
+        flex-wrap: wrap;
+        height: fit-content !important;
+        .option {
+            height: 55px !important;
+            margin: 10px 0 !important;
+        }
+        .input-group {
+            margin: 10px 0 !important;
+        }
     }
 } // end tablet and mobile
 
