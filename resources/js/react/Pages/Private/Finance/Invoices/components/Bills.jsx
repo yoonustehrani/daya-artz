@@ -13,7 +13,7 @@ export default function Bills({bills}) {
                     </tr>
                 </thead>
                 <tbody>
-                {bills.length && bills.map(({id, code, title, amount, status, status_fa}, i) => {
+                {bills.length > 0 && bills.map(({id, code, title, amount, status, status_fa}, i) => {
                     <tr key={id}>
                         <th>{i + 1}</th>
                         <td>{code}</td>

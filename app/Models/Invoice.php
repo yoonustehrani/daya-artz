@@ -20,10 +20,10 @@ class Invoice extends Model
     {
         return $this->belongsTo(Order::class);
     }
-    public function invoiceable()
-    {
-        return $this->morphTo();
-    }
+    // public function invoiceable()
+    // {
+    //     return $this->morphTo();
+    // }
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -31,5 +31,9 @@ class Invoice extends Model
     public function children()
     {
         return $this->morphMany(Invoice::class, 'invoiceable');
+    }
+    public function bills()
+    {
+        return $this->hasMany(Bill::class);
     }
 }
