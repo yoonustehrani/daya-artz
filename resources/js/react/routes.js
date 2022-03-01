@@ -68,20 +68,25 @@ const routes = [
         CallableComponent: Invoices,
     },
     {
+        path: '/finance/invoices?active',
+        exact: true,
+        CallableComponent: Invoices,
+    },
+    {
         path: '/finance/invoices/:invoiceId',
         exact: true,
         CallableComponent: Invoice
     },
-    {
-        path: '/finance/pre-invoices/:pre_invoiceId',
-        exact: true,
-        CallableComponent: PreInvoice
-    },
-    {
-        path: '/finance/pre_invoices',
-        exact: true,
-        CallableComponent: PreInvoices
-    },
+    // {
+    //     path: '/finance/pre-invoices/:pre_invoiceId',
+    //     exact: true,
+    //     CallableComponent: PreInvoice
+    // },
+    // {
+    //     path: '/finance/pre_invoices',
+    //     exact: true,
+    //     CallableComponent: PreInvoices
+    // },
     {
         path: '/finance/bills/:billId',
         exact: true,

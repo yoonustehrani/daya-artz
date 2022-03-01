@@ -109,8 +109,11 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           title: "پرداخت فاکتور ها",
           href: "#factors_pay"
         }, {
-          title: "لیست فاکتور ها",
+          title: "پیش فاکتور ها",
           href: "/finance/invoices"
+        }, {
+          title: "فاکتور ها",
+          href: "/finance/invoices?active"
         }]
       }, {
         title: "تیکت های در حال بررسی",

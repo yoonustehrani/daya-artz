@@ -42,7 +42,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Invoices(props) {
+function Invoices(_ref) {
+  var location = _ref.location;
   var http = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useHttpService)("/userarea");
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
@@ -63,22 +64,27 @@ function Invoices(props) {
 
     function _getInvoices() {
       _getInvoices = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
+        var params, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return http.get('/invoices');
+                params = location.search ? {
+                  params: {
+                    active: true
+                  }
+                } : {};
+                _context.next = 3;
+                return http.get('/invoices', params);
 
-              case 2:
+              case 3:
                 response = _context.sent;
 
                 if (response.data) {
                   setInvoices(response.data);
                 }
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -89,7 +95,7 @@ function Invoices(props) {
     }
 
     getInvoices();
-  }, []);
+  }, [location.search]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
     className: "table table-striped table-responsive table-bordered userarea-table",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {

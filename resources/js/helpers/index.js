@@ -44,3 +44,5 @@ export const translate = (key) => {
             break;
     }
 }
+
+export const number_format = (number, appendix = false) => `${Number(number).toLocaleString('en-US')}${appendix ? ' تومان' : ''}`

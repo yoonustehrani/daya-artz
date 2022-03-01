@@ -66,7 +66,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "NestedObj": () => (/* binding */ NestedObj),
 /* harmony export */   "isObjEmpty": () => (/* binding */ isObjEmpty),
-/* harmony export */   "translate": () => (/* binding */ translate)
+/* harmony export */   "translate": () => (/* binding */ translate),
+/* harmony export */   "number_format": () => (/* binding */ number_format)
 /* harmony export */ });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -135,6 +136,10 @@ var translate = function translate(key) {
     default:
       break;
   }
+};
+var number_format = function number_format(number) {
+  var appendix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  return "".concat(Number(number).toLocaleString('en-US')).concat(appendix ? ' تومان' : '');
 };
 
 /***/ }),
