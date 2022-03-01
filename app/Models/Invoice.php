@@ -12,6 +12,10 @@ class Invoice extends Model
     {
         return $builder->where('active', true);
     }
+    public function scopeInactive($builder)
+    {
+        return $builder->where('active', false);
+    }
     public function order()
     {
         return $this->belongsTo(Order::class);

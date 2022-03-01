@@ -10,9 +10,7 @@ class InvoiceController extends Controller
     public function index(Request $request)
     {
         $invoices = $request->user()->invoices();
-        if ($request->has('active')) {
-            $invoices->active();
-        }
+        $invoices = $request->has('active') ? $invoices->active() : $invoices->inactive();
         return response()->json($invoices->latest()->simplePaginate(10));
     }
     public function show(Request $request, $invoice)
