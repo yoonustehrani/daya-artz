@@ -2547,6 +2547,116 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/landing-opening.js":
+/*!*****************************************!*\
+  !*** ./resources/js/landing-opening.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _components_QuickOrder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/QuickOrder */ "./resources/js/components/QuickOrder/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+ // quick order
+
+
+var quickOrderElement = document.getElementById("react-quick-order");
+
+if (quickOrderElement) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
+    targetApi: quickOrderElement.getAttribute('data-post-api')
+  }), quickOrderElement);
+} // menu
+
+
+$(document).ready(function () {
+  // this code is for handling the menu in < md sizes
+  function toggle_menu() {
+    var is_open,
+        menu_el = $(".menu-container").length > 0 ? $(".menu-container") : $(".user-area-sidebar");
+    is_open = menu_el.hasClass("open");
+
+    if (is_open) {
+      menu_el.toggleClass("open");
+      setTimeout(function () {
+        menu_el.addClass("d-none");
+      }, 1000);
+    } else {
+      menu_el.removeClass("d-none");
+      setTimeout(function () {
+        menu_el.toggleClass("open");
+      }, 0);
+    } // $("body").toggleClass("over-h")
+
+
+    $(".fa-bars").toggleClass("op-0");
+  }
+
+  $("body").on("click", function (e) {
+    var el = e.target,
+        menu_el = $(".menu-container").length > 0 ? $(".menu-container") : $(".user-area-sidebar");
+
+    if (menu_el.hasClass("open") && el.id !== "m-menu" && el.id !== "menu-open" && !$(el).closest("#menu-open").length && !$(el).closest("#m-menu").length || $(el).closest("#menu-close").length || $(el).closest("#menu-open").length || $(el).hasClass("link")) {
+      toggle_menu();
+    }
+
+    if ($(el).closest(".has-sub").length && !$(el).closest(".submenu-m").length) {
+      $($(el).closest("li.has-sub")).toggleClass("open");
+    }
+  }); // this code will set the header navbar fixed according to the window height
+
+  function setHeader() {
+    var window_height = window.innerHeight,
+        offset_top = $("body").scrollTop(),
+        target_header = $(".header, .min-header");
+
+    if ($(window).width() >= 768) {
+      if (offset_top >= window_height && !target_header.hasClass("fixed")) {
+        $(target_header).addClass("fixed");
+        $("#header-nav").addClass("slideInDown");
+        setTimeout(function () {
+          $("#header-nav").removeClass("slideInDown");
+        }, 200);
+      } else if (offset_top < window_height && target_header.hasClass("fixed")) {
+        $("#header-nav").addClass("slideOutUp");
+        setTimeout(function () {
+          $(target_header).removeClass("fixed");
+          $("#header-nav").removeClass("slideOutUp");
+        }, 200);
+      }
+    } else {
+      $(target_header).removeClass("fixed");
+      $("#header-nav").removeClass("slideInDown slideOutUp");
+    }
+  } // we use the above code as a trigger for scroll evenets and resize window events
+
+
+  $("body").on("scroll", function () {
+    setHeader();
+  });
+  $(window).resize(function () {
+    setHeader();
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/css/landing.css":
+/*!***********************************!*\
+  !*** ./resources/css/landing.css ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -33602,7 +33712,42 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -33643,31 +33788,68 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/landing-opening": 0,
+/******/ 			"css/landing": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!*****************************************!*\
-  !*** ./resources/js/landing-opening.js ***!
-  \*****************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_QuickOrder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/QuickOrder */ "./resources/js/components/QuickOrder/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
- // quick order
-
-
-var quickOrderElement = document.getElementById("react-quick-order");
-
-if (quickOrderElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
-    targetApi: quickOrderElement.getAttribute('data-post-api')
-  }), quickOrderElement);
-}
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/js/landing-opening.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/css/landing.css")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;

@@ -4206,9 +4206,11 @@
 .far{font-weight:400}
 @font-face{font-family:"Font Awesome 5 Pro";font-style:normal;font-weight:900;font-display:block;src:url(/fonts/fa-solid-900.eot?86cb227acb2081cb78f93ec55fd3fd6c);src:url(/fonts/fa-solid-900.eot?86cb227acb2081cb78f93ec55fd3fd6c?#iefix) format("embedded-opentype"),url(/fonts/fa-solid-900.woff2?35fd7cacd394b3837eee881f8f6456df) format("woff2"),url(/fonts/fa-solid-900.woff?947ecf34df074260dc7af9c8443c0d83) format("woff"),url(/fonts/fa-solid-900.ttf?113c9fd1226fcc1b036de39ef66469a1) format("truetype"),url(/fonts/fa-solid-900.svg?c4054b9e4c6b8fad2407d91bc9b6e69f#fontawesome) format("svg")}
 .fa,.fas{font-family:"Font Awesome 5 Pro";font-weight:900}
+/* tailwind requirements */
+
+/* ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com */
+
 /*
-! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
-*//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
@@ -4548,6 +4550,7 @@ button,
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
+
 :disabled {
   cursor: default;
 }
@@ -4753,19 +4756,31 @@ select {
 [type='file']:focus {
   outline: 1px auto -webkit-focus-ring-color;
 }
-    .header-icon:hover i {
+
+.header-icon:hover i {
   --tw-text-opacity: 1;
   color: rgb(168 85 247 / var(--tw-text-opacity));
 }
-    i {
+
+i {
   vertical-align: middle;
 }
-    /* fontawesome */
 
-    /* custom fonts */
-    @font-face {
+/* fontawesome */
+
+/* custom fonts */
+
+@font-face {
         font-family: 'IranSansWeb';
         src: url(/fonts/IRANSansWeb.ttf) format("truetype");
+    }
+
+/* animatecss */
+
+/* @import '~animate.css/animate.min.css'; */
+
+.kir {
+        dispaly: none;
     }
 
 *, ::before, ::after {
@@ -5269,6 +5284,10 @@ p {
 
 .ml-3 {
   margin-left: 0.75rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .mt-6 {
@@ -5920,6 +5939,8 @@ p {
   direction: ltr;
 }
 
+/* custom requirements */
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
@@ -6105,12 +6126,21 @@ p {
     display: inline;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:w-2\/5 {
     width: 40%;
   }
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .md\:pl-4 {
