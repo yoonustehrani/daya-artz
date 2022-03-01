@@ -5,7 +5,7 @@ class InvoiceHead extends Component {
         return (
             <thead>
                 <tr>
-                    <th scope="col">عنوان سفارش</th>
+                <th scope="col">عنوان سفارش</th>
                     <th scope="col">مبلغ کل سفارش</th>
                     <th scope="col">پیش پرداخت</th>
                     <th scope="col">مبلغ بدهکاری</th>

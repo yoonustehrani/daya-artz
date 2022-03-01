@@ -17,13 +17,16 @@ module.exports = {
 
         extend: {
             colors: {
-                'aqua': "#78cad2",
+                'body': '#fafafa',
                 'on-white': "#fefffc",
-                'telegram': "#229ED9",
-                'whatsapp': "#25d366",
-                'instagram': "#E1306C",
-                'linkedin': "#0e76a8",
-                'email': "#C71610",
+                'aqua': "#78cad2",
+                'social-media': {
+                    telegram: "#229ED9",
+                    whatsapp: "#25d366",
+                    instagram: "#E1306C",
+                    linkedin: "#0e76a8",
+                    email: "#C71610",
+                },
             },
             backgroundImage: {
                 'shaped': "url('/images/shaped-background.png')",

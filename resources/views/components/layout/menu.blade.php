@@ -1,9 +1,9 @@
-<nav class="h-14 w-full py-2 px-6 bg-gradient-to-r from-indigo-500 to-indigo-700 flex flex-nowrap justify-between relative z-20">
+<nav class="h-14 w-full py-2 px-6 bg-gradient-to-r from-indigo-500 to-indigo-700 flex flex-nowrap justify-between relative z-20 overflow-hidden">
     <div class="flex flex-nowrap items-center">
-        <a href="{{ route("home") }}" class="ml-3"><img src="{{ asset(get_setting("header.menu.logo")) }}" alt="daya-logo" class="w-12"></a>
+        <a href="{{ route("home") }}" class="ml-3 h-[calc(100%_+_0.5rem)]"><img src="{{ asset(get_setting("header.menu.logo")) }}" alt="daya-logo" class="h-full"></a>
         <ul class="p-0 flex flex-nowrap justify-start w-fit">
-            <li class="mx-3 text-lg"><a href="{{ route("userarea") }}" class="text-slate-50 duration-300 border-b-transparent border-b-2 hover:border-b-sky-400 pb-3">ورود به حساب</a></li>
-            <li class="mx-3 text-lg"><a href="{{ route("contact") }}" class="text-slate-50 duration-300 border-b-transparent border-b-2 hover:border-b-sky-400 pb-3">پشتیبانی</a></li>
+            <li class="mx-3 text-lg"><a href="{{ route("userarea") }}" class="text-slate-50 duration-300 border-b-transparent border-b-2 hover:border-b-sky-400 pb-2">ورود به حساب</a></li>
+            <li class="mx-3 text-lg"><a href="{{ route("contact") }}" class="text-slate-50 duration-300 border-b-transparent border-b-2 hover:border-b-sky-400 pb-2">پشتیبانی</a></li>
         </ul>
     </div>
     <div class="flex items-center flex-nowrap">
