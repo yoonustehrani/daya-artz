@@ -38,8 +38,8 @@ class Invoice extends Component {
     }
     render() {
         let { user, company } = this.props
-        let { invoice, order } = this.state
-        return ! invoice && ! order ? <LoaderComponent /> : (
+        let { invoice, order, loading } = this.state
+        return loading ? <LoaderComponent /> : (
             <div className='factor-container p-3 p-md-4 '>
                 <div className="factor-first-section">
                     {/* <span className="factor-date mb-3">9 آذر 1400</span> */}

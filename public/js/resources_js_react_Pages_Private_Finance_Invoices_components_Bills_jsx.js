@@ -38,7 +38,7 @@ function Bills(_ref) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", {
-        children: bills.length && bills.map(function (_ref2, i) {
+        children: bills.length > 0 && bills.map(function (_ref2, i) {
           var id = _ref2.id,
               code = _ref2.code,
               title = _ref2.title,

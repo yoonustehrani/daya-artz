@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import LoaderComponent from '../../../../components/LoaderComponent';
 import { useHttpService, useJalaliDate } from '../../../../hooks';
 
 function Invoices({location}) {
     const http = useHttpService("/userarea")
     const [invoices, setInvoices] = useState([])
+    const [loading, setLoading] = useState(true)
     let history = useHistory()
     let handleNavigation = invoiceId => history.push(`/finance/invoices/${invoiceId}`)
     useEffect(() => {
@@ -14,11 +16,12 @@ function Invoices({location}) {
             const response = await http.get('/invoices', params)
             if (response.data) {
                 setInvoices(response.data)
+                setLoading(false)
             }
         }
         getInvoices()
     }, [location.search])
-    return (
+    return loading ? <LoaderComponent /> : (
         <table className="table table-striped table-responsive table-bordered userarea-table">
             <thead>
                 <tr>
