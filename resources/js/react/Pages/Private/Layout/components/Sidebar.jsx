@@ -45,10 +45,10 @@ class Sidebar extends Component {
                                 <Link to="/finance" className="link">آمار کلی</Link>
                             </li>
                             <li>
-                                <Link to="/finance/invoices" className="link">فاکتور ها</Link>
+                                <Link to="/finance/invoices?active" className="link">فاکتور ها</Link>
                             </li>
                             <li>
-                                <Link to="/finance/pre_invoices" className="link">پیش فاکتور ها</Link>
+                                <Link to="/finance/invoices" className="link">پیش فاکتور ها</Link>
                             </li>
                             <li>
                                 <Link to="/finance/bills" className="link">صورت حساب ها</Link>

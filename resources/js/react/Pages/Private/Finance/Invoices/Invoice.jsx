@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LoaderComponent from '../../../../components/LoaderComponent';
 import { useHttpService, useJalaliDate } from '../../../../hooks';
+import { number_format } from '../../../../../helpers';
 const Bills = React.lazy(() => import('./components/Bills'))
 // custom components
-
 class Invoice extends Component {
     constructor(props) {
         super(props)
@@ -21,15 +21,14 @@ class Invoice extends Component {
         if (response.okay) {
             let { order, invoice } = response
             let subtotal = 0
-            let items = order.items.map((item => {
-                subtotal += item.total
-                // offer here as well
+            order.items.forEach(item => {
+                subtotal += item.total - item.off
                 return item
-            }))
+            })
             document.title = `${invoice.active ? ' ' : 'پیش '}فاکتور شماره ${invoice.id}`
             this.setState({
                 invoice : {...invoice, calc: {subtotal}},
-                order: {...order, items: items},
+                order: order,
                 loading: false
             })
         }
@@ -68,7 +67,7 @@ class Invoice extends Component {
                 </div>
                 <div className="float-left w-100 table-responsive mt-4">
                     <h3 className='factor-section-title'>آیتم های سفارش</h3>
-                    <table className="table">
+                    <table className="table text-center">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -83,9 +82,9 @@ class Invoice extends Component {
                                 <tr key={item.id}>
                                     <th>{i + 1}</th>
                                     <th scope='row'>{item.title}</th>
-                                    <td>{item.total.toLocaleString('en-US')} تومان</td>
-                                    <td>0 تومان</td>
-                                    <td>{item.total.toLocaleString('en-US')} تومان</td>
+                                    <td>{number_format(item.total, true)}</td>
+                                    <td>{number_format(item.off, true)}</td>
+                                    <td>{number_format(item.total - item.off, true)}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -97,7 +96,7 @@ class Invoice extends Component {
                         <tbody>
                             <tr>
                                 <th scope='row'>مبلغ کل سفارش</th>
-                                <td>{invoice.calc.subtotal.toLocaleString('en-US')} تومان</td>
+                                <td>{number_format(invoice.calc.subtotal, true)}</td>
                             </tr> 
                             {/* <tr>
                                 <th scope='row'>مالیات</th>
@@ -109,7 +108,7 @@ class Invoice extends Component {
                             </tr> */}
                             <tr>
                                 <th scope='row'>قابل پرداخت</th>
-                                <td>{Number(invoice.calc.subtotal).toLocaleString('en-US')} تومان</td>
+                                <td>{number_format(invoice.calc.subtotal, true)}</td>
                             </tr>
                         </tbody>
                     </table>

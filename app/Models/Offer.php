@@ -17,10 +17,12 @@ class Offer extends Model
     {
         return $this->morphedByMany(User::class, 'offerable');
     }
+
     public function attempt()
     {
         
     }
+
     public function getDetailsAttribute($details)
     {
         return json_decode($details);
@@ -28,5 +30,10 @@ class Offer extends Model
     public function setDetailsAttribute($json_string)
     {
         $this->attributes['details'] = json_encode(json_decode($json_string));
+    }
+
+    public function scopeUnexpired($builder)
+    {
+        $builder->whereNull('expires_at')->orWhere('expires_at', '>', now());
     }
 }

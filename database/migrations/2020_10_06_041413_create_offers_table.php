@@ -29,11 +29,11 @@ class CreateOffersTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-        Schema::create('offerables', function (Blueprint $table) {
-            $table->foreignId('offer_id');
+        // Schema::create('offerables', function (Blueprint $table) {
+        //     $table->foreignId('offer_id');
             
-            $table->foreign('offer_id')->references('id')->on('offers')->cascadeOnDelete()->cascadeOnUpdate();
-        });
+        //     $table->foreign('offer_id')->references('id')->on('offers')->cascadeOnDelete()->cascadeOnUpdate();
+        // });
     }
 
     /**

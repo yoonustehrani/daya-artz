@@ -20,7 +20,7 @@ class CreateOrderItemsTable extends Migration
             $table->foreignId('service_id')->nullable();
             $table->foreignId('plan_id')->nullable();
             $table->foreignUuid('company_id')->nullable();
-            // $table->foreignId('offer_id')->nullable();
+            $table->foreignId('offer_id')->nullable();
             $table->string('status');
             $table->text('status_info')->nullable();
             $table->bigInteger('total')->default(0);
@@ -29,9 +29,7 @@ class CreateOrderItemsTable extends Migration
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('service_id')->references('id')->on('services')->nullOnDelete()->cascadeOnUpdate();
-            // $table->foreign('plan_id')->references('id')->on('service_plans')->nullOnDelete()->cascadeOnUpdate();
             // $table->foreign('company_id')->references('id')->on('companies')->nullOnDelete()->cascadeOnUpdate();
-            // $table->foreign('offer_id')->references('id')->on('offers')->nullOnDelete()->cascadeOnUpdate();
         });
     }
 

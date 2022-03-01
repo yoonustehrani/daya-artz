@@ -14,20 +14,14 @@ class OfferFactory extends Factory
     public function definition()
     {
         $type = $this->faker->randomElement(['percentage', 'amount']);
-        $value = $type == 'amount' ? rand(20, 999) * 1000 : rand(1,7) * 10;
+        $value = $type == 'amount' ? $this->faker->numberBetween(20, 999) * 1000 : intval($this->faker->randomFloat(1, 0.1, 7) * 10);
         return [
-            'title' => $this->faker->words(2, true),
-            'description' => $this->faker->randomElement([
-                '',
-                $this->faker->paragraph()
-            ]),
-            'code' => \Illuminate\Support\Str::random(6),
+            'title' => 'My offer ' . \Str::random(12),
             'value' => $value,
             'value_type' => $type,
+            'code' => $this->faker->unique()->word(),
             'max_attempts' => 1,
-            'expires_at' => now()->addDays(rand(1,8)),
-            'details' => ''
-            // 'details' => []
+            'expires_at' => now()->addDays($this->faker->randomDigitNotZero())
         ];
     }
 }

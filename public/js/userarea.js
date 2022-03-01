@@ -4100,13 +4100,13 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                  to: "/finance/invoices",
+                  to: "/finance/invoices?active",
                   className: "link",
                   children: "\u0641\u0627\u06A9\u062A\u0648\u0631 \u0647\u0627"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                  to: "/finance/pre_invoices",
+                  to: "/finance/invoices",
                   className: "link",
                   children: "\u067E\u06CC\u0634 \u0641\u0627\u06A9\u062A\u0648\u0631 \u0647\u0627"
                 })
@@ -6022,18 +6022,24 @@ var routes = [{
   exact: true,
   CallableComponent: Invoices
 }, {
+  path: '/finance/invoices?active',
+  exact: true,
+  CallableComponent: Invoices
+}, {
   path: '/finance/invoices/:invoiceId',
   exact: true,
   CallableComponent: Invoice
-}, {
-  path: '/finance/pre-invoices/:pre_invoiceId',
-  exact: true,
-  CallableComponent: PreInvoice
-}, {
-  path: '/finance/pre_invoices',
-  exact: true,
-  CallableComponent: PreInvoices
-}, {
+}, // {
+//     path: '/finance/pre-invoices/:pre_invoiceId',
+//     exact: true,
+//     CallableComponent: PreInvoice
+// },
+// {
+//     path: '/finance/pre_invoices',
+//     exact: true,
+//     CallableComponent: PreInvoices
+// },
+{
   path: '/finance/bills/:billId',
   exact: true,
   CallableComponent: Bill

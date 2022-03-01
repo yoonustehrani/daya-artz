@@ -3,20 +3,21 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useHttpService, useJalaliDate } from '../../../../hooks';
 
-function Invoices(props) {
+function Invoices({location}) {
     const http = useHttpService("/userarea")
     const [invoices, setInvoices] = useState([])
     let history = useHistory()
     let handleNavigation = invoiceId => history.push(`/finance/invoices/${invoiceId}`)
     useEffect(() => {
         async function getInvoices() {
-            const response = await http.get('/invoices');
+            let params = location.search ? {params: {active: true}} : {}
+            const response = await http.get('/invoices', params)
             if (response.data) {
                 setInvoices(response.data)
             }
         }
         getInvoices()
-    }, [])
+    }, [location.search])
     return (
         <table className="table table-striped table-responsive table-bordered userarea-table">
             <thead>

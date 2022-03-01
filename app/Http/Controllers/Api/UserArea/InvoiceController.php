@@ -9,16 +9,26 @@ class InvoiceController extends Controller
 {
     public function index(Request $request)
     {
-        $invoices = $request->user()->invoices()->latest()->simplePaginate(10);
-        return response()->json($invoices);
+        $invoices = $request->user()->invoices();
+        if ($request->has('active')) {
+            $invoices->active();
+        }
+        return response()->json($invoices->latest()->simplePaginate(10));
     }
     public function show(Request $request, $invoice)
     {
-        $invoice = $request->user()->invoices()->with('order.items')->findOrFail($invoice);
+        $invoice = $request->user()->invoices()->findOrFail($invoice);
         $order = $invoice->order()
             ->select(['id', 'code'])
-            ->with('items')
+            ->with(['items' => function($q) {
+                $q->select(['id', 'order_id', 'offer_id', 'title', 'total'])->with([
+                    'offer' => function($query) {
+                        $query->select('id', 'value', 'value_type');
+                    }
+                ]);
+            }])
             ->firstOrFail();
+        $order->items->append('off');
         if ($invoice->active) {
             $invoice->load('bills');
         }
