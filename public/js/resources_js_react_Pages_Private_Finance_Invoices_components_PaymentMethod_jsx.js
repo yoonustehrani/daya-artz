@@ -79,7 +79,7 @@ var PaymentMethod = /*#__PURE__*/function (_Component) {
       var _this$state = _this.state,
           paymentMethod = _this$state.paymentMethod,
           discountCode = _this$state.discountCode;
-      console.log(paymentMethod, discountCode); // here tou can send the request
+      console.log("Method: ".concat(paymentMethod, " & Discount_code: ").concat(discountCode)); // here tou can send the request
     });
 
     return _this;
@@ -98,12 +98,12 @@ var PaymentMethod = /*#__PURE__*/function (_Component) {
           className: "payment-desc",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
             children: "\u067E\u0631\u062F\u0627\u062E\u062A \u0628\u0647 \u0635\u0648\u0631\u062A \u06A9\u0644\u06CC: "
-          }), "\u062F\u0631 \u0627\u06CC\u0646 \u0634\u0628\u0648\u0647 \u0634\u0645\u0627 \u0645\u062C\u0645\u0648\u0639 \u0647\u0632\u06CC\u0646\u0647 \u0633\u0641\u0627\u0631\u0634 \u062E\u0648\u062F \u0631\u0627 \u062F\u0631 \u06CC\u06A9 \u062A\u0631\u0627\u06A9\u0646\u0634 \u0627\u0646\u062C\u0627\u0645 \u0645\u06CC \u062F\u0647\u06CC\u062F"]
+          }), "\u062F\u0631 \u0627\u06CC\u0646 \u0634\u06CC\u0648\u0647 \u0634\u0645\u0627 \u0645\u062C\u0645\u0648\u0639 \u0647\u0632\u06CC\u0646\u0647 \u0633\u0641\u0627\u0631\u0634 \u062E\u0648\u062F \u0631\u0627 \u062F\u0631 \u06CC\u06A9 \u062A\u0631\u0627\u06A9\u0646\u0634 \u0627\u0646\u062C\u0627\u0645 \u0645\u06CC \u062F\u0647\u06CC\u062F"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
           className: "payment-desc",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
             children: "\u067E\u0631\u062F\u0627\u062E\u062A \u0628\u0647 \u0635\u0648\u0631\u062A \u0645\u0648\u0631\u062F\u06CC: "
-          }), "\u062F\u0631 \u0627\u06CC\u0646 \u0634\u06CC\u0648\u0647 \u067E\u0631\u062F\u0627\u062E\u062A \u0647\u0632\u06CC\u0646\u0647 \u0633\u0641\u0627\u0631\u0634 \u0628\u0647 \u0635\u0648\u0631\u062A \u062C\u062F\u0627\u06AF\u0627\u0645\u0647 \u0628\u0631\u0627\u06CC \u0647\u0631 \u0622\u06CC\u062A\u0645 \u0637\u0631\u0627\u062D\u06CC \u062F\u0631 \u0633\u0628\u062F \u0634\u0645\u0627 \u0627\u0646\u062C\u0627\u0645 \u0645\u06CC \u0634\u0648\u062F"]
+          }), "\u062F\u0631 \u0627\u06CC\u0646 \u0634\u06CC\u0648\u0647 \u067E\u0631\u062F\u0627\u062E\u062A \u0647\u0632\u06CC\u0646\u0647 \u0633\u0641\u0627\u0631\u0634 \u0628\u0647 \u0635\u0648\u0631\u062A \u062C\u062F\u0627\u06AF\u0627\u0646\u0647 \u0628\u0631\u0627\u06CC \u0647\u0631 \u0622\u06CC\u062A\u0645 \u0637\u0631\u0627\u062D\u06CC \u062F\u0631 \u0633\u0628\u062F \u0634\u0645\u0627 \u0627\u0646\u062C\u0627\u0645 \u0645\u06CC \u0634\u0648\u062F"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "payment-method-container",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {

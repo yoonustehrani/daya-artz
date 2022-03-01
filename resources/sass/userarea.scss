@@ -929,18 +929,11 @@
                     padding: 20px 15px;
                     .input-group {
                         width: fit-content;
-                        margin-right: 10px;
-                    }
-                    .option-1 {
-                        margin-left: 10px;
-                    }
-                    .option-2 {
-                        margin-right: 10px;
                     }
                     .option {
                         background: #fff;
                         height: 100%;
-                        width: 225px;
+                        width: 235px;
                         display: flex;
                         align-items: center;
                         justify-content: space-evenly;
@@ -950,6 +943,7 @@
                         border: 2px solid lightgrey;
                         transition: all 0.3s ease;
                         margin-bottom: 0;
+                        margin-left: 10px;
                         &:hover {
                             border-color: #7553C1;
                         }

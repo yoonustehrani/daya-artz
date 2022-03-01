@@ -17,7 +17,7 @@ class PaymentMethod extends Component {
     }
     onSubmit = () => {
         let { paymentMethod, discountCode }  = this.state
-        console.log(paymentMethod, discountCode);
+        console.log(`Method: ${paymentMethod} & Discount_code: ${discountCode}`);
         // here tou can send the request
     }
     render() {
@@ -26,10 +26,10 @@ class PaymentMethod extends Component {
             <div className='float-left w-100 mt-4'>
                 <h3 className='factor-section-title'>انتخاب شیوه پرداخت</h3>
                 <p className='payment-desc'><span>پرداخت به صورت کلی: </span>
-                    در این شبوه شما مجموع هزینه سفارش خود را در یک تراکنش انجام می دهید
+                    در این شیوه شما مجموع هزینه سفارش خود را در یک تراکنش انجام می دهید
                 </p>
                 <p className='payment-desc'><span>پرداخت به صورت موردی: </span>
-                    در این شیوه پرداخت هزینه سفارش به صورت جداگامه برای هر آیتم طراحی در سبد شما انجام می شود
+                    در این شیوه پرداخت هزینه سفارش به صورت جداگانه برای هر آیتم طراحی در سبد شما انجام می شود
                 </p>
                 <div className="payment-method-container">
                     <input type="radio" name="select" id="option-1" checked={paymentMethod === 'all'} onChange={this.onChangeMethod.bind(this, "all")} />
