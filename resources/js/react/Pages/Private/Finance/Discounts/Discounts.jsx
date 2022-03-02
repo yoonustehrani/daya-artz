@@ -1,6 +1,8 @@
 import React, { Component, useState } from 'react';
 import AlertService from '../../../../../services/AlertService';
-import { useHttpService } from '../../../../hooks'
+import { useHttpService } from '../../../../hooks';
+import Loading from '../../Layout/components/Loading';
+import NoItem from '../../Layout/components/NoItem';
 
 class Discounts extends Component {
     constructor(props) {
@@ -24,7 +26,6 @@ class Discounts extends Component {
                 loading: false
             }))
         }
-        // console.log(response);
     }
     copyToClipboard(code) {
         navigator.permissions.query({name: "clipboard-write"}).then(result => {
@@ -41,9 +42,11 @@ class Discounts extends Component {
         return offer.value_type === 'amount' ? `${offer.value} تومان` : `${offer.value}%`;
     }
     render() {
-        return (
+        let { loading, offers } = this.state
+        if (loading) return <Loading />
+        return offers.length ? (
             <div className='discount-container'>
-                {this.state.offers.map(discount => {
+                {offers.map(discount => {
                     return (
                         <div key={discount.id} className='p-0 discount-item rounded-lg'>
                             <div className="w-100 p-2 text-white">
@@ -59,7 +62,7 @@ class Discounts extends Component {
                     )
                 })}
             </div>
-        );
+        ) : <NoItem />
     }
 }
 

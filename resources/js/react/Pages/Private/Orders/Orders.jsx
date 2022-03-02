@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // custom components
-import Activity from '../Layout/components/Activity';
+import Loading from '../Layout/components/Loading';
 import NoItem from '../Layout/components/NoItem';
 import OrderContainer from '../Orders/components/OrderContainer'
 import Paginate from '../../../../components/Paginate';
@@ -56,7 +56,7 @@ class Orders extends Component {
                     <h4>{this.title}</h4>
                 </div>
                 {
-                    loading ? <Activity/>
+                    loading ? <Loading/>
                     : orders && orders.length > 0
                     ? <>
                         <div className="orders-container">
