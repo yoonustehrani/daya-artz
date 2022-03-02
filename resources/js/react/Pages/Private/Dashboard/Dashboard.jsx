@@ -30,10 +30,6 @@ class Dashboard extends Component {
         }
     }
 
-    componentDidMount() {
-        document.title = "داشبورد"
-    }
-
     loadStats = async () => {
         const [general] = await Promise.all([
             this.http.get('/general')
