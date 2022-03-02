@@ -17,24 +17,24 @@ class Dashboard extends Component {
                 tickets_count: false,
                 orders: {}
             },
-            recent_orders: [
-                {title: "لوگو تایپ", href: "#"},
-                {title: "کارت ویزیت", href: "#"}
-            ],
+            recent_orders: [],
             recent_pais: [],
             recent_messages: [
-                {title: "سلام", href: "#"}
+                {text: "سلام", href: "#"}
             ]
         }
     }
 
     loadStats = async () => {
-        const [general, orders] = await Promise.all([
+        const [general, orders, latest] = await Promise.all([
             this.http.get('/general'),
-            this.http.get('/orders')
+            this.http.get('/orders'),
+            this.http.get('latest')
         ]);
+        console.log(latest);
         this.setState(prev => ({
-            statistics: {...prev.statistics, ...general, orders: orders}
+            statistics: {...prev.statistics, ...general, orders: orders},
+            recent_orders: [...latest.orders.map(x => ({text: x.text, href: `/orders/${x.id}`}))]
         }))
     }
 
@@ -82,11 +82,11 @@ class Dashboard extends Component {
                 {title: "سفارشات در انتظار تایید شما", number: statistics.orders.awaiting},
                 {title: "سفارشات پیش پرداخت شده", number: statistics.orders.prepaid}
             ],
-            // bottom_items: [
-            //     {title: "سفارشات اخیر شما", items: this.state.recent_orders},
-            //     {title: "پرداخت های اخیر شما", items: this.state.recent_pais},
-            //     {title: "آخرین پیام ها", items: this.state.recent_messages}
-            // ]
+            bottom_items: [
+                {title: "سفارشات اخیر شما", items: this.state.recent_orders},
+                {title: "پرداخت های اخیر شما", items: this.state.recent_pais},
+                {title: "آخرین پیام ها", items: this.state.recent_messages}
+            ]
         }
         return (
             <div className="dashboard-container">

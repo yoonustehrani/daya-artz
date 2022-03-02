@@ -74,6 +74,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::prefix('stats')->name('stats.')->group(function() {
         Route::get('general', [ReportController::class, 'general'])->name('general');
         Route::get('orders', [ReportController::class, 'ordersStat'])->name('orders');
+        Route::get('latest', [ReportController::class, 'latest'])->name('latest');
     });
     Route::prefix('user')->group(function() {
         Route::put('auth', [UserController::class, 'update']);

@@ -18,7 +18,7 @@ class BottomItem extends Component {
                     items && items.length > 0
                     ? ( <ul className="bottom-items">
                             {items.map((item,i) => (
-                                <li key={i}><Link to={item.href}>{item.title}</Link></li>
+                                <li key={i}><Link to={item.href}>{item.text}</Link></li>
                             ))}
                         </ul>
                     ) : <NoItem/>

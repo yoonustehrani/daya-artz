@@ -21,6 +21,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -91,30 +99,38 @@ var Dashboard = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "loadStats", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var _yield$Promise$all, _yield$Promise$all2, general, orders;
+      var _yield$Promise$all, _yield$Promise$all2, general, orders, latest;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return Promise.all([_this.http.get('/general'), _this.http.get('/orders')]);
+              return Promise.all([_this.http.get('/general'), _this.http.get('/orders'), _this.http.get('latest')]);
 
             case 2:
               _yield$Promise$all = _context.sent;
-              _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
+              _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 3);
               general = _yield$Promise$all2[0];
               orders = _yield$Promise$all2[1];
+              latest = _yield$Promise$all2[2];
+              console.log(latest);
 
               _this.setState(function (prev) {
                 return {
                   statistics: _objectSpread(_objectSpread(_objectSpread({}, prev.statistics), general), {}, {
                     orders: orders
-                  })
+                  }),
+                  recent_orders: _toConsumableArray(latest.orders.map(function (x) {
+                    return {
+                      text: x.text,
+                      href: "/orders/".concat(x.id)
+                    };
+                  }))
                 };
               });
 
-            case 7:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -130,16 +146,10 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         tickets_count: false,
         orders: {}
       },
-      recent_orders: [{
-        title: "لوگو تایپ",
-        href: "#"
-      }, {
-        title: "کارت ویزیت",
-        href: "#"
-      }],
+      recent_orders: [],
       recent_pais: [],
       recent_messages: [{
-        title: "سلام",
+        text: "سلام",
         href: "#"
       }]
     };
@@ -208,12 +218,17 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }, {
           title: "سفارشات پیش پرداخت شده",
           number: statistics.orders.prepaid
-        }] // bottom_items: [
-        //     {title: "سفارشات اخیر شما", items: this.state.recent_orders},
-        //     {title: "پرداخت های اخیر شما", items: this.state.recent_pais},
-        //     {title: "آخرین پیام ها", items: this.state.recent_messages}
-        // ]
-
+        }],
+        bottom_items: [{
+          title: "سفارشات اخیر شما",
+          items: this.state.recent_orders
+        }, {
+          title: "پرداخت های اخیر شما",
+          items: this.state.recent_pais
+        }, {
+          title: "آخرین پیام ها",
+          items: this.state.recent_messages
+        }]
       };
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "dashboard-container",

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\UserArea;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReportRequest;
 use App\Models\Offer;
+use App\Models\Order;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -73,6 +74,12 @@ class ReportController extends Controller
             'awaiting' => random_int(0, 12),
             'prepaid' => random_int(0, 12)
         ]);
+    }
+    public function latest(Request $request)
+    {
+        $user_id = $request->user()->id;
+        $orders = Order::latest()->select('id', 'method', 'code')->where('user_id', $user_id)->limit(3)->get()->append(['text']);
+        return response()->json(compact('orders'));
     }
     // public function dashboard()
     // {
