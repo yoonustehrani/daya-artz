@@ -12,12 +12,10 @@ class Dashboard extends Component {
         this.http = useHttpService('/userarea/stats')
         this.state = {
             statistics: {
-                inprogress_orders: 10,
-                complted_orders: 25,
-                waiting_orders: 25,
-                prepaid_orders: 25,
-                unpaid_factors: 5,
-                inprogress_tickets: 0
+                invoices_count: false,
+                orders_count: false,
+                tickets_count: false,
+                orders: {}
             },
             recent_orders: [
                 {title: "لوگو تایپ", href: "#"},
@@ -31,10 +29,13 @@ class Dashboard extends Component {
     }
 
     loadStats = async () => {
-        const [general] = await Promise.all([
-            this.http.get('/general')
+        const [general, orders] = await Promise.all([
+            this.http.get('/general'),
+            this.http.get('/orders')
         ]);
-        console.log(general);
+        this.setState(prev => ({
+            statistics: {...prev.statistics, ...general, orders: orders}
+        }))
     }
 
     componentDidMount() {
@@ -43,12 +44,13 @@ class Dashboard extends Component {
     }
 
     render() {
+        let { statistics } = this.state
         let components = {top_items: TopItem, middle_items: MiddleItem, bottom_items: BottomItem}
         let dashboard_items = {
             top_items: [
                 {
                     title: "سفارش در حال انجام",
-                    number: this.state.statistics.inprogress_orders,
+                    number: statistics.orders_count,
                     icon: "fas fa-clipboard-list",
                     buttons: [
                         {title: "لیست سفارشات", href: "/orders"},
@@ -57,7 +59,7 @@ class Dashboard extends Component {
                 },
                 {
                     title: "فاکتور پرداخت نشده",
-                    number: this.state.statistics.unpaid_factors,
+                    number: statistics.invoices_count,
                     icon: "fas fa-file-invoice-dollar",
                     buttons: [
                         {title: "پرداخت فاکتور ها", href: "#factors_pay"},
@@ -67,7 +69,7 @@ class Dashboard extends Component {
                 },
                 {
                     title: "تیکت های در حال بررسی",
-                    number: this.state.statistics.inprogress_tickets,
+                    number: statistics.tickets_count,
                     icon: "fas fa-headset",
                     buttons: [
                         {title: "تیکت جدید", href: "/tickets/new"},
@@ -76,15 +78,15 @@ class Dashboard extends Component {
                 }
             ],
             middle_items: [
-                {title: "سفارشات تکمیل شده", number: this.state.statistics.complted_orders},
-                {title: "سفارشات در انتظار تایید شما", number: this.state.statistics.waiting_orders},
-                {title: "سفارشات پیش پرداخت شده", number: this.state.statistics.prepaid_orders}
+                {title: "سفارشات تکمیل شده", number: statistics.orders.completed},
+                {title: "سفارشات در انتظار تایید شما", number: statistics.orders.awaiting},
+                {title: "سفارشات پیش پرداخت شده", number: statistics.orders.prepaid}
             ],
-            bottom_items: [
-                {title: "سفارشات اخیر شما", items: this.state.recent_orders},
-                {title: "پرداخت های اخیر شما", items: this.state.recent_pais},
-                {title: "آخرین پیام ها", items: this.state.recent_messages}
-            ]
+            // bottom_items: [
+            //     {title: "سفارشات اخیر شما", items: this.state.recent_orders},
+            //     {title: "پرداخت های اخیر شما", items: this.state.recent_pais},
+            //     {title: "آخرین پیام ها", items: this.state.recent_messages}
+            // ]
         }
         return (
             <div className="dashboard-container">

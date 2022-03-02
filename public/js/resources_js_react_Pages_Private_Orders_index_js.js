@@ -159,12 +159,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-function Loading() {
+function Loading(props) {
+  var _props$size;
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    className: "activity-container",
+    className: "activity-container mb-2",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_1__.Spinner, {
       color: "#999999",
-      size: 34,
+      size: (_props$size = props.size) !== null && _props$size !== void 0 ? _props$size : 34,
       speed: 0.5,
       animating: true
     })

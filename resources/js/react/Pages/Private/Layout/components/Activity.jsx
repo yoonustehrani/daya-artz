@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
 import { Spinner } from 'react-activity'
 
-class Activity extends Component {
-    render() {
-        return (
-            <div className="activity-container"><Spinner color="#6332df" size={34} /></div>
-        );
-    }
-}
-
-export default Activity;
+export default function Activity({size = 34}) {
+    return (
+        <div className="activity-container"><Spinner color="#6332df" size={size} /></div>
+    );
+};

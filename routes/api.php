@@ -73,7 +73,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::post('bills/{bill}/pay/{method}', [PaymentController::class, 'store'])->name('bills.pay');
     Route::prefix('stats')->name('stats.')->group(function() {
         Route::get('general', [ReportController::class, 'general'])->name('general');
-        // Route::get('orders', [ReportController::class, 'ordersStat']);
+        Route::get('orders', [ReportController::class, 'ordersStat'])->name('orders');
     });
     Route::prefix('user')->group(function() {
         Route::put('auth', [UserController::class, 'update']);

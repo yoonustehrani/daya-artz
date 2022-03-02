@@ -42,17 +42,17 @@ class ReportController extends Controller
         $user_id = $request->user()->id;
         $invoices = DB::table('invoices')
             ->selectRaw('count(`id`) AS aggregate')
-            ->where('user_id', 1)
+            ->where('user_id', $user_id)
             ->whereNull('paid_at')
             ->toSql();
         $tickets = DB::table('tickets')
             ->selectRaw('count(`id`) AS aggregate')
-            ->where('user_id', 1)
+            ->where('user_id', $user_id)
             ->whereNull('closed_at')
             ->toSql();
         $orders_count = DB::table('orders')
             ->selectRaw('count(`id`) AS aggregate')
-            ->where('user_id', 1)
+            ->where('user_id', $user_id)
             ->whereNull('finished_at')
             ->toSql();
         $counts = DB::selectOne(
@@ -63,7 +63,16 @@ class ReportController extends Controller
     }
     public function ordersStat()
     {
-
+        $completed = DB::table('orders')
+            ->selectRaw('count(`id`) AS aggregate')
+            ->where('user_id', 1)
+            ->whereNotNull('finished_at')
+            ->toSql();
+        return response()->json([
+            'completed' => random_int(0, 12),
+            'awaiting' => random_int(0, 12),
+            'prepaid' => random_int(0, 12)
+        ]);
     }
     // public function dashboard()
     // {
