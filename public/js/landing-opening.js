@@ -2547,113 +2547,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/landing-opening.js":
-/*!*****************************************!*\
-  !*** ./resources/js/landing-opening.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_QuickOrder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/QuickOrder */ "./resources/js/components/QuickOrder/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
- // quick order
-
-
-var quickOrderElement = document.getElementById("react-quick-order");
-
-if (quickOrderElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
-    targetApi: quickOrderElement.getAttribute('data-post-api')
-  }), quickOrderElement);
-} // menu
-
-
-$(document).ready(function () {
-  // this code is for handling the menu in < md sizes
-  function toggle_menu() {
-    var is_open,
-        menu_el = $(".menu-container").length > 0 ? $(".menu-container") : $(".user-area-sidebar");
-    is_open = menu_el.hasClass("open");
-
-    if (is_open) {
-      menu_el.toggleClass("open");
-      setTimeout(function () {
-        menu_el.addClass("d-none");
-      }, 1000);
-    } else {
-      menu_el.removeClass("d-none");
-      setTimeout(function () {
-        menu_el.toggleClass("open");
-      }, 0);
-    } // $("body").toggleClass("over-h")
-
-
-    $(".fa-bars").toggleClass("op-0");
-  }
-
-  $("body").on("click", function (e) {
-    var el = e.target,
-        menu_el = $(".menu-container").length > 0 ? $(".menu-container") : $(".user-area-sidebar");
-
-    if (menu_el.hasClass("open") && el.id !== "m-menu" && el.id !== "menu-open" && !$(el).closest("#menu-open").length && !$(el).closest("#m-menu").length || $(el).closest("#menu-close").length || $(el).closest("#menu-open").length || $(el).hasClass("link")) {
-      toggle_menu();
-    }
-
-    if ($(el).closest(".has-sub").length && !$(el).closest(".submenu-m").length) {
-      $($(el).closest("li.has-sub")).toggleClass("open");
-    }
-  }); // this code will set the header navbar fixed according to the window height
-
-  function setHeader() {
-    var window_height = window.innerHeight,
-        offset_top = $("body").scrollTop(),
-        target_header = $(".header, .min-header");
-
-    if ($(window).width() >= 768) {
-      if (offset_top >= window_height && !target_header.hasClass("fixed")) {
-        $(target_header).addClass("fixed");
-        $("#header-nav").addClass("slideInDown");
-        setTimeout(function () {
-          $("#header-nav").removeClass("slideInDown");
-        }, 200);
-      } else if (offset_top < window_height && target_header.hasClass("fixed")) {
-        $("#header-nav").addClass("slideOutUp");
-        setTimeout(function () {
-          $(target_header).removeClass("fixed");
-          $("#header-nav").removeClass("slideOutUp");
-        }, 200);
-      }
-    } else {
-      $(target_header).removeClass("fixed");
-      $("#header-nav").removeClass("slideInDown slideOutUp");
-    }
-  } // we use the above code as a trigger for scroll evenets and resize window events
-
-
-  $("body").on("scroll", function () {
-    setHeader();
-  });
-  $(window).resize(function () {
-    setHeader();
-  });
-});
-
-/***/ }),
-
-/***/ "./resources/css/landing.css":
-/*!***********************************!*\
-  !*** ./resources/css/landing.css ***!
-  \***********************************/
-/***/ (() => {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nError: Failed to find './requirements.css'\n  in [\n    /home/yoonus/projects/daya-artz/resources/css\n  ]\n    at /home/yoonus/projects/daya-artz/node_modules/postcss-import/lib/resolve-id.js:35:13\n    at async LazyResult.runAsync (/home/yoonus/projects/daya-artz/node_modules/postcss/lib/lazy-result.js:396:11)\n    at async Object.loader (/home/yoonus/projects/daya-artz/node_modules/postcss-loader/dist/index.js:97:14)\n    at processResult (/home/yoonus/projects/daya-artz/node_modules/webpack/lib/NormalModule.js:753:19)\n    at /home/yoonus/projects/daya-artz/node_modules/webpack/lib/NormalModule.js:855:5\n    at /home/yoonus/projects/daya-artz/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /home/yoonus/projects/daya-artz/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/home/yoonus/projects/daya-artz/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/home/yoonus/projects/daya-artz/node_modules/postcss-loader/dist/index.js:142:7)");
-
-/***/ }),
-
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -33751,12 +33644,101 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__("./resources/js/landing-opening.js");
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/css/landing.css");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!*****************************************!*\
+  !*** ./resources/js/landing-opening.js ***!
+  \*****************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _components_QuickOrder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/QuickOrder */ "./resources/js/components/QuickOrder/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+ // quick order
+
+
+var quickOrderElement = document.getElementById("react-quick-order");
+
+if (quickOrderElement) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
+    targetApi: quickOrderElement.getAttribute('data-post-api')
+  }), quickOrderElement);
+} // menu
+
+
+$(document).ready(function () {
+  // this code is for handling the menu in < md sizes
+  function toggle_menu() {
+    var is_open,
+        menu_el = $(".menu-container").length > 0 ? $(".menu-container") : $(".user-area-sidebar");
+    is_open = menu_el.hasClass("open");
+
+    if (is_open) {
+      menu_el.toggleClass("open");
+      setTimeout(function () {
+        menu_el.addClass("d-none");
+      }, 1000);
+    } else {
+      menu_el.removeClass("d-none");
+      setTimeout(function () {
+        menu_el.toggleClass("open");
+      }, 0);
+    } // $("body").toggleClass("over-h")
+
+
+    $(".fa-bars").toggleClass("op-0");
+  }
+
+  $("body").on("click", function (e) {
+    var el = e.target,
+        menu_el = $(".menu-container").length > 0 ? $(".menu-container") : $(".user-area-sidebar");
+
+    if (menu_el.hasClass("open") && el.id !== "m-menu" && el.id !== "menu-open" && !$(el).closest("#menu-open").length && !$(el).closest("#m-menu").length || $(el).closest("#menu-close").length || $(el).closest("#menu-open").length || $(el).hasClass("link")) {
+      toggle_menu();
+    }
+
+    if ($(el).closest(".has-sub").length && !$(el).closest(".submenu-m").length) {
+      $($(el).closest("li.has-sub")).toggleClass("open");
+    }
+  }); // this code will set the header navbar fixed according to the window height
+
+  function setHeader() {
+    var window_height = window.innerHeight,
+        offset_top = $("body").scrollTop(),
+        target_header = $(".header, .min-header");
+
+    if ($(window).width() >= 768) {
+      if (offset_top >= window_height && !target_header.hasClass("fixed")) {
+        $(target_header).addClass("fixed");
+        $("#header-nav").addClass("slideInDown");
+        setTimeout(function () {
+          $("#header-nav").removeClass("slideInDown");
+        }, 200);
+      } else if (offset_top < window_height && target_header.hasClass("fixed")) {
+        $("#header-nav").addClass("slideOutUp");
+        setTimeout(function () {
+          $(target_header).removeClass("fixed");
+          $("#header-nav").removeClass("slideOutUp");
+        }, 200);
+      }
+    } else {
+      $(target_header).removeClass("fixed");
+      $("#header-nav").removeClass("slideInDown slideOutUp");
+    }
+  } // we use the above code as a trigger for scroll evenets and resize window events
+
+
+  $("body").on("scroll", function () {
+    setHeader();
+  });
+  $(window).resize(function () {
+    setHeader();
+  });
+});
+})();
+
 /******/ })()
 ;
