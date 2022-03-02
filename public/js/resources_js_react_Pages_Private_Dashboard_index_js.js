@@ -137,65 +137,6 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         href: "#"
       }]
     };
-    _this.dashboard_items = {
-      top_items: [{
-        title: "سفارش در حال انجام",
-        number: _this.state.statistics.inprogress_orders,
-        icon: "fas fa-clipboard-list",
-        buttons: [{
-          title: "لیست سفارشات",
-          href: "/orders"
-        }, {
-          title: "سفارش جدید",
-          href: "#special-order"
-        }]
-      }, {
-        title: "فاکتور پرداخت نشده",
-        number: _this.state.statistics.unpaid_factors,
-        icon: "fas fa-file-invoice-dollar",
-        buttons: [{
-          title: "پرداخت فاکتور ها",
-          href: "#factors_pay"
-        }, {
-          title: "پیش فاکتور ها",
-          href: "/finance/invoices"
-        }, {
-          title: "فاکتور ها",
-          href: "/finance/invoices?active"
-        }]
-      }, {
-        title: "تیکت های در حال بررسی",
-        number: _this.state.statistics.inprogress_tickets,
-        icon: "fas fa-headset",
-        buttons: [{
-          title: "تیکت جدید",
-          href: "/tickets/new"
-        }, {
-          title: "لیست تیکت ها",
-          href: "/tickets"
-        }]
-      }],
-      middle_items: [{
-        title: "سفارشات تکمیل شده",
-        number: _this.state.statistics.complted_orders
-      }, {
-        title: "سفارشات در انتظار تایید شما",
-        number: _this.state.statistics.waiting_orders
-      }, {
-        title: "سفارشات پیش پرداخت شده",
-        number: _this.state.statistics.prepaid_orders
-      }],
-      bottom_items: [{
-        title: "سفارشات اخیر شما",
-        items: _this.state.recent_orders
-      }, {
-        title: "پرداخت های اخیر شما",
-        items: _this.state.recent_pais
-      }, {
-        title: "آخرین پیام ها",
-        items: _this.state.recent_messages
-      }]
-    };
     return _this;
   }
 
@@ -208,11 +149,69 @@ var Dashboard = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var dashboard_items = this.dashboard_items,
-          components = {
+      var components = {
         top_items: TopItem,
         middle_items: MiddleItem,
         bottom_items: BottomItem
+      };
+      var dashboard_items = {
+        top_items: [{
+          title: "سفارش در حال انجام",
+          number: this.state.statistics.inprogress_orders,
+          icon: "fas fa-clipboard-list",
+          buttons: [{
+            title: "لیست سفارشات",
+            href: "/orders"
+          }, {
+            title: "سفارش جدید",
+            href: "#special-order"
+          }]
+        }, {
+          title: "فاکتور پرداخت نشده",
+          number: this.state.statistics.unpaid_factors,
+          icon: "fas fa-file-invoice-dollar",
+          buttons: [{
+            title: "پرداخت فاکتور ها",
+            href: "#factors_pay"
+          }, {
+            title: "پیش فاکتور ها",
+            href: "/finance/invoices"
+          }, {
+            title: "فاکتور ها",
+            href: "/finance/invoices?active"
+          }]
+        }, {
+          title: "تیکت های در حال بررسی",
+          number: this.state.statistics.inprogress_tickets,
+          icon: "fas fa-headset",
+          buttons: [{
+            title: "تیکت جدید",
+            href: "/tickets/new"
+          }, {
+            title: "لیست تیکت ها",
+            href: "/tickets"
+          }]
+        }],
+        middle_items: [{
+          title: "سفارشات تکمیل شده",
+          number: this.state.statistics.complted_orders
+        }, {
+          title: "سفارشات در انتظار تایید شما",
+          number: this.state.statistics.waiting_orders
+        }, {
+          title: "سفارشات پیش پرداخت شده",
+          number: this.state.statistics.prepaid_orders
+        }],
+        bottom_items: [{
+          title: "سفارشات اخیر شما",
+          items: this.state.recent_orders
+        }, {
+          title: "پرداخت های اخیر شما",
+          items: this.state.recent_pais
+        }, {
+          title: "آخرین پیام ها",
+          items: this.state.recent_messages
+        }]
       };
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "dashboard-container",
