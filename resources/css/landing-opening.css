@@ -3,7 +3,7 @@
         @apply text-purple-500;
     }
     i {
-        @apply align-middle
+        @apply align-middle;
     }
 }
 

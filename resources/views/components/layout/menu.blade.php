@@ -1,6 +1,6 @@
 <nav class="h-14 w-full p-2 md:px-6 bg-gradient-to-r from-indigo-500 to-indigo-700 text-slate-50 text-lg flex flex-nowrap justify-between relative z-20 overflow-hidden">
     <div class="flex flex-nowrap items-center">
-        <span><i class="far fa-bars md:hidden ml-3 text-4xl animated fadeOut"></i></span>
+        <span><i class="far fa-bars md:hidden ml-3 text-4xl"></i></span>
         <a href="{{ route("home") }}" class="ml-3 h-[calc(100%_+_0.5rem)]"><img src="{{ asset(get_setting("header.menu.logo")) }}" alt="daya-logo" class="h-full"></a>
         <ul class="p-0 flex flex-nowrap justify-start w-fit">
             <li class="mx-3"><a href="{{ route("userarea") }}" class="duration-300 border-b-transparent border-b-2 hover:border-b-sky-400 pb-2">ورود به حساب</a></li>

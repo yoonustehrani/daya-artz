@@ -12,6 +12,7 @@
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
         "@reduxjs/toolkit": "^1.6.2",
+        "@tailwindcss/jit": "^0.1.18",
         "animate.css": "^3.7.2",
         "axios": "^0.21.4",
         "bootstrap": "^4.0.0",
