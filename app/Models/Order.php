@@ -34,6 +34,10 @@ class Order extends Model
     {
         return __("userarea.orders.method.{$method}");
     }
+    public function getTextAttribute()
+    {
+        return "کد {$this->code} - {$this->method}";
+    }
     private function tracking_code($length = 6)
     {
         $alpha = str_shuffle("ABCDEFGHJKLMNPQRSTUWXYZ");

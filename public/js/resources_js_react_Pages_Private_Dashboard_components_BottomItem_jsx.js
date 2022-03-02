@@ -79,7 +79,7 @@ var BottomItem = /*#__PURE__*/function (_Component) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
                 to: item.href,
-                children: item.title
+                children: item.text
               })
             }, i);
           })

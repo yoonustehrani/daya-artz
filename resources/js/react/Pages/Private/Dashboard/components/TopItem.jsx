@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Loading from '../../Layout/components/Loading'
 
 class TopItem extends Component {
     render() {
@@ -10,7 +11,7 @@ class TopItem extends Component {
                     <div className="shapes-back-img">
                         <span className="top-item-icon"><i className={icon}></i></span>
                         <div className="top-item-info">
-                            <span>{number}</span>
+                            <span>{number === false ? <Loading/> : number}</span>
                             <h4>{title}</h4>
                             <div>
                                 {buttons.map((button, i) => (
