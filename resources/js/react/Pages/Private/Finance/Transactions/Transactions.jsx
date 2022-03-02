@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react";
 import { useHttpService } from '../../../../hooks';
+import NoItem from '../../Layout/components/NoItem'
+import LoaderComponent from "../../../../components/LoaderComponent";
 
 function Transactions(props) {
     const http = useHttpService("/userarea")
     const [transactions, setTransactions] = useState([])
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         async function getTransactions() {
             const response = await http.get('/transactions');
             if (response.data) {
                 setTransactions(response.data)
+                setLoading(false)
             }
         }
         getTransactions()
     }, [])
-    return (
+    if (loading) {
+        return <LoaderComponent />
+    }
+    return transactions.length === 0 ? <NoItem /> : (
         <table className="table table-striped table-responsive table-bordered userarea-table">
             <thead>
                 <tr>

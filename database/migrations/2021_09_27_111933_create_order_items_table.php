@@ -26,6 +26,7 @@ class CreateOrderItemsTable extends Migration
             $table->bigInteger('total')->default(0);
             $table->timestamp('due_date')->nullable();
             $table->softDeletes();
+            $table->timestamp('finished_at')->nullable();
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('service_id')->references('id')->on('services')->nullOnDelete()->cascadeOnUpdate();

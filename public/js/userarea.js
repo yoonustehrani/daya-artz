@@ -4112,12 +4112,6 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                  to: "/finance/bills",
-                  className: "link",
-                  children: "\u0635\u0648\u0631\u062A \u062D\u0633\u0627\u0628 \u0647\u0627"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
                   to: "/finance/transactions",
                   className: "link",
                   children: "\u062A\u0631\u0627\u06A9\u0646\u0634 \u0647\u0627"
@@ -4156,29 +4150,6 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                   to: "/tickets/faq",
                   className: "link",
                   children: "\u0633\u0648\u0627\u0644\u0627\u062A \u0645\u062A\u062F\u0627\u0648\u0644"
-                })
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-            className: "has-sub",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-              href: "#contracts",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-                className: "fas fa-file-signature"
-              }), " \u0642\u0631\u0627\u0631\u062F\u0627\u062F \u0647\u0627"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-              className: "submenu-m",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                  to: "/contracts",
-                  className: "link",
-                  children: "\u0642\u0631\u0627\u0631\u062F\u0627\u062F \u0647\u0627\u06CC \u0645\u0646"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                  to: "/contract_sample",
-                  className: "link",
-                  children: "\u0646\u0645\u0648\u0646\u0647 \u0642\u0631\u0627\u0631\u062F\u0627\u062F \u0647\u0627"
                 })
               })]
             })]
