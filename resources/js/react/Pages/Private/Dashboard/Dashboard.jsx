@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { useHttpService } from '../../../hooks'
 // components
 const BottomItem = React.lazy(() => import('./components/BottomItem'));
 const MiddleItem = React.lazy(() => import('./components/MiddleItem'));
@@ -8,6 +9,7 @@ const TopItem    = React.lazy(() => import('./components/TopItem'));
 class Dashboard extends Component {
     constructor(props) {
         super(props);
+        this.http = useHttpService('/userarea/stats')
         this.state = {
             statistics: {
                 inprogress_orders: 10,
@@ -70,8 +72,16 @@ class Dashboard extends Component {
         }
     }
 
+    loadStats = async () => {
+        const [general] = await Promise.all([
+            this.http.get('/general')
+        ]);
+        console.log(general);
+    }
+
     componentDidMount() {
         document.title = "داشبورد"
+        this.loadStats()
     }
 
     render() {

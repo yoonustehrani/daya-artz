@@ -39,33 +39,27 @@ class ReportController extends Controller
     }
     public function general(Request $request)
     {
-        $first = DB::table('invoices')->count('id');
-
-
-        return $first;
-        // $queries = [
-        //     'invoices_count' => 'SELECT COUNT(i.id) FROM `invoices` as i WHERE `paid_at` IS NULL',
-        //     'tickets_count' => 'SELECT COUNT(t.id) FROM `tickets` as t WHERE `closed_at` IS NULL',
-        //     'orders_count' => 'SELECT COUNT(o.id) FROM `orders` as o WHERE `finished_at` IS NULL'
-        // ];
-        // $query = 'SELECT ';
-        // foreach ($queries as $key => $q) {
-        //     $q .= " AND `user_id` = ?";
-        //     $query .= "({$q}) as {$key}";
-        //     if ($key !== 'orders_count') {
-        //         $query .= ', ';
-        //     }
-        // }
-        // // $query
-        // $counts = \DB::select(
-        //     $query,
-        //     // "SELECT ({$queries[0]}) as invoices_count, ({$queries[1]}) as tickets_count, ({$queries[2]}) as orders_count",
-        //     [1,1,1] // $request->user()->id
-        // );
-
-        // dd($counts);
-        // return $counts;
-        // $tickets = []
+        $user_id = $request->user()->id;
+        $invoices = DB::table('invoices')
+            ->selectRaw('count(`id`) AS aggregate')
+            ->where('user_id', 1)
+            ->whereNull('paid_at')
+            ->toSql();
+        $tickets = DB::table('tickets')
+            ->selectRaw('count(`id`) AS aggregate')
+            ->where('user_id', 1)
+            ->whereNull('closed_at')
+            ->toSql();
+        $orders_count = DB::table('orders')
+            ->selectRaw('count(`id`) AS aggregate')
+            ->where('user_id', 1)
+            ->whereNull('finished_at')
+            ->toSql();
+        $counts = DB::selectOne(
+            "SELECT ($invoices) as invoices_count, ($tickets) as tickets_count, ($orders_count) as orders_count",
+            [$user_id, $user_id, $user_id]
+        );
+        return response()->json($counts);
     }
     public function ordersStat()
     {
