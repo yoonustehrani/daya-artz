@@ -26,7 +26,15 @@ class Dashboard extends Component {
                 {title: "سلام", href: "#"}
             ]
         }
-        this.dashboard_items = {
+    }
+
+    componentDidMount() {
+        document.title = "داشبورد"
+    }
+
+    render() {
+        let components = {top_items: TopItem, middle_items: MiddleItem, bottom_items: BottomItem}
+        let dashboard_items = {
             top_items: [
                 {
                     title: "سفارش در حال انجام",
@@ -68,14 +76,6 @@ class Dashboard extends Component {
                 {title: "آخرین پیام ها", items: this.state.recent_messages}
             ]
         }
-    }
-
-    componentDidMount() {
-        document.title = "داشبورد"
-    }
-
-    render() {
-        let { dashboard_items } = this, components = {top_items: TopItem, middle_items: MiddleItem, bottom_items: BottomItem}
         return (
             <div className="dashboard-container">
                 {Object.keys(dashboard_items).map((key, i) => (
