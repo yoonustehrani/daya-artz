@@ -147,7 +147,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         orders: {}
       },
       recent_orders: [],
-      recent_pais: [],
+      recent_pays: [],
       recent_messages: [{
         text: "سلام",
         href: "#"
@@ -165,7 +165,11 @@ var Dashboard = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var statistics = this.state.statistics;
+      var _this$state = this.state,
+          statistics = _this$state.statistics,
+          recent_orders = _this$state.recent_orders,
+          recent_pays = _this$state.recent_pays,
+          recent_messages = _this$state.recent_messages;
       var components = {
         top_items: TopItem,
         middle_items: MiddleItem,
@@ -221,13 +225,13 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }],
         bottom_items: [{
           title: "سفارشات اخیر شما",
-          items: this.state.recent_orders
+          items: recent_orders
         }, {
           title: "پرداخت های اخیر شما",
-          items: this.state.recent_pais
+          items: recent_pays
         }, {
           title: "آخرین پیام ها",
-          items: this.state.recent_messages
+          items: recent_messages
         }]
       };
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {

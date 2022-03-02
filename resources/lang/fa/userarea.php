@@ -36,4 +36,10 @@ return [
             'ready' => 'آماده ارایه'
         ]
     ],
+    'transactions' => [
+        'provider' => [
+            'zarinpal' => 'درگاه زرین پال',
+            'direct' => 'واریز به حساب'
+        ]
+    ]
 ];

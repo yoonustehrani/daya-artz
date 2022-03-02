@@ -18,7 +18,7 @@ class Dashboard extends Component {
                 orders: {}
             },
             recent_orders: [],
-            recent_pais: [],
+            recent_pays: [],
             recent_messages: [
                 {text: "سلام", href: "#"}
             ]
@@ -44,7 +44,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        let { statistics } = this.state
+        let { statistics, recent_orders, recent_pays, recent_messages } = this.state
         let components = {top_items: TopItem, middle_items: MiddleItem, bottom_items: BottomItem}
         let dashboard_items = {
             top_items: [
@@ -83,9 +83,9 @@ class Dashboard extends Component {
                 {title: "سفارشات پیش پرداخت شده", number: statistics.orders.prepaid}
             ],
             bottom_items: [
-                {title: "سفارشات اخیر شما", items: this.state.recent_orders},
-                {title: "پرداخت های اخیر شما", items: this.state.recent_pais},
-                {title: "آخرین پیام ها", items: this.state.recent_messages}
+                {title: "سفارشات اخیر شما", items: recent_orders},
+                {title: "پرداخت های اخیر شما", items: recent_pays},
+                {title: "آخرین پیام ها", items: recent_messages}
             ]
         }
         return (

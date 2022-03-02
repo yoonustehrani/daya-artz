@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Api\UserArea;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReportRequest;
-use App\Models\Offer;
 use App\Models\Order;
-use App\Models\Ticket;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -78,11 +77,19 @@ class ReportController extends Controller
     public function latest(Request $request)
     {
         $user_id = $request->user()->id;
-        $orders = Order::latest()->select('id', 'method', 'code')->where('user_id', $user_id)->limit(3)->get()->append(['text']);
-        return response()->json(compact('orders'));
+        $orders = Order::latest()
+            ->select('id', 'method', 'code')
+            ->where('user_id', $user_id)
+            ->limit(3)
+            ->get()
+            ->append(['text']);
+        $transactions = Transaction::orderBy('updated_at', 'desc')
+            ->select('id', 'amount', 'status', 'provider', 'updated_at')
+            ->limit(5)
+            ->where('user_id', $user_id)
+            ->get()
+            ->append('provider_fa');
+        $notifications = [];
+        return response()->json(compact('orders', 'transactions', 'notifications'));
     }
-    // public function dashboard()
-    // {
-        
-    // }
 }
