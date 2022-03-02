@@ -1,7 +1,3 @@
-/* tailwind requirements */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 /* custom requirements */
 @layer base {
     /* fontawesome */
@@ -12,8 +8,12 @@
         src: url(/fonts/IRANSansWeb.ttf) format("truetype");
     }
     /* animatecss */
-    /* @import '~animate.css/animate.min.css'; */
+    @import '~animate.css/animate.min.css';
     .kir {
         dispaly: none;
     }
 }
+/* tailwind requirements */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
