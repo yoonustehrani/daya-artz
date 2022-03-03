@@ -20,8 +20,8 @@
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
-        align-items: stretch;
-        height: 650px;
+        align-items: flex-start;
+        min-height: 650px;
         margin-top: -100px;    
         padding: 0 10px 0 10px;    
         > div {
@@ -31,7 +31,7 @@
         }
         .user-area-sidebar {
             width: 18%;
-            padding: 20px 10px 5px 10px;
+            padding: 20px 10px;
             text-align: center;
             .user-info {
                 display: flex;
@@ -176,8 +176,7 @@
             width: 78%;
             margin-right: 25px;
             padding: 20px;
-            overflow-y: auto;
-            overflow-x: hidden;
+            overflow: hidden;
             direction: rtl;
             &::-webkit-scrollbar {
                 width: 8px;

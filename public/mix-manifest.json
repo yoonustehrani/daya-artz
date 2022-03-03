@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-    "/js/landing-opening.js": "/js/landing-opening.js",
-    "/css/landing.css": "/css/landing.css"
-=======
-    "/js/userarea.js": "/js/userarea.js"
->>>>>>> 913a882a277d14daa170df54f021601f29cc1b74
+    "/js/userarea.js": "/js/userarea.js",
+    "/css/app.css": "/css/app.css"
 }
