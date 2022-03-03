@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHttpService, useJalaliDate } from '../../../../hooks';
 import NoItem from '../../Layout/components/NoItem'
 import LoaderComponent from "../../../../components/LoaderComponent";
+import Title from "../../Layout/components/Title";
 
 function Transactions(props) {
     const title = "لیست تراکنش ها"
@@ -30,9 +31,7 @@ function Transactions(props) {
     }
     return transactions.length === 0 ? <NoItem /> : (
         <>
-            <div className="form-title">
-                <h4>{title}</h4>
-            </div>
+            <Title text={title} />
             <table className="table table-striped table-responsive table-bordered userarea-table">
                 <thead>
                     <tr>
