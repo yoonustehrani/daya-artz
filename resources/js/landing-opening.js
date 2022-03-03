@@ -41,7 +41,6 @@ body.addEventListener("click", (e) => {
 function setHeader() {
     var window_height = window.innerHeight, offset_top = body.scrollTop, target_header = document.getElementById("landing-header"), header_nav = document.getElementById("header-nav")
     if (window.innerWidth >= 768) {
-        console.log('not mobile');
         if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
             target_header.classList.add("pt-14")
             header_nav.classList.add("!fixed")
@@ -58,7 +57,6 @@ function setHeader() {
             }, 200)
         }
     } else {
-        console.log('mobile');
         target_header.classList.remove("pt-14")
         header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed")
     }
