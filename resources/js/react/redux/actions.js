@@ -48,7 +48,7 @@ const logInUsingCredentials = createAsyncThunk('auth/loginUser', async (credenti
 
 const logoutUser = createAsyncThunk('auth/logoutUser', async (param, {getState, dispatch, rejectWithValue}) => {
     if (getState().auth.user) {
-        const response = await http.post('/auth/logout')
+        const response = await http.post('/auth/logout', {}, {}, false)
         if (response.okay) {
             dispatch(setCompany(null))
             return response

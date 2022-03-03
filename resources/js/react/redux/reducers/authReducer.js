@@ -30,6 +30,7 @@ const loginReducer = produce((draft, action) => {
         case updateUserInfo.fulfilled.toString():
         case USER_LOGGED_IN:
         case updateCustomerInfo.fulfilled.toString():
+            draft.loading = false
             draft.user = action.payload
             break
         case logoutUser.fulfilled.toString():
@@ -40,11 +41,13 @@ const loginReducer = produce((draft, action) => {
             // action.payload contains the error data
             // console.log("action is ", action);
             break
+        case logInUsingCredentials.pending.toString():
         case logoutUser.pending.toString():
             draft.loading = true
             break
         case logoutUser.rejected.toString():
             draft.loading = false
+            draft.user = null
             break
         case verifyPhoneNumber.fulfilled.toString():
             draft.user.phone_verified = !! action.payload.verified
