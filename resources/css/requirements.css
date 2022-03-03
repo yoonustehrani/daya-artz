@@ -1,18 +1,13 @@
-/* custom requirements */
-@layer base {
-    /* fontawesome */
-    @import "../fonts/fontawesome/css/all.min.css";
-    /* custom fonts */
-    @font-face {
-        font-family: 'IranSansWeb';
-        src: url(/fonts/IRANSansWeb.ttf) format("truetype");
-    }
-    /* animatecss */
-    @import '~animate.css/animate.min.css';
-    .kir {
-        dispaly: none;
-    }
+/* fontawesome */
+@import "../fonts/fontawesome/css/all.css";
+/* animate.css */
+@import './animate.css';
+/* custom fonts */
+@font-face {
+    font-family: 'IranSansWeb';
+    src: url(/fonts/IRANSansWeb.ttf) format("truetype");
 }
+
 /* tailwind requirements */
 @tailwind base;
 @tailwind components;

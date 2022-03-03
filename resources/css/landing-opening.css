@@ -3,7 +3,7 @@
         @apply text-purple-500;
     }
     i {
-        @apply align-middle
+        @apply align-middle;
     }
 }
 
@@ -261,5 +261,11 @@
                 display: block !important;
             }
         }
+    }
+}
+
+@layer utilities {
+    #menu-list.open {
+        @apply opacity-90 right-0 h-screen bg-gradient-to-br from-indigo-700 to-indigo-500;
     }
 }
