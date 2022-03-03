@@ -7,15 +7,16 @@ $(document).ready(function() {
             menu_el.toggleClass("open")
             setTimeout(() => {
                 menu_el.addClass("d-none")
-            }, 1000);
+                $("#menu-open").toggleClass("op-0")
+            }, 700);
         } else {
             menu_el.removeClass("d-none")
             setTimeout(() => {
                 menu_el.toggleClass("open")
+                $("#menu-open").toggleClass("op-0")
             }, 0);
         }
-        // $("body").toggleClass("over-h")
-        $(".fa-bars").toggleClass("op-0")
+        $("body").toggleClass("over-h")
     }
     $("body").on("click", function(e) {
         let el = e.target, menu_el = $(".menu-container").length > 0 ? $(".menu-container") : $(".user-area-sidebar")

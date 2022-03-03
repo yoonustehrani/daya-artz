@@ -1,4 +1,7 @@
 {
+    "/js/app.js": "/js/app.js",
+    "/js/userarea.js": "/js/userarea.js",
     "/js/landing-opening.js": "/js/landing-opening.js",
-    "/css/landing.css": "/css/landing.css"
+    "/css/landing.css": "/css/landing.css",
+    "/css/app.css": "/css/app.css"
 }

@@ -10,25 +10,30 @@ if (quickOrderElement) {
 // this code is for handling the menu in < md sizes
 var body = document.body
 function toggle_menu() {
-    let is_open, menu_el = document.getElementById("menu-list")
+    let is_open, menu_el = document.getElementById("menu-list"), toggle_classes = ["opacity-0", "pointer-events-none"]
     is_open = menu_el.classList.contains("open")
     if (is_open) {
-        menu_el.classList.toggle("open")
+        menu_el.classList.remove("open")
         setTimeout(() => {
             menu_el.classList.add("hidden")
-        }, 1000);
+            toggle_classes.forEach(classname => {
+                document.getElementById("menu-open").classList.toggle(classname)
+            })
+        }, 400);
     } else {
         menu_el.classList.remove("hidden")
         setTimeout(() => {
-            menu_el.classList.toggle("open")
+            menu_el.classList.add("open")
+            toggle_classes.forEach(classname => {
+                document.getElementById("menu-open").classList.toggle(classname)
+            })
         }, 0);
     }
-    // $("body").toggleClass("over-h")
-    document.querySelector("nav .fa-bars").classList.toggle("opacity-0")
+    body.classList.toggle("overflow-y-hidden")
 }
 body.addEventListener("click", (e) => {
     let el = e.target, menu_el = document.getElementById("menu-list")
-    if ((menu_el.classList.contains("open") && el.id !== "menu-list" && el.id !== "menu-open" && !el.closest("#menu-open") && !el.closest("#menu-list")) || el.closest("#menu-close") || el.closest("#menu-open")) {
+    if ((menu_el.classList.contains("open") && !el.closest("#menu-list")) || el.closest("#menu-close") || el.closest("#menu-open")) {
         toggle_menu()
     }
 })
@@ -36,6 +41,7 @@ body.addEventListener("click", (e) => {
 function setHeader() {
     var window_height = window.innerHeight, offset_top = body.scrollTop, target_header = document.getElementById("landing-header"), header_nav = document.getElementById("header-nav")
     if (window.innerWidth >= 768) {
+        console.log('not mobile');
         if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
             target_header.classList.add("pt-14")
             header_nav.classList.add("!fixed")
@@ -52,8 +58,9 @@ function setHeader() {
             }, 200)
         }
     } else {
+        console.log('mobile');
         target_header.classList.remove("pt-14")
-        header_nav.classList.remove("slideInDown", "slideOutUp")
+        header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed")
     }
 }
 // we use the above code as a trigger for scroll evenets and resize window events
