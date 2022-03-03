@@ -4597,7 +4597,8 @@ var useJalaliDate = function useJalaliDate(datetime) {
   });
   var date = moment_jalaali__WEBPACK_IMPORTED_MODULE_0___default()(datetime);
 
-  var formatToJalai = function formatToJalai(format) {
+  var formatToJalai = function formatToJalai() {
+    var format = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'jYYYY/jM/jD H:mm:ss';
     return date.format(format);
   };
 

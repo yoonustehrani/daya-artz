@@ -36,4 +36,16 @@ return [
             'ready' => 'آماده ارایه'
         ]
     ],
+    'transactions' => [
+        'provider' => [
+            'zarinpal' => 'درگاه زرین پال',
+            'direct' => 'واریز به حساب'
+        ],
+        'status' => [
+            'verified' => 'تایید شده',
+            'approved' => 'انجام شده',
+            'canceled' => 'کنسل شده',
+            'pending' => 'در انتظار'
+        ]
+    ]
 ];

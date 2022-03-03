@@ -17,7 +17,8 @@ class BillFactory extends Factory
             'amount' => random_int(50, 999) * 1000,
             'title' => $this->faker->sentence(),
             'status' => 'active',
-            'invoice_id' => 1
+            'invoice_id' => 1,
+            'code' => \Str::random(10)
         ];
     }
 }

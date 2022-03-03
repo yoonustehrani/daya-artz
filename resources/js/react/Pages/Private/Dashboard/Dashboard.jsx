@@ -18,10 +18,8 @@ class Dashboard extends Component {
                 orders: {}
             },
             recent_orders: [],
-            recent_pais: [],
-            recent_messages: [
-                {text: "سلام", href: "#"}
-            ]
+            recent_pays: [],
+            recent_notifications: []
         }
     }
 
@@ -31,10 +29,11 @@ class Dashboard extends Component {
             this.http.get('/orders'),
             this.http.get('latest')
         ]);
-        console.log(latest);
         this.setState(prev => ({
             statistics: {...prev.statistics, ...general, orders: orders},
-            recent_orders: [...latest.orders.map(x => ({text: x.text, href: `/orders/${x.id}`}))]
+            recent_orders: [...latest.orders.map(x => ({text: x.text, href: `/orders/${x.id}`}))],
+            recent_pays: [...latest.transactions.map(x => ({text: x.text, href: `/finance/transactions`}))],
+            recent_notifications: latest.notifications
         }))
     }
 
@@ -44,7 +43,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        let { statistics } = this.state
+        let { statistics, recent_orders, recent_pays, recent_notifications } = this.state
         let components = {top_items: TopItem, middle_items: MiddleItem, bottom_items: BottomItem}
         let dashboard_items = {
             top_items: [
@@ -79,13 +78,13 @@ class Dashboard extends Component {
             ],
             middle_items: [
                 {title: "سفارشات تکمیل شده", number: statistics.orders.completed},
-                {title: "سفارشات در انتظار تایید شما", number: statistics.orders.awaiting},
+                {title: "سفارشات در انتظار تایید", number: statistics.orders.awaiting},
                 {title: "سفارشات پیش پرداخت شده", number: statistics.orders.prepaid}
             ],
             bottom_items: [
-                {title: "سفارشات اخیر شما", items: this.state.recent_orders},
-                {title: "پرداخت های اخیر شما", items: this.state.recent_pais},
-                {title: "آخرین پیام ها", items: this.state.recent_messages}
+                {title: "سفارشات اخیر", items: recent_orders},
+                {title: "پرداخت های اخیر", items: recent_pays},
+                {title: "آخرین پیام ها", items: recent_notifications}
             ]
         }
         return (
