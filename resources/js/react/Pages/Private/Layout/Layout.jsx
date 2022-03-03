@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import PrivateRoutes from '../../../router/PrivateRoutes';
 import PrivateRoute from '../../../router/PrivateRoute';
 import VerifiedMiddleware from '../../../components/VerifiedMiddleware';
+import MenuToggle from './components/MenuToggle';
 
 function Layout() {
     return (
@@ -17,6 +18,7 @@ function Layout() {
                     </div>
                     <Sidebar /> 
                 </div>
+                <MenuToggle />
                 <Footer />
             </div> 
         </PrivateRoute> 

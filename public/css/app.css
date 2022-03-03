@@ -11370,6 +11370,10 @@ h3 {
   .payment-method-container .input-group {
     margin: 10px 0 !important;
   }
+
+  .user-area-layout-container #menu-open {
+    display: flex !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -15829,6 +15833,24 @@ span.back-aqua.big-icon {
   height: auto;
   float: left;
   background-color: #f6f6f6;
+}
+.user-area-layout-container #menu-open {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15px;
+  z-index: 20;
+  display: none;
+}
+.user-area-layout-container #menu-open i {
+  font-size: 20px;
+  color: #ac7ff4;
 }
 .user-area-layout-container .top-background {
   width: 100%;

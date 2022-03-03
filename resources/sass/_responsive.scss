@@ -1294,6 +1294,11 @@ $xl-xl-breakpoint: 1600px;
             margin: 10px 0 !important;
         }
     }
+    .user-area-layout-container {
+        #menu-open {
+            display: flex !important;
+        }
+    }
 } // end tablet and mobile
 
 // tablet
