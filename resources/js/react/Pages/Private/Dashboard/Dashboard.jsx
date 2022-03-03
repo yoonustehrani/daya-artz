@@ -32,7 +32,7 @@ class Dashboard extends Component {
         this.setState(prev => ({
             statistics: {...prev.statistics, ...general, orders: orders},
             recent_orders: [...latest.orders.map(x => ({text: x.text, href: `/orders/${x.id}`}))],
-            recent_pays: [...latest.transactions.map(x => ({text: x.text, href: `/transactions`}))],
+            recent_pays: [...latest.transactions.map(x => ({text: x.text, href: `/finance/transactions`}))],
             recent_notifications: latest.notifications
         }))
     }

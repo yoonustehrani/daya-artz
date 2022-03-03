@@ -129,7 +129,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
                   recent_pays: _toConsumableArray(latest.transactions.map(function (x) {
                     return {
                       text: x.text,
-                      href: "/transactions"
+                      href: "/finance/transactions"
                     };
                   })),
                   recent_notifications: latest.notifications

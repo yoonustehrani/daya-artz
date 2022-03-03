@@ -19,6 +19,10 @@ class Transaction extends Model
     {
         return __('userarea.transactions.provider.' . $this->provider);
     }
+    public function getStatusFaAttribute()
+    {
+        return __('userarea.transactions.status.' . $this->status);
+    }
     public function getTextAmountAttribute()
     {
         return number_format($this->amount);

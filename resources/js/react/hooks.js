@@ -5,7 +5,7 @@ import HttpClient from '../services/HttpClient';
 const useJalaliDate = (datetime) => {
     moment.loadPersian({usePersianDigits: true, dialect: "persian-modern"})
     let date = moment(datetime)
-    let formatToJalai = format => date.format(format)
+    let formatToJalai = (format = 'jYYYY/jM/jD H:mm:ss') => date.format(format)
     return {
         format: formatToJalai
     }

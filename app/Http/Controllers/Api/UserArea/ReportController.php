@@ -14,6 +14,7 @@ class ReportController extends Controller
     public function transactions()
     {
         $transactions = request()->user()->transactions()->simplePaginate(12);
+        $transactions->append(['provider_fa', 'status_fa']);
         $transactions->load('bill');
         return response()->json($transactions);
     }
