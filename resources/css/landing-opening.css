@@ -5,6 +5,12 @@
     i {
         @apply align-middle;
     }
+    body {
+        direction: ltr;
+        * {
+            direction: rtl;
+        }
+    }
 }
 
 @layer components {

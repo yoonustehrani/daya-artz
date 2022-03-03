@@ -1,4 +1,4 @@
-<nav id="header-nav" class="h-14 w-full p-2 md:px-6 bg-gradient-to-r from-indigo-500 to-indigo-700 text-slate-50 text-lg flex flex-nowrap justify-between md:relative z-20 overflow-hidden animated duration-200">
+<nav id="header-nav" class="h-14 w-full p-2 md:px-6 bg-gradient-to-r from-indigo-500 to-indigo-700 text-slate-50 text-lg flex flex-nowrap justify-between md:relative z-20 overflow-hidden top-0 animated [animation-duration:0.2s]">
     <div class="flex flex-nowrap items-center">
         <span id="menu-open"><i class="far fa-bars md:hidden ml-3 text-4xl duration-300"></i></span>
         <a href="{{ route("home") }}" class="ml-3 h-[calc(100%_+_0.5rem)]"><img src="{{ asset(get_setting("header.menu.logo")) }}" alt="daya-logo" class="h-full"></a>

@@ -34,10 +34,11 @@ body.addEventListener("click", (e) => {
 })
 // this code will set the header navbar fixed according to the window height
 function setHeader() {
-    var window_height = window.innerHeight, offset_top = body.scrollTop(), target_header = document.getElementById("landing-header"), header_nav = document.getElementById("header-nav")
-    if (window.width() >= 768) {
+    var window_height = window.innerHeight, offset_top = body.scrollTop, target_header = document.getElementById("landing-header"), header_nav = document.getElementById("header-nav")
+    if (window.innerWidth >= 768) {
         if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
             target_header.classList.add("pt-14")
+            header_nav.classList.add("!fixed")
             header_nav.classList.add("slideInDown")
             setTimeout(() => {
                 header_nav.classList.remove("slideInDown")
@@ -45,19 +46,20 @@ function setHeader() {
         } else if (offset_top < window_height && target_header.classList.contains("pt-14")) {
             header_nav.classList.add("slideOutUp")
             setTimeout(() => {
-                $(target_header).classList.remove("pt-14")
+                target_header.classList.remove("pt-14")
+                header_nav.classList.remove("!fixed")
                 header_nav.classList.remove("slideOutUp")
             }, 200)
         }
     } else {
-        $(target_header).classList.remove("pt-14")
-        header_nav.classList.remove("slideInDown slideOutUp")
+        target_header.classList.remove("pt-14")
+        header_nav.classList.remove("slideInDown", "slideOutUp")
     }
 }
 // we use the above code as a trigger for scroll evenets and resize window events
 body.addEventListener("scroll", function() {
     setHeader()
 })   
-window.onresize(function() {
+window.addEventListener("resize", function() {
     setHeader()        
 })

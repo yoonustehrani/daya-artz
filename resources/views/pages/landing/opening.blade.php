@@ -1,7 +1,7 @@
 <x-layout.landing :title="$page->title">
     {{-- start header --}}
     <x-slot name="header">
-        {{-- <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
+        <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
             <img src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="h-[600px]">
             <img src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="h-[600px] absolute right-0 bottom-[6%]">
             <div class="px-2 py-4 text-center flex flex-col justify-evenly items-center">
@@ -22,11 +22,11 @@
             </div>
             <img src="{{ asset('/images/baloone-left-2.png') }}" alt="baloone-left" class="h-[600px] hidden md:inline">
             <img src="{{ asset('/images/baloone-left-1.png') }}" alt="baloone-left" class="h-[600px] hidden md:inline absolute left-0 bottom-[6%]">
-        </div> --}}
+        </div>
     </x-slot>
     {{-- end header --}}
     {{-- start discount description --}}
-    {{-- <div class="w-full my-6 px-12 flex justify-evenly items-stretch">
+    <div class="w-full my-6 px-12 flex justify-evenly items-stretch">
         <div class="text-2xl text-indigo-600 leading-loose">
             <span class="ml-1 align-middle"><i class="far fa-badge-percent text-3xl text-indigo-600"></i></span>
             <p class="inline"><b>تا 25 درصد تخفیف ویژه افتتاحیه سایت ما؛</b><br>یعنی استارت آپ طراحی گرافیک <b>دایا آرتز</b>...</p>
@@ -41,10 +41,10 @@
             </div>
         </div>
         <img src="{{ asset("/images/daya-logo-opening.png") }}" alt="daya-logo" class="w-72 md:mr-12">
-    </div>      --}}
+    </div>     
     {{-- end discount description --}}
     {{-- start packages --}}
-    {{-- <div class="w-full my-6 h-auto py-8 px-6 flex flex-wrap justify-evenly items-stretch bg-gradient-to-bl text-slate-50 from-indigo-600 to-indigo-500">
+    <div class="w-full my-6 h-auto py-8 px-6 flex flex-wrap justify-evenly items-stretch bg-gradient-to-bl text-slate-50 from-indigo-600 to-indigo-500">
         <p class="mb-8 font-bold text-2xl w-full"><span class="ml-2 align-middle relative inline-block h-fit"><i class="fas fa-gift text-6xl"></i><i class="fas fa-badge-percent absolute right-1 bottom-0 text-2xl text-orange-500"></i></span>پکیج های بهینه برای نیاز خاص شما !</p>
         <div class="md:w-2/5 lg:w-2/7 max-w-xs bg-gradient-to-b from-indigo-500 to-indigo-400 py-8 px-5 text-white shadow-xl text-center rounded-xl my-8">
             <h3 class="bg-slate-50 text-orange-500 rounded-full p-2 mb-4 mx-auto text-lg w-fit font-bold">بسته فضای مجازی</h3>
@@ -118,7 +118,7 @@
             <p class="text-3xl font-bold my-2"><span class="text-sm font-normal">هزار تومان / </span>934</p>
             <button class="my-2 rounded-md bg-slate-50 text-orange-500 py-2 px-5 duration-300 hover:text-slate-50 hover:bg-orange-600">ثبت سفارش</button>
         </div>
-    </div> --}}
+    </div>
     {{-- end packages --}}
     {{-- start quick order form --}}
     {{-- <x-quick-order-form /> --}}

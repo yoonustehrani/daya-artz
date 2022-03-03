@@ -380,7 +380,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     color: rgb(168 85 247 / var(--tw-text-opacity));
 }i{
     vertical-align: middle;
-}.fa,
+}body {
+        direction: ltr;
+    }body * {
+            direction: rtl;
+        }.fa,
 .fas,
 .far,
 .fal,
@@ -5025,6 +5029,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
             }
     }.fixed{
     position: fixed;
+}.\!fixed{
+    position: fixed !important;
 }.absolute{
     position: absolute;
 }.relative{
@@ -5303,8 +5309,6 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     padding: 0.25rem;
 }.p-4{
     padding: 1rem;
-}.p-14{
-    padding: 3.5rem;
 }.px-2{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -5347,10 +5351,10 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
 }.py-0{
     padding-top: 0px;
     padding-bottom: 0px;
-}.pb-2{
-    padding-bottom: 0.5rem;
 }.pt-14{
     padding-top: 3.5rem;
+}.pb-2{
+    padding-bottom: 0.5rem;
 }.text-center{
     text-align: center;
 }.text-right{
@@ -5462,10 +5466,10 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }.duration-300{
     transition-duration: 300ms;
-}.duration-500{
-    transition-duration: 500ms;
 }.duration-200{
     transition-duration: 200ms;
+}.duration-500{
+    transition-duration: 500ms;
 }#menu-list.open{
     right: 0px;
     height: 100vh;
@@ -5476,6 +5480,9 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     opacity: 0.9;
 }.\[direction\:ltr\]{
     direction: ltr;
+}.\[animation-duration\:0\.2s\]{
+    -webkit-animation-duration: 0.2s;
+            animation-duration: 0.2s;
 }.after\:absolute::after{
     content: var(--tw-content);
     position: absolute;
