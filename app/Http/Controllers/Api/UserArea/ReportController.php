@@ -85,11 +85,13 @@ class ReportController extends Controller
             ->append(['text']);
         $transactions = Transaction::orderBy('updated_at', 'desc')
             ->select('id', 'amount', 'status', 'provider', 'updated_at')
-            ->limit(5)
+            ->limit(3)
             ->where('user_id', $user_id)
             ->get()
-            ->append('provider_fa');
-        $notifications = [];
+            ->append(['text']);
+        $notifications = [
+            ['text' => 'some text', 'href' => '#']
+        ];
         return response()->json(compact('orders', 'transactions', 'notifications'));
     }
 }

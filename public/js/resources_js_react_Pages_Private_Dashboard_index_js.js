@@ -114,7 +114,6 @@ var Dashboard = /*#__PURE__*/function (_Component) {
               general = _yield$Promise$all2[0];
               orders = _yield$Promise$all2[1];
               latest = _yield$Promise$all2[2];
-              console.log(latest);
 
               _this.setState(function (prev) {
                 return {
@@ -126,11 +125,18 @@ var Dashboard = /*#__PURE__*/function (_Component) {
                       text: x.text,
                       href: "/orders/".concat(x.id)
                     };
-                  }))
+                  })),
+                  recent_pays: _toConsumableArray(latest.transactions.map(function (x) {
+                    return {
+                      text: x.text,
+                      href: "/transactions"
+                    };
+                  })),
+                  recent_notifications: latest.notifications
                 };
               });
 
-            case 9:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -148,10 +154,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       },
       recent_orders: [],
       recent_pays: [],
-      recent_messages: [{
-        text: "سلام",
-        href: "#"
-      }]
+      recent_notifications: []
     };
     return _this;
   }
@@ -169,7 +172,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           statistics = _this$state.statistics,
           recent_orders = _this$state.recent_orders,
           recent_pays = _this$state.recent_pays,
-          recent_messages = _this$state.recent_messages;
+          recent_notifications = _this$state.recent_notifications;
       var components = {
         top_items: TopItem,
         middle_items: MiddleItem,
@@ -217,21 +220,21 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           title: "سفارشات تکمیل شده",
           number: statistics.orders.completed
         }, {
-          title: "سفارشات در انتظار تایید شما",
+          title: "سفارشات در انتظار تایید",
           number: statistics.orders.awaiting
         }, {
           title: "سفارشات پیش پرداخت شده",
           number: statistics.orders.prepaid
         }],
         bottom_items: [{
-          title: "سفارشات اخیر شما",
+          title: "سفارشات اخیر",
           items: recent_orders
         }, {
-          title: "پرداخت های اخیر شما",
+          title: "پرداخت های اخیر",
           items: recent_pays
         }, {
           title: "آخرین پیام ها",
-          items: recent_messages
+          items: recent_notifications
         }]
       };
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {

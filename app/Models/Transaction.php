@@ -19,4 +19,15 @@ class Transaction extends Model
     {
         return __('userarea.transactions.provider.' . $this->provider);
     }
+    public function getTextAmountAttribute()
+    {
+        return number_format($this->amount);
+    }
+    public function getTextAttribute()
+    {
+        $amount = "{$this->text_amount} " . config('app.currency');
+        $provider = "({$this->provider_fa})";
+        $jdate = jdate($this->updated_at)->format('j F Y') . " ({$this->updated_at->format('H:i')})";
+        return "{$amount}{$provider} - {$jdate}";
+    }
 }
