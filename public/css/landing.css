@@ -3700,6 +3700,11 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
+}.animated.flip {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip;
+  animation-name: flip;
 }@-webkit-keyframes flipInX {
   from {
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -4686,6 +4691,49 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
 }.slideOutUp {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
+}.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}.animated.delay-1s {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}.animated.delay-2s {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}.animated.delay-3s {
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}.animated.delay-4s {
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+}.animated.delay-5s {
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+}.animated.fast {
+  -webkit-animation-duration: 800ms;
+  animation-duration: 800ms;
+}.animated.faster {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}.animated.slow {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}.animated.slower {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+}@media (print), (prefers-reduced-motion: reduce) {
+  .animated {
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+  }
 }*, ::before, ::after{
     --tw-translate-x: 0;
     --tw-translate-y: 0;
@@ -5255,6 +5303,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     padding: 0.25rem;
 }.p-4{
     padding: 1rem;
+}.p-14{
+    padding: 3.5rem;
 }.px-2{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -5299,6 +5349,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     padding-bottom: 0px;
 }.pb-2{
     padding-bottom: 0.5rem;
+}.pt-14{
+    padding-top: 3.5rem;
 }.text-center{
     text-align: center;
 }.text-right{
@@ -5412,6 +5464,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     transition-duration: 300ms;
 }.duration-500{
     transition-duration: 500ms;
+}.duration-200{
+    transition-duration: 200ms;
 }#menu-list.open{
     right: 0px;
     height: 100vh;
