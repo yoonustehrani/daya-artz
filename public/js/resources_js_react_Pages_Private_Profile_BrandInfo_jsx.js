@@ -1270,10 +1270,17 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "fields-container",
           children: fields.map(function (field, i) {
-            var value = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(_this2.state[controller], field.path).get();
+            var value = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(_this2.state[controller], field.path).get(),
+                not_null;
+
+            if ("".concat(controller, ".").concat(field.path) === "user.email") {
+              new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj("user", "phone_number").get().length <= 0 ? not_null = 1 : null;
+            }
+
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(field.component, _objectSpread({
               onChangeHandler: _this2.changeInfo,
-              value: value
+              value: value,
+              not_null: "".concat(controller, ".").concat(field.path) === "user.email" ? not_null : null
             }, field), i);
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {

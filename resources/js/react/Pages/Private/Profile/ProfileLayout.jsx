@@ -85,9 +85,12 @@ class ProfileLayout extends Component {
                 </div>
                 <div className='fields-container'>
                     {fields.map((field, i) => {
-                        let value = new NestedObj(this.state[controller], field.path).get()
+                        let value = new NestedObj(this.state[controller], field.path).get(), not_null
+                        if (`${controller}.${field.path}` === "user.email") {
+                            new NestedObj("user", "phone_number").get().length <= 0 ? not_null = 1 : null
+                        }
                         return (
-                            <field.component key={i} onChangeHandler={this.changeInfo} value={value} {...field} />
+                            <field.component key={i} onChangeHandler={this.changeInfo} value={value} not_null={`${controller}.${field.path}` === "user.email" ? not_null : null} {...field}  />
                         )
                     })}
                 </div>
