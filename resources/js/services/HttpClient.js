@@ -46,7 +46,7 @@ export default class HttpClient
             this.ErrorCallBack(err);
         }
         if (! handle) {
-            return
+            return err.response
         }
         if (err.response) {
             let {data, status} = err.response
@@ -71,12 +71,15 @@ export default class HttpClient
                 case 403:
                     message = data.message
                     break
+                case 401:
+                    message = 'از حساب کاربری تان خارج شدید. لطفا مجدد وارد شوید.'
+                    break
                 default:
                     message = "خطای سرور"
                     break
             }
             this.Alert.error({title: 'خطا', html: message})
-            return data
+            return {data, status}
         } else if (err.request) {
             this.Alert.error({title: 'خطا در ارتباط با سرور'})
             // The request was made but no response was received

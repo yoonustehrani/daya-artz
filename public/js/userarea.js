@@ -4830,7 +4830,7 @@ var logoutUser = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThu
             }
 
             _context4.next = 4;
-            return http.post('/auth/logout');
+            return http.post('/auth/logout', {}, {}, false);
 
           case 4:
             response = _context4.sent;
@@ -5133,6 +5133,7 @@ var loginReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__["default"])(function (d
     case _actions__WEBPACK_IMPORTED_MODULE_0__.updateUserInfo.fulfilled.toString():
     case USER_LOGGED_IN:
     case _actions__WEBPACK_IMPORTED_MODULE_0__.updateCustomerInfo.fulfilled.toString():
+      draft.loading = false;
       draft.user = action.payload;
       break;
 
@@ -5146,12 +5147,14 @@ var loginReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__["default"])(function (d
       // console.log("action is ", action);
       break;
 
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.logInUsingCredentials.pending.toString():
     case _actions__WEBPACK_IMPORTED_MODULE_0__.logoutUser.pending.toString():
       draft.loading = true;
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.logoutUser.rejected.toString():
       draft.loading = false;
+      draft.user = null;
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.verifyPhoneNumber.fulfilled.toString():
@@ -6479,7 +6482,7 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
     }
 
     if (!handle) {
-      return;
+      return err.response;
     }
 
     if (err.response) {
@@ -6511,6 +6514,10 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
           message = data.message;
           break;
 
+        case 401:
+          message = 'از حساب کاربری تان خارج شدید. لطفا مجدد وارد شوید.';
+          break;
+
         default:
           message = "خطای سرور";
           break;
@@ -6521,7 +6528,10 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
         html: message
       });
 
-      return data;
+      return {
+        data: data,
+        status: status
+      };
     } else if (err.request) {
       _this.Alert.error({
         title: 'خطا در ارتباط با سرور'

@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
+use App\Mail\PaymentMade;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Ticket;
+use App\Models\Transaction;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,13 +96,12 @@ Route::get('test', function (Request $request) {
 })->name('tempo');
 
 
-Route::get('payment', function() {
-    // $zp =;
-    // if ($zp) {
-    //     $zp->setMerchantId('00000000-0000-0000-0000-000000000000');
-    //     $zp->sandbox();
-    //     return $zp->purchase(1000, "تست درگاه دایا", []);
-    // }
+Route::get('email', function() {
+    return view('emails.welcome');
+    // $trs = Transaction::first();
+    // $user = User::first();
+    // Mail::to($user)->send(new PaymentMade($trs));
+    // return (new PaymentMade($trs))->render();
 });
 
 Route::match(['get', 'post'], 'payment/{driver}/verify', function($driver) {
