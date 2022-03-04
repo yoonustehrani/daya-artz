@@ -135,17 +135,17 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 19;
-            .op-0 {
+            transition: 0.3s;
+            animation: fadeIn 1s ease-in;
+            &.op-0 {
                 opacity: 0;
+                pointer-events: none;
             }
             i {
                 color: #ffffff !important;
                 cursor: pointer;
                 font-size: 35px;
-                transition: 1.4s;
-                opacity: 1;
                 display: inline;
-                animation: fadeIn 1s ease-in;
             }
         }
         .last-item {

@@ -5,6 +5,12 @@
     i {
         @apply align-middle;
     }
+    body {
+        direction: ltr;
+        * {
+            direction: rtl;
+        }
+    }
 }
 
 @layer components {
@@ -266,6 +272,13 @@
 
 @layer utilities {
     #menu-list.open {
-        @apply opacity-90 right-0 h-screen bg-gradient-to-br from-indigo-700 to-indigo-500;
+        @apply opacity-90 right-0;
+    }
+    .hide-scroll {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
 }

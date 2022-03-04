@@ -38,7 +38,7 @@
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
-        align-items: flex-start;
+        align-items: stretch;
         min-height: 650px;
         margin-top: -100px;    
         padding: 0 10px 0 10px;    
@@ -51,13 +51,13 @@
             width: 18%;
             padding: 20px 10px;
             text-align: center;
+            max-height: 650px;
             .user-info {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
-                height: 150px;
                 .user-avatar {
                     width: 100px;
                     height: 100px;
@@ -98,8 +98,8 @@
                 overflow-x: hidden;
                 padding-right: 0px;
                 list-style-type: none;
-                margin-top: 10px;
-                height: calc(100% - 255px);
+                margin-top: 20px;
+                height: calc(100% - 215px);
                 &::-webkit-scrollbar {
                     width: 8px;
                 }

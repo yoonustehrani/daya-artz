@@ -380,7 +380,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     color: rgb(168 85 247 / var(--tw-text-opacity));
 }i{
     vertical-align: middle;
-}.fa,
+}body {
+        direction: ltr;
+    }body * {
+            direction: rtl;
+        }.fa,
 .fas,
 .far,
 .fal,
@@ -411,7 +415,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-readers do not read off random characters that represent icons */.fa-arrow-alt-down:before {
+readers do not read off random characters that represent icons */.fa-address-card:before {
+  content: "\f2bb"; }.fa-arrow-alt-down:before {
   content: "\f354"; }.fa-badge:before {
   content: "\f335"; }.fa-badge-percent:before {
   content: "\f646"; }.fa-bars:before {
@@ -425,7 +430,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
   content: "\f568"; }.fa-elementor:before {
   content: "\f430"; }.fa-envelope:before {
   content: "\f0e0"; }.fa-gift:before {
-  content: "\f06b"; }.fa-instagram:before {
+  content: "\f06b"; }.fa-home:before {
+  content: "\f015"; }.fa-instagram:before {
   content: "\f16d"; }.fa-linkedin:before {
   content: "\f08c"; }.fa-percent:before {
   content: "\f295"; }.fa-phone:before {
@@ -433,7 +439,10 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
   content: "\f1a7"; }.fa-plus:before {
   content: "\f067"; }.fa-sticky-note:before {
   content: "\f249"; }.fa-telegram-plane:before {
-  content: "\f3fe"; }.fa-whatsapp:before {
+  content: "\f3fe"; }.fa-times:before {
+  content: "\f00d"; }.fa-user-circle:before {
+  content: "\f2bd"; }.fa-user-headset:before {
+  content: "\f82d"; }.fa-whatsapp:before {
   content: "\f232"; }@font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
@@ -3700,6 +3709,11 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
+}.animated.flip {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip;
+  animation-name: flip;
 }@-webkit-keyframes flipInX {
   from {
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -4686,6 +4700,49 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
 }.slideOutUp {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
+}.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}.animated.delay-1s {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}.animated.delay-2s {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}.animated.delay-3s {
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}.animated.delay-4s {
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+}.animated.delay-5s {
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+}.animated.fast {
+  -webkit-animation-duration: 800ms;
+  animation-duration: 800ms;
+}.animated.faster {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}.animated.slow {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}.animated.slower {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+}@media (print), (prefers-reduced-motion: reduce) {
+  .animated {
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+  }
 }*, ::before, ::after{
     --tw-translate-x: 0;
     --tw-translate-y: 0;
@@ -4975,8 +5032,12 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
             .fast-order-guide br {
                 display: block !important;
             }
-    }.fixed{
+    }.pointer-events-none{
+    pointer-events: none;
+}.fixed{
     position: fixed;
+}.\!fixed{
+    position: fixed !important;
 }.absolute{
     position: absolute;
 }.relative{
@@ -5026,9 +5087,6 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
 }.my-4{
     margin-top: 1rem;
     margin-bottom: 1rem;
-}.mx-3{
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
 }.ml-1{
     margin-left: 0.25rem;
 }.mt-4{
@@ -5085,6 +5143,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     height: 3.5rem;
 }.h-\[calc\(100\%_\+_0\.5rem\)\]{
     height: calc(100% + 0.5rem);
+}.h-\[-webkit-fill-available\]{
+    height: -webkit-fill-available;
 }.h-10{
     height: 2.5rem;
 }.w-full{
@@ -5107,8 +5167,6 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     width: 21rem;
 }.w-9{
     width: 2.25rem;
-}.w-3\/4{
-    width: 75%;
 }.min-w-\[88px\]{
     min-width: 88px;
 }.max-w-xs{
@@ -5165,6 +5223,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     overflow-y: auto;
 }.overflow-x-hidden{
     overflow-x: hidden;
+}.overflow-y-hidden{
+    overflow-y: hidden;
 }.rounded-md{
     border-radius: 0.375rem;
 }.rounded-2xl{
@@ -5220,6 +5280,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     background-image: url('/images/shaped-background.png');
 }.bg-icon{
     background-image: url('/images/item-background.png');
+}.bg-gradient-to-br{
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }.from-indigo-400{
     --tw-gradient-from: #818cf8;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(129 140 248 / 0));
@@ -5229,6 +5291,9 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
 }.from-indigo-500{
     --tw-gradient-from: #6366f1;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(99 102 241 / 0));
+}.from-indigo-700{
+    --tw-gradient-from: #4338ca;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(67 56 202 / 0));
 }.to-indigo-600{
     --tw-gradient-to: #4f46e5;
 }.to-indigo-500{
@@ -5253,8 +5318,6 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     padding: 0.5rem;
 }.p-1{
     padding: 0.25rem;
-}.p-4{
-    padding: 1rem;
 }.px-2{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -5297,8 +5360,8 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
 }.py-0{
     padding-top: 0px;
     padding-bottom: 0px;
-}.pb-2{
-    padding-bottom: 0.5rem;
+}.pt-14{
+    padding-top: 3.5rem;
 }.text-center{
     text-align: center;
 }.text-right{
@@ -5410,18 +5473,24 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }.duration-300{
     transition-duration: 300ms;
-}.duration-500{
-    transition-duration: 500ms;
+}.duration-200{
+    transition-duration: 200ms;
+}.duration-700{
+    transition-duration: 700ms;
 }#menu-list.open{
     right: 0px;
-    height: 100vh;
-    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-    --tw-gradient-from: #4338ca;
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(67 56 202 / 0));
-    --tw-gradient-to: #6366f1;
     opacity: 0.9;
+}.hide-scroll {  /* IE and Edge */  /* Firefox */
+    }.hide-scroll::-webkit-scrollbar {
+            display: none;
+        }.hide-scroll{
+        -ms-overflow-style: none;
+        scrollbar-width: none;
 }.\[direction\:ltr\]{
     direction: ltr;
+}.\[animation-duration\:0\.2s\]{
+    -webkit-animation-duration: 0.2s;
+            animation-duration: 0.2s;
 }.after\:absolute::after{
     content: var(--tw-content);
     position: absolute;
@@ -5523,20 +5592,35 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
 }.group:hover .group-hover\:text-indigo-500{
     --tw-text-opacity: 1;
     color: rgb(99 102 241 / var(--tw-text-opacity));
+}@media (min-width: 640px){.sm\:w-3\/5{
+        width: 60%;
+    }
 }@media (min-width: 768px){.md\:static{
         position: static;
     }.md\:relative{
         position: relative;
+    }.md\:mx-3{
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+    }.md\:my-0{
+        margin-top: 0px;
+        margin-bottom: 0px;
     }.md\:mr-12{
         margin-right: 3rem;
     }.md\:mt-3{
         margin-top: 0.75rem;
     }.md\:mt-0{
         margin-top: 0px;
+    }.md\:block{
+        display: block;
+    }.md\:inline-block{
+        display: inline-block;
     }.md\:inline{
         display: inline;
     }.md\:hidden{
         display: none;
+    }.md\:h-auto{
+        height: auto;
     }.md\:w-2\/5{
         width: 40%;
     }.md\:w-1\/2{
@@ -5547,15 +5631,29 @@ readers do not read off random characters that represent icons */.fa-arrow-alt-d
         width: fit-content;
     }.md\:max-w-none{
         max-width: none;
+    }.md\:flex-row{
+        flex-direction: row;
+    }.md\:items-center{
+        align-items: center;
+    }.md\:bg-none{
+        background-image: none;
     }.md\:p-0{
         padding: 0px;
+    }.md\:p-2{
+        padding: 0.5rem;
     }.md\:px-6{
         padding-left: 1.5rem;
         padding-right: 1.5rem;
     }.md\:pl-4{
         padding-left: 1rem;
+    }.md\:text-base{
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
-}@media (min-width: 1280px){.xl\:ml-4{
+}@media (min-width: 1280px){.xl\:mx-6{
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }.xl\:ml-4{
         margin-left: 1rem;
     }.xl\:w-5\/12{
         width: 41.666667%;

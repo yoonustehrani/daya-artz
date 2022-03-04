@@ -2572,63 +2572,79 @@ if (quickOrderElement) {
 } // this code is for handling the menu in < md sizes
 
 
+var body = document.body;
+
 function toggle_menu() {
   var is_open,
-      menu_el = document.getElementById("menu-list");
+      menu_el = document.getElementById("menu-list"),
+      toggle_classes = ["opacity-0", "pointer-events-none"];
   is_open = menu_el.classList.contains("open");
 
   if (is_open) {
-    menu_el.classList.toggle("open");
+    menu_el.classList.remove("open");
     setTimeout(function () {
       menu_el.classList.add("hidden");
-    }, 1000);
+      toggle_classes.forEach(function (classname) {
+        document.getElementById("menu-open").classList.toggle(classname);
+      });
+    }, 400);
   } else {
     menu_el.classList.remove("hidden");
     setTimeout(function () {
-      menu_el.classList.toggle("open");
+      menu_el.classList.add("open");
+      toggle_classes.forEach(function (classname) {
+        document.getElementById("menu-open").classList.toggle(classname);
+      });
     }, 0);
-  } // $("body").toggleClass("over-h")
+  }
 
-
-  document.querySelector("nav .fa-bars").classList.toggle("opacity-0");
+  body.classList.toggle("overflow-y-hidden");
 }
 
-document.body.addEventListener("click", function (e) {
+body.addEventListener("click", function (e) {
   var el = e.target,
       menu_el = document.getElementById("menu-list");
 
-  if (menu_el.classList.contains("open") && el.id !== "menu-list" && el.id !== "menu-open" && !el.closest("#menu-open") && !el.closest("#menu-list") || el.closest("#menu-close") || el.closest("#menu-open")) {
+  if (menu_el.classList.contains("open") && !el.closest("#menu-list") || el.closest("#menu-close") || el.closest("#menu-open")) {
     toggle_menu();
   }
 }); // this code will set the header navbar fixed according to the window height
-// function setHeader() {
-//     var window_height = window.innerHeight, offset_top = $("body").scrollTop(), target_header = $(".header, .min-header")
-//     if ($(window).width() >= 768) {
-//         if (offset_top >= window_height && !target_header.hasClass("fixed")) {
-//             $(target_header).addClass("fixed")
-//             $("#header-nav").addClass("slideInDown")
-//             setTimeout(() => {
-//                 $("#header-nav").removeClass("slideInDown")
-//             }, 200);
-//         } else if (offset_top < window_height && target_header.hasClass("fixed")) {
-//             $("#header-nav").addClass("slideOutUp")
-//             setTimeout(() => {
-//                 $(target_header).removeClass("fixed")
-//                 $("#header-nav").removeClass("slideOutUp")
-//             }, 200)
-//         }
-//     } else {
-//         $(target_header).removeClass("fixed")
-//         $("#header-nav").removeClass("slideInDown slideOutUp")
-//     }
-// }
-// // we use the above code as a trigger for scroll evenets and resize window events
-// $("body").on("scroll", function() {
-//     setHeader()
-// })   
-// $(window).resize(function() {
-//     setHeader()        
-// })
+
+function setHeader() {
+  var window_height = window.innerHeight,
+      offset_top = body.scrollTop,
+      target_header = document.getElementById("landing-header"),
+      header_nav = document.getElementById("header-nav");
+
+  if (window.innerWidth >= 768) {
+    if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
+      target_header.classList.add("pt-14");
+      header_nav.classList.add("!fixed");
+      header_nav.classList.add("slideInDown");
+      setTimeout(function () {
+        header_nav.classList.remove("slideInDown");
+      }, 200);
+    } else if (offset_top < window_height && target_header.classList.contains("pt-14")) {
+      header_nav.classList.add("slideOutUp");
+      setTimeout(function () {
+        target_header.classList.remove("pt-14");
+        header_nav.classList.remove("!fixed");
+        header_nav.classList.remove("slideOutUp");
+      }, 200);
+    }
+  } else {
+    target_header.classList.remove("pt-14");
+    header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed");
+  }
+} // we use the above code as a trigger for scroll evenets and resize window events
+
+
+body.addEventListener("scroll", function () {
+  setHeader();
+});
+window.addEventListener("resize", function () {
+  setHeader();
+});
 
 /***/ }),
 
