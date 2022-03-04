@@ -77,8 +77,8 @@ var validate = function validate(inputsArray) {
               case "short_text":
                 !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
                   min: 0,
-                  max: 20
-                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0628\u06CC\u0633\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                  max: 60
+                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0634\u0635\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
                 break;
 
               case "long_text":
@@ -351,7 +351,10 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
         }), phone_type === "both" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
           className: "gray animated mt-2 mb-2",
           onClick: this.changephoneType.bind(this),
-          children: [type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "text-danger",
+            children: not_null && "*"
+          }), type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-long-arrow-alt-left mr-1"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-phone mr-1"
@@ -467,7 +470,10 @@ var TextInput = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+            className: "text-danger",
+            children: not_null && "*"
+          }), title, ":"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {

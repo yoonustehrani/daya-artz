@@ -13,6 +13,6 @@
         {{ $header }}
     </header>
     {{ $slot }}
-    {{-- @include('components.layout.footer') --}}
+    @include('components.layout.footer')
 </body>
 </html>

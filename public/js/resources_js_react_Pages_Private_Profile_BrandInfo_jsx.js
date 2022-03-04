@@ -77,8 +77,8 @@ var validate = function validate(inputsArray) {
               case "short_text":
                 !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
                   min: 0,
-                  max: 20
-                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0628\u06CC\u0633\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
+                  max: 60
+                }) ? err = "\u0637\u0648\u0644 \u0641\u06CC\u0644\u062F ".concat(title, " \u062D\u062F\u0627\u06A9\u062B\u0631 \u0634\u0635\u062A \u06A9\u0627\u0631\u0627\u06A9\u062A\u0631 \u0645\u06CC\u0628\u0627\u0634\u062F") : null;
                 break;
 
               case "long_text":
@@ -272,7 +272,8 @@ function BrandInfo() {
     component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
     title: "عنوان برند",
     path: "title",
-    validate_types: ["short_text", "alpha-numeric-fa"]
+    validate_types: ["short_text", "alpha-numeric-fa"],
+    not_null: true
   }, {
     component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
     title: "عنوان انگلیسی برند",
@@ -304,7 +305,8 @@ function BrandInfo() {
     title: "معرفی کسب و کار",
     placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
     path: "intro",
-    validate_types: ["paragraph"]
+    validate_types: ["paragraph"],
+    not_null: true
   }, {
     component: _Components_Textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
     title: "توصیف عقاید و چهارچوب های سازمانی",
@@ -334,7 +336,8 @@ function BrandInfo() {
       text: "مدرن"
     }],
     default_value: "",
-    path: "market_type"
+    path: "market_type",
+    not_null: true
   }, {
     component: _Components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
     title: "رنگ سازمانی",
@@ -420,7 +423,10 @@ var ColorPicker = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+            className: "text-danger",
+            children: not_null && "*"
+          }), title, ":"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
@@ -557,7 +563,10 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
         }), phone_type === "both" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
           className: "gray animated mt-2 mb-2",
           onClick: this.changephoneType.bind(this),
-          children: [type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "text-danger",
+            children: not_null && "*"
+          }), type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-long-arrow-alt-left mr-1"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-phone mr-1"
@@ -674,7 +683,10 @@ var Radio = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+            className: "text-danger",
+            children: not_null && "*"
+          }), title, ":"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "input-group mb-1",
           children: options.map(function (option, i) {
@@ -793,7 +805,10 @@ var Select = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          children: [title, ":"]
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "text-danger",
+            children: not_null && "*"
+          }), title, ":"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
@@ -889,7 +904,10 @@ var TextInput = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+            className: "text-danger",
+            children: not_null && "*"
+          }), title, ":"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
@@ -975,7 +993,10 @@ var Textarea = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          children: [title, ":"]
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+            className: "text-danger",
+            children: not_null && "*"
+          }), title, ":"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "input-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {

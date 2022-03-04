@@ -44,6 +44,7 @@ class PhoneInput extends Component {
                 {
                     phone_type === "both" && 
                     <span className="gray animated mt-2 mb-2" onClick={this.changephoneType.bind(this)}>
+                        <i className='text-danger'>{not_null && "*"}</i>
                         {type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل"}
                         <i className="fas fa-long-arrow-alt-left mr-1"></i>
                         <i className="fas fa-phone mr-1"></i>

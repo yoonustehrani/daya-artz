@@ -5,7 +5,7 @@ class Radio extends Component {
         let { title, value, options, name, path, onChangeHandler, validate_types=null, not_null, default_value } = this.props
         return (
             <div className="field-item col-12 col-md-3">
-                <span>{title}:</span>
+                <span><i className='text-danger'>{not_null && "*"}</i>{title}:</span>
                 <div className="input-group mb-1">
                     {options.map((option, i) => {
                         let { text, id } = option
