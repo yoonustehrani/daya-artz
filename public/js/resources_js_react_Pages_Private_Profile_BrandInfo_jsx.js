@@ -1274,7 +1274,7 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
                 not_null;
 
             if ("".concat(controller, ".").concat(field.path) === "user.email") {
-              new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj("user", "phone_number").get().length <= 0 ? not_null = 1 : null;
+              new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(_this2.state[controller], "phone_number").get().length <= 0 ? not_null = 1 : null;
             }
 
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(field.component, _objectSpread({

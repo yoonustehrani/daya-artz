@@ -8,7 +8,7 @@
                 <span id="menu-close"><i class="far fa-times text-4xl"></i></span>
             </div>
             <p class="text-xl text-center my-4 md:hidden">DAYAARTZ<img src="{{ asset('/images/daya-logo-circular.png') }}" alt="daya-logo" class="mr-2 align-middle w-10 inline-block"></p>
-            <ul class="p-0 mt-4 md:mt-0 flex flex-nowrap flex-col md:flex-row justify-start items-start md:items-center overflow-y-auto h-[-webkit-fill-available] hide-scroll">
+            <ul class="p-0 mt-4 md:mt-0 flex flex-nowrap flex-col md:flex-row justify-start items-start md:items-center overflow-y-auto h-[calc(100%_-_(80px_+_2rem))] hide-scroll">
                 <li class=" md:mx-3 xl:mx-6 p-0 md:p-2 my-4 md:my-0 duration-300 border-b-transparent border-b-2 hover:border-b-sky-400 text-xl md:text-base"><a href="{{ route("home") }}"><i class="md:hidden ml-3 text-xl align-middle far fa-home"></i> خانه</a></li>
                 <li class=" md:mx-3 xl:mx-6 p-0 md:p-2 my-4 md:my-0 duration-300 border-b-transparent border-b-2 hover:border-b-sky-400 text-xl md:text-base"><a href="{{ route("about") }}"><i class="md:hidden ml-3 text-xl align-middle far fa-address-card"></i> درباره ما</a></li>
                 <li class=" md:mx-3 xl:mx-6 p-0 md:p-2 my-4 md:my-0 duration-300 border-b-transparent border-b-2 hover:border-b-sky-400 hidden md:block"><a href="{{ route("userarea") }}">ورود به حساب</a></li>
