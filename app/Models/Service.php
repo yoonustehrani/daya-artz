@@ -32,4 +32,8 @@ class Service extends Model
     {
         return $this->hasMany(Portfolio::class);
     }
+    public function getUriAttribute()
+    {
+        return route('services.show', ['slug' => $this->slug]);
+    }
 }

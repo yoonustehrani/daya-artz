@@ -28,6 +28,14 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Offer::class);
     }
+    public function getNormalAttribute()
+    {
+        return true;
+    }
+    public function getStatusFaAttribute()
+    {
+        return __("userarea.orders.status.{$this->status}");
+    }
     public function getOffAttribute()
     {
         if ($this->offer && $this->offer->value) {

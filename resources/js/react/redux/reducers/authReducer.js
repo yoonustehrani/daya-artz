@@ -38,8 +38,7 @@ const loginReducer = produce((draft, action) => {
             draft.loading = false
             break
         case logInUsingCredentials.rejected.toString():
-            // action.payload contains the error data
-            // console.log("action is ", action);
+            draft.loading = false
             break
         case logInUsingCredentials.pending.toString():
         case logoutUser.pending.toString():
