@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('/css/landing.css') }}">
     <title>{{ $title }}</title>
 </head>
-<body class="w-full h-full m-0 p-0 overflow-x-hidden overflow-y-auto fixed">
+<body class="w-full h-full m-0 p-0 overflow-x-hidden overflow-y-auto fixed bg-body">
     <header id="landing-header" class="h-auto w-full">
         @include('components.layout.menu')
         {{ $header }}
