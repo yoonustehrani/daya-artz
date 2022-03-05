@@ -17,7 +17,13 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
-            $table->integer('level')->default(0);
+            $table->enum('level', [
+                'register',
+                'new',
+                'user',
+                'customer',
+                'vip'
+            ]);
             $table->string('email')->unique()->nullable();
             $table->string('phone_number')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();

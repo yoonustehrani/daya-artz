@@ -90,9 +90,7 @@ class ReportController extends Controller
             ->where('user_id', $user_id)
             ->get()
             ->append(['text']);
-        $notifications = [
-            ['text' => 'some text', 'href' => '#']
-        ];
+        $notifications = $request->user()->unreadNotifications()->limit(3)->get();
         return response()->json(compact('orders', 'transactions', 'notifications'));
     }
 }

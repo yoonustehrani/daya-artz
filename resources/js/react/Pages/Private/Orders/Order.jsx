@@ -36,7 +36,7 @@ class Order extends Component {
         const response = await this.http.get(orderId)
         if (response.okay) {
             let {order, items, statuses} = response
-            newState = {order, items, statuses: {...statuses, all: "همه سفارشات"}}
+            newState = {order, items, statuses: {all: "همه سفارشات", ...statuses}}
             document.title += ` ${order.code}`
         }
         this.setState({loading: false, ...newState})

@@ -247,9 +247,9 @@ var Order = /*#__PURE__*/function (_Component) {
                 newState = {
                   order: order,
                   items: items,
-                  statuses: _objectSpread(_objectSpread({}, statuses), {}, {
+                  statuses: _objectSpread({
                     all: "همه سفارشات"
-                  })
+                  }, statuses)
                 };
                 document.title += " ".concat(order.code);
               }

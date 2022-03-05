@@ -132,7 +132,12 @@ var Dashboard = /*#__PURE__*/function (_Component) {
                       href: "/finance/transactions"
                     };
                   })),
-                  recent_notifications: latest.notifications
+                  recent_notifications: latest.notifications.map(function (x) {
+                    return {
+                      text: x.data.title,
+                      href: '#'
+                    };
+                  })
                 };
               });
 

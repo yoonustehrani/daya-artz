@@ -36,12 +36,13 @@
                                         {{ $slot }}
                                     </td>
                                 </tr>
+                                @isset($bottom)
                                 <tr>
                                     <td align="center" style="padding:20px 0px 20px 0px;">
-                                        <p class="text-purple bold">دایا آرتز |‌ گامی تا مدرنیته</p>
-                                        <p class="text-purple bold">سرویس امور مشتریان دایا آرتز</p>
+                                        {{ $bottom }}
                                     </td>
                                 </tr>
+                                @endisset                                
                             </table>
                         </td>
                     </tr>
