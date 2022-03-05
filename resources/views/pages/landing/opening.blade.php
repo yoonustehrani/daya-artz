@@ -121,21 +121,27 @@
     </div>
     {{-- end packages --}}
     {{-- start quick order form --}}
-    {{-- <x-quick-order-form /> --}}
+    <x-quick-order-form />
     {{-- end quick order form --}}
     {{-- start order methods --}}
-    {{-- <div class="w-full h-68 my-6 bg-gradient-to-r from-indigo-600 to-indigo-400">
+    <div class="w-full h-72 my-6 bg-gradient-to-r from-indigo-600 to-indigo-400">
         <div class="w-full h-full py-6 px-10 bg-shaped bg-cover flex justify-between items-stretch">
             <div class="h-full text-right">
                 <p class="font-bold text-4xl text-blue-200">روش های ثبت سفارش</p>
-                <p class="text-2xl text-slate-50 my-5">علاوه بر سفارش سریع، می توانید از طریق روش های  زیر سفارش خود را ثبت کنید.</p>
+                <p class="text-2xl text-slate-50 my-6">علاوه بر سفارش سریع، می توانید از طریق روش های  زیر سفارش خود را ثبت کنید.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 text-slate-50 text-2xl">
+                    <a href="#fast-order" class="[direction:ltr]">فرم سفارش سریع<span class="ml-2"><i class="fab fa-wpforms text-sky-300"></i></span></a>
+                    <a href="#telegram" class="[direction:ltr]">@DayaBot<span class="ml-2"><i class="fab fa-telegram-plane text-sky-300"></i></span></a>
+                    <a href="tel:+989015045025" class="[direction:ltr]">+98 901 504 5025<span class="ml-2"><i class="far fa-phone text-sky-300"></i></span></a>
+                    <a href="#whatsapp" class="[direction:ltr]">+98 901 604 5025<span class="ml-2"><i class="fab fa-whatsapp text-sky-300"></i></span></a>
+                </div>
             </div>
             <img src="{{ asset("/images/hand-point-lock.png") }}" alt="order-methods" class="h-full">
         </div>
-    </div> --}}
+    </div>
     {{-- end order methods --}}
     {{-- start services --}}
-    {{-- <div class="w-full h-auto my-6 px-10">
+    <div class="w-full h-auto my-6 px-10">
         <p class="mb-4 font-bold text-2xl w-full text-indigo-600"><span class="ml-2 align-middle relative inline-block h-fit"><i class="fas fa-arrow-alt-down text-8xl text-indigo-200"></i><i class="fal fa-percent absolute text-base left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-fuchsia-800 after:content-['OFF'] after:text-base after:mt-px after:font-bold flex flex-col items-center"></i></span>خدمات تکی طراحی گرافیک، آماده سفارش و طراحی!</p>
         <div class="w-full flex justify-evenly items-stretch flex-wrap">
             <div class="relative md:w-2/5 lg:w-2/7 max-w-xs bg-on-white py-8 px-5 text-neutral-900 shadow-2xl text-center rounded-lg my-8">
@@ -211,10 +217,10 @@
                 <button class="my-2 rounded-md bg-sky-500 px-5 py-2 duration-300 hover:bg-sky-700 text-slate-50">ثبت سفارش</button>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- end services --}}
     {{-- start daya opening --}}
-    {{-- <div class="w-full my-6 bg-gradient-to-r from-indigo-600 to-indigo-400">
+    <div class="w-full my-6 bg-gradient-to-r from-indigo-600 to-indigo-400">
         <div class="w-full h-full py-6 px-10 bg-shaped bg-cover">
             <p class="mb-8 font-bold text-3xl w-full text-blue-200"><img src="{{ asset("/images/fire-off.png") }}" class="ml-2 align-middle relative inline-block w-11" />جشنواره افتتاحیه دایا آرتز و مزیت های آن</p>
             <div class="w-5/6 px-16 text-slate-50 text-right my-8">
@@ -240,7 +246,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- end daya opening --}}
     {{-- start scripts --}}
     <script>APP_PATH = "{{ asset("/") }}"</script>

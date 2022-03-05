@@ -32,16 +32,16 @@ var { res, pub } = src
 mix.disableNotifications()
 
 // mix.js(res.js + 'app.js', pub.js).react()
-// mix.js(res.js + "userarea.js", pub.js).react()
-// mix.sass( res.sass + 'app.scss', pub.css)
-mix.postCss(res.css + "landing.css", pub.css).options({
-    postCss: [
-        require('postcss-import'),
-        require('tailwindcss/nesting'),
-        require('tailwindcss'),
-        require('autoprefixer'),
-    ]
-})
-    .js(res.js + "landing-opening.js", pub.js).react()
+mix.js(res.js + "userarea.js", pub.js).react()
+// // mix.sass( res.sass + 'app.scss', pub.css)
+// mix.postCss(res.css + "landing.css", pub.css).options({
+//     postCss: [
+//         require('postcss-import'),
+//         require('tailwindcss/nesting'),
+//         require('tailwindcss'),
+//         require('autoprefixer'),
+//     ]
+// })
+//     .js(res.js + "landing-opening.js", pub.js).react()
 //  .copy(pub.fonts + "fa-**", res.webfonts)
     // .copy('node_modules/animate.css/animate.css', res.css)

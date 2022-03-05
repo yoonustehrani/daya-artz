@@ -19,7 +19,7 @@ class Select extends Component {
         let { options, title, value, onChangeHandler, path, validate_types=null, not_null } = this.props
         return (
             <div className="field-item col-12 col-md-6">
-                <span>{title}:</span>
+                <span><i className='text-danger'>{not_null && "*"}</i>{title}:</span>
                 <div className="input-group">
                     <select className="form-control" ref={this.select2Ref} value={value} onChange={(e) => onChangeHandler(path, e.target, validate_types, title, not_null)}>
                         <option value=""></option>

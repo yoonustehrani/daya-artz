@@ -15,13 +15,14 @@ function BrandInfo() {
             component: TextInput,
             title: "عنوان برند",
             path: "title",
-            validate_types: ["short_text", "alpha-numeric-fa"]
+            validate_types: ["short_text", "alpha-numeric-fa"],
+            not_null: true
         },
         {
             component: TextInput,
             title: "عنوان انگلیسی برند",
             path: "title_en",
-            validate_types: ["short_text", "alpha-numeric-en"]
+            validate_types: ["short_text", "alpha-numeric-en"],
         },
         {
             component: TextInput,
@@ -53,7 +54,8 @@ function BrandInfo() {
             title: "معرفی کسب و کار",
             placeHolder: "فعالیت سازمان خود را به ما معرفی کنید",
             path: "intro",
-            validate_types: ["paragraph"]
+            validate_types: ["paragraph"],
+            not_null: true
         },
         {
             component: Textarea,
@@ -82,7 +84,8 @@ function BrandInfo() {
                 {id: "modern", text: "مدرن"}
             ],
             default_value: "",
-            path: "market_type"
+            path: "market_type",
+            not_null: true
         },
         {
             component: ColorPicker,
