@@ -1,6 +1,6 @@
 @component('emails.layout')
     @slot('header')
-        <p class="rtl header-name text-white" style="padding: 10px 0 10px 0;">سلام حاجی سیف</p>
+        <p class="rtl header-name text-white" style="padding: 10px 0 10px 0;">سلام {{ $username }}،</p>
         <h1 class="rtl header-title text-white">ثبت نام شما با موفقیت در دایا آرتز انجام شد.</h1>
     @endslot
     @slot('title')

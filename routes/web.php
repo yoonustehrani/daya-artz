@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\UserVerifiedTheirAccount;
 use App\Http\Controllers\LandingsController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\WebsiteController;
@@ -9,10 +10,12 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
 use App\Mail\PaymentMade;
+use App\Mail\Wellcome;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Ticket;
 use App\Models\Transaction;
+use App\Notifications\WelcomeNotification;
 use Illuminate\Support\Facades\Mail;
 
 /*
@@ -97,11 +100,13 @@ Route::get('test', function (Request $request) {
 
 
 Route::get('email', function() {
-    return view('emails.welcome');
+    // return view('emails.welcome');
     // $trs = Transaction::first();
-    // $user = User::first();
-    // Mail::to($user)->send(new PaymentMade($trs));
-    // return (new PaymentMade($trs))->render();
+    $user = User::first();
+    event(new UserVerifiedTheirAccount($user));
+    // $user->notifyNow(new WelcomeNotification);
+
+    // return 'sent';
 });
 
 Route::match(['get', 'post'], 'payment/{driver}/verify', function($driver) {

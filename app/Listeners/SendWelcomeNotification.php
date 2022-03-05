@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Notifications\WelcomeNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -25,6 +26,10 @@ class SendWelcomeNotification
      */
     public function handle($event)
     {
-        // $event->user->
+        $notif = (new WelcomeNotification)->delay([
+            'mail' => now()->addMinute(),
+            // 'database'
+        ]);
+        $event->user->notify($notif);
     }
 }
