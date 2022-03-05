@@ -33,7 +33,7 @@ class Dashboard extends Component {
             statistics: {...prev.statistics, ...general, orders: orders},
             recent_orders: [...latest.orders.map(x => ({text: x.text, href: `/orders/${x.id}`}))],
             recent_pays: [...latest.transactions.map(x => ({text: x.text, href: `/finance/transactions`}))],
-            recent_notifications: latest.notifications
+            recent_notifications: latest.notifications.map(x => ({text: x.data.title, href: '#'}))
         }))
     }
 

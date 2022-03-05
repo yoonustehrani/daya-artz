@@ -76,9 +76,11 @@ var BottomItem = /*#__PURE__*/function (_Component) {
         }), items && items.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
           className: "bottom-items",
           children: items.map(function (item, i) {
+            var _item$href;
+
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                to: item.href,
+                to: (_item$href = item.href) !== null && _item$href !== void 0 ? _item$href : '#',
                 children: item.text
               })
             }, i);
