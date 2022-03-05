@@ -2,13 +2,14 @@ import {lazy} from 'react';
 // Main Routes
 const Dashboard = lazy(() => import('./Pages/Private/Dashboard'))
 const Orders = lazy(() => import('./Pages/Private/Orders'))
+const OrderItemPage = lazy(() => import('./Pages/Private/Orders/OrderItemPage'))
 const Tickets = lazy(() => import('./Pages/Private/Tickets/Tickets'))
 const Finance = lazy(() => import('./Pages/Private/Finance'))
 const BrandInfo = lazy(() => import('./Pages/Private/Profile/BrandInfo'))
 const RegisterInfo = lazy(() => import('./Pages/Private/Profile/RegisterInfo'))
 const UserInfo = lazy(() => import('./Pages/Private/Profile/UserInfo'))
-const Contracts = lazy(() => import('./Pages/Private/Contracts/Contracts'))
-const ContractSample = lazy(() => import('./Pages/Private/Contracts/ContractSample'))
+// const Contracts = lazy(() => import('./Pages/Private/Contracts/Contracts'))
+// const ContractSample = lazy(() => import('./Pages/Private/Contracts/ContractSample'))
 // SubRoutes
 const Order = lazy(() => import('./Pages/Private/Orders/Order'))
 const Ticket = lazy(() => import('./Pages/Private/Tickets/Ticket'))
@@ -16,15 +17,14 @@ const NewTicket = lazy(() => import('./Pages/Private/Tickets/NewTicket'))
 const Invoices = lazy(() => import('./Pages/Private/Finance/Invoices/Invoices'))
 const Invoice = lazy(() => import('./Pages/Private/Finance/Invoices/Invoice'))
 const TicketsFaq = lazy(() => import('./Pages/Private/Tickets/TicketsFaq'))
-const PreInvoices = lazy(() => import('./Pages/Private/Finance/Pre Invoices/PreInvoices'))
-const PreInvoice = lazy(() => import('./Pages/Private/Finance/Pre Invoices/PreInvoice'))
 const Bill = lazy(() => import('./Pages/Private/Finance/Bills/Bill'))
 const Bills = lazy(() => import('./Pages/Private/Finance/Bills/Bills'))
 const Transactions = lazy(() => import('./Pages/Private/Finance/Transactions/Transactions'))
 const Discounts = lazy(() => import('./Pages/Private/Finance/Discounts/Discounts'))
 const Contract = lazy(() => import('./Pages/Private/Contracts/Contract'))
 
-const uuidRegex = '[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}';
+const uuidRegex = '[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}'
+const digitRegex = '[0-9]{1,}'
 
 const routes = [
     {
@@ -57,11 +57,11 @@ const routes = [
         exact: true,
         CallableComponent: Order
     },
-    // {
-    //     path: `/orders/:orderId(${uuidRegex})/items/:itemId`,
-    //     exact: true,
-    //     CallableComponent: Order
-    // },
+    {
+        path: `/orders/:orderId(${uuidRegex})/items/:itemId(${digitRegex})`,
+        exact: true,
+        CallableComponent: OrderItemPage
+    },
     {
         path: '/finance/invoices',
         exact: true,
@@ -77,16 +77,6 @@ const routes = [
         exact: true,
         CallableComponent: Invoice
     },
-    // {
-    //     path: '/finance/pre-invoices/:pre_invoiceId',
-    //     exact: true,
-    //     CallableComponent: PreInvoice
-    // },
-    // {
-    //     path: '/finance/pre_invoices',
-    //     exact: true,
-    //     CallableComponent: PreInvoices
-    // },
     {
         path: '/finance/bills/:billId',
         exact: true,
@@ -137,16 +127,16 @@ const routes = [
         exact: true,
         CallableComponent: Contract
     },
-    {
-        path: "/contracts",
-        exact: true,
-        CallableComponent: Contracts
-    },
-    {
-        path: "/contract_sample",
-        exact: true,
-        CallableComponent: ContractSample
-    }
+    // {
+    //     path: "/contracts",
+    //     exact: true,
+    //     CallableComponent: Contracts
+    // },
+    // {
+    //     path: "/contract_sample",
+    //     exact: true,
+    //     CallableComponent: ContractSample
+    // }
 ]
 
 

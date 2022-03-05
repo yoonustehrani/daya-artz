@@ -48,4 +48,8 @@ class OrderController extends Controller
             'statuses' => __('userarea.orders.status')
         ]);
     }
+    public function item(Order $order, $itemId)
+    {
+        
+    }
 }

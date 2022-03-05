@@ -5971,6 +5971,9 @@ var Dashboard = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(functio
 var Orders = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Orders_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Orders */ "./resources/js/react/Pages/Private/Orders/index.js"));
 });
+var OrderItemPage = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Orders_OrderItemPage_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Orders/OrderItemPage */ "./resources/js/react/Pages/Private/Orders/OrderItemPage.jsx"));
+});
 var Tickets = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_Tickets_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Tickets/Tickets */ "./resources/js/react/Pages/Private/Tickets/Tickets.jsx"));
 });
@@ -5985,13 +5988,9 @@ var RegisterInfo = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(func
 });
 var UserInfo = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Profile_UserInfo_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Profile/UserInfo */ "./resources/js/react/Pages/Private/Profile/UserInfo.jsx"));
-});
-var Contracts = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_Contracts_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Contracts/Contracts */ "./resources/js/react/Pages/Private/Contracts/Contracts.jsx"));
-});
-var ContractSample = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_ContractSample_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Contracts/ContractSample */ "./resources/js/react/Pages/Private/Contracts/ContractSample.jsx"));
-}); // SubRoutes
+}); // const Contracts = lazy(() => import('./Pages/Private/Contracts/Contracts'))
+// const ContractSample = lazy(() => import('./Pages/Private/Contracts/ContractSample'))
+// SubRoutes
 
 var Order = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Orders_Order_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Orders/Order */ "./resources/js/react/Pages/Private/Orders/Order.jsx"));
@@ -6011,12 +6010,6 @@ var Invoice = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function 
 var TicketsFaq = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Tickets/TicketsFaq */ "./resources/js/react/Pages/Private/Tickets/TicketsFaq.jsx"));
 });
-var PreInvoices = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoices_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Finance/Pre Invoices/PreInvoices */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoices.jsx"));
-});
-var PreInvoice = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoice_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Finance/Pre Invoices/PreInvoice */ "./resources/js/react/Pages/Private/Finance/Pre Invoices/PreInvoice.jsx"));
-});
 var Bill = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Bills_Bill_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Finance/Bills/Bill */ "./resources/js/react/Pages/Private/Finance/Bills/Bill.jsx"));
 });
@@ -6033,6 +6026,7 @@ var Contract = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Contracts_Contract_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Contracts/Contract */ "./resources/js/react/Pages/Private/Contracts/Contract.jsx"));
 });
 var uuidRegex = '[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}';
+var digitRegex = '[0-9]{1,}';
 var routes = [{
   path: '/dashboard',
   exact: true,
@@ -6057,12 +6051,11 @@ var routes = [{
   path: "/orders/:orderId(".concat(uuidRegex, ")"),
   exact: true,
   CallableComponent: Order
-}, // {
-//     path: `/orders/:orderId(${uuidRegex})/items/:itemId`,
-//     exact: true,
-//     CallableComponent: Order
-// },
-{
+}, {
+  path: "/orders/:orderId(".concat(uuidRegex, ")/items/:itemId(").concat(digitRegex, ")"),
+  exact: true,
+  CallableComponent: OrderItemPage
+}, {
   path: '/finance/invoices',
   exact: true,
   CallableComponent: Invoices
@@ -6074,17 +6067,7 @@ var routes = [{
   path: '/finance/invoices/:invoiceId',
   exact: true,
   CallableComponent: Invoice
-}, // {
-//     path: '/finance/pre-invoices/:pre_invoiceId',
-//     exact: true,
-//     CallableComponent: PreInvoice
-// },
-// {
-//     path: '/finance/pre_invoices',
-//     exact: true,
-//     CallableComponent: PreInvoices
-// },
-{
+}, {
   path: '/finance/bills/:billId',
   exact: true,
   CallableComponent: Bill
@@ -6124,15 +6107,17 @@ var routes = [{
   path: "/contracts/:contractId",
   exact: true,
   CallableComponent: Contract
-}, {
-  path: "/contracts",
-  exact: true,
-  CallableComponent: Contracts
-}, {
-  path: "/contract_sample",
-  exact: true,
-  CallableComponent: ContractSample
-}];
+} // {
+//     path: "/contracts",
+//     exact: true,
+//     CallableComponent: Contracts
+// },
+// {
+//     path: "/contract_sample",
+//     exact: true,
+//     CallableComponent: ContractSample
+// }
+];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routes);
 
 /***/ }),
@@ -70740,7 +70725,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_react_Pages_Auth_Login_jsx":1,"resources_js_react_Pages_Auth_Signup_jsx":1,"resources_js_react_Pages_Auth_ForgetPassword_jsx":1,"resources_js_react_Pages_Auth_EmailValidation_jsx":1,"resources_js_react_Pages_Auth_PhoneValidation_jsx":1,"resources_js_react_Pages_Private_Dashboard_index_js":1,"resources_js_react_Pages_Private_Orders_index_js":1,"resources_js_react_Pages_Private_Tickets_Tickets_jsx":1,"resources_js_react_Pages_Private_Finance_index_js":1,"resources_js_react_Pages_Private_Profile_BrandInfo_jsx":1,"resources_js_react_Pages_Private_Profile_RegisterInfo_jsx":1,"resources_js_react_Pages_Private_Profile_UserInfo_jsx":1,"resources_js_react_Pages_Private_Contracts_Contracts_jsx":1,"resources_js_react_Pages_Private_Contracts_ContractSample_jsx":1,"resources_js_react_Pages_Private_Orders_Order_jsx":1,"resources_js_react_Pages_Private_Tickets_Ticket_jsx":1,"resources_js_react_Pages_Private_Tickets_NewTicket_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoices_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx":1,"resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx":1,"resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoices_jsx":1,"resources_js_react_Pages_Private_Finance_Pre_Invoices_PreInvoice_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bill_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bills_jsx":1,"resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx":1,"resources_js_react_Pages_Private_Finance_Discounts_Discounts_jsx":1,"resources_js_react_Pages_Private_Contracts_Contract_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_BottomItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_MiddleItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_TopItem_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_components_Bills_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_components_PaymentMethod_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_react_Pages_Auth_Login_jsx":1,"resources_js_react_Pages_Auth_Signup_jsx":1,"resources_js_react_Pages_Auth_ForgetPassword_jsx":1,"resources_js_react_Pages_Auth_EmailValidation_jsx":1,"resources_js_react_Pages_Auth_PhoneValidation_jsx":1,"resources_js_react_Pages_Private_Dashboard_index_js":1,"resources_js_react_Pages_Private_Orders_index_js":1,"resources_js_react_Pages_Private_Orders_OrderItemPage_jsx":1,"resources_js_react_Pages_Private_Tickets_Tickets_jsx":1,"resources_js_react_Pages_Private_Finance_index_js":1,"resources_js_react_Pages_Private_Profile_BrandInfo_jsx":1,"resources_js_react_Pages_Private_Profile_RegisterInfo_jsx":1,"resources_js_react_Pages_Private_Profile_UserInfo_jsx":1,"resources_js_react_Pages_Private_Orders_Order_jsx":1,"resources_js_react_Pages_Private_Tickets_Ticket_jsx":1,"resources_js_react_Pages_Private_Tickets_NewTicket_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoices_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx":1,"resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bill_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bills_jsx":1,"resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx":1,"resources_js_react_Pages_Private_Finance_Discounts_Discounts_jsx":1,"resources_js_react_Pages_Private_Contracts_Contract_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_BottomItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_MiddleItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_TopItem_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_components_Bills_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_components_PaymentMethod_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
