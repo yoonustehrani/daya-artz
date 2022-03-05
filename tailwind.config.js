@@ -31,6 +31,9 @@ module.exports = {
             backgroundImage: {
                 'shaped': "url('/images/shaped-background.png')",
                 "icon": "url('/images/item-background.png')"
+            },
+            screens: {
+                'xs': "375px"
             }
         },
     },
