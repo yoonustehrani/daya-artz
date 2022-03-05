@@ -29,7 +29,8 @@ class RegisterController extends Controller
     {
         return [
             $this->username() => $request->input($this->username()),
-            'password' => bcrypt($request->input('password'))
+            'password' => bcrypt($request->input('password')),
+            'level' => 'register'
         ];
     }
     protected function create(array $data)

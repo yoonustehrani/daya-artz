@@ -26,10 +26,15 @@ class SendWelcomeNotification
      */
     public function handle($event)
     {
-        $notif = (new WelcomeNotification)->delay([
-            'mail' => now()->addMinute(),
-            // 'database'
-        ]);
-        $event->user->notify($notif);
+        if ($event->user->level === 'new') {
+            $notif = (new WelcomeNotification)->delay([
+                'mail' => now()->addMinute(),
+                // 'database'
+            ]);
+            $event->user->level = 'user';
+            if ($event->user->save()) {
+                $event->user->notify($notif);
+            }
+        }
     }
 }

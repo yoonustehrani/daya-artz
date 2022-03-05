@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\UserVerifiedTheirAccount;
 use App\Http\Controllers\Controller;
 use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
@@ -80,14 +81,29 @@ class VerificationController extends Controller
             'code' => 'required|string|numeric|digits:6'
         ]);
         $user = $request->user();
-        $verification = $user->sms_verification_codes()->latest()->first();
-        if ($verification && $verification->code) {
-            if ($verification->code == $request->input('code')) {
-                $user->phone_verified = true;
-                return ['okay' => true, 'verified' => $user->save()]; //  && $verification->delete()
+        try {
+            \DB::beginTransaction();
+            $verification = $user->sms_verification_codes()->latest()->first();
+            if ($verification && $verification->code) {
+                if ($verification->code == $request->input('code')) {
+                    $user->phone_verified = true;
+                    if ($user->level === 'register') {
+                        $user->level = 'new';
+                    }
+                    if ($user->save()) {
+                        event(new UserVerifiedTheirAccount($user));
+                        $verification->delete();
+                        \DB::commit();
+                        return response()->json(['okay' => true, 'verified' => true]);
+                    }
+                }
             }
+            \DB::rollback();
+            return response()->json(['errors' => ['code' => 'کد وارد شده نامعتبر است.']], 422);
+        } catch (\Throwable $th) {
+            \DB::rollback();
+            return ['okay' => false, 'verified' => !! $user->phone_verified];
         }
-        return ['okay' => false, 'verified' => !! $user->phone_verified];
     }
     public function editPhoneNumber(Request $request)
     {
