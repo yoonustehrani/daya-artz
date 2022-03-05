@@ -7,7 +7,7 @@ module.exports = {
         "./resources/views/pages/landing/opening.blade.php",
         "./resources/views/components/layout/*.blade.php" ,
         "./resources/views/components/quick-order-form.blade.php",
-        "./resources/js/components/QickOrder/QuickOrder.jsx",
+        "./resources/js/components/QuickOrder/QuickOrder.jsx",
         "./resources/js/landing-opening.js"
     ],
     theme: {
@@ -31,6 +31,9 @@ module.exports = {
             backgroundImage: {
                 'shaped': "url('/images/shaped-background.png')",
                 "icon": "url('/images/item-background.png')"
+            },
+            screens: {
+                'xs': "375px"
             }
         },
     },
