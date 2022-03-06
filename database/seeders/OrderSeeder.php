@@ -21,7 +21,7 @@ class OrderSeeder extends Seeder
     {
         $user = User::first();
         $services = Service::all();
-        $statuses = collect(array_keys(__('userarea.orders.status')));
+        $statuses = collect(OrderItem::STATUS);
         if ($user && $services->count()) {
             $items = OrderItem::factory(3)
             ->sequence(fn() => [

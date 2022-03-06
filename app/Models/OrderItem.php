@@ -8,6 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
     use HasFactory;
+    const STATUS = [
+        'submitted',
+        'reviewd',
+        'designing',
+        'ready',
+        'editing',
+        'canceled',
+        'suspended',
+        'finished',
+        'checked-out',
+        // 'processing',
+    ];
+    const NORMAL_STATUS = [
+        'submitted',
+        'reviewd',
+        'designing',
+        'ready',
+        'finished',
+        'checked-out',
+    ];
     public function service()
     {
         return $this->belongsTo(Service::class);
@@ -30,11 +50,15 @@ class OrderItem extends Model
     }
     public function getNormalAttribute()
     {
-        return true;
+        return in_array($this->status, self::NORMAL_STATUS);
     }
     public function getStatusFaAttribute()
     {
         return __("userarea.orders.status.{$this->status}");
+    }
+    public function getCanceledAttribute()
+    {
+        return $this->status === 'canceled';
     }
     public function getOffAttribute()
     {

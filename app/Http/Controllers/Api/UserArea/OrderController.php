@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\UserArea;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderItem;
 
 class OrderController extends Controller
 {
@@ -54,7 +55,7 @@ class OrderController extends Controller
         $this->authorize('view', $order);
         $item = $order->items()->select(
             ['id', 'title', 'service_id', 'plan_id', 'status', 'status_info', 'description', 'due_date', 'finished_at', 'created_at', 'updated_at']
-        )->findorFail($item_id)->append(['status_fa', 'normal']);
+        )->findorFail($item_id)->append(['status_fa', 'normal', 'canceled']);
         $item->load([
             'service' => function($q) {
                 $q->select(['id', 'title', 'slug']);
@@ -73,7 +74,8 @@ class OrderController extends Controller
         return response()->json([
             'okay' => true,
             'item' => $item,
-            'order' => $order
+            'order' => $order,
+            'statuses' => ['list' => OrderItem::STATUS, 'normal' => OrderItem::NORMAL_STATUS]
         ]);
     }
 }
