@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
 import Loading from '../Layout/components/Loading'
-=======
 import { useHttpService } from '../../../hooks'
->>>>>>> 3b49d2f69cdaeb5a25b3ffdfcd236a997e19243a
 
 export default class OrderItemPage extends Component {
     constructor(props) {
