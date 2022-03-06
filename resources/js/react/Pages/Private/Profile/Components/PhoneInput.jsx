@@ -40,11 +40,10 @@ class PhoneInput extends Component {
         let { value, title, path, onChangeHandler, phone_type, validate_types=null, not_null } = this.props, { type } = this.state
         return (
             <div className="field-item col-12 col-md-6">
-                <span>{title}:</span>
+                <span><i className='text-danger'>{not_null && "*"}</i>{title}:</span>
                 {
                     phone_type === "both" && 
                     <span className="gray animated mt-2 mb-2" onClick={this.changephoneType.bind(this)}>
-                        <i className='text-danger'>{not_null && "*"}</i>
                         {type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل"}
                         <i className="fas fa-long-arrow-alt-left mr-1"></i>
                         <i className="fas fa-phone mr-1"></i>

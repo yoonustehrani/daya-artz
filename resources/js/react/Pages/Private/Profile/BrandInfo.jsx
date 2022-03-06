@@ -35,7 +35,8 @@ function BrandInfo() {
             title: "شماره تلفن",
             phone_type: "telephone",
             path: "phone_number",
-            validate_types: ["phone_number"]
+            validate_types: ["phone_number"],
+            not_null: true
         },
         {
             component: TextInput,

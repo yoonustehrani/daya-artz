@@ -289,7 +289,8 @@ function BrandInfo() {
     title: "شماره تلفن",
     phone_type: "telephone",
     path: "phone_number",
-    validate_types: ["phone_number"]
+    validate_types: ["phone_number"],
+    not_null: true
   }, {
     component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
     title: "آدرس وب سایت",
@@ -559,14 +560,14 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "field-item col-12 col-md-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          children: [title, ":"]
-        }), phone_type === "both" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          className: "gray animated mt-2 mb-2",
-          onClick: this.changephoneType.bind(this),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "text-danger",
             children: not_null && "*"
-          }), type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          }), title, ":"]
+        }), phone_type === "both" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+          className: "gray animated mt-2 mb-2",
+          onClick: this.changephoneType.bind(this),
+          children: [type === "cellphone" ? "با استفاده از شماره تلفن ثابت" : "با استفاده از شماره موبایل", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-long-arrow-alt-left mr-1"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-phone mr-1"
