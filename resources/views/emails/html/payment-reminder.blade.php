@@ -13,5 +13,6 @@
     <p class="rtl text-purple text-medium">
         سفارش طراحی گرافیک شما با کد سریال {{ $order->code }} مورخ {{ jdate($order->created_at)->format('Y/n/j') }} در سیستم ما ثبت شد و اطلاعات فرم های سفارش شما تمام و کمال به دست ما رسید . برای شروع روند طراحی ، تنها مرحله واریز و تسویه پیش پرداخت باقی مانده است . شما می توانید مبلغ پیش پرداخت سفارش خود را از طریق دکمه بالا پرداخت کنید و سفارش طراحی گرافیک خود را رسما آغاز نمایید .
     </p>
+    @component('vendor.mail.html.button', ['url' => route('userarea'), 'color' => 'purple']) ورود به حساب کاربری @endcomponent
     @include('emails.html.inc.contact')
 @endcomponent

@@ -28,6 +28,7 @@ class OrderReady extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject("اتود های اولیه سفارش شما آماده است")
+                    ->markdown('emails.html.order-items.ready');
     }
 }
