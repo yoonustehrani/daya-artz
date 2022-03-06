@@ -15836,20 +15836,20 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container #menu-open {
   position: fixed;
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   align-items: center;
   justify-content: center;
   border-radius: 100%;
   background-color: #fff;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 15px;
+  bottom: 1px;
   z-index: 20;
   display: none;
 }
 .user-area-layout-container #menu-open i {
-  font-size: 20px;
+  font-size: 25px;
   color: #ac7ff4;
 }
 .user-area-layout-container .top-background {
@@ -16517,6 +16517,171 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span.finished::before {
   background-color: #82D177;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-header .order-item-header-title {
+  font-size: 22px;
+  background-color: #EEEFFA;
+  padding: 15px;
+  color: #000;
+  border-radius: 15px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-header .order-item-header-title * {
+  margin: 0;
+  font-size: 20px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-header .progress {
+  width: 70%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-header .progress .progress-bar {
+  background-color: #ac7ff4;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-header .order-item-header-icon {
+  font-size: 45px;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border: 3px solid #8f60ec;
+  color: #a97df3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 4%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section {
+  width: 50%;
+  color: #000;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-section-icon {
+  display: block;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-section-icon i {
+  font-size: 25px;
+  color: #6332df;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  list-style: none;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-list li {
+  margin: 6px 0;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-list li span {
+  font-weight: normal;
+  margin-right: 5px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container {
+  width: 100%;
+  margin: 80px auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress {
+  font-size: 18px;
+  width: 20%;
+  position: relative;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-title {
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  transform: translate(-50%, -100%);
+  font-size: inherit;
+  color: rgba(0, 0, 0, 0.2);
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle {
+  width: 80px;
+  height: 80px;
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+  position: relative;
+  margin: auto;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i {
+  font-size: 40px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: calc(100% - 78px);
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-1 .order-level-progress:nth-child(-n+1) .order-level-title {
+  color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-1 .order-level-progress:nth-child(-n+1) .order-level-circle {
+  color: #7553C1;
+  border-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-2 .order-level-progress:nth-child(-n+2) .order-level-title {
+  color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-2 .order-level-progress:nth-child(-n+2) .order-level-circle {
+  color: #7553C1;
+  border-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-2 .order-level-progress:nth-child(-n+1)::after {
+  background-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-3 .order-level-progress:nth-child(-n+3) .order-level-title {
+  color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-3 .order-level-progress:nth-child(-n+3) .order-level-circle {
+  color: #7553C1;
+  border-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-3 .order-level-progress:nth-child(-n+2)::after {
+  background-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-4 .order-level-progress:nth-child(-n+4) .order-level-title {
+  color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-4 .order-level-progress:nth-child(-n+4) .order-level-circle {
+  color: #7553C1;
+  border-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-4 .order-level-progress:nth-child(-n+3)::after {
+  background-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-5 .order-level-progress:nth-child(-n+5) .order-level-title {
+  color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-5 .order-level-progress:nth-child(-n+5) .order-level-circle {
+  color: #7553C1;
+  border-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-5 .order-level-progress:nth-child(-n+4)::after {
+  background-color: #7553C1;
 }
 .user-area-layout-container .user-area-panel .main-content-container a.purple-pill {
   font-size: 16px;

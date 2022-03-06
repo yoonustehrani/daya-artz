@@ -5,19 +5,19 @@
     background-color: #f6f6f6;
     #menu-open {
         position: fixed;
-        width: 30px;
-        height: 30px;
+        width: 45px;
+        height: 45px;
         align-items: center;
         justify-content: center;
         border-radius: 100%;
         background-color: #fff;
         left: 50%;
         transform: translateX(-50%);
-        bottom: 15px;
+        bottom: 1px;
         z-index: 20;
         display: none;
         i {
-            font-size: 20px;
+            font-size: 25px;
             color: #ac7ff4;
         }
     }
@@ -706,6 +706,177 @@
                         &.finished::before {
                             background-color: $green;
                         }
+                    }
+                }
+            }
+            .order-item-header {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 40px;
+                .order-item-header-title {
+                    font-size: 22px;
+                    background-color: #EEEFFA;
+                    padding: 15px;
+                    color: #000;
+                    border-radius: 15px;
+                    * {
+                        margin: 0;
+                        font-size: 20px;
+                    }
+                }
+                .progress {
+                    width: 70%;
+                    .progress-bar {
+                        background-color: #ac7ff4;
+                    }
+                }
+                .order-item-header-icon {
+                    font-size: 45px;
+                    padding: 10px;
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 100%;
+                    border: 3px solid #8f60ec;
+                    color: #a97df3;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .order-item-infos-container {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                padding: 0 4%;
+                .order-item-section {
+                    width: 50%;
+                    color: #000;
+                    .order-item-section-icon {
+                        display: block;
+                        i {
+                            font-size: 25px;
+                            color: #6332df;
+                        }
+                    }
+                    .order-item-list {
+                        padding: 0;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: #000;
+                        list-style: none;
+                        li {
+                            margin: 6px 0;
+                            span {
+                                font-weight: normal;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            .order-item-progress-container {
+                width: 100%;
+                margin: 80px auto;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .order-level-progress {
+                    font-size: 18px;
+                    width: 20%;
+                    position: relative;
+                    .order-level-title {
+                        position: absolute;
+                        left: 50%;
+                        top: -5px;
+                        transform: translate(-50%, -100%);
+                        font-size: inherit;
+                        color: rgb( 0 0 0 / 20%);;
+                    }
+                    .order-level-circle {
+                        width: 80px;
+                        height: 80px;
+                        border: 4px solid rgb( 0 0 0 / 20%);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: rgb( 0 0 0 / 20%);
+                        border-radius: 100%;
+                        position: relative;
+                        margin: auto;
+                        i {
+                            font-size: 40px;
+                        }
+                    }
+                    &:not(:last-child) {
+                        &::after {
+                            content: "";
+                            display: inline-block;
+                            width: calc(100% - 78px);
+                            height: 6px;
+                            background-color: rgb( 0 0 0 / 20%);
+                            position: absolute;
+                            left: 0;
+                            bottom: 50%;
+                            transform: translate(-50%, 50%);
+                        }
+                    }
+                }
+                @mixin level-done {
+                    .order-level-title {
+                        color: #7553C1;
+                    }
+                    .order-level-circle {
+                        color: #7553C1;
+                        border-color: #7553C1;
+                    }
+                }
+                @mixin dir-done {
+                    &::after {
+                        background-color: #7553C1;
+                    }
+                }
+                &.level-1 {
+                    .order-level-progress:nth-child(-n+1) {
+                        @include level-done;
+                    }
+                }
+                &.level-2 {
+                    .order-level-progress:nth-child(-n+2) {
+                        @include level-done;
+                    }
+                    .order-level-progress:nth-child(-n+1) {
+                        @include dir-done;
+                    }
+                }
+                &.level-3 {
+                    .order-level-progress:nth-child(-n+3) {
+                        @include level-done;
+                    }
+                    .order-level-progress:nth-child(-n+2) {
+                        @include dir-done;
+                    }
+                }
+                &.level-4 {
+                    .order-level-progress:nth-child(-n+4) {
+                        @include level-done;
+                    }
+                    .order-level-progress:nth-child(-n+3) {
+                        @include dir-done;
+                    }
+                }
+                &.level-5 {
+                    .order-level-progress:nth-child(-n+5) {
+                        @include level-done;
+                    }
+                    .order-level-progress:nth-child(-n+4) {
+                        @include dir-done;
                     }
                 }
             }
