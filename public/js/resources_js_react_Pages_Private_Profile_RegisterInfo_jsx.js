@@ -642,7 +642,8 @@ function RegisterInfo() {
     component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_0__["default"],
     title: "نام خانوادگی",
     path: "lastname",
-    validate_types: ["short_text", "alpha-fa"]
+    validate_types: ["short_text", "alpha-fa"],
+    not_null: true
   } // {
   //     component: PhoneInput,
   //     title: "شماره تلفن (جهت پاسخگویی)",

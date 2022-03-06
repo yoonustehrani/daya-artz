@@ -17,7 +17,8 @@ function RegisterInfo() {
             component: TextInput,
             title: "نام خانوادگی",
             path: "lastname",
-            validate_types: ["short_text", "alpha-fa"]
+            validate_types: ["short_text", "alpha-fa"],
+            not_null: true
         },
         // {
         //     component: PhoneInput,
