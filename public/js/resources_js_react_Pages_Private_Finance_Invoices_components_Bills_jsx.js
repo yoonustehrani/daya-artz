@@ -41,7 +41,7 @@ function Bills(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("tbody", {
         children: bills.length > 0 && bills.filter(function (x) {
-          return true;
+          return x.active;
         }).map(function (_ref2, i) {
           var id = _ref2.id,
               code = _ref2.code,

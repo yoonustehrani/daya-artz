@@ -14,7 +14,7 @@ export default function Bills({bills}) {
                     </tr>
                 </thead>
                 <tbody>
-                {bills.length > 0 && bills.filter(x => true).map(({id, code, title, amount, status, active, status_fa}, i) => (
+                {bills.length > 0 && bills.filter(x => x.active).map(({id, code, title, amount, status, active, status_fa}, i) => (
                     <tr key={id}>
                         <th>{i + 1}</th>
                         <td>{code}</td>
