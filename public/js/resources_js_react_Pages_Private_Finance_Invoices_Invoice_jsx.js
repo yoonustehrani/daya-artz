@@ -227,6 +227,8 @@ var Invoice = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           user = _this$props.user,
           company = _this$props.company;
@@ -349,7 +351,16 @@ var Invoice = /*#__PURE__*/function (_Component) {
           })
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
           fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}),
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(PaymentMethod, {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(PaymentMethod, {
+            invoice: invoice,
+            onActive: function onActive(newInvoice) {
+              return _this2.setState(function (prev) {
+                return {
+                  invoice: _objectSpread(_objectSpread({}, prev.invoice), newInvoice)
+                };
+              });
+            }
+          })
         })]
       });
     }

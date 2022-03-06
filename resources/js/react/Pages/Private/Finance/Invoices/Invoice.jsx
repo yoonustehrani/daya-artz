@@ -116,13 +116,16 @@ class Invoice extends Component {
                     </table>
                 </div>
                 {
-                    invoice.active && invoice.bills ? 
-                    <React.Suspense fallback={<LoaderComponent />}>
-                        <Bills bills={invoice.bills}/>
-                    </React.Suspense>
-                    : <React.Suspense fallback={<LoaderComponent />}>
-                        <PaymentMethod/>
-                    </React.Suspense>
+                    invoice.active && invoice.bills ? (
+                        <React.Suspense fallback={<LoaderComponent />}>
+                            <Bills bills={invoice.bills}/>
+                        </React.Suspense>
+                    )
+                    : (
+                        <React.Suspense fallback={<LoaderComponent />}>
+                            <PaymentMethod invoice={invoice} onActive={newInvoice => this.setState(prev => ({invoice: {...prev.invoice, ...newInvoice}}))}/>
+                        </React.Suspense>
+                    )
                 }
                 {/* <div className='float-left alert alert-light text-center mt-5 horizontal-center-left'>مهلت پرداخت تسویه فاکتور شما به شماره {invoice.id}، تا تاریخ 1400/12/34 میباشد.</div> */}
             </div>

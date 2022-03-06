@@ -61,27 +61,32 @@ Route::prefix('auth')->name('auth.')->group(function() {
  * Userarea Routes
  */
 Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(function() {
+    // Tickets
     Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
     Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
     Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
     Route::get('transactions', [ReportController::class, 'transactions'])->name('transactions.index');
-    Route::get('offers', [ReportController::class, 'offers'])->name('offers.index');
+    // Invoices
     Route::get('invoices', [InvoiceController::class, 'index'])->name('invoices.index');
     Route::get('invoices/{invoice}', [InvoiceController::class, 'show'])->name('invoices.show');
+    Route::post('invoices/{invoice}/activate', [InvoiceController::class, 'update'])->name('invoices.update');
+    // Orders
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.show');
     Route::get('orders/{order}/items/{item_id}', [OrderController::class, 'item'])->name('orders.items.show');
+    // Bills and Offers
     Route::post('bills/{bill}/pay/{method}', [PaymentController::class, 'store'])->name('bills.pay');
+    Route::get('offers', [ReportController::class, 'offers'])->name('offers.index');
+    // Statistics
     Route::prefix('stats')->name('stats.')->group(function() {
         Route::get('general', [ReportController::class, 'general'])->name('general');
         Route::get('orders', [ReportController::class, 'ordersStat'])->name('orders');
         Route::get('latest', [ReportController::class, 'latest'])->name('latest');
     });
+    // User data
     Route::prefix('user')->group(function() {
         Route::put('auth', [UserController::class, 'update']);
         Route::put('customer', [UserController::class, 'updateInfo']);
         Route::put('company', [UserController::class, 'updateCompany']);
     });
 });
-
-// 7808b50d-b0bf-4987-bc45-4978b935ad8b
