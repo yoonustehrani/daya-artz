@@ -23,5 +23,5 @@
         فراموش نکنید که آنچه برای نظارت بر پروژه خود نیاز دارید در پنل کاربری شما قرار گرفته ؛ برای تکمیل سازی و ورود روی دکمه زیر کلیک کنید.
     </p>
     @component('vendor.mail.html.button', ['url' => route('userarea'), 'color' => 'purple']) ورود به حساب کاربری @endcomponent
-    <p class="rtl text-purple text-medium" style="text-align: justify !important; padding: 20px 0 0 0;">@include('emails.html.inc.contact')</p>
+    @include('emails.html.inc.contact')
 @endcomponent

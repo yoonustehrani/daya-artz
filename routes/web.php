@@ -11,8 +11,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Mail\OrderSubmit;
 use App\Mail\PaymentMade;
+use App\Mail\PrePaymentReminder;
 use App\Mail\Welcome;
 use App\Mail\Wellcome;
+use App\Models\Order;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Ticket;
@@ -103,7 +105,9 @@ Route::get('test', function (Request $request) {
 
 Route::get('email', function() {
     // return new OrderSubmit();
-    return new Welcome(User::first());
+    // return new Welcome(User::first());
+    $order = Order::latest()->first();
+    return new PrePaymentReminder($order);
     // return view('emails.welcome');
     // $trs = Transaction::first();
     // $user = User::first();
