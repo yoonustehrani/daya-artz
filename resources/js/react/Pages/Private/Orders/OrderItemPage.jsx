@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import Loading from '../Layout/components/Loading'
+=======
+import { useHttpService } from '../../../hooks'
+>>>>>>> 3b49d2f69cdaeb5a25b3ffdfcd236a997e19243a
 
 export default class OrderItemPage extends Component {
     constructor(props) {
@@ -8,13 +12,15 @@ export default class OrderItemPage extends Component {
             orderItem: null,
             loading: false
         }
+        this.http = useHttpService('/userarea/')
     }
     componentDidMount() {
         this.loadItem()
     }
     loadItem = async () => {
         let {orderId, itemId} = this.props.params
-        console.log(itemId);
+        const response = await this.http.get(`orders/${orderId}/items/${itemId}`)
+        console.log(response);
     }
     render() {
         let { loading } = this.state

@@ -23,6 +23,7 @@ class CreateOrderItemsTable extends Migration
             $table->foreignId('offer_id')->nullable();
             $table->string('status');
             $table->text('status_info')->nullable();
+            $table->text('description')->nullable();
             $table->bigInteger('total')->default(0);
             $table->timestamp('due_date')->nullable();
             $table->softDeletes();

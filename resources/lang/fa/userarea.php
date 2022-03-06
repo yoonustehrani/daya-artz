@@ -29,10 +29,10 @@ return [
             'designing' => 'در حال طراحی',
             'finished' => 'پایان یافته',
             'checked-out' => 'تسویه شده',
-            'processing' => 'پردازش اطلاعات',
+            // 'processing' => 'پردازش اطلاعات',
             'editing' => 'در حال ویرایش',
             'canceled' => 'کنسل شده',
-            'suspened' => 'معلق',
+            'suspended' => 'معلق',
             'ready' => 'آماده ارایه'
         ]
     ],

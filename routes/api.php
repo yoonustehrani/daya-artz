@@ -68,8 +68,9 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::get('offers', [ReportController::class, 'offers'])->name('offers.index');
     Route::get('invoices', [InvoiceController::class, 'index'])->name('invoices.index');
     Route::get('invoices/{invoice}', [InvoiceController::class, 'show'])->name('invoices.show');
-    Route::get('orders', [OrderController::class, 'index']);
-    Route::get('orders/{order}', [OrderController::class, 'show']);
+    Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+    Route::get('orders/{order}/items/{item_id}', [OrderController::class, 'item'])->name('orders.items.show');
     Route::post('bills/{bill}/pay/{method}', [PaymentController::class, 'store'])->name('bills.pay');
     Route::prefix('stats')->name('stats.')->group(function() {
         Route::get('general', [ReportController::class, 'general'])->name('general');

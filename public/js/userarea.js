@@ -5143,8 +5143,7 @@ var loginReducer = (0,immer__WEBPACK_IMPORTED_MODULE_1__["default"])(function (d
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.logInUsingCredentials.rejected.toString():
-      // action.payload contains the error data
-      // console.log("action is ", action);
+      draft.loading = false;
       break;
 
     case _actions__WEBPACK_IMPORTED_MODULE_0__.logInUsingCredentials.pending.toString():
