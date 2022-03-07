@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Traits\HasUuidAsPrimaryKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ticket extends Model
 {
-    use HasFactory, HasUuidAsPrimaryKey;
+    use HasFactory, HasUuidAsPrimaryKey, SoftDeletes;
 
     const ALLOWED_STATUSES = ['open', 'in-progress', 'awaiting-reply', 'reviewd'];
 

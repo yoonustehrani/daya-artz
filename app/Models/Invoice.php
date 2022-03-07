@@ -16,6 +16,14 @@ class Invoice extends Model
     {
         return $builder->where('active', false);
     }
+    public function scopeExpired($builder)
+    {
+        $builder->whereNotNull('expires_at')->where('expires_at', '<', now());
+    }
+    public function scopeUnExpired($builder)
+    {
+        $builder->whereNull('expires_at')->orWhere('expires_at', '>=', now());
+    }
     public function order()
     {
         return $this->belongsTo(Order::class);
