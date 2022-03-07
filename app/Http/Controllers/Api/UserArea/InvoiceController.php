@@ -45,34 +45,11 @@ class InvoiceController extends Controller
         abort_if($invoice->active, 403, 'این فاکتور قبلا ثبت شده است.');
         try {
             \DB::beginTransaction();
-                $invoice->active = true;
-                $invoice->save();
-                $bills = [];
-                $items = OrderItem::select(['id', 'offer_id', 'title', 'total'])
-                        ->where('order_id', $invoice->order_id)
-                        ->with('offer')
-                        ->get()
-                        ->append('off');
-                if ($request->input('mode') === 'all') {
-                    $total = 0;
-                    foreach ($items as $item) {
-                        $total += $item->total - $item->off;
-                    }
-                    $bills = $this->make_bills($total);
-                } else {
-                    foreach ($items as $item) {
-                        $sub_total = $item->total - $item->off;
-                        $item_bills = $this->make_bills($sub_total, $item->title);
-                        for ($i=0; $i < count($item_bills); $i++) { 
-                            array_push(
-                                $bills,
-                                $item_bills[$i]
-                            );
-                        }
-                    }
-                }
-                $bills = $invoice->bills()->saveMany($bills);
-                $invoice->bills = $bills;
+            $bills = $this->create_bills($invoice);
+            $invoice->amount = $bills['total'];
+            $invoice->active = true;
+            $invoice->save();
+            $invoice->bills = $invoice->bills()->saveMany($bills['items']);
             \DB::commit();
             return [
                 'okay' => true,
@@ -83,6 +60,38 @@ class InvoiceController extends Controller
             throw $th;
             abort(403, 'هنگام ایجاد فاکتور خطایی رخ داد لطفا مجددا تلاش کنید.');
         }
+    }
+    protected function create_bills(Invoice $invoice)
+    {
+        $total = 0;
+        $bills = [];
+        $items = OrderItem::select(['id', 'offer_id', 'title', 'total'])
+            ->where('order_id', $invoice->order_id)
+            ->with('offer')
+            ->get()
+            ->append('off');
+        if (request()->input('mode') === 'all') {
+            foreach ($items as $item) {
+                $total += $item->total - $item->off;
+            }
+            $bills = $this->make_bills($total);
+        } else {
+            foreach ($items as $item) {
+                $sub_total = $item->total - $item->off;
+                $total += $sub_total;
+                $item_bills = $this->make_bills($sub_total, $item->title);
+                for ($i=0; $i < count($item_bills); $i++) { 
+                    array_push(
+                        $bills,
+                        $item_bills[$i]
+                    );
+                }
+            }
+        }
+        return [
+            'total' => $total,
+            'items' => $bills
+        ];
     }
     protected function make_bills($total, $title = null)
     {

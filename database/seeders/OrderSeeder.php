@@ -28,15 +28,15 @@ class OrderSeeder extends Seeder
                 'service_id' => $services->random(),
                 'status' => $statuses->random()
             ])->count(3);
-            Order::factory()->count(2)->state([
+            // Order::factory()->count(2)->state([
+            //     'user_id' => $user
+            // ])->has($items, 'items')
+            //     ->hasInvoice(['user_id' => $user->getKey(), 'active' => true])
+            //     ->create();
+            Order::factory()->count(10)->state([
                 'user_id' => $user
             ])->has($items, 'items')
-                ->hasInvoice(['user_id' => $user->getKey(), 'active' => true])
-                ->create();
-            Order::factory()->count(2)->state([
-                'user_id' => $user
-            ])->has($items, 'items')
-                ->hasInvoice(['user_id' => $user->getKey(), 'active' => false])
+                ->hasInvoice(['user_id' => $user->getKey(), 'active' => false, 'amount' => 0])
                 ->create();
         }
     }
