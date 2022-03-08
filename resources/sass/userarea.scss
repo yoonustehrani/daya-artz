@@ -671,7 +671,7 @@
                             font-size: 14px;
                             margin-top: 5px;
                             font-weight: bold;
-                            * {
+                            > * {
                                 font-weight: normal;
                             }
                             span {
@@ -773,9 +773,16 @@
                         list-style: none;
                         li {
                             margin: 6px 0;
-                            span {
+                            * {
                                 font-weight: normal;
                                 margin-right: 5px;
+                                color: #000;
+                            }
+                            a {
+                                transition: 0.3s;
+                                &:hover {
+                                    color: #6232de;
+                                }
                             }
                         }
                     }
@@ -789,13 +796,14 @@
                 align-items: center;
                 .order-level-progress {
                     font-size: 18px;
-                    width: 20%;
+                    width: calc(100% / 6);
                     position: relative;
                     .order-level-title {
+                        width: fit-content;
                         position: absolute;
                         left: 50%;
-                        top: -5px;
-                        transform: translate(-50%, -100%);
+                        top: -28px;
+                        transform: translatex(-50%);
                         font-size: inherit;
                         color: rgb( 0 0 0 / 20%);;
                     }
@@ -812,6 +820,24 @@
                         margin: auto;
                         i {
                             font-size: 40px;
+                            &.submitted {
+                                &::before {content: "\f007"}
+                            }
+                            &.reviewed {
+                                &::before {content: "\f812"}
+                            }
+                            &.designing {
+                                &::before {content: "\f568"}
+                            }
+                            &.ready {
+                                &::before {content: "\f336"}
+                            }
+                            &.finished {
+                                &::before {content: "\f2b5"}
+                            }
+                            &.checked-out {
+                                &::before {content: "\f09d"}
+                            }
                         }
                     }
                     &:not(:last-child) {

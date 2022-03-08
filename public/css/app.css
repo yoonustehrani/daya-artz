@@ -16484,7 +16484,7 @@ span.back-aqua.big-icon {
   margin-top: 5px;
   font-weight: bold;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-details li * {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-details li > * {
   font-weight: normal;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-details li span {
@@ -16586,9 +16586,16 @@ span.back-aqua.big-icon {
 .user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-list li {
   margin: 6px 0;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-list li span {
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-list li * {
   font-weight: normal;
   margin-right: 5px;
+  color: #000;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-list li a {
+  transition: 0.3s;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container .order-item-section .order-item-list li a:hover {
+  color: #6232de;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container {
   width: 100%;
@@ -16599,14 +16606,17 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress {
   font-size: 18px;
-  width: 20%;
+  width: 16.6666666667%;
   position: relative;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-title {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   position: absolute;
   left: 50%;
-  top: -5px;
-  transform: translate(-50%, -100%);
+  top: -28px;
+  transform: translatex(-50%);
   font-size: inherit;
   color: rgba(0, 0, 0, 0.2);
 }
@@ -16624,6 +16634,24 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i {
   font-size: 40px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i.submitted::before {
+  content: "\f007";
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i.reviewed::before {
+  content: "\f812";
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i.designing::before {
+  content: "\f568";
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i.ready::before {
+  content: "\f336";
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i.finished::before {
+  content: "\f2b5";
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i.checked-out::before {
+  content: "\f09d";
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress:not(:last-child)::after {
   content: "";

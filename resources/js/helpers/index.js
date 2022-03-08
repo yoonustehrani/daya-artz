@@ -29,20 +29,25 @@ export function isObjEmpty(obj) {
 }
 
 export const translate = (key) => {
-    switch (key) {
-        case "automate":
-            return "اتومات"
-        case "manual":
-            return "دستی";
-        case "just-recieved":
-            return "دریافت شده";
-        case "in-progress":
-            return "در حال انجام";
-        case "finished":
-            return "تمام شده"
-        default:
-            break;
+    const dic = {
+        // order methods
+        "automate": "اتومات",
+        "manual": "دستی",
+        "just-recieved": "دریافت شده",
+        "in-progress": "در حال انجام",
+        "finished": "تمام شده",
+        // statuses
+        "submitted": "دریافت سفارش",
+        "reviewed": "بررسی جزئیات",
+        "designing": "در دست طراحی",
+        "ready": "آماده تحویل",
+        "editing": "در حال ویرایش",
+        "canceled": "لغو شده",
+        "suspended": "تعلیق شده",
+        "finished": "اتمام سفارش",
+        "checked-out": "تصویه و تحویل"
     }
+    return dic[key]
 }
 
 export const number_format = (number, appendix = false) => `${Number(number).toLocaleString('en-US')}${appendix ? ' تومان' : ''}`

@@ -1,6 +1,96 @@
 "use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_react_Pages_Private_Orders_OrderItemPage_jsx"],{
 
+/***/ "./resources/js/helpers/index.js":
+/*!***************************************!*\
+  !*** ./resources/js/helpers/index.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "NestedObj": () => (/* binding */ NestedObj),
+/* harmony export */   "isObjEmpty": () => (/* binding */ isObjEmpty),
+/* harmony export */   "translate": () => (/* binding */ translate),
+/* harmony export */   "number_format": () => (/* binding */ number_format)
+/* harmony export */ });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var NestedObj = /*#__PURE__*/function () {
+  function NestedObj(targetObj, path) {
+    var value = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+    _classCallCheck(this, NestedObj);
+
+    this.targetObj = JSON.parse(JSON.stringify(targetObj));
+    this.value = value;
+    var keys = path.split(".");
+
+    if (keys.length > 1) {
+      this.lastKey = keys.pop();
+      this.lastObj = keys.reduce(function (targetObj, key) {
+        return targetObj[key] = targetObj[key] && !Array.isArray(targetObj[key]) ? targetObj[key] : {};
+      }, this.targetObj);
+    } else {
+      this.lastObj = this.targetObj;
+      this.lastKey = path;
+    }
+  }
+
+  _createClass(NestedObj, [{
+    key: "make",
+    value: function make() {
+      this.lastObj[this.lastKey] = this.value;
+      return this.targetObj;
+    }
+  }, {
+    key: "get",
+    value: function get() {
+      var _this$lastObj$this$la;
+
+      return (_this$lastObj$this$la = this.lastObj[this.lastKey]) !== null && _this$lastObj$this$la !== void 0 ? _this$lastObj$this$la : "";
+    }
+  }]);
+
+  return NestedObj;
+}();
+function isObjEmpty(obj) {
+  return !Object.keys(obj).length;
+}
+var translate = function translate(key) {
+  var _dic;
+
+  var dic = (_dic = {
+    // order methods
+    "automate": "اتومات",
+    "manual": "دستی",
+    "just-recieved": "دریافت شده",
+    "in-progress": "در حال انجام",
+    "finished": "تمام شده",
+    // statuses
+    "submitted": "دریافت سفارش",
+    "reviewed": "بررسی جزئیات",
+    "designing": "در دست طراحی",
+    "ready": "آماده تحویل",
+    "editing": "در حال ویرایش",
+    "canceled": "لغو شده",
+    "suspended": "تعلیق شده"
+  }, _defineProperty(_dic, "finished", "اتمام سفارش"), _defineProperty(_dic, "checked-out", "تصویه و تحویل"), _dic);
+  return dic[key];
+};
+var number_format = function number_format(number) {
+  var appendix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  return "".concat(Number(number).toLocaleString('en-US')).concat(appendix ? ' تومان' : '');
+};
+
+/***/ }),
+
 /***/ "./resources/js/react/Pages/Private/Layout/components/Loading.jsx":
 /*!************************************************************************!*\
   !*** ./resources/js/react/Pages/Private/Layout/components/Loading.jsx ***!
@@ -47,7 +137,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Layout_components_Loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Layout/components/Loading */ "./resources/js/react/Pages/Private/Layout/components/Loading.jsx");
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../hooks */ "./resources/js/react/hooks.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../helpers */ "./resources/js/helpers/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 
@@ -85,6 +177,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var OrderItemPage = /*#__PURE__*/function (_Component) {
   _inherits(OrderItemPage, _Component);
 
@@ -110,9 +204,17 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
 
             case 3:
               response = _context.sent;
+
+              _this.setState({
+                orderItem: response,
+                loading: false
+              }, function () {
+                response.item.canceled ? null : _this.getLevel();
+              });
+
               console.log(response);
 
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -120,9 +222,49 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
       }, _callee);
     })));
 
+    _defineProperty(_assertThisInitialized(_this), "getLevel", function () {
+      var _this$state$orderItem = _this.state.orderItem,
+          item = _this$state$orderItem.item,
+          statuses = _this$state$orderItem.statuses,
+          status = item.status,
+          normal = statuses.normal,
+          list = statuses.list,
+          level;
+
+      if (normal.indexOf(status) === -1) {
+        // not normal procsess
+        var targetArray = list.slice(0, list.indexOf(status)).reverse();
+
+        for (var i = 0; i < targetArray.length; i++) {
+          var target_status = targetArray[i];
+
+          if (normal.includes(target_status)) {
+            level = normal.indexOf(target_status) + 1;
+            break;
+          }
+        }
+      } else {
+        // normal proccess
+        level = normal.indexOf(status) + 1;
+      }
+
+      _this.setState({
+        level: level
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getPercent", function (exact) {
+      var _this$state = _this.state,
+          level = _this$state.level,
+          orderItem = _this$state.orderItem;
+      var percent = level * (100 / orderItem.statuses.normal.length);
+      return exact ? percent : Math.floor(percent);
+    });
+
     _this.state = {
       orderItem: null,
-      loading: false
+      level: null,
+      loading: true
     };
     _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_3__.useHttpService)('/userarea/');
     return _this;
@@ -136,203 +278,173 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var loading = this.state.loading;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layout_components_Loading__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      var _this$state2 = this.state,
+          loading = _this$state2.loading,
+          orderItem = _this$state2.orderItem,
+          level = _this$state2.level,
+          _ref2 = orderItem !== null && orderItem !== void 0 ? orderItem : {},
+          item = _ref2.item,
+          okay = _ref2.okay,
+          order = _ref2.order,
+          statuses = _ref2.statuses;
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layout_components_Loading__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "order-item-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "order-item-header-title",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                children: "\u0633\u0641\u0627\u0631\u0634 \u0644\u0648\u06AF\u0648\u06CC \u0627\u0641\u062A\u062A\u0627\u062D\u06CC\u0647 \u0631\u0633\u062A\u0648\u0631\u0627\u0646 \u0627\u062D\u0633\u0627\u0646"
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+                children: item.title
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "progress",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "progress-bar w-25",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "progress-bar",
+                style: {
+                  width: "".concat(this.getPercent(true), "%")
+                },
                 role: "progressbar",
-                "aria-valuenow": "25%",
+                "aria-valuenow": this.getPercent(true),
                 "aria-valuemin": "0%",
                 "area-valuemax": "100%",
-                children: "25%"
+                children: [this.getPercent(), "%"]
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "order-item-infos-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "order-item-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "order-item-section-icon",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                   className: "far fa-info-square"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
                 className: "order-item-list",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: ["\u0646\u0648\u0639 \u0637\u0631\u0627\u062D\u06CC: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    children: "\u0637\u0631\u0627\u062D\u06CC \u0644\u0648\u06AF\u0648\u06CC \u062A\u0635\u0648\u06CC\u0631\u06CC"
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u0628\u0633\u062A\u0647 \u06CC\u0627 \u062E\u062F\u0645\u0627\u062A \u0645\u0631\u0628\u0648\u0637\u0647: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                    href: item.service.uri,
+                    children: item.service.title
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: ["\u0633\u0641\u0627\u0631\u0634: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    children: "#fs2l48fk"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u06A9\u062F \u0633\u0641\u0627\u0631\u0634: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+                    to: "/orders/".concat(order.id),
+                    children: order.code
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {})]
+                })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "order-item-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "order-item-section-icon",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                   className: "far fa-spinner"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
                 className: "order-item-list",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: ["\u0648\u0636\u0639\u06CC\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    children: "\u062F\u0631 \u062F\u0633\u062A \u0637\u0631\u0627\u062D\u06CC"
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u0648\u0636\u0639\u06CC\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                    children: item.status_fa
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: ["\u062A\u0648\u0636\u06CC\u062D\u0627\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    children: "\u062F\u0631 \u062D\u0627\u0644 \u062D\u0627\u0636\u0631 2 \u0627\u062A\u0648\u062F \u0627\u0632 3 \u0627\u062A\u0648\u062F \u062F\u0631\u062E\u0648\u0627\u0633\u062A\u06CC \u0634\u0645\u0627 \u062A\u06A9\u0645\u06CC\u0644 \u0634\u062F\u0647."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u062A\u0648\u0636\u06CC\u062D\u0627\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                    children: item.state_info
                   })]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "order-item-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "order-item-section-icon",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                   className: "far fa-calendar-exclamation"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
                 className: "order-item-list",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: ["\u0645\u0648\u0639\u062F \u062A\u062D\u0648\u06CC\u0644: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    children: "1400/12/24"
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u0645\u0648\u0639\u062F \u062A\u062D\u0648\u06CC\u0644: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                    children: item.due_date ? (0,_hooks__WEBPACK_IMPORTED_MODULE_3__.useJalaliDate)(item.due_date).format("jYYYY/jM/jD dddd") : ""
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: ["\u062A\u0627\u0631\u06CC\u062E \u0627\u062A\u0645\u0627\u0645: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    children: "1401/1/2"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u062A\u0627\u0631\u06CC\u062E \u0627\u062A\u0645\u0627\u0645: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                    children: item.finished_at ? (0,_hooks__WEBPACK_IMPORTED_MODULE_3__.useJalaliDate)(item.finished_at).format("jYYYY/jM/jD dddd") : ""
                   })]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "order-item-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "order-item-section-icon",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                   className: "far fa-comment-alt-medical"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
                 className: "order-item-list",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: ["\u067E\u06A9\u06CC\u062C \u0645\u0631\u0628\u0648\u0637\u0647 :", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    children: "\u0627\u0641\u062A\u062A\u0627\u062D\u06CC\u0647 \u0631\u0633\u062A\u0648\u0631\u0627\u0646"
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u0637\u0631\u062D \u0645\u0631\u0628\u0648\u0637\u0647: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                    children: "\u0646\u06CC\u0627\u0632 \u0628\u0647 \u062F\u0627\u06CC\u0646\u0627\u0645\u06CC\u06A9 \u0633\u0627\u0632\u06CC"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: ["\u062A\u0648\u0636\u06CC\u062D\u0627\u062A \u067E\u0631\u0648\u0698\u0647 :", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    children: "\u0627\u06CC\u0646 \u067E\u0631\u0648\u0698\u0647 \u0632\u06CC\u0631 \u0646\u0638\u0631 \u0637\u0631\u0627\u062D\u0627\u0646 \u0645\u062A\u062E\u0635\u0635 \u062F\u0627\u06CC\u0627 \u062F\u0631 \u062F\u0633\u062A \u0627\u0646\u062C\u0627\u0645 \u0627\u0633\u062A \u0648 \u062F\u0648\u0644 \u0627\u0642\u0627 \u0628\u0632\u0631\u06AF \u0645\u0646 \u06A9\u0648\u0686\u06CC\u06A9\u0647"
-                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u062A\u0648\u0636\u06CC\u062D\u0627\u062A \u067E\u0631\u0648\u0698\u0647: ", item.description]
                 })]
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "order-item-progress-container level-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "order-level-progress",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                className: "order-level-title",
-                children: "\u062B\u0628\u062A \u0633\u0641\u0627\u0631\u0634"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "order-level-circle",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                  className: "far fa-user-edit"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "order-level-progress",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                className: "order-level-title",
-                children: "\u062A\u0645\u0627\u0633 \u062A\u0644\u0641\u0646\u06CC"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "order-level-circle",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                  className: "far fa-phone-volume"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "order-level-progress",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                className: "order-level-title",
-                children: "\u067E\u0631\u062F\u0627\u062E\u062A \u0628\u06CC\u0639\u0627\u0646\u0647"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "order-level-circle",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                  className: "far fa-credit-card"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "order-level-progress",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                className: "order-level-title",
-                children: "\u0637\u0631\u0627\u062D\u06CC \u0633\u0641\u0627\u0631\u0634"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "order-level-circle",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                  className: "far fa-drafting-compass"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "order-level-progress",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                className: "order-level-title",
-                children: "\u062A\u0633\u0648\u06CC\u0647 \u0648 \u062A\u062D\u0648\u06CC\u0644"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "order-level-circle",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                  className: "far fa-handshake"
-                })
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "order-item-progress-container level-".concat(level),
+            children: statuses && statuses.normal.length > 0 ? statuses.normal.map(function (statuse, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "order-level-progress",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+                  className: "order-level-title",
+                  children: (0,_helpers__WEBPACK_IMPORTED_MODULE_4__.translate)(statuse)
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                  className: "order-level-circle",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+                    className: "far ".concat(statuse)
+                  })
+                })]
+              });
+            }) : null
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "w-100 table-responsive",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("table", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("table", {
               className: "table table-hover",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("caption", {
-                children: "\u062A\u06CC\u06A9\u062A \u0647\u0627\u06CC \u0645\u0631\u062A\u0628\u0637 \u0628\u0647 \u0627\u06CC\u0646 \u0633\u0641\u0627\u0631\u0634"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("thead", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("caption", {
+                children: "\u062A\u06CC\u06A9\u062A \u0647\u0627\u06CC \u0645\u0631\u062A\u0628\u0637 \u0628\u0647 \u0627\u06CC\u0646 \u0633\u0641\u0627\u0631\u0634 (\u062F\u0627\u06CC\u0646\u0627\u0645\u06CC\u06A9 \u0646\u0634\u062F\u0647)"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("thead", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: "#"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: "\u0634\u0645\u0627\u0631\u0647 \u062A\u06CC\u06A9\u062A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: "\u0639\u0646\u0648\u0627\u0646 \u062A\u06CC\u06A9\u062A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: "\u0628\u062E\u0634 \u0645\u0631\u0628\u0648\u0637\u0647"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: "\u0648\u0636\u0639\u06CC\u062A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: "\u062A\u0627\u0631\u06CC\u062E \u0627\u06CC\u062C\u0627\u062F"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: "\u062A\u0627\u0631\u06CC\u062E \u0627\u062A\u0645\u0627\u0645"
                   })]
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("tbody", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                     children: "1"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                     children: "#46753"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                     children: "\u0648\u06CC\u0631\u0627\u06CC\u0634"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                     children: "\u0627\u0645\u0648\u0631 \u0637\u0631\u0627\u062D\u06CC"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                     children: "\u0628\u0633\u062A\u0647 \u0634\u062F\u0647"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                     children: "1400/12/5"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                     children: "1400/12/12"
                   })]
                 })

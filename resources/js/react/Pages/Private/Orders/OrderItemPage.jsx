@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import Loading from '../Layout/components/Loading'
-import { useHttpService } from '../../../hooks'
+import { useHttpService, useJalaliDate } from '../../../hooks'
+import { Link } from 'react-router-dom'
+import { translate } from '../../../../helpers'
 
 export default class OrderItemPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
             orderItem: null,
-            loading: false
+            level: null,
+            loading: true
         }
         this.http = useHttpService('/userarea/')
     }
@@ -17,77 +20,92 @@ export default class OrderItemPage extends Component {
     loadItem = async () => {
         let {orderId, itemId} = this.props.params
         const response = await this.http.get(`orders/${orderId}/items/${itemId}`)
+        this.setState({
+            orderItem: response,
+            loading: false
+        }, () => {
+            response.item.canceled ? null : this.getLevel()
+        })
         console.log(response);
     }
+    getLevel = () => {
+        let { item, statuses } = this.state.orderItem, {status} = item, { normal, list } = statuses, level
+        if (normal.indexOf(status) === -1) { // not normal procsess
+            let targetArray = list.slice(0, list.indexOf(status)).reverse()
+            for (let i = 0; i < targetArray.length; i++ ) {
+                let target_status = targetArray[i]
+                if (normal.includes(target_status)) {
+                    level = normal.indexOf(target_status) + 1
+                    break
+                }
+            }
+        } else { // normal proccess
+            level = normal.indexOf(status) + 1            
+        }
+        this.setState({
+            level: level,
+        })
+    }
+    getPercent = (exact) => {
+        let {level, orderItem} = this.state
+        let percent = level * (100/orderItem.statuses.normal.length)
+        return exact ? percent : Math.floor(percent)
+    }
     render() {
-        let { loading } = this.state
+        let { loading, orderItem, level } = this.state, { item, okay, order, statuses } = orderItem??{}
         return (
             <div>
                 {loading ? <Loading />
                 : <>
                     <div className='order-item-header'>
-                        <div className="order-item-header-title"><h4>سفارش لوگوی افتتاحیه رستوران احسان</h4></div>
+                        <div className="order-item-header-title"><h4>{item.title}</h4></div>
                         <div className="progress">
-                            <div className="progress-bar w-25" role="progressbar" aria-valuenow="25%" aria-valuemin="0%" area-valuemax="100%">25%</div>
+                            <div className="progress-bar" style={{ width: `${this.getPercent(true)}%` }} role="progressbar" aria-valuenow={this.getPercent(true)} aria-valuemin="0%" area-valuemax="100%">{this.getPercent()}%</div>
                         </div>
-                        {/* <span className='order-item-header-icon'><i className='far fa-drafting-compass'></i></span> */}
                     </div>
                     <div className='order-item-infos-container'>
                         <div className='order-item-section'>
                             <span className='order-item-section-icon'><i className='far fa-info-square'></i></span>
                             <ul className='order-item-list'>
-                                <li>نوع طراحی: <span>طراحی لوگوی تصویری</span></li>
-                                <li>سفارش: <span>#fs2l48fk</span></li>
-                                <li></li>
+                                <li>بسته یا خدمات مربوطه: <a href={item.service.uri}>{item.service.title}</a></li>
+                                <li>کد سفارش: <Link to={`/orders/${order.id}`}>{order.code}</Link></li>
                             </ul>
                         </div>
                         <div className='order-item-section'>
                             <span className='order-item-section-icon'><i className="far fa-spinner"></i></span>
                             <ul className='order-item-list'>
-                                <li>وضعیت: <span>در دست طراحی</span></li>
-                                <li>توضیحات: <span>در حال حاضر 2 اتود از 3 اتود درخواستی شما تکمیل شده.</span></li>
+                                <li>وضعیت: <span>{item.status_fa}</span></li>
+                                <li>توضیحات: <span>{item.state_info}</span></li>
                             </ul>
                         </div>
                         <div className='order-item-section'>
                             <span className='order-item-section-icon'><i className="far fa-calendar-exclamation"></i></span>
                             <ul className='order-item-list'>
-                                <li>موعد تحویل: <span>1400/12/24</span></li>
-                                <li>تاریخ اتمام: <span>1401/1/2</span></li>
+                                <li>موعد تحویل: <span>{item.due_date ? useJalaliDate(item.due_date).format("jYYYY/jM/jD dddd") : ""}</span></li>
+                                <li>تاریخ اتمام: <span>{item.finished_at ? useJalaliDate(item.finished_at).format("jYYYY/jM/jD dddd") : ""}</span></li>
                             </ul>
                         </div>
                         <div className='order-item-section'>
                             <span className='order-item-section-icon'><i className="far fa-comment-alt-medical"></i></span>
                             <ul className='order-item-list'>
-                                <li>پکیج مربوطه :<span>افتتاحیه رستوران</span></li>
-                                <li>توضیحات پروژه :<span>این پروژه زیر نظر طراحان متخصص دایا در دست انجام است و دول اقا بزرگ من کوچیکه</span></li>
+                                <li>طرح مربوطه: <span>نیاز به داینامیک سازی</span></li>
+                                <li>توضیحات پروژه: {item.description}</li>
                             </ul>
                         </div>
                     </div>
-                    <div className="order-item-progress-container level-4">
-                        <div className='order-level-progress'>
-                            <h4 className='order-level-title'>ثبت سفارش</h4>
-                            <span className='order-level-circle'><i className='far fa-user-edit'></i></span>
-                        </div>
-                        <div className='order-level-progress'>
-                            <h4 className='order-level-title'>تماس تلفنی</h4>
-                            <span className='order-level-circle'><i className='far fa-phone-volume'></i></span>
-                        </div>
-                        <div className='order-level-progress'>
-                            <h4 className='order-level-title'>پرداخت بیعانه</h4>
-                            <span className='order-level-circle'><i className='far fa-credit-card'></i></span>
-                        </div>
-                        <div className='order-level-progress'>
-                            <h4 className='order-level-title'>طراحی سفارش</h4>
-                            <span className='order-level-circle'><i className='far fa-drafting-compass'></i></span>
-                        </div>
-                        <div className='order-level-progress'>
-                            <h4 className='order-level-title'>تسویه و تحویل</h4>
-                            <span className='order-level-circle'><i className='far fa-handshake'></i></span>
-                        </div>
+                    <div className={`order-item-progress-container level-${level}`}>
+                        {
+                            statuses && statuses.normal.length > 0 ? statuses.normal.map((statuse, i) => (
+                                <div className="order-level-progress">
+                                    <h4 className='order-level-title'>{translate(statuse)}</h4>
+                                    <span className='order-level-circle'><i className={`far ${statuse}`}></i></span>
+                                </div>
+                            )) : null
+                        }
                     </div>
                     <div className="w-100 table-responsive">
                         <table className='table table-hover'>
-                            <caption>تیکت های مرتبط به این سفارش</caption>
+                            <caption>تیکت های مرتبط به این سفارش (داینامیک نشده)</caption>
                             <thead>
                                 <tr>
                                     <th>#</th>

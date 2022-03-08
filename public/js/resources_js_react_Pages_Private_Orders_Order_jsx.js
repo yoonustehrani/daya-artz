@@ -14,6 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "translate": () => (/* binding */ translate),
 /* harmony export */   "number_format": () => (/* binding */ number_format)
 /* harmony export */ });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -62,25 +64,25 @@ function isObjEmpty(obj) {
   return !Object.keys(obj).length;
 }
 var translate = function translate(key) {
-  switch (key) {
-    case "automate":
-      return "اتومات";
+  var _dic;
 
-    case "manual":
-      return "دستی";
-
-    case "just-recieved":
-      return "دریافت شده";
-
-    case "in-progress":
-      return "در حال انجام";
-
-    case "finished":
-      return "تمام شده";
-
-    default:
-      break;
-  }
+  var dic = (_dic = {
+    // order methods
+    "automate": "اتومات",
+    "manual": "دستی",
+    "just-recieved": "دریافت شده",
+    "in-progress": "در حال انجام",
+    "finished": "تمام شده",
+    // statuses
+    "submitted": "دریافت سفارش",
+    "reviewed": "بررسی جزئیات",
+    "designing": "در دست طراحی",
+    "ready": "آماده تحویل",
+    "editing": "در حال ویرایش",
+    "canceled": "لغو شده",
+    "suspended": "تعلیق شده"
+  }, _defineProperty(_dic, "finished", "اتمام سفارش"), _defineProperty(_dic, "checked-out", "تصویه و تحویل"), _dic);
+  return dic[key];
 };
 var number_format = function number_format(number) {
   var appendix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
