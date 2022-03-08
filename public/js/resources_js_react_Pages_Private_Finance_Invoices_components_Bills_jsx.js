@@ -96,7 +96,7 @@ function Bills(_ref) {
           }, id);
         })
       })]
-    }), showPopup ? (0,_PaymentPopup__WEBPACK_IMPORTED_MODULE_2__["default"])() : null]
+    }), showPopup ? (0,_PaymentPopup__WEBPACK_IMPORTED_MODULE_2__["default"])(setShowPopup(0)) : null]
   });
 }
 

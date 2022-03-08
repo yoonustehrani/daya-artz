@@ -16443,7 +16443,7 @@ span.back-aqua.big-icon {
   float: right;
   width: 100%;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.06);
@@ -16451,57 +16451,57 @@ span.back-aqua.big-icon {
   margin: 0 1.5% 1.5%;
   background: #fefffc;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-title, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-title {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-title {
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: right;
   align-items: center;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-title .order-item-icon, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-title .order-item-icon {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-title .order-item-icon {
   margin-left: 10px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-title .order-item-icon i, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-title .order-item-icon i {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-title .order-item-icon i {
   font-size: 40px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-title .order-item-title, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-title .order-item-title {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-title .order-item-title {
   font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-title .order-item-subtitle, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-title .order-item-subtitle {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-title .order-item-subtitle {
   font-size: 14px;
   color: #808080;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-details, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-details {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-details {
   width: 100%;
   padding: 0;
   margin: 12px 0 0;
   list-style: none;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-details li, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-details li {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-details li {
   font-size: 14px;
   margin-top: 5px;
   font-weight: bold;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-details li > *, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-details li > * {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-details li > * {
   font-weight: normal;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-details li span, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-details li span {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-details li span {
   font-size: 14px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div .order-details li p, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a .order-details li p {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item .order-details li p {
   font-size: 12px;
   display: inline;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a > span {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item > span {
   font-size: 16px;
   font-weight: bold;
   display: inline-block;
   width: 100%;
   margin-top: 12px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span::before, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a > span::before {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item > span::before {
   content: "";
   width: 10px;
   height: 10px;
@@ -16509,13 +16509,13 @@ span.back-aqua.big-icon {
   margin-left: 6px;
   border-radius: 100px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span.in-progress::before, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a > span.in-progress::before {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item > span.in-progress::before {
   background-color: #ee786e;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span.just-recieved::before, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a > span.just-recieved::before {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item > span.just-recieved::before {
   background-color: #6332df;
 }
-.user-area-layout-container .user-area-panel .main-content-container .order-items-container > div > span.finished::before, .user-area-layout-container .user-area-panel .main-content-container .order-items-container > a > span.finished::before {
+.user-area-layout-container .user-area-panel .main-content-container .order-items-container .item > span.finished::before {
   background-color: #82D177;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-header {
