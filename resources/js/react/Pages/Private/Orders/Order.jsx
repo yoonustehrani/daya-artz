@@ -63,8 +63,8 @@ class Order extends Component {
                     : items && items.length > 0
                     ? <div className="order-items-container">
                         {items.length > 0 && this.filteredItems().map((item, i) => (
-                            <Link to={`/orders/${order.id}/items/${item.id}`}>
-                                <OrderItem key={item.id} statusName={statuses[item.status] ?? ''} filter={filter} {...item} />
+                            <Link to={`/orders/${order.id}/items/${item.id}`} key={item.id}>
+                                <OrderItem statusName={statuses[item.status] ?? ''} filter={filter} {...item} />
                             </Link>
                         ))}
                     </div>

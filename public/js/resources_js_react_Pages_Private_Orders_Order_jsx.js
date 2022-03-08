@@ -325,8 +325,8 @@ var Order = /*#__PURE__*/function (_Component) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_OrderItem__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({
                 statusName: (_statuses$item$status = statuses[item.status]) !== null && _statuses$item$status !== void 0 ? _statuses$item$status : '',
                 filter: filter
-              }, item), item.id)
-            });
+              }, item))
+            }, item.id);
           })
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"], {}), noFilteredItem && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
       });
