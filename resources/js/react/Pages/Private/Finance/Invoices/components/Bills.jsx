@@ -1,5 +1,8 @@
+import React, { useState } from "react";
 import { number_format } from "../../../../../../helpers"
+import PaymentPopup from "./PaymentPopup";
 export default function Bills({bills}) {
+    const [showPopup, setShowPopup] = useState(0)
     return (
         <div className="float-left w-100 table-responsive mt-5">
             <h3 className="factor-section-title">وضعیت پرداختی</h3>
@@ -23,12 +26,13 @@ export default function Bills({bills}) {
                         <td>{status_fa} {
                             status === 'paid'
                             ? <i className='far fa-check text-success'></i>
-                            : <a href="#" className='btn btn-sm btn-primary'>پرداخت</a>
+                            : <a href="#" className='btn btn-sm btn-primary' onClick={() => setShowPopup(1)}>پرداخت</a>
                         }</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
+            {showPopup ? PaymentPopup() : null}
         </div>
     )
 }
