@@ -32,7 +32,7 @@ export default function Bills({bills}) {
                 ))}
                 </tbody>
             </table>
-            {showPopup ? PaymentPopup() : null}
+            {showPopup ? PaymentPopup(setShowPopup(0)) : null}
         </div>
     )
 }
