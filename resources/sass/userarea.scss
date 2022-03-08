@@ -721,15 +721,26 @@
                     padding: 15px;
                     color: #000;
                     border-radius: 15px;
+                    width: fit-content;
+                    margin-left: 30px;
                     * {
                         margin: 0;
                         font-size: 20px;
+                        width: max-content;
                     }
                 }
                 .progress {
-                    width: 70%;
+                    min-width: 60%;
+                    width: inherit;
                     .progress-bar {
                         background-color: #ac7ff4;
+                        &.canceled {
+                            background-color: inherit;
+                            width: 100% !important;
+                            span i {
+                                vertical-align: middle;
+                            }
+                        }
                     }
                 }
                 .order-item-header-icon {
@@ -821,7 +832,7 @@
                         i {
                             font-size: 40px;
                             &.submitted {
-                                &::before {content: "\f007"}
+                                &::before {content: "\f093"}
                             }
                             &.reviewed {
                                 &::before {content: "\f812"}
@@ -902,6 +913,14 @@
                         @include level-done;
                     }
                     .order-level-progress:nth-child(-n+4) {
+                        @include dir-done;
+                    }
+                }
+                &.level-6 {
+                    .order-level-progress:nth-child(-n+6) {
+                        @include level-done;
+                    }
+                    .order-level-progress:nth-child(-n+5) {
                         @include dir-done;
                     }
                 }

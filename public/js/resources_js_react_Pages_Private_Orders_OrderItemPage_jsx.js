@@ -299,16 +299,21 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "progress",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                className: "progress-bar",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "progress-bar ".concat(item.canceled && "canceled"),
                 style: {
                   width: "".concat(this.getPercent(true), "%")
                 },
                 role: "progressbar",
-                "aria-valuenow": this.getPercent(true),
+                "aria-valuenow": item.canceled ? "0%" : "".concat(this.getPercent(true), "%"),
                 "aria-valuemin": "0%",
                 "area-valuemax": "100%",
-                children: [this.getPercent(), "%"]
+                children: item.canceled ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+                  className: "text-danger",
+                  children: ["\u0644\u063A\u0648 \u0634\u062F\u0647 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+                    className: "far fa-times"
+                  })]
+                }) : "".concat(this.getPercent(), "%")
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -331,6 +336,10 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
                   children: ["\u06A9\u062F \u0633\u0641\u0627\u0631\u0634: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
                     to: "/orders/".concat(order.id),
                     children: order.code
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: ["\u0634\u06CC\u0648\u0647 \u062B\u0628\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                    children: order.method
                   })]
                 })]
               })]
@@ -404,7 +413,7 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
                     className: "far ".concat(statuse)
                   })
                 })]
-              });
+              }, i);
             }) : null
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "w-100 table-responsive",

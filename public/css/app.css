@@ -16531,16 +16531,31 @@ span.back-aqua.big-icon {
   padding: 15px;
   color: #000;
   border-radius: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 30px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-header .order-item-header-title * {
   margin: 0;
   font-size: 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-header .progress {
-  width: 70%;
+  min-width: 60%;
+  width: inherit;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-header .progress .progress-bar {
   background-color: #ac7ff4;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-header .progress .progress-bar.canceled {
+  background-color: inherit;
+  width: 100% !important;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-header .progress .progress-bar.canceled span i {
+  vertical-align: middle;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-header .order-item-header-icon {
   font-size: 45px;
@@ -16636,7 +16651,7 @@ span.back-aqua.big-icon {
   font-size: 40px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i.submitted::before {
-  content: "\f007";
+  content: "\f093";
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .order-level-progress .order-level-circle i.reviewed::before {
   content: "\f812";
@@ -16709,6 +16724,16 @@ span.back-aqua.big-icon {
   border-color: #7553C1;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-5 .order-level-progress:nth-child(-n+4)::after {
+  background-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-6 .order-level-progress:nth-child(-n+6) .order-level-title {
+  color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-6 .order-level-progress:nth-child(-n+6) .order-level-circle {
+  color: #7553C1;
+  border-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-6 .order-level-progress:nth-child(-n+5)::after {
   background-color: #7553C1;
 }
 .user-area-layout-container .user-area-panel .main-content-container a.purple-pill {

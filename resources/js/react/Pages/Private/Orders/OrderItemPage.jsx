@@ -60,7 +60,7 @@ export default class OrderItemPage extends Component {
                     <div className='order-item-header'>
                         <div className="order-item-header-title"><h4>{item.title}</h4></div>
                         <div className="progress">
-                            <div className="progress-bar" style={{ width: `${this.getPercent(true)}%` }} role="progressbar" aria-valuenow={this.getPercent(true)} aria-valuemin="0%" area-valuemax="100%">{this.getPercent()}%</div>
+                            <div className={`progress-bar ${item.canceled&&"canceled"}`} style={{ width: `${this.getPercent(true)}%`}} role="progressbar" aria-valuenow={item.canceled ? "0%" : `${this.getPercent(true)}%`} aria-valuemin="0%" area-valuemax="100%">{item.canceled ? <span className='text-danger'>لغو شده <i className='far fa-times'></i></span> : `${this.getPercent()}%`}</div>
                         </div>
                     </div>
                     <div className='order-item-infos-container'>
@@ -69,6 +69,7 @@ export default class OrderItemPage extends Component {
                             <ul className='order-item-list'>
                                 <li>بسته یا خدمات مربوطه: <a href={item.service.uri}>{item.service.title}</a></li>
                                 <li>کد سفارش: <Link to={`/orders/${order.id}`}>{order.code}</Link></li>
+                                <li>شیوه ثبت: <span>{order.method}</span></li>
                             </ul>
                         </div>
                         <div className='order-item-section'>
@@ -96,7 +97,7 @@ export default class OrderItemPage extends Component {
                     <div className={`order-item-progress-container level-${level}`}>
                         {
                             statuses && statuses.normal.length > 0 ? statuses.normal.map((statuse, i) => (
-                                <div className="order-level-progress">
+                                <div key={i} className="order-level-progress">
                                     <h4 className='order-level-title'>{translate(statuse)}</h4>
                                     <span className='order-level-circle'><i className={`far ${statuse}`}></i></span>
                                 </div>
