@@ -2,7 +2,7 @@ import { useJalaliDate } from "../../../../hooks"
 
 export default function OrderItem({ filter, service, title, status, statusName, status_info, created_at, due_date }) {
     return (
-        <div className={filter !== "all" && filter !== status ? "d-none" : ""}>
+        <div>
             <div className="order-title">
                 <span className="back-aqua order-item-icon"><i className={service.icon_class}></i></span>
                 <div>
