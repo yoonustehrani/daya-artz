@@ -162,6 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Layout/components/Activity */ "./resources/js/react/Pages/Private/Layout/components/Activity.jsx");
 /* harmony import */ var _Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Layout/components/NoItem */ "./resources/js/react/Pages/Private/Layout/components/NoItem.jsx");
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks */ "./resources/js/react/hooks.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -198,6 +199,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
  // custom components
+
 
 
 
@@ -318,10 +320,13 @@ var Order = /*#__PURE__*/function (_Component) {
           children: items.length > 0 && this.filteredItems().map(function (item, i) {
             var _statuses$item$status;
 
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_OrderItem__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({
-              statusName: (_statuses$item$status = statuses[item.status]) !== null && _statuses$item$status !== void 0 ? _statuses$item$status : '',
-              filter: filter
-            }, item), item.id);
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
+              to: "/orders/".concat(order.id, "/items/").concat(item.id),
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_OrderItem__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({
+                statusName: (_statuses$item$status = statuses[item.status]) !== null && _statuses$item$status !== void 0 ? _statuses$item$status : '',
+                filter: filter
+              }, item), item.id)
+            });
           })
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"], {}), noFilteredItem && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
       });
@@ -479,6 +484,7 @@ function OrderItem(_ref) {
       created_at = _ref.created_at,
       due_date = _ref.due_date;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "item",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "order-title",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {

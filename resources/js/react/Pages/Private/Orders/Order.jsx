@@ -6,6 +6,7 @@ import OrderItem from './components/OrderItem';
 import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem';
 import { useHttpService } from '../../../hooks';
+import { Link } from 'react-router-dom';
 
 class Order extends Component {
     constructor(props) {
@@ -62,7 +63,9 @@ class Order extends Component {
                     : items && items.length > 0
                     ? <div className="order-items-container">
                         {items.length > 0 && this.filteredItems().map((item, i) => (
-                            <OrderItem key={item.id} statusName={statuses[item.status] ?? ''} filter={filter} {...item} />
+                            <Link to={`/orders/${order.id}/items/${item.id}`}>
+                                <OrderItem key={item.id} statusName={statuses[item.status] ?? ''} filter={filter} {...item} />
+                            </Link>
                         ))}
                     </div>
                     : <NoItem/>
