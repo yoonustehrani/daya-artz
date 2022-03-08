@@ -15,6 +15,7 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->nullableMorphs('ticketable');
             $table->string('tracking_code', 8)->unique();
             $table->string('title', 80);
             $table->foreignId('ticket_department_id')->nullable();

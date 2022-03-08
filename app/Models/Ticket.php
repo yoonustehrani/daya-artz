@@ -37,6 +37,10 @@ class Ticket extends Model
     {
         return __("userarea.tickets.status.{$status}");
     }
+    public function ticketable()
+    {
+        return $this->morphTo();
+    }
     public function department()
     {
         return $this->belongsTo(TicketDepartment::class, 'ticket_department_id');

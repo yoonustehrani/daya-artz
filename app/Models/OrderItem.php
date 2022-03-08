@@ -10,7 +10,7 @@ class OrderItem extends Model
     use HasFactory;
     const STATUS = [
         'submitted',
-        'reviewd',
+        'reviewed',
         'designing',
         'ready',
         'editing',
@@ -22,7 +22,7 @@ class OrderItem extends Model
     ];
     const NORMAL_STATUS = [
         'submitted',
-        'reviewd',
+        'reviewed',
         'designing',
         'ready',
         'finished',
