@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\OrderItem;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,7 +17,7 @@ class OrderDesignStarted extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct() // OrderItem $item
     {
         //
     }
@@ -28,6 +29,7 @@ class OrderDesignStarted extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('پروژه طراحی گرافیک شما شروع شد')
+                    ->markdown('emails.html.order-items.started');
     }
 }

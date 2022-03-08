@@ -47,5 +47,9 @@ return [
             'canceled' => 'کنسل شده',
             'pending' => 'در انتظار'
         ]
+    ],
+    'bills' => [
+        'deposit' => 'پیش پرداخت :item_title',
+        'checkout' => 'تسویه :item_title'
     ]
 ];

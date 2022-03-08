@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { useHttpService } from '../../../../../hooks';
 
 class PaymentMethod extends Component {
-    state = {
-        paymentMethod: 'all', // or all
-        discountCode: ""
+    constructor(props) {
+        super(props)
+        this.state = {
+            paymentMethod: 'all', // or all
+            discountCode: ""
+        }
+        this.http = useHttpService('/userarea/invoices')
     }
     onChangeMethod = (method) => {
         this.setState({
@@ -15,10 +20,12 @@ class PaymentMethod extends Component {
             discountCode: e.target.value
         })
     }
-    onSubmit = () => {
+    onSubmit = async () => {
         let { paymentMethod, discountCode }  = this.state
-        console.log(`Method: ${paymentMethod} & Discount_code: ${discountCode}`);
-        // here tou can send the request
+        const response = await this.http.post(`/${this.props.invoice.id}/activate`, {mode: paymentMethod})
+        if (response.okay) {
+            this.props.onActive(response.invoice)
+        }
     }
     render() {
         let { paymentMethod } = this.state
@@ -32,8 +39,8 @@ class PaymentMethod extends Component {
                     در این شیوه پرداخت هزینه سفارش به صورت جداگانه برای هر آیتم طراحی در سبد شما انجام می شود
                 </p>
                 <div className="payment-method-container">
-                    <input type="radio" name="select" id="option-1" checked={paymentMethod === 'all'} onChange={this.onChangeMethod.bind(this, "all")} />
-                    <input type="radio" name="select" id="option-2" checked={paymentMethod === "items"} onChange={this.onChangeMethod.bind(this, "items")} />
+                    <input type="radio" name="select" id="option-1" checked={paymentMethod === 'all'}   onChange={() => this.onChangeMethod("all")} />
+                    <input type="radio" name="select" id="option-2" checked={paymentMethod === "items"} onChange={() => this.onChangeMethod("items")} />
                     <label htmlFor="option-1" className="option option-1">
                         <span>به صورت کلی</span>
                         <div className="dot"></div>
@@ -42,12 +49,12 @@ class PaymentMethod extends Component {
                         <span>به صورت موردی</span>
                         <div className="dot"></div>
                     </label>
-                    <div className="input-group">
+                    {/* <div className="input-group">
                         <div className="input-group-prepend">
                             <span className="input-group-text">کد تخفیف</span>
                         </div>
                         <input type="text" className='form-control' placeholder='اینجا وارد کنید' onChange={this.onChangeDiscount.bind(this)} />
-                    </div>
+                    </div> */}
                 </div>
                 <div className='w-100 text-center mt-2'>
                     <button className='btn btn-lg btn-light px-5' onClick={this.onSubmit}>تایید</button>

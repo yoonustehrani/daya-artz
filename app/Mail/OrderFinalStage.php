@@ -28,6 +28,7 @@ class OrderFinalStage extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject("سفارش شما آماده است و منتظر تسویه نهایی می باشد ")
+                    ->markdown('emails.html.order-items.final-stage');
     }
 }

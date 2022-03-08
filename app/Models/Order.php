@@ -29,7 +29,6 @@ class Order extends Model
     {
         return $this->belongsTo(Company::class);
     }
-
     public function getMethodAttribute($method)
     {
         return __("userarea.orders.method.{$method}");

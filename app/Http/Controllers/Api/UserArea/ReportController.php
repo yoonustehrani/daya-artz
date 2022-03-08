@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api\UserArea;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReportRequest;
+use App\Models\Invoice;
 use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Ticket;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,38 +44,19 @@ class ReportController extends Controller
     public function general(Request $request)
     {
         $user_id = $request->user()->id;
-        $invoices = DB::table('invoices')
-            ->selectRaw('count(`id`) AS aggregate')
-            ->where('user_id', $user_id)
-            ->whereNull('paid_at')
-            ->toSql();
-        $tickets = DB::table('tickets')
-            ->selectRaw('count(`id`) AS aggregate')
-            ->where('user_id', $user_id)
-            ->whereNull('closed_at')
-            ->toSql();
-        $orders_count = DB::table('orders')
-            ->selectRaw('count(`id`) AS aggregate')
-            ->where('user_id', $user_id)
-            ->whereNull('finished_at')
-            ->toSql();
-        $counts = DB::selectOne(
-            "SELECT ($invoices) as invoices_count, ($tickets) as tickets_count, ($orders_count) as orders_count",
-            [$user_id, $user_id, $user_id]
-        );
-        return response()->json($counts);
+        $invoices_count = Invoice::where('user_id', $user_id)->active()->unExpired()->whereNull('paid_at')->count();
+        $tickets_count = Ticket::where('user_id', $user_id)->whereNull('closed_at')->count();
+        $orders_count = Order::where('user_id', $user_id)->whereNull('finished_at')->count();
+        return response()->json(compact('invoices_count', 'tickets_count', 'orders_count'));
     }
-    public function ordersStat()
+    public function ordersStat(Request $request)
     {
-        $completed = DB::table('orders')
-            ->selectRaw('count(`id`) AS aggregate')
-            ->where('user_id', 1)
-            ->whereNotNull('finished_at')
-            ->toSql();
+        $user_id = $request->user()->id;
+        $completed = Order::where('user_id', $user_id)->whereNotNull('finished_at');
         return response()->json([
-            'completed' => random_int(0, 12),
-            'awaiting' => random_int(0, 12),
-            'prepaid' => random_int(0, 12)
+            'completed' => $completed->count(),
+            'awaiting' => 0,
+            'prepaid' => 0
         ]);
     }
     public function latest(Request $request)

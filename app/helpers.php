@@ -60,3 +60,12 @@ if (! function_exists('get_menu_items')) {
         return $menu;
     }
 }
+
+if (! function_exists('calculate_payments')) {
+    function calculate_payments($total) {
+        $percentage = $total > 10_000_000 ? 0.6 : 0.5;
+        $deposit = $total * $percentage;
+        $checkout = $total - $deposit;
+        return compact('deposit', 'checkout');
+    }
+}

@@ -14,17 +14,13 @@ class CreateBillsTable extends Migration
     public function up()
     {
         Schema::create('bills', function (Blueprint $table) {
-            // tracking code
             $table->uuid('id')->primary();
+            $table->foreignId('invoice_id');
             $table->string('code', 12);
             $table->bigInteger('amount');
             $table->string('title')->nullable();
-            $table->enum('status', [
-                'active',
-                'inactive',
-                'paid'
-            ]);
-            $table->foreignId('invoice_id');
+            $table->boolean('active')->default(false);
+            $table->timestamp('paid_at')->nullable();
             $table->timestamps();
             // $table->foreign('invoice_id')->references('id')->on('invoices')->cascadeOnDelete()->cascadeOnUpdate();
         });
