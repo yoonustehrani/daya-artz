@@ -10,6 +10,10 @@ class Bill extends Model
 {
     use HasFactory, HasUuidAsPrimaryKey;
     protected $fillable = ['code', 'amount', 'title', 'active'];
+    public function scopeActive($builder)
+    {
+        $builder->where('active', true);
+    }
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
