@@ -45,7 +45,7 @@ export const translate = (key) => {
         "canceled": "لغو شده",
         "suspended": "تعلیق شده",
         "finished": "اتمام سفارش",
-        "checked-out": "تصویه و تحویل"
+        "checked-out": "تسویه و تحویل"
     }
     return dic[key]
 }

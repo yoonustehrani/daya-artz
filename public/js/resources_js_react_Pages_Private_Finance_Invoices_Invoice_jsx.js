@@ -81,7 +81,7 @@ var translate = function translate(key) {
     "editing": "در حال ویرایش",
     "canceled": "لغو شده",
     "suspended": "تعلیق شده"
-  }, _defineProperty(_dic, "finished", "اتمام سفارش"), _defineProperty(_dic, "checked-out", "تصویه و تحویل"), _dic);
+  }, _defineProperty(_dic, "finished", "اتمام سفارش"), _defineProperty(_dic, "checked-out", "تسویه و تحویل"), _dic);
   return dic[key];
 };
 var number_format = function number_format(number) {
