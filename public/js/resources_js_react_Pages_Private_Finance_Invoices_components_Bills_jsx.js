@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../helpers */ "./resources/js/helpers/index.js");
-/* harmony import */ var _PaymentPopup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PaymentPopup */ "./resources/js/react/Pages/Private/Finance/Invoices/components/PaymentPopup.jsx");
+/* harmony import */ var _components_LoaderComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../components/LoaderComponent */ "./resources/js/react/components/LoaderComponent.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -32,10 +32,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var PaymentPopup = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Invoices_components_PaymentPopup_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./PaymentPopup */ "./resources/js/react/Pages/Private/Finance/Invoices/components/PaymentPopup.jsx"));
+});
 function Bills(_ref) {
   var bills = _ref.bills;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       showPopup = _useState2[0],
       setShowPopup = _useState2[1];
@@ -88,7 +91,7 @@ function Bills(_ref) {
                 href: "#",
                 className: "btn btn-sm btn-primary",
                 onClick: function onClick() {
-                  return setShowPopup(1);
+                  return setShowPopup(true);
                 },
                 children: "\u067E\u0631\u062F\u0627\u062E\u062A"
               })]
@@ -96,31 +99,13 @@ function Bills(_ref) {
           }, id);
         })
       })]
-    }), showPopup ? (0,_PaymentPopup__WEBPACK_IMPORTED_MODULE_2__["default"])(setShowPopup(0)) : null]
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/react/Pages/Private/Finance/Invoices/components/PaymentPopup.jsx":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/react/Pages/Private/Finance/Invoices/components/PaymentPopup.jsx ***!
-  \***************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ PaymentPopup)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-function PaymentPopup(_ref) {
-  var closePopup = _ref.closePopup;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
-      onClick: closePopup(),
-      children: "close window"
-    })
+    }), showPopup && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(PaymentPopup, {
+        close: function close() {
+          return setShowPopup(false);
+        }
+      })
+    })]
   });
 }
 

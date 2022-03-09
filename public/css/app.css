@@ -16444,6 +16444,7 @@ span.back-aqua.big-icon {
   width: 100%;
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-items-container .item {
+  color: #000;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.06);
@@ -17020,6 +17021,98 @@ span.back-aqua.big-icon {
 .user-area-layout-container .user-area-panel .main-content-container .factor-container .payment-method-container #option-1:checked:checked ~ .option-1 span,
 .user-area-layout-container .user-area-panel .main-content-container .factor-container .payment-method-container #option-2:checked:checked ~ .option-2 span {
   color: #fff;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box {
+  width: 60%;
+  background: linear-gradient(to bottom right, #C9D6FF, #E2E2E2);
+  color: #000;
+  border-radius: 8px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.06);
+  overflow-y: auto;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-header-tab {
+  width: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-header-tab > * {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  transition: 0.5s;
+  font-size: 22px;
+  color: #000;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-header-tab > *:nth-child(1) {
+  border-top-right-radius: 8px;
+  border-left: 1px solid #8f60ec;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-header-tab > *:nth-child(2) {
+  border-top-left-radius: 8px;
+  border-right: 1px solid #8f60ec;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-header-tab > *.active {
+  background-color: #E4DBFA;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-header-tab > *:hover {
+  background-color: #E4DBFA;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content {
+  width: 100%;
+  padding: 25px;
+  font-size: 18px;
+  color: #000;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content .gateway-btn {
+  padding: 6px 30px;
+  border: 3px solid #BAA8DE;
+  transition: 0.5s;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 10px;
+  color: #000;
+  box-shadow: 2px 2px rgba(186, 168, 222, 0.4);
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content .gateway-btn img {
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 45px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content .gateway-btn:hover {
+  border-color: #8f60ec;
+  box-shadow: 2px 2px 6px rgba(143, 96, 236, 0.3);
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content .popup-list {
+  padding: 0;
+  list-style-type: none;
+  font-size: 19px;
+  color: #000;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content .popup-list li {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content .popup-list li i {
+  margin-left: 8px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content .popup-list li span {
+  font-weight: normal;
 }
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container > * {
   width: 100%;
