@@ -19,7 +19,7 @@ function Layout() {
                 <TopBackground />
                 <div className="user-area-panel">
                     <div className="main-content-container">
-                        {! user.lastname && pathname !== '/registerInfo' && <PleaseComplete />}
+                        {user && ! user.lastname && pathname !== '/registerInfo' && <PleaseComplete />}
                         <PrivateRoutes />
                     </div>
                     <Sidebar /> 

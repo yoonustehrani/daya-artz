@@ -3739,7 +3739,7 @@ function Layout() {
         className: "user-area-panel",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "main-content-container",
-          children: [!user.lastname && pathname !== '/registerInfo' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_PleaseComplete__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+          children: [user && !user.lastname && pathname !== '/registerInfo' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_PleaseComplete__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_router_PrivateRoutes__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Sidebar__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_MenuToggle__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
     })]
