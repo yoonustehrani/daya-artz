@@ -319,9 +319,6 @@ $xl-xl-breakpoint: 1600px;
             width: 60% !important;
         }
     }
-    .user-area-panel {
-        height: 550px !important;
-    }
     .user-area-sidebar {
         width: 28% !important;
         padding: 20px 0px 5px 0px !important;
@@ -475,6 +472,9 @@ $xl-xl-breakpoint: 1600px;
         .input-group {
             margin: 10px 0 !important;
         }
+    }
+    .popup-box {
+        width: 85% !important;
     }
 } // end md
 
@@ -1090,7 +1090,6 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .user-area-panel {
-        height: auto !important;
         position: static !important;
         margin-top: 0 !important;
         display: initial !important;
@@ -1297,6 +1296,24 @@ $xl-xl-breakpoint: 1600px;
     .user-area-layout-container {
         #menu-open {
             display: flex !important;
+        }
+    }
+    .popup-box {
+        width: 90% !important;
+        .popup-header-tab {
+            > * {
+                font-size: 18px !important;
+                padding: 12px 8px !important;
+            }
+        }
+        .popup-content {
+            padding: 15px !important;
+            .popup-list {
+                font-size: 18px !important;
+                li span {
+                    display: block !important;
+                }
+            }
         }
     }
 } // end tablet and mobile
@@ -1898,6 +1915,9 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .post-main-section {
+        width: 80% !important;
+    }
+    .popup-box {
         width: 80% !important;
     }
 } // end lg
