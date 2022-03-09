@@ -43,6 +43,16 @@ function Bills(_ref) {
       showPopup = _useState2[0],
       setShowPopup = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      payable = _useState4[0],
+      setPayable = _useState4[1];
+
+  function select(bill) {
+    setPayable(bill);
+    setShowPopup(true);
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "float-left w-100 table-responsive mt-5",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
@@ -67,14 +77,14 @@ function Bills(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
         children: bills.length > 0 && bills.filter(function (x) {
           return x.active;
-        }).map(function (_ref2, i) {
-          var id = _ref2.id,
-              code = _ref2.code,
-              title = _ref2.title,
-              amount = _ref2.amount,
-              status = _ref2.status,
-              active = _ref2.active,
-              status_fa = _ref2.status_fa;
+        }).map(function (bill, i) {
+          var id = bill.id,
+              code = bill.code,
+              title = bill.title,
+              amount = bill.amount,
+              status = bill.status,
+              active = bill.active,
+              status_fa = bill.status_fa;
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
               children: i + 1
@@ -91,7 +101,7 @@ function Bills(_ref) {
                 href: "#",
                 className: "btn btn-sm btn-primary",
                 onClick: function onClick() {
-                  return setShowPopup(true);
+                  return select(bill);
                 },
                 children: "\u067E\u0631\u062F\u0627\u062E\u062A"
               })]
@@ -99,8 +109,11 @@ function Bills(_ref) {
           }, id);
         })
       })]
-    }), showPopup && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+    }), showPopup && payable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {}),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(PaymentPopup, {
+        id: payable.id,
+        amount: payable.amount,
         close: function close() {
           return setShowPopup(false);
         }

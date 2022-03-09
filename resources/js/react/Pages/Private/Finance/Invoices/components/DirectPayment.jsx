@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function ClassicPayment() {
+export default function DirectPayment() {
     const [transactionCode, setTransactionCode] = useState(null)
     const sendForm = () => {
         console.log('here the req will be sent');
