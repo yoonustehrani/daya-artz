@@ -45,5 +45,11 @@ return [
             'Password' => 'uss828487'
         ]
     ],
+
+    'farazSMS' => [
+        'base_url' => 'https://rest.ippanel.com/v1/',
+        'apikey' => 'wwCG0nQcdunKIsSZg5doljNKdIHIZkOFV-q60pg5KLo='
+    ],
+    
     'sms' => ['active' => false]
 ];
