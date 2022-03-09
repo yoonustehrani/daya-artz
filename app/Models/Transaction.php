@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasDetailsAttribute;
 use App\Traits\HasUuidAsPrimaryKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    use HasUuidAsPrimaryKey, HasFactory;
+    use HasUuidAsPrimaryKey, HasFactory, HasDetailsAttribute;
     protected $fillable = ['transaction_id', 'status', 'amount', 'provider', 'user_id'];
     protected $hidden = ['transaction_id'];
     public function bill()

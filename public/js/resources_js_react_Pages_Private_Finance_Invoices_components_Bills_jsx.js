@@ -79,9 +79,7 @@ function Bills(_ref) {
               code = bill.code,
               title = bill.title,
               amount = bill.amount,
-              status = bill.status,
-              active = bill.active,
-              status_fa = bill.status_fa;
+              paid_at = bill.paid_at;
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
               children: i + 1
@@ -91,19 +89,19 @@ function Bills(_ref) {
               children: title
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               children: (0,_helpers__WEBPACK_IMPORTED_MODULE_2__.number_format)(amount, true)
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
-              children: [status_fa, " ", status === 'paid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-                  className: "far fa-check text-success"
-                }), " \u067E\u0631\u062F\u0627\u062E\u062A \u0634\u062F\u0647"]
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: paid_at === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                 href: "#",
                 className: "btn btn-sm btn-primary",
                 onClick: function onClick() {
                   return select(bill);
                 },
                 children: "\u067E\u0631\u062F\u0627\u062E\u062A"
-              })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                  className: "far fa-check text-success"
+                }), " \u067E\u0631\u062F\u0627\u062E\u062A \u0634\u062F\u0647"]
+              })
             })]
           }, id);
         })

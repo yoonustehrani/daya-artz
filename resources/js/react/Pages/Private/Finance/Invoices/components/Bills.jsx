@@ -24,17 +24,17 @@ export default function Bills({bills}) {
                 </thead>
                 <tbody>
                 {bills.length > 0 && bills.filter(x => x.active).map((bill, i) => {
-                    let {id, code, title, amount, status, active, status_fa} = bill
+                    let {id, code, title, amount, paid_at} = bill
                     return (
                         <tr key={id}>
                             <th>{i + 1}</th>
                             <td>{code}</td>
                             <td>{title}</td>
                             <td>{number_format(amount, true)}</td>
-                            <td>{status_fa} {
-                                status === 'paid'
-                                ? <span><i className='far fa-check text-success'></i> پرداخت شده</span>
-                                : <a href="#" className='btn btn-sm btn-primary' onClick={() => select(bill)}>پرداخت</a>
+                            <td>{
+                                paid_at === null
+                                ? <a href="#" className='btn btn-sm btn-primary' onClick={() => select(bill)}>پرداخت</a>
+                                : <span><i className='far fa-check text-success'></i> پرداخت شده</span>
                             }</td>
                         </tr>
                     )
