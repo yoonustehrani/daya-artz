@@ -61,20 +61,33 @@ class Zarinpal extends Gateway
         $this->authority = $authority;
         $result = $this->requestVerify();
         $body = $result['body'];
-        $data = $body['data'];
-        if (isset($data['code']) && ($data === 100 || $data === 101) && $data['ref_id']) {
-            return [
-                'okay' => true,
-                'ref' => $data['ref_id'],
-                'meta' => [
-                    'card_pan' => $data['card_pan'],
-                    'fee' => $data['fee']
-                ]
-            ];
+        if ($this->isSandbox()) {
+            [$status, $ref_id] = [$body['Status'], $body['RefID']];
+            if (in_array($status, [100, 101]) && $ref_id) {
+                return [
+                    'okay' => true,
+                    'ref_id' => $ref_id,
+                    // 'meta' => [
+                    //     'card_pan' => $data['card_pan'],
+                    //     'fee' => $data['fee']
+                    // ]
+                ];
+            }
         }
+        // $data = $body['data'];
+        // if (isset($data['code']) && ($data === 100 || $data === 101) && $data['ref_id']) {
+        //     return [
+        //         'okay' => true,
+        //         'ref' => $data['ref_id'],
+        //         'meta' => [
+        //             'card_pan' => $data['card_pan'],
+        //             'fee' => $data['fee']
+        //         ]
+        //     ];
+        // }
         return [
             'okay' => false,
-            'errors' => $body['errors']
+            'errors' => $body['errors'] ?? []
         ];
     }
     public function requestPayment()

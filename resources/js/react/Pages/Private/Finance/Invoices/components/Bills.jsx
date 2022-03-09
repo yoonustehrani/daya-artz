@@ -1,7 +1,6 @@
 import React, { useState, lazy } from "react";
+import PaymentPopup from './PaymentPopup'
 import { number_format } from "../../../../../../helpers"
-import LoaderComponent from "../../../../../components/LoaderComponent";
-const PaymentPopup = React.lazy(() => import('./PaymentPopup'))
 
 export default function Bills({bills}) {
     const [showPopup, setShowPopup] = useState(false)
@@ -34,7 +33,7 @@ export default function Bills({bills}) {
                             <td>{number_format(amount, true)}</td>
                             <td>{status_fa} {
                                 status === 'paid'
-                                ? <i className='far fa-check text-success'></i>
+                                ? <span><i className='far fa-check text-success'></i> پرداخت شده</span>
                                 : <a href="#" className='btn btn-sm btn-primary' onClick={() => select(bill)}>پرداخت</a>
                             }</td>
                         </tr>
@@ -42,11 +41,7 @@ export default function Bills({bills}) {
                 })}
                 </tbody>
             </table>
-            {showPopup && payable && (
-                <React.Suspense fallback={<LoaderComponent />}>
-                    <PaymentPopup id={payable.id} amount={payable.amount} close={() => setShowPopup(false)} />
-                </React.Suspense>
-            )}
+            {showPopup && payable && (<PaymentPopup id={payable.id} amount={payable.amount} close={() => setShowPopup(false)} />)}
         </div>
     )
 }

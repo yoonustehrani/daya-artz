@@ -14,6 +14,10 @@ class PaymentController extends Controller
     {
         $this->util = new Payment;
     }
+    public function getProvider($provider)
+    {
+        return (new \App\Utils\Payment)->getDriver($provider);
+    }
     public function store(Request $request, $bill, $method)
     {
         $bill = Bill::select(['id', 'amount', 'title', 'paid_at'])->findOrFail($bill);
@@ -26,7 +30,7 @@ class PaymentController extends Controller
         ]);
         // return $transaction;
         if (in_array($method, $this->util->getDrivers())) {
-            $provider = (new \App\Utils\Payment)->getDriver($method);
+            $provider = $this->getProvider($method);
             $provider->sandbox();
             $result = $provider->purchase($bill->amount, $bill->title); // metadata
             if ($result['okay']) {
@@ -49,5 +53,34 @@ class PaymentController extends Controller
         return [
             'okay' => false
         ];
+    }
+    public function update(Request $request, $driver)
+    {
+        switch ($driver) {
+            case 'zarinpal':
+                $request->validate([
+                    'Authority' => 'required|string',
+                    'Status' => 'required'
+                ]);
+                $transaction_id = $request->query('Authority');
+                $transaction = Transaction::where('transaction_id', $transaction_id)->where('status', 'pending')->where('provider', $driver)->firstOrFail();
+                if ($request->query('Status') === 'OK') {
+                    $zp = $this->getProvider('zarinpal');
+                    $zp->sandbox();
+                    $valid = $zp->verify($transaction->amount, $transaction->transaction_id);
+                    if ($valid['okay']) {
+                        $transaction->status = 'verified';
+                        $transaction->save();
+                        return ['okay' => true, 'transaction' => $transaction];
+                    }
+                }
+                $transaction->status = 'canceled';
+                $transaction->save();
+                return ['okay' => false, 'transaction' => $transaction];
+                break;
+            default:
+                abort(403);
+                break;
+        }
     }
 }
