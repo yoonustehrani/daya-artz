@@ -476,6 +476,19 @@ $xl-xl-breakpoint: 1600px;
     .popup-box {
         width: 85% !important;
     }
+    .order-item-header {
+        flex-wrap: wrap;
+        .progress {
+            width: 100% !important;
+            margin-top: 20px;
+        }
+    }
+    .order-item-infos-container {
+        padding: 0 !important;
+        .order-item-section {
+            width: 45% !important;
+        }
+    }
 } // end md
 
 // medium and above
@@ -1316,6 +1329,60 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
+    .order-item-progress-container {
+        flex-direction: column;
+        .order-level-progress {
+            margin-bottom: 60px;
+            width: 100% !important;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .order-level-title {
+                position: static !important;
+                display: inline-block;
+                transform: none !important;
+                text-decoration: underline;
+                text-underline-offset: 14px;
+                text-decoration-thickness: 4px;
+            }
+            .order-level-circle {
+                margin: initial !important;
+                width: 60px !important;
+                height: 60px !important;
+                i {
+                    font-size: 30px !important;
+                }
+            }
+            .unnormal-status {
+                position: static !important;
+                transform: none !important;
+                width: fit-content !important;
+                min-width: 80px;
+            }
+            &:not(:last-child) {
+                &::after {
+                    width: 64px !important;
+                    transform-origin: left;
+                    transform: rotate(90deg) !important;
+                    bottom: 0 !important;
+                    left: 30px !important;
+                }
+            }
+        }
+    }
+    .order-item-header {
+        flex-wrap: wrap;
+        .progress {
+            width: 100% !important;
+            margin-top: 20px;
+        }
+    }
+    .order-item-infos-container {
+        padding: 0 !important;
+        .order-item-section {
+            width: 100% !important;
+        }
+    }
 } // end tablet and mobile
 
 // tablet
@@ -1591,6 +1658,37 @@ $xl-xl-breakpoint: 1600px;
     .tickets-faq {
         > div {
             width: 100% !important;
+        }
+    }
+    .order-item-progress-container {
+        height: 120px;
+        margin: 30px auto !important;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        min-width: 100%;
+        width: auto !important;
+        .order-level-progress {
+            font-size: 16px !important;
+            min-width: 145px;
+            .order-level-title {
+                top: -24px !important;
+            }
+            .order-level-circle {
+                width: 60px !important;
+                height: 60px !important;
+                i {
+                    font-size: 30px !important;
+                }
+            }
+            .unnormal-status {
+                width: calc(100% - 60px) !important;
+                font-size: 14px !important;
+            }
+            &:not(:last-child) {
+                &::after {
+                    width: calc(100% - 58px) !important;
+                }
+            }
         }
     }
 } // end medium-xl

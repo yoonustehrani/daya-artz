@@ -232,7 +232,7 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
           level;
 
       if (normal.indexOf(status) === -1) {
-        // not normal procsess
+        // not unnormal procsess like suspended or editing
         var targetArray = list.slice(0, list.indexOf(status)).reverse();
 
         for (var i = 0; i < targetArray.length; i++) {
@@ -407,6 +407,9 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
                   className: "order-level-title",
                   children: (0,_helpers__WEBPACK_IMPORTED_MODULE_4__.translate)(statuse)
+                }), !item.normal && i + 1 === level && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                  className: "badge badge-warning unnormal-status",
+                  children: item.status_fa
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                   className: "order-level-circle",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {

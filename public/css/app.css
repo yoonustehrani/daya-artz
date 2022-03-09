@@ -10548,6 +10548,21 @@ h3 {
   .popup-box {
     width: 85% !important;
   }
+
+  .order-item-header {
+    flex-wrap: wrap;
+  }
+  .order-item-header .progress {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+
+  .order-item-infos-container {
+    padding: 0 !important;
+  }
+  .order-item-infos-container .order-item-section {
+    width: 45% !important;
+  }
 }
 @media screen and (min-width: 768px) {
   .policy-header .header-vector, .blog-header .header-vector, .policy-header .services-vector, .blog-header .services-vector {
@@ -11390,6 +11405,63 @@ h3 {
   .popup-box .popup-content .popup-list li span {
     display: block !important;
   }
+
+  .order-item-progress-container {
+    flex-direction: column;
+  }
+  .order-item-progress-container .order-level-progress {
+    margin-bottom: 60px;
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .order-item-progress-container .order-level-progress .order-level-title {
+    position: static !important;
+    display: inline-block;
+    transform: none !important;
+    text-decoration: underline;
+    text-underline-offset: 14px;
+    text-decoration-thickness: 4px;
+  }
+  .order-item-progress-container .order-level-progress .order-level-circle {
+    margin: initial !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .order-item-progress-container .order-level-progress .order-level-circle i {
+    font-size: 30px !important;
+  }
+  .order-item-progress-container .order-level-progress .unnormal-status {
+    position: static !important;
+    transform: none !important;
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+    min-width: 80px;
+  }
+  .order-item-progress-container .order-level-progress:not(:last-child)::after {
+    width: 64px !important;
+    transform-origin: left;
+    transform: rotate(90deg) !important;
+    bottom: 0 !important;
+    left: 30px !important;
+  }
+
+  .order-item-header {
+    flex-wrap: wrap;
+  }
+  .order-item-header .progress {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+
+  .order-item-infos-container {
+    padding: 0 !important;
+  }
+  .order-item-infos-container .order-item-section {
+    width: 100% !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -11615,6 +11687,37 @@ h3 {
 
   .tickets-faq > div {
     width: 100% !important;
+  }
+
+  .order-item-progress-container {
+    height: 120px;
+    margin: 30px auto !important;
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    min-width: 100%;
+    width: auto !important;
+  }
+  .order-item-progress-container .order-level-progress {
+    font-size: 16px !important;
+    min-width: 145px;
+  }
+  .order-item-progress-container .order-level-progress .order-level-title {
+    top: -24px !important;
+  }
+  .order-item-progress-container .order-level-progress .order-level-circle {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .order-item-progress-container .order-level-progress .order-level-circle i {
+    font-size: 30px !important;
+  }
+  .order-item-progress-container .order-level-progress .unnormal-status {
+    width: calc(100% - 60px) !important;
+    font-size: 14px !important;
+  }
+  .order-item-progress-container .order-level-progress:not(:last-child)::after {
+    width: calc(100% - 58px) !important;
   }
 }
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -16592,7 +16695,7 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-infos-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 0 4%;
@@ -16756,6 +16859,15 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container.level-6 .order-level-progress:nth-child(-n+5)::after {
   background-color: #7553C1;
+}
+.user-area-layout-container .user-area-panel .main-content-container .order-item-progress-container .unnormal-status {
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% - 20px)) translateX(-50%);
+  display: inline-block;
+  width: calc(100% - 80px);
+  left: 0;
+  text-align: center;
 }
 .user-area-layout-container .user-area-panel .main-content-container a.purple-pill {
   font-size: 16px;

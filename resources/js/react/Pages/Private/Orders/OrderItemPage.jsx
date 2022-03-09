@@ -30,7 +30,7 @@ export default class OrderItemPage extends Component {
     }
     getLevel = () => {
         let { item, statuses } = this.state.orderItem, {status} = item, { normal, list } = statuses, level
-        if (normal.indexOf(status) === -1) { // not normal procsess
+        if (normal.indexOf(status) === -1) { // not unnormal procsess like suspended or editing
             let targetArray = list.slice(0, list.indexOf(status)).reverse()
             for (let i = 0; i < targetArray.length; i++ ) {
                 let target_status = targetArray[i]
@@ -99,6 +99,7 @@ export default class OrderItemPage extends Component {
                             statuses && statuses.normal.length > 0 ? statuses.normal.map((statuse, i) => (
                                 <div key={i} className="order-level-progress">
                                     <h4 className='order-level-title'>{translate(statuse)}</h4>
+                                    {!item.normal && i + 1 === level && <span className='badge badge-warning unnormal-status'>{item.status_fa}</span>}
                                     <span className='order-level-circle'><i className={`far ${statuse}`}></i></span>
                                 </div>
                             )) : null

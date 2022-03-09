@@ -759,7 +759,7 @@
             }
             .order-item-infos-container {
                 display: flex;
-                justify-content: space-evenly;
+                justify-content: space-between;
                 align-items: flex-start;
                 flex-wrap: wrap;
                 padding: 0 4%;
@@ -924,6 +924,15 @@
                     .order-level-progress:nth-child(-n+5) {
                         @include dir-done;
                     }
+                }
+                .unnormal-status {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(calc(-50% - 20px)) translateX(-50%);
+                    display: inline-block;
+                    width: calc(100% - 80px);
+                    left: 0;
+                    text-align: center;
                 }
             }
             // finance
