@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, lazy } from "react";
 import { number_format } from "../../../../../../helpers"
-import PaymentPopup from "./PaymentPopup";
+import LoaderComponent from "../../../../../components/LoaderComponent";
+const PaymentPopup = React.lazy(() => import('./PaymentPopup'))
+
 export default function Bills({bills}) {
-    const [showPopup, setShowPopup] = useState(0)
+    const [showPopup, setShowPopup] = useState(false)
     return (
         <div className="float-left w-100 table-responsive mt-5">
             <h3 className="factor-section-title">وضعیت پرداختی</h3>
@@ -26,13 +28,15 @@ export default function Bills({bills}) {
                         <td>{status_fa} {
                             status === 'paid'
                             ? <i className='far fa-check text-success'></i>
-                            : <a href="#" className='btn btn-sm btn-primary' onClick={() => setShowPopup(1)}>پرداخت</a>
+                            : <a href="#" className='btn btn-sm btn-primary' onClick={() => setShowPopup(true)}>پرداخت</a>
                         }</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
-            {showPopup ? PaymentPopup(setShowPopup(0)) : null}
+            {showPopup && <React.Suspense>
+                <PaymentPopup close={() => setShowPopup(false)} />
+            </React.Suspense>}
         </div>
     )
 }
