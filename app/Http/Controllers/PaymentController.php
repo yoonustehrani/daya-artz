@@ -31,7 +31,7 @@ class PaymentController extends Controller
             $result = $provider->purchase($bill->amount, $bill->title); // metadata
             if ($result['okay']) {
                 $transaction->transaction_id = $result['transaction_id'];
-                // $bill->transactions()->save($transaction);
+                $bill->transactions()->save($transaction);
                 return [
                     'okay' => true,
                     'gateway' => $result['gateway'],
@@ -40,7 +40,7 @@ class PaymentController extends Controller
             }
         } else {
             // $method === 'cash'
-            // $transaction->save();
+            $transaction->save();
             return [
                 'okay' => true,
                 'transaction' => $transaction
