@@ -54,7 +54,7 @@ function PaymentPopup(_ref) {
     className: "popup-container animated fadeInDown",
     onClick: onClose,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "popup-box",
+      className: "popup-box alert-light",
       id: "popup-box",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "popup-header-tab",

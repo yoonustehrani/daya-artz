@@ -12,7 +12,7 @@ export default function PaymentPopup({close}) {
     }
     return (
         <div className="popup-container animated fadeInDown" onClick={onClose}>
-            <div className="popup-box" id="popup-box">
+            <div className="popup-box alert-light" id="popup-box">
                 <div className="popup-header-tab">
                     <a href="#online_payment" className={payMethod === "online" ? "active" : null} onClick={() => setPayMethod("online")}>پرداخت به صورت آنلاین</a>
                     <a href="#classicpayment" className={payMethod === "classic" ? "active" : null} onClick={() => setPayMethod("classic")}>پرداخت از طریق واریز به حساب</a>
