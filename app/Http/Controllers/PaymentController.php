@@ -80,6 +80,10 @@ class PaymentController extends Controller
                             \DB::beginTransaction();
                             $bill->paid_at = $payment_datetime;
                             $bill->save();
+                            if ($bill->invoice->isPaid()) {
+                                $bill->invoice->paid_at = $payment_datetime;
+                                $bill->invoice->save();
+                            }
                             $transaction->status = Transaction::VERIFIED_STATUS;
                             $transaction->save();
                             \DB::commit();

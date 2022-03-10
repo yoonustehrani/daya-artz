@@ -24,6 +24,14 @@ class Invoice extends Model
     {
         $builder->whereNull('expires_at')->orWhere('expires_at', '>=', now());
     }
+    public function isPaid()
+    {
+        $paid = true;
+        foreach ($this->bills as $bill) {
+            $paid = ! is_null($bill->paid_at);
+        }
+        return $paid;
+    }
     public function order()
     {
         return $this->belongsTo(Order::class);
