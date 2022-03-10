@@ -99,22 +99,21 @@ Route::get('test', function (Request $request) {
 })->name('tempo');
 
 
-Route::get('email', function() {
-    // return new OrderSubmit();
-    // return new Welcome(User::first());
-    // $order = Order::latest()->first();
-    return new OrderFinalStage;
-    // return view('emails.welcome');
-    // $trs = Transaction::first();
-    // $user = User::first();
-    // event(new UserVerifiedTheirAccount($user));
-    // $user->notifyNow(new WelcomeNotification);
+// Route::get('email', function() {
+//     // return new OrderSubmit();
+//     // return new Welcome(User::first());
+//     // $order = Order::latest()->first();
+//     return new OrderFinalStage;
+//     // return view('emails.welcome');
+//     // $trs = Transaction::first();
+//     // $user = User::first();
+//     // event(new UserVerifiedTheirAccount($user));
+//     // $user->notifyNow(new WelcomeNotification);
 
-    // return 'sent';
-});
+//     // return 'sent';
+// });
 
 Route::get('payment/{driver}/verify', [PaymentController::class, 'update'])->name('payment.verify');
-
 
 Route::get('orders', function() {
     return App\Models\Order::latest()->get();

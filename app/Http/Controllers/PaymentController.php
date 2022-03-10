@@ -14,9 +14,14 @@ class PaymentController extends Controller
     {
         $this->util = new Payment;
     }
-    public function getProvider($provider)
+    protected function getProvider($provider)
     {
         return (new \App\Utils\Payment)->getDriver($provider);
+    }
+    protected function transactionView($transaction, $bill)
+    {
+        $view = $transaction->status === Transaction::VERIFIED_STATUS ? 'success' : 'canceled';
+        return view("pages.payment.$view", compact('transaction', 'bill'));
     }
     public function store(Request $request, $bill, $method)
     {
@@ -24,7 +29,7 @@ class PaymentController extends Controller
         abort_if($bill->paid_at, 403, __('messages.invoices.already-paid'));
         $transaction = new Transaction([
             'amount' => $bill->amount,
-            'status' => 'pending',
+            'status' => Transaction::PENDING_STATUS,
             'provider' => $method,
             'user_id' => $request->user()->id
         ]);
@@ -56,6 +61,7 @@ class PaymentController extends Controller
     }
     public function update(Request $request, $driver)
     {
+        $payment_datetime = now();
         switch ($driver) {
             case 'zarinpal':
                 $request->validate([
@@ -64,31 +70,28 @@ class PaymentController extends Controller
                 ]);
                 $transaction_id = $request->query('Authority');
                 $transaction = Transaction::where('transaction_id', $transaction_id)->where('status', 'pending')->where('provider', $driver)->firstOrFail();
+                $bill = $transaction->bill()->with('invoice')->firstOrFail();
                 if ($request->query('Status') === 'OK') {
                     $zp = $this->getProvider('zarinpal');
                     $zp->sandbox();
                     $valid = $zp->verify($transaction->amount, $transaction->transaction_id);
                     if ($valid['okay']) {
-                        $bill = $transaction->bill()->with('invoice')->firstOrFail();
                         try {
                             \DB::beginTransaction();
-                                $now = now();
-                                $bill->paid_at = $now;
-                                $bill->save();
-                                // $bill->invoice = $now;
-                                // $bill->invoice->save();
-                                $transaction->status = 'verified';
-                                $transaction->save();
+                            $bill->paid_at = $payment_datetime;
+                            $bill->save();
+                            $transaction->status = Transaction::VERIFIED_STATUS;
+                            $transaction->save();
                             \DB::commit();
-                            return ['okay' => true, 'transaction' => $transaction];
+                            return $this->transactionView($transaction, $bill);;
                         } catch (\Exception $e) {
                             \DB::rollback();
                         }
                     }
                 }
-                $transaction->status = 'canceled';
+                $transaction->status = Transaction::CANCELED_STATUS;
                 $transaction->save();
-                return ['okay' => false, 'transaction' => $transaction];
+                return $this->transactionView($transaction, $bill);
                 break;
             default:
                 abort(403);

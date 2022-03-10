@@ -33,7 +33,7 @@ export default function Bills({bills}) {
                             <td>{number_format(amount, true)}</td>
                             <td>{
                                 paid_at === null
-                                ? <a href="#" className='btn btn-sm btn-primary' onClick={() => select(bill)}>پرداخت</a>
+                                ? <button className='btn btn-sm btn-primary' onClick={() => select(bill)}>پرداخت</button>
                                 : <span><i className='far fa-check text-success'></i> پرداخت شده</span>
                             }</td>
                         </tr>

@@ -58,6 +58,9 @@ $on-white: #fefffc;
 .bg-horny-eggplant {
     background-color: $horny-eggplant !important;
 }
+.bg-navy-eggplant {
+    background-color: $navy-purple;
+}
 .bg-green {
     background-color: $green !important;
 }
@@ -75,4 +78,11 @@ $on-white: #fefffc;
 }
 .alert-light {
     color: #7d7d81 !important;
+}
+.text-green {
+    color: $green;
+}
+
+.text-gray {
+    color: #444444 !important;
 }

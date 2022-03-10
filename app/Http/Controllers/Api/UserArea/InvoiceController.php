@@ -31,7 +31,9 @@ class InvoiceController extends Controller
             ->firstOrFail();
         $order->items->append('off');
         if ($invoice->active) {
-            $invoice->load('bills');
+            $invoice->load(['bills' => function($q) {
+                $q->active();
+            }]);
         }
         return response()->json([
             'okay' => true,

@@ -9,7 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    use HasUuidAsPrimaryKey, HasFactory, HasDetailsAttribute;
+    use HasFactory, HasDetailsAttribute, HasUuidAsPrimaryKey;
+    const VERIFIED_STATUS = 'verified';
+    const APPROVED_STATUS = 'approved';
+    const CANCELED_STATUS = 'canceled';
+    const PENDING_STATUS = 'pending';
+
     protected $fillable = ['transaction_id', 'status', 'amount', 'provider', 'user_id'];
     protected $hidden = ['transaction_id'];
     public function bill()
