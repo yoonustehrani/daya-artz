@@ -48,6 +48,10 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Offer::class);
     }
+    public function tickets()
+    {
+        return $this->morphMany(Ticket::class, 'ticketable');
+    }
     public function getNormalAttribute()
     {
         return in_array($this->status, self::NORMAL_STATUS);

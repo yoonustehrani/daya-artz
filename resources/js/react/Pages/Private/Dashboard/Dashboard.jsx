@@ -27,7 +27,7 @@ class Dashboard extends Component {
         const [general, orders, latest] = await Promise.all([
             this.http.get('/general'),
             this.http.get('/orders'),
-            this.http.get('latest')
+            this.http.get('/latest')
         ]);
         this.setState(prev => ({
             statistics: {...prev.statistics, ...general, orders: orders},

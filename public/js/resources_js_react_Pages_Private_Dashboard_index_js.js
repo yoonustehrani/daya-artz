@@ -106,7 +106,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return Promise.all([_this.http.get('/general'), _this.http.get('/orders'), _this.http.get('latest')]);
+              return Promise.all([_this.http.get('/general'), _this.http.get('/orders'), _this.http.get('/latest')]);
 
             case 2:
               _yield$Promise$all = _context.sent;

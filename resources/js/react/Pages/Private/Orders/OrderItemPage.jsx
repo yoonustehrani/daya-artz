@@ -10,16 +10,30 @@ export default class OrderItemPage extends Component {
         this.state = {
             orderItem: null,
             level: null,
-            loading: true
+            loading: true,
+            tickets: []
         }
-        this.http = useHttpService('/userarea/')
     }
     componentDidMount() {
+        let {orderId} = this.props.params
+        this.http = useHttpService(`/userarea/orders/${orderId}`)
         this.loadItem()
     }
+    loadTickets = async () => {
+        let {itemId} = this.props.params
+        const response = await this.http.get(`/items/${itemId}/tickets`)
+        let {tickets} = response
+        this.setState({
+            tickets: tickets ?? []
+        })
+    }
+
+    onTicketClick = ticketId => this.props.history.push(`/tickets/${ticketId}`)
+
     loadItem = async () => {
-        let {orderId, itemId} = this.props.params
-        const response = await this.http.get(`orders/${orderId}/items/${itemId}`)
+        let {itemId} = this.props.params
+        const response = await this.http.get(`/items/${itemId}`)
+        this.loadTickets()
         this.setState({
             orderItem: response,
             loading: false
@@ -107,7 +121,7 @@ export default class OrderItemPage extends Component {
                     </div>
                     <div className="w-100 table-responsive">
                         <table className='table table-hover'>
-                            <caption>تیکت های مرتبط به این سفارش (داینامیک نشده)</caption>
+                            <caption>تیکت های مرتبط به این سفارش</caption>
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -120,15 +134,17 @@ export default class OrderItemPage extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>1</th>
-                                    <td>#46753</td>
-                                    <td>ویرایش</td>
-                                    <td>امور طراحی</td>
-                                    <td>بسته شده</td>
-                                    <td>1400/12/5</td>
-                                    <td>1400/12/12</td>
-                                </tr>
+                                {this.state.tickets.map((ticket, i) => (
+                                    <tr onClick={() => this.onTicketClick(ticket.id)}>
+                                        <th>{i + 1}</th>
+                                        <td>{ticket.tracking_code}</td>
+                                        <td>{ticket.title}</td>
+                                        <td>{ticket.department && ticket.department.name}</td>
+                                        <td>{ticket.closed_at && "بسته شده"}</td>
+                                        <td>{useJalaliDate(ticket.created_at).format()}</td>
+                                        <td>{useJalaliDate(ticket.closed_at).format()}</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>

@@ -4,7 +4,7 @@ const Dashboard = lazy(() => import('./Pages/Private/Dashboard'))
 const Orders = lazy(() => import('./Pages/Private/Orders'))
 const OrderItemPage = lazy(() => import('./Pages/Private/Orders/OrderItemPage'))
 const Tickets = lazy(() => import('./Pages/Private/Tickets/Tickets'))
-const Finance = lazy(() => import('./Pages/Private/Finance'))
+// const Finance = lazy(() => import('./Pages/Private/Finance'))
 const BrandInfo = lazy(() => import('./Pages/Private/Profile/BrandInfo'))
 const RegisterInfo = lazy(() => import('./Pages/Private/Profile/RegisterInfo'))
 const UserInfo = lazy(() => import('./Pages/Private/Profile/UserInfo'))
@@ -97,11 +97,11 @@ const routes = [
         exact: true,
         CallableComponent: Discounts,
     },
-    {
-        path: '/finance',
-        exact: true,
-        CallableComponent: Finance
-    },
+    // {
+    //     path: '/finance',
+    //     exact: true,
+    //     CallableComponent: Finance
+    // },
     {
         path: '/tickets/new',
         exact: true,

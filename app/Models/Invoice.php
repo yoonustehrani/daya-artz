@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory;
+    // Scopes
     public function scopeActive($builder)
     {
         return $builder->where('active', true);
@@ -24,6 +25,14 @@ class Invoice extends Model
     {
         $builder->whereNull('expires_at')->orWhere('expires_at', '>=', now());
     }
+    public function scopePaid($builder, $status = true)
+    {
+        if ($status) {
+            $builder->whereNotNull('paid_at');
+        }
+        $builder->whereNull('paid_at');
+    }
+    // utils
     public function isPaid()
     {
         $paid = true;
@@ -32,6 +41,7 @@ class Invoice extends Model
         }
         return $paid;
     }
+    // Relations
     public function order()
     {
         return $this->belongsTo(Order::class);

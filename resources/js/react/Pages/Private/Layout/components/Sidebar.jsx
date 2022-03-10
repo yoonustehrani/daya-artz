@@ -41,9 +41,9 @@ class Sidebar extends Component {
                     <li className="has-sub">
                         <a to="#finance"><i className="fas fa-hand-holding-usd"></i>امور مالی</a>
                         <ul className="submenu-m">
-                            <li>
+                            {/* <li>
                                 <Link to="/finance" className="link">آمار کلی</Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link to="/finance/invoices?active" className="link">فاکتور ها</Link>
                             </li>

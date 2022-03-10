@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\UserArea\InvoiceController;
 use App\Http\Controllers\Api\UserArea\OrderController;
+use App\Http\Controllers\Api\UserArea\OrderItemController;
 use App\Http\Controllers\Api\UserArea\ReportController;
 use App\Http\Controllers\Api\UserArea\TicketController;
 use App\Http\Controllers\Api\UserController;
@@ -73,7 +74,8 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     // Orders
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.show');
-    Route::get('orders/{order}/items/{item_id}', [OrderController::class, 'item'])->name('orders.items.show');
+    Route::get('orders/{order}/items/{item_id}', [OrderItemController::class, 'show'])->name('order_items.show');
+    Route::get('orders/{order}/items/{item_id}/tickets', [OrderItemController::class, 'tickets'])->name('order_items.show');
     // Bills and Offers
     Route::post('bills/{bill}/pay/{method}', [PaymentController::class, 'store'])->name('bills.pay');
     Route::get('offers', [ReportController::class, 'offers'])->name('offers.index');

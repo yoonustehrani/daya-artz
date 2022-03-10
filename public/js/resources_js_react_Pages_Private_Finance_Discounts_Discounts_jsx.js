@@ -216,12 +216,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Loading(props) {
-  var _props$size;
+  var _props$color, _props$size;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "activity-container mb-2",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_1__.Spinner, {
-      color: "#999999",
+      color: (_props$color = props.color) !== null && _props$color !== void 0 ? _props$color : '#999999',
       size: (_props$size = props.size) !== null && _props$size !== void 0 ? _props$size : 34,
       speed: 0.5,
       animating: true

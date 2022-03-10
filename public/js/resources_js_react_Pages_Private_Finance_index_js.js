@@ -11,19 +11,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Layout/components/Activity */ "./resources/js/react/Pages/Private/Layout/components/Activity.jsx");
-/* harmony import */ var _components_FactorsGuide__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/FactorsGuide */ "./resources/js/react/Pages/Private/Finance/components/FactorsGuide.jsx");
-/* harmony import */ var _components_FinanceItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/FinanceItem */ "./resources/js/react/Pages/Private/Finance/components/FinanceItem.jsx");
-/* harmony import */ var _components_QuickAccess__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/QuickAccess */ "./resources/js/react/Pages/Private/Finance/components/QuickAccess.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks */ "./resources/js/react/hooks.js");
+/* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Layout/components/Activity */ "./resources/js/react/Pages/Private/Layout/components/Activity.jsx");
+/* harmony import */ var _Layout_components_Loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Layout/components/Loading */ "./resources/js/react/Pages/Private/Layout/components/Loading.jsx");
+/* harmony import */ var _components_FactorsGuide__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/FactorsGuide */ "./resources/js/react/Pages/Private/Finance/components/FactorsGuide.jsx");
+/* harmony import */ var _components_FinanceItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/FinanceItem */ "./resources/js/react/Pages/Private/Finance/components/FinanceItem.jsx");
+/* harmony import */ var _components_QuickAccess__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/QuickAccess */ "./resources/js/react/Pages/Private/Finance/components/QuickAccess.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -49,6 +57,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
  // custom components
 
 
@@ -62,20 +71,32 @@ var Finance = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Finance);
 
-  function Finance() {
+  function Finance(props) {
     var _this;
 
     _classCallCheck(this, Finance);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = _super.call(this, props);
 
-    _this = _super.call.apply(_super, [this].concat(args));
+    _defineProperty(_assertThisInitialized(_this), "loadStats", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _this.http.get('/').then(function (response) {
+                if (response.okay) {}
+              });
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      loading: false,
-      // sets to true after make the get requests
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })));
+
+    _this.state = {
+      loading: true,
       finance_info: [{
         title: "مجموع سفارشات",
         count: 40,
@@ -88,34 +109,30 @@ var Finance = /*#__PURE__*/function (_Component) {
         last_title: "تاریخ آخرین سفارش پرداخت شده",
         last_date: "1400/08/09",
         icon: "fas fa-handshake"
-      }, {
-        title: "فاکتور های پیش پرداختی",
-        count: 10,
-        last_title: "تاریخ آخرین پیش پرداختی",
-        last_date: "1400/08/09",
-        icon: "fas fa-receipt"
-      }, {
+      }, // {
+      //     title: "فاکتور های پیش پرداختی",
+      //     count: 10,
+      //     last_title: "تاریخ آخرین پیش پرداختی",
+      //     last_date: "1400/08/09",
+      //     icon: "fas fa-receipt"
+      // },
+      {
         title: "فاکتور های پرداخت نشده",
         count: 5,
         last_title: "تاریخ آخرین فاکتور پرداخت نشده",
         last_date: "1400/08/09",
         icon: "fas fa-hand-holding-usd"
       }]
-    });
-
+    };
     return _this;
   }
 
   _createClass(Finance, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.title = "امور مالی - آمار کلی"; // axios.get('').then(res => {
-      //     let { data } = res
-      //     this.setState({
-      //         finance_info: data,
-      //         loading: false
-      //     })
-      // })
+      document.title = "امور مالی - آمار کلی";
+      this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useHttpService)("/userarea/stats/finance");
+      this.loadStats();
     }
   }, {
     key: "render",
@@ -123,22 +140,24 @@ var Finance = /*#__PURE__*/function (_Component) {
       var _this$state = this.state,
           finance_info = _this$state.finance_info,
           loading = _this$state.loading;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_FactorsGuide__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_FactorsGuide__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "finance-info-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "finance-items-container",
-            children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : finance_info && finance_info.length > 0 && finance_info.map(function (item, i) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_FinanceItem__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, item), i);
+            children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_Loading__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              color: "#333333"
+            }) : finance_info && finance_info.length > 0 && finance_info.map(function (item, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_FinanceItem__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread({}, item), i);
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_QuickAccess__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_QuickAccess__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
         })]
       });
     }
   }]);
 
   return Finance;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Finance);
 
@@ -454,6 +473,37 @@ function Activity(_ref) {
   });
 }
 ;
+
+/***/ }),
+
+/***/ "./resources/js/react/Pages/Private/Layout/components/Loading.jsx":
+/*!************************************************************************!*\
+  !*** ./resources/js/react/Pages/Private/Layout/components/Loading.jsx ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Loading)
+/* harmony export */ });
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function Loading(props) {
+  var _props$color, _props$size;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "activity-container mb-2",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_1__.Spinner, {
+      color: (_props$color = props.color) !== null && _props$color !== void 0 ? _props$color : '#999999',
+      size: (_props$size = props.size) !== null && _props$size !== void 0 ? _props$size : 34,
+      speed: 0.5,
+      animating: true
+    })
+  });
+}
 
 /***/ })
 

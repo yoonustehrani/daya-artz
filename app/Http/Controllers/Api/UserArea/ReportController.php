@@ -78,4 +78,14 @@ class ReportController extends Controller
         $notifications = $request->user()->unreadNotifications()->limit(3)->get();
         return response()->json(compact('orders', 'transactions', 'notifications'));
     }
+    public function financials(Request $request)
+    {
+        $user = $request->user();
+        return response()->json([
+            'orders' => $user->orders()->count(),
+            'paid_invoices' => $user->invoices()->paid()->count(),
+            'unpaid_invoices' => $user->invoices()->paid(false)->count(),
+            'prepaid_invoices' => $user->invoices()->count()
+        ]);
+    }
 }

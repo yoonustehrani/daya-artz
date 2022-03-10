@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    use HasFactory, HasDetailsAttribute, HasUuidAsPrimaryKey;
+    use HasFactory, HasDetailsAttribute;
     const VERIFIED_STATUS = 'verified';
     const APPROVED_STATUS = 'approved';
     const CANCELED_STATUS = 'canceled';
