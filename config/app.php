@@ -94,7 +94,11 @@ return [
     */
 
     'fallback_locale' => 'en',
+    /**
+     * Custom Settings
+     */
     'currency' => 'تومان',
+    'tax_value' => 9,
     /*
     |--------------------------------------------------------------------------
     | Faker Locale

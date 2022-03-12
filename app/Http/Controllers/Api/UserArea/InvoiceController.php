@@ -48,7 +48,7 @@ class InvoiceController extends Controller
         try {
             \DB::beginTransaction();
             $bills = $this->create_bills($invoice);
-            $invoice->amount = $bills['total'];
+            $invoice->total = $bills['total'];
             $invoice->active = true;
             $invoice->save();
             $invoice->bills = $invoice->bills()->saveMany($bills['items']);
@@ -65,23 +65,28 @@ class InvoiceController extends Controller
     }
     protected function create_bills(Invoice $invoice)
     {
-        $total = 0;
+        $total = 0; // invoice total with tax substracted by offer
         $bills = [];
-        $items = OrderItem::select(['id', 'offer_id', 'title', 'total'])
+        $order_items = OrderItem::select(['id', 'offer_id', 'title', 'total'])
             ->where('order_id', $invoice->order_id)
             ->with('offer')
             ->get()
             ->append('off');
         if (request()->input('mode') === 'all') {
-            foreach ($items as $item) {
-                $total += $item->total - $item->off;
+            foreach ($order_items as $order_item) {
+                // OrderItem total + 9%
+                $item_total = $order_item->total + with_value_added($order_item->total);
+                // Adding to Invoice total
+                $total += $item_total - $order_item->off;
             }
             $bills = $this->make_bills($total);
         } else {
-            foreach ($items as $item) {
-                $sub_total = $item->total - $item->off;
-                $total += $sub_total;
-                $item_bills = $this->make_bills($sub_total, $item->title);
+            foreach ($order_items as $order_item) {
+                // OrderItem total + 9%
+                $item_total = $order_item->total + with_value_added($order_item->total);
+                $payable = $item_total - $order_item->off; 
+                $total += $payable;
+                $item_bills = $this->make_bills($payable, $order_item->title);
                 for ($i=0; $i < count($item_bills); $i++) { 
                     array_push(
                         $bills,

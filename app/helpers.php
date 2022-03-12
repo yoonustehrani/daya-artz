@@ -69,3 +69,12 @@ if (! function_exists('calculate_payments')) {
         return compact('deposit', 'checkout');
     }
 }
+
+if (! function_exists('with_value_added')) {
+    function with_value_added($total)
+    {
+        $value_added = config('app.tax_value', 9);
+        $tax = ($total / 100) * $value_added;
+        return $total + $tax;
+    }
+}
