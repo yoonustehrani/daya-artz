@@ -18,8 +18,8 @@ class CreateInvoicesTable extends Migration
             $table->boolean('active')->default(false);
             $table->string('title');
             $table->foreignId('user_id');
+            $table->boolean('multipay');
             $table->bigInteger('total')->nullable();
-            // $table->bigInteger('subtotal')->nullable();
             $table->foreignId('discount_id')->nullable();
             $table->foreignId('offer_id')->nullable();
             $table->foreignUuid('order_id');

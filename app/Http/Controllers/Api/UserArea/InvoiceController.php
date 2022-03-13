@@ -18,7 +18,7 @@ class InvoiceController extends Controller
     }
     public function show(Request $request, $invoice)
     {
-        $invoice = $request->user()->invoices()->findOrFail($invoice);
+        $invoice = $request->user()->invoices()->with('offer')->findOrFail($invoice);
         $order = $invoice->order()
             ->select(['id', 'code'])
             ->with(['items' => function($q) {
@@ -32,7 +32,7 @@ class InvoiceController extends Controller
         $order->items->append('off');
         if ($invoice->active) {
             $invoice->load(['bills' => function($q) {
-                $q->active();
+                // $q->active();
             }]);
         }
         return response()->json([
@@ -43,7 +43,7 @@ class InvoiceController extends Controller
     }
     public function update(Request $request, $invoice)
     {
-        $invoice = $request->user()->invoices()->select('id', 'order_id', 'active')->findOrFail($invoice);
+        $invoice = $request->user()->invoices()->with('offer')->select('id', 'order_id', 'active', 'offer_id')->findOrFail($invoice);
         abort_if($invoice->active, 403, 'این فاکتور قبلا ثبت شده است.');
         try {
             \DB::beginTransaction();
@@ -65,28 +65,27 @@ class InvoiceController extends Controller
     }
     protected function create_bills(Invoice $invoice)
     {
-        $total = 0; // invoice total with tax substracted by offer
+        $total = 0;
         $bills = [];
         $order_items = OrderItem::select(['id', 'offer_id', 'title', 'total'])
             ->where('order_id', $invoice->order_id)
             ->with('offer')
             ->get()
             ->append('off');
+        $invoice->multipay = request()->input('mode') !== 'all';
         if (request()->input('mode') === 'all') {
             foreach ($order_items as $order_item) {
-                // OrderItem total + 9%
-                $item_total = $order_item->total + with_value_added($order_item->total);
-                // Adding to Invoice total
-                $total += $item_total - $order_item->off;
+                $total += $order_item->total - $order_item->off;
             }
-            $bills = $this->make_bills($total);
+            // Applying Offer to $total if possible
+            $total -= $invoice->offer ? calculate_off($total, $invoice->offer) : 0;
+            // Making the bills
+            $bills = make_bills(with_value_added($total));
         } else {
             foreach ($order_items as $order_item) {
-                // OrderItem total + 9%
-                $item_total = $order_item->total + with_value_added($order_item->total);
-                $payable = $item_total - $order_item->off; 
-                $total += $payable;
-                $item_bills = $this->make_bills($payable, $order_item->title);
+                $item_total = with_value_added($order_item->total - $order_item->off);
+                $total += $item_total;
+                $item_bills = make_bills($item_total, $order_item->title);
                 for ($i=0; $i < count($item_bills); $i++) { 
                     array_push(
                         $bills,
@@ -99,20 +98,5 @@ class InvoiceController extends Controller
             'total' => $total,
             'items' => $bills
         ];
-    }
-    protected function make_bills($total, $title = null)
-    {
-        $bills = [];
-        $payments = calculate_payments($total);
-        foreach ($payments as $type => $amount) {
-            $bill = new Bill([
-                'active' => $type === 'deposit',
-                'amount' => $amount,
-                'title' => __("userarea.bills.{$type}", ['item_title' => $title ?? __('Order')]),
-                'code' => (string) generate_code(6)
-            ]);
-            array_push($bills, $bill);
-        }
-        return $bills;
     }
 }

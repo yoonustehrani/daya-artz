@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasOfferAttribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -50,6 +51,10 @@ class Invoice extends Model
     // {
     //     return $this->morphTo();
     // }
+    public function offer()
+    {
+        return $this->belongsTo(Offer::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

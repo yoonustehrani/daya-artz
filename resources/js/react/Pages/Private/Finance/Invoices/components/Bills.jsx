@@ -23,7 +23,7 @@ export default function Bills({bills}) {
                     </tr>
                 </thead>
                 <tbody>
-                {bills.length > 0 && bills.filter(x => x.active).map((bill, i) => {
+                {bills.length > 0 && bills.filter(x => x.active || true).map((bill, i) => {
                     let {id, code, title, amount, paid_at} = bill
                     return (
                         <tr key={id}>
