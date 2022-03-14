@@ -5,7 +5,7 @@ class PaymentMethod extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            paymentMethod: 'all', // or all
+            paymentMethod: 'all',
             discountCode: '',
             loading: false
         }
@@ -20,6 +20,10 @@ class PaymentMethod extends Component {
         this.setState({
             discountCode: e.target.value
         })
+    }
+    checkDiscount = () => {
+        let { discountCode } = this.state
+        console.log(`discount code: ${discountCode}`);
     }
     sendActivateRequest = async () => {
         let { paymentMethod, discountCode }  = this.state
@@ -56,12 +60,17 @@ class PaymentMethod extends Component {
                         <span>به صورت موردی</span>
                         <div className="dot"></div>
                     </label>
-                    {/* <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">کد تخفیف</span>
+                    {paymentMethod === "all" &&
+                        <div className="input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text">کد تخفیف</span>
+                            </div>
+                            <input type="text" className='form-control' placeholder='اینجا وارد کنید' onChange={this.onChangeDiscount.bind(this)} />
+                            <div className="input-group-append">
+                                <button className='btn btn-light' onClick={this.checkDiscount}>استعلام</button>
+                            </div>
                         </div>
-                        <input type="text" className='form-control' placeholder='اینجا وارد کنید' onChange={this.onChangeDiscount.bind(this)} />
-                    </div> */}
+                    }
                 </div>
                 <div className='w-100 text-center mt-2'>
                     <button className='btn btn-lg btn-light px-5' disabled={loading} onClick={this.onSubmit}>

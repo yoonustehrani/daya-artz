@@ -441,11 +441,6 @@ $xl-xl-breakpoint: 1600px;
     .ticket-text-input {
         width: 73% !important;
     }
-    .upload-boxes {
-        // div.files-preview {
-        //     width: 75% !important;
-        // }
-    }
     .msg-text-section {
         textarea {
             height: 200px !important;
@@ -1304,6 +1299,8 @@ $xl-xl-breakpoint: 1600px;
     .payment-method-container {
         flex-wrap: wrap;
         height: fit-content !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
         .option {
             height: 55px !important;
             margin: 10px 0 !important;
@@ -1988,11 +1985,6 @@ $xl-xl-breakpoint: 1600px;
     .ticket-text-input {
         width: 78% !important;
     }
-    .upload-boxes {
-        // div.files-preview {
-        //     width: 75% !important;
-        // }
-    }
     .msg-text-section {
         textarea {
             height: 300px !important;
@@ -2020,5 +2012,17 @@ $xl-xl-breakpoint: 1600px;
     }
     .popup-box {
         width: 80% !important;
+    }
+    .payment-method-container {
+        flex-wrap: wrap;
+        height: fit-content !important;
+        .option {
+            height: 55px !important;
+            width: 190px !important;
+            margin: 10px 0 !important;
+        }
+        .input-group {
+            margin: 10px 0 !important;
+        }
     }
 } // end lg

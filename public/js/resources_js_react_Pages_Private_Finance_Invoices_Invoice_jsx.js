@@ -770,6 +770,11 @@ var PaymentMethod = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "checkDiscount", function () {
+      var discountCode = _this.state.discountCode;
+      console.log("discount code: ".concat(discountCode));
+    });
+
     _defineProperty(_assertThisInitialized(_this), "sendActivateRequest", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       var _this$state, paymentMethod, discountCode, response;
 
@@ -810,7 +815,6 @@ var PaymentMethod = /*#__PURE__*/function (_Component) {
 
     _this.state = {
       paymentMethod: 'all',
-      // or all
       discountCode: '',
       loading: false
     };
@@ -874,6 +878,27 @@ var PaymentMethod = /*#__PURE__*/function (_Component) {
               children: "\u0628\u0647 \u0635\u0648\u0631\u062A \u0645\u0648\u0631\u062F\u06CC"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "dot"
+            })]
+          }), paymentMethod === "all" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "input-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "input-group-prepend",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "input-group-text",
+                children: "\u06A9\u062F \u062A\u062E\u0641\u06CC\u0641"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "text",
+              className: "form-control",
+              placeholder: "\u0627\u06CC\u0646\u062C\u0627 \u0648\u0627\u0631\u062F \u06A9\u0646\u06CC\u062F",
+              onChange: this.onChangeDiscount.bind(this)
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "input-group-append",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                className: "btn btn-light",
+                onClick: this.checkDiscount,
+                children: "\u0627\u0633\u062A\u0639\u0644\u0627\u0645"
+              })
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {

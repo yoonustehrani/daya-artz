@@ -11388,6 +11388,8 @@ h3 {
     height: -webkit-fit-content !important;
     height: -moz-fit-content !important;
     height: fit-content !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .payment-method-container .option {
     height: 55px !important;
@@ -12021,6 +12023,21 @@ h3 {
 
   .popup-box {
     width: 80% !important;
+  }
+
+  .payment-method-container {
+    flex-wrap: wrap;
+    height: -webkit-fit-content !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+  }
+  .payment-method-container .option {
+    height: 55px !important;
+    width: 190px !important;
+    margin: 10px 0 !important;
+  }
+  .payment-method-container .input-group {
+    margin: 10px 0 !important;
   }
 }
 html, body, #main {
