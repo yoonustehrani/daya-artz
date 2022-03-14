@@ -55,16 +55,18 @@ class InvoiceTable extends Component {
         return (
             loading ? <Activity/> :
             invoices && invoices.length > 0 ?
-            <table className="table table-striped table-responsive table-bordered userarea-table">
-                <InvoiceHead />
-                <tbody>
-                    {
-                        invoices.map((invoice, i) => (
-                            <InvoiceRow key={i} {...invoice} />
-                        ))
-                    }
-                </tbody>
-            </table>
+            <div className='table-responsive userarea-table'>
+                <table className="table table-striped table-bordered">
+                    <InvoiceHead />
+                    <tbody>
+                        {
+                            invoices.map((invoice, i) => (
+                                <InvoiceRow key={i} {...invoice} />
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
             : <NoItem/>
         );
     }

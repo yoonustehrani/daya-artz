@@ -16997,28 +16997,28 @@ span.back-aqua.big-icon {
 .user-area-layout-container .user-area-panel .main-content-container .userarea-table {
   border-radius: 8px;
   border: 2px solid #BAA8DE;
-  width: -webkit-fit-content !important;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+}
+.user-area-layout-container .user-area-panel .main-content-container .userarea-table table {
   max-width: 100% !important;
   text-align: center;
+  margin: 0;
 }
-.user-area-layout-container .user-area-panel .main-content-container .userarea-table th {
+.user-area-layout-container .user-area-panel .main-content-container .userarea-table table th {
   border-top: none !important;
 }
-.user-area-layout-container .user-area-panel .main-content-container .userarea-table th, .user-area-layout-container .user-area-panel .main-content-container .userarea-table td {
+.user-area-layout-container .user-area-panel .main-content-container .userarea-table table th, .user-area-layout-container .user-area-panel .main-content-container .userarea-table table td {
   border-color: #BAA8DE !important;
 }
-.user-area-layout-container .user-area-panel .main-content-container .userarea-table tr th:first-child, .user-area-layout-container .user-area-panel .main-content-container .userarea-table tr td:first-child {
+.user-area-layout-container .user-area-panel .main-content-container .userarea-table table tr th:first-child, .user-area-layout-container .user-area-panel .main-content-container .userarea-table table tr td:first-child {
   border-right: none !important;
 }
-.user-area-layout-container .user-area-panel .main-content-container .userarea-table tr th:last-child, .user-area-layout-container .user-area-panel .main-content-container .userarea-table tr td:last-child {
+.user-area-layout-container .user-area-panel .main-content-container .userarea-table table tr th:last-child, .user-area-layout-container .user-area-panel .main-content-container .userarea-table table tr td:last-child {
   border-left: none !important;
 }
-.user-area-layout-container .user-area-panel .main-content-container .userarea-table tbody a {
+.user-area-layout-container .user-area-panel .main-content-container .userarea-table table tbody a {
   color: inherit;
 }
-.user-area-layout-container .user-area-panel .main-content-container .userarea-table tbody tr:last-child td {
+.user-area-layout-container .user-area-panel .main-content-container .userarea-table table tbody tr:last-child td {
   border-bottom: none !important;
 }
 .user-area-layout-container .user-area-panel .main-content-container .factor-container {

@@ -1044,30 +1044,32 @@
             .userarea-table {
                 border-radius: 8px;
                 border: 2px solid #BAA8DE;
-                width: fit-content !important;
-                max-width: 100% !important;
-                text-align: center;
-                th {
-                    border-top: none !important;
-                }
-                th, td {
-                    border-color: #BAA8DE !important;
-                }
-                tr {
-                    th:first-child, td:first-child {
-                        border-right: none !important;
+                table {
+                    max-width: 100% !important;
+                    text-align: center;
+                    margin: 0;
+                    th {
+                        border-top: none !important;
                     }
-                    th:last-child, td:last-child {
-                        border-left: none !important;
+                    th, td {
+                        border-color: #BAA8DE !important;
                     }
-                }
-                tbody {
-                    a {
-                        color: inherit;
+                    tr {
+                        th:first-child, td:first-child {
+                            border-right: none !important;
+                        }
+                        th:last-child, td:last-child {
+                            border-left: none !important;
+                        }
                     }
-                    tr:last-child {
-                        td {
-                            border-bottom: none !important;
+                    tbody {
+                        a {
+                            color: inherit;
+                        }
+                        tr:last-child {
+                            td {
+                                border-bottom: none !important;
+                            }
                         }
                     }
                 }

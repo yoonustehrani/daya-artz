@@ -6043,12 +6043,6 @@ var Invoice = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function 
 var TicketsFaq = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Tickets/TicketsFaq */ "./resources/js/react/Pages/Private/Tickets/TicketsFaq.jsx"));
 });
-var Bill = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Bills_Bill_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Finance/Bills/Bill */ "./resources/js/react/Pages/Private/Finance/Bills/Bill.jsx"));
-});
-var Bills = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-  return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Bills_Bills_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Finance/Bills/Bills */ "./resources/js/react/Pages/Private/Finance/Bills/Bills.jsx"));
-});
 var Transactions = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Private/Finance/Transactions/Transactions */ "./resources/js/react/Pages/Private/Finance/Transactions/Transactions.jsx"));
 });
@@ -6100,14 +6094,6 @@ var routes = [{
   path: '/finance/invoices/:invoiceId',
   exact: true,
   CallableComponent: Invoice
-}, {
-  path: '/finance/bills/:billId',
-  exact: true,
-  CallableComponent: Bill
-}, {
-  path: '/finance/bills',
-  exact: true,
-  CallableComponent: Bills
 }, {
   path: '/finance/transactions',
   exact: true,
@@ -70849,7 +70835,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_react_Pages_Auth_Login_jsx":1,"resources_js_react_Pages_Auth_Signup_jsx":1,"resources_js_react_Pages_Auth_ForgetPassword_jsx":1,"resources_js_react_Pages_Auth_EmailValidation_jsx":1,"resources_js_react_Pages_Auth_PhoneValidation_jsx":1,"resources_js_react_Pages_Private_Dashboard_index_js":1,"resources_js_react_Pages_Private_Orders_index_js":1,"resources_js_react_Pages_Private_Orders_OrderItemPage_jsx":1,"resources_js_react_Pages_Private_Tickets_Tickets_jsx":1,"resources_js_react_Pages_Private_Profile_BrandInfo_jsx":1,"resources_js_react_Pages_Private_Profile_RegisterInfo_jsx":1,"resources_js_react_Pages_Private_Profile_UserInfo_jsx":1,"resources_js_react_Pages_Private_Orders_Order_jsx":1,"resources_js_react_Pages_Private_Tickets_Ticket_jsx":1,"resources_js_react_Pages_Private_Tickets_NewTicket_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoices_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx":1,"resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bill_jsx":1,"resources_js_react_Pages_Private_Finance_Bills_Bills_jsx":1,"resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx":1,"resources_js_react_Pages_Private_Finance_Discounts_Discounts_jsx":1,"resources_js_react_Pages_Private_Contracts_Contract_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_BottomItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_MiddleItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_TopItem_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_react_Pages_Auth_Login_jsx":1,"resources_js_react_Pages_Auth_Signup_jsx":1,"resources_js_react_Pages_Auth_ForgetPassword_jsx":1,"resources_js_react_Pages_Auth_EmailValidation_jsx":1,"resources_js_react_Pages_Auth_PhoneValidation_jsx":1,"resources_js_react_Pages_Private_Dashboard_index_js":1,"resources_js_react_Pages_Private_Orders_index_js":1,"resources_js_react_Pages_Private_Orders_OrderItemPage_jsx":1,"resources_js_react_Pages_Private_Tickets_Tickets_jsx":1,"resources_js_react_Pages_Private_Profile_BrandInfo_jsx":1,"resources_js_react_Pages_Private_Profile_RegisterInfo_jsx":1,"resources_js_react_Pages_Private_Profile_UserInfo_jsx":1,"resources_js_react_Pages_Private_Orders_Order_jsx":1,"resources_js_react_Pages_Private_Tickets_Ticket_jsx":1,"resources_js_react_Pages_Private_Tickets_NewTicket_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoices_jsx":1,"resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx":1,"resources_js_react_Pages_Private_Tickets_TicketsFaq_jsx":1,"resources_js_react_Pages_Private_Finance_Transactions_Transactions_jsx":1,"resources_js_react_Pages_Private_Finance_Discounts_Discounts_jsx":1,"resources_js_react_Pages_Private_Contracts_Contract_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_BottomItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_MiddleItem_jsx":1,"resources_js_react_Pages_Private_Dashboard_components_TopItem_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
