@@ -212,9 +212,7 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
                 response.item.canceled ? null : _this.getLevel();
               });
 
-              console.log(response);
-
-            case 6:
+            case 5:
             case "end":
               return _context.stop();
           }
