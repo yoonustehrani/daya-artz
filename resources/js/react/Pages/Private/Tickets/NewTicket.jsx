@@ -85,7 +85,7 @@ class NewTicket extends Component {
                     <button className="btn btn-lg btn-light">ارسال تیکت</button>
                 </div>
                 <div className="upload-boxes">
-                    <div>
+                    <div className='files-preview'>
                         {files && files.length > 0 ? files.map((file, i) => (
                             <div className="selected-image" key={i}>
                                 <img src={URL.createObjectURL(file)} />
@@ -94,7 +94,7 @@ class NewTicket extends Component {
                         )) : "فایل های ضمیمه شما در این قسمت نمایش داده می شود"
                         }
                     </div>
-                    <div>
+                    <div className='choose-file'>
                         <h4>افزودن عکس</h4>
                         <span>[jpg, jpeg, png]</span>
                         <input className='d-none' type="file" name="image-input" id="image-input" onChange={this.onFileSelect} accept=".png,.jpg,.jpeg" multiple />

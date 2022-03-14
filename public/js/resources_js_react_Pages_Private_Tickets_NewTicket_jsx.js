@@ -255,6 +255,7 @@ var NewTicket = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "upload-boxes",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "files-preview",
             children: files && files.length > 0 ? files.map(function (file, i) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "selected-image",
@@ -270,6 +271,7 @@ var NewTicket = /*#__PURE__*/function (_Component) {
               }, i);
             }) : "فایل های ضمیمه شما در این قسمت نمایش داده می شود"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "choose-file",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
               children: "\u0627\u0641\u0632\u0648\u062F\u0646 \u0639\u06A9\u0633"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
