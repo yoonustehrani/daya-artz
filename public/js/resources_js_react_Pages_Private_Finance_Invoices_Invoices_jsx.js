@@ -142,7 +142,7 @@ function Invoices(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
               children: i + 1
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
-              children: _final ? Number(invoice.amount).toLocaleString('en-US') : '---'
+              children: invoice.total ? invoice.total.toLocaleString('en-US') : '---'
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
               children: invoice.title
             }), _final ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {

@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasOfferAttribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
     use HasFactory;
+    // Scopes
     public function scopeActive($builder)
     {
         return $builder->where('active', true);
@@ -24,6 +26,23 @@ class Invoice extends Model
     {
         $builder->whereNull('expires_at')->orWhere('expires_at', '>=', now());
     }
+    public function scopePaid($builder, $status = true)
+    {
+        if ($status) {
+            $builder->whereNotNull('paid_at');
+        }
+        $builder->whereNull('paid_at');
+    }
+    // utils
+    public function isPaid()
+    {
+        $paid = true;
+        foreach ($this->bills as $bill) {
+            $paid = ! is_null($bill->paid_at);
+        }
+        return $paid;
+    }
+    // Relations
     public function order()
     {
         return $this->belongsTo(Order::class);
@@ -32,6 +51,10 @@ class Invoice extends Model
     // {
     //     return $this->morphTo();
     // }
+    public function offer()
+    {
+        return $this->belongsTo(Offer::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

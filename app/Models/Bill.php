@@ -14,6 +14,10 @@ class Bill extends Model
     {
         $builder->where('active', true);
     }
+    public function invoice()
+    {
+        return $this->belongsTo(Invoice::class);
+    }
     public function transactions()
     {
         return $this->hasMany(Transaction::class);

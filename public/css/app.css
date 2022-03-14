@@ -48,6 +48,10 @@
   background-color: #6332df !important;
 }
 
+.bg-navy-eggplant {
+  background-color: #5C318B;
+}
+
 .bg-green {
   background-color: #82D177 !important;
 }
@@ -70,6 +74,14 @@
 
 .alert-light {
   color: #7d7d81 !important;
+}
+
+.text-green {
+  color: #82D177;
+}
+
+.text-gray {
+  color: #444444 !important;
 }
 
 @font-face {
@@ -18900,4 +18912,18 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   width: 256px !important;
   transition: 0.3s !important;
   opacity: 1;
+}
+
+.reciept {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 15px;
+  box-shadow: 1px 1px 0 2px rgba(0, 0, 0, 0.1);
+  max-width: 400px !important;
+}
+.reciept .item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
 }

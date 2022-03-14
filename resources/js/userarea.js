@@ -3,7 +3,7 @@ import {render} from 'react-dom'
 import UserArea from './react/components/UserArea'
 import { Provider } from 'react-redux';
 import store from './react/redux/store';
-import { checkAuth } from './react/redux/actions'
+import { checkAuth, logoutUser } from './react/redux/actions'
 
 const elem = document.getElementById('main')
 
@@ -15,6 +15,11 @@ if (elem) {
             </Provider>
         </StrictMode>,
         elem,
-        () => store.dispatch(checkAuth)
+        () => {
+            window.dispatchLogout = function () {
+                store.dispatch(logoutUser())
+            }
+            store.dispatch(checkAuth)
+        }
     )
 }

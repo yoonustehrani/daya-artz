@@ -16,7 +16,7 @@ class ReportController extends Controller
 {
     public function transactions()
     {
-        $transactions = request()->user()->transactions()->simplePaginate(12);
+        $transactions = request()->user()->transactions()->latest()->simplePaginate(12);
         $transactions->append(['provider_fa', 'status_fa']);
         $transactions->load('bill');
         return response()->json($transactions);
@@ -68,13 +68,24 @@ class ReportController extends Controller
             ->limit(3)
             ->get()
             ->append(['text']);
-        $transactions = Transaction::orderBy('updated_at', 'desc')
-            ->select('id', 'amount', 'status', 'provider', 'updated_at')
-            ->limit(3)
+        $transactions = Transaction::select('id', 'amount', 'status', 'provider', 'updated_at')
+            ->orderBy('updated_at', 'desc')
+            ->where('status', 'verified')
             ->where('user_id', $user_id)
+            ->limit(3)
             ->get()
             ->append(['text']);
         $notifications = $request->user()->unreadNotifications()->limit(3)->get();
         return response()->json(compact('orders', 'transactions', 'notifications'));
+    }
+    public function financials(Request $request)
+    {
+        $user = $request->user();
+        return response()->json([
+            'orders' => $user->orders()->count(),
+            'paid_invoices' => $user->invoices()->paid()->count(),
+            'unpaid_invoices' => $user->invoices()->paid(false)->count(),
+            'prepaid_invoices' => $user->invoices()->count()
+        ]);
     }
 }

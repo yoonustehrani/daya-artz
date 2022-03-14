@@ -2,6 +2,7 @@
 
 use App\Events\UserVerifiedTheirAccount;
 use App\Http\Controllers\LandingsController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\User;
@@ -9,14 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
-use App\Mail\OrderDesignStarted;
-use App\Mail\OrderFinalStage;
-use App\Mail\OrderReady;
-use App\Mail\OrderSubmit;
-use App\Mail\PaymentMade;
-use App\Mail\PrePaymentReminder;
-use App\Mail\Welcome;
-use App\Mail\Wellcome;
 use App\Models\Order;
 use App\Models\Service;
 use App\Models\Setting;
@@ -106,27 +99,21 @@ Route::get('test', function (Request $request) {
 })->name('tempo');
 
 
-Route::get('email', function() {
-    // return new OrderSubmit();
-    // return new Welcome(User::first());
-    // $order = Order::latest()->first();
-    return new OrderFinalStage;
-    // return view('emails.welcome');
-    // $trs = Transaction::first();
-    // $user = User::first();
-    // event(new UserVerifiedTheirAccount($user));
-    // $user->notifyNow(new WelcomeNotification);
+// Route::get('email', function() {
+//     // return new OrderSubmit();
+//     // return new Welcome(User::first());
+//     // $order = Order::latest()->first();
+//     return new OrderFinalStage;
+//     // return view('emails.welcome');
+//     // $trs = Transaction::first();
+//     // $user = User::first();
+//     // event(new UserVerifiedTheirAccount($user));
+//     // $user->notifyNow(new WelcomeNotification);
 
-    // return 'sent';
-});
+//     // return 'sent';
+// });
 
-Route::match(['get', 'post'], 'payment/{driver}/verify', function($driver) {
-    return [
-        'driver' => $driver,
-        'request' => request()->all()
-    ];
-})->name('payment.verify');
-
+Route::get('payment/{driver}/verify', [PaymentController::class, 'update'])->name('payment.verify');
 
 Route::get('orders', function() {
     return App\Models\Order::latest()->get();

@@ -14,7 +14,7 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->bigInteger('amount');
             $table->enum('status', [
                 'verified',
@@ -26,7 +26,7 @@ class CreateTransactionsTable extends Migration
             $table->string('provider');
             $table->foreignId('user_id');
             $table->foreignUuid('bill_id');
-            $table->json('details')->nullable();  
+            $table->json('details')->nullable();
             $table->timestamps();
             $table->foreign('bill_id')->references('id')->on('bills')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();

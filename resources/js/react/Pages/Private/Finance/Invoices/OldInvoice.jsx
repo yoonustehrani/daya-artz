@@ -4,8 +4,8 @@ import LoaderComponent from '../../../../components/LoaderComponent';
 import { useHttpService, useJalaliDate } from '../../../../hooks';
 import { number_format } from '../../../../../helpers';
 // custom components
-import Bills from'./components/Bills';
-import PaymentMethod from './components/PaymentMethod';
+const Bills = React.lazy(() => import('./components/Bills'))
+const PaymentMethod = React.lazy(() => import ('./components/PaymentMethod'))
 
 class Invoice extends Component {
     constructor(props) {
@@ -22,56 +22,31 @@ class Invoice extends Component {
         const response = await this.http.get(`invoices/${invoiceId}`)
         if (response.okay) {
             let { order, invoice } = response
-            document.title = `${invoice.active ? ' ' : 'پیش '}فاکتور شماره ${invoice.id}`
-            invoice.calculate_off = total => {
-                let {offer} = invoice
-                if (offer) {
-                    if (offer.value_type === 'percentage') {
-                        return (total / 100) * offer.value
-                    }
-                    return offer.value
-                }
-                return 0
-            }
-            let total = 0
+            let subtotal = 0,
+                tax = 0,
+                total_off = 0
             order.items.forEach(item => {
-                item.amount = item.total - item.off
-                total += item.amount
+                item.tax = (item.total / 100) * 9
+                tax += item.tax
+                subtotal += item.total
+                total_off += item.off
                 return item
             })
-            let total_off = invoice.multipay ? 0 : invoice.calculate_off(total),
-                final = total - total_off
+            document.title = `${invoice.active ? ' ' : 'پیش '}فاکتور شماره ${invoice.id}`
             this.setState({
                 invoice : {
                     ...invoice,
                     calc: {
-                        total,
+                        subtotal,
+                        tax,
                         total_off,
-                        final,
-                        total_tax: (final / 100) * 9,
+                        invoice_toal: (subtotal + tax) - total_off
                     }
                 },
                 order: order,
                 loading: false
             })
         }
-    }
-    activateInvoice = newInvoice => {
-        this.setState(prev => ({
-            invoice: {
-                ...prev.invoice,
-                ...newInvoice
-            },
-            loading: false
-        }))
-    }
-    setMultiPay = boolean => {
-        this.setState(prev => ({
-            invoice: {
-                ...prev.invoice,
-                multipay: boolean
-            }
-        }))
     }
     componentDidMount() {
         this.loadInvoice()
@@ -114,7 +89,8 @@ class Invoice extends Component {
                                 <th>عنوان سفارش</th>
                                 <th>قیمت</th>
                                 <th>تخفیف</th>
-                                <th>مجموع نهایی</th>
+                                <th>مالیات <span style={{ fontSize: '12px' }}>9٪ ارزش افزوده</span></th>
+                                <th>مبلغ نهایی</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -124,7 +100,8 @@ class Invoice extends Component {
                                     <th scope='row'>{item.title}</th>
                                     <td>{number_format(item.total, true)}</td>
                                     <td>{number_format(item.off, true)}</td>
-                                    <td>{number_format(item.amount, true)}</td>
+                                    <td>{number_format(item.tax, true)}</td>
+                                    <td>{number_format(item.total - item.off, true)}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -135,40 +112,35 @@ class Invoice extends Component {
                     <table className="table">
                         <tbody>
                             <tr>
-                                <th scope='row'>جمع کل</th>
-                                <td>{number_format(invoice.calc.total, true)}</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>تخفیف فاکتور</th>
-                                <td>
-                                    {invoice.multipay ? <span className='text-danger'>در روش پرداخت جزئی تخفیف کلی اعمال نمی شود.</span> : number_format(invoice.calc.total_off, true)}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>جمع کل پس از کسر تخفیف</th>
-                                <td>{number_format(invoice.calc.final, true)}</td>
-                            </tr>
+                                <th scope='row'>مبلغ کل سفارش</th>
+                                <td>{number_format(invoice.calc.subtotal, true)}</td>
+                            </tr> 
                             <tr>
                                 <th scope='row'>9% مالیات ارزش افزوده</th>
-                                <td>{number_format(invoice.calc.total_tax, true)}</td>
+                                <td>{number_format(invoice.calc.tax, true)}</td>
                             </tr>
+                            {/* <tr>
+                                <th scope='row'>تخفیف</th>
+                                <td>500,000 تومان</td>
+                            </tr> */}
                             <tr>
                                 <th scope='row'>قابل پرداخت</th>
-                                <td>{number_format(invoice.calc.final + invoice.calc.total_tax, true)}</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>روش پرداختی</th>
-                                <td>{invoice.multipay ? 
-                                'جزئی' :
-                                'کلی'
-                                }</td>
+                                <td>{number_format(invoice.calc.invoice_toal, true)}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                {invoice.active && invoice.bills 
-                    ? <Bills bills={invoice.bills}/>
-                    : <PaymentMethod invoice={invoice} setMultiPay={this.setMultiPay} onActive={this.activateInvoice}/>
+                {
+                    invoice.active && invoice.bills ? (
+                        <React.Suspense fallback={<LoaderComponent />}>
+                            <Bills bills={invoice.bills}/>
+                        </React.Suspense>
+                    )
+                    : (
+                        <React.Suspense fallback={<LoaderComponent />}>
+                            <PaymentMethod invoice={invoice} onActive={newInvoice => this.setState(prev => ({invoice: {...prev.invoice, ...newInvoice}}))}/>
+                        </React.Suspense>
+                    )
                 }
                 {/* <div className='float-left alert alert-light text-center mt-5 horizontal-center-left'>مهلت پرداخت تسویه فاکتور شما به شماره {invoice.id}، تا تاریخ 1400/12/34 میباشد.</div> */}
             </div>

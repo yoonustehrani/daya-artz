@@ -43,7 +43,7 @@ function Invoices({location, history}) {
                     {invoices.map((invoice, i) => (
                         <tr className='cursor-pointer' onClick={() => handleNavigation(invoice.id)} key={invoice.id}>
                             <td>{i + 1}</td>
-                            <td>{final ? Number(invoice.amount).toLocaleString('en-US') : '---' }</td>
+                            <td>{invoice.total ? invoice.total.toLocaleString('en-US') : '---' }</td>
                             <td>{invoice.title}</td>
                             {
                                 final ? (

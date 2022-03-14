@@ -6,29 +6,36 @@ class PaymentMethod extends Component {
         super(props)
         this.state = {
             paymentMethod: 'all', // or all
-            discountCode: ""
+            discountCode: '',
+            loading: false
         }
         this.http = useHttpService('/userarea/invoices')
     }
     onChangeMethod = (method) => {
         this.setState({
             paymentMethod: method
-        })
+        }, () => this.props.setMultiPay(method !== 'all'))
     }
     onChangeDiscount = (e) => {
         this.setState({
             discountCode: e.target.value
         })
     }
-    onSubmit = async () => {
+    sendActivateRequest = async () => {
         let { paymentMethod, discountCode }  = this.state
         const response = await this.http.post(`/${this.props.invoice.id}/activate`, {mode: paymentMethod})
         if (response.okay) {
             this.props.onActive(response.invoice)
         }
+        this.setState({ loading: false })
+    }
+    onSubmit = () => {
+        this.setState({
+            loading: true
+        }, this.sendActivateRequest)
     }
     render() {
-        let { paymentMethod } = this.state
+        let { paymentMethod, loading } = this.state
         return (
             <div className='float-left w-100 mt-4'>
                 <h3 className='factor-section-title'>انتخاب شیوه پرداخت</h3>
@@ -57,7 +64,13 @@ class PaymentMethod extends Component {
                     </div> */}
                 </div>
                 <div className='w-100 text-center mt-2'>
-                    <button className='btn btn-lg btn-light px-5' onClick={this.onSubmit}>تایید</button>
+                    <button className='btn btn-lg btn-light px-5' disabled={loading} onClick={this.onSubmit}>
+                        {
+                        loading ?
+                        'در حال پردازش' 
+                        : 'تایید'
+                        }
+                    </button>
                 </div>
             </div>
         );

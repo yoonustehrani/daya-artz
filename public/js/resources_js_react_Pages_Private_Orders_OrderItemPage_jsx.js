@@ -107,12 +107,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Loading(props) {
-  var _props$size;
+  var _props$color, _props$size;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "activity-container mb-2",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_1__.Spinner, {
-      color: "#999999",
+      color: (_props$color = props.color) !== null && _props$color !== void 0 ? _props$color : '#999999',
       size: (_props$size = props.size) !== null && _props$size !== void 0 ? _props$size : 34,
       speed: 0.5,
       animating: true
@@ -191,19 +191,50 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "loadItem", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var _this$props$params, orderId, itemId, response;
-
+    _defineProperty(_assertThisInitialized(_this), "loadTickets", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var itemId, response, tickets;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _this$props$params = _this.props.params, orderId = _this$props$params.orderId, itemId = _this$props$params.itemId;
+              itemId = _this.props.params.itemId;
               _context.next = 3;
-              return _this.http.get("orders/".concat(orderId, "/items/").concat(itemId));
+              return _this.http.get("/items/".concat(itemId, "/tickets"));
 
             case 3:
               response = _context.sent;
+              tickets = response.tickets;
+
+              _this.setState({
+                tickets: tickets !== null && tickets !== void 0 ? tickets : []
+              });
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })));
+
+    _defineProperty(_assertThisInitialized(_this), "onTicketClick", function (ticketId) {
+      return _this.props.history.push("/tickets/".concat(ticketId));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "loadItem", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var itemId, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              itemId = _this.props.params.itemId;
+              _context2.next = 3;
+              return _this.http.get("/items/".concat(itemId));
+
+            case 3:
+              response = _context2.sent;
+
+              _this.loadTickets();
 
               _this.setState({
                 orderItem: response,
@@ -212,12 +243,12 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
                 response.item.canceled ? null : _this.getLevel();
               });
 
-            case 5:
+            case 6:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     })));
 
     _defineProperty(_assertThisInitialized(_this), "getLevel", function () {
@@ -262,29 +293,33 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
     _this.state = {
       orderItem: null,
       level: null,
-      loading: true
+      loading: true,
+      tickets: []
     };
-    _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_3__.useHttpService)('/userarea/');
     return _this;
   }
 
   _createClass(OrderItemPage, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var orderId = this.props.params.orderId;
+      this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_3__.useHttpService)("/userarea/orders/".concat(orderId));
       this.loadItem();
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$state2 = this.state,
           loading = _this$state2.loading,
           orderItem = _this$state2.orderItem,
           level = _this$state2.level,
-          _ref2 = orderItem !== null && orderItem !== void 0 ? orderItem : {},
-          item = _ref2.item,
-          okay = _ref2.okay,
-          order = _ref2.order,
-          statuses = _ref2.statuses;
+          _ref3 = orderItem !== null && orderItem !== void 0 ? orderItem : {},
+          item = _ref3.item,
+          okay = _ref3.okay,
+          order = _ref3.order,
+          statuses = _ref3.statuses;
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layout_components_Loading__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
@@ -421,7 +456,7 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("table", {
               className: "table table-hover",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("caption", {
-                children: "\u062A\u06CC\u06A9\u062A \u0647\u0627\u06CC \u0645\u0631\u062A\u0628\u0637 \u0628\u0647 \u0627\u06CC\u0646 \u0633\u0641\u0627\u0631\u0634 (\u062F\u0627\u06CC\u0646\u0627\u0645\u06CC\u06A9 \u0646\u0634\u062F\u0647)"
+                children: "\u062A\u06CC\u06A9\u062A \u0647\u0627\u06CC \u0645\u0631\u062A\u0628\u0637 \u0628\u0647 \u0627\u06CC\u0646 \u0633\u0641\u0627\u0631\u0634"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("thead", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
@@ -441,22 +476,27 @@ var OrderItemPage = /*#__PURE__*/function (_Component) {
                   })]
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("tbody", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
-                    children: "1"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                    children: "#46753"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                    children: "\u0648\u06CC\u0631\u0627\u06CC\u0634"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                    children: "\u0627\u0645\u0648\u0631 \u0637\u0631\u0627\u062D\u06CC"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                    children: "\u0628\u0633\u062A\u0647 \u0634\u062F\u0647"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                    children: "1400/12/5"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-                    children: "1400/12/12"
-                  })]
+                children: this.state.tickets.map(function (ticket, i) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+                    onClick: function onClick() {
+                      return _this2.onTicketClick(ticket.id);
+                    },
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                      children: i + 1
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                      children: ticket.tracking_code
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                      children: ticket.title
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                      children: ticket.department && ticket.department.name
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                      children: ticket.closed_at && "بسته شده"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                      children: (0,_hooks__WEBPACK_IMPORTED_MODULE_3__.useJalaliDate)(ticket.created_at).format()
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                      children: (0,_hooks__WEBPACK_IMPORTED_MODULE_3__.useJalaliDate)(ticket.closed_at).format()
+                    })]
+                  });
                 })
               })]
             })

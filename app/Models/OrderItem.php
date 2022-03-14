@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasOfferAttribute;
 
 class OrderItem extends Model
 {
-    use HasFactory;
+    use HasFactory, HasOfferAttribute;
     const STATUS = [
         'submitted',
         'reviewed',
@@ -48,6 +49,10 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Offer::class);
     }
+    public function tickets()
+    {
+        return $this->morphMany(Ticket::class, 'ticketable');
+    }
     public function getNormalAttribute()
     {
         return in_array($this->status, self::NORMAL_STATUS);
@@ -59,16 +64,5 @@ class OrderItem extends Model
     public function getCanceledAttribute()
     {
         return $this->status === 'canceled';
-    }
-    public function getOffAttribute()
-    {
-        if ($this->offer && $this->offer->value) {
-            if ($this->offer->value_type === 'percentage') {
-                $p = $this->offer->value > 100 ? 100 : $this->offer->value;
-                return ($this->total / 100) * $p;
-            }
-            return $this->offer->value;
-        }
-        return 0;
     }
 }

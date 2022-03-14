@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Offer;
+use App\Models\Bill;
 use Illuminate\Support\Facades\Route;
 
 if (! function_exists('generate_code')) {
@@ -67,5 +69,60 @@ if (! function_exists('calculate_payments')) {
         $deposit = $total * $percentage;
         $checkout = $total - $deposit;
         return compact('deposit', 'checkout');
+    }
+}
+
+if (! function_exists('with_value_added')) {
+    function with_value_added($total)
+    {
+        $value_added = config('app.tax_value', 9);
+        $tax = ($total / 100) * $value_added;
+        return $total + $tax;
+    }
+}
+
+if (! function_exists('calculate_off')) {
+    /**
+     * Calculating if the $offer can be applied based on total
+     * Returning the amount of offer in IRT
+     * @param integer $total Total amount of Invoice
+     * @param \App\Models\Offer $offer Offer Object
+     * @return integer
+     */
+    function calculate_off($total, Offer $offer) {
+        if (
+            ($offer->min_total && $total < $offer->min_total)
+            ||
+            ($offer->max_total && $total > $offer->max_total)
+        ) return 0;
+        // if offer can be added
+        if ($offer->value_type === 'percentage') {
+            $p = $offer->value < 100 ? $offer->value : 100;
+            return ($total / 100) * $p;
+        }
+        return $offer->value;
+    }
+}
+
+if (! function_exists('make_bills')) {
+    /**
+     * @param integer $total Total amount of bills
+     * @param null|string $title Title of bills
+     * @return array of \App\Models\Bill
+     */
+    function make_bills($total, $title = null) {
+        $bills = [];
+        $payments = calculate_payments($total);
+        foreach ($payments as $type => $amount) {
+            $bill = new Bill([
+                'active' => $type === 'deposit',
+                'amount' => $amount,
+                'title' => __("userarea.bills.{$type}", ['item_title' => $title ?? __('Order')]),
+                'code' => (string) generate_code(6),
+            ]);
+            $bill->paid_at = null;
+            array_push($bills, $bill);
+        }
+        return $bills;
     }
 }
