@@ -1,4 +1,5 @@
 import rootReducer from './reducers';
+import { logoutUser } from './actions'
 import { configureStore } from '@reduxjs/toolkit'
 
 const store = configureStore({

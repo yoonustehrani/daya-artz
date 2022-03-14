@@ -5321,10 +5321,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reducers */ "./resources/js/react/redux/reducers/index.js");
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 
 
-var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.configureStore)({
+
+var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.configureStore)({
   reducer: _reducers__WEBPACK_IMPORTED_MODULE_0__["default"],
   devTools: "development" !== 'production'
 });
@@ -6532,6 +6534,10 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
           break;
 
         case 401:
+          if (typeof window.dispatchLogout === 'function') {
+            dispatchLogout();
+          }
+
           message = 'از حساب کاربری تان خارج شدید. لطفا مجدد وارد شوید.';
           break;
 
@@ -70982,7 +70988,11 @@ if (elem) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__["default"], {})
     })
   }), elem, function () {
-    return _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
+    window.dispatchLogout = function () {
+      _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch((0,_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.logoutUser)());
+    };
+
+    _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
   });
 }
 })();

@@ -72,6 +72,9 @@ export default class HttpClient
                     message = data.message
                     break
                 case 401:
+                    if (typeof window.dispatchLogout === 'function') {
+                        dispatchLogout()
+                    }
                     message = 'از حساب کاربری تان خارج شدید. لطفا مجدد وارد شوید.'
                     break
                 default:
