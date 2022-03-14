@@ -36,7 +36,7 @@ class OrderSeeder extends Seeder
             Order::factory()->count(10)->state([
                 'user_id' => $user
             ])->has($items, 'items')
-                ->hasInvoice(['user_id' => $user->getKey(), 'active' => false, 'multipay' => false])
+                ->hasInvoice(['user_id' => $user->getKey()])
                 ->create();
         }
     }

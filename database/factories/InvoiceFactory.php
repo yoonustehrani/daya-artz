@@ -15,8 +15,10 @@ class InvoiceFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'total' => $this->faker->numberBetween(50, 1000) * 1000,
+            'total' => null,
+            'multipay' => false,
             'expires_at' => now()->addDays($this->faker->numberBetween(3, 7)),
+            'active' => false
         ];
     }
 }
