@@ -3,6 +3,7 @@ import { useHttpService, useJalaliDate } from '../../../../hooks';
 import NoItem from '../../Layout/components/NoItem'
 import LoaderComponent from "../../../../components/LoaderComponent";
 import Title from "../../Layout/components/Title";
+import Paginate from "../../../../../components/Paginate";
 
 function Transactions(props) {
     const title = "لیست تراکنش ها"

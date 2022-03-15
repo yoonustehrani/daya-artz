@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react';
+import Paginate from '../../../../../components/Paginate';
 import AlertService from '../../../../../services/AlertService';
 import { useHttpService } from '../../../../hooks';
 import Loading from '../../Layout/components/Loading';

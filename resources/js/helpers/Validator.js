@@ -20,10 +20,10 @@ const validate = (inputsArray) => {
                                 ! validator.isLength(value, {min: 0, max: 60}) ? err = `طول فیلد ${title} حداکثر شصت کاراکتر میباشد` : null
                                 break
                             case "long_text":
-                                ! validator.isLength(value, {min: 0, max: 80}) ? err = `طول فیلد ${title} حداکثر شصت کاراکتر میباشد` : null
+                                ! validator.isLength(value, {min: 0, max: 100}) ? err = `طول فیلد ${title} حداکثر صد کاراکتر میباشد` : null
                                 break
                             case "paragraph":
-                                ! validator.isLength(value, {min: 0, max: 500}) ? err = `طول فیلد ${title} حداکثر پانصد کاراکتر میباشد` : null
+                                ! validator.isLength(value, {min: 0, max: 1000}) ? err = `طول فیلد ${title} حداکثر هزار کاراکتر میباشد` : null
                                 break
                             case "alpha-fa":
                                 ! validator.isAlpha(value, "fa-IR", {ignore: " "}) ? err = `فیلد ${title} فقط شامل حروف فارسی میباشد` : null

@@ -5,30 +5,37 @@ import LoaderComponent from '../../../../components/LoaderComponent';
 import { useHttpService, useJalaliDate } from '../../../../hooks';
 import Title from '../../Layout/components/Title';
 import NoItem from '../../Layout/components/NoItem';
+import Paginate from '../../../../../components/Paginate';
 
 function Invoices({location, history}) {
     const title = `${location.search ? '' : 'پیش '}فاکتور ها`
-    const http = useHttpService("/userarea")
+    const http = useHttpService("/userarea/invoices")
     const [invoices, setInvoices] = useState([])
+    const [paginateInfo, setPaginateInfo] = useState({})
     const [loading, setLoading] = useState(true)
     let final = !! location.search
     let handleNavigation = invoiceId => history.push(`/finance/invoices/${invoiceId}`)
-    useEffect(() => {
+    useEffect((customUrl = null) => {
         async function getInvoices() {
-            let params = final ? {params: {active: true}} : {}
-            const response = await http.get('/invoices', params)
+            let params = final ? {params: {active: true, }} : {}
+            const response = await http.get('', params), { current_page, next_page_url, prev_page_url } = response
             if (response.data) {
                 setInvoices(response.data)
+                setPaginateInfo({current_page, next_page_url, prev_page_url})
                 setLoading(false)
                 document.title = title
             }
         }
         getInvoices()
     }, [location.search])
+    handlePaginate = (next = true) => {
+        let {next_page_url, prev_page_url} = paginateInfo
+        
+    }
     return loading ? <LoaderComponent /> : (
         <>
             <Title text={title}/>
-            {! loading && invoices.length > 0 ? (
+            {! loading && invoices.length > 0 ? (<>
                 <div className='table-responsive userarea-table'>
                     <table className="table table-striped table-bordered table-hover">
                         <thead>
@@ -65,7 +72,8 @@ function Invoices({location, history}) {
                         </tbody>
                     </table>
                 </div>
-                ) : <NoItem />
+                <Paginate {...paginateInfo} next_page_handler={handleNavigation} prev_page_url={handleNavigation(false)} />
+                </>) : <NoItem />
         }
         </>
     );
