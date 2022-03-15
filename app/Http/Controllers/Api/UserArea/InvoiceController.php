@@ -14,7 +14,7 @@ class InvoiceController extends Controller
     {
         $invoices = $request->user()->invoices();
         $invoices = $request->has('active') ? $invoices->active() : $invoices->inactive();
-        return response()->json($invoices->latest()->simplePaginate(10));
+        return response()->json($invoices->latest()->simplePaginate(10)->withQueryString());
     }
     public function show(Request $request, $invoice)
     {
@@ -32,7 +32,7 @@ class InvoiceController extends Controller
         $order->items->append('off');
         if ($invoice->active) {
             $invoice->load(['bills' => function($q) {
-                // $q->active();
+                $q->active();
             }]);
         }
         return response()->json([
