@@ -32,33 +32,35 @@ function Transactions(props) {
     return transactions.length === 0 ? <NoItem /> : (
         <>
             <Title text={title} />
-            <table className="table table-striped table-responsive table-bordered userarea-table">
-                <thead>
-                    <tr>
-                        <th><i className="fas fa-hashtag"></i></th>
-                        <th>مبلغ (تومان)</th>
-                        <th>بابت</th>
-                        <th colSpan={2}>وضعیت</th>
-                        <th>دروازه پرداختی</th>
-                        <th>آخرین تغییر وضعیت</th>
-                        <th>تاریخ ایجاد</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {transactions.map((transaction, i) => (
-                    <tr key={transaction.id}>
-                        <td>{i + 1}</td>
-                        <td>{Number(transaction.amount).toLocaleString('en-US')}</td>
-                        <td>{transaction.bill.title}</td>
-                        <td>{transaction.status_fa}</td>
-                        <td><i className={classes[transaction.status]}></i></td>
-                        <td>{transaction.provider_fa}</td>
-                        <td>{useJalaliDate(transaction.updated_at).format()}</td>
-                        <td>{useJalaliDate(transaction.created_at).format()}</td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
+            <div className="table-responsive userarea-table">
+                <table className="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th><i className="fas fa-hashtag"></i></th>
+                            <th>مبلغ (تومان)</th>
+                            <th>بابت</th>
+                            <th colSpan={2}>وضعیت</th>
+                            <th>دروازه پرداختی</th>
+                            <th>آخرین تغییر وضعیت</th>
+                            <th>تاریخ ایجاد</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {transactions.map((transaction, i) => (
+                        <tr key={transaction.id}>
+                            <td>{i + 1}</td>
+                            <td>{Number(transaction.amount).toLocaleString('en-US')}</td>
+                            <td>{transaction.bill.title}</td>
+                            <td>{transaction.status_fa}</td>
+                            <td><i className={classes[transaction.status]}></i></td>
+                            <td>{transaction.provider_fa}</td>
+                            <td>{useJalaliDate(transaction.updated_at).format()}</td>
+                            <td>{useJalaliDate(transaction.created_at).format()}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </>
         
     );

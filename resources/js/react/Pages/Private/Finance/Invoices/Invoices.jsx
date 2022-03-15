@@ -29,40 +29,42 @@ function Invoices({location, history}) {
         <>
             <Title text={title}/>
             {! loading && invoices.length > 0 ? (
-                <table className="table table-striped table-responsive table-bordered userarea-table">
-                    <thead>
-                        <tr>
-                            <th><i className="fas fa-hashtag"></i></th>
-                            <th>مبلغ (تومان)</th>
-                            <th>عنوان</th>
-                            <th>وضعیت</th>
-                            <th>تاریخ ایجاد</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {invoices.map((invoice, i) => (
-                        <tr className='cursor-pointer' onClick={() => handleNavigation(invoice.id)} key={invoice.id}>
-                            <td>{i + 1}</td>
-                            <td>{invoice.total ? invoice.total.toLocaleString('en-US') : '---' }</td>
-                            <td>{invoice.title}</td>
-                            {
-                                final ? (
-                                    <td>
-                                        {
-                                            invoice.paid_at ? 
-                                            'پرداخت شده' :
-                                            'پرداخت نشده'
-                                        }
-                                    </td>
-                                ) : (
-                                    <td>پیش فاکتور</td>
-                                )
-                            }
-                            <td>{useJalaliDate(invoice.created_at).format('jYYYY/jM/jD HH:mm:ss')}</td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
+                <div className='table-responsive userarea-table'>
+                    <table className="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th><i className="fas fa-hashtag"></i></th>
+                                <th>مبلغ (تومان)</th>
+                                <th>عنوان</th>
+                                <th>وضعیت</th>
+                                <th>تاریخ ایجاد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {invoices.map((invoice, i) => (
+                            <tr className='cursor-pointer' onClick={() => handleNavigation(invoice.id)} key={invoice.id}>
+                                <td>{i + 1}</td>
+                                <td>{invoice.total ? invoice.total.toLocaleString('en-US') : '---' }</td>
+                                <td>{invoice.title}</td>
+                                {
+                                    final ? (
+                                        <td>
+                                            {
+                                                invoice.paid_at ? 
+                                                'پرداخت شده' :
+                                                'پرداخت نشده'
+                                            }
+                                        </td>
+                                    ) : (
+                                        <td>پیش فاکتور</td>
+                                    )
+                                }
+                                <td>{useJalaliDate(invoice.created_at).format('jYYYY/jM/jD HH:mm:ss')}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
                 ) : <NoItem />
         }
         </>

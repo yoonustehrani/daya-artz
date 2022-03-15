@@ -40,7 +40,6 @@ export default class OrderItemPage extends Component {
         }, () => {
             response.item.canceled ? null : this.getLevel()
         })
-        console.log(response);
     }
     getLevel = () => {
         let { item, statuses } = this.state.orderItem, {status} = item, { normal, list } = statuses, level

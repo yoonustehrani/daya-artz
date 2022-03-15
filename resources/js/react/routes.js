@@ -17,8 +17,6 @@ const NewTicket = lazy(() => import('./Pages/Private/Tickets/NewTicket'))
 const Invoices = lazy(() => import('./Pages/Private/Finance/Invoices/Invoices'))
 const Invoice = lazy(() => import('./Pages/Private/Finance/Invoices/Invoice'))
 const TicketsFaq = lazy(() => import('./Pages/Private/Tickets/TicketsFaq'))
-const Bill = lazy(() => import('./Pages/Private/Finance/Bills/Bill'))
-const Bills = lazy(() => import('./Pages/Private/Finance/Bills/Bills'))
 const Transactions = lazy(() => import('./Pages/Private/Finance/Transactions/Transactions'))
 const Discounts = lazy(() => import('./Pages/Private/Finance/Discounts/Discounts'))
 const Contract = lazy(() => import('./Pages/Private/Contracts/Contract'))
@@ -76,16 +74,6 @@ const routes = [
         path: '/finance/invoices/:invoiceId',
         exact: true,
         CallableComponent: Invoice
-    },
-    {
-        path: '/finance/bills/:billId',
-        exact: true,
-        CallableComponent: Bill,
-    },
-    {
-        path: '/finance/bills',
-        exact: true,
-        CallableComponent: Bills,
     },
     {
         path: '/finance/transactions',
