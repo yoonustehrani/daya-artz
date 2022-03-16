@@ -75,13 +75,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Layout/components/NoItem */ "./resources/js/react/Pages/Private/Layout/components/NoItem.jsx");
 /* harmony import */ var _components_Paginate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../components/Paginate */ "./resources/js/components/Paginate/index.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -138,64 +138,71 @@ function Invoices(_ref) {
     return history.push("/finance/invoices/".concat(invoiceId));
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    var customUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  function getInvoices() {
+    return _getInvoices.apply(this, arguments);
+  }
 
-    function getInvoices() {
-      return _getInvoices.apply(this, arguments);
-    }
-
-    function _getInvoices() {
-      _getInvoices = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var params, response, current_page, next_page_url, prev_page_url;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                params = _final ? {
-                  params: {
-                    active: true
-                  }
-                } : {};
-                _context.next = 3;
-                return http.get('', params);
-
-              case 3:
-                response = _context.sent;
-                current_page = response.current_page;
-                next_page_url = response.next_page_url;
-                prev_page_url = response.prev_page_url;
-
-                if (response.data) {
-                  setInvoices(response.data);
-                  setPaginateInfo({
-                    current_page: current_page,
-                    next_page_url: next_page_url,
-                    prev_page_url: prev_page_url
-                  });
-                  setLoading(false);
-                  document.title = title;
+  function _getInvoices() {
+    _getInvoices = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var customUrl,
+          params,
+          response,
+          current_page,
+          next_page_url,
+          prev_page_url,
+          _args = arguments;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              customUrl = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
+              params = _final ? {
+                params: {
+                  active: true
                 }
+              } : {};
+              _context.next = 4;
+              return http.get('', params);
 
-              case 8:
-              case "end":
-                return _context.stop();
-            }
+            case 4:
+              response = _context.sent;
+              current_page = response.current_page;
+              next_page_url = response.next_page_url;
+              prev_page_url = response.prev_page_url;
+
+              if (response.data) {
+                setInvoices(response.data);
+                setPaginateInfo({
+                  current_page: current_page,
+                  next_page_url: next_page_url,
+                  prev_page_url: prev_page_url
+                });
+                setLoading(false);
+                document.title = title;
+              }
+
+            case 9:
+            case "end":
+              return _context.stop();
           }
-        }, _callee);
-      }));
-      return _getInvoices.apply(this, arguments);
-    }
+        }
+      }, _callee);
+    }));
+    return _getInvoices.apply(this, arguments);
+  }
 
-    getInvoices();
-  }, [location.search]);
-
-  handlePaginate = function handlePaginate() {
+  var handlePaginate = function handlePaginate() {
     var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
     var next_page_url = paginateInfo.next_page_url,
-        prev_page_url = paginateInfo.prev_page_url;
+        prev_page_url = paginateInfo.prev_page_url,
+        url = next ? next_page_url : prev_page_url;
+    console.log('triggered');
+    getInvoices(url);
   };
 
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getInvoices();
+  }, [location.search]);
   return loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Title__WEBPACK_IMPORTED_MODULE_4__["default"], {
       text: title
@@ -245,8 +252,8 @@ function Invoices(_ref) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
-        next_page_handler: handleNavigation,
-        prev_page_url: handleNavigation(false)
+        next_page_handler: handlePaginate,
+        prev_page_handler: handlePaginate(false)
       }))]
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
   });
