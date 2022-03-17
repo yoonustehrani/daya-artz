@@ -156,15 +156,16 @@ function Invoices(_ref) {
           switch (_context.prev = _context.next) {
             case 0:
               customUrl = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
+              setLoading(true);
               params = _final ? {
                 params: {
                   active: true
                 }
               } : {};
-              _context.next = 4;
-              return http.get('', params);
+              _context.next = 5;
+              return http.get(customUrl !== null && customUrl !== void 0 ? customUrl : '', customUrl === null && params);
 
-            case 4:
+            case 5:
               response = _context.sent;
               current_page = response.current_page;
               next_page_url = response.next_page_url;
@@ -181,7 +182,7 @@ function Invoices(_ref) {
                 document.title = title;
               }
 
-            case 9:
+            case 10:
             case "end":
               return _context.stop();
           }
@@ -196,7 +197,6 @@ function Invoices(_ref) {
     var next_page_url = paginateInfo.next_page_url,
         prev_page_url = paginateInfo.prev_page_url,
         url = next ? next_page_url : prev_page_url;
-    console.log('triggered');
     getInvoices(url);
   };
 
@@ -235,7 +235,7 @@ function Invoices(_ref) {
                   return handleNavigation(invoice.id);
                 },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
-                  children: i + 1
+                  children: (Number(paginateInfo.current_page) - 1) * 10 + (i + 1)
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                   children: invoice.total ? invoice.total.toLocaleString('en-US') : '---'
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
@@ -253,7 +253,9 @@ function Invoices(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
         next_page_handler: handlePaginate,
-        prev_page_handler: handlePaginate(false)
+        prev_page_handler: function prev_page_handler() {
+          return handlePaginate(false);
+        }
       }))]
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
   });

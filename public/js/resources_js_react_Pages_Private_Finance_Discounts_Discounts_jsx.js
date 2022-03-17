@@ -77,19 +77,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -126,6 +118,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Discounts = /*#__PURE__*/function (_Component) {
   _inherits(Discounts, _Component);
 
@@ -138,40 +131,64 @@ var Discounts = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "loadOffers", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _this.http.get('/offers');
+    _defineProperty(_assertThisInitialized(_this), "loadOffers", function () {
+      var customUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
-            case 2:
-              response = _context.sent;
+      _this.setState({
+        loading: true
+      }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response, current_page, next_page_url, prev_page_url;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.http.get(customUrl !== null && customUrl !== void 0 ? customUrl : '/offers');
 
-              if (!response.error) {
-                _this.setState(function (prevState) {
-                  return {
-                    offers: [].concat(_toConsumableArray(prevState.offers), _toConsumableArray(response.data)),
-                    next_page: response.next_page,
-                    loading: false
-                  };
-                });
-              }
+              case 2:
+                response = _context.sent;
+                current_page = response.current_page;
+                next_page_url = response.next_page_url;
+                prev_page_url = response.prev_page_url;
 
-            case 4:
-            case "end":
-              return _context.stop();
+                if (!response.error) {
+                  _this.setState(function (prevState) {
+                    return {
+                      offers: response.data,
+                      paginateInfo: {
+                        current_page: current_page,
+                        next_page_url: next_page_url,
+                        prev_page_url: prev_page_url
+                      },
+                      loading: false
+                    };
+                  });
+                }
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
           }
-        }
-      }, _callee);
-    })));
+        }, _callee);
+      })));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handlePaginate", function () {
+      var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var _this$state$paginateI = _this.state.paginateInfo,
+          next_page_url = _this$state$paginateI.next_page_url,
+          prev_page_url = _this$state$paginateI.prev_page_url,
+          url = next ? next_page_url : prev_page_url;
+
+      _this.loadOffers(url);
+    });
 
     _this.state = {
       offers: [],
       next_page: null,
-      loading: true
+      loading: true,
+      paginateInfo: {}
     };
     _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_4__.useHttpService)('/userarea');
     return _this;
@@ -215,37 +232,43 @@ var Discounts = /*#__PURE__*/function (_Component) {
 
       var _this$state = this.state,
           loading = _this$state.loading,
-          offers = _this$state.offers;
+          offers = _this$state.offers,
+          paginateInfo = _this$state.paginateInfo;
       if (loading) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Loading__WEBPACK_IMPORTED_MODULE_5__["default"], {});
-      return offers.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        className: "discount-container",
-        children: offers.map(function (discount) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "p-0 discount-item rounded-lg",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "w-100 p-2 text-white",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-                src: APP_PATH + 'images/discount-icon.png'
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-                className: "shadowed-text",
-                children: discount.title
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-                children: _this2.getOfferValue(discount)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-                className: "shadowed-text",
-                children: discount.description
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
-                onClick: function onClick() {
-                  return _this2.copyToClipboard(discount.code);
-                },
-                className: "cursor-pointer w-50 badge bg-pink p-2 rounded-pill bold ltr",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
-                  className: "fas fa-copy mr-2"
-                }), discount.code]
-              })]
-            })
-          }, discount.id);
-        })
+      return offers.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "discount-container",
+          children: offers.map(function (discount) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              className: "p-0 discount-item rounded-lg",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                className: "w-100 p-2 text-white",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                  src: APP_PATH + 'images/discount-icon.png'
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+                  className: "shadowed-text",
+                  children: discount.title
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+                  children: _this2.getOfferValue(discount)
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+                  className: "shadowed-text",
+                  children: discount.description
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
+                  onClick: function onClick() {
+                    return _this2.copyToClipboard(discount.code);
+                  },
+                  className: "cursor-pointer w-50 badge bg-pink p-2 rounded-pill bold ltr",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+                    className: "fas fa-copy mr-2"
+                  }), discount.code]
+                })]
+              })
+            }, discount.id);
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
+          next_page_handler: this.handlePaginate,
+          prev_page_handler: this.handlePaginate.bind(this, false)
+        }))]
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__["default"], {});
     }
   }]);

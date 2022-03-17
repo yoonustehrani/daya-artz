@@ -12,21 +12,24 @@ class Discounts extends Component {
             offers: [],
             next_page: null,
             loading: true,
+            paginateInfo: {}
         }
         this.http = useHttpService('/userarea')
     }
     componentDidMount() {
         this.loadOffers()
     }
-    loadOffers = async () => {
-        const response = await this.http.get('/offers')
-        if (! response.error) {
-            this.setState(prevState => ({
-                offers: [...prevState.offers, ...response.data],
-                next_page: response.next_page,
-                loading: false
-            }))
-        }
+    loadOffers = (customUrl=null) => {
+        this.setState({loading: true}, async () => {
+            const response = await this.http.get(customUrl ?? '/offers'), { current_page, next_page_url, prev_page_url } = response
+            if (! response.error) {
+                this.setState(prevState => ({
+                    offers: response.data,
+                    paginateInfo: { current_page, next_page_url, prev_page_url },
+                    loading: false
+                }))
+            }
+        })
     }
     copyToClipboard(code) {
         navigator.permissions.query({name: "clipboard-write"}).then(result => {
@@ -42,10 +45,14 @@ class Discounts extends Component {
     getOfferValue(offer) {
         return offer.value_type === 'amount' ? `${offer.value} تومان` : `${offer.value}%`;
     }
+    handlePaginate = (next = true) => {
+        let {next_page_url, prev_page_url} = this.state.paginateInfo, url = next ? next_page_url : prev_page_url
+        this.loadOffers(url)
+    }
     render() {
-        let { loading, offers } = this.state
+        let { loading, offers, paginateInfo } = this.state
         if (loading) return <Loading />
-        return offers.length ? (
+        return offers.length ? (<>
             <div className='discount-container'>
                 {offers.map(discount => {
                     return (
@@ -63,6 +70,8 @@ class Discounts extends Component {
                     )
                 })}
             </div>
+            <Paginate {...paginateInfo} next_page_handler={this.handlePaginate} prev_page_handler={this.handlePaginate.bind(this, false)} />
+            </>
         ) : <NoItem />
     }
 }

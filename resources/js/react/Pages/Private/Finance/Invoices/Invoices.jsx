@@ -16,8 +16,9 @@ function Invoices({location, history}) {
     let final = !! location.search
     let handleNavigation = invoiceId => history.push(`/finance/invoices/${invoiceId}`)
     async function getInvoices(customUrl=null) {
+        setLoading(true)
         let params = final ? {params: {active: true, }} : {}
-        const response = await http.get('', params), { current_page, next_page_url, prev_page_url } = response
+        const response = await http.get(customUrl ?? '', customUrl === null && params), { current_page, next_page_url, prev_page_url } = response
         if (response.data) {
             setInvoices(response.data)
             setPaginateInfo({current_page, next_page_url, prev_page_url})
@@ -27,8 +28,7 @@ function Invoices({location, history}) {
     }
     let handlePaginate = (next = true) => {
         let {next_page_url, prev_page_url} = paginateInfo, url = next ? next_page_url : prev_page_url
-        console.log('triggered');
-        // getInvoices(url)
+        getInvoices(url)
     }
     useEffect(() => {
         getInvoices()
@@ -51,7 +51,7 @@ function Invoices({location, history}) {
                         <tbody>
                         {invoices.map((invoice, i) => (
                             <tr className='cursor-pointer' onClick={() => handleNavigation(invoice.id)} key={invoice.id}>
-                                <td>{i + 1}</td>
+                                <td>{(Number(paginateInfo.current_page) - 1) * 10 + (i + 1)}</td>
                                 <td>{invoice.total ? invoice.total.toLocaleString('en-US') : '---' }</td>
                                 <td>{invoice.title}</td>
                                 {
@@ -73,7 +73,7 @@ function Invoices({location, history}) {
                         </tbody>
                     </table>
                 </div>
-                <Paginate {...paginateInfo} next_page_handler={handlePaginate} prev_page_handler={handlePaginate(false)} />
+                <Paginate {...paginateInfo} next_page_handler={handlePaginate} prev_page_handler={() => handlePaginate(false)} />
                 </>) : <NoItem />
         }
         </>

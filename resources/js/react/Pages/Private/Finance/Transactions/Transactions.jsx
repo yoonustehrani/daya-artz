@@ -9,6 +9,7 @@ function Transactions(props) {
     const title = "لیست تراکنش ها"
     const http = useHttpService("/userarea")
     const [transactions, setTransactions] = useState([])
+    const [paginateInfo, setPaginateInfo] = useState({})
     const [loading, setLoading] = useState(true)
     const classes = {
         verified: 'fas fa-check text-success',
@@ -16,15 +17,21 @@ function Transactions(props) {
         approved: 'fas fa-check text-secondary',
         pending: 'fas fa-spinner text-info'
     }
-    useEffect(() => {
-        async function getTransactions() {
-            const response = await http.get('/transactions');
-            if (response.data) {
-                setTransactions(response.data)
-                setLoading(false)
-                document.title = title
-            }
+    async function getTransactions(customUrl=null) {
+        setLoading(true)
+        const response = await http.get(customUrl ?? '/transactions'), { current_page, next_page_url, prev_page_url } = response
+        if (response.data) {
+            setTransactions(response.data)
+            setPaginateInfo({current_page, next_page_url, prev_page_url})
+            setLoading(false)
+            document.title = title
         }
+    }
+    let handlePaginate = (next = true) => {
+        let {next_page_url, prev_page_url} = paginateInfo, url = next ? next_page_url : prev_page_url
+        getTransactions(url)
+    }
+    useEffect(() => {
         getTransactions()
     }, [])
     if (loading) {
@@ -62,6 +69,7 @@ function Transactions(props) {
                     </tbody>
                 </table>
             </div>
+            <Paginate {...paginateInfo} next_page_handler={handlePaginate} prev_page_handler={() => handlePaginate(false)} />
         </>
         
     );

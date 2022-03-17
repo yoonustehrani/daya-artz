@@ -77,6 +77,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -112,10 +118,15 @@ function Transactions(props) {
       transactions = _useState2[0],
       setTransactions = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({}),
       _useState4 = _slicedToArray(_useState3, 2),
-      loading = _useState4[0],
-      setLoading = _useState4[1];
+      paginateInfo = _useState4[0],
+      setPaginateInfo = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
+      _useState6 = _slicedToArray(_useState5, 2),
+      loading = _useState6[0],
+      setLoading = _useState6[1];
 
   var classes = {
     verified: 'fas fa-check text-success',
@@ -123,40 +134,64 @@ function Transactions(props) {
     approved: 'fas fa-check text-secondary',
     pending: 'fas fa-spinner text-info'
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    function getTransactions() {
-      return _getTransactions.apply(this, arguments);
-    }
 
-    function _getTransactions() {
-      _getTransactions = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return http.get('/transactions');
+  function getTransactions() {
+    return _getTransactions.apply(this, arguments);
+  }
 
-              case 2:
-                response = _context.sent;
+  function _getTransactions() {
+    _getTransactions = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var customUrl,
+          response,
+          current_page,
+          next_page_url,
+          prev_page_url,
+          _args = arguments;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              customUrl = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
+              setLoading(true);
+              _context.next = 4;
+              return http.get(customUrl !== null && customUrl !== void 0 ? customUrl : '/transactions');
 
-                if (response.data) {
-                  setTransactions(response.data);
-                  setLoading(false);
-                  document.title = title;
-                }
+            case 4:
+              response = _context.sent;
+              current_page = response.current_page;
+              next_page_url = response.next_page_url;
+              prev_page_url = response.prev_page_url;
 
-              case 4:
-              case "end":
-                return _context.stop();
-            }
+              if (response.data) {
+                setTransactions(response.data);
+                setPaginateInfo({
+                  current_page: current_page,
+                  next_page_url: next_page_url,
+                  prev_page_url: prev_page_url
+                });
+                setLoading(false);
+                document.title = title;
+              }
+
+            case 9:
+            case "end":
+              return _context.stop();
           }
-        }, _callee);
-      }));
-      return _getTransactions.apply(this, arguments);
-    }
+        }
+      }, _callee);
+    }));
+    return _getTransactions.apply(this, arguments);
+  }
 
+  var handlePaginate = function handlePaginate() {
+    var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+    var next_page_url = paginateInfo.next_page_url,
+        prev_page_url = paginateInfo.prev_page_url,
+        url = next ? next_page_url : prev_page_url;
+    getTransactions(url);
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getTransactions();
   }, []);
 
@@ -218,7 +253,12 @@ function Transactions(props) {
           })
         })]
       })
-    })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
+      next_page_handler: handlePaginate,
+      prev_page_handler: function prev_page_handler() {
+        return handlePaginate(false);
+      }
+    }))]
   });
 }
 
