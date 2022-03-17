@@ -533,6 +533,14 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(TicketMessages, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      $("#userarea-ticket-scroller").scrollTop($("#userarea-ticket-scroller")[0].scrollHeight);
+      setTimeout(function () {
+        $("#userarea-ticket-scroller").scrollTop($("#userarea-ticket-scroller")[0].scrollHeight);
+      }, 0);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -554,6 +562,7 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
           },
           isReverse: true,
           initialLoad: false,
+          threshold: 50,
           children: [loading_messages && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "w-100 mt-3 d-flex justify-content-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {
