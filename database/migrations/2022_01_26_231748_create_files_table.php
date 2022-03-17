@@ -24,11 +24,6 @@ class CreateFilesTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-        // Schema::create('fileables', function (Blueprint $table) {
-        //     $table->foreignUuid('file_id');
-        //     $table->morphs('fileable');
-        //     $table->json('details');
-        // });
     }
 
     /**

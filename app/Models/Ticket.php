@@ -16,6 +16,7 @@ class Ticket extends Model
     protected $casts = [
         'closed_at' => 'datetime',
     ];
+    protected $fillable = ['title', 'status'];
     public $appends = ['messaging_is_allowed'];
 
     public static function booted()
@@ -41,6 +42,10 @@ class Ticket extends Model
     {
         return $this->morphTo();
     }
+    public function files()
+    {
+        return $this->morphToMany(File::class, 'fileable');
+    }
     public function department()
     {
         return $this->belongsTo(TicketDepartment::class, 'ticket_department_id');
@@ -52,5 +57,9 @@ class Ticket extends Model
     public function getMessagingIsAllowedAttribute()
     {
         return in_array($this->getRawOriginal('status'), static::ALLOWED_STATUSES) && is_null($this->closed_at);
+    }
+    public function getUriAttribute()
+    {
+        return route('userarea', ['path' => '/tickets/' . $this->getKey()]);
     }
 }
