@@ -159,6 +159,7 @@ return [
 
     'attributes' => [
         'q' => 'سوژه جستجو',
+        'title' => 'عنوان',
         'email' => 'آدرس ایمیل',
         'phone_number' => 'شماره تلفن همراه',
         'firstname' => 'نام',
@@ -166,6 +167,8 @@ return [
         'fullname' => 'نام و نام خانوادگی',
         'description' => 'توضیحات',
         'order_items' => 'خدمات درخواستی',
-        'message' => 'متن پیام'
+        'message' => 'متن پیام',
+        'ticket_content' => 'متن تیکت',
+        'department' => 'بخش مربوطه'
     ],
 ];

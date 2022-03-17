@@ -196,8 +196,7 @@ function Invoices(_ref) {
     var next_page_url = paginateInfo.next_page_url,
         prev_page_url = paginateInfo.prev_page_url,
         url = next ? next_page_url : prev_page_url;
-    console.log('triggered');
-    getInvoices(url);
+    console.log('triggered'); // getInvoices(url)
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {

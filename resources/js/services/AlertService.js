@@ -2,31 +2,39 @@ import Swal from "sweetalert2"
 
 export default class AlertService {
     constructor(config = null) {
-        this.alert = Swal.mixin()
-    }
-    fire({
-        title,
-        message = "",
-        html = "",
-        icon = "info",
-        timer = false,
-        confirmButtonText = 'تایید',
-        cancelButtonText = 'لغو',
-        confirmButton = false,
-        cancelButton = false
-    }) {
-        this.alert.fire({
-            titleText: title,
-            icon: icon,
-            timer: timer,
-            timerProgressBar: true,
-            html: html,
+        this.alert = Swal.mixin({
+            ...config,
             customClass: {
                 htmlContainer: "rtl"
-            },
-            confirmButtonText,
-            cancelButtonText
+            }
         })
+    }
+    fire(config) {
+        // {
+        //     title,
+        //     message = "",
+        //     html = "",
+        //     icon = "info",
+        //     timer = false,
+        //     confirmButtonText = 'تایید',
+        //     cancelButtonText = 'لغو',
+        //     confirmButton = false,
+        //     cancelButton = false
+        // }
+        // {
+        //     titleText: title,
+        //     message: message,
+        //     icon: icon,
+        //     timer: timer,
+        //     timerProgressBar: true,
+        //     html: html,
+        //     customClass: {
+        //         htmlContainer: "rtl"
+        //     },
+        //     confirmButtonText,
+        //     cancelButtonText
+        // }
+        this.alert.fire(config)
     }
     success(config)
     {

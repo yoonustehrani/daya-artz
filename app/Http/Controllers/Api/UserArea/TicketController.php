@@ -36,7 +36,35 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
-
+        $request->validate([
+            'title' => 'required|min:3|max:60',
+            'ticket_content' => 'required|min:10|max:2000',
+            'department' => 'required|numeric|min:1'
+        ]);
+        $department = TicketDepartment::findOrFail($request->input('department'));
+        try {
+            \DB::beginTransaction();
+            $ticket = new Ticket([
+                'status' => 'open',
+                'title' => $request->input('title'),
+            ]);
+            $ticket->ticket_department_id = $department->getKey();
+            if ($request->user()->tickets()->save($ticket)) {
+                $ticket->messages()->save(new TicketMessage([
+                    'side' => 'customer',
+                    'body' => $request->input('ticket_content'),
+                    'user_id' => $request->user()->getKey()
+                ]));
+                \DB::commit();
+                return response()->json([
+                    'okay' => true,
+                    'ticket' => $ticket
+                ]);
+            }
+        } catch (\Throwable $th) {
+            \DB::rollback();
+            abort(403);
+        }
     }
 
     public function update(Request $request, Ticket $ticket)
