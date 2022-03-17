@@ -35,23 +35,25 @@ class Tickets extends Component {
             <div>
                 <div className="form-title mb-5"><h4>درخواست های پشتیبانی</h4></div>
                 {loading ? <Activity/> : tickets && tickets.length > 0 ?
-                    <table className="table table-striped table-bordered table-hover thead-light table-responsive userarea-table">
-                        <thead>
-                            <tr>
-                                <th><i className="fas fa-hashtag"></i></th>
-                                <th>عنوان تیکت</th>
-                                <th>شماره تیکت</th>
-                                <th>وضعیت تیکت</th>
-                                <th>دپارتمان</th>
-                                <th>تاریخ ایجاد</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tickets.map((ticket, i) => (
-                                <TicketRow key={ticket.id} index={i+1} {...ticket} />
-                            ))}
-                        </tbody>
-                    </table>
+                    <div className="table-responsive userarea-table">
+                        <table className="table table-striped table-bordered table-hover thead-light">
+                            <thead>
+                                <tr>
+                                    <th><i className="fas fa-hashtag"></i></th>
+                                    <th>عنوان تیکت</th>
+                                    <th>شماره تیکت</th>
+                                    <th>وضعیت تیکت</th>
+                                    <th>دپارتمان</th>
+                                    <th>تاریخ ایجاد</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {tickets.map((ticket, i) => (
+                                    <TicketRow key={ticket.id} index={i+1} {...ticket} />
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                     : <NoItem/>
                 }
             </div>
