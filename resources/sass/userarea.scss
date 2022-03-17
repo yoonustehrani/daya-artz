@@ -1431,50 +1431,88 @@
                     }
                 }           
                 .ticket-inputs {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    align-items: stretch;
-                    flex-wrap: wrap;
+                    width: 100%;
                     height: 180px;
                     padding-top: 20px;
                     border-top: 3px solid #000;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
                     .ticket-file-inputs {
-                        width: 15%;
-                        height: 100%;
+                        width: 45%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        align-items: center;
                         > div {
-                            width: 100%;
-                            height: 46%;
-                            margin-bottom: 8%;
                             box-shadow: 0 0 6px $milk;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
                             border-radius: 8px;
-                            h4 {
-                                font-size: 14px;
-                                margin-bottom: 4px;
+                            padding: 10px;
+                            &.files-preview {
+                                width: 70%;
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: space-evenly;
+                                align-items: center;
+                                color: $gray;
+                                text-align: center;
+                                height: 100%;
+                                .selected-image {
+                                    height: auto;
+                                    width: auto;
+                                    max-width: 30%;
+                                    position: relative;
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        border-radius: 10px;
+                                        box-shadow: 2px 2px rgb( 0 0 0 / 6%);
+                                    }
+                                    a {
+                                        position: absolute;
+                                        top: 4px;
+                                        right: 4px;
+                                        cursor: pointer;
+                                        &::after {
+                                            content: "";
+                                            display: inline-block;
+                                            transition: 0.5s;
+                                            width: 0;
+                                            opacity: 0;
+                                        }
+                                        &:hover {
+                                            &::after {
+                                                content: "حذف";
+                                                width: auto;
+                                                opacity: 1;
+                                                margin-right: 6px;
+                                            }
+                                        }
+                                    }
+                                }
                             }
-                            span {
-                                font-size: 12px;
-                            }
-                            button {
-                                font-size: 14px;
-                                margin-top: 4px;
+                            &.choose-file {
+                                width: 28%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                h4 {
+                                    font-size: 16px;
+                                }
+                                span {
+                                    font-size: 14px;
+                                }
+                                label {
+                                    margin-top: 6px;
+                                    width: 80px;
+                                }
                             }
                         }
                     }
                     .ticket-text-input {
-                        width: 83%;
-                        margin-left: 2%;
+                        width: 53%;
                         height: 100%;
-                        button {
-                            font-size: 20px;
-                            float: left;
-                            height: 20%;
-                            border: none;
-                        }
                         > div:nth-child(2) {
                             float: left;
                         }
