@@ -27,6 +27,8 @@
             position: fixed;
             background: linear-gradient(to right, #a77cf2, #6332de);
             background: -webkit-linear-gradient(to right, #a77cf2, #6332de);
+            left: 0;
+            right: 0;
         }
     }
     > nav {
@@ -79,7 +81,7 @@
                             padding: 10px;
                             font-size: 18px;
                             height: 100%;
-                            margin-top: 2px;
+                            // margin-top: 2px;
                             color: $text-color;
                             transition: 0.3s;
                             border-bottom: 2px solid transparent;
