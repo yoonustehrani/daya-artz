@@ -32,7 +32,7 @@
     > nav {
         float: right;
         width: 100%;
-        padding-left: 50px;
+        padding-left: 25px;
         height: 70px;
         border-bottom: 2px solid rgba(255,255,255,0.1);
         z-index: 200;
@@ -43,15 +43,17 @@
             height: 100%;
             float: right;
             text-align: center;
+            display: flex;
+            align-items: center;
             > img {
-                width: auto;
-                height: 100%;
+                width: 100%;
+                height: auto;
                 padding: 5px;
             }
         }
         @media screen and (min-width: $md-breakpoint) {
             .menu-container {
-                width: calc(100% - 220px);
+                width: calc(100% - 350px);
                 height: 100%;
                 display: inline-block;
                 ul {
@@ -150,10 +152,10 @@
         }
         .last-item {
             height: 100%;
-            width: 140px;
-            padding-top: 15px;
+            width: 280px;
             display: flex;
-            justify-items: flex-end;
+            justify-content: space-between;
+            align-items: center;
             float: left;
             .btn-white, button {
                 font-size: 16px;
@@ -166,6 +168,20 @@
                 float: right;
                 font-size: 16px;
                 border-radius: 16px;
+            }
+            .login-btn {
+                border-radius: 14px;
+                border: 2px solid white;
+                padding: 5px 10px;
+                text-align: center;
+                font-size: 16px;
+                height: fit-content;
+                color: white;
+                transition: 0.3s;
+                &:hover {
+                    background-color: white;
+                    color: #6332de;
+                }
             }
         }
     }
@@ -324,7 +340,37 @@
     height: 400px;
 }
 
+@media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint) {
+    #header-nav {
+        padding-left: 10px;
+        .logo-container {
+            width: 50px;
+        }
+        .menu-container {
+            width: calc(100% - 300px);
+            .menu-items-container {
+                li a {
+                    padding: 10px 5px;
+                }
+            }
+        }
+        .last-item {
+            width: 250px;
+            a {
+                font-size: 14px;
+            }
+            .btn-phone {
+                width: 34px;
+                height: 34px;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: $md-breakpoint - 1px) {
+    .logo-container {
+        margin: 0 0.5rem;
+    }
     .menu-container {
         position: absolute;
         right: -100%;

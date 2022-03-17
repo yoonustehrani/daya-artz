@@ -1,5 +1,5 @@
 <nav id="header-nav" class="animated">
-    <span class="d-md-none ml-2 mr-2 float-right" id="menu-open">
+    <span class="d-md-none mr-2 float-right" id="menu-open">
         <i class="fas fa-bars"></i>
     </span>
     <div class="logo-container">
@@ -8,7 +8,7 @@
     <div id="m-menu" class="menu-container d-none d-md-inline-block">
         <div class="menu-header p-3 d-md-none">
             <i id="menu-close" class="fas fa-times"></i>
-            <span class="login-btn"><i class="far fa-user-circle"></i>ورود به حساب </span>
+            <a href="{{ route("userarea") }}" class="login-btn"><i class="far fa-user-circle"></i>ورود به حساب </a>
         </div>
         <span class="top-logo d-md-none"><img src="{{ asset('images/daya-logo-circular.png') }}"> DAYAARTZ</span>
         <ul class="main-menu menu-items-container p-md-0 m-md-0">
@@ -34,8 +34,8 @@
         </ul>
     </div>
     <div class="last-item">
+        <a href="{{ route('userarea') }}" class="login-btn">ورود/عضویت <i class="far fa-sign-in vertical-middle"></i></a>
         <a href="{{ get_setting('header.menu.button.href') }}" class="btn-white">{{ get_setting('header.menu.button.text') }}</a>
-        <button class="btn-phone mr-3"><i class="fas fa-phone"></i></button>
-        {{-- <a href="tel:+989015045025"><i class="fas fa-phone"></i></a> --}}
+        <a href="tel:+982128423542" class="btn-phone"><i class="fas fa-phone"></i></a>
     </div>
 </nav>

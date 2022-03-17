@@ -8,6 +8,10 @@
     transform: translateY(-50%);
 }
 
+.vertical-middle {
+    vertical-align: middle;
+}
+
 .relative {
     position: relative !important;
 }
@@ -40,12 +44,24 @@ button {
 
 .btn-phone {
     border-radius: 100%;
-    border: none;
-    &:hover {
-        box-shadow: 0 0 2px 1px #333;
-    }
+    border: 2px solid;
+    border-color: transparent;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: #000;
     i {
-        padding: 5px;
+        transition: 0.3s;
+    }
+    &:hover {
+        i {
+            color: #6E48AA;
+        }
+        border-color: #6E48AA;
     }
 }
 

@@ -6,25 +6,34 @@ $xl-breakpoint: 1200px;
 $xl-xl-breakpoint: 1600px;
 
 // medium-screens
-@media screen and (max-width: $lg-breakpoint+1px) and (min-width: $md-breakpoint) {
+@media screen and (max-width: $lg-breakpoint - 1px) and (min-width: $md-breakpoint) {
     .header, .min-header {
         > nav {
-            padding-left: 10px !important;
+            padding-left: 8px !important;
+            .logo-container {
+                width: 50px !important;
+            }
             .menu-container {
-                width: calc(100% - 212px) !important;
+                width: calc(100% - 280px) !important;
                 ul.main-menu {
+                    padding-right: 0 !important;
                     li {
-                        margin: 0px 2px !important;
+                        margin: 0 8px !important;
                         a {
-                            font-size: 16px !important;
+                            font-size: 14px !important;
+                            padding: 10px 0 !important;
                         }
                     }
                 }
             }
             .last-item {
-                width: 132px !important;
+                width: 230px !important;
                 a {
-                    font-size: 14px !important;
+                    font-size: 13px !important;
+                }
+                .btn-phone {
+                    width: 34px;
+                    height: 34px;
                 }
             }
         }
@@ -1428,6 +1437,31 @@ $xl-xl-breakpoint: 1600px;
 
 // Mobile
 @media screen and (max-width: 424px) {
+    .header, .min-header {
+        > nav {
+            padding-left: 0.5rem !important;
+            #menu-open {
+                width: 26px !important;
+                i {
+                    font-size: 30px !important;
+                }
+            }
+            .logo-container {
+                width: 48px !important;
+                margin: 0 0.5rem;
+            }
+            .last-item {
+                width: 213px !important;
+                a {
+                    font-size: 12px !important;
+                }
+                .btn-phone {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
     footer.footer .footer-content {
         background-size: unset;
     }
