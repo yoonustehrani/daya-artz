@@ -15,4 +15,4 @@ yarn-error.log
 /.idea
 /.vscode
 /resources/webfonts/*
-/resources/fonts/fontawesome/*
+/resources/fonts/fontawesome
