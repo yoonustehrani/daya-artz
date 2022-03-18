@@ -1,0 +1,14 @@
+/* fontawesome */
+@import "../fonts/fontawesome/css/all.css";
+/* animate.css */
+@import './animate.css';
+/* custom fonts */
+@font-face {
+    font-family: 'IranSansWeb';
+    src: url(/fonts/IRANSansWeb.ttf) format("truetype");
+}
+
+/* tailwind requirements */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

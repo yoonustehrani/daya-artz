@@ -30,4 +30,26 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'reCAPTCHA' => [
+        'site_key' => '6LfS1jMeAAAAAOFwhsVv7iJ1PPZFsR7E5wKUZtoe',
+        'secret_key' => '6LfS1jMeAAAAAK0Qvotlp8zASMhyWMZ5A4EK7dTk'
+    ],
+
+    'rayganSMS' => [
+        'url' => [
+            'base' => 'http://smspanel.Trez.ir/',
+            'otp' => 'SendMessageWithCode.ashx'
+        ],
+        'auth' => [
+            'Username' => 'yoonustehrani',
+            'Password' => 'uss828487'
+        ]
+    ],
+
+    'farazSMS' => [
+        'base_url' => 'https://rest.ippanel.com/v1/',
+        'apikey' => 'wwCG0nQcdunKIsSZg5doljNKdIHIZkOFV-q60pg5KLo='
+    ],
+    
+    'sms' => ['active' => false]
 ];

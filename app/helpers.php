@@ -1,0 +1,128 @@
+<?php
+
+use App\Models\Offer;
+use App\Models\Bill;
+use Illuminate\Support\Facades\Route;
+
+if (! function_exists('generate_code')) {
+    function generate_code($length = 6, $charType = 'number')
+    {
+        $code = "";
+        if ($charType == 'string') {
+            $code = \Str::random($length);
+        } else {
+            for ($i=0; $i < $length; $i++) { 
+                $code .= (string) mt_rand(0,9);
+            }
+        }
+        return $code;
+    }
+}
+
+if (! function_exists('get_setting')) {
+    function get_setting($key, $default = null)
+    {
+        $cache_key = "site-settings.{$key}";
+        $value = cache()->rememberForever($cache_key, function() use($key) {
+            $setting = \App\Models\Setting::select('value')->where('key', $key)->first();
+            return $setting->value ?? '';
+        });
+        return $value ?: $default;
+    }
+}
+
+if (! function_exists('setting_exists')) {
+    function setting_exists($key)
+    {
+        return cache()->has("site-settings.{$key}");
+    }
+}
+
+if (! function_exists('custom_route')) {
+    /**
+     * Safely returns path if route exists
+     * @param string $route_name
+     * @param array|null $params
+     * @return string path or #
+     */
+    function custom_route($route_name, $params = []) {
+        return Route::has($route_name) ? route($route_name, $params) : '#';
+    }
+}
+
+if (! function_exists('get_menu_items')) {
+    function get_menu_items($menu_name) {
+        $menu = \Cache::rememberForever("site.menus.{$menu_name}", function () use($menu_name) {
+            $menu = App\Models\Menu::where('name', $menu_name)->with('items')->first();
+            if ($menu) {
+                return $menu->items->toArray();
+            }
+            return [];
+        });
+        return $menu;
+    }
+}
+
+if (! function_exists('calculate_payments')) {
+    function calculate_payments($total) {
+        $percentage = $total > 10_000_000 ? 0.6 : 0.5;
+        $deposit = $total * $percentage;
+        $checkout = $total - $deposit;
+        return compact('deposit', 'checkout');
+    }
+}
+
+if (! function_exists('with_value_added')) {
+    function with_value_added($total)
+    {
+        $value_added = config('app.tax_value', 9);
+        $tax = ($total / 100) * $value_added;
+        return $total + $tax;
+    }
+}
+
+if (! function_exists('calculate_off')) {
+    /**
+     * Calculating if the $offer can be applied based on total
+     * Returning the amount of offer in IRT
+     * @param integer $total Total amount of Invoice
+     * @param \App\Models\Offer $offer Offer Object
+     * @return integer
+     */
+    function calculate_off($total, Offer $offer) {
+        if (
+            ($offer->min_total && $total < $offer->min_total)
+            ||
+            ($offer->max_total && $total > $offer->max_total)
+        ) return 0;
+        // if offer can be added
+        if ($offer->value_type === 'percentage') {
+            $p = $offer->value < 100 ? $offer->value : 100;
+            return ($total / 100) * $p;
+        }
+        return $offer->value;
+    }
+}
+
+if (! function_exists('make_bills')) {
+    /**
+     * @param integer $total Total amount of bills
+     * @param null|string $title Title of bills
+     * @return array of \App\Models\Bill
+     */
+    function make_bills($total, $title = null) {
+        $bills = [];
+        $payments = calculate_payments($total);
+        foreach ($payments as $type => $amount) {
+            $bill = new Bill([
+                'active' => $type === 'deposit',
+                'amount' => $amount,
+                'title' => __("userarea.bills.{$type}", ['item_title' => $title ?? __('Order')]),
+                'code' => (string) generate_code(6),
+            ]);
+            $bill->paid_at = null;
+            array_push($bills, $bill);
+        }
+        return $bills;
+    }
+}
