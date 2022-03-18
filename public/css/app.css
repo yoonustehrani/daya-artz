@@ -10611,7 +10611,7 @@ h3 {
 }
 @media screen and (min-width: 992px) {
   .address-label h3 {
-    font-size: 22px !important;
+    font-size: 20px !important;
   }
 
   .item-wrapper {
@@ -13328,7 +13328,7 @@ span.back-aqua.big-icon {
   font-weight: bold;
 }
 .contact-us-text .contact-us-tagline span {
-  color: #78cad2;
+  color: #6332df;
 }
 .contact-us-text .contact-p {
   font-size: 18px;
@@ -13413,7 +13413,7 @@ span.back-aqua.big-icon {
   flex-wrap: wrap;
 }
 .contact-us-section-2 .contact-ways-container > div {
-  max-width: 400px;
+  max-width: 320px;
   background-color: #F1F0F8;
   box-shadow: 4px 4px 15px 2px #dcdcdc;
   height: 420px;
@@ -13426,9 +13426,10 @@ span.back-aqua.big-icon {
   background-color: #DED8F2;
   border-radius: 8px;
   height: 50px;
+  transition: 0.3s;
 }
 .contact-us-section-2 .contact-ways-container > div .address-label i.label-icon {
-  font-size: 35px;
+  font-size: 30px;
   color: #000;
 }
 .contact-us-section-2 .contact-ways-container > div .address-label span {
@@ -13436,8 +13437,11 @@ span.back-aqua.big-icon {
 }
 .contact-us-section-2 .contact-ways-container > div .address-label h3 {
   color: #000;
-  font-size: 24px;
+  font-size: 20px;
   direction: ltr;
+}
+.contact-us-section-2 .contact-ways-container > div .address-label:hover {
+  background-color: #C2AEF3;
 }
 
 .timeline-section {

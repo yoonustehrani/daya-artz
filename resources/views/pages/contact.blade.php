@@ -69,7 +69,7 @@
 </div>
 <!-- end contact us form and vector -->
 <!-- contact us text -->
-<div class="col-12 col-md-10 offset-md-1 mt-md-5 contact-us-text">
+<div class="col-12 col-md-10 offset-md-1 mt-3 mt-md-5 contact-us-text">
     <p class="contact-us-tagline"><span>دایا آرتز</span> پشتیبان خوش ذوق ها</p>
     <p class="contact-p p-2">
         تیم طراحی گرافیک دایا آرتز در مقام یک پلتفرم هنری متعهد شده است که پشتیبان کارفرمایان و متقاضیان سرویس های طراحی گرافیک به بهترین شکل ممکن باشد . مشاورین و مدیران ارشد تکریم مشتریان آماده به خدمت و دریافت پیشنهادات و انتقادات شما و برطرف سازی مشکلات و نیاز های تمامی شما عزیزان هستند.
@@ -79,8 +79,8 @@
 </div>
 <!-- end cintact us text -->
 <!-- contact ways and vector -->
-<div class="section w-100 text-center contact-us-section-2 mt-md-2">
-    <div class="title-section w-100 mb-5">
+<div class="section w-100 text-center contact-us-section-2 mt-5">
+    <div class="title-section w-100 mb-3 mb-md-5">
         <div class="title-container">
             <h3 class="title-text">راه های ارتباطی</h3>
         </div>
@@ -113,9 +113,9 @@
         </div>
         <div class="text-center mb-4 col-10 col-md-3">
             <span><i class="contact-way-icon fas fa-robot mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
-            <div>
+            <a href="https://telegram.me/DayaArtzBot">
                 <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-robot"></i></span><h3 class="text-center vertical-center">@Dayaartzbot</h3></div>
-            </div>
+            </a>
         </div>
     </div>
     <div class="contact-us-vector-2 text-center col-12 col-md-4 offset-md-4 mb-5"><img src="{{ asset('images/contact-us-vector-2.svg') }}" alt="" srcset=""></div>

@@ -1038,7 +1038,7 @@ span.back-aqua {
         border-right: 2px solid #000;
         font-weight: bold;
         span {
-            color: $aqua;
+            color: $horny-eggplant
         }
     }
     .contact-p {
@@ -1121,7 +1121,7 @@ span.back-aqua {
         align-items: center;
         flex-wrap: wrap;
         > div {
-            max-width: 400px;
+            max-width: 320px;
             background-color: $light;
             box-shadow: 4px 4px 15px 2px #dcdcdc;
             height: 420px;
@@ -1133,8 +1133,9 @@ span.back-aqua {
                 background-color: $purple-bg;
                 border-radius: 8px;
                 height: 50px;
+                transition: 0.3s;
                 i.label-icon {
-                    font-size: 35px;
+                    font-size: 30px;
                     color: #000;
                 }
                 span {
@@ -1142,8 +1143,11 @@ span.back-aqua {
                 }
                 h3 {
                     color: #000;
-                    font-size: 24px;
+                    font-size: 20px;
                     direction: ltr;
+                }
+                &:hover {
+                    background-color: $light-eggplant;
                 }
             }
         }
