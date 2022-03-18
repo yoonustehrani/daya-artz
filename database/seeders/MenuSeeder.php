@@ -48,7 +48,7 @@ class MenuSeeder extends Seeder
                     'icon' => 'fas fa-headset'
                 ],
                 [
-                    'title' => 'سوالات متداول',
+                    'title' => 'شرایط و ضوابط',
                     'route' => 'policy',
                     'icon' => 'fas fa-rule'
                 ]
