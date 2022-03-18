@@ -1,0 +1,109 @@
+.footer {
+    background-image: linear-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
+    background-image: -webkit-gradient(20deg, #6232de, #8f60ec, #ac7ff4);
+    .footer-content {
+        background-image: url(/images/footer-background.png);
+        background-position: bottom;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        min-height: 350px;
+        height: auto;
+        float: left;
+        > .logo-container {
+            img {
+                width: 40px;
+                height: auto;
+                display: inline-block;
+            }
+            p {
+                display: inline;
+                font-weight: bold;
+                font-size: 18px;
+            }
+        }
+        .footer-info-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            direction: rtl;
+            > div {
+                .title {
+                    font-size: 22px;
+                }
+                h4, p, a {
+                    color: #fff;
+                    text-align: right;
+                    direction: rtl;
+                } 
+                p, a {
+                    font-size: 16px;
+                }
+                a {
+                    cursor: pointer;
+                    transition: 0.3s;
+                    &:hover {
+                        color: $eggplant;
+                    }
+                }
+                .social-media-container {
+                    i {
+                        font-size: 30px;
+                        color: #fff;
+                        margin: 0px 5px 10px 5px;
+                        cursor: pointer;
+                        transition: 0.4s;
+                        padding: 8px;
+                        text-align: center;
+                        width: 50px;
+                        height: 50px;
+                        border: 2px solid #fcfbfe;
+                        border-radius: 100%;
+                        &.fa-telegram-plane {
+                            padding-left: 4px;
+                        }
+                        &:hover {
+                            // transform: scale(1.1);
+                            &.fa-instagram {
+                                background-color: #c32aa3;
+                                border-color: #c32aa3;
+                            }
+                            &.fa-telegram-plane {
+                                background-color: #0088cc;
+                                border-color: #0088cc;
+                            }
+                            &.fa-whatsapp {
+                                background-color: #25d366;
+                                border-color: #25d366;
+                                color: #dfdfdf;
+                            }
+                            &.fa-linkedin-in {
+                                background-color: #0a66c2;
+                                border-color: #0a66c2;
+                            }
+                        }
+                    }
+                }
+                span {
+                    color: #fff;
+                }
+                img {
+                    width: 50px;
+                    height: auto;
+                }
+                ul {
+                    list-style-type: none;
+                    li {
+                        margin-bottom: 8px;
+                    }
+                    li:before {
+                        content: "\f0c1";
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        color: #dfdfdf;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+    } 
+}
