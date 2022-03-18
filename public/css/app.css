@@ -15326,14 +15326,13 @@ span.back-aqua.big-icon {
     box-sizing: border-box;
     padding-right: 10px !important;
     justify-content: flex-start;
+    align-items: center;
   }
   .header > nav .menu-container ul li, .min-header > nav .menu-container ul li {
     position: relative;
     list-style: none;
     display: inline-block;
-    height: 100%;
     box-sizing: border-box;
-    padding-top: 10px;
     margin: 0 10px;
   }
   .header > nav .menu-container ul li > a, .min-header > nav .menu-container ul li > a {
@@ -15342,7 +15341,6 @@ span.back-aqua.big-icon {
     text-align: center;
     padding: 10px;
     font-size: 18px;
-    height: 100%;
     color: #ebe7fa;
     transition: 0.3s;
     border-bottom: 2px solid transparent;
