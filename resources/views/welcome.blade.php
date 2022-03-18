@@ -146,21 +146,21 @@
                         <span class="back-aqua"><i class="fas fa-phone"></i></span>
                         <h4>تلفن تماس</h4>
                         <p class="text-secondary">ثبت سفارش و دریافت پشتیبانی از طریق شماره های:</p>
-                        <button class="btn btn-gradient ltr">0901 504 5025</button>
-                        <button class="btn btn-gradient ltr">0901 604 5025</button>
+                        <a class="btn btn-gradient ltr" href="tel:+989015045025">0901 504 5025</a>
+                        <a class="btn btn-gradient ltr" href="tel:+989016045025">0901 604 5025</a>
                     </div>
                     <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-robot"></i></span>
                         <h4>ربات تلگرام</h4>
                         <p class="text-secondary">ثبت سفارش تخصصی و هوشمند با ربات تلگرام:</p>
-                        <button class="btn btn-gradient ltr mt-12-p">@DAYAARTZBOT</button>
+                        <a class="btn btn-gradient ltr mt-12-p" href="https://telegram.me/DayaArtzBot">@DAYAARTZBOT</a>
                     </div>
                     <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
                         <span class="back-aqua"><i class="fas fa-mobile"></i></span>
                         <h4>پیام رسان</h4>
                         <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr">0901 604 5025</button>
-                        <button class="btn btn-gradient ltr">@DAYAARTZ</button>
+                        <a class="btn btn-gradient ltr" href="https://telegram.me/dayasales">0901 604 5025</a>
+                        <a class="btn btn-gradient ltr" href="https://t.me/dayaartz">@DAYAARTZ</a>
                     </div>
                 </div>
             </div>

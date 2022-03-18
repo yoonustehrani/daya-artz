@@ -12557,8 +12557,8 @@ input.eggplant:focus {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  animation-duration: 1.3s;
-  -webkit-animation-duration: 1.3s;
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -12790,11 +12790,14 @@ span.back-aqua.big-icon {
   font-size: 22px;
   font-weight: bold;
 }
-.contact-section .contact-info > div button {
+.contact-section .contact-info > div button, .contact-section .contact-info > div a {
   background: linear-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
   background: -webkit-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
   display: block;
   margin: 0px auto 5px auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .contact-section .contact-info > div .mt-12-p {
   margin-top: 12%;

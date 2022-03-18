@@ -250,8 +250,8 @@ input.eggplant {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    animation-duration: 1.3s;
-    -webkit-animation-duration: 1.3s;
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
     animation-iteration-count: 1;
     -webkit-animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -479,11 +479,12 @@ span.back-aqua {
                 font-size: 22px;
                 font-weight: bold;
             }
-            button {
+            button, a {
                 background: linear-gradient(to right, $light-aqua 0%, $aqua 50%, #9177D1 100%);
                 background: -webkit-gradient(to right, $light-aqua 0%, $aqua 50%, #9177D1 100%);
                 display: block;
                 margin: 0px auto 5px auto;
+                width: fit-content;
             }
             .mt-12-p {
                 margin-top: 12%;
