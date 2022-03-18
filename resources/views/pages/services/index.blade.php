@@ -52,6 +52,7 @@
     </div>
 </div>
 <!-- services groups -->
+
 <!-- search section -->
 <div class="section dotted-background bg-purple-gr col-12 py-4 p-md-4">
     <p class="title title-bigger text-light text-center">دنبال چه نوع طراحی میگردی؟</p>
@@ -63,6 +64,7 @@
     </div>
 </div>
 <!-- end search section -->
+
 <!-- main services section -->
 <div class="section w-100 mt-5 mb-0 mb-md-3">
     <div class="title-section w-100 mb-4">
@@ -77,8 +79,8 @@
                 <p class="title service-title">طراحی لوگو با بالاترین کیفیت</p>
                 <p class="service-description">لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف، باور و هسته فعالیت شماست</p>
                 <div class="button-container">
-                    <button class="btn btn-gradient mr-2">سفارش</button>
-                    <button class="btn badge-pill">ادامه متن</button>
+                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
+                    <a class="btn badge-pill">ادامه متن</a>
                 </div>
             </div>
         </div>
@@ -88,8 +90,8 @@
                 <p class="title service-title">طراحی سربرگ رسمی و حرفه ای</p>
                 <p class="service-description">سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
-                    <button class="btn btn-gradient mr-2">سفارش</button>
-                    <button class="btn badge-pill">ادامه متن</button>
+                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
+                    <a class="btn badge-pill">ادامه متن</a>
                 </div>
             </div>
         </div>
@@ -99,8 +101,8 @@
                 <p class="title service-title">بهترین باز خورد ها با کاتالوگ های خاص</p>
                 <p class="service-description">کاتالوگ مهم ترین ابزار برای تبلیغ و انتشار تبلیغات فروش یک محصول است. انتقال صحیح به مشتریان از مهم ترین ارمغان های کاتالوگ است</p>
                 <div class="button-container">
-                    <button class="btn btn-gradient mr-2">سفارش</button>
-                    <button class="btn badge-pill">ادامه متن</button>
+                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
+                    <a class="btn badge-pill">ادامه متن</a>
                 </div>
             </div>
         </div>
@@ -110,8 +112,8 @@
                 <p class="title service-title">انواع کارت ویزیت های ساده و جذاب</p>
                 <p class="service-description">سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
                 <div class="button-container">
-                    <button class="btn btn-gradient mr-2">سفارش</button>
-                    <button class="btn badge-pill">ادامه متن</button>
+                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
+                    <a class="btn badge-pill">ادامه متن</a>
                 </div>
             </div>
         </div>
@@ -121,8 +123,8 @@
                 <p class="title service-title">کارت ویزیت، سربرگ، تقویم و سررسید، خودکار و...</p>
                 <p class="service-description">لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند، و وابسته به هدف و نوع متقاضیان انتخاب می شود</p>
                 <div class="button-container">
-                    <button class="btn btn-gradient mr-2">سفارش</button>
-                    <button class="btn badge-pill">ادامه متن</button>
+                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
+                    <a class="btn badge-pill">ادامه متن</a>
                 </div>
             </div>
         </div>
@@ -132,14 +134,15 @@
                 <p class="title service-title">ترکیب خود را بسازید</p>
                 <p class="service-description">اگه نیاز به طراحی های متنوع در بخش ها و خدمات مختلف هستید، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
                 <div class="button-container">
-                    <button class="btn btn-gradient mr-2">سفارش</button>
-                    <button class="btn badge-pill">ادامه متن</button>
+                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
+                    <a class="btn badge-pill">ادامه متن</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- end main services -->
+
 <!-- guide section -->
 <div class="section w-100 text-center mb-4 daya-guide">
     <div class="title-section w-100">
@@ -187,7 +190,7 @@
                 <p class="title service-title">{{ $service->title }}</p>
                 <a class="service-subtitle" href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
                 <div class="button-container">
-                    <a href="#" class="btn mx-1 my-1 my-md-0 btn-gradient">ثبت سفارش</a>
+                    <a href="#" class="btn mx-1 my-1 my-md-0 btn-gradient scroll-to-form">ثبت سفارش</a>
                     <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient my-1 my-md-0">مشاهده نمونه کار</a>
                 </div>
             </div>
@@ -198,76 +201,5 @@
 </div>
 {{-- End Service Groups --}}
 
-<!-- printing design services -->
-{{-- <div class="section w-100 mt-3 mt-md-5">
-    <div class="title-section w-100 mb-4">
-        <div class="title-container">
-            <h2 class="title-text">خدمات طراحی چاپی</h2>
-        </div>
-    </div>
-    <div class="other-services-container w-100">
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-ad"></i></span>
-            <h2>بنر تبلیغاتی</h2>
-            <h3>طراحی بنر دیجیتالی و چاپی</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-map"></i></span>
-            <h2>بروشور</h2>
-            <h3>طراحی انواع بروشور ها</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>        
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-sticky-note"></i></span>
-            <h2>تراکت</h2>
-            <h3>طراحی تراکت در انواع سایز و مدل</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fab fa-elementor"></i></span>
-            <h2>منو رستوران و کافی شاپ</h2>
-            <h3>منو های خاص و شکیل</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-envelope"></i></span>
-            <h2>پاکت نامه</h2>
-            <h3>پاکت های نامه رسمی و فانتزی</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-images"></i></span>
-            <h2>بیلبورد</h2>
-            <h3>طراحی انواع بیلبورد و استند و استرابورد</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-calendar-check"></i></span>
-            <h2>تقویم</h2>
-            <h3>طراحی انواع تقویم و سررسید</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-receipt"></i></span>
-            <h2>فاکتور</h2>
-            <h3>طراحی انواع فاکتور های خاص و اداری</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-box"></i></span>
-            <h2>بسته بندی</h2>
-            <h3>بسته بندی های ساده و خاص</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-        <div class="other-service">
-            <span class="back-aqua"><i class="fas fa-book"></i></span>
-            <h2>جلد کتاب</h2>
-            <h3>جلد انواع کتاب، مجلات و...</h3>
-            <button class="btn btn-gradient">سفارش</button>
-        </div>
-    </div>
-</div> --}}
-<!-- end other services -->
 <x-quick-order-form />
 @endsection

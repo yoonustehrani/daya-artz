@@ -14760,16 +14760,16 @@ span.back-aqua.big-icon {
   justify-content: center;
   align-items: flex-end;
 }
-.main-services-container > .main-service .info-container .button-container button:first-child {
+.main-services-container > .main-service .info-container .button-container a:first-child {
   background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
   background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
 }
-.main-services-container > .main-service .info-container .button-container button:nth-child(2) {
+.main-services-container > .main-service .info-container .button-container a:nth-child(2) {
   background-color: #18093c;
   transition: 0.5s;
   color: white;
 }
-.main-services-container > .main-service .info-container .button-container button:nth-child(2):hover {
+.main-services-container > .main-service .info-container .button-container a:nth-child(2):hover {
   background-color: #777DD1;
 }
 

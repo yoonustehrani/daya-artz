@@ -2148,11 +2148,11 @@ $labelData: '';
                 flex-wrap: nowrap;
                 justify-content: center;
                 align-items: flex-end;
-                button:first-child {
+                a:first-child {
                     background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
                     background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
                 }
-                button:nth-child(2) {
+                a:nth-child(2) {
                     background-color: $dark-blue;
                     transition: 0.5s;
                     color: white;
