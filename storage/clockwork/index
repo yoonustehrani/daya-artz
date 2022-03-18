@@ -3440,3 +3440,10 @@
 1647603491-6848-285908479,1647603491.5618,GET,/,"App\Http\Controllers\WebsiteController@index",200,205.01184463501,request
 1647603492-6139-1129945483,1647603492.5589,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,142.00806617737,request
 1647603492-7839-1507054348,1647603492.7069,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,174.01003837585,request
+1647603828-4461-1290689321,1647603828.3181,GET,/,"App\Http\Controllers\WebsiteController@index",200,239.01295661926,request
+1647603829-9552-1438820785,1647603829.8672,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,191.01095199585,request
+1647603830-1332-1127676786,1647603830.0652,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,174.01003837585,request
+1647603915-2791-927337927,1647603915.1811,GET,/,"App\Http\Controllers\WebsiteController@index",200,168.00999641418,request
+1647603916-3621-1772442989,1647603916.3001,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,163.00916671753,request
+1647603916-5421-1429611333,1647603916.4701,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,181.01000785828,request
+1647603918-6383-780641922,1647603918.5783,GET,/landing/daya,"App\Http\Controllers\LandingsController@show",200,416.02396965027,request

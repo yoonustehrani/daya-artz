@@ -7,7 +7,7 @@
  *
  * Copyright (c) 2019 Daniel Eden
  */
-
+@layer base {
 @-webkit-keyframes bounce {
   from,
   20%,
@@ -3622,4 +3622,5 @@
     -webkit-animation-iteration-count: 1 !important;
     animation-iteration-count: 1 !important;
   }
+}
 }

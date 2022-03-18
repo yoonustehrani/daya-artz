@@ -43,8 +43,8 @@ mix.postCss(res.css + "landing.css", pub.css).options({
     ]
 })
     .js(res.js + "landing-opening.js", pub.js).react()
-    .copy(pub.fonts + "fa-**", res.webfonts)
-    .copy('node_modules/animate.css/animate.css', res.css);
+    // .copy(pub.fonts + "fa-**", res.webfonts)
+    // .copy('node_modules/animate.css/animate.css', res.css);
 
 if (mix.inProduction()) {
     mix.version()
