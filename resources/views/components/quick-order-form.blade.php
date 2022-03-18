@@ -1,4 +1,4 @@
-<div class="section fast-order-container w-100 my-4">
+<div class="section fast-order-container w-100 my-4" id="quick-order-container">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <p class="title-text">سفارش سریع</p>

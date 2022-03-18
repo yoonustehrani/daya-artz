@@ -1,8 +1,8 @@
-// import React from "react";
 import { render } from "react-dom";
 import QuickOrder from "./QuickOrder";
-import './menu'
+import PortfolioSection from "./PortfolioSection";
 import BlogSwiper from './BlogSuggestion'
+import './menu'
 import './logo-fade'
 import './item-info'
 import './accordion'
@@ -10,7 +10,7 @@ import './animation'
 import './section-guide'
 import 'select2/dist/js/select2.min.js'
 import './services'
-import PortfolioSection from "./PortfolioSection";
+import './scrollTo'
 
 // quick order
 const quickOrderElement = document.getElementById("react-quick-order")
