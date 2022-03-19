@@ -3533,3 +3533,15 @@
 1647658744-3943-432352292,1647658744.3827,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,1044.3940162659,request
 1647658745-4378-1237953649,1647658745.4295,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,1103.2049655914,request
 >>>>>>> c0386c2c2afa65464315eb0413632cc27f7a1b6a
+1647662315-8004-125872834,1647662315.7124,GET,/,"App\Http\Controllers\WebsiteController@index",200,179.01015281677,request
+1647662316-9575-1585408987,1647662316.8935,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,185.01114845276,request
+1647662317-1655-2025624695,1647662317.0875,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,161.01002693176,request
+1647662323-1288-133089634,1647662323.0528,GET,/,"App\Http\Controllers\WebsiteController@index",200,145.0080871582,request
+1647662323-9049-753942666,1647662323.8429,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,147.00794219971,request
+1647662324-0509-1024743401,1647662323.9949,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,126.00803375244,request
+1647662450-1011-1216262006,1647662450.0121,GET,/,"App\Http\Controllers\WebsiteController@index",200,172.01018333435,request
+1647662450-9541-382682771,1647662450.8941,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,156.00919723511,request
+1647662451-1201-275341431,1647662451.0561,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,141.00813865662,request
+1647662460-3937-1589014652,1647662460.3227,GET,/,"App\Http\Controllers\WebsiteController@index",200,137.00795173645,request
+1647662462-1768-1057741654,1647662462.1078,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,230.01289367676,request
+1647662462-4068-907545613,1647662462.3448,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,134.0069770813,request
