@@ -9,7 +9,7 @@
     <link rel="preload" as="style" href="{{ asset("css/_fonts.css") }}">
     <link rel="stylesheet" href="{{ asset("css/_fonts.css") }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" media="all" rel="stylesheet"> --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" media="all" rel="stylesheet">
     <title>@yield('title') | دایا آرتز</title>
     @stack('head')
 </head>
