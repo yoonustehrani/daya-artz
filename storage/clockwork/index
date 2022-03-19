@@ -3736,3 +3736,16 @@
 1647665748-8208-1848346701,1647665748.7268,GET,/,"App\Http\Controllers\WebsiteController@index",200,176.00989341736,request
 1647665749-7328-1969863474,1647665749.6568,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,232.01298713684,request
 1647665749-9548-828251177,1647665749.8948,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,129.00686264038,request
+1647674998-7526-1592852092,1647674998.5471,GET,/,"App\Http\Controllers\WebsiteController@index",200,3920.4280376434,request
+1647675003-3474-1364315027,1647675003.3424,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,2142.1248912811,request
+1647675005-4992-352796024,1647675005.4872,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,1011.1489295959,request
+1647675006-5945-1761360494,1647675006.5814,GET,/userarea,"\Illuminate\Routing\ViewController",200,407.44304656982,request
+1647675007-2050-1850956673,1647675007.1995,GET,/api/auth/user,"App\Http\Controllers\Api\UserController@show",401,342.48113632202,request
+1647675050-0878-1136961783,1647675050.0777,POST,/api/auth/login,"App\Http\Controllers\Api\LoginController@login",422,937.00385093689,request
+1647675146-4900-162303302,1647675146.4776,POST,/api/auth/login,"App\Http\Controllers\Api\LoginController@login",422,441.81299209595,request
+1647675164-8985-192846438,1647675164.8858,POST,/api/auth/login,"App\Http\Controllers\Api\LoginController@login",422,492.19298362732,request
+1647675197-5098-761059005,1647675197.4996,POST,/api/auth/login,"App\Http\Controllers\Api\LoginController@login",422,404.62017059326,request
+1647675210-5772-1627449277,1647675210.5666,POST,/api/auth/login,"App\Http\Controllers\Api\LoginController@login",200,937.39604949951,request
+1647675211-7638-1770909703,1647675211.7581,GET,/api/userarea/stats/general,"App\Http\Controllers\Api\UserArea\ReportController@general",200,985.80503463745,request
+1647675212-7555-1326465084,1647675212.7465,GET,/api/userarea/stats/orders,"App\Http\Controllers\Api\UserArea\ReportController@ordersStat",200,366.20306968689,request
+1647675213-1270-1795148338,1647675213.1151,GET,/api/userarea/stats/latest,"App\Http\Controllers\Api\UserArea\ReportController@latest",200,2112.4041080475,request
