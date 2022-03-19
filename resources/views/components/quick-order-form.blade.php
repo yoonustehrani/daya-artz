@@ -28,3 +28,8 @@
         ></div>
     </div>
 </div>
+@push('head')
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+<script async src="https://www.google.com/recaptcha/api.js?trustedtypes=true&render={{ config('services.reCAPTCHA.site_key') }}"></script>
+@endpush
