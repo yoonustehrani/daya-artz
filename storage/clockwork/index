@@ -3464,6 +3464,7 @@
 1647658387-3357-242550197,1647658387.2607,GET,/,"App\Http\Controllers\WebsiteController@index",200,139.00804519653,request
 1647658388-2418-1361198905,1647658388.1828,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,138.0078792572,request
 1647658388-3928-1028283662,1647658388.3268,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,148.00906181335,request
+<<<<<<< HEAD
 1647658686-6968-1889462733,1647658686.5998,GET,/userarea,"\Illuminate\Routing\ViewController",200,192.0108795166,request
 1647658687-8769-1992554195,1647658687.7579,GET,/api/auth/user,"App\Http\Controllers\Api\UserController@show",401,1182.0669174194,request
 1647659192-2127-401742641,1647659192.1187,GET,/,"App\Http\Controllers\WebsiteController@index",200,170.00985145569,request
@@ -3527,3 +3528,8 @@
 1647662143-0905-402008312,1647662143.0205,GET,/,"App\Http\Controllers\WebsiteController@index",200,133.00800323486,request
 1647662143-8736-1256089641,1647662143.8006,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,166.00918769836,request
 1647662144-0336-974890827,1647662143.9726,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,128.00693511963,request
+=======
+1647658740-8470-1954104525,1647658740.6361,GET,/,"App\Http\Controllers\WebsiteController@index",200,1842.6859378815,request
+1647658744-3943-432352292,1647658744.3827,GET,/api/portfolio,"App\Http\Controllers\PortfolioController@index",200,1044.3940162659,request
+1647658745-4378-1237953649,1647658745.4295,GET,/api/posts?mode=latest&limit=8,"App\Http\Controllers\PostController@indexApi",200,1103.2049655914,request
+>>>>>>> c0386c2c2afa65464315eb0413632cc27f7a1b6a

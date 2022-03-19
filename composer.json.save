@@ -14,8 +14,8 @@
         "morilog/jalali": "3.*"
     },
     "require-dev": {
+	conf/extra/httpd-nginx.conf
         "facade/ignition": "^2.5",
-	"itsgoingd/clockwork": "^5.1",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
