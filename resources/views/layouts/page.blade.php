@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="preload" as="font" href="{{ asset("fonts/IRANSansWeb.ttf") }}" type="font/ttf" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" media="all" rel="stylesheet"> --}}
     @stack('head')
 </head>
 <body>
