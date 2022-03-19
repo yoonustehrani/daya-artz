@@ -31,8 +31,8 @@ return [
     ],
 
     'reCAPTCHA' => [
-        'site_key' => '6LfS1jMeAAAAAOFwhsVv7iJ1PPZFsR7E5wKUZtoe',
-        'secret_key' => '6LfS1jMeAAAAAK0Qvotlp8zASMhyWMZ5A4EK7dTk'
+        'site_key' => env('GOOGLE_RECAPTCH_SITEKEY'),
+        'secret_key' => env('GOOGLE_RECAPTCH_SECRETKEY')
     ],
 
     'rayganSMS' => [
