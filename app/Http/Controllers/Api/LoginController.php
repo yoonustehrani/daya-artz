@@ -43,7 +43,7 @@ class LoginController extends Controller
     public function validateLogin(Request $request)
     {
         $variable_rules = [
-            'email' => 'required|email:filter', // dns
+            'email' => $request->email === 'enamad' ? 'required|string' : 'required|email:filter', // dns
             'phone_number' => 'required|string|regex:/^9[0-9]{9}$/',
         ];
         return $request->validate([
