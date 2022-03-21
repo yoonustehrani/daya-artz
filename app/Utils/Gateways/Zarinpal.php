@@ -71,25 +71,18 @@ class Zarinpal extends Gateway
             if (in_array($status, [100, 101]) && $ref_id) {
                 return [
                     'okay' => true,
-                    'ref_id' => $ref_id,
-                    // 'meta' => [
-                    //     'card_pan' => $data['card_pan'],
-                    //     'fee' => $data['fee']
-                    // ]
+                    'ref_id' => $ref_id
                 ];
             }
         }
-        // $data = $body['data'];
-        // if (isset($data['code']) && ($data === 100 || $data === 101) && $data['ref_id']) {
-        //     return [
-        //         'okay' => true,
-        //         'ref' => $data['ref_id'],
-        //         'meta' => [
-        //             'card_pan' => $data['card_pan'],
-        //             'fee' => $data['fee']
-        //         ]
-        //     ];
-        // }
+        $data = $body['data'];
+        if (isset($data->code) && ($data->code === 100 || $data->code === 101) && $data->ref_id) {
+            return [
+                'okay' => true,
+                'ref_id' => $data->ref_id,
+                'card_pan' => $data->card_pan ?? null
+            ];
+        }
         return [
             'okay' => false,
             'errors' => $body['errors'] ?? []
@@ -146,7 +139,8 @@ class Zarinpal extends Gateway
                     'amount' => $this->getAmount(),
                     'description' => $this->description,
                     'callback_url' => $this->redirectUrl('zarinpal'),
-                    'metadata' => $this->metadata
+                    'metadata' => $this->metadata,
+                    'currency' => 'IRT'
                 ];
         return compact('json');
     }
@@ -191,4 +185,3 @@ class Zarinpal extends Gateway
         return $this->sandbox;
     }
 }
-

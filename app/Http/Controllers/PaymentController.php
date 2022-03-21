@@ -59,9 +59,6 @@ class PaymentController extends Controller
     public function update(Request $request, $driver)
     {
         $payment_datetime = now();
-
-
-        return $request->all();
         switch ($driver) {
             case 'zarinpal':
                 $request->validate([
@@ -69,7 +66,10 @@ class PaymentController extends Controller
                     'Status' => 'required'
                 ]);
                 $transaction_id = $request->query('Authority');
-                $transaction = Transaction::where('transaction_id', $transaction_id)->where('status', 'pending')->where('provider', $driver)->firstOrFail();
+                $transaction = Transaction::where('transaction_id', $transaction_id)
+                        ->where('status', 'pending')
+                        ->where('provider', $driver)
+                        ->firstOrFail();
                 $bill = $transaction->bill()->with('invoice')->firstOrFail();
                 if ($request->query('Status') === 'OK') {
                     $zp = $this->getProvider('zarinpal');
@@ -84,6 +84,7 @@ class PaymentController extends Controller
                                 $bill->invoice->save();
                             }
                             $transaction->status = Transaction::VERIFIED_STATUS;
+                            $transaction->details = ['ref_id' => $valid['ref_id'], 'card_pan' => $valid['card_pan']];
                             $transaction->save();
                             \DB::commit();
                             return $this->transactionView($transaction, $bill);;

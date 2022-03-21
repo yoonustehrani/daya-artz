@@ -21,7 +21,7 @@ export default function DirectPayment() {
                 <input type="text" className="form-control" placeholder="مثال: 32963476075360" onChange={(e) => setTransactionCode(e.target.value)} />
             </div>
             <div className="w-100 text-center mt-4">
-                <a href="#check_transaction" className="btn btn-lg btn-light" onClick={sendForm}>استعلام</a>    
+                <a href="#check_transaction" className="btn btn-lg btn-light" onClick={sendForm}>ثبت واریز</a>    
             </div>
         </>
     )
