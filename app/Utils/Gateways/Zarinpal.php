@@ -11,7 +11,12 @@ class Zarinpal extends Gateway
     public function __construct()
     {
         parent::__construct();
-        $this->setMerchantId('00000000-0000-0000-0000-000000000000');
+        if (config('services.zarinpal.sandbox')) {
+            $this->sandbox();
+            $this->setMerchantId('00000000-0000-0000-0000-000000000000');
+        } else {
+            $this->setMerchantId(config('services.zarinpal.merchant_id'));
+        }
     }
     /**
      * Requesting a Zarinpal gateway
@@ -39,8 +44,8 @@ class Zarinpal extends Gateway
             return ['okay' => false];
         }
         $data = $body['data'];
-        if (isset($data['code']) && $data['code'] === 100 && $data['authority']) {
-            $this->authority = $data['authority'];
+        if (isset($data->code) && $data->code === 100 && $data->authority) {
+            $this->authority = $data->authority;
             return [
                 'okay' => true,
                 'gateway' => $this->getRedirection(),

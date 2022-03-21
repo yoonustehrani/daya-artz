@@ -510,7 +510,7 @@ function Bills(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
         children: bills.length > 0 && bills.filter(function (x) {
-          return x.active || true;
+          return x.active;
         }).map(function (bill, i) {
           var id = bill.id,
               code = bill.code,
@@ -592,34 +592,47 @@ function DirectPayment() {
     console.log('here the req will be sent');
   };
 
+  var numberStyles = {
+    display: 'inline-block',
+    direction: 'ltr'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-      children: "\u0628\u0647 \u0645\u0646\u0638\u0648\u0631 \u067E\u0631\u062F\u0627\u062E\u062A \u0647\u0632\u06CC\u0646\u0647 \u0627\u0632 \u0637\u0631\u06CC\u0642 \u0648\u0627\u0631\u06CC\u0632 \u0648\u062C\u0647 \u0628\u0647 \u062D\u0633\u0627\u0628\u060C \u0645\u06CC \u062A\u0648\u0627\u0646\u06CC\u062F \u0627\u0632 \u0634\u0645\u0627\u0631\u0647 \u062D\u0633\u0627\u0628 \u0632\u06CC\u0631 \u0627\u0633\u062A\u0641\u0627\u0647 \u06A9\u0631\u062F\u0647 \u0648 \u067E\u0633 \u0627\u0632 \u0627\u062A\u0645\u0627\u0645 \u0639\u0645\u0644\u06CC\u0627\u062A \u067E\u0631\u062F\u0627\u062E\u062A \u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0641\u06CC\u0634 \u0648\u0627\u0631\u06CC\u0632\u06CC \u0631\u0627 \u062F\u0631 \u06A9\u0627\u062F\u0631 \u0632\u06CC\u0631 \u0648\u0627\u0631\u062F \u0646\u0645\u0627\u06CC\u06CC\u062F \u0648 \u0628\u0631 \u0628\u0631\u0648\u06CC \u062F\u06A9\u0645\u0647 \u0627\u0633\u062A\u0639\u0644\u0627\u0645 \u06A9\u0644\u06CC\u06A9 \u0646\u0645\u0627\u06CC\u06CC\u062F."
+      children: "\u0628\u0647 \u0645\u0646\u0638\u0648\u0631 \u067E\u0631\u062F\u0627\u062E\u062A \u0647\u0632\u06CC\u0646\u0647 \u0627\u0632 \u0637\u0631\u06CC\u0642 \u0648\u0627\u0631\u06CC\u0632 \u0648\u062C\u0647 \u0628\u0647 \u062D\u0633\u0627\u0628\u060C \u0645\u06CC \u062A\u0648\u0627\u0646\u06CC\u062F \u0627\u0632 \u0634\u0645\u0627\u0631\u0647 \u062D\u0633\u0627\u0628 \u0632\u06CC\u0631 \u0627\u0633\u062A\u0641\u0627\u0647 \u06A9\u0631\u062F\u0647 \u0648 \u067E\u0633 \u0627\u0632 \u0627\u062A\u0645\u0627\u0645 \u0639\u0645\u0644\u06CC\u0627\u062A \u067E\u0631\u062F\u0627\u062E\u062A \u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0641\u06CC\u0634 \u0648\u0627\u0631\u06CC\u0632\u06CC \u0631\u0627 \u062F\u0631 \u06A9\u0627\u062F\u0631 \u0632\u06CC\u0631 \u0648\u0627\u0631\u062F \u0646\u0645\u0627\u06CC\u06CC\u062F \u0648 \u0628\u0631 \u0628\u0631\u0648\u06CC \u062F\u06A9\u0645\u0647 \u062B\u0628\u062A \u0648\u0627\u0631\u06CC\u0632 \u06A9\u0644\u06CC\u06A9 \u0646\u0645\u0627\u06CC\u06CC\u062F."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
       className: "popup-list",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-          className: "fad fa-credit-card-front"
-        }), "\u0634\u0645\u0627\u0631\u0647 \u062D\u0633\u0627\u0628: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          children: "5022291078521463"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-          className: "far fa-money-check-edit-alt"
-        }), "\u0634\u0645\u0627\u0631\u0647 \u0634\u0628\u0627: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          children: "IR-3975024846780"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-          className: "far fa-user-tie"
-        }), "\u0628\u0647 \u0646\u0627\u0645: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          children: "\u062F\u0627\u0646\u06CC\u0627\u0644 \u0637\u0647\u0631\u0627\u0646\u06CC\u0645"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
           className: "far fa-university"
-        }), "\u0628\u0627\u0646\u06A9 \u0645\u0642\u0635\u062F: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        }), "\u0646\u0632\u062F : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
           children: "\u0628\u0627\u0646\u06A9 \u0645\u0644\u062A"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          className: "far fa-building"
+        }), "\u0628\u0647 \u0646\u0627\u0645: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          children: "\u0627\u0631\u0645\u063A\u0627\u0646 \u06A9\u0647\u06A9\u0634\u0627\u0646 \u067E\u0627\u0631\u0633"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          className: "far fa-credit-card-front"
+        }), "\u0634\u0645\u0627\u0631\u0647 \u06A9\u0627\u0631\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          style: numberStyles,
+          children: "6104 - 3388 - 0004 - 6282"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          className: "far fa-globe"
+        }), "\u0634\u0645\u0627\u0631\u0647 \u0634\u0628\u0627: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          style: numberStyles,
+          children: "IR 17 0120 0000 0000 9546 6188 31"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          className: "far fa-money-check-alt"
+        }), "\u0634\u0645\u0627\u0631\u0647 \u062D\u0633\u0627\u0628: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          style: numberStyles,
+          children: "9546618831"
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

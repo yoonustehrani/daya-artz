@@ -33,10 +33,8 @@ class PaymentController extends Controller
             'provider' => $method,
             'user_id' => $request->user()->id
         ]);
-        // $transaction->details = ['redirect_after' => route('userarea', ['path' => "finance/invoices/{$bill->invoice_id}"])];
         if (in_array($method, $this->util->getDrivers())) {
             $provider = $this->getProvider($method);
-            $provider->sandbox();
             $result = $provider->purchase($bill->amount, $bill->title); // metadata
             if ($result['okay']) {
                 $transaction->transaction_id = $result['transaction_id'];
@@ -48,8 +46,7 @@ class PaymentController extends Controller
                 ];
             }
         } else {
-            // $method === 'cash'
-            $transaction->save();
+            // $transaction->save();
             return [
                 'okay' => true,
                 'transaction' => $transaction
@@ -62,6 +59,9 @@ class PaymentController extends Controller
     public function update(Request $request, $driver)
     {
         $payment_datetime = now();
+
+
+        return $request->all();
         switch ($driver) {
             case 'zarinpal':
                 $request->validate([
@@ -73,7 +73,6 @@ class PaymentController extends Controller
                 $bill = $transaction->bill()->with('invoice')->firstOrFail();
                 if ($request->query('Status') === 'OK') {
                     $zp = $this->getProvider('zarinpal');
-                    $zp->sandbox();
                     $valid = $zp->verify($transaction->amount, $transaction->transaction_id);
                     if ($valid['okay']) {
                         try {
