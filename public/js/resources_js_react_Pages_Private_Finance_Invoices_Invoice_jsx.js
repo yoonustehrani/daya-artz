@@ -657,7 +657,7 @@ function DirectPayment() {
         href: "#check_transaction",
         className: "btn btn-lg btn-light",
         onClick: sendForm,
-        children: "\u0627\u0633\u062A\u0639\u0644\u0627\u0645"
+        children: "\u062B\u0628\u062A \u0648\u0627\u0631\u06CC\u0632"
       })
     })]
   });

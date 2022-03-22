@@ -187,7 +187,7 @@ var NewTicket = /*#__PURE__*/function (_Component) {
               });
               console.log();
               _context.next = 7;
-              return _this.http.post('/', data, {
+              return _this.http.post('', data, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
