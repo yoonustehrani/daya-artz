@@ -17,7 +17,7 @@ const Signup = lazy(() => import('../Pages/Auth/Signup'));
 const ForgetPassword = lazy(() => import('../Pages/Auth/ForgetPassword'));
 const EmailValidation = lazy(() => import('../Pages/Auth/EmailValidation'));
 const PhoneValidation = lazy(() => import('../Pages/Auth/PhoneValidation'));
-const route_regex = /[^/]*$/
+const route_regex = /^\/auth\/(login$|signup$|forgetPassword$|verification)/
 
 class AuthRoute extends Component {
     constructor(props) {
@@ -41,7 +41,7 @@ class AuthRoute extends Component {
             validation : {
                 code: ""
             },
-            state: route_regex.exec(this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(this.props.location.pathname)[0],
+            state: route_regex.exec(this.props.location.pathname) ? route_regex.exec(this.props.location.pathname)[1] : "login",
             login_method: "email",
         }
     }
@@ -57,11 +57,11 @@ class AuthRoute extends Component {
     }
 
     changeSection = (history, newState) => {
-        let { state } = this.state, replaca = newState ? newState : state === "signup" || state === "signupConfirm" ? "login" : "signup" 
+        let { state } = this.state, replaca = newState ? newState : state === "signup" || state === "verification" ? "login" : "signup" 
         setTimeout(() => {
             $(".change-form").each(function() {
                 $(this).addClass("width-change")
-                $(this).find("button").addClass(`${state === "signup" || state === "signupConfirm" ? "bounceOutLeft" : "bounceOutRight"}`)
+                $(this).find("button").addClass(`${state === "signup" || state === "verification" ? "bounceOutLeft" : "bounceOutRight"}`)
             })
             if (window.screen.width < 768) {
                 $(".login-form").addClass("zoomOut")
@@ -73,7 +73,7 @@ class AuthRoute extends Component {
                 $(this).find("h2, p").each(function() {
                     $(this).toggleClass("d-none")
                 })
-                if(state === "signup" || state === "signupConfirm") {
+                if(state === "signup" || state === "verification") {
                     $(this).find("button")[0].innerHTML = "ثبت نام"
                     $(this).find("button").toggleClass("bounceOutLeft bounceInRight")
                 } else {
@@ -158,8 +158,8 @@ class AuthRoute extends Component {
         // for handling back or forward browser button
         this.props.history.block((location, action) => {
             if (action === "POP") {
-                let current_loc = route_regex.exec(location.pathname)[0], { state } = this.state, { history } = this.props
-                if(((state === "login" || state === "forgetPassword") && (current_loc === "signup" || current_loc === "signupConfirm")) || ((state === "signup" || state === "signupConfirm") && (current_loc === "login" || current_loc === "forgetPassword"))) {
+                let current_loc = route_regex.exec(location.pathname)[1], { state } = this.state, { history } = this.props
+                if(((state === "login" || state === "forgetPassword") && (current_loc === "signup" || current_loc === "verification")) || ((state === "signup" || state === "verification") && (current_loc === "login" || current_loc === "forgetPassword"))) {
                     this.changeSection(history, current_loc)
                 } else {
                     return true
@@ -193,10 +193,10 @@ class AuthRoute extends Component {
                                 <Route exact path={`/auth/forgetPassword`} children={(props) => (
                                     <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />                                    
                                 )} />
-                                <PrivateRoute exact={true} path="/auth/verification/email">
+                                <PrivateRoute exact path="/auth/verification/email">
                                     <EmailValidation/>                                    
                                 </PrivateRoute>
-                                <PrivateRoute exact={true} path="/auth/verification/phone">
+                                <PrivateRoute exact path="/auth/verification/phone">
                                     <PhoneValidation code={validation.code} onChangeField={this.onChangeField}/>
                                 </PrivateRoute>
                                 <Route path="*">

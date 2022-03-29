@@ -32,8 +32,6 @@ class Login extends Component {
                                 <span className="country_codes_holder">
                                     <select id="login-country-select">
                                         <option value="iran">+98</option>
-                                        <option value="united-states">+1</option>
-                                        <option value="united-kingdom">+356</option>
                                     </select>
                                 </span>
                             </div>

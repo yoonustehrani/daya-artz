@@ -3525,7 +3525,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -3574,8 +3573,8 @@ var DayaLogo = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/",
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+        href: "/",
         className: "daya-logo ltr",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           className: "animated d-md-inline d-none",
@@ -3586,7 +3585,7 @@ var DayaLogo = /*#__PURE__*/function (_Component) {
           src: APP_PATH + "images/daya-white-logo.png",
           alt: "daya-logo"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          children: "DAYA-ARTZ"
+          children: "DAYAARTZ"
         })]
       });
     }
@@ -3655,7 +3654,7 @@ var welcome = /*#__PURE__*/function (_Component) {
       var state = this.props.state,
           elements = $(".change-form-content").find("h2, p");
       elements.map(function (i, elem) {
-        if (state === "signup" || state === "email" || state === "phone" && i > 1) {
+        if ((state === "signup" || state === "verification" || state === "verification") && i > 1) {
           $(".change-form-content").addClass("left-20");
           $(elem).addClass("d-none");
         } else if ((state === "login" || state === "forgetPassword") && i < 2) {
@@ -4350,7 +4349,7 @@ var TopBackground = /*#__PURE__*/function (_Component) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
           href: APP_PATH,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-            className: "h-25 mt-4",
+            className: "h-100 mt-md-4",
             src: APP_PATH + 'images/logo-with-inner-shadow.png'
           })
         })
@@ -5416,7 +5415,7 @@ var EmailValidation = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(f
 var PhoneValidation = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Auth_PhoneValidation_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Auth/PhoneValidation */ "./resources/js/react/Pages/Auth/PhoneValidation.jsx"));
 });
-var route_regex = /[^/]*$/;
+var route_regex = /^\/auth\/(login$|signup$|forgetPassword$|verification)/;
 
 var AuthRoute = /*#__PURE__*/function (_Component) {
   _inherits(AuthRoute, _Component);
@@ -5440,11 +5439,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "changeSection", function (history, newState) {
       var state = _this.state.state,
-          replaca = newState ? newState : state === "signup" || state === "signupConfirm" ? "login" : "signup";
+          replaca = newState ? newState : state === "signup" || state === "verification" ? "login" : "signup";
       setTimeout(function () {
         $(".change-form").each(function () {
           $(this).addClass("width-change");
-          $(this).find("button").addClass("".concat(state === "signup" || state === "signupConfirm" ? "bounceOutLeft" : "bounceOutRight"));
+          $(this).find("button").addClass("".concat(state === "signup" || state === "verification" ? "bounceOutLeft" : "bounceOutRight"));
         });
 
         if (window.screen.width < 768) {
@@ -5457,7 +5456,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
             $(this).toggleClass("d-none");
           });
 
-          if (state === "signup" || state === "signupConfirm") {
+          if (state === "signup" || state === "verification") {
             $(this).find("button")[0].innerHTML = "ثبت نام";
             $(this).find("button").toggleClass("bounceOutLeft bounceInRight");
           } else {
@@ -5580,7 +5579,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
       validation: {
         code: ""
       },
-      state: route_regex.exec(_this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(_this.props.location.pathname)[0],
+      state: route_regex.exec(_this.props.location.pathname) ? route_regex.exec(_this.props.location.pathname)[1] : "login",
       login_method: "email"
     };
     return _this;
@@ -5600,11 +5599,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
       this.props.history.block(function (location, action) {
         if (action === "POP") {
-          var current_loc = route_regex.exec(location.pathname)[0],
+          var current_loc = route_regex.exec(location.pathname)[1],
               state = _this3.state.state,
               history = _this3.props.history;
 
-          if ((state === "login" || state === "forgetPassword") && (current_loc === "signup" || current_loc === "signupConfirm") || (state === "signup" || state === "signupConfirm") && (current_loc === "login" || current_loc === "forgetPassword")) {
+          if ((state === "login" || state === "forgetPassword") && (current_loc === "signup" || current_loc === "verification") || (state === "signup" || state === "verification") && (current_loc === "login" || current_loc === "forgetPassword")) {
             _this3.changeSection(history, current_loc);
           } else {
             return true;

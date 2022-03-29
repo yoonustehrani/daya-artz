@@ -9,6 +9,7 @@ $xl-xl-breakpoint: 1600px;
 @media screen and (max-width: $lg-breakpoint - 1px) and (min-width: $md-breakpoint) {
     .header, .min-header {
         > nav {
+            height: 52px !important;
             padding-left: 8px !important;
             .logo-container {
                 width: 50px !important;
@@ -21,7 +22,7 @@ $xl-xl-breakpoint: 1600px;
                         margin: 0 8px !important;
                         a {
                             font-size: 14px !important;
-                            padding: 10px 0 !important;
+                            padding: 14px 0 !important;
                         }
                     }
                 }
@@ -331,9 +332,6 @@ $xl-xl-breakpoint: 1600px;
     .user-area-sidebar {
         width: 28% !important;
         padding: 20px 0px 5px 0px !important;
-        .user-info {
-            height: 140px !important;
-        }
         .user-avatar {
             width: 80px !important;
             height: 80px !important;
@@ -527,6 +525,14 @@ $xl-xl-breakpoint: 1600px;
         &:nth-child(1), &:nth-child(2) {
             margin-top: 10px !important;
         }
+    }
+    .top-background {
+        img.h-100 {
+            height: 25% !important;
+        }
+    }
+    .user-area-sidebar {
+        max-height: 650px;
     }
 } // end medium and above
 
@@ -1120,11 +1126,9 @@ $xl-xl-breakpoint: 1600px;
     }
     .user-area-sidebar {
         padding: 10px !important;
-        width: 90% !important;
+        width: 100% !important;
         position: absolute;
-        right: -100%;
-        top: 0 !important;
-        height: 100% !important;
+        top: 100%;
         z-index: 26;
         transition: 1s;
         opacity: 0;
@@ -1141,7 +1145,7 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .user-area-sidebar.open {
-        right: 0 !important;
+        top: 0 !important;
         opacity: 1 !important;
     }
     .main-content-container {
@@ -1783,6 +1787,13 @@ $xl-xl-breakpoint: 1600px;
 
 // xl and above
 @media screen and (min-width: $xl-breakpoint) {
+    .header, .min-header {
+        .menu-container {
+            .menu-items-container li a {
+                padding: 20px 10px;
+            }
+        }
+    }
     .policy-header {
         height: 550px;
         h2 {
@@ -1867,6 +1878,20 @@ $xl-xl-breakpoint: 1600px;
 
 // lg;
 @media screen and (min-width: $lg-breakpoint) and (max-width: $xl-breakpoint - 1px) {
+    .header, .min-header {
+        > nav {
+            height: 62px !important;
+            .menu-container {
+                ul.main-menu {
+                    li {
+                        a {
+                            padding: 16px 5px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .contact-us-first-section.mb-4 {
         .contact-us-form {
             textarea {

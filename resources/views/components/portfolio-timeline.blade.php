@@ -11,7 +11,7 @@
     </div>
     <div class="levels-container">
         @foreach ($timeline->pluck('title') as $timeline_title)
-        <span><i class="fas fa-circle"></i> {{ $timeline_title }}</span>
+        <span><i class="fad fa-ellipsis-v"></i> {{ $timeline_title }}</span>
         @endforeach
     </div>
 </div>

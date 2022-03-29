@@ -6,16 +6,16 @@
 
 @section('content')
 <div id="logo-info" class="w-100 float-left dotted-background p-4 p-md-2 p-lg-5">
-    <div class="float-right col-12 col-md-8">
+    <div class="float-right col-12">
         <div class="sample-images-slider">
             @if ($portfolio->images->count() > 0)
             <div class="showing-image">
-                <img src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
+                <img class="animated fadeIn" id="portfolio-main-img" src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
                 data-src="{{ asset($portfolio->images[0]->file->path) }}"
                 alt="{{ $portfolio->images[0]->alt }}">
             </div>
             <div class="small-items-container">
-                <span><i class="fas fa-chevron-left"></i></span>
+                <span id="prev-image"><i class="fas fa-chevron-left"></i></span>
                 @foreach ($portfolio->images as $item)
                 <div>
                     <img src="{{ asset($item->file->thumbnail_path) }}"
@@ -23,7 +23,7 @@
                     alt="{{ $item->alt }}">
                 </div>
                 @endforeach
-                <span><i class="fas fa-chevron-right"></i></span>
+                <span id="next-image"><i class="fas fa-chevron-right"></i></span>
             </div>
             @endif
         </div>
