@@ -43,5 +43,5 @@ mix.js(res.js + "userarea.js", pub.js).react()
 //     ]
 // })
 //     .js(res.js + "landing-opening.js", pub.js).react()
-//  .copy(pub.fonts + "fa-**", res.webfonts)
+ .copy(pub.fonts + "fa-**", res.webfonts)
     // .copy('node_modules/animate.css/animate.css', res.css)
