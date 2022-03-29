@@ -3,11 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Service extends Model
+class Service extends ZeusModel
 {
     public $timestamps = false;
+    public $asText = 'title';
     protected $fillable = ['title', 'subtitle', 'slug', 'group', 'description', 'icon_class'];
+    public function parent()
+    {
+        return $this->belongsTo(Service::class, 'parent_id');
+    }
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class, 'service_attribute');

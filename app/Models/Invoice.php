@@ -5,8 +5,9 @@ namespace App\Models;
 use App\Traits\HasOfferAttribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Invoice extends Model
+class Invoice extends ZeusModel
 {
     use HasFactory;
     // Scopes

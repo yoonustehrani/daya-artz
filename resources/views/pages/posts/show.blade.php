@@ -33,8 +33,7 @@
                     @if ($post->image && $post->image->file)
                         <img itemprop="image"
                             class="w-100 h-100"
-                            src="{{ asset($post->image->file->thumbnail_path) }}"
-                            data-src="{{ asset($post->image->file->path) }}"
+                            src="{{ asset($post->image->file->path) }}"
                             alt="{{ $post->image->alt }}">
                     @endif
                 </div>
@@ -45,7 +44,7 @@
             <div class="post-main-text" itemprop="articleBody">{!! $post->body !!}</div>
         </div>
     </div>
-    @if ($post->related->count())
+    {{-- @if ($post->related->count())
     <div class="section w-100">
         <div class="title-section col-12 mb-3">
             <div class="title-container">
@@ -53,7 +52,6 @@
                 <span class="title-underline"></span>
             </div>
         </div>
-        {{-- TODO Centralize if related posts are less than 3 --}}
         <div class="blog-posts-container {{ $post->related->count() > 3 ? 'swiper-container' : 'd-flex justify-content-center' }} w-100">
             <div class="swiper-wrapper">
                 @foreach ($post->related as $post_item)
@@ -78,7 +76,9 @@
             @endif
         </div>
     </div>
-    @endif
+
+    @endif --}}
+            {{-- TODO Centralize if related posts are less than 3 --}}
     <div class="section col-12 col-md-10 offset-md-1 col-xl-8 offset-xl-2 blog-post-end">
         <img src="{{ asset('images/blog-post-end.svg') }}">
     </div>

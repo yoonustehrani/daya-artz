@@ -29,7 +29,7 @@
     <div class="section col-12 p-4">
         <div class="col-12 title-section mb-3">
             <div class="title-container">
-                <p class="title-text">خدمات دایا آرتز</p>
+                <p class="title-text">{{ get_setting('mainpage.services.title') }}</p>
                 <span class="title-underline"></span>
             </div>
         </div>
