@@ -184,16 +184,16 @@ class ServiceSeeder extends Seeder
             Tenetur labore, impedit laudantium iste maiores minus quisquam numquam neque quae beatae cupiditate ratione, eveniet eum distinctio explicabo architecto aperiam. Consequatur illo facere possimus alias voluptates modi perspiciatis quia labore!</p>";
             if ($service->save()) {
                 $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
-                // $portfolios = $service->portfolios()->saveMany(Portfolio::factory()->count(5)->make());
-                // foreach ($portfolios as $p) {
-                //     $files = File::where('type', 'image')->take(3)->inRandomOrder()->get()->map(function($file) {
-                //         return [
-                //             'file_id' => $file->id,
-                //             'alt' => \Str::random(16)
-                //         ];
-                //     })->toArray();
-                //     $p->images()->createMany($files);
-                // }
+                $portfolios = $service->portfolios()->saveMany(Portfolio::factory()->count(5)->make());
+                foreach ($portfolios as $p) {
+                    $files = File::where('type', 'image')->take(3)->inRandomOrder()->get()->map(function($file) {
+                        return [
+                            'file_id' => $file->id,
+                            'alt' => \Str::random(16)
+                        ];
+                    })->toArray();
+                    $p->images()->createMany($files);
+                }
             }
         }
     }
