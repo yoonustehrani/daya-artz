@@ -1,0 +1,46 @@
+@tailwind utilities;
+@layer utilities {
+    body {
+        direction: rtl;
+        text-align: right;
+        .sidebar {
+            @apply float-right rounded-r-none rounded-l-2xl;
+        }
+        .menubar {
+            @apply pr-0 pl-4;
+            li a {
+                @apply rounded-r-none rounded-l-full pl-0 pr-6 !important;
+                i {@apply mr-0 ml-2}
+            }
+        }
+        .awesome-table {
+            &.text-left {@apply text-right}
+            thead tr th {
+                &:first-child {@apply rounded-tr-[0.5rem] rounded-tl-none}
+                &:last-child {@apply rounded-tl-[0.5rem] rounded-tr-none}
+                &:nth-child(2) {@apply text-right}
+                i {@apply mr-0 ml-2}
+            }
+            tbody tr td:nth-child(2) {@apply text-right}
+        }
+        .r-float {
+            .float-left {float: right}
+            .float-right {float: left}
+        }
+        .filter-searchbar {
+            .rounded-l-md {@apply rounded-l-none rounded-r-[0.375rem]}
+            .rounded-r-md {@apply rounded-r-none rounded-l-[0.375rem]}
+        }
+        .form-check input {@apply mr-0 ml-2}
+        .filter-options select {@apply ml-0 mr-2}
+        .btn-green[type="submit"] i {@apply mr-0 ml-2}
+    }
+    .toggle-bg:after {@apply right-[0.125rem]}
+    input:checked + .toggle-bg:after {
+        transform: translateX(-100%);
+    }
+    label span.ml-1:last-child {@apply mr-1 ml-0}
+    button.rounded-r-xl[type=submit] {@apply rounded-none rounded-l-xl}
+    i.mr-2 {@apply mr-0 ml-[0.5rem]}
+    i.ml-2 {@apply ml-0 mr-2}
+}
