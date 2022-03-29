@@ -45,13 +45,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Layout/components/Activity */ "./resources/js/react/Pages/Private/Layout/components/Activity.jsx");
-/* harmony import */ var _components_TicketTopNav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/TicketTopNav */ "./resources/js/react/Pages/Private/Tickets/components/TicketTopNav.jsx");
-/* harmony import */ var _components_TicketMessages__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/TicketMessages */ "./resources/js/react/Pages/Private/Tickets/components/TicketMessages.jsx");
-/* harmony import */ var _components_TicketInputs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/TicketInputs */ "./resources/js/react/Pages/Private/Tickets/components/TicketInputs.jsx");
-/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks */ "./resources/js/react/hooks.js");
+/* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Layout/components/Activity */ "./resources/js/react/Pages/Private/Layout/components/Activity.jsx");
+/* harmony import */ var _components_TicketTopNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TicketTopNav */ "./resources/js/react/Pages/Private/Tickets/components/TicketTopNav.jsx");
+/* harmony import */ var _components_TicketMessages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/TicketMessages */ "./resources/js/react/Pages/Private/Tickets/components/TicketMessages.jsx");
+/* harmony import */ var _components_TicketInputs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/TicketInputs */ "./resources/js/react/Pages/Private/Tickets/components/TicketInputs.jsx");
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../hooks */ "./resources/js/react/hooks.js");
+/* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../services/AlertService */ "./resources/js/services/AlertService.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -99,8 +98,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
  // custom components
+
 
 
 
@@ -228,11 +227,65 @@ var Ticket = /*#__PURE__*/function (_Component) {
     })));
 
     _defineProperty(_assertThisInitialized(_this), "loadMore", function () {
-      console.log('loading more');
-
       _this.setState({
         loading_messages: true
       }, _this.loadTicket);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onFileSelect", function (e) {
+      var newEntries = [],
+          files_size = 0,
+          acceptableType = true,
+          files = _this.state.files;
+      Array.prototype.push.apply(newEntries, e.target.files);
+      var regex = /image\/\bjpg\b|\bpng\b|\bjpeg\b/;
+      files ? newEntries = files.concat(newEntries) : null;
+
+      for (var i = 0; i < newEntries.length; i++) {
+        var elem = newEntries[i];
+        files_size += elem.size;
+        acceptableType = regex.test(elem.type);
+
+        if (!acceptableType) {
+          _this.Alert.error({
+            title: "فرمت فایل",
+            text: "فقط فرمت های jpg, jpeg و png قابل قبول هستند."
+          });
+
+          break;
+        }
+      }
+
+      if (acceptableType) {
+        if (newEntries.length > 3) {
+          _this.Alert.error({
+            title: "تعداد فایل",
+            text: "حد اکثر تعداد فایل های انتخابی 3 عدد می باشد."
+          });
+        } else if (files_size > 12582912
+        /*12 megabyte*/
+        ) {
+          _this.Alert.error({
+            title: "حجم فایل های انتخابی",
+            text: "حد اکثر حجم فایل های انتخابی 12 مگابایت می باشد."
+          });
+        } else {
+          _this.setState({
+            files: newEntries
+          }, function () {
+            $('#image-input').val("");
+          });
+        }
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "deleteFile", function (index) {
+      var files = _this.state.files;
+      files.splice(index, 1);
+
+      _this.setState({
+        files: files
+      });
     });
 
     _this.state = {
@@ -243,9 +296,10 @@ var Ticket = /*#__PURE__*/function (_Component) {
       next_page_url: null,
       loading_messages: false,
       new_message: "",
-      sending: false
+      sending: false,
+      files: []
     };
-    _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_7__.useHttpService)('/userarea/');
+    _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_6__.useHttpService)('/userarea/');
     return _this;
   }
 
@@ -254,6 +308,13 @@ var Ticket = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       document.title = "Ticket No ".concat(this.props.params.ticketId);
       this.loadTicket();
+      this.Alert = new _services_AlertService__WEBPACK_IMPORTED_MODULE_7__["default"]({
+        showConfirmButton: true,
+        confirmButtonText: "بستن",
+        customClass: {
+          container: "rtl"
+        }
+      });
     }
   }, {
     key: "render",
@@ -266,20 +327,24 @@ var Ticket = /*#__PURE__*/function (_Component) {
           messages = _this$state2.messages,
           hasMore = _this$state2.hasMore,
           current_page = _this$state2.current_page,
-          loading_messages = _this$state2.loading_messages;
+          loading_messages = _this$state2.loading_messages,
+          files = _this$state2.files;
       return !loading && ticket !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "ticket-container",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketTopNav__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, ticket)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketMessages__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketTopNav__WEBPACK_IMPORTED_MODULE_3__["default"], _objectSpread({}, ticket)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketMessages__WEBPACK_IMPORTED_MODULE_4__["default"], {
           messages: messages,
           hasMore: hasMore,
           current_page: current_page,
           loading_messages: loading_messages,
           loadMore: this.loadMore
-        }), ticket.messaging_is_allowed ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketInputs__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }), ticket.messaging_is_allowed ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_TicketInputs__WEBPACK_IMPORTED_MODULE_5__["default"], {
           messageText: new_message,
           setNewMessage: this.setNewMessage,
           sendMessage: this.sendMessage,
-          sending: sending
+          sending: sending,
+          files: files,
+          deleteFile: this.deleteFile,
+          onFileSelect: this.onFileSelect
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "alert alert-info",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
@@ -287,7 +352,7 @@ var Ticket = /*#__PURE__*/function (_Component) {
             children: "\u062F\u0631 \u0627\u06CC\u0646 \u062F\u0631\u062E\u0648\u0627\u0633\u062A \u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC \u0628\u062F\u0644\u06CC\u0644 \u0648\u0636\u0639\u06CC\u062A \u0641\u0639\u0644\u06CC \u062A\u06CC\u06A9\u062A \u0645\u062C\u0627\u0632 \u0628\u0647 \u0627\u0631\u0633\u0627\u0644 \u067E\u06CC\u0627\u0645 \u0646\u06CC\u0633\u062A\u06CC\u062F. \u0645\u06CC \u062A\u0648\u0627\u0646\u06CC\u062F \u062F\u0631 \u0635\u0648\u0631\u062A \u0644\u0632\u0648\u0645 \u0645\u0631\u0627\u062A\u0628 \u0631\u0627 \u0627\u0632 \u0637\u0631\u06CC\u0642 \u062A\u0645\u0627\u0633 \u0628\u0627 \u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC \u0631\u0641\u0639 \u0631\u062C\u0648\u0639 \u06A9\u0646\u06CC\u062F."
           })
         })]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__["default"], {});
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_2__["default"], {});
     }
   }]);
 
@@ -354,11 +419,16 @@ var TicketInputs = /*#__PURE__*/function (_Component) {
   _createClass(TicketInputs, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       var _this$props = this.props,
           messageText = _this$props.messageText,
           setNewMessage = _this$props.setNewMessage,
           sendMessage = _this$props.sendMessage,
-          sending = _this$props.sending;
+          sending = _this$props.sending,
+          deleteFile = _this$props.deleteFile,
+          onFileSelect = _this$props.onFileSelect,
+          files = _this$props.files;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "ticket-inputs",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -376,30 +446,47 @@ var TicketInputs = /*#__PURE__*/function (_Component) {
             color: "#6332df",
             size: 20
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-            className: "badge badge-pill purple-btn",
+            className: "btn btn-light",
             type: "button",
             onClick: sendMessage,
             children: "\u0627\u0631\u0633\u0627\u0644"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "ticket-file-inputs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "files-preview",
+            children: files && files.length > 0 ? files.map(function (file, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "selected-image",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                  src: URL.createObjectURL(file)
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                  className: "badge badge-pill badge-dark",
+                  onClick: deleteFile.bind(_this, i),
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+                    className: "far fa-trash-alt"
+                  })
+                })]
+              }, i);
+            }) : "فایل های ضمیمه شما در این قسمت نمایش داده می شود"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "choose-file",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
-              children: "\u0627\u0631\u0633\u0627\u0644 \u0639\u06A9\u0633"
+              children: "\u0627\u0641\u0632\u0648\u062F\u0646 \u0639\u06A9\u0633"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
               children: "[jpg, jpeg, png]"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-              className: "badge badge-pill purple-btn",
-              children: "\u0627\u0631\u0633\u0627\u0644 \u0639\u06A9\u0633"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
-              children: "\u0627\u0631\u0633\u0627\u0644 \u0641\u0627\u06CC\u0644"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              children: "[tiff, psd, gif]"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-              className: "badge badge-pill purple-btn",
-              children: "\u0627\u0631\u0633\u0627\u0644 \u0641\u0627\u06CC\u0644"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              className: "d-none",
+              type: "file",
+              name: "image-input",
+              id: "image-input",
+              onChange: onFileSelect,
+              accept: ".png,.jpg,.jpeg",
+              multiple: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              className: "btn btn-light btn-sm",
+              htmlFor: "image-input",
+              children: "\u0627\u0646\u062A\u062E\u0627\u0628"
             })]
           })]
         })]
@@ -533,6 +620,14 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(TicketMessages, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      $("#userarea-ticket-scroller").scrollTop($("#userarea-ticket-scroller")[0].scrollHeight);
+      setTimeout(function () {
+        $("#userarea-ticket-scroller").scrollTop($("#userarea-ticket-scroller")[0].scrollHeight);
+      }, 0);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -554,6 +649,7 @@ var TicketMessages = /*#__PURE__*/function (_Component) {
           },
           isReverse: true,
           initialLoad: false,
+          threshold: 50,
           children: [loading_messages && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "w-100 mt-3 d-flex justify-content-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {

@@ -51,5 +51,10 @@ return [
         'apikey' => 'wwCG0nQcdunKIsSZg5doljNKdIHIZkOFV-q60pg5KLo='
     ],
     
+    'zarinpal' => [
+        'merchant_id' => '354f67be-1d7e-4ae9-b095-0ed736208ec2',
+        'sandbox' => false
+    ],
+
     'sms' => ['active' => false]
 ];

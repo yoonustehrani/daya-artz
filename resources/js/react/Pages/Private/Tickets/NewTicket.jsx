@@ -24,7 +24,7 @@ class NewTicket extends Component {
             data.append('files[]', file)
         })
         console.log();
-        const response = await this.http.post('/', data, {
+        const response = await this.http.post('', data, {
             headers: { "Content-Type": "multipart/form-data" }
         })
         let {okay, ticket} = response

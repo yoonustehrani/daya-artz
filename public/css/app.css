@@ -10525,12 +10525,16 @@ h3 {
     width: 100% !important;
   }
 
-  .ticket-file-inputs {
-    width: 25% !important;
+  .ticket-inputs {
+    height: auto !important;
   }
-
-  .ticket-text-input {
-    width: 73% !important;
+  .ticket-inputs .ticket-file-inputs {
+    margin-top: 20px;
+    width: 100% !important;
+  }
+  .ticket-inputs .ticket-text-input {
+    width: 100% !important;
+    height: 180px !important;
   }
 
   .msg-text-section textarea {
@@ -10607,7 +10611,7 @@ h3 {
 }
 @media screen and (min-width: 992px) {
   .address-label h3 {
-    font-size: 22px !important;
+    font-size: 20px !important;
   }
 
   .item-wrapper {
@@ -11318,32 +11322,18 @@ h3 {
   }
 
   .ticket-inputs {
-    align-items: flex-start !important;
     height: auto !important;
+  }
+  .ticket-inputs .ticket-file-inputs {
+    margin-top: 20px;
+    width: 100% !important;
   }
   .ticket-inputs .ticket-text-input {
     width: 100% !important;
+    height: 180px !important;
   }
   .ticket-inputs .ticket-text-input textarea {
     height: 140px !important;
-  }
-  .ticket-inputs .ticket-text-input button {
-    height: auto !important;
-    font-size: 16px !important;
-  }
-  .ticket-inputs .ticket-file-inputs {
-    width: 100% !important;
-    height: 100px !important;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: stretch;
-    margin-top: 15px;
-  }
-  .ticket-inputs .ticket-file-inputs > div {
-    height: auto !important;
-    width: 45% !important;
-    margin: 0 !important;
   }
 
   .upload-boxes > div {
@@ -11598,6 +11588,20 @@ h3 {
 
   .tickets-faq > div {
     width: 100%;
+  }
+
+  .ticket-inputs .ticket-file-inputs > div {
+    width: 100% !important;
+  }
+  .ticket-inputs .ticket-file-inputs > div.files-preview {
+    order: 2;
+    min-height: 150px !important;
+    height: auto !important;
+  }
+  .ticket-inputs .ticket-file-inputs > div.choose-file {
+    order: 1;
+    min-width: 60% !important;
+    margin: 0 auto 15px;
   }
 }
 @media screen and (max-width: 360px) {
@@ -12025,12 +12029,16 @@ h3 {
     width: 70% !important;
   }
 
-  .ticket-file-inputs {
-    width: 20% !important;
+  .ticket-inputs {
+    height: auto !important;
   }
-
-  .ticket-text-input {
-    width: 78% !important;
+  .ticket-inputs .ticket-file-inputs {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+  .ticket-inputs .ticket-text-input {
+    width: 100% !important;
+    height: 180px !important;
   }
 
   .msg-text-section textarea {
@@ -12549,8 +12557,8 @@ input.eggplant:focus {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  animation-duration: 1.3s;
-  -webkit-animation-duration: 1.3s;
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -12782,11 +12790,14 @@ span.back-aqua.big-icon {
   font-size: 22px;
   font-weight: bold;
 }
-.contact-section .contact-info > div button {
+.contact-section .contact-info > div button, .contact-section .contact-info > div a {
   background: linear-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
   background: -webkit-gradient(to right, #D9F0F2 0%, #78cad2 50%, #9177D1 100%);
   display: block;
   margin: 0px auto 5px auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .contact-section .contact-info > div .mt-12-p {
   margin-top: 12%;
@@ -13317,7 +13328,7 @@ span.back-aqua.big-icon {
   font-weight: bold;
 }
 .contact-us-text .contact-us-tagline span {
-  color: #78cad2;
+  color: #6332df;
 }
 .contact-us-text .contact-p {
   font-size: 18px;
@@ -13402,7 +13413,7 @@ span.back-aqua.big-icon {
   flex-wrap: wrap;
 }
 .contact-us-section-2 .contact-ways-container > div {
-  max-width: 400px;
+  max-width: 320px;
   background-color: #F1F0F8;
   box-shadow: 4px 4px 15px 2px #dcdcdc;
   height: 420px;
@@ -13415,9 +13426,10 @@ span.back-aqua.big-icon {
   background-color: #DED8F2;
   border-radius: 8px;
   height: 50px;
+  transition: 0.3s;
 }
 .contact-us-section-2 .contact-ways-container > div .address-label i.label-icon {
-  font-size: 35px;
+  font-size: 30px;
   color: #000;
 }
 .contact-us-section-2 .contact-ways-container > div .address-label span {
@@ -13425,8 +13437,11 @@ span.back-aqua.big-icon {
 }
 .contact-us-section-2 .contact-ways-container > div .address-label h3 {
   color: #000;
-  font-size: 24px;
+  font-size: 20px;
   direction: ltr;
+}
+.contact-us-section-2 .contact-ways-container > div .address-label:hover {
+  background-color: #C2AEF3;
 }
 
 .timeline-section {
@@ -14749,16 +14764,16 @@ span.back-aqua.big-icon {
   justify-content: center;
   align-items: flex-end;
 }
-.main-services-container > .main-service .info-container .button-container button:first-child {
+.main-services-container > .main-service .info-container .button-container a:first-child {
   background: linear-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
   background: -webkit-gradient(to right, #78cad2 0%, #D9F0F2 50%, #777DD1 100%);
 }
-.main-services-container > .main-service .info-container .button-container button:nth-child(2) {
+.main-services-container > .main-service .info-container .button-container a:nth-child(2) {
   background-color: #18093c;
   transition: 0.5s;
   color: white;
 }
-.main-services-container > .main-service .info-container .button-container button:nth-child(2):hover {
+.main-services-container > .main-service .info-container .button-container a:nth-child(2):hover {
   background-color: #777DD1;
 }
 
@@ -15318,14 +15333,13 @@ span.back-aqua.big-icon {
     box-sizing: border-box;
     padding-right: 10px !important;
     justify-content: flex-start;
+    align-items: center;
   }
   .header > nav .menu-container ul li, .min-header > nav .menu-container ul li {
     position: relative;
     list-style: none;
     display: inline-block;
-    height: 100%;
     box-sizing: border-box;
-    padding-top: 10px;
     margin: 0 10px;
   }
   .header > nav .menu-container ul li > a, .min-header > nav .menu-container ul li > a {
@@ -15334,7 +15348,6 @@ span.back-aqua.big-icon {
     text-align: center;
     padding: 10px;
     font-size: 18px;
-    height: 100%;
     color: #ebe7fa;
     transition: 0.3s;
     border-bottom: 2px solid transparent;
@@ -17468,51 +17481,87 @@ span.back-aqua.big-icon {
   margin-right: 15px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
+  width: 100%;
   height: 180px;
   padding-top: 20px;
   border-top: 3px solid #000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs {
-  width: 15%;
-  height: 100%;
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div {
-  width: 100%;
-  height: 46%;
-  margin-bottom: 8%;
   box-shadow: 0 0 6px #dfdfdf;
+  border-radius: 8px;
+  padding: 10px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.files-preview {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #808080;
+  text-align: center;
+  height: 100%;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.files-preview .selected-image {
+  height: auto;
+  width: auto;
+  max-width: 30%;
+  position: relative;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.files-preview .selected-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.06);
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.files-preview .selected-image a {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.files-preview .selected-image a::after {
+  content: "";
+  display: inline-block;
+  transition: 0.5s;
+  width: 0;
+  opacity: 0;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.files-preview .selected-image a:hover::after {
+  content: "حذف";
+  width: auto;
+  opacity: 1;
+  margin-right: 6px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.choose-file {
+  width: 28%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div h4 {
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.choose-file h4 {
+  font-size: 16px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.choose-file span {
   font-size: 14px;
-  margin-bottom: 4px;
 }
-.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div span {
-  font-size: 12px;
-}
-.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div button {
-  font-size: 14px;
-  margin-top: 4px;
+.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-file-inputs > div.choose-file label {
+  margin-top: 6px;
+  width: 80px;
 }
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-text-input {
-  width: 83%;
-  margin-left: 2%;
+  width: 53%;
   height: 100%;
-}
-.user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-text-input button {
-  font-size: 20px;
-  float: left;
-  height: 20%;
-  border: none;
 }
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container .ticket-inputs .ticket-text-input > div:nth-child(2) {
   float: left;

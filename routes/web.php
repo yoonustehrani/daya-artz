@@ -118,3 +118,6 @@ Route::get('payment/{driver}/verify', [PaymentController::class, 'update'])->nam
 Route::get('orders', function() {
     return App\Models\Order::latest()->get();
 });
+
+
+\ZeusPanel::routes();

@@ -5,8 +5,9 @@ namespace App\Models;
 use App\Traits\HasDetailsAttribute;
 use App\Traits\HasUuidAsPrimaryKey;
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Company extends Model
+class Company extends ZeusModel
 {
     use HasUuidAsPrimaryKey, HasDetailsAttribute;
     public function business_type()

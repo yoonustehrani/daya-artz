@@ -12,8 +12,13 @@
                 </p>
                 <hr>
                 <p class="item">
+                    <span>کارت بانکی</span>
+                    <span class="d-inline-block ltr">{{ optional($transaction->details)->card_pan }}</span>
+                </p>
+                <hr>
+                <p class="item">
                     <span>پیگیری تراکنش</span>
-                    <span>123456</span>
+                    <span>{{ optional($transaction->details)->ref_id }}</span>
                 </p>
                 <hr>
                 <p class="item">

@@ -85,7 +85,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 "title" => "بروشور",
-                "subtitle" => "طراحی انواع بروشور ها",
+                "subtitle" => "طراحی انواع بروشور",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
                 "icon_class" => "fas fa-map"
