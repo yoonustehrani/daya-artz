@@ -1,8 +1,8 @@
 @extends('zview::layouts.auth')
 
-@push('head')
+@section('head')
     <title>Login to zeus</title>
-@endpush
+@endsection
 
 @section('body')
     <section class="h-full w-full flex justify-center items-center text-lg">

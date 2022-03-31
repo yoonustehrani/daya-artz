@@ -17,16 +17,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends ZeusModel
 {
     use SoftDeletes;
-
+    public $asText = "fullname";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    // protected $fillable = [
-    //     'email', 'password', 'phone_number', 'level'
-    // ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -54,22 +50,6 @@ class User extends ZeusModel
         }
         return $this->phone_number ?: $this->email;
     }
-
-    public function verification_codes()
-    {
-        return $this->hasMany(VerificationCode::class)->where('expires_at', '>', now());
-    }
-
-    public function sms_verification_codes()
-    {
-        return $this->verification_codes()->where('sent_by','sms');
-    }
-
-    public function email_verification_codes()
-    {
-        return $this->verification_codes()->where('sent_by','sms');
-    }
-
     public function offers()
     {
         return $this->belongsToMany(Offer::class)->withPivot(['user_attempts']);
@@ -94,36 +74,5 @@ class User extends ZeusModel
     public function invoices()
     {
         return $this->hasMany(Invoice::class);
-    }
-    // public function available_offers()
-    // {
-    //     return $this->offers()->wherePivot('');
-    // }
-    /**
-     * Model Scopes
-    */
-
-    public function scopeNormalUser($builder)
-    {
-        return $builder->where('score', 0);
-    }
-
-    public function scopeCustomer($builder)
-    {
-        return $builder->where('score', 1);
-    }
-
-    public function scopeSpecialCustomer($builder)
-    {
-        return $builder->where('score', 2);
-    }
-
-    public function resendEmail()
-    {
-        $this->notify(new VerificationNotification(['mail']));
-    }
-    public function resendSms()
-    {
-        $this->notify(new VerificationNotification([SMSChannel::class]));
     }
 }

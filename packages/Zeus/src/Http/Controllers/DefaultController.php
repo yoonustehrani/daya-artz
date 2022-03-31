@@ -167,7 +167,8 @@ class DefaultController extends Controller
             return redirect(route("zeus.{$modeltype->slug}.show", ['id' => $data->getKey()]));
         } catch (\Exception $e) {
             \DB::rollback();
-            \Log::error($e->getMessage());
+            throw $e;
+            // \Log::error($e->getMessage());
             flash()->error(__('zlang::modeltype.messages.not-created', ['name' => __($modeltype->name_singular)]));
             return back();
         }
