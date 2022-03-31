@@ -8,7 +8,8 @@ module.exports = {
         "./resources/views/components/layout/*.blade.php" ,
         "./resources/views/components/quick-order-form.blade.php",
         "./resources/js/components/QuickOrder/QuickOrder.jsx",
-        "./resources/js/landing-opening.js"
+        "./resources/js/landing-opening.js",
+        "./packages/Zeus/resources/views/pages/dashboard.blade.php"
     ],
     theme: {
         fontFamily: {

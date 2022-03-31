@@ -1,4 +1,4 @@
-<div class="bg-black-coral text-ghost-white h-full float-left rounded-r-2xl pt-5 hidden w-full md:block md:w-1/5 overflow-y-auto sidebar">
+<div class="bg-black-coral text-ghost-white h-full float-left rounded-r-2xl pt-5 hidden w-max md:block md:w-1/5 overflow-y-auto sidebar">
     <div class="w-100 flex flex-col items-center">
         <a href="{{ route('zeus.auth.profile') }}">
             <div class="avatar-container h-24 w-24 rounded-full ring ring-yellow-400 ring-opacity-60 p-1">
