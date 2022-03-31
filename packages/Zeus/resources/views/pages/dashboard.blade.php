@@ -1,7 +1,4 @@
 <x-zview-layout-default title="Dashboard">
-    @push('head')
-        <link rel="stylesheet" href="{{ asset('css/zeus/zeus-dashboard.css') }}">
-    @endpush
     <div class="flex flex-wrap justify-between items-stretch w-full">
         {{-- start section 1 --}}
         <div class="w-full md:w-4/12 text-center shadow-xl bg-on-white">
