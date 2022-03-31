@@ -58,4 +58,18 @@ class ProfileController extends Controller
         }
         return redirect()->to(route('zeus.auth.profile'));
     }
+    public function updateAvatar(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'nullable|string'
+        ]);
+        $user = auth('zeus')->user();
+        $user->avatar = $request->input('avatar');
+        if ($user->save()) {
+            flash()->success(__('zlang::main.messages.profile-updated'));
+        } else {
+            flash()->error(__('Error'));
+        }
+        return redirect()->to(route('zeus.auth.profile'));
+    }
 }

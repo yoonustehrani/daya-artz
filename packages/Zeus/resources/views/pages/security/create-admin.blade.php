@@ -17,6 +17,18 @@
             <input type="text" class="solid-input w-full" name="email" id="email">
         </div>
         <div class="p-3">
+            <label>
+                <span class="text-gray-700">@lang('Avatar') :</span>
+            </label>
+            <input type="text" class="solid-input my-1 ml-2" name="avatar" id="id_avatar">
+            <div 
+                class="react-file-picker ml-2"
+                data-upload="{{ route('api.zeus.files.store') }}"
+                data-search="{{ route('api.zeus.files.index') }}"
+                data-set-to="id_avatar"
+            ></div>
+        </div>
+        <div class="p-3">
             <label for="password">
                 <span class="text-gray-700">@lang('Password') :</span>
             </label>
@@ -44,7 +56,7 @@
             <label for="lang">
                 <span class="text-gray-700">@lang('Language') :</span>
             </label>
-            <select class="solid-input w-full" name="lang">
+            <select class="solid-select w-full" name="lang">
                 @foreach (['en', 'fa'] as $lang)
                     <option value="{{ $lang }}">@lang("zlang::main.lang.{$lang}")</option>
                 @endforeach
@@ -54,7 +66,7 @@
             <label for="role">
                 <span class="text-gray-700">@lang('Main Role') :</span>
             </label>
-            <select class="solid-input w-full" name="role">
+            <select class="solid-select w-full" name="role">
                 @foreach ($roles as $role)
                     <option value="{{ $role->id }}">@lang($role->title)</option>
                 @endforeach
@@ -73,11 +85,13 @@
                 </thead>
                 <tbody>
                     @foreach ($permissions as $permission)
-                        <tr class="cursor-pointer trwithinput">
+                        <tr class="trwithinput">
                             <th>
-                                <input type="checkbox" name="permissions[{{ $permission->id }}]" value="{{ $permission->id }}">
+                                <input type="checkbox" id="permission_number_{{ $permission->id }}" name="permissions[{{ $permission->id }}]" value="{{ $permission->id }}">
                             </th>
-                            <td>{{ $permission->key }}</td>
+                            <td>
+                                <label class="cursor-pointer" for="permission_number_{{ $permission->id }}">{{ $permission->key }}</label>
+                            </td>
                             <td>{{ $permission->title }}</td>
                         </tr>
                     @endforeach

@@ -1,13 +1,19 @@
-<div class="bg-black-coral text-ghost-white h-full float-left rounded-r-2xl pt-5 hidden w-max md:block md:w-1/5 overflow-y-auto sidebar">
+@php
+    $user = auth('zeus')->user();
+@endphp
+<div id="m-menu" class="bg-black-coral text-ghost-white h-full float-left rounded-t-2xl md:rounded-l-none md:rounded-r-2xl pt-5 hidden duration-700 z-50 w-full md:block md:w-1/5 overflow-y-auto absolute md:static top-full right-0 left-0 opacity-0 md:opacity-100 sidebar">
+    <span id="menu-close" class="md:hidden absolute right-4 top-3 text-4xl"><i class="far fa-times"></i></span>
     <div class="w-100 flex flex-col items-center">
         <a href="{{ route('zeus.auth.profile') }}">
             <div class="avatar-container h-24 w-24 rounded-full ring ring-yellow-400 ring-opacity-60 p-1">
-                <img src="{{ asset('images/yoonus.jpg') }}" class="w-full h-full rounded-full" alt="User Avatar">
+                @if ($user->avatar)
+                    <img src="{{ asset($user->avatar) }}" class="w-full h-full rounded-full" alt="User Avatar">
+                @endif
             </div>
         </a>
         <div class="info w-100 text-center">
-            <p class="font-bold text-xl mt-2">{{ auth('zeus')->user()->name }}</p>
-            <p class="text-xs">{{ auth('zeus')->user()->email }}</p>
+            <p class="font-bold text-xl mt-2">{{ $user->name }}</p>
+            <p class="text-xs">{{ $user->email }}</p>
         </div>
         <div class="w-100">
             <img src="{{ asset(config('zconfig.package.logo')) }}" height="50" alt="">
@@ -18,7 +24,7 @@
             <x-zview::menu.item route="zeus.dashboard">
                 <i class="fas fa-home"></i> @lang('dashboard')
             </x-zview::menu.item>
-            {{-- @can('viewAny', \Zeus\Models\Modeltype::class) --}}
+            @can('viewAny', \Zeus\Models\ModelType::class)
             <x-zview::menu.item route="zeus.modeltypes.index">
                 <x-slot name="submenu">
                     @foreach (\Cache::get('modeltypes', []) as $mt)
@@ -31,7 +37,7 @@
                 </x-slot>
                 <i class="fas fa-database"></i> @lang('database')
             </x-zview::menu.item>
-            {{-- @endcan --}}
+            @endcan
             <x-zview::menu.item route="zeus.website">
                 <i class="fas fa-globe"></i> @lang('Website')
             </x-zview::menu.item>

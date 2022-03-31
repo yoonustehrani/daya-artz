@@ -11,7 +11,7 @@ use Zeus\Models\Permission;
 
 Route::prefix('zeus')->middleware([
     setPreferedLanguage::class,
-    // 'auth:sanctum'
+    'auth:sanctum'
 ])->name('zeus.')->group(function() {
     Route::get('/', fn() => response()->json(['okay' => true]));
     // Route::get('model_types/{modeltype}/groups', [ModelRowController::class, 'groups']);

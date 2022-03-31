@@ -34,7 +34,7 @@
                         <div class="flex justify-center">
                             {{-- <button class="btn-sm btn-green">manage</button> --}}
                             @can('update', $admin)
-                                <button class="btn-sm m-1 bg-emerald-500 text-white"><i class="fas fa-cog"></i></button>
+                                <a href="{{ route('zeus.admins.edit', ['admin' => $admin->id]) }}" class="btn-sm m-1 bg-emerald-500 text-white"><i class="fas fa-cog"></i></a>
                             @endcan
                             @can('delete', $admin)
                                 <button class="btn-sm m-1 btn-red"><i class="fas fa-trash"></i></button>

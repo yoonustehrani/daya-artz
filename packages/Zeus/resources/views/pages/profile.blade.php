@@ -1,12 +1,29 @@
 <x-zview-layout-default title="{{ __('zlang::auth.profile') }}">
-    <h1 class="title mb-4">{{ __('zlang::auth.profile') }}</h1>
+    <h1 class="title mb-4">@lang('zlang::auth.profile')</h1>
     <div class="container flex justify-between flex-wrap flex-row items-stretch">
         <div class="w-full lg:w-1/4 p-2">
             <div class="bg-white shadow-md rounded p-4 h-full flex flex-col justify-center items-center">
-                <img src="{{ asset("images/yoonus.jpg") }}" alt="profile-photo" class="aspect-square w-36 rounded-full mb-5 p-0.5 border-2 border-sky-900">
+                @if ($user->avatar)
+                <img src="{{ asset($user->avatar) }}" alt="profile-photo" class="aspect-square w-36 rounded-full mb-5 p-0.5 border-2 border-sky-900">
+                @endif
                 <span class="text-icon mb-2 text-gray-800"><i class="fas fa-user text-gray-800 mr-2"></i> {{ $user->name }}</span>
                 <span class="text-icon mb-5 text-gray-800"><i class="fas fa-envelope text-gray-800 mr-2"></i> {{ $user->email }}</span>
-                <button class="rounded-full text-white bg-sky-400 w-fit px-4 py-2 hover:bg-sky-600 duration-500">update photo</button>
+                <form action="{{ route('zeus.auth.profile.update.avatar') }}" method="post">
+                    @csrf
+                    @method('PATCH')
+                    <input type="hidden" id="id_avatar" name="avatar" value="{{ $user->avatar }}">
+                    <div class="flex">
+                        <div 
+                            class="react-file-picker m-2"
+                            data-upload="{{ route('api.zeus.files.store') }}"
+                            data-search="{{ route('api.zeus.files.index') }}"
+                            data-set-to="id_avatar"
+                        ></div>
+                        <div class="flex align-middle p-3">
+                            <button class="rounded-full text-white bg-sky-400 w-fit px-4 py-2 hover:bg-sky-600 duration-500">update photo</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="w-full full-input lg:w-3/4 p-2">

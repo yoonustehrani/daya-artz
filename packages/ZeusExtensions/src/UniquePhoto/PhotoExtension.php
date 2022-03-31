@@ -51,7 +51,10 @@ class PhotoExtension extends ExtensionFramework
         if ($related_request && isset($this->relation)) {
             $related_request = json_decode($related_request);
             if ($this->multiple) {
-                
+                $images = collect((array) $related_request)->map(function($image) {
+                    return ['file_id' => $image->file_id, 'alt' => $image->alt, 'title' => $image->title];
+                })->values()->toArray();
+                $model->{$this->relation_name}()->createMany($images);
             } else {
                 $image = $model->{$this->relation_name}()->first() ?: new Image();
                 $image->file_id = $related_request->file_id;

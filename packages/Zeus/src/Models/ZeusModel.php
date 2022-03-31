@@ -9,9 +9,7 @@ use Zeus\Traits\FiltersQuery;
 
 class ZeusModel extends Model
 {
-    use FiltersQuery, HasSeoConfigured;
-
-    // AdjustmentsTracker
+    use FiltersQuery, AdjustmentsTracker, HasSeoConfigured;
     public $asText;
     public function getAsTextAttribute()
     {

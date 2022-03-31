@@ -23,7 +23,6 @@ trait HelperForDefault
         //     // $this->validateColumn($model_type->details->ordering_column, $selection);
         //     $model->orderBy($model_type->details->ordering_column , $model_type->details->ordering_direction);
         // }
-        
         $search_query = request()->query('q');
         if ($search_query) {
             $model->where($model_type->details->search_key, 'like', "%{$search_query}%");
@@ -73,6 +72,10 @@ trait HelperForDefault
         return explode('.', request()->route()->getName())[1];
     }
     protected function get_api_slug()
+    {
+        return explode('.', request()->route()->getName())[2];
+    }
+    protected function get_relation_slug()
     {
         return explode('.', request()->route()->getName())[2];
     }

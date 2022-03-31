@@ -1,6 +1,9 @@
 <x-zview-layout-default title="site settings">
     <h1 class="title">Site Settings</h1>
-    <a href="{{ route('zeus.settings.create') }}">create</a>
+    <a class="my-2 btn bg-blue-yonder-dark text-white" href="{{ route('zeus.settings.create') }}">
+        <i class="fas fa-plus"></i>
+        @lang('zlang::modeltype.create', ['name' => __('Setting')])
+    </a>
     <div class="w-full p-4">
         <nav class="w-full">
             <ul class="list-none grid grid-flow-col text-center bg-gray-300 text-gray-900 text-xl rounded-md overflow-hidden">

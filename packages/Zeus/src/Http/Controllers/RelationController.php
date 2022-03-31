@@ -14,36 +14,34 @@ class RelationController extends Controller
     use HelperForDefault;
     public function index(QueryFilterRequest $request, $id)
     {
-        $model_type = ModelType::whereSlug($this->get_slug())->firstOrFail();
-        $relation = $model_type->relations()->where('local_method', $this->get_relation_slug())->first();
-        $related_model_type = \ZeusPanel::getModelTypeByModel($relation->target_model);
-
-        if ($related_model_type) {
-            $related_model_type->load('browse_rows.relation');
-            $model = \ZeusPanel::getModel($model_type->model_class)->findOrFail($id)->{$relation->local_method}();
-            $selection = $this->rows_to_select($related_model_type->browse_rows
-            // $model->getLocalKeyName()
+        $related_modeltype = ModelType::whereSlug($this->get_slug())->firstOrFail();
+        $related = $related_modeltype->getModel()->findOrFail($id);
+        $relation = $related_modeltype->relations()->where('local_method', $this->get_relation_slug())->with('target')->first();
+        // $related_model_type = \ZeusPanel::getModelTypeByModel($relation->target_model);
+        if ($relation->target) {
+            $modeltype = $relation->target;
+            $modeltype->load(['rows' => fn($q) => $q->orderBy('order')->where('browse', true)->with('relation.target')]);
+            $model = $related->{$relation->local_method}();
+            $model = $model->select(
+                $this->rows_to_select($modeltype->rows, $modeltype->getModel()->getKeyName())
             );
-            $model = $model->select($selection);
-            if (method_exists($related_model_type->model_class, 'scopeQueryFilter')) {
+            if (method_exists($modeltype->model_class, 'scopeQueryFilter')) {
                 $model->queryFilter($request->getFilterables());
             }
-            $rells = $this->relations_to_load($related_model_type->browse_rows, [
-                // $model_type->model_class
-            ]);
+            $model->orderBy($modeltype->details->ordering_column , $modeltype->details->ordering_direction);
+            $rells = $this->relations_to_load($modeltype->rows);
             if ($rells['with']) {
                 $model->with($rells['with']);
             }
             if ($rells['count']) {
                 $model->withCount($rells['count']);
             }
-            // check if should be paginated
-            $perpage = intval(request()->query('paginate')) ?: $related_model_type->pagination;
+            $perpage = intval(request()->query('paginate')) ?: $modeltype->pagination;
             $data = $perpage ? $model->paginate($perpage)->withQueryString() : $model->limit(10)->get();
-
-            return view('zview::pages.default.index', compact('data'))->with('model_type', $related_model_type)->with('trash', false);
+            $related->__path__ = $related_modeltype->get_route('show', ['id' => $related->getKey()]);
+            return view('zview::pages.default.index', compact('modeltype', 'data', 'related'))->with('trash', false);
         }
-        // abort(403, "Modeltype does not exist");
+        abort(403, "Modeltype does not exist");
     }
     public function store($id)
     {
@@ -72,10 +70,5 @@ class RelationController extends Controller
             'okay' => true,
             'html' =>  $node
         ]);
-    }
-    protected function get_relation_slug()
-    {
-        $r = explode('.', request()->route()->getName());
-        return $r[count($r) - 2];
     }
 }

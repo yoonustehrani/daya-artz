@@ -7,10 +7,11 @@ use Zeus\Models\ZeusModel;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Log;
 use Zeus\Models\User;
+use Zeus\Traits\ZeusPolicyHelper;
 
 class ZeusModelPolicy
 {
-    use HandlesAuthorization;
+    use HandlesAuthorization, ZeusPolicyHelper;
 
     /**
      * Determine whether the user can view any models.
@@ -20,7 +21,7 @@ class ZeusModelPolicy
      */
     public function viewAny(User $user, $model, string $permission_slug)
     {
-        return true; // $user->has_permission('view_any_' . $permission_slug);
+        return $user->has_permission('view_any_' . $permission_slug) || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -32,7 +33,7 @@ class ZeusModelPolicy
      */
     public function view(User $user, ZeusModel $model, string $permission_slug)
     {
-        return true; // $user->has_permission('view_' . $permission_slug);
+        return $user->has_permission('view_' . $permission_slug) || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -43,7 +44,7 @@ class ZeusModelPolicy
      */
     public function create(User $user, $model, string $permission_slug)
     {
-        return true; // $user->has_permission('create_' . $permission_slug);
+        return $user->has_permission('create_' . $permission_slug) || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -55,7 +56,7 @@ class ZeusModelPolicy
      */
     public function update(User $user, ZeusModel $model, string $permission_slug)
     {
-        return true; // $user->has_permission('edit_' . $permission_slug);
+        return $user->has_permission('edit_' . $permission_slug) || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -67,7 +68,7 @@ class ZeusModelPolicy
      */
     public function delete(User $user, ZeusModel $model, string $permission_slug)
     {
-        return true; // $user->has_permission('delete_' . $permission_slug);
+        return $user->has_permission('delete_' . $permission_slug) || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -79,7 +80,7 @@ class ZeusModelPolicy
      */
     public function restore(User $user, ZeusModel $model, string $permission_slug)
     {
-        return true; // $user->has_permission('restore_' . $permission_slug);
+        return $user->has_permission('restore_' . $permission_slug) || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -91,6 +92,6 @@ class ZeusModelPolicy
      */
     public function forceDelete(User $user, ZeusModel $model, string $permission_slug)
     {
-        return true; // $user->has_permission('force_delete_' . $permission_slug);
+        return $user->has_permission('force_delete_' . $permission_slug) || $this->can_handle_admin_stuff($user);
     }
 }

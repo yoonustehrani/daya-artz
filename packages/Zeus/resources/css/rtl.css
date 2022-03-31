@@ -1,10 +1,9 @@
-@tailwind utilities;
 @layer utilities {
     body {
         direction: rtl;
         text-align: right;
         .sidebar {
-            @apply float-right rounded-r-none rounded-l-2xl;
+            @apply float-right md:rounded-r-none md:rounded-l-2xl;
         }
         .menubar {
             @apply pr-0 pl-4;
@@ -44,3 +43,4 @@
     i.mr-2 {@apply mr-0 ml-[0.5rem]}
     i.ml-2 {@apply ml-0 mr-2}
 }
+@tailwind utilities;

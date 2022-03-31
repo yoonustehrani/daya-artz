@@ -1,9 +1,6 @@
 @import './datepicker.css';
 @import '../../../../node_modules/dropzone/dist/dropzone.css';
 @import '../fonts/fontawesome/css/all.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @layer base {
     html {
         width: 100%;
@@ -38,6 +35,9 @@
                     @apply mr-2;
                 }
             }
+        }
+        &.open {
+            @apply top-0 opacity-100 !important;  
         }
     }
 
@@ -207,3 +207,7 @@
         justify-content: center;
     }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

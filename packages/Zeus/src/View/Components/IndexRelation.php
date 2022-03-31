@@ -9,15 +9,17 @@ class IndexRelation extends Component
     public $relation;
     public $relation_model;
     public $relation_key;
+    public $modeltype;
     public $value = null;
+    public $item;
     public $attrs = ['copy' => false];
 
-    public function __construct($row, $item, $slug)
+    public function __construct($row, $item, $modeltype, $slug)
     {
         $this->row = $row;
         $this->item = $item;
         $this->slug = $slug;
-
+        $this->modeltype = $modeltype;
         if ($row->relation) {
             $relation_key = $row->relation->local_method ?? $row->field;
             $this->relation = $this->relation_target_is_one() ? $item->{$relation_key} : $item->{$relation_key . '_count'};
@@ -43,10 +45,9 @@ class IndexRelation extends Component
         } else {
             $component = 'pill';
             if ($this->relation_model && $this->relation_key) {
-                // $this->attrs['href'] =  $this->row->relation->type === 'hasMany' 
-                // $this->attrs['href'] = \ZeusPanel::linkTo('index', $this->relation_model->slug, [$this->relation_key . '__exact' => $this->item->getKey()]);
+                $this->attrs['href'] = $this->modeltype->get_route($this->row->relation->local_method, ['id' => $this->item->getKey()]);
             } else if ($this->row->relation->type === 'belongsToMany') {
-                // $this->attrs['href'] = \ZeusPanel::linkTo($this->relation_model->slug, $this->slug, [$this->item->getKey()]);
+                $this->attrs['href'] = $this->modeltype->get_route($this->row->relation->local_method, ['id' => $this->item->getKey()]);
             }
             $this->value = $this->relation;
         }

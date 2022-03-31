@@ -9,14 +9,23 @@
     @endphp
     @unless ($trash)
         <h1 class="title">@lang('zlang::modeltype.browse', ['name' => __($modeltype->name_plural)])
+            @can('create-zeus-model', [$modeltype->getModel(), $modeltype->slug])
             <a class="btn bg-blue-yonder text-ghost-white text-sm" href="{{ $modeltype->get_route('create') }}">
                 <i class="fas fa-plus mr-2"></i>
                 @lang('zlang::modeltype.create', ['name' => __($modeltype->name_singular)])
             </a>
+            @endcan
             @if ($modeltype->soft_delete)
             <a class="btn bg-red-ryb text-ghost-white text-sm" href="{{ $modeltype->get_route('trash') }}"><i class="fas fa-trash mr-2"></i>Trash</a>
             @endif
         </h1>
+        @isset($related)
+            <p class="mt-4 ml-2 text-lg">
+                <i class="fas fa-link"></i>
+                @lang('zlang::modeltype.related-to')
+                <a class="text-blue-400 underline underline-offset-4" href="{{ $related->__path__ }}">{{ $related->as_text ?: $related->getKey() }}</a>
+            </p>
+        @endisset
     @else
         <h1 class="title">Trash(@lang($modeltype->name_plural))
             <a class="btn bg-blue-yonder text-ghost-white text-sm" href="{{ $modeltype->get_route('index') }}">Back to list</a>
@@ -55,7 +64,7 @@
                         </td>
                         @foreach ($modeltype->rows as $row)
                             @if ($row->relation)
-                                <x-zview-index-relation :row="$row" :item="$item" :slug="$modeltype->slug"/>
+                                <x-zview-index-relation :row="$row" :item="$item" :modeltype="$modeltype" :slug="$modeltype->slug"/>
                             @else
                                 <x-zview-index-data :row="$row" :value="$item->{$row->field}"/>
                             @endif

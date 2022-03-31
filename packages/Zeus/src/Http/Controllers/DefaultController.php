@@ -113,7 +113,7 @@ class DefaultController extends Controller
             );
         } catch (\Exception $e) {
             \DB::rollback();
-            throw $e;
+            \Log::error($e->getMessage());
             flash()->error(__('zlang::modeltype.messages.not-created', ['name' => __($modeltype->name_singular)]));
             return back();
         }
@@ -167,9 +167,7 @@ class DefaultController extends Controller
             return redirect(route("zeus.{$modeltype->slug}.show", ['id' => $data->getKey()]));
         } catch (\Exception $e) {
             \DB::rollback();
-            throw $e;
-            // \Log::error($e->getMessage());
-            // \Log::error($e->getLine());
+            \Log::error($e->getMessage());
             flash()->error(__('zlang::modeltype.messages.not-created', ['name' => __($modeltype->name_singular)]));
             return back();
         }
@@ -201,25 +199,26 @@ class DefaultController extends Controller
         if ($softDeletes && $data->trashed()) {
             $this->authorize('forceDelete-zeus-model', [$data, $model_type->slug]);
             $data->forceDelete();
-            return redirect(route("zeus.{$model_type->slug}.index"));
+            return redirect(route("zeus.{$model_type->slug}.trash"));
         }
         $this->authorize('delete-zeus-model', [$data, $model_type->slug]);
         $data->delete();
-        return redirect(route("zeus.{$model_type->slug}.index"));
+        return redirect(route("zeus.{$model_type->slug}.trash"));
     }
     public function restore($id)
     {
-        $model_type = ModelType::whereSlug($this->get_slug())->firstOrFail();
-        $model = \ZeusPanel::getModel($model_type->model_class);
+        $modeltype = \ZeusPanel::getModelTypeBySlug($this->get_slug());
+        $model = \ZeusPanel::getModel($modeltype->model_class);
+        $this->authorizeModelType($modeltype, 'update', $model);
         $softDeletes = in_array(
             'Illuminate\Database\Eloquent\SoftDeletes',
             (new \ReflectionClass($model))->getTraitNames()
         );
         abort_if(! $softDeletes, 404);
         $data = $model->withTrashed()->findOrFail($id);
-        $this->authorize('restore-zeus-model', [$data, $model_type->slug]);
+        // $this->authorize('restore-zeus-model', [$data, $modeltype->slug]);
         $data->restore();
-        return back();
+        return redirect(route("zeus.{$modeltype->slug}.show", ['id' => $data->getKey()]));
     }
 
     protected function validatModelType($modeltype)

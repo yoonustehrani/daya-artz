@@ -6,10 +6,13 @@ return [
     'editing' => 'Editing :name',
     'edit' => 'Edit :name',
     'browse' => 'List of :name',
+    'details' => 'Details of :name',
 
     'rows' => [
         'editing' => 'Editing :title row'
     ],
+
+    'related-to' => 'Related to',
 
     'messages' => [
         'created' => ':name created successfully',

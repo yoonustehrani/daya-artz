@@ -28,13 +28,14 @@
         <div class="bg-ghost-white w-full h-full overflow-hidden float-left">
             <x-zview::sidebar />
             <div class="bg-ghost-white w-full md:w-4/5 h-full float-left relative">
-                <div id="main-scroller" class="w-full h-full float-left p-5 overflow-x-hidden overflow-y-auto r-float">
+                <div id="main-scroller" class="w-full h-full float-left px-5 pt-5 pb-16 overflow-x-hidden overflow-y-auto r-float">
                     {{ $slot }}
                 </div>
             </div>
             <div id="alert-container" class="relative overflow-hidden">
 
             </div>
+            <span id="menu-open" class="fixed w-10 h-10 rounded-full bg-slate-500 bottom-0 left-1/2 -translate-x-1/2 z-40 flex items-center justify-center md:hidden"><i class="fa fa-chevron-double-up text-2xl text-white"></i></span>
         </div>
         <form id="logout-form" action="{{ route('zeus.auth.logout') }}" method="post" class="d-none">@csrf</form>
         {{-- <p class="hidden">{{ sprintf(config('zconfig.copyright'), \Carbon\Carbon::now()->format('Y')) }}</p> --}}

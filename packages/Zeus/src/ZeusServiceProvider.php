@@ -69,5 +69,11 @@ class ZeusServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../database/seeders/' => database_path('seeders')
         ]);
+
+        $this->publishes([
+            __DIR__ . '/../public/css' => public_path('css/zeus'),
+            __DIR__ . '/../public/js' => public_path('js/zeus'),
+            __DIR__ . '/../public/images' => public_path('images/zeus-images')
+        ], 'zeus-public');
     }
 }

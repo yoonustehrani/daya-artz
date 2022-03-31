@@ -6,7 +6,8 @@ return [
     'editing' => 'ویرایش کردن :name',
     'edit' => 'ویرایش :name',
     'browse' => 'لیست :name',
-
+    'details' => 'جزئیات :name',
+    'related-to' => 'مرتبط با',
     'messages' => [
         'created' => ':name با موفقیت ایجاد شد',
         'updated' => ':name با موفقیت بروزرسانی شد',

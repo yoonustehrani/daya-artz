@@ -1,6 +1,6 @@
-<x-zview-layout-default :title="__($modeltype->name_singular) . ' ' . __('details')">
+<x-zview-layout-default :title="__('zlang::modeltype.details', ['name' => __($modeltype->name_singular) . '('. ($data->as_text ?: $data->getKey()) .')'])">
     <div class="w-full flex justify-start gap-2 mb-8">
-        <h1 class="title">{{ __($modeltype->name_singular) }} @lang('details')</h1>
+        <h1 class="title">@lang('zlang::modeltype.details', ['name' => __($modeltype->name_singular) . '('. ($data->as_text ?: $data->getKey()) .')'])</h1>
         <a class="btn-sm bg-blue-500 text-ghost-white" href="{{ route('zeus.'.$modeltype->slug.'.edit', ['id' => $data->getKey()]) }}"><i class="fas fa-pencil-alt"></i></a>
         <form action="{{ route('zeus.'.$modeltype->slug.'.destroy', ['id' => $data->getKey()]) }}" method="post">
             <button type="submit" class="btn-sm bg-salsa text-ghost-white">

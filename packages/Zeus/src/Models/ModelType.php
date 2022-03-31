@@ -13,6 +13,16 @@ class ModelType extends BaseModel
     public $timestamps = false;
     public static function booted()
     {
+        static::created(function($modeltype) {
+            \DB::transaction(function () use($modeltype) {
+                foreach (['view', 'view_any', 'create', 'edit', 'delete'] as $item) {
+                    $permission = new Permission();
+                    $permission->key = "{$item}_{$modeltype->slug}";
+                    $permission->title = ucfirst(str_replace('_', ' ', $item)) . " " . $modeltype->name_singular;
+                    $permission->save();
+                }
+            });
+        });
         static::saved(function($modeltype) {
             \Log::alert("cached modeltypes");
             \Cache::forever('modeltypes', ModelType::all());

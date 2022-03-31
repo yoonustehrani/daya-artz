@@ -16,7 +16,7 @@ class ApiDefaultController extends Controller
     public function index(QueryFilterRequest $request)
     {
         $modeltype = \ZeusPanel::getModelTypeBySlug($this->get_api_slug());
-        // $this->authorizeModelType($modeltype, 'viewAny');
+        $this->authorizeModelType($modeltype, 'viewAny');
         $modeltype->load(['rows' => fn($q) => $q->orderBy('order')->where('browse', true)]);
         $data = [];
         $model = ZeusFacade::getModel($modeltype->model_class);

@@ -19,7 +19,7 @@ class ModelTypePolicy
      */
     public function viewAny(User $user)
     {
-        return true;//  $user->has_permission('view_any_model_types');
+        return $user->has_permission('view_any_model_types') || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -31,7 +31,7 @@ class ModelTypePolicy
      */
     public function view(User $user, ModelType $modelType)
     {
-        return true;//  $user->has_permission('view_model_types');
+        return $user->has_permission('view_model_types') || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -42,7 +42,7 @@ class ModelTypePolicy
      */
     public function create(User $user)
     {
-        return true;//  $user->has_permission('create_model_types');
+        return $user->has_permission('create_model_types') || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -54,7 +54,7 @@ class ModelTypePolicy
      */
     public function update(User $user, ModelType $modelType)
     {
-        return true;//  $user->has_permission('edit_model_types');
+        return $user->has_permission('edit_model_types') || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -66,7 +66,7 @@ class ModelTypePolicy
      */
     public function delete(User $user, ModelType $modelType)
     {
-        return true;//  $user->has_permission('delete_model_types');
+        return $user->has_permission('delete_model_types') || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -78,7 +78,7 @@ class ModelTypePolicy
      */
     public function restore(User $user, ModelType $modelType)
     {
-        return true;//  $user->has_permission('restore_model_types');
+        return $user->has_permission('restore_model_types') || $this->can_handle_admin_stuff($user);
     }
 
     /**
@@ -90,6 +90,6 @@ class ModelTypePolicy
      */
     public function forceDelete(User $user, ModelType $modelType)
     {
-        return true;//  $user->has_permission('force_delete_model_types');
+        return $user->has_permission('force_delete_model_types') || $this->can_handle_admin_stuff($user);
     }
 }

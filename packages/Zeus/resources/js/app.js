@@ -206,3 +206,32 @@ $(() => {
         ...mceOptions
     })
 })
+
+//handle menu in mobile and tablet
+$(document).ready(function() {
+    // this code is for handling the menu in < md sizes
+    function toggle_menu() {
+        let is_open, menu_el = $(".sidebar")
+        is_open = menu_el.hasClass("open")
+        if (is_open) {
+            menu_el.toggleClass("open")
+            setTimeout(() => {
+                menu_el.addClass("hidden")
+                $("#menu-open").toggleClass("pointer-events-none")
+            }, 700);
+        } else {
+            menu_el.removeClass("hidden")
+            setTimeout(() => {
+                menu_el.toggleClass("open")
+                $("#menu-open").toggleClass("pointer-events-none")
+            }, 0);
+        }
+        $("body").toggleClass("overflow-y-hidden")
+    }
+    $("body").on("click", function(e) {
+        let el = e.target, menu_el = $(".sidebar")
+        if ((menu_el.hasClass("open") && el.id !== "m-menu" && el.id !== "menu-open" && !$(el).closest("#menu-open").length && !$(el).closest("#m-menu").length) || $(el).closest("#menu-close").length || $(el).closest("#menu-open").length) {
+            toggle_menu()
+        }
+    })   
+})

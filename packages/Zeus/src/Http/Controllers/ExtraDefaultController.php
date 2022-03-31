@@ -3,6 +3,8 @@
 namespace Zeus\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Zeus\Http\Requests\QueryFilterRequest;
 use Zeus\Models\ModelType;
 use Zeus\Traits\FindSlugMethod;
 use Zeus\Traits\HelperForDefault;
@@ -10,26 +12,39 @@ use Zeus\Traits\HelperForDefault;
 class ExtraDefaultController extends Controller
 {
     use HelperForDefault;
-    public function trash()
+    public function trash(QueryFilterRequest $request)
     {
-        $model_type = ModelType::whereSlug($this->get_slug())->with('trash_rows')->firstOrFail();
-        $model = app()->make($model_type->model_class);
+        $modeltype = \ZeusPanel::getModelTypeBySlug($this->get_slug());
+        // $this->authorizeModelType($modeltype, 'viewAny');
+        $model = \ZeusPanel::getModel($modeltype->model_class);
+        $modeltype->load(['rows' => fn($q) => $q->orderBy('order')->where('trash', true)]);
         $softDeletes = in_array(
             'Illuminate\Database\Eloquent\SoftDeletes',
             (new \ReflectionClass($model))->getTraitNames()
         );
-        if (! $model_type->soft_delete || ! $softDeletes) {
+        if (! $modeltype->soft_delete || ! $softDeletes) {
             abort(404);
         }
-        $selection = $this->rows_to_select($model_type->trash_rows, $model->getKeyName());
-        $model = $model->select($selection)->onlyTrashed();
-        // filtering query for needed scopes
-        $this->filterQuery($model_type, $model, $selection);
-        // check if should be paginated
-        $perpage = intval(request()->query('paginate')) ?: $model_type->pagination;
+        $model = $model->select(
+            $this->rows_to_select($modeltype->rows, $model->getKeyName())
+        )->onlyTrashed();
+        if (method_exists($modeltype->model_class, 'scopeQueryFilter')) {
+            $model->queryFilter($request->getFilterables());
+        }
+        $model->orderBy($modeltype->details->ordering_column , $modeltype->details->ordering_direction);
+        // we should only load the browse data
+        $rells = $this->relations_to_load($modeltype->rows);
+        if ($rells['with']) {
+            $model->with($rells['with']);
+        }
+        if ($rells['count']) {
+            $model->withCount($rells['count']);
+        }
+        // // check if should be paginated
+        $perpage = intval(request()->query('paginate')) ?: $modeltype->pagination;
         $data = $perpage ? $model->paginate($perpage)->withQueryString() : $model->limit(10)->get();
 
-        return view('zview::pages.default.index', compact('model_type', 'data'))->with('trash', true);
+        return view('zview::pages.default.index', compact('modeltype', 'data'))->with('trash', true);
     }
     public function clone($id)
     {
