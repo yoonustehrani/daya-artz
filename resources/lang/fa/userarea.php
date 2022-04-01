@@ -25,7 +25,7 @@ return [
         ],
         'status' => [
             'submitted' => 'ثبت شده',
-            'reviewd' => 'دریافت و بررسی شده',
+            'reviewed' => 'دریافت و بررسی شده',
             'designing' => 'در حال طراحی',
             'finished' => 'پایان یافته',
             'checked-out' => 'تسویه شده',

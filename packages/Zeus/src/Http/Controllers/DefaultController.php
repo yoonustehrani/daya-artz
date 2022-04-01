@@ -228,5 +228,6 @@ class DefaultController extends Controller
         foreach ($modeltype->rows as $r) {
             $validation_rules[$r->field] = $r->get_validation_rules();
         }
+        request()->validate($validation_rules);
     }
 }
