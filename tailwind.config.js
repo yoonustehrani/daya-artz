@@ -62,7 +62,8 @@ module.exports = {
             },
             backgroundImage: {
                 'shaped': "url('/images/shaped-background.png')",
-                "icon": "url('/images/item-background.png')"
+                "icon": "url('/images/item-background.png')",
+                "zeus-dashboard-vbg": "url('/images/zeus-images/dashboard-bvector.png')"
             },
             screens: {
                 'xs': "375px"

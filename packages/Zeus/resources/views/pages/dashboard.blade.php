@@ -1,89 +1,89 @@
 <x-zview-layout-default title="Dashboard">
     <div class="flex flex-wrap justify-between items-stretch w-full">
-        {{-- start section 1 --}}
-        <div class="w-full md:w-4/12 text-center shadow-xl bg-on-white">
-            <h1 class="text-red-500 px-2 border-x-2 mb-2">Good Morning</h1>
-            <img class="w-full h-auto" src="{{ asset('images/zeus-images/welcome-sticker.png') }}" alt="">
+    {{-- start section 1 --}}
+        <div class="w-full lg:w-6/12 lg:mx-auto xl:w-3/12 text-center shadow-xl bg-on-white rounded-lg p-3 my-2">
+            <h1 class="text-red-500 px-2 border-x-2 mb-6 w-fit mx-auto text-2xl font-bold border-red-500">Good Morning</h1>
+            <div class="bg-zeus-dashboard-vbg bg-cover bg-center bg-no-repeat">
+                <img src="{{ asset('images/zeus-images/dashboard-vector.png') }}" alt="man working with a laptop" class="w-full h-auto">
+            </div>
         </div>
-        <div class="w-full md:w-8/12 pl-3">
-            <div class="flex items-stretch">
-                <div class="w-full md:w-1/4 px-2">
-                    <div class="text-white text-left shadow-xl p-2 bg-emerald-500">
-                        <span class="text-2xl mb-2"><i class="far fa-user mr-2"></i>USERS</span>
+        <div class="w-full xl:w-9/12 lg:pl-3 my-2 flex flex-col justify-evenly">
+            <div class="flex items-stretch flex-wrap mb-2">
+                <div class="w-full md:w-1/2 xl:w-1/4 md:px-2 my-2 xl:my-0">
+                    <div class="text-white text-left shadow-xl p-3 rounded-lg h-full bg-emerald-500">
+                        <h1 class="text-xl mb-2"><i class="far fa-user mr-2"></i>USERS</h1>
                         <ul class="p-0 list-none text-lg">
                             <li class="my-2">Total Users <span class="font-bold ml-2">3469</span></li>
                             <li class="my-2">Monthly Users <span class="font-bold ml-2">684</span></li>
                         </ul>
                     </div>
                 </div>
-                <div class="w-full md:w-1/4 px-2">
-                    <div class="text-white text-left shadow-xl p-2 bg-red-500">
-                        <span class="text-2xl mb-2"><i class="far fa-shopping-card mr-2"></i>ORDERS</span>
+                <div class="w-full md:w-1/2 xl:w-1/4 md:px-2 my-2 xl:my-0">
+                    <div class="text-white text-left shadow-xl p-3 rounded-lg h-full bg-red-500">
+                        <h1 class="text-xl mb-2"><i class="far fa-shopping-cart mr-2"></i>ORDERS</h1>
                         <ul class="p-0 list-none text-lg">
                             <li class="my-2">Total Orders <span class="font-bold ml-2">1589</span></li>
                             <li class="my-2">Monthly Orders <span class="font-bold ml-2">239</span></li>
                         </ul>
                     </div>
                 </div>
-                <div class="w-full md:w-1/4 px-2">
-                    <div class="text-white text-left shadow-xl p-2 bg-amber-400">
-                        <span class="text-2xl mb-2"><i class="far fa-pencil mr-2"></i>IN DESIGN</span>
+                <div class="w-full md:w-1/2 xl:w-1/4 md:px-2 my-2 xl:my-0">
+                    <div class="text-white text-left shadow-xl p-3 rounded-lg h-full bg-amber-400">
+                        <h1 class="text-xl mb-2"><i class="far fa-pencil mr-2"></i>IN DESIGN</h1>
                         <ul class="p-0 list-none text-lg">
                             <li class="my-2">Total Users <span class="font-bold ml-2">3469</span></li>
                         </ul>
                     </div>
                 </div>
-                <div class="w-full md:w-1/4 px-2">
-                    <div class="text-white text-left shadow-xl p-2 bg-sky-400">
-                        <span class="text-2xl mb-2"><i class="far fa-sack-dollar mr-2"></i>INCOME</span>
+                <div class="w-full md:w-1/2 xl:w-1/4 md:px-2 my-2 xl:my-0">
+                    <div class="text-white text-left shadow-xl p-3 rounded-lg h-full bg-sky-400">
+                        <h1 class="text-xl mb-2"><i class="far fa-sack-dollar mr-2"></i>INCOME</h1>
                         <ul class="p-0 list-none text-lg">
-                            <li class="my-2 inline-block w-1/2">Subscribed <span class="font-bold ml-2">16 k</span></li>
-                            <li class="my-2 inline-block w-1/2">Buyer <span class="font-bold ml-2">4 k</span></li>
-                            <li class="my-2 inline-block w-1/2">Customer <span class="font-bold ml-2">6 k</span></li>
-                            <li class="my-2 inline-block w-1/2">Monthly <span class="font-bold ml-2">10 k</span></li>
+                            <li class="my-2">Total <span class="font-bold ml-2">36,456,000</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="flex items-stretch w-full">
-                <div class="w-full md:w-1/3 px-2">
-                    <div class="text-white text-left shadow-xl p-2 bg-amber-400">
-                        <span class="text-2xl mb-2"><i class="far fa-user mr-2"></i>USERS</span>
-                        <ul class="p-0 list-none text-lg">
-                            <li class="my-2 inline-block w-1/2">Unpaid <span class="font-bold ml-2">137</span></li>
-                            <li class="my-2 inline-block w-1/2">Expired <span class="font-bold ml-2">3</span></li>
-                            <li class="my-2 inline-block w-1/2">Inactive <span class="font-bold ml-2">50</span></li>
-                            <li class="my-2 inline-block w-1/2">Blank <span class="font-bold ml-2">0</span></li>
+            <div class="flex items-stretch flex-wrap w-full">
+                <div class="w-full lg:w-1/2 xl:w-1/3 md:px-2 my-2 xl:my-0">
+                    <div class="text-white text-left shadow-xl p-3 rounded-lg h-full bg-amber-400">
+                        <h1 class="text-xl mb-2"><i class="far fa-user mr-2"></i>USERS</h1>
+                        <ul class="p-0 list-none text-lg grid grid-rows-2 grid-flow-col gap-2">
+                            <li>Unpaid <span class="font-bold ml-2">137</span></li>
+                            <li>Expired <span class="font-bold ml-2">3</span></li>
+                            <li>Inactive <span class="font-bold ml-2">50</span></li>
+                            <li>Blank <span class="font-bold ml-2">0</span></li>
                         </ul>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 px-2">
-                    <div class="text-white text-left shadow-xl p-2 bg-sky-400">
-                        <span class="text-2xl mb-2"><i class="far fa-ballot mr-2"></i>BILLS</span>
-                        <ul class="p-0 list-none text-lg">
-                            <li class="my-2 inline-block w-1/2">All <span class="font-bold ml-2">16</span></li>
-                            <li class="my-2 inline-block w-1/2">New <span class="font-bold ml-2">4</span></li>
-                            <li class="my-2 inline-block w-1/2">On Hold <span class="font-bold ml-2">6</span></li>
-                            <li class="my-2 inline-block w-1/2">In Progress <span class="font-bold ml-2">21</span></li>
+                <div class="w-full lg:w-1/2 xl:w-1/3 md:px-2 my-2 xl:my-0">
+                    <div class="text-white text-left shadow-xl p-3 rounded-lg h-full bg-sky-400">
+                        <h1 class="text-xl mb-2"><i class="far fa-ballot mr-2"></i>BILLS</h1>
+                        <ul class="p-0 list-none text-lg grid grid-rows-2 grid-flow-col gap-2">
+                            <li>All <span class="font-bold ml-2">16</span></li>
+                            <li>New <span class="font-bold ml-2">4</span></li>
+                            <li>On Hold <span class="font-bold ml-2">6</span></li>
+                            <li>In Progress <span class="font-bold ml-2">21</span></li>
                         </ul>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 px-2">
-                    <div class="text-white text-left shadow-xl p-2 bg-rose-500">
-                        <span class="text-2xl mb-2"><i class="far fa-user-headset mr-2"></i>TICKETS</span>
-                        <ul class="p-0 list-none text-lg">
-                            <li class="my-2 inline-block w-1/2">Subscribed <span class="font-bold ml-2">16 k</span></li>
-                            <li class="my-2 inline-block w-1/2">Buyer <span class="font-bold ml-2">4 k</span></li>
-                            <li class="my-2 inline-block w-1/2">Customer <span class="font-bold ml-2">6 k</span></li>
-                            <li class="my-2 inline-block w-1/2">Monthly <span class="font-bold ml-2">10 k</span></li>
+                <div class="w-full lg:w-1/2 xl:w-1/3 md:px-2 my-2 xl:my-0">
+                    <div class="text-white text-left shadow-xl p-3 rounded-lg h-full bg-rose-500">
+                        <h1 class="text-xl mb-2"><i class="far fa-user-headset mr-2"></i>TICKETS</h1>
+                        <ul class="p-0 list-none text-lg grid grid-rows-2 grid-flow-col gap-2">
+                            <li>Subscribed <span class="font-bold ml-2">16 k</span></li>
+                            <li>Customer <span class="font-bold ml-2">6 k</span></li>
+                            <li>Buyer <span class="font-bold ml-2">4 k</span></li>
+                            <li>Monthly <span class="font-bold ml-2">10 k</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-     {{-- end section 1 --}}
+    {{-- end section 1 --}}
+    <!--
     {{-- start section 2 --}}
-        <div class="w-full md:w-7/12 pr-2 text-slate-500">
+        <div class="w-full md:w-7/12 pr-2 text-slate-500 my-4">
             <div class="shadow-xl bg-on-white p-2">
                 <h1 class="text-2xl float-left mb-2 font-bold">Recent Purchases</h1>
                 <table class="table-auto text-left">
@@ -144,7 +144,7 @@
                 </table>
             </div>
         </div>
-        <div class="w-full m:w-5/12 shadow-xl bg-on-white p-2 text-slate-500">
+        <div class="w-full m:w-5/12 shadow-xl bg-on-white p-2 text-slate-500 my-4">
             <h1 class="text-2xl float-left mb-2 font-bold">Notifications</h1>
             <div>
                 <div class="my-2 p-2 rounded-xl flex justify-between items-center bg-rose-400">
@@ -176,7 +176,7 @@
         </div>
      {{-- end setion 2 --}}
      {{-- start section 3 --}}
-        <div class="w-full m:w-6/12 pr-2 text-slate-500">
+        <div class="w-full m:w-6/12 pr-2 text-slate-500 my-4">
             <div class="shadow-xl bg-on-white">
                 <h1 class="text-2xl float-left mb-2 font-bold">Transactions</h1>
                 <table class="table-auto text-left">
@@ -237,7 +237,7 @@
                 </table>
             </div>
         </div>
-        <div class="w-full m:w-4/12 pr-2 text-slate-500">
+        <div class="w-full m:w-4/12 pr-2 text-slate-500 my-4">
             <div class="shadow-xl bg-on-white">
                 <h1 class="text-2xl float-left mb-2 font-bold">Activities</h1>
                 <table class="table-auto text-left">
@@ -276,7 +276,7 @@
                 </table>
             </div>
         </div>
-        <div class="w-full m:w-2/12 shadow-xl bg-on-white p-2 text-slate-500">
+        <div class="w-full m:w-2/12 shadow-xl bg-on-white p-2 text-slate-500 my-4">
             <div class="my-2 w-2/5 p-2 rounded-xl flex justify-between items-center bg-yellow-400">
                 <span class="p-2 rounded-xl bg-yellow-200"><i class="far fa-phone bg-yellow-500"></i></span>
                 <p>Website</p>
@@ -300,6 +300,7 @@
                 </div>
             </div>
         </div>
-     {{-- end section 3 --}}
+    {{-- end section 3 --}}
+    -->
     </div>
 </x-zview-layout-default>

@@ -1,9 +1,4 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/userarea.js": "/js/userarea.js",
-    "/js/landing-opening.js": "/js/landing-opening.js",
     "/css/zeus/rtl.css": "/css/zeus/rtl.css",
-    "/css/zeus/style.css": "/css/zeus/style.css",
-    "/css/landing.css": "/css/landing.css",
-    "/css/app.css": "/css/app.css"
+    "/css/zeus/style.css": "/css/zeus/style.css"
 }
