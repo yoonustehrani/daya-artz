@@ -26,6 +26,10 @@ return [
         'full-access' => 'superadmin'
     ],
 
+    'custom' => [
+        'routes' => base_path('routes/custom.php')
+    ],
+
     'developers' => [
         [
             'name' => 'Yoonus Tehrani',

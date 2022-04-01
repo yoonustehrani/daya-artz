@@ -49,6 +49,9 @@
                     <i class="fas fa-user-tie"></i> {{ trans_choice('zlang::auth.admin', 2) }}
                 </x-zview::menu.item>
             @endcan
+            <x-zview::menu.item route="zeus.custom.tickets.index">
+                <i class="far fa-user-headset"></i> @lang('Tickets')
+            </x-zview::menu.item>
             <li>
                 <a href="#logout" id="logout-button">
                     <i class="fas fa-power-off"></i> @lang('zlang::auth.logout')
