@@ -60,6 +60,10 @@ Route::prefix('zeus')->name('zeus.')->group(function() {
         Route::view('/file-gallery', 'zview::pages.gallery')->name('file-gallery');
         Route::view('/test/multi', 'zview::components.forms.multi-select');
         Route::post('/test/multi', fn() => request()->input('options'));
+        Route::name('custom.')->group(function() {
+            $custom_route = config('zconfig.custom.routes');
+            require $custom_route;
+        });
     });
     // Auth Routes
     Route::name('auth.')->middleware(['guest:zeus'])->group(function () {

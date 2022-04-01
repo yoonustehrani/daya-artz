@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Zeus;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasOfferAttribute;
+use Zeus\Models\ZeusModel;
 
-class OrderItem extends Model
+class OrderItem extends ZeusModel
 {
     use HasFactory, HasOfferAttribute;
     const STATUS = [
@@ -53,16 +53,16 @@ class OrderItem extends Model
     {
         return $this->morphMany(Ticket::class, 'ticketable');
     }
-    public function getNormalAttribute()
-    {
-        return in_array($this->status, self::NORMAL_STATUS);
-    }
-    public function getStatusFaAttribute()
-    {
-        return __("userarea.orders.status.{$this->status}");
-    }
-    public function getCanceledAttribute()
-    {
-        return $this->status === 'canceled';
-    }
+    // public function getNormalAttribute()
+    // {
+    //     return in_array($this->status, self::NORMAL_STATUS);
+    // }
+    // public function getStatusFaAttribute()
+    // {
+    //     return __("userarea.orders.status.{$this->status}");
+    // }
+    // public function getCanceledAttribute()
+    // {
+    //     return $this->status === 'canceled';
+    // }
 }

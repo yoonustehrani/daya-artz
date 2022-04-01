@@ -36,7 +36,7 @@ trait AdjustmentsTracker
         foreach ($this->getDirty() as $col => $value) {
             if ($col !== $this->getUpdatedAtColumn()) {
                 $after[$col] = $value;
-                $before[$col] = $before_change[$col];
+                $before[$col] = $before_change[$col] ?? "???";
             }
         }
         return compact('before', 'after');

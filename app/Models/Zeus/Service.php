@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Zeus;
 
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Service extends Model
+class Service extends ZeusModel
 {
     public $timestamps = false;
-    protected $fillable = ['title', 'subtitle', 'slug', 'group', 'description', 'icon_class'];
+    public $asText = 'title';
     public function parent()
     {
         return $this->belongsTo(Service::class, 'parent_id');

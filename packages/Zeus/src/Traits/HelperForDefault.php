@@ -40,7 +40,7 @@ trait HelperForDefault
     {
         if ($rows instanceof \Illuminate\Support\Collection) {
             return $rows->filter(function($r) {
-                if ($r->model_relation_id && ! $this->relation_target_is_one($r)) return false;
+                if ($r->model_relation_id && ! in_array($r->relation->type, ['belongsTo'])) return false;
                 if($r->type === 'password') return false;
                 return ! $r->dynamic;
             })->pluck('field')->prepend($primary_key)->unique()->values()->toArray();
