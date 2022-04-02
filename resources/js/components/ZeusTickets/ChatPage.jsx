@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class chatPage extends Component {
+class ChatPage extends Component {
     render() {
         return (
-            <div>
+            <div className='w-full lg:w-9/12 h-full'>
                 
             </div>
         );
     }
 }
 
-export default chatPage;
+export default ChatPage;

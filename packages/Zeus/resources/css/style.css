@@ -1,6 +1,7 @@
 @import './datepicker.css';
 @import '../../../../node_modules/dropzone/dist/dropzone.css';
 @import '../fonts/fontawesome/css/all.css';
+@import 'react-activity/dist/Spinner.css';
 @layer base {
     html {
         width: 100%;
@@ -214,6 +215,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
     }
 }
 

@@ -327,6 +327,9 @@
 .h-5 {
         height: 1.25rem;
 }
+.h-\[calc\(100\%-36px\)\] {
+        height: calc(100% - 36px);
+}
 .h-24 {
         height: 6rem;
 }
@@ -970,6 +973,10 @@
 .bg-green-600\/50 {
         background-color: rgb(5 150 105 / 0.5);
 }
+.bg-slate-800 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
 .bg-opacity-30 {
         --tw-bg-opacity: 0.3;
 }
@@ -1459,6 +1466,10 @@
         --tw-text-opacity: 1;
         color: rgb(37 99 235 / var(--tw-text-opacity));
 }
+.text-gray-100 {
+        --tw-text-opacity: 1;
+        color: rgb(243 244 246 / var(--tw-text-opacity));
+}
 .underline {
         -webkit-text-decoration-line: underline;
                 text-decoration-line: underline;
@@ -1867,6 +1878,10 @@ ii.ml-2 {
         --tw-bg-opacity: 1;
         background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+.hover\:bg-slate-700:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+}
 .hover\:font-bold:hover {
         font-weight: 700;
 }
@@ -2201,6 +2216,9 @@ ii.ml-2 {
         }
         .md\:pl-4 {
                 padding-left: 1rem;
+        }
+        .md\:pb-5 {
+                padding-bottom: 1.25rem;
         }
         .md\:pl-0 {
                 padding-left: 0px;

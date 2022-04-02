@@ -28,7 +28,7 @@
         <div class="bg-ghost-white w-full h-full overflow-hidden float-left">
             <x-zview::sidebar />
             <div class="bg-ghost-white w-full md:w-4/5 h-full float-left relative">
-                <div id="main-scroller" class="w-full h-full float-left px-5 pt-5 pb-16 overflow-x-hidden overflow-y-auto r-float">
+                <div id="main-scroller" class="w-full h-full float-left px-5 pt-5 pb-16 md:pb-5 overflow-x-hidden overflow-y-auto r-float">
                     {{ $slot }}
                 </div>
             </div>
