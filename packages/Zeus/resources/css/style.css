@@ -113,6 +113,15 @@
         }
     }
 
+    .simple-table {
+        thead tr {
+            @apply font-bold;
+        }
+        th, td {
+            @apply p-5;
+        }
+    }
+
     .solid-input {
         @apply form-input bg-gray-100 rounded-md border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 block shadow-inner;
     }

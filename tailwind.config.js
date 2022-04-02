@@ -66,7 +66,8 @@ module.exports = {
                 "zeus-dashboard-vbg": "url('/images/zeus-images/dashboard-bvector.png')"
             },
             screens: {
-                'xs': "375px"
+                'xs': "375px",
+                '4k': "2560px"
             }
         },
     },
