@@ -4,6 +4,7 @@ const { default: plugin } = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
+        // landing
         "./resources/views/pages/landing/opening.blade.php",
         "./resources/views/components/layout/*.blade.php" ,
         "./resources/views/components/quick-order-form.blade.php",
@@ -17,6 +18,9 @@ module.exports = {
 		'./packages/ZeusExtensions/resources/views/**/*.blade.php',
 		'./packages/Zeus/resources/js/**/*.jsx',
 		'./packages/Zeus/src/View/**/*.php',
+        // custom zeus pages
+        './resources/views/custom/*.blade.php',
+        './resources/js/components/zeusTickets/*.jsx'
     ],
     theme: {
         fontFamily: {

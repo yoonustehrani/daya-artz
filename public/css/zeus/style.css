@@ -14886,6 +14886,11 @@ input:checked + .toggle-bg {
 .w-24 {
   width: 6rem; } 
 
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content; } 
+
 .w-8 {
   width: 2rem; } 
 
@@ -14897,11 +14902,6 @@ input:checked + .toggle-bg {
 
 .w-36 {
   width: 9rem; } 
-
-.w-max {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content; } 
 
 .min-w-\[60px\] {
   min-width: 60px; } 

@@ -65,6 +65,7 @@ mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
     require('tailwindcss'),
     require('autoprefixer')
 ])
+mix.js(res.js + "components/zeusTickets.js", pub.js).react()
 
 // just need to run once if you got an err
 //  .copy(pub.fonts + "fa-**", res.webfonts)
