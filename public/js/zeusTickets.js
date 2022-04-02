@@ -64,27 +64,31 @@ var ChatList = /*#__PURE__*/function (_Component) {
       var _this$props = this.props,
           tickets = _this$props.tickets,
           loadingTickets = _this$props.loadingTickets,
-          openTicket = _this$props.openTicket;
+          openTicket = _this$props.openTicket,
+          user;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "flex flex-col items-stretch w-full lg:w-3/12 overflow-y-auto hide-scrollbar h-full",
         children: loadingTickets ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_react_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
           size: 30
         }) : tickets && tickets.length ? tickets.map(function (ticket, i) {
+          var _user$avatar, _user$name, _ticket$title;
+
+          user = ticket === null || ticket === void 0 ? void 0 : ticket.user;
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
             href: "#",
             onClick: openTicket.bind(_this, ticket),
             className: "text-white text-base text-left bg-slate-800 hover:bg-slate-700 duration-300 p-2 flex items-stretch h-16",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
               className: "w-auto h-full rounded-full mr-2",
-              src: ticket.avatar,
+              src: (_user$avatar = user.avatar) !== null && _user$avatar !== void 0 ? _user$avatar : "",
               alt: "user avatart"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "flex flex-col justify-evenly",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-                children: ticket.name
+                children: (_user$name = user.name) !== null && _user$name !== void 0 ? _user$name : ""
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
                 className: "text-sm text-gray-100",
-                children: ticket.subtitle
+                children: (_ticket$title = ticket.title) !== null && _ticket$title !== void 0 ? _ticket$title : ""
               })]
             })]
           }, i);
@@ -114,7 +118,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _TicketChat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TicketChat */ "./resources/js/components/ZeusTickets/TicketChat.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -140,6 +145,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
+
 var ChatPage = /*#__PURE__*/function (_Component) {
   _inherits(ChatPage, _Component);
 
@@ -154,8 +162,59 @@ var ChatPage = /*#__PURE__*/function (_Component) {
   _createClass(ChatPage, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "w-full lg:w-9/12 h-full"
+      var _this$props2;
+
+      var _this$props$currentTi = (_this$props2 = this.props) === null || _this$props2 === void 0 ? void 0 : _this$props2.currentTicket,
+          user = _this$props$currentTi.user,
+          code = _this$props$currentTi.code,
+          title = _this$props$currentTi.title,
+          department = _this$props$currentTi.department,
+          status = _this$props$currentTi.status,
+          _this$props = this.props,
+          loadMoreMessages = _this$props.loadMoreMessages,
+          getMoreMessages = _this$props.getMoreMessages,
+          hasMore = _this$props.hasMore,
+          loadingMessages = _this$props.loadingMessages;
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "w-full lg:w-9/12 h-full",
+        children: this.props.currentTicket ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+            className: "w-full p-0 flex flex-wrap justify-evenly list-none text-slate-600 font-bold",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+              children: ["\u06A9\u062F \u062F\u0631\u062E\u0648\u0627\u0633\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "font-normal",
+                children: code
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+              children: ["\u0639\u0646\u0648\u0627\u0646 \u062F\u0631\u062E\u0648\u0627\u0633\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "font-normal",
+                children: title
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+              children: ["\u062F\u0631\u062E\u0648\u0627\u0633\u062A \u062F\u0647\u0646\u062F\u0647: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "font-normal",
+                children: user === null || user === void 0 ? void 0 : user.name
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+              children: ["\u0628\u062E\u0634: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "font-normal",
+                children: department
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+              children: ["\u0648\u0636\u0639\u06CC\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "font-normal",
+                children: status
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_TicketChat__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            getMoreMessages: getMoreMessages,
+            hasMore: hasMore,
+            loadingMessages: loadingMessages
+          })]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: "please select a ticket"
+        })
       });
     }
   }]);
@@ -164,6 +223,198 @@ var ChatPage = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ChatPage);
+
+/***/ }),
+
+/***/ "./resources/js/components/ZeusTickets/Departments.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/ZeusTickets/Departments.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Departments)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _react_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../react/components/LoaderComponent */ "./resources/js/react/components/LoaderComponent.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var Departments = /*#__PURE__*/function (_Component) {
+  _inherits(Departments, _Component);
+
+  var _super = _createSuper(Departments);
+
+  function Departments() {
+    _classCallCheck(this, Departments);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Departments, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.getDepartments();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var _this$props = this.props,
+          departments = _this$props.departments,
+          currentDepartment = _this$props.currentDepartment,
+          loadingDepartments = _this$props.loadingDepartments,
+          getTickets = _this$props.getTickets;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "flex flex-wrap justify-evenly w-full",
+        children: loadingDepartments ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_react_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          size: 30
+        }) : departments && departments.length ? departments.map(function (dep, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: "#dep",
+            onClick: getTickets.bind(_this, dep),
+            className: "my-3 py-2 px-4 text-xl bg-indigo-100 text-slate-900 hover:bg-indigo-300 ".concat(dep === currentDepartment && "bg-indigo-300"),
+            children: dep
+          }, i);
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: "There is no department to show"
+        })
+      });
+    }
+  }]);
+
+  return Departments;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ZeusTickets/TicketChat.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/components/ZeusTickets/TicketChat.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TicketChat)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-infinite-scroller */ "./node_modules/react-infinite-scroller/index.js");
+/* harmony import */ var react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+var TicketChat = /*#__PURE__*/function (_Component) {
+  _inherits(TicketChat, _Component);
+
+  var _super = _createSuper(TicketChat);
+
+  function TicketChat() {
+    _classCallCheck(this, TicketChat);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(TicketChat, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          getMoreMessages = _this$props.getMoreMessages,
+          hasMore = _this$props.hasMore,
+          loadingMessages = _this$props.loadingMessages;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "",
+        id: "userarea-ticket-scroller",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)((react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1___default()), {
+          pageStart: 0,
+          loadMore: getMoreMessages,
+          hasMore: hasMore && !loadingMessages,
+          useWindow: false,
+          getScrollParent: function getScrollParent() {
+            return document.getElementById('userarea-ticket-scroller');
+          },
+          isReverse: true,
+          initialLoad: false,
+          threshold: 50,
+          children: [loadingMessages && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "w-100 mt-3 d-flex justify-content-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Spinner, {
+              color: "#6332df",
+              size: 28
+            })
+          }), messages.map(function (message) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TicketMessage, _objectSpread({}, message), "".concat(message.id));
+          })]
+        })
+      });
+    }
+  }]);
+
+  return TicketChat;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+
 
 /***/ }),
 
@@ -181,7 +432,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _ChatList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatList */ "./resources/js/components/ZeusTickets/ChatList.jsx");
 /* harmony import */ var _ChatPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatPage */ "./resources/js/components/ZeusTickets/ChatPage.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Departments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Departments */ "./resources/js/components/ZeusTickets/Departments.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -212,6 +464,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var TicketsContiner = /*#__PURE__*/function (_Component) {
   _inherits(TicketsContiner, _Component);
 
@@ -224,50 +478,91 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
+    _defineProperty(_assertThisInitialized(_this), "getDepartments", function () {
+      // send department ajax here
+      _this.setState({
+        departments: ["بخش فروش", "بخش فنی", "بخش مالی", "بخش طراحی"],
+        loadingDepartments: false
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getTickets", function (department) {
+      _this.setState({
+        loadingTickets: true,
+        department: department
+      }, function () {
+        // send ajax for getting tickets here
+        _this.setState({
+          tickets: [{
+            user: {
+              avatar: "".concat(APP_PATH, "images/zeus-images/yoonus.jpg"),
+              name: "Yoonus Tehrani"
+            },
+            code: "j245igr",
+            title: "عدم ثبت درخواست",
+            department: "بخش فروش",
+            status: "درحال ویرایش"
+          }],
+          loadingTickets: false
+        });
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "openTicket", function (ticket) {
       console.log(ticket);
     });
 
+    _defineProperty(_assertThisInitialized(_this), "loadMoreMessages", function () {});
+
     _this.state = {
+      departments: [],
+      currentDepartment: "",
       tickets: [],
-      currentTicket: null,
-      loadingTickets: true,
-      loadingCurrentTicket: true
+      currentTicket: {},
+      loadingMessages: false,
+      hasMore: false,
+      loadingTickets: false,
+      loadingCurrentTicket: false,
+      loadingDepartments: true
     };
     return _this;
   }
 
   _createClass(TicketsContiner, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      setTimeout(function () {
-        _this2.setState({
-          tickets: [{
-            avatar: "".concat(APP_PATH, "images/zeus-images/yoonus.jpg"),
-            name: "Yoonus Tehrani",
-            subtitle: "this is a test"
-          }],
-          loadingTickets: false
-        });
-      }, 1000);
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
+          departments = _this$state.departments,
+          currentDepartment = _this$state.currentDepartment,
           tickets = _this$state.tickets,
           currentTicket = _this$state.currentTicket,
-          loadingTickets = _this$state.loadingTickets;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          loadingTickets = _this$state.loadingTickets,
+          loadingCurrentTicket = _this$state.loadingCurrentTicket,
+          loadingDepartments = _this$state.loadingDepartments,
+          loadingMessages = _this$state.loadingMessages,
+          hasMore = _this$state.hasMore;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "w-full h-full mt-5 flex items-stretch",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ChatList__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          tickets: tickets,
-          openTicket: this.openTicket,
-          loadingTickets: loadingTickets
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ChatPage__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          currentTicket: currentTicket
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Departments__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          departments: departments,
+          currentDepartment: currentDepartment,
+          loadingDepartments: loadingDepartments,
+          getDepartments: this.getDepartments,
+          getTickets: this.getTickets
+        }), currentDepartment && !loadingDepartments ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ChatList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            tickets: tickets,
+            openTicket: this.openTicket,
+            loadingTickets: loadingTickets
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ChatPage__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            currentTicket: currentTicket,
+            loadingCurrentTicket: loadingCurrentTicket,
+            loadMoreMessages: this.loadMoreMessages,
+            loadingMessages: loadingMessages,
+            hasMore: hasMore
+          })]
+        }) : !loadingDepartments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: "please select a depaartment to see the relavent ticekts"
         })]
       });
     }
@@ -277,6 +572,28 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TicketsContiner);
+
+/***/ }),
+
+/***/ "./resources/js/components/zeusTickets.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/zeusTickets.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _ZeusTickets_TicketsContiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ZeusTickets/TicketsContiner */ "./resources/js/components/ZeusTickets/TicketsContiner.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var elem = document.getElementById("react-ticket-element");
+
+if (elem) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_ZeusTickets_TicketsContiner__WEBPACK_IMPORTED_MODULE_1__["default"], {}), elem);
+}
 
 /***/ }),
 
@@ -317,6 +634,32 @@ function LoaderComponent(_ref) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoaderComponent);
+
+/***/ }),
+
+/***/ "./packages/Zeus/resources/css/style.css":
+/*!***********************************************!*\
+  !*** ./packages/Zeus/resources/css/style.css ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./packages/Zeus/resources/css/rtl.css":
+/*!*********************************************!*\
+  !*** ./packages/Zeus/resources/css/rtl.css ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -31557,7 +31900,42 @@ if (false) {} else {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -31598,27 +31976,70 @@ if (false) {} else {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/zeusTickets": 0,
+/******/ 			"css/zeus/rtl": 0,
+/******/ 			"css/zeus/style": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!************************************************!*\
-  !*** ./resources/js/components/zeusTickets.js ***!
-  \************************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _ZeusTickets_TicketsContiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ZeusTickets/TicketsContiner */ "./resources/js/components/ZeusTickets/TicketsContiner.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var elem = document.getElementById("react-ticket-element");
-
-if (elem) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_ZeusTickets_TicketsContiner__WEBPACK_IMPORTED_MODULE_1__["default"], {}), elem);
-}
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style"], () => (__webpack_require__("./resources/js/components/zeusTickets.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style"], () => (__webpack_require__("./packages/Zeus/resources/css/style.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style"], () => (__webpack_require__("./packages/Zeus/resources/css/rtl.css")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;

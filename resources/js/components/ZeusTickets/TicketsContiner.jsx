@@ -1,39 +1,67 @@
 import React, { Component } from 'react';
 import ChatList from './ChatList';
 import ChatPage from './ChatPage';
+import Departments from './Departments';
 
 class TicketsContiner extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            departments: [],
+            currentDepartment: "",
             tickets: [],
-            currentTicket: null,
-            loadingTickets: true,
-            loadingCurrentTicket: true
+            currentTicket: {},
+            loadingMessages: false,
+            hasMore: false,
+            loadingTickets: false,
+            loadingCurrentTicket: false,
+            loadingDepartments: true
         }
     }
 
-    openTicket = (ticket) => {
-        console.log(ticket);
+    getDepartments = () => {
+        // send department ajax here
+        this.setState({
+            departments: ["بخش فروش", "بخش فنی", "بخش مالی", "بخش طراحی"],
+            loadingDepartments: false
+        })
     }
-
-    componentDidMount() {
-        setTimeout(() => {
+    getTickets = (department) => {
+        this.setState({loadingTickets: true, department: department}, () => {
+            // send ajax for getting tickets here
             this.setState({
                 tickets: [
-                    {avatar: `${APP_PATH}images/zeus-images/yoonus.jpg`, name: "Yoonus Tehrani", subtitle: "this is a test"}
+                    {
+                        user: {
+                            avatar: `${APP_PATH}images/zeus-images/yoonus.jpg`,
+                            name: "Yoonus Tehrani",
+                        },
+                        code: "j245igr",
+                        title: "عدم ثبت درخواست",
+                        department: "بخش فروش",
+                        status: "درحال ویرایش",
+                    }
                 ],
                 loadingTickets: false
             })
-        }, 1000);
+        })
+    }
+    openTicket = (ticket) => {
+        console.log(ticket);
+    }
+    loadMoreMessages = () => {
+
     }
     
     render() {
-        let { tickets, currentTicket, loadingTickets } = this.state
+        let { departments, currentDepartment, tickets, currentTicket, loadingTickets, loadingCurrentTicket, loadingDepartments, loadingMessages, hasMore } = this.state
         return (
             <div className='w-full h-full mt-5 flex items-stretch'>
-                <ChatList tickets={tickets} openTicket={this.openTicket} loadingTickets={loadingTickets} />
-                <ChatPage currentTicket={currentTicket} />
+                <Departments departments={departments} currentDepartment={currentDepartment} loadingDepartments={loadingDepartments} getDepartments={this.getDepartments} getTickets={this.getTickets} />
+                {currentDepartment && !loadingDepartments ? <>
+                    <ChatList tickets={tickets} openTicket={this.openTicket} loadingTickets={loadingTickets} />
+                    <ChatPage currentTicket={currentTicket} loadingCurrentTicket={loadingCurrentTicket} loadMoreMessages={this.loadMoreMessages} loadingMessages={loadingMessages} hasMore={hasMore} />
+                </> : !loadingDepartments && <p>please select a depaartment to see the relavent ticekts</p>}
             </div>
         );
     }
