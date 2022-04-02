@@ -54,7 +54,11 @@ Route::prefix('zeus')->name('zeus.')->group(function() {
                 Route::resource($slug, DefaultController::class)->only($modeltype->details->auto)->parameters([$slug => 'id']);
                 Route::resource($slug, $modeltype->controller)->except($modeltype->details->auto)->parameters([$slug => 'id']);
             } else {
-                Route::resource($slug, $controller)->parameters([$slug => 'id']);
+                $resourced_auto = Route::resource($slug, $controller)->parameters([$slug => 'id']);
+                $auto = optional($modeltype->details)->auto;
+                if (is_array($auto)) {
+                    $resourced_auto->only($auto);
+                }
             }
         }
         Route::view('/file-gallery', 'zview::pages.gallery')->name('file-gallery');

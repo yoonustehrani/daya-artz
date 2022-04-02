@@ -2,7 +2,7 @@
     <label for="id_{{ $row->field }}">
         <span class="text-gray-700 italic">@lang($row->title) :</span>
     </label>
-    <input type="hidden" name="tags[value]" value="{{ $value ? $value->pluck('id')->toJson() : null }}">
+    <input type="hidden" name="{{ $row->field }}[value]" value="{{ $value ? $value->pluck('id')->toJson() : null }}">
     <div 
         data-from="{{ $row->field }}[value]"
         data-initial="{{ $value ? $value->toJson() : null }}"
