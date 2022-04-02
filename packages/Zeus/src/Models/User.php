@@ -105,4 +105,9 @@ class User extends Authenticatable
     {
         return $this->roles->whereIn('key', $keys)->count() === count($keys);
     }
+
+    public function getAsTextAttribute()
+    {
+        return "{$this->email} - {$this->fullname}";
+    }
 }

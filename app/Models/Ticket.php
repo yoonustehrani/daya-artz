@@ -54,6 +54,10 @@ class Ticket extends Model
     {
         return $this->hasMany(TicketMessage::class);
     }
+    public function unread_messages()
+    {
+        return $this->messages()->unread();
+    }
     public function getMessagingIsAllowedAttribute()
     {
         return in_array($this->getRawOriginal('status'), static::ALLOWED_STATUSES) && is_null($this->closed_at);

@@ -36,4 +36,8 @@ Route::prefix('zeus')->middleware([
             // });
         }
     }
+    Route::name('custom.')->group(function() {
+        $custom_route = config('zconfig.custom.api-routes');
+        require $custom_route;
+    });
 });

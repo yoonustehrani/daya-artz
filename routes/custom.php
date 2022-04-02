@@ -1,5 +1,5 @@
 <?php
 
-Route::get('support-tickets', function() {
-    return view('custom.tickets');
-})->name('tickets.index');
+use App\Http\Controllers\Zeus\TicketController;
+
+Route::get('support-tickets', [TicketController::class, 'page'])->name('tickets.index');
