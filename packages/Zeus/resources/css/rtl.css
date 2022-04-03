@@ -1,7 +1,13 @@
+@font-face {
+    font-family: 'Iransansweb';
+    src: url(/fonts/IRANSansWeb.ttf) format("truetype");
+}
 @layer utilities {
+    h1,h2,h3,h4,h5,h6,p,span,button, a, ul, li, input, textarea, blockquote, label {
+        font-family: 'Iransansweb' !important;
+    }
     body {
-        direction: rtl;
-        text-align: right;
+        @apply [direction:rtl] text-right font-iransans;
         .sidebar {
             @apply float-right md:rounded-r-none md:rounded-l-2xl;
         }
@@ -23,8 +29,8 @@
             tbody tr td:nth-child(2) {@apply text-right}
         }
         .r-float {
-            .float-left {float: right}
-            .float-right {float: left}
+            .float-left {@apply [float:right]}
+            .float-right {@apply [float:left]}
         }
         .filter-searchbar {
             .rounded-l-md {@apply rounded-l-none rounded-r-[0.375rem]}
@@ -36,7 +42,7 @@
     }
     .toggle-bg:after {@apply right-[0.125rem]}
     input:checked + .toggle-bg:after {
-        transform: translateX(-100%);
+        @apply -translate-x-full
     }
     label span.ml-1:last-child {@apply mr-1 ml-0}
     button.rounded-r-xl[type=submit] {@apply rounded-none rounded-l-xl}

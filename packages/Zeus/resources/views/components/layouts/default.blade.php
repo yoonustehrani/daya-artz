@@ -42,6 +42,7 @@
         <script>
             APP_PATH = "{{ asset('/') }}"
             API_PATH = "{{ route('api.zeus.') }}"
+            API_BASE_URL = "{{ route('api.') }}"
         </script>
         <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
         <script src="{{ asset('js/zeus/app.js') }}"></script>
