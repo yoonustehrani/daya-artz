@@ -17,7 +17,7 @@ export default class Departments extends Component {
                         <span className='group-hover:inline opacity-0 group-hover:opacity-100 w-max duration-300 absolute left-1/2 bg-slate-800 text-white -top-2 rounded-lg -translate-y-full -translate-x-1/2 px-4 py-2 text-sm tooltip'>{dep.about}</span>
                     </a>
                 )) 
-                : <p className='w-fit mx-auto mt-6'>There is no department to show</p>}
+                : <p className='w-fit mx-auto mt-6'>دپارتمانی برای نمایش وجود ندارد</p>}
             </div>
         )
     }

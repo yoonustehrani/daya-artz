@@ -374,9 +374,6 @@
 .max-h-96 {
     max-height: 24rem;
 }
-.max-h-\[280px\] {
-    max-height: 280px;
-}
 .min-h-screen {
     min-height: 100vh;
 }
@@ -431,9 +428,6 @@
 }
 .w-1\/2 {
     width: 50%;
-}
-.w-11\/12 {
-    width: 91.666667%;
 }
 .w-2\/3 {
     width: 66.666667%;
@@ -1825,6 +1819,26 @@ ii.ml-2 {
     margin-right: 0px;
     margin-left: 0.5rem;
 }
+.p-left.pl-2 {
+    padding-left: 0px;
+    padding-right: 0.5rem;
+}
+.m-left {
+    margin-left: 0px;
+    margin-right: 0.5rem;
+}
+i.m-left {
+    margin-right: 0px;
+    margin-left: 0.5rem;
+}
+.ml-3.fa-clock {
+    margin-left: 0.25rem;
+    margin-right: 0.75rem;
+}
+label span.ml-3.fa-clock:last-child {
+    margin-right: 0.25rem;
+    margin-left: 0px;
+}
 .\[direction\:ltr\] {
     direction: ltr;
 }
@@ -2454,6 +2468,12 @@ ii.ml-2 {
     }
     ii.lg\:ml-2 {
         margin-left: 0.5rem;
+    }
+        .p-left.lg\:pl-2 {
+        padding-left: 0px;
+    }
+        .p-left.lg\:pl-2 {
+        padding-right: 0.5rem;
     }
 }
 @media (min-width: 1280px) {

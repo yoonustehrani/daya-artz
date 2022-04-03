@@ -15,7 +15,7 @@ export default class TicketChat extends Component {
         let { loadMoreMessages, loadingMessages, messages, messagesPagination, sendMsg, sendingMsg } = this.props, {newMsg} = this.state
         return (
             <>
-            <div className="max-h-96 overflow-y-auto custom-scrollbar shadow-md px-2" id='ticket-chat-scroller'>
+            <div className="max-h-96 overflow-y-auto custom-scrollbar px-2 mt-2 w-full" id='ticket-chat-scroller'>
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={loadMoreMessages}
@@ -31,11 +31,11 @@ export default class TicketChat extends Component {
                 {messages && messages.length && messages.map((message) => <TicketMessage key={`${message.id}`} {...message} />)} 
                 </InfiniteScroll>
             </div>
-            <div className="h-52 mt-3">
+            <div className="h-52 mt-3 p-3">
                 <textarea className="h-[calc(100%-3.75rem)] w-full simple-textarea" onChange={(e) => this.setState({newMsg: e.target.value})} value={newMsg}></textarea>
                 <div className='text-center pt-3'>
                     <a onClick={sendMsg.bind(this, newMsg)} href="#" className="p-3 bg-indigo-200 inline-block hover:bg-indigo-300 duration-300 text-slate-800 rounded-md">ارسال پیام</a>
-                    {sendingMsg && <div className='w-fit inline-block translate-y-2 ml-2'><Windmill size={25} color="#6332df" /></div>}
+                    {sendingMsg && <div className='w-fit inline-block translate-y-2 ml-2 m-left'><Windmill size={25} color="#6332df" /></div>}
                 </div>
             </div>
             </>

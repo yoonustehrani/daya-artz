@@ -19,14 +19,14 @@ class ChatList extends Component {
                 { tickets.map((ticket, i) => {
                     let { closed_at, created_at, deleted_at, id, messaging_is_allowed, notes, status, title, tracking_code, unread_messages_count, updated_at } = ticket
                     return (
-                        <a key={i} href='#' onClick={openTicket.bind(this, id, true)} className="text-white text-sm text-left bg-indigo-100 hover:bg-indigo-200 duration-300 p-2 flex justify-between items-center h-16">
+                        <a key={i} href='#' onClick={openTicket.bind(this, id, true)} className="text-white text-smlg:pl-2  bg-indigo-100 hover:bg-indigo-200 duration-300 p-2 flex justify-between items-center h-16">
                             <span className='rounded-full inline-flex min-w-[2rem] h-8 justify-center items-center text-center bg-emerald-500'>{unread_messages_count}</span>
                             <p className='text-slate-900 text-xs font-bold mx-2'>{title}</p>
-                            <span className='bg-orange-300 py-1 px-2 rounded-full'>{status}</span>
+                            <span className='bg-orange-300 py-1 px-2 rounded-full min-w-fit'>{status}</span>
                         </a>
                     )})
                 }</InfiniteScroll>
-                : <p className='w-fit mx-auto mt-6'>There is no ticket at the moment</p> }
+                : <p className='w-fit mx-auto mt-6'>در حال حاضر درخواستی وجود ندارد</p> }
             </div>
         );
     }

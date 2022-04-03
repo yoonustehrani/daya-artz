@@ -2163,7 +2163,7 @@ var ChatList = /*#__PURE__*/function (_Component) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
               href: "#",
               onClick: openTicket.bind(_this, id, true),
-              className: "text-white text-sm text-left bg-indigo-100 hover:bg-indigo-200 duration-300 p-2 flex justify-between items-center h-16",
+              className: "text-white text-smlg:pl-2  bg-indigo-100 hover:bg-indigo-200 duration-300 p-2 flex justify-between items-center h-16",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                 className: "rounded-full inline-flex min-w-[2rem] h-8 justify-center items-center text-center bg-emerald-500",
                 children: unread_messages_count
@@ -2171,14 +2171,14 @@ var ChatList = /*#__PURE__*/function (_Component) {
                 className: "text-slate-900 text-xs font-bold mx-2",
                 children: title
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "bg-orange-300 py-1 px-2 rounded-full",
+                className: "bg-orange-300 py-1 px-2 rounded-full min-w-fit",
                 children: status
               })]
             }, i);
           })
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
           className: "w-fit mx-auto mt-6",
-          children: "There is no ticket at the moment"
+          children: "\u062F\u0631 \u062D\u0627\u0644 \u062D\u0627\u0636\u0631 \u062F\u0631\u062E\u0648\u0627\u0633\u062A\u06CC \u0648\u062C\u0648\u062F \u0646\u062F\u0627\u0631\u062F"
         })
       });
     }
@@ -2236,7 +2236,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var ChatPage = /*#__PURE__*/function (_Component) {
   _inherits(ChatPage, _Component);
 
@@ -2276,10 +2275,11 @@ var ChatPage = /*#__PURE__*/function (_Component) {
           deleted_at = _ref.deleted_at;
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "w-full lg:w-9/12 lg:pl-2 h-full",
+        className: "w-full lg:w-9/12 lg:pl-2 h-full p-left",
         children: loadingCurrentTicket ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_react_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_1__["default"], {
           size: 30
-        }) : this.props.currentTicket ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+        }) : this.props.currentTicket ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "bg-on-white",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
             className: "w-full p-0 flex flex-wrap list-none text-slate-900 font-bold",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
@@ -2332,7 +2332,7 @@ var ChatPage = /*#__PURE__*/function (_Component) {
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {
-            className: "text-slate-900 w-11/12 mx-auto"
+            className: "text-slate-900 w-full mx-auto border-2"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_TicketChat__WEBPACK_IMPORTED_MODULE_3__["default"], {
             loadMoreMessages: loadMoreMessages,
             messages: ticketMessages,
@@ -2344,7 +2344,7 @@ var ChatPage = /*#__PURE__*/function (_Component) {
           })]
         }) : tickets.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
           className: "w-fit mx-auto mt-6",
-          children: "please select a ticket"
+          children: "\u0644\u0637\u0641\u0627 \u06CC\u06A9\u06CC \u0627\u0632 \u062A\u06CC\u06A9\u062A \u0647\u0627 \u0631\u0627 \u0627\u0646\u062A\u062E\u0627\u0628 \u06A9\u0646\u06CC\u062F"
         }) : null
       });
     }
@@ -2440,7 +2440,7 @@ var Departments = /*#__PURE__*/function (_Component) {
           }, dep.id);
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
           className: "w-fit mx-auto mt-6",
-          children: "There is no department to show"
+          children: "\u062F\u067E\u0627\u0631\u062A\u0645\u0627\u0646\u06CC \u0628\u0631\u0627\u06CC \u0646\u0645\u0627\u06CC\u0634 \u0648\u062C\u0648\u062F \u0646\u062F\u0627\u0631\u062F"
         })
       });
     }
@@ -2552,7 +2552,7 @@ var TicketChat = /*#__PURE__*/function (_Component) {
           newMsg = this.state.newMsg;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "max-h-96 overflow-y-auto custom-scrollbar shadow-md px-2",
+          className: "max-h-96 overflow-y-auto custom-scrollbar px-2 mt-2 w-full",
           id: "ticket-chat-scroller",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)((react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1___default()), {
             pageStart: 0,
@@ -2573,7 +2573,7 @@ var TicketChat = /*#__PURE__*/function (_Component) {
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "h-52 mt-3",
+          className: "h-52 mt-3 p-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
             className: "h-[calc(100%-3.75rem)] w-full simple-textarea",
             onChange: function onChange(e) {
@@ -2590,7 +2590,7 @@ var TicketChat = /*#__PURE__*/function (_Component) {
               className: "p-3 bg-indigo-200 inline-block hover:bg-indigo-300 duration-300 text-slate-800 rounded-md",
               children: "\u0627\u0631\u0633\u0627\u0644 \u067E\u06CC\u0627\u0645"
             }), sendingMsg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "w-fit inline-block translate-y-2 ml-2",
+              className: "w-fit inline-block translate-y-2 ml-2 m-left",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_5__.Windmill, {
                 size: 25,
                 color: "#6332df"
@@ -2864,10 +2864,20 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
       var reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
       if (reset) {
+        var tickets = _this.state.tickets,
+            targetTicket = tickets.find(function (obj) {
+          return obj.id === ticketId;
+        }),
+            targetIndex = tickets.indexOf(targetTicket);
+        targetTicket.unread_messages_count = 0;
+        var finalTickets = tickets;
+        finalTickets[targetIndex] = targetTicket;
+
         _this.setState({
           currentTicket: null,
           ticketMessages: [],
-          messagesPagination: {}
+          messagesPagination: {},
+          tickets: finalTickets
         });
       }
 
@@ -2902,8 +2912,7 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
                         return new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1;
                       }).concat(_toConsumableArray(prevState.ticketMessages)),
                       loadingCurrentTicket: false,
-                      loadingMessages: false // tickets: [...prevState.tickets]
-
+                      loadingMessages: false
                     };
                   });
                 }
@@ -3030,7 +3039,7 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
           })]
         }) : !loadingDepartments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
           className: "w-fit mx-auto mt-6",
-          children: "please select a department to see the relavent ticekts"
+          children: "\u0644\u0637\u0641\u0627 \u06CC\u06A9\u06CC \u0627\u0632 \u062F\u067E\u0627\u0631\u062A\u0645\u0627\u0646 \u0647\u0627 \u0631\u0627 \u0627\u0646\u062A\u062E\u0627\u0628 \u06A9\u0646\u06CC\u062F"
         })]
       });
     }

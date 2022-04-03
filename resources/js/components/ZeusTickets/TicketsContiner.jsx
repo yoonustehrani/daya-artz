@@ -60,8 +60,14 @@ class TicketsContiner extends Component {
     }
     openTicket = (ticketId, reset=false) => {
         if (reset) {
+            let { tickets } = this.state,
+            targetTicket = tickets.find(obj => obj.id === ticketId),
+            targetIndex = tickets.indexOf(targetTicket)
+            targetTicket.unread_messages_count = 0
+            let finalTickets = tickets
+            finalTickets[targetIndex] = targetTicket
             this.setState({
-                currentTicket: null, ticketMessages: [], messagesPagination: {}
+                currentTicket: null, ticketMessages: [], messagesPagination: {}, tickets: finalTickets
             })
         }
         this.setState({loadingCurrentTicket: reset, loadingMessages: !reset}, async () => {
@@ -75,7 +81,6 @@ class TicketsContiner extends Component {
                     ticketMessages: messages.data.sort((a, b) => new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1).concat([...prevState.ticketMessages]),
                     loadingCurrentTicket: false,
                     loadingMessages: false,
-                    // tickets: [...prevState.tickets]
                 }))
             }
         })
@@ -106,7 +111,7 @@ class TicketsContiner extends Component {
                 {currentDepartment && !loadingDepartments ? <div className='w-full mt-6 flex items-stretch'>
                     <ChatList tickets={tickets} openTicket={this.openTicket} loadingTickets={loadingTickets} ticketsPagination={ticketsPagination} getTickets={this.getTickets} currentDepartment={currentDepartment} />
                     <ChatPage tickets={tickets} currentTicket={currentTicket} loadingCurrentTicket={loadingCurrentTicket} ticketMessages={ticketMessages} loadMoreMessages={this.openTicket} loadingMessages={loadingMessages} messagesPagination={messagesPagination} sendMsg={this.sendMsg} sendingMsg={sendingMsg} scrollToEnd={this.scrollToEnd} />
-                </div> : !loadingDepartments && <p className='w-fit mx-auto mt-6'>please select a department to see the relavent ticekts</p>}
+                </div> : !loadingDepartments && <p className='w-fit mx-auto mt-6'>لطفا یکی از دپارتمان ها را انتخاب کنید</p>}
             </div>
         );
     }

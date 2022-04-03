@@ -48,5 +48,10 @@
     button.rounded-r-xl[type=submit] {@apply rounded-none rounded-l-xl}
     i.mr-2 {@apply mr-0 ml-[0.5rem]}
     i.ml-2 {@apply ml-0 mr-2}
+    .p-left {
+        &.pl-2 {@apply pl-0 pr-2}
+    }
+    .m-left {@apply ml-0 mr-2}
+    .ml-3.fa-clock {@apply ml-1 mr-3}
 }
 @tailwind utilities;
