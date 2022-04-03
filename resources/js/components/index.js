@@ -12,6 +12,7 @@ import 'select2/dist/js/select2.min.js'
 import './services'
 import './scrollTo'
 import './portfolioImages'
+import './loadEnamad'
 
 // quick order
 const quickOrderElement = document.getElementById("react-quick-order")
