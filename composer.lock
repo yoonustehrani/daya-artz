@@ -1607,11 +1607,7 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-<<<<<<< HEAD
-            "time": "2022-03-28T13:53:05+00:00"
-=======
             "time": "2022-02-16T14:40:23+00:00"
->>>>>>> dev
         },
         {
             "name": "laravel/serializable-closure",
