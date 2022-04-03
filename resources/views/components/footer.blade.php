@@ -29,7 +29,7 @@
                     <li><a href="{{ route('userarea', ['path' => 'tickets']) }}">ارسال تیکت</a></li>
                 </ul>
                 <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" alt="zarin-paal" class="float-right ml-2">
-                <img src="{{ asset('images/gallery/etemad-namad.png') }}" alt="etemead" class="float-right">
+                <a id="enamad-logo" referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=269100&amp;Code=RUmxsLwfWAGM1kGgdjv4"></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12">
