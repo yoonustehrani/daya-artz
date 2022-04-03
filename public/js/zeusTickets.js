@@ -2552,7 +2552,7 @@ var TicketChat = /*#__PURE__*/function (_Component) {
           newMsg = this.state.newMsg;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "max-h-[280px] overflow-y-auto custom-scrollbar shadow-md px-2",
+          className: "max-h-96 overflow-y-auto custom-scrollbar shadow-md px-2",
           id: "ticket-chat-scroller",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)((react_infinite_scroller__WEBPACK_IMPORTED_MODULE_1___default()), {
             pageStart: 0,
@@ -2902,7 +2902,8 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
                         return new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1;
                       }).concat(_toConsumableArray(prevState.ticketMessages)),
                       loadingCurrentTicket: false,
-                      loadingMessages: false
+                      loadingMessages: false // tickets: [...prevState.tickets]
+
                     };
                   });
                 }

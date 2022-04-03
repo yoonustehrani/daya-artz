@@ -74,7 +74,8 @@ class TicketsContiner extends Component {
                     messagesPagination: {current_page: messages.current_page, next_page_url: messages.next_page_url, hasMore: messages.next_page_url !== null},
                     ticketMessages: messages.data.sort((a, b) => new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1).concat([...prevState.ticketMessages]),
                     loadingCurrentTicket: false,
-                    loadingMessages: false
+                    loadingMessages: false,
+                    // tickets: [...prevState.tickets]
                 }))
             }
         })

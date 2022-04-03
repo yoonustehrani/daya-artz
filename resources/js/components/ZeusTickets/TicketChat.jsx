@@ -15,7 +15,7 @@ export default class TicketChat extends Component {
         let { loadMoreMessages, loadingMessages, messages, messagesPagination, sendMsg, sendingMsg } = this.props, {newMsg} = this.state
         return (
             <>
-            <div className="max-h-[280px] overflow-y-auto custom-scrollbar shadow-md px-2" id='ticket-chat-scroller'>
+            <div className="max-h-96 overflow-y-auto custom-scrollbar shadow-md px-2" id='ticket-chat-scroller'>
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={loadMoreMessages}
