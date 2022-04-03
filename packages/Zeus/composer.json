@@ -1,0 +1,21 @@
+{
+    "name": "tehrani/zeus-cms",
+    "type": "project",
+    "require": {
+        "laravel/framework": "8.x",
+        "php": ">=7.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tehrani\\ZeusCms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yoonus",
+            "email": "yoonustehrani28@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

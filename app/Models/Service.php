@@ -8,6 +8,10 @@ class Service extends Model
 {
     public $timestamps = false;
     protected $fillable = ['title', 'subtitle', 'slug', 'group', 'description', 'icon_class'];
+    public function parent()
+    {
+        return $this->belongsTo(Service::class, 'parent_id');
+    }
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class, 'service_attribute');

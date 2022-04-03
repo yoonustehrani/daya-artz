@@ -5,8 +5,9 @@ namespace App\Models;
 use App\Traits\HasDetailsAttribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Portfolio extends Model
+class Portfolio extends ZeusModel
 {
     use HasFactory, HasDetailsAttribute;
 
@@ -14,10 +15,10 @@ class Portfolio extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
-    public function image()
-    {
-        return $this->morphOne(Image::class, 'imageable')->latest();
-    }
+    // public function image()
+    // {
+    //     return $this->morphOne(Image::class, 'imageable')->latest();
+    // }
     public function service()
     {
         return $this->belongsTo(Service::class);

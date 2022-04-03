@@ -2402,6 +2402,8 @@ $labelData: '';
             object-fit: cover;
             object-position: center;
             box-shadow: 4px 4px 8px #b5bfd9;
+            animation-duration: 0.5s;
+            animation-delay: 0;
         }
         &::after {
             content: "";
@@ -2637,7 +2639,7 @@ $labelData: '';
             color: #000;
             text-align: center;
             i {
-                font-size: 12px;
+                font-size: 20px;
                 margin-bottom: 20px;
             }
         }

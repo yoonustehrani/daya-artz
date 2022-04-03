@@ -18,7 +18,6 @@ class WebsiteController extends Controller
     public function services()
     {
         $service_groups = Service::whereNull('parent_id')->select("*")->where('group', '<>', 'main')->get()->groupBy('group');
-        
         return view('pages.services.index', compact('service_groups'));
     }
     public function service($slug)

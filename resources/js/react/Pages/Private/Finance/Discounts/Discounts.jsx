@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
+import copyToClipboard from '../../../../../components/copy';
 import Paginate from '../../../../../components/Paginate';
-import AlertService from '../../../../../services/AlertService';
 import { useHttpService } from '../../../../hooks';
 import Loading from '../../Layout/components/Loading';
 import NoItem from '../../Layout/components/NoItem';
@@ -31,17 +31,6 @@ class Discounts extends Component {
             }
         })
     }
-    copyToClipboard(code) {
-        navigator.permissions.query({name: "clipboard-write"}).then(result => {
-            if (result.state == "granted" || result.state == "prompt") {
-                navigator.clipboard.writeText(code).then(function() {
-                    (new AlertService).success({timer: 2000, title: 'کد تخفیف در حافظه موقت کپی شد'})
-                }, () => {
-                    (new AlertService).error({timer: 2000, title: 'متاسفانه در هنگام کپی مشکلی پیش آمد'})
-                });
-            }
-        });
-    }
     getOfferValue(offer) {
         return offer.value_type === 'amount' ? `${offer.value} تومان` : `${offer.value}%`;
     }
@@ -62,7 +51,7 @@ class Discounts extends Component {
                                 <p className='shadowed-text'>{discount.title}</p>
                                 <p>{this.getOfferValue(discount)}</p>
                                 <p className='shadowed-text'>{discount.description}</p>
-                                <span onClick={() => this.copyToClipboard(discount.code)} className="cursor-pointer w-50 badge bg-pink p-2 rounded-pill bold ltr">
+                                <span onClick={() => this.copyToClipboard(discount.code, "کد تخفیف")} className="cursor-pointer w-50 badge bg-pink p-2 rounded-pill bold ltr">
                                     <i className="fas fa-copy mr-2"></i>{discount.code}
                                 </span>
                             </div>

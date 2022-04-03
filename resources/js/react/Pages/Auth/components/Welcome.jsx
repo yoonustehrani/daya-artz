@@ -4,7 +4,7 @@ class welcome extends Component {
     componentDidMount() {
         let { state } = this.props, elements = $(".change-form-content").find("h2, p")
         elements.map((i, elem) => {
-            if ((state === "signup" || state === "email") || state === "phone" && i > 1) {
+            if ((state === "signup" || state === "verification" || state === "verification") && i > 1) {
                 $(".change-form-content").addClass("left-20")
                 $(elem).addClass("d-none")
             } else if ((state === "login" || state === "forgetPassword") && i < 2) {
