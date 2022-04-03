@@ -3525,7 +3525,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -3574,8 +3573,8 @@ var DayaLogo = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/",
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+        href: "/",
         className: "daya-logo ltr",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           className: "animated d-md-inline d-none",
@@ -3586,7 +3585,7 @@ var DayaLogo = /*#__PURE__*/function (_Component) {
           src: APP_PATH + "images/daya-white-logo.png",
           alt: "daya-logo"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          children: "DAYA-ARTZ"
+          children: "DAYAARTZ"
         })]
       });
     }
@@ -3655,7 +3654,7 @@ var welcome = /*#__PURE__*/function (_Component) {
       var state = this.props.state,
           elements = $(".change-form-content").find("h2, p");
       elements.map(function (i, elem) {
-        if (state === "signup" || state === "email" || state === "phone" && i > 1) {
+        if ((state === "signup" || state === "verification" || state === "verification") && i > 1) {
           $(".change-form-content").addClass("left-20");
           $(elem).addClass("d-none");
         } else if ((state === "login" || state === "forgetPassword") && i < 2) {
@@ -4350,7 +4349,7 @@ var TopBackground = /*#__PURE__*/function (_Component) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
           href: APP_PATH,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-            className: "h-25 mt-4",
+            className: "h-100 mt-md-4",
             src: APP_PATH + 'images/logo-with-inner-shadow.png'
           })
         })
@@ -5416,7 +5415,7 @@ var EmailValidation = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(f
 var PhoneValidation = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_react_Pages_Auth_PhoneValidation_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Auth/PhoneValidation */ "./resources/js/react/Pages/Auth/PhoneValidation.jsx"));
 });
-var route_regex = /[^/]*$/;
+var route_regex = /^\/auth\/(login$|signup$|forgetPassword$|verification)/;
 
 var AuthRoute = /*#__PURE__*/function (_Component) {
   _inherits(AuthRoute, _Component);
@@ -5440,11 +5439,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "changeSection", function (history, newState) {
       var state = _this.state.state,
-          replaca = newState ? newState : state === "signup" || state === "signupConfirm" ? "login" : "signup";
+          replaca = newState ? newState : state === "signup" || state === "verification" ? "login" : "signup";
       setTimeout(function () {
         $(".change-form").each(function () {
           $(this).addClass("width-change");
-          $(this).find("button").addClass("".concat(state === "signup" || state === "signupConfirm" ? "bounceOutLeft" : "bounceOutRight"));
+          $(this).find("button").addClass("".concat(state === "signup" || state === "verification" ? "bounceOutLeft" : "bounceOutRight"));
         });
 
         if (window.screen.width < 768) {
@@ -5457,7 +5456,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
             $(this).toggleClass("d-none");
           });
 
-          if (state === "signup" || state === "signupConfirm") {
+          if (state === "signup" || state === "verification") {
             $(this).find("button")[0].innerHTML = "ثبت نام";
             $(this).find("button").toggleClass("bounceOutLeft bounceInRight");
           } else {
@@ -5580,7 +5579,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
       validation: {
         code: ""
       },
-      state: route_regex.exec(_this.props.location.pathname)[0] === "auth" ? "login" : route_regex.exec(_this.props.location.pathname)[0],
+      state: route_regex.exec(_this.props.location.pathname) ? route_regex.exec(_this.props.location.pathname)[1] : "login",
       login_method: "email"
     };
     return _this;
@@ -5600,11 +5599,11 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
 
       this.props.history.block(function (location, action) {
         if (action === "POP") {
-          var current_loc = route_regex.exec(location.pathname)[0],
+          var current_loc = route_regex.exec(location.pathname)[1],
               state = _this3.state.state,
               history = _this3.props.history;
 
-          if ((state === "login" || state === "forgetPassword") && (current_loc === "signup" || current_loc === "signupConfirm") || (state === "signup" || state === "signupConfirm") && (current_loc === "login" || current_loc === "forgetPassword")) {
+          if ((state === "login" || state === "forgetPassword") && (current_loc === "signup" || current_loc === "verification") || (state === "signup" || state === "verification") && (current_loc === "login" || current_loc === "forgetPassword")) {
             _this3.changeSection(history, current_loc);
           } else {
             return true;
@@ -6565,47 +6564,6 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
 });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/userarea.js":
-/*!**********************************!*\
-  !*** ./resources/js/userarea.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./react/components/UserArea */ "./resources/js/react/components/UserArea.jsx");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _react_redux_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./react/redux/store */ "./resources/js/react/redux/store.js");
-/* harmony import */ var _react_redux_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./react/redux/actions */ "./resources/js/react/redux/actions.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-var elem = document.getElementById('main');
-
-if (elem) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, {
-      store: _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"],
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-    })
-  }), elem, function () {
-    window.dispatchLogout = function () {
-      _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch((0,_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.logoutUser)());
-    };
-
-    _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
-  });
-}
 
 /***/ }),
 
@@ -8224,19 +8182,6 @@ function createReactContext(defaultValue, calculateChangedBits) {
 var index = react__WEBPACK_IMPORTED_MODULE_0__.createContext || createReactContext;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (index);
-
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -70761,38 +70706,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -70846,7 +70759,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".css";
+/******/ 			return undefined;
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -70946,8 +70859,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/userarea": 0,
-/******/ 			"css/app": 0
+/******/ 			"/js/userarea": 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
@@ -70959,7 +70871,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if("css/app" != chunkId) {
+/******/ 						if(true) { // all chunks have JS
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
@@ -70997,7 +70909,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		
 /******/ 		// no HMR manifest
 /******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		// no on chunks loaded
 /******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
@@ -71021,7 +70933,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 				installedChunks[chunkId] = 0;
 /******/ 			}
-/******/ 			return __webpack_require__.O(result);
+/******/ 		
 /******/ 		}
 /******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
@@ -71030,13 +70942,45 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/userarea.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!**********************************!*\
+  !*** ./resources/js/userarea.js ***!
+  \**********************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./react/components/UserArea */ "./resources/js/react/components/UserArea.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _react_redux_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./react/redux/store */ "./resources/js/react/redux/store.js");
+/* harmony import */ var _react_redux_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./react/redux/actions */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var elem = document.getElementById('main');
+
+if (elem) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, {
+      store: _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"],
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_react_components_UserArea__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+    })
+  }), elem, function () {
+    window.dispatchLogout = function () {
+      _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch((0,_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.logoutUser)());
+    };
+
+    _react_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(_react_redux_actions__WEBPACK_IMPORTED_MODULE_5__.checkAuth);
+  });
+}
+})();
+
 /******/ })()
 ;

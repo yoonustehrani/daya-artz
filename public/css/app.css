@@ -84,10 +84,6 @@
   color: #444444 !important;
 }
 
-@font-face {
-  font-family: "IranSansWeb";
-  src: url(/fonts/IRANSansWeb.ttf) format("truetype");
-}
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10109,6 +10105,7 @@ h3 {
 }
 @media screen and (max-width: 991px) and (min-width: 768px) {
   .header > nav, .min-header > nav {
+    height: 52px !important;
     padding-left: 8px !important;
   }
   .header > nav .logo-container, .min-header > nav .logo-container {
@@ -10125,7 +10122,7 @@ h3 {
   }
   .header > nav .menu-container ul.main-menu li a, .min-header > nav .menu-container ul.main-menu li a {
     font-size: 14px !important;
-    padding: 10px 0 !important;
+    padding: 14px 0 !important;
   }
   .header > nav .last-item, .min-header > nav .last-item {
     width: 230px !important;
@@ -10419,9 +10416,6 @@ h3 {
     width: 28% !important;
     padding: 20px 0px 5px 0px !important;
   }
-  .user-area-sidebar .user-info {
-    height: 140px !important;
-  }
   .user-area-sidebar .user-avatar {
     width: 80px !important;
     height: 80px !important;
@@ -10607,6 +10601,14 @@ h3 {
 
   .field-item:nth-child(1), .field-item:nth-child(2) {
     margin-top: 10px !important;
+  }
+
+  .top-background img.h-100 {
+    height: 25% !important;
+  }
+
+  .user-area-sidebar {
+    max-height: 650px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -11205,11 +11207,9 @@ h3 {
 
   .user-area-sidebar {
     padding: 10px !important;
-    width: 90% !important;
+    width: 100% !important;
     position: absolute;
-    right: -100%;
-    top: 0 !important;
-    height: 100% !important;
+    top: 100%;
     z-index: 26;
     transition: 1s;
     opacity: 0;
@@ -11227,7 +11227,7 @@ h3 {
   }
 
   .user-area-sidebar.open {
-    right: 0 !important;
+    top: 0 !important;
     opacity: 1 !important;
   }
 
@@ -11810,6 +11810,10 @@ h3 {
   }
 }
 @media screen and (min-width: 1200px) {
+  .header .menu-container .menu-items-container li a, .min-header .menu-container .menu-items-container li a {
+    padding: 20px 10px;
+  }
+
   .policy-header, .blog-header {
     height: 550px;
   }
@@ -11899,6 +11903,13 @@ h3 {
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
+  .header > nav, .min-header > nav {
+    height: 62px !important;
+  }
+  .header > nav .menu-container ul.main-menu li a, .min-header > nav .menu-container ul.main-menu li a {
+    padding: 16px 5px !important;
+  }
+
   .contact-us-first-section.mb-4 .contact-us-form textarea {
     height: 160px !important;
   }
@@ -12095,12 +12106,7 @@ html, body, #main {
 }
 
 h1, h2, h3, h4, h5, h6, p, span, button, a, ul, li, input, textarea, blockquote, label {
-  font-family: "IranSansWeb";
   direction: rtl;
-}
-
-div {
-  font-family: "IranSansWeb";
 }
 
 blockquote {
@@ -12113,7 +12119,6 @@ cite {
 
 cite::before {
   content: "-";
-  font-family: "IranSansWeb";
   font-size: 18px;
   font-weight: bold;
   margin-left: 5px;
@@ -15001,6 +15006,10 @@ span.back-aqua.big-icon {
   -o-object-position: center;
      object-position: center;
   box-shadow: 4px 4px 8px #b5bfd9;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
 }
 .sample-images-slider .showing-image::after {
   content: "";
@@ -15244,7 +15253,7 @@ span.back-aqua.big-icon {
   text-align: center;
 }
 .process-timeline .levels-container > span i {
-  font-size: 12px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -15346,7 +15355,6 @@ span.back-aqua.big-icon {
     width: 100%;
     float: left;
     text-align: center;
-    padding: 10px;
     font-size: 18px;
     color: #ebe7fa;
     transition: 0.3s;
@@ -15419,7 +15427,7 @@ span.back-aqua.big-icon {
 }
 .header > nav .last-item, .min-header > nav .last-item {
   height: 100%;
-  width: 280px;
+  width: 276px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15623,7 +15631,7 @@ span.back-aqua.big-icon {
     width: calc(100% - 300px);
   }
   #header-nav .menu-container .menu-items-container li a {
-    padding: 10px 5px;
+    padding: 16px 5px;
   }
   #header-nav .last-item {
     width: 250px;
@@ -15813,6 +15821,7 @@ span.back-aqua.big-icon {
 .auth-container .login-bg .daya-logo img {
   width: 50px;
   height: 50px;
+  transition: 0.3s;
 }
 .auth-container .login-bg .daya-logo span {
   margin-left: 10px;
@@ -15821,12 +15830,22 @@ span.back-aqua.big-icon {
   transition: 1s;
 }
 .auth-container .login-bg .daya-logo.purple-cl span {
-  color: #777DD1 !important;
+  color: #777DD1;
 }
 .auth-container .login-bg .daya-logo.purple-cl img {
   border-radius: 100%;
   padding: 5px;
   background-color: #777DD1;
+}
+.auth-container .login-bg .daya-logo.purple-cl:hover span {
+  color: blueviolet !important;
+}
+.auth-container .login-bg .daya-logo:hover img {
+  transform: scale(1.1);
+}
+.auth-container .login-bg .daya-logo:hover span {
+  transition: 0.3s !important;
+  color: #C2AEF3;
 }
 .auth-container .login-bg .change-form, .auth-container .login-bg .login-form {
   position: relative;
@@ -16139,7 +16158,6 @@ span.back-aqua.big-icon {
   width: 18%;
   padding: 20px 10px;
   text-align: center;
-  max-height: 650px;
 }
 .user-area-layout-container .user-area-panel .user-area-sidebar .user-info {
   display: flex;
@@ -16163,6 +16181,8 @@ span.back-aqua.big-icon {
   margin-top: 5px;
   margin-bottom: 0;
   font-weight: bold;
+  width: 100%;
+  line-break: anywhere;
 }
 .user-area-layout-container .user-area-panel .user-area-sidebar .user-info span {
   font-size: 15px;

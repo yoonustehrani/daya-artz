@@ -51,7 +51,6 @@
             width: 18%;
             padding: 20px 10px;
             text-align: center;
-            max-height: 650px;
             .user-info {
                 display: flex;
                 flex-direction: column;
@@ -73,6 +72,8 @@
                     margin-top: 5px;
                     margin-bottom: 0;
                     font-weight: bold;
+                    width: 100%;
+                    line-break: anywhere;
                 }
                 span {
                     font-size: 15px;

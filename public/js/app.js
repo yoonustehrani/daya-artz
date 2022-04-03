@@ -3097,7 +3097,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_services__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _scrollTo__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./scrollTo */ "./resources/js/components/scrollTo.js");
 /* harmony import */ var _scrollTo__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_scrollTo__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _portfolioImages__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./portfolioImages */ "./resources/js/components/portfolioImages.js");
+/* harmony import */ var _portfolioImages__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_portfolioImages__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -3116,7 +3119,7 @@ __webpack_require__.r(__webpack_exports__);
 var quickOrderElement = document.getElementById("react-quick-order");
 
 if (quickOrderElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
     reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
     targetApi: quickOrderElement.getAttribute('data-post-api')
   }), quickOrderElement);
@@ -3126,7 +3129,7 @@ if (quickOrderElement) {
 var portfolioSectionElement = document.querySelector("div[react-portfolio-section]");
 
 if (portfolioSectionElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_PortfolioSection__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_PortfolioSection__WEBPACK_IMPORTED_MODULE_2__["default"], {
     targetApi: portfolioSectionElement.getAttribute('data-target-api')
   }), portfolioSectionElement);
 } // blog suggestion
@@ -3135,7 +3138,7 @@ if (portfolioSectionElement) {
 var blogSuggestionElement = document.getElementById("blog-suggestion-react");
 
 if (blogSuggestionElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_BlogSuggestion__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_BlogSuggestion__WEBPACK_IMPORTED_MODULE_3__["default"], {
     apiTargetLatest: blogSuggestionElement.getAttribute("api-target-latest"),
     apiTargetRandom: blogSuggestionElement.getAttribute("api-target-random")
   }), blogSuggestionElement);
@@ -3367,6 +3370,52 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/components/portfolioImages.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/portfolioImages.js ***!
+  \****************************************************/
+/***/ (() => {
+
+var main_image = $("#portfolio-main-img"),
+    small_images = $(".sample-images-slider > .small-items-container img"),
+    prev_image = $(".sample-images-slider").find("#prev-image"),
+    next_image = $(".sample-images-slider").find("#next-image");
+change_icons = [prev_image, next_image];
+current_image_index = 0; // main function to handle image changes
+
+function handle_image_change(image_index) {
+  current_image_index = image_index;
+  $(main_image).removeClass("fadeIn");
+  setTimeout(function () {
+    return $(main_image).addClass("fadeIn");
+  }, 0);
+  setTimeout(function () {
+    return $(main_image).removeClass("fadeIn");
+  }, 1000);
+  main_image.attr("src", $(small_images[image_index]).attr("src"));
+  main_image.attr("data-src", $(small_images[image_index]).attr("data-src"));
+  main_image.attr("alt", $(small_images[image_index]).attr("alt"));
+} // handling small images click
+
+
+small_images.each(function (index, elem) {
+  $(elem).on("click", function (e) {
+    handle_image_change(index);
+  });
+}); // handling left and right chevron icons click
+
+change_icons.forEach(function (element, i) {
+  $(element).on("click", function () {
+    var next_index = i === 0 ? current_image_index - 1 : current_image_index + 1;
+
+    if (next_index >= 0 && next_index < small_images.length) {
+      handle_image_change(next_index);
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/scrollTo.js":
 /*!*********************************************!*\
   !*** ./resources/js/components/scrollTo.js ***!
@@ -3374,19 +3423,22 @@ $(document).ready(function () {
 /***/ (() => {
 
 // scroll to quick order in home page
-var quickOrderForm = $("#quick-order-container"),
-    homePageBtn = $("#scroll-to-form-btn"),
-    targetPosition = quickOrderForm.offset().top + $("body").scrollTop() - 50,
-    onClickBtn = function onClickBtn() {
-  $("body").animate({
-    scrollTop: targetPosition
-  }, 500);
-};
+var quickOrderForm = $("#quick-order-container");
 
-homePageBtn.on("click", onClickBtn);
-$(".main-services-container, .service-groups-container").find('.scroll-to-form').each(function (i, elem) {
-  $(elem).on("click", onClickBtn);
-});
+if (quickOrderForm.length > 0) {
+  var homePageBtn = $("#scroll-to-form-btn"),
+      targetPosition = quickOrderForm.offset().top + $("body").scrollTop(),
+      onClickBtn = function onClickBtn() {
+    $("body").animate({
+      scrollTop: targetPosition
+    }, 500);
+  };
+
+  homePageBtn.on("click", onClickBtn);
+  $(".main-services-container, .service-groups-container").find('.scroll-to-form').each(function (i, elem) {
+    $(elem).on("click", onClickBtn);
+  });
+}
 
 /***/ }),
 
@@ -3983,9 +4035,9 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css":
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css":
 /*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css ***!
   \*********************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -17096,6 +17148,19 @@ return jQuery;
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/sass/_fonts.scss":
+/*!************************************!*\
+  !*** ./resources/sass/_fonts.scss ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -70689,7 +70754,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./swiper-bundle.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css");
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./swiper-bundle.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css");
 
             
 
@@ -70698,11 +70763,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -79939,7 +80004,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/app": 0,
+/******/ 			"css/_fonts": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -79989,8 +80055,9 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/_fonts"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/_fonts"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/_fonts"], () => (__webpack_require__("./resources/sass/_fonts.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

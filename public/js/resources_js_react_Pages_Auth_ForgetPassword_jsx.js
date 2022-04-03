@@ -142,7 +142,7 @@ var ForgetPassword = /*#__PURE__*/function (_Component) {
               value: email,
               className: "form-control",
               placeholder: "\u0627\u06CC\u0645\u06CC\u0644",
-              onChange: onChangeField.bind(this, "signupConfirm", "email")
+              onChange: onChangeField.bind(this, "forgetPassword", "email")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "input-group-append",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -158,18 +158,12 @@ var ForgetPassword = /*#__PURE__*/function (_Component) {
               className: "input-group-prepend",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                 className: "country_codes_holder",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("select", {
                   id: "forget_pass_select",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                     value: "iran",
                     children: "+98"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "united-states",
-                    children: "+1"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "united-kingdom",
-                    children: "+356"
-                  })]
+                  })
                 })
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
@@ -177,7 +171,7 @@ var ForgetPassword = /*#__PURE__*/function (_Component) {
               value: phone_number,
               className: "form-control ltr",
               placeholder: "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06CC\u0644",
-              onChange: onChangeField.bind(this, "signupConfirm", "phone_number")
+              onChange: onChangeField.bind(this, "forgetPassword", "phone_number")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "input-group-append",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {

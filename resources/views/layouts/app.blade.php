@@ -7,17 +7,21 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- title and favicon --}}
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="preload" as="style" href="{{ mix("css/_fonts.css") }}">
+    <link rel="stylesheet" href="{{ mix("css/_fonts.css") }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
     <div id="app">

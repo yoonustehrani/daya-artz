@@ -251,6 +251,6 @@
     {{-- end daya opening --}}
     {{-- start scripts --}}
     <script>APP_PATH = "{{ asset("/") }}"</script>
-    <script src="{{ asset("/js/landing-opening.js") }}"></script>
+    <script src="{{ mix("/js/landing-opening.js") }}"></script>
     {{-- end scripts --}}
 </x-layout.landing>

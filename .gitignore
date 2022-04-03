@@ -3,6 +3,7 @@
 /public/storage
 /public/fonts/*
 /storage/*.key
+/storage/clockwork
 /vendor
 .env
 .env.backup

@@ -11,6 +11,7 @@ import './section-guide'
 import 'select2/dist/js/select2.min.js'
 import './services'
 import './scrollTo'
+import './portfolioImages'
 
 // quick order
 const quickOrderElement = document.getElementById("react-quick-order")

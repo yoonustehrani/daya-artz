@@ -1,4 +1,11 @@
 {
+<<<<<<< HEAD
     "/js/userarea.js": "/js/userarea.js",
     "/css/app.css": "/css/app.css"
+=======
+    "/js/app.js": "/js/app.js",
+    "/js/userarea.js": "/js/userarea.js",
+    "/css/app.css": "/css/app.css",
+    "/css/_fonts.css": "/css/_fonts.css"
+>>>>>>> dev
 }
