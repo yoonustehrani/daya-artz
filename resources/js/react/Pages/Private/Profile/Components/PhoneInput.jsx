@@ -55,8 +55,6 @@ class PhoneInput extends Component {
                                 <span className="country_codes_holder">
                                     <select ref={this.country_code_ref}>
                                         <option value="iran">+98</option>
-                                        <option value="united-states">+1</option>
-                                        <option value="united-kingdom">+356</option>
                                     </select>
                                 </span>)
                             : (<input type="tel" ref={this.state_code_ref} className="form-control ltr" placeholder="کد استان" />)    

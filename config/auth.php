@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'zeus' => [
+            'driver' => 'session',
+            'provider' => 'zeus_users'
+        ]
     ],
 
     /*
@@ -64,7 +68,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+        'zeus_users' => [
+            'driver' => 'eloquent',
+            'model' => Zeus\Models\User::class
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

@@ -24,7 +24,7 @@ class ForgetPassword extends Component {
                 </span>
                 <div className="email-phone-container input-group default-style">
                     <div className={`input-group animated ${login_method === "email" ? "" : "d-none"}`}>
-                        <input type="email" value={email} className="form-control" placeholder="ایمیل" onChange={onChangeField.bind(this, "signupConfirm", "email")}/>
+                        <input type="email" value={email} className="form-control" placeholder="ایمیل" onChange={onChangeField.bind(this, "forgetPassword", "email")}/>
                         <div className="input-group-append"><span className="input-group-text"><i className="fas fa-at"></i></span></div>
                     </div>
                     <div className={`input-group animated ${login_method === "phone" ? "" : "d-none"}`}>
@@ -32,12 +32,10 @@ class ForgetPassword extends Component {
                             <span className="country_codes_holder">
                                 <select id="forget_pass_select">
                                     <option value="iran">+98</option>
-                                    <option value="united-states">+1</option>
-                                    <option value="united-kingdom">+356</option>
                                 </select>
                             </span>
                         </div>
-                        <input type="text" value={phone_number} className="form-control ltr" placeholder="شماره موبایل" onChange={onChangeField.bind(this, "signupConfirm", "phone_number")} />
+                        <input type="text" value={phone_number} className="form-control ltr" placeholder="شماره موبایل" onChange={onChangeField.bind(this, "forgetPassword", "phone_number")} />
                         <div className="input-group-append"><span className="input-group-text"><i className="fas fa-mobile"></i></span></div>
                     </div>
                 </div>

@@ -56,6 +56,41 @@ function Paginate(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/copy.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/copy.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ copyToClipboard)
+/* harmony export */ });
+/* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/AlertService */ "./resources/js/services/AlertService.js");
+
+function copyToClipboard(code) {
+  var title = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "متن مورد نظر";
+  navigator.permissions.query({
+    name: "clipboard-write"
+  }).then(function (result) {
+    if (result.state == "granted" || result.state == "prompt") {
+      navigator.clipboard.writeText(code).then(function () {
+        new _services_AlertService__WEBPACK_IMPORTED_MODULE_0__["default"]().success({
+          timer: 2000,
+          title: "".concat(title, " \u062F\u0631 \u062D\u0627\u0641\u0638\u0647 \u0645\u0648\u0642\u062A \u06A9\u067E\u06CC \u0634\u062F")
+        });
+      }, function () {
+        new _services_AlertService__WEBPACK_IMPORTED_MODULE_0__["default"]().error({
+          timer: 2000,
+          title: 'متاسفانه در هنگام کپی مشکلی پیش آمد'
+        });
+      });
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/react/Pages/Private/Finance/Discounts/Discounts.jsx":
 /*!**************************************************************************!*\
   !*** ./resources/js/react/Pages/Private/Finance/Discounts/Discounts.jsx ***!
@@ -69,8 +104,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Paginate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../components/Paginate */ "./resources/js/components/Paginate/index.jsx");
-/* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../services/AlertService */ "./resources/js/services/AlertService.js");
+/* harmony import */ var _components_copy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../components/copy */ "./resources/js/components/copy.js");
+/* harmony import */ var _components_Paginate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../components/Paginate */ "./resources/js/components/Paginate/index.jsx");
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../hooks */ "./resources/js/react/hooks.js");
 /* harmony import */ var _Layout_components_Loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Layout/components/Loading */ "./resources/js/react/Pages/Private/Layout/components/Loading.jsx");
 /* harmony import */ var _Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Layout/components/NoItem */ "./resources/js/react/Pages/Private/Layout/components/NoItem.jsx");
@@ -200,27 +235,6 @@ var Discounts = /*#__PURE__*/function (_Component) {
       this.loadOffers();
     }
   }, {
-    key: "copyToClipboard",
-    value: function copyToClipboard(code) {
-      navigator.permissions.query({
-        name: "clipboard-write"
-      }).then(function (result) {
-        if (result.state == "granted" || result.state == "prompt") {
-          navigator.clipboard.writeText(code).then(function () {
-            new _services_AlertService__WEBPACK_IMPORTED_MODULE_3__["default"]().success({
-              timer: 2000,
-              title: 'کد تخفیف در حافظه موقت کپی شد'
-            });
-          }, function () {
-            new _services_AlertService__WEBPACK_IMPORTED_MODULE_3__["default"]().error({
-              timer: 2000,
-              title: 'متاسفانه در هنگام کپی مشکلی پیش آمد'
-            });
-          });
-        }
-      });
-    }
-  }, {
     key: "getOfferValue",
     value: function getOfferValue(offer) {
       return offer.value_type === 'amount' ? "".concat(offer.value, " \u062A\u0648\u0645\u0627\u0646") : "".concat(offer.value, "%");
@@ -255,7 +269,7 @@ var Discounts = /*#__PURE__*/function (_Component) {
                   children: discount.description
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
                   onClick: function onClick() {
-                    return _this2.copyToClipboard(discount.code);
+                    return _this2.copyToClipboard(discount.code, "کد تخفیف");
                   },
                   className: "cursor-pointer w-50 badge bg-pink p-2 rounded-pill bold ltr",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
@@ -265,7 +279,7 @@ var Discounts = /*#__PURE__*/function (_Component) {
               })
             }, discount.id);
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_3__["default"], _objectSpread(_objectSpread({}, paginateInfo), {}, {
           next_page_handler: this.handlePaginate,
           prev_page_handler: this.handlePaginate.bind(this, false)
         }))]

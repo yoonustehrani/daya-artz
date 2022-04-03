@@ -27,7 +27,7 @@ class BlogSwiper extends Component {
                 SwiperCore.use([Navigation])
                 const swiper = new Swiper('.swiper-container', {
                     direction: 'horizontal',
-                    loop: true,
+                    loop: false,
                     autoHeight: true,
                     slidesPerView: 1,
                     spaceBetween: 0,

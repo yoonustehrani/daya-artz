@@ -94,3 +94,5 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
         Route::put('company', [UserController::class, 'updateCompany']);
     });
 });
+
+\ZeusPanel::api_routes();

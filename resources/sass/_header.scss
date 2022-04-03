@@ -77,7 +77,6 @@
                             width: 100%;
                             float: left;
                             text-align: center;
-                            padding: 10px;
                             font-size: 18px;
                             // margin-top: 2px;
                             color: $text-color;
@@ -152,7 +151,7 @@
         }
         .last-item {
             height: 100%;
-            width: 280px;
+            width: 276px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -348,10 +347,8 @@
         }
         .menu-container {
             width: calc(100% - 300px);
-            .menu-items-container {
-                li a {
-                    padding: 10px 5px;
-                }
+            .menu-items-container li a {
+                padding: 16px 5px;
             }
         }
         .last-item {

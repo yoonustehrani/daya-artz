@@ -22,7 +22,7 @@ class CreateTicketMessagesTable extends Migration
             $table->timestamp('read_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            // $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('ticket_id')->references('id')->on('tickets')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }

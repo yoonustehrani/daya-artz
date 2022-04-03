@@ -9,11 +9,11 @@ class DayaLogo extends Component {
     
     render() {
         return (
-            <Link to="/" className="daya-logo ltr">
+            <a href='/' className="daya-logo ltr">
                 <img className="animated d-md-inline d-none" src={APP_PATH + "images/daya-white-logo.png"} alt="daya-logo" />
                 <img className="animated d-md-none" src={APP_PATH + "images/daya-white-logo.png"} alt="daya-logo" />
-                <span>DAYA-ARTZ</span>
-            </Link>
+                <span>DAYAARTZ</span>
+            </a>
         );
     }
 }

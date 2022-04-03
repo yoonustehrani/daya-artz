@@ -1,6 +1,41 @@
 "use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_react_Pages_Private_Finance_Invoices_Invoice_jsx"],{
 
+/***/ "./resources/js/components/copy.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/copy.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ copyToClipboard)
+/* harmony export */ });
+/* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/AlertService */ "./resources/js/services/AlertService.js");
+
+function copyToClipboard(code) {
+  var title = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "متن مورد نظر";
+  navigator.permissions.query({
+    name: "clipboard-write"
+  }).then(function (result) {
+    if (result.state == "granted" || result.state == "prompt") {
+      navigator.clipboard.writeText(code).then(function () {
+        new _services_AlertService__WEBPACK_IMPORTED_MODULE_0__["default"]().success({
+          timer: 2000,
+          title: "".concat(title, " \u062F\u0631 \u062D\u0627\u0641\u0638\u0647 \u0645\u0648\u0642\u062A \u06A9\u067E\u06CC \u0634\u062F")
+        });
+      }, function () {
+        new _services_AlertService__WEBPACK_IMPORTED_MODULE_0__["default"]().error({
+          timer: 2000,
+          title: 'متاسفانه در هنگام کپی مشکلی پیش آمد'
+        });
+      });
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/helpers/index.js":
 /*!***************************************!*\
   !*** ./resources/js/helpers/index.js ***!
@@ -510,7 +545,7 @@ function Bills(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
         children: bills.length > 0 && bills.filter(function (x) {
-          return x.active || true;
+          return x.active;
         }).map(function (bill, i) {
           var id = bill.id,
               code = bill.code,
@@ -565,7 +600,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ DirectPayment)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_copy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../components/copy */ "./resources/js/components/copy.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -582,55 +618,91 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function DirectPayment() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
       transactionCode = _useState2[0],
-      setTransactionCode = _useState2[1];
+      setTransactionCode = _useState2[1],
+      ba_card = '6104 - 3388 - 0004 - 6282',
+      ba_shaba = 'IR-17 0120 0000 0000 9546 6188 31',
+      ba_hesab = "9546618831";
 
-  var sendForm = function sendForm() {
+  sendForm = function sendForm() {
     console.log('here the req will be sent');
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-      children: "\u0628\u0647 \u0645\u0646\u0638\u0648\u0631 \u067E\u0631\u062F\u0627\u062E\u062A \u0647\u0632\u06CC\u0646\u0647 \u0627\u0632 \u0637\u0631\u06CC\u0642 \u0648\u0627\u0631\u06CC\u0632 \u0648\u062C\u0647 \u0628\u0647 \u062D\u0633\u0627\u0628\u060C \u0645\u06CC \u062A\u0648\u0627\u0646\u06CC\u062F \u0627\u0632 \u0634\u0645\u0627\u0631\u0647 \u062D\u0633\u0627\u0628 \u0632\u06CC\u0631 \u0627\u0633\u062A\u0641\u0627\u0647 \u06A9\u0631\u062F\u0647 \u0648 \u067E\u0633 \u0627\u0632 \u0627\u062A\u0645\u0627\u0645 \u0639\u0645\u0644\u06CC\u0627\u062A \u067E\u0631\u062F\u0627\u062E\u062A \u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0641\u06CC\u0634 \u0648\u0627\u0631\u06CC\u0632\u06CC \u0631\u0627 \u062F\u0631 \u06A9\u0627\u062F\u0631 \u0632\u06CC\u0631 \u0648\u0627\u0631\u062F \u0646\u0645\u0627\u06CC\u06CC\u062F \u0648 \u0628\u0631 \u0628\u0631\u0648\u06CC \u062F\u06A9\u0645\u0647 \u0627\u0633\u062A\u0639\u0644\u0627\u0645 \u06A9\u0644\u06CC\u06A9 \u0646\u0645\u0627\u06CC\u06CC\u062F."
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+  var numberStyles = {
+    display: 'inline-block',
+    direction: 'ltr'
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: "\u0628\u0647 \u0645\u0646\u0638\u0648\u0631 \u067E\u0631\u062F\u0627\u062E\u062A \u0647\u0632\u06CC\u0646\u0647 \u0627\u0632 \u0637\u0631\u06CC\u0642 \u0648\u0627\u0631\u06CC\u0632 \u0648\u062C\u0647 \u0628\u0647 \u062D\u0633\u0627\u0628\u060C \u0645\u06CC \u062A\u0648\u0627\u0646\u06CC\u062F \u0627\u0632 \u0634\u0645\u0627\u0631\u0647 \u062D\u0633\u0627\u0628 \u0632\u06CC\u0631 \u0627\u0633\u062A\u0641\u0627\u0647 \u06A9\u0631\u062F\u0647 \u0648 \u067E\u0633 \u0627\u0632 \u0627\u062A\u0645\u0627\u0645 \u0639\u0645\u0644\u06CC\u0627\u062A \u067E\u0631\u062F\u0627\u062E\u062A \u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0641\u06CC\u0634 \u0648\u0627\u0631\u06CC\u0632\u06CC \u0631\u0627 \u062F\u0631 \u06A9\u0627\u062F\u0631 \u0632\u06CC\u0631 \u0648\u0627\u0631\u062F \u0646\u0645\u0627\u06CC\u06CC\u062F \u0648 \u0628\u0631 \u0628\u0631\u0648\u06CC \u062F\u06A9\u0645\u0647 \u062B\u0628\u062A \u0648\u0627\u0631\u06CC\u0632 \u06A9\u0644\u06CC\u06A9 \u0646\u0645\u0627\u06CC\u06CC\u062F."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
       className: "popup-list",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-          className: "fad fa-credit-card-front"
-        }), "\u0634\u0645\u0627\u0631\u0647 \u062D\u0633\u0627\u0628: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          children: "5022291078521463"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-          className: "far fa-money-check-edit-alt"
-        }), "\u0634\u0645\u0627\u0631\u0647 \u0634\u0628\u0627: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          children: "IR-3975024846780"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-          className: "far fa-user-tie"
-        }), "\u0628\u0647 \u0646\u0627\u0645: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-          children: "\u062F\u0627\u0646\u06CC\u0627\u0644 \u0637\u0647\u0631\u0627\u0646\u06CC\u0645"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
           className: "far fa-university"
-        }), "\u0628\u0627\u0646\u06A9 \u0645\u0642\u0635\u062F: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        }), "\u0646\u0632\u062F : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           children: "\u0628\u0627\u0646\u06A9 \u0645\u0644\u062A"
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "far fa-building"
+        }), "\u0628\u0647 \u0646\u0627\u0645: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          children: "\u0627\u0631\u0645\u063A\u0627\u0646 \u06A9\u0647\u06A9\u0634\u0627\u0646 \u067E\u0627\u0631\u0633"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "fad fa-credit-card-front"
+        }), "\u0634\u0645\u0627\u0631\u0647 \u06A9\u0627\u0631\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          children: ba_card
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "vertical-middle badge badge-pill badge-light mr-1",
+          onClick: function onClick() {
+            return (0,_components_copy__WEBPACK_IMPORTED_MODULE_1__["default"])("6104338800046282", "شماره حساب");
+          },
+          children: "\u06A9\u067E\u06CC"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "far fa-money-check-edit-alt"
+        }), "\u0634\u0645\u0627\u0631\u0647 \u0634\u0628\u0627: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          children: ba_shaba
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "vertical-middle badge badge-pill badge-light mr-1",
+          onClick: function onClick() {
+            return (0,_components_copy__WEBPACK_IMPORTED_MODULE_1__["default"])("170120000000009546618831", "شماره شبا");
+          },
+          children: "\u06A9\u067E\u06CC"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "far fa-money-check-alt"
+        }), "\u0634\u0645\u0627\u0631\u0647 \u062D\u0633\u0627\u0628: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          style: numberStyles,
+          children: ba_hesab
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "vertical-middle badge badge-pill badge-light mr-1",
+          onClick: function onClick() {
+            return (0,_components_copy__WEBPACK_IMPORTED_MODULE_1__["default"])(ba_hesab, "شماره حساب");
+          },
+          children: "\u06A9\u067E\u06CC"
+        })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "input-group mt-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "input-group-prepend",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "input-group-text",
           children: "\u0634\u0646\u0627\u0633\u0647 \u0648\u0627\u0631\u06CC\u0632"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
         type: "text",
         className: "form-control",
         placeholder: "\u0645\u062B\u0627\u0644: 32963476075360",
@@ -638,13 +710,13 @@ function DirectPayment() {
           return setTransactionCode(e.target.value);
         }
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "w-100 text-center mt-4",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
         href: "#check_transaction",
         className: "btn btn-lg btn-light",
         onClick: sendForm,
-        children: "\u0627\u0633\u062A\u0639\u0644\u0627\u0645"
+        children: "\u062B\u0628\u062A \u0648\u0627\u0631\u06CC\u0632"
       })
     })]
   });

@@ -23,8 +23,8 @@ class FormsController extends Controller
         $order = new Order();
         $order->method = 'quick-order';
         $order->type = 'automate';
-        $order->status = __('orders.status.new');
-        $order->status_info = __('orders.status_info.system-recieved');
+        $order->status = __('userarea.orders.status.submitted');
+        $order->status_info = __('orders-lang.status_info.system-recieved');
         $desscription  = "نام و نام خانوادگی : `{$request->input('fullname')}`\n";
         $desscription .= "شماره تلفن : ({$request->input('phone_number')})\n";
         $desscription .= "سفارش : " . implode(', ', $order_items) . "\n";

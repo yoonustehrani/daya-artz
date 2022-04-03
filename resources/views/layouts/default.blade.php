@@ -8,6 +8,7 @@
     <link rel="preload" as="style" href="{{ mix("css/_fonts.css") }}">
     <link rel="stylesheet" href="{{ mix("css/_fonts.css") }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>@yield('title') | دایا آرتز</title>
     @stack('head')
 </head>

@@ -23,6 +23,17 @@ return [
             'canceled' => 'Canceled',
             'suspened' => 'Project suspended',
             'ready' => 'Ready to present'
-        ]
+        ],
+        'method' => [
+            'quick-order' => 'Quick order',
+            'professional' => 'Pro order',
+            'tele-order' => 'Telephone order',
+            'telegram-bot' => 'Telegram bot order',
+            'messanger' => 'Messenger order'
+        ],
+        'type' => [
+            'manual' => 'Manual',
+            'automate' => 'Automate\Systemic'
+        ],
     ]
 ];
