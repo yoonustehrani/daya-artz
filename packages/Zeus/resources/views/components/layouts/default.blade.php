@@ -9,9 +9,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/zeus/style.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/zeus/style.css') }}">
         @if (auth('zeus')->user()->lang == 'fa')
-            <link rel="stylesheet" href="{{ asset('css/zeus/rtl.css') }}">
+            <link rel="stylesheet" href="{{ mix('css/zeus/rtl.css') }}">
         @endif
         @stack('head')
         <style>
@@ -45,7 +45,7 @@
             API_BASE_URL = "{{ route('api.') }}"
         </script>
         <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
-        <script src="{{ asset('js/zeus/app.js') }}"></script>
+        <script src="{{ mix('js/zeus/app.js') }}"></script>
         @if (request()->session()->has('zeus.flash'))
         <script>
             Swal.fire({

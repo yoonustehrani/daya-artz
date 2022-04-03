@@ -26,20 +26,26 @@ const mix = require('laravel-mix');
     },
     zeus: {
         res: {
-            css: "packages/Zeus/resources/css/"
+            css: "packages/Zeus/resources/css/",
+            js: "packages/Zeus/resources/js/"
         },
         pub: {
-            css: "public/css/zeus/"
+            css: "public/css/zeus/",
+            js: "public/js/zeus/"
         }
     }
 }
 var { res, pub, zeus } = src
 mix.disableNotifications()
+if (mix.inProduction) {
+    mix.version()
+}
 
 //website
 mix.js(res.js + 'app.js', pub.js).react()
 mix.js(res.js + "userarea.js", pub.js).react()
 mix.sass(res.sass + 'app.scss', pub.css)
+mix.sass(res.sass + '_fonts.scss', pub.css)
 
 // landing
 mix.postCss(res.css + "landing.css", pub.css).options({
@@ -65,7 +71,9 @@ mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
     require('tailwindcss'),
     require('autoprefixer')
 ])
+mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
 mix.js(res.js + "components/zeusTickets.js", pub.js).react()
+mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
 
 // just need to run once if you got an err
 //  .copy(pub.fonts + "fa-**", res.webfonts)

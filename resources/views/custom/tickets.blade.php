@@ -8,6 +8,6 @@
         data-ticket="{{ route('api.zeus.custom.tickets.show', ['ticket' => 'ticketId']) }}"
         data-message="{{ route('api.zeus.custom.tickets.message', ['ticket' => 'ticketId']) }}"></div>
     @push('scripts')
-        <script src="{{ asset('js/zeusTickets.js') }}"></script>
+        <script src="{{ mix('js/zeusTickets.js') }}"></script>
     @endpush
 </x-zview-layout-default>
