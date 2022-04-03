@@ -49,7 +49,7 @@ class TicketController extends Controller
     public function show($ticket)
     {
         $ticket = Ticket::findOrFail($ticket);
-        $messages = $ticket->messages()->simplePaginate(10);
+        $messages = $ticket->messages()->latest()->simplePaginate(10);
         $ticket->unread_messages()->whereSide('customer')->update(['read_at' => now()]);
         return response()->json(compact('ticket', 'messages'));
     }
