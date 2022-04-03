@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 02, 2022 at 06:12 PM
+-- Generation Time: Apr 03, 2022 at 08:32 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.28
 
@@ -362,7 +362,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2021_10_01_031532_create_transactions_table', 1),
 (20, '2021_10_11_033552_create_ticket_departments_table', 1),
 (21, '2021_10_11_034211_create_tickets_table', 1),
-(22, '2021_10_11_034251_create_ticket_messages_table', 1),
 (24, '2021_11_21_020740_create_zeus_roles_table', 1),
 (25, '2021_11_21_025857_create_zeus_users_table', 1),
 (26, '2021_11_21_030039_create_zeus_permissions_table', 1),
@@ -388,7 +387,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (47, '2022_03_15_073841_create_seo_links_table', 2),
 (48, '2022_03_17_065643_create_fileables_table', 2),
 (49, '2022_03_24_193259_create_images_table', 2),
-(50, '2021_10_11_042448_create_ticket_department_user_table', 3);
+(50, '2021_10_11_042448_create_ticket_department_user_table', 3),
+(52, '2021_10_11_034251_create_ticket_messages_table', 4);
 
 -- --------------------------------------------------------
 
@@ -783,8 +783,10 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('jPpX1ZwmmMDXuLpo0vH0CrhROk3BEss55Tnhb05i', 1, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoid3gyYkZTUEpocGJaVm5WVnpxaEVKbzhveHNvQVVWbGVmQUhxNWxzNCI7czo0OiJ6ZXVzIjthOjA6e31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im5ldyI7YTowOnt9czozOiJvbGQiO2E6MDp7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo3OToiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2FwaS91c2VyYXJlYS90aWNrZXRzLzY2YWMyMDQxLTI0MzgtNDM4OC1hNmEzLWNjODYyYTIxZWMwMiI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1648974358),
 ('LKCbIJh0jE2DfOKdVymhO5YOw1NBTC4ZI37PHYBs', NULL, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZ3Q1WEJoamtFYjBMMmgwZkhWbktkMkFzcEhoYmhMVWVKSlQyTFJYTSI7czo0OiJ6ZXVzIjthOjA6e31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im5ldyI7YTowOnt9czozOiJvbGQiO2E6MDp7fX1zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL3pldXMvbG9naW4iO319', 1648919494),
-('m8uG13aEINKFjU7YaETM1RqICbUawfteTFd3KCaR', 2, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiQXFuU0daZWhROWM2OExjWlhJcXJBZUl3NlJCY1R5VVVtSERncXBIVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC96ZXVzL3N1cHBvcnQtdGlja2V0cyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjUxOiJsb2dpbl96ZXVzXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjtzOjE2OiJ1c2VyXzJAYWJpbGl0aWVzIjtPOjI5OiJJbGx1bWluYXRlXFN1cHBvcnRcQ29sbGVjdGlvbiI6Mjp7czo4OiIAKgBpdGVtcyI7YTo1OntpOjA7czoxNjoidmlld19tb2RlbF90eXBlcyI7aToxO3M6MjA6InZpZXdfYW55X21vZGVsX3R5cGVzIjtpOjI7czoxODoiY3JlYXRlX21vZGVsX3R5cGVzIjtpOjM7czoxNjoiZWRpdF9tb2RlbF90eXBlcyI7aTo0O3M6MTg6ImRlbGV0ZV9tb2RlbF90eXBlcyI7fXM6Mjg6IgAqAGVzY2FwZVdoZW5DYXN0aW5nVG9TdHJpbmciO2I6MDt9czo0OiJ6ZXVzIjthOjA6e319', 1648922376);
+('m8uG13aEINKFjU7YaETM1RqICbUawfteTFd3KCaR', 2, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiQXFuU0daZWhROWM2OExjWlhJcXJBZUl3NlJCY1R5VVVtSERncXBIVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC96ZXVzL3N1cHBvcnQtdGlja2V0cyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjUxOiJsb2dpbl96ZXVzXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjtzOjE2OiJ1c2VyXzJAYWJpbGl0aWVzIjtPOjI5OiJJbGx1bWluYXRlXFN1cHBvcnRcQ29sbGVjdGlvbiI6Mjp7czo4OiIAKgBpdGVtcyI7YTo1OntpOjA7czoxNjoidmlld19tb2RlbF90eXBlcyI7aToxO3M6MjA6InZpZXdfYW55X21vZGVsX3R5cGVzIjtpOjI7czoxODoiY3JlYXRlX21vZGVsX3R5cGVzIjtpOjM7czoxNjoiZWRpdF9tb2RlbF90eXBlcyI7aTo0O3M6MTg6ImRlbGV0ZV9tb2RlbF90eXBlcyI7fXM6Mjg6IgAqAGVzY2FwZVdoZW5DYXN0aW5nVG9TdHJpbmciO2I6MDt9czo0OiJ6ZXVzIjthOjA6e319', 1648922376),
+('RrG9JfNgpSCC5Q5FWPfCEcoveIvbcLVf6m8XJjU1', 2, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiMEJFR1E3d0N0cEtNbU9xTU40ejBZQ3lnZU9tNU94RDBpN2xlSFJJbyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjgzOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3pldXMvc3VwcG9ydC10aWNrZXRzLzY2YWMyMDQxLTI0MzgtNDM4OC1hNmEzLWNjODYyYTIxZWMwMiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTE6ImxvZ2luX3pldXNfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO3M6MTY6InVzZXJfMkBhYmlsaXRpZXMiO086Mjk6IklsbHVtaW5hdGVcU3VwcG9ydFxDb2xsZWN0aW9uIjoyOntzOjg6IgAqAGl0ZW1zIjthOjU6e2k6MDtzOjE2OiJ2aWV3X21vZGVsX3R5cGVzIjtpOjE7czoyMDoidmlld19hbnlfbW9kZWxfdHlwZXMiO2k6MjtzOjE4OiJjcmVhdGVfbW9kZWxfdHlwZXMiO2k6MztzOjE2OiJlZGl0X21vZGVsX3R5cGVzIjtpOjQ7czoxODoiZGVsZXRlX21vZGVsX3R5cGVzIjt9czoyODoiACoAZXNjYXBlV2hlbkNhc3RpbmdUb1N0cmluZyI7YjowO31zOjQ6InpldXMiO2E6MDp7fX0=', 1648974384);
 
 -- --------------------------------------------------------
 
@@ -1526,7 +1528,7 @@ CREATE TABLE `zeus_users` (
 --
 
 INSERT INTO `zeus_users` (`id`, `name`, `email`, `email_verified_at`, `avatar`, `active`, `first_name`, `last_name`, `role_id`, `password`, `lang`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'yoonus', 'yoonus@zeuscms.com', NULL, 'storage/images/bOil9ySugXxLvs4GuJL6zjz22Os4ybubugcWodYQ.jpg', 1, 'یونس', 'طهرانیم', 1, '$2y$10$zXGw3SdZOC/j5cIh1hn40eR.LSn7kXkNHIH15.SfdJsYURGGkLFUe', 'en', NULL, '2022-03-29 16:29:34', '2022-04-02 12:26:13'),
+(2, 'yoonus', 'yoonus@zeuscms.com', NULL, 'storage/images/bOil9ySugXxLvs4GuJL6zjz22Os4ybubugcWodYQ.jpg', 1, 'یونس', 'طهرانیم', 1, '$2y$10$zXGw3SdZOC/j5cIh1hn40eR.LSn7kXkNHIH15.SfdJsYURGGkLFUe', 'fa', NULL, '2022-03-29 16:29:34', '2022-04-03 08:18:32'),
 (3, 'amir', 'amir@gmail.com', NULL, 'storage/images/sfpWSw3cub8bdHgC94BxeH9GcadytOconEBrMdKs.jpg', 0, 'Amir', 'Mansoorian', 2, '$2y$10$iPpPlK.YH2hnSM8y5MrOxuyJNRRh.2J6.Xh87Z4aUChicJgsm9oy.', 'fa', NULL, '2022-03-31 13:26:43', '2022-03-31 13:32:52');
 
 --
@@ -1786,7 +1788,6 @@ ALTER TABLE `ticket_department_user`
 --
 ALTER TABLE `ticket_messages`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ticket_messages_user_id_foreign` (`user_id`),
   ADD KEY `ticket_messages_ticket_id_foreign` (`ticket_id`);
 
 --
@@ -1940,7 +1941,7 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `offers`
@@ -2133,8 +2134,7 @@ ALTER TABLE `ticket_department_user`
 -- Constraints for table `ticket_messages`
 --
 ALTER TABLE `ticket_messages`
-  ADD CONSTRAINT `ticket_messages_ticket_id_foreign` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ticket_messages_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ticket_messages_ticket_id_foreign` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transactions`
