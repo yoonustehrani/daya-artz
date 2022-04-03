@@ -1,0 +1,255 @@
+@import './datepicker.css';
+@import '../../../../node_modules/dropzone/dist/dropzone.css';
+@import '../fonts/fontawesome/css/all.css';
+@import 'react-activity/dist/Spinner.css';
+@import 'react-activity/dist/Windmill.css';
+@layer base {
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    .auth-main {
+        background-image: url(/images/zeus-images/zeus--background-with-logo.jpg);
+    }
+
+
+    .bg-black-coral {
+        background-color: #495867ff;
+    }
+
+    .sidebar {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .menubar > li {
+            &.active {
+                > a {
+                    @apply bg-mango text-black-coral shadow-md;
+                }
+                > ul {
+                    @apply block;
+                }
+            }
+            a {
+                @apply font-sans w-full block py-4 pl-6 transition duration-150 ease-in-out rounded-r-full hover:bg-mango hover:text-black-coral hover:shadow-md;
+                > i {
+                    @apply mr-2;
+                }
+            }
+        }
+        &.open {
+            @apply top-0 opacity-100 !important;  
+        }
+    }
+
+    .btn {
+        @apply py-2 px-4 rounded shadow-md transition duration-150 ease-in-out active:ring;
+    }
+
+    .btn-inline {
+        @apply py-2 px-4 shadow-md transition duration-150 ease-in-out active:ring;
+    }
+
+    .btn-simple {
+        @apply py-2 px-4 transition duration-150 ease-in-out active:ring;
+    }
+
+    .btn-sm {
+        @apply w-8 h-8 inline-flex justify-center items-center rounded shadow-md transition duration-150 ease-in-out active:ring text-sm;
+    }
+
+    .btn-green {
+        @apply text-white bg-spring-green hover:bg-spring-green-dark active:ring-green-300 active:ring-opacity-50;
+    }
+
+    .btn-red {
+        @apply text-white bg-red-ryb hover:bg-salsa active:ring-red-400 active:ring-opacity-50;
+    }
+
+    .pill {
+        @apply  w-max h-fit inline-flex justify-center items-center rounded-md px-2;
+    }
+
+    p, h1, h2, h3 {
+        &.title {
+            @apply text-3xl;
+            &:before {
+                content: '|';
+                margin-right: 10px;
+            }
+        }
+    }
+
+    /* p.title:before, h1.title:before, h2.title:before, h3.title:before {
+        content: '|';
+        margin-right: 10px;
+    } */
+
+    .awesome-table {
+        th, td {
+            @apply p-5;
+        }
+        thead tr th {
+            @apply bg-blue-yonder-dark;
+            &:first-child {
+                @apply rounded-tl-lg;
+            }
+            &:last-child {
+                @apply rounded-tr-lg;
+            }
+        }
+        tbody {
+            tr {
+                background-color: #fff;
+            }
+            &.row-mango tr:nth-child(even) {
+                @apply bg-mango-lighter;
+            }
+            &.row-mango tr {
+                @apply bg-mango-light;
+            }
+            &.row-green tr:nth-child(4n+3) {
+                background-color: rgba(95, 187, 151, 0.1);
+            }
+        }
+    }
+
+    .simple-table {
+        thead tr {
+            @apply font-bold;
+        }
+        th, td {
+            @apply p-5;
+        }
+    }
+
+    .solid-input {
+        @apply form-input bg-gray-100 rounded-md border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 block shadow-inner;
+    }
+
+    .solid-select {
+        @apply form-select rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0; 
+        /* block  mt-1 */
+    }
+
+    .solid-checkbox {
+        @apply form-checkbox;
+    }
+
+    .toggle-bg:after {
+        content: '';
+        @apply absolute top-0.5 left-0.5 bg-white border border-gray-300 rounded-full h-5 w-5 transition shadow-sm;
+    }
+
+    input:checked + .toggle-bg:after {
+        transform: translateX(100%);
+        @apply border-white;
+    }
+
+    input:checked + .toggle-bg {
+        @apply bg-blue-yonder border-blue-yonder;
+    }
+
+    .simple-input {
+        @apply form-input rounded-md border-gray-300 block focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+    }
+
+    .simple-input-inline {
+        @apply form-input border-gray-300 inline focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+    }
+
+    .simple-textarea {
+        @apply form-textarea rounded-sm border-gray-300 block focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+    }
+
+    .simple-select {
+        @apply form-select rounded-sm border-gray-300 block focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+    }
+
+    .full-input input {
+        @apply w-full;
+    }
+
+    .glue-right {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        
+    }
+
+    .ellipse-outside {
+        shape-outside: ellipse();
+    }
+
+    .password-input {
+        @apply pr-11 !important;
+    }
+
+    .img-container {
+        > input[type=checkbox][class=block] + div { @apply left-0 !important; }
+        &:hover {
+            > div {
+                @apply left-0 !important;
+            }
+            > input[type=checkbox] {
+                @apply block !important;
+            }
+        }
+    }
+
+    .copiable {
+        &:before {
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            /* @apply ease-in-out duration-300; */
+        }
+        &:hover {
+            @apply before:inline before:mx-2 before:text-gray-600 before:content-['\f0c5'] cursor-pointer;
+        }
+    }
+
+    .invalid {
+        @apply border-salsa !important;
+    }
+
+    .text-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tooltip::after {
+        content: " ";
+        position: absolute;
+        top: 100%; /* At the bottom of the tooltip */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+    }
+
+    .custom-scrollbar {
+        &::-webkit-scrollbar {
+                    width: 8px;
+                }
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+            background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+        }
+    }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

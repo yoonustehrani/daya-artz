@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFileablesTable extends Migration
+class CreateMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateFileablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fileables', function (Blueprint $table) {
-            $table->foreignUuid('file_id');
-            $table->morphs('fileable');
-            $table->json('details');
+        Schema::create('zeus_menus', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -27,6 +26,6 @@ class CreateFileablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fileables');
+        Schema::dropIfExists('zeus_menus');
     }
 }

@@ -3,12 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Zeus\Models\ZeusModel;
 
-class Service extends ZeusModel
+class Service extends Model
 {
     public $timestamps = false;
-    public $asText = 'title';
     protected $fillable = ['title', 'subtitle', 'slug', 'group', 'description', 'icon_class'];
     public function parent()
     {

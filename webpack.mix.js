@@ -24,17 +24,23 @@ const mix = require('laravel-mix');
         css: "public/css/",
         fonts: "public/fonts/"
     },
-    node: {
-
+    zeus: {
+        res: {
+            css: "packages/Zeus/resources/css/"
+        },
+        pub: {
+            css: "public/css/zeus/"
+        }
     }
 }
-var { res, pub } = src
+var { res, pub, zeus } = src
 mix.disableNotifications()
 
+//website
 mix.js(res.js + 'app.js', pub.js).react()
 mix.js(res.js + "userarea.js", pub.js).react()
 mix.sass(res.sass + 'app.scss', pub.css)
-    .sass(res.sass + '_fonts.scss', pub.css)
+// landing
 mix.postCss(res.css + "landing.css", pub.css).options({
     postCss: [
         require('postcss-import'),
@@ -44,9 +50,22 @@ mix.postCss(res.css + "landing.css", pub.css).options({
     ]
 })
     .js(res.js + "landing-opening.js", pub.js).react()
-    // .copy(pub.fonts + "fa-**", res.webfonts)
-    // .copy('node_modules/animate.css/animate.css', res.css);
 
-if (mix.inProduction()) {
-    mix.version()
-}
+//zeus
+mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
+    require('postcss-import'),
+    require('tailwindcss/nesting'),
+    require('tailwindcss'),
+    require('autoprefixer')
+])
+mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
+    require('postcss-import'),
+    require('tailwindcss/nesting'),
+    require('tailwindcss'),
+    require('autoprefixer')
+])
+mix.js(res.js + "components/zeusTickets.js", pub.js).react()
+
+// just need to run once if you got an err
+//  .copy(pub.fonts + "fa-**", res.webfonts)
+    // .copy('node_modules/animate.css/animate.css', res.css)

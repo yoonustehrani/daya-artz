@@ -4035,9 +4035,15 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css ***!
+=======
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css ***!
+>>>>>>> cms
   \*********************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -17157,6 +17163,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/sass/_fonts.scss":
 /*!************************************!*\
   !*** ./resources/sass/_fonts.scss ***!
@@ -17170,6 +17177,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+=======
+>>>>>>> cms
 /***/ "./resources/css/landing.css":
 /*!***********************************!*\
   !*** ./resources/css/landing.css ***!
@@ -17183,6 +17192,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "./packages/Zeus/resources/css/style.css":
+/*!***********************************************!*\
+  !*** ./packages/Zeus/resources/css/style.css ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./packages/Zeus/resources/css/rtl.css":
+/*!*********************************************!*\
+  !*** ./packages/Zeus/resources/css/rtl.css ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+>>>>>>> cms
 /***/ "./node_modules/moment-jalaali/index.js":
 /*!**********************************************!*\
   !*** ./node_modules/moment-jalaali/index.js ***!
@@ -70767,7 +70805,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 /* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./swiper-bundle.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css");
+=======
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[2]!./swiper-bundle.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css");
+>>>>>>> cms
 
             
 
@@ -70776,11 +70818,19 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
+<<<<<<< HEAD
 var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+=======
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+>>>>>>> cms
 
 /***/ }),
 
@@ -80017,8 +80067,14 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
+<<<<<<< HEAD
 /******/ 			"css/landing": 0,
 /******/ 			"css/_fonts": 0,
+=======
+/******/ 			"css/zeus/rtl": 0,
+/******/ 			"css/zeus/style": 0,
+/******/ 			"css/landing": 0,
+>>>>>>> cms
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
@@ -80069,10 +80125,18 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+<<<<<<< HEAD
 /******/ 	__webpack_require__.O(undefined, ["css/landing","css/_fonts","css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	__webpack_require__.O(undefined, ["css/landing","css/_fonts","css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_require__.O(undefined, ["css/landing","css/_fonts","css/app"], () => (__webpack_require__("./resources/sass/_fonts.scss")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing","css/_fonts","css/app"], () => (__webpack_require__("./resources/css/landing.css")))
+=======
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/app"], () => (__webpack_require__("./resources/css/landing.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/app"], () => (__webpack_require__("./packages/Zeus/resources/css/style.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/app"], () => (__webpack_require__("./packages/Zeus/resources/css/rtl.css")))
+>>>>>>> cms
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -101,6 +101,7 @@ class Update extends Component
                 $recommended_id = $latest_id ? $latest_id->order + 1 : 0;
                 $this->newrow->dynamic = request('newrow.dynamic') ? 1 : 0;
                 $this->newrow->order = $recommended_id;
+                $this->newrow->details = [];
                 foreach ($this->v_options as $v) {
                     $this->newrow->{$v} = $this->newrow->{$v} ? 1 : 0;
                 }
