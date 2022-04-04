@@ -1,5 +1,9 @@
 @extends('layouts.page')
 
+@push('head')
+    <title>Services | Daya artz</title>
+@endpush
+
 @section('header')
 <!-- services Header -->
 <div class="header-section policy-header dotted-background services-header">

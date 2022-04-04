@@ -1,9 +1,8 @@
 @extends('layouts.page')
 
-@section('head')
+@push('head')
     <title>About us | Daya Artz</title>
-@endsection
-
+@endpush
 
 @section('content')
 <article class="text-dark">

@@ -25,13 +25,13 @@ function ReactSelectBox({indexApi, createApi, targetInput}) {
     const ref = createRef()
     const handleSelect = (e) => {
         e.preventDefault()
-        let {value} = e.target
+        let value = e.target.getAttribute('value')
         let option = options.filter((o) => o.id == value)
         if (option[0]) {
             setSelected(option[0])
             selectboxToggle(false)
         }
-        document.querySelector(`input[name='${targetInput}']`).value = value > 0 ? value : null;
+        document.querySelector(`input[name='${targetInput}']`).value = value;
         ref.current.blur()
     }
     const unselect = (e) => {

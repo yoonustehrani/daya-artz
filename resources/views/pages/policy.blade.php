@@ -1,5 +1,9 @@
 @extends('layouts.page')
 
+@push('head')
+    <title>Policy | Daya Artz</title>
+@endpush
+
 @section('header')
 <!-- Policy Header -->
 <div class="header-section policy-header">
