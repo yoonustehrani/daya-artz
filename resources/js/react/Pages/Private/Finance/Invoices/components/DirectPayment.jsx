@@ -5,7 +5,7 @@ export default function DirectPayment() {
     const [transactionCode, setTransactionCode] = useState(null),
     ba_card = '6104 - 3388 - 0004 - 6282',
     ba_shaba = 'IR-17 0120 0000 0000 9546 6188 31',
-    ba_hesab = "9546618831"
+    ba_hesab = "9546618831",
     sendForm = () => {
         console.log('here the req will be sent');
     }

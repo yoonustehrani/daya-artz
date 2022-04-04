@@ -626,9 +626,8 @@ function DirectPayment() {
       setTransactionCode = _useState2[1],
       ba_card = '6104 - 3388 - 0004 - 6282',
       ba_shaba = 'IR-17 0120 0000 0000 9546 6188 31',
-      ba_hesab = "9546618831";
-
-  sendForm = function sendForm() {
+      ba_hesab = "9546618831",
+      sendForm = function sendForm() {
     console.log('here the req will be sent');
   };
 

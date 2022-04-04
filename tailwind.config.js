@@ -27,7 +27,6 @@ module.exports = {
             iransans: ["Iransansweb"],
             sans: ['Open Sans', ...defaultTheme.fontFamily.sans]
         },
-
         extend: {
             colors: {
                 'body': '#fafafa',

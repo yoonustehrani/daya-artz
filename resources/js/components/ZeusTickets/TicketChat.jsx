@@ -9,11 +9,11 @@ export default class TicketChat extends Component {
         newMsg: ""
     }
     sendMsg = (e) => {
-        // console.log(e.shitKey);
-        // if ((e.type === "keydown" && e.keyCode === 13)) {
-        // }
-        this.props.sendMsg(this.state.newMsg)
-        this.setState({newMsg: ""})
+        e.type === "keydown" && e.keyCode === 13 && !e.shiftKey ? e.preventDefault() : null
+        if (e.type === "click" || (e.type === "keydown" && e.keyCode === 13 && !e.shiftKey)) {
+            this.props.sendMsg(this.state.newMsg)
+            this.setState({newMsg: ""})
+        }
     }
     componentDidMount() {
         this.props.scrollToEnd()
