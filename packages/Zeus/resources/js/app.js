@@ -201,8 +201,8 @@ $(() => {
         branding: false,
         toolbar_sticky: true,
         height: 500,
-        // directionality: 'rtl',
-        // language: "fa",
+        directionality: 'rtl',
+        language: "fa",
         ...mceOptions
     })
 })
