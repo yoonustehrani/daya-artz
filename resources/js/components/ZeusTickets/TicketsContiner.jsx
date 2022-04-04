@@ -81,7 +81,7 @@ class TicketsContiner extends Component {
                     ticketMessages: messages.data.sort((a, b) => new Date(a.created_at) >= new Date(b.created_at) ? 1 : -1).concat([...prevState.ticketMessages]),
                     loadingCurrentTicket: false,
                     loadingMessages: false,
-                }))
+                }), () => this.deleteDuplicates())
             }
         })
     }
@@ -102,7 +102,15 @@ class TicketsContiner extends Component {
             $("#ticket-chat-scroller").scrollTop($("#ticket-chat-scroller")[0].scrollHeight)
         }, 0);
     }
-    
+    deleteDuplicates = () => {
+        let { ticketMessages } = this.state,
+        mgsIds = ticketMessages.map(msg => msg.id),
+        filteredMsgs = ticketMessages.filter(({id}, index) => !mgsIds.includes(id, index + 1))
+        this.setState({
+            ticketMessages: filteredMsgs
+        })
+    }
+
     render() {
         let { departments, currentDepartment, tickets, currentTicket, loadingTickets, loadingCurrentTicket, loadingDepartments, loadingMessages, ticketMessages, messagesPagination, ticketsPagination, sendingMsg } = this.state
         return (
