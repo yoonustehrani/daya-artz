@@ -2148,7 +2148,7 @@ function ReactSelectBox(_ref) {
 
   var handleSelect = function handleSelect(e) {
     e.preventDefault();
-    var value = e.target.value;
+    var value = e.target.getAttribute('value');
     var option = options.filter(function (o) {
       return o.id == value;
     });
@@ -2158,7 +2158,7 @@ function ReactSelectBox(_ref) {
       selectboxToggle(false);
     }
 
-    document.querySelector("input[name='".concat(targetInput, "']")).value = value > 0 ? value : null;
+    document.querySelector("input[name='".concat(targetInput, "']")).value = value;
     ref.current.blur();
   };
 
