@@ -39,7 +39,7 @@ export default class TicketChat extends Component {
                 </InfiniteScroll>
             </div>
             <div className="h-52 mt-3 p-3">
-                <textarea onKeyDown={this.sendMsg} className="h-[calc(100%-3.75rem)] w-full simple-textarea" onChange={(e) => this.setState({newMsg: e.target.value})} value={newMsg}></textarea>
+                <textarea className="h-[calc(100%-3.75rem)] w-full simple-textarea" onChange={(e) => this.setState({newMsg: e.target.value})} value={newMsg}></textarea>
                 <div className='text-center pt-3'>
                     <a onClick={this.sendMsg} href="#" className="p-3 bg-indigo-200 inline-block hover:bg-indigo-300 duration-300 text-slate-800 rounded-md">ارسال پیام</a>
                     {sendingMsg && <div className='w-fit inline-block translate-y-2 ml-2 m-left'><Windmill size={25} color="#6332df" /></div>}
