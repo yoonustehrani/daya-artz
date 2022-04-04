@@ -9,6 +9,7 @@ class TicketMessage extends Component {
                 <p>{body}</p>
                 <div className="text-right m-0">
                     <span>
+                        {side !== "customer" && <i className='fas fa-user-tie mx-1'></i>}
                         <i className="mx-1 far fa-calendar"></i>
                         {useJalaliDate(created_at).format('jYYYY/jM/jD')}
                         <i className="mx-1 ml-3 far fa-clock"></i>
