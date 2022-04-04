@@ -52037,7 +52037,9 @@ $(function () {
     menubar: false,
     branding: false,
     toolbar_sticky: true,
-    height: 500
+    height: 500,
+    directionality: 'rtl',
+    language: "fa"
   }, mceOptions));
 }); //handle menu in mobile and tablet
 
