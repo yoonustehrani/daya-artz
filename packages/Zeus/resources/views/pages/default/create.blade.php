@@ -31,17 +31,17 @@
             <input type="hidden" name="__submit_type" value="save">
             @if (request()->has('after'))
                 <button type="button" class="btn bg-blue-yonder-dark text-white" data-zeus-submit="save-and-after">
-                    <i class="fas fa-undo-alt"></i> Save and go back
+                    <i class="fas fa-undo-alt"></i> @lang('Save and go back')
                 </button>
             @endif
             <button type="button" class="btn bg-blue-yonder-dark text-white" data-zeus-submit="save">
-                <i class="fas fa-save"></i> Save
+                <i class="fas fa-save"></i> @lang('Save')
             </button>
             <button type="button" class="btn bg-blue-yonder-dark text-white" data-zeus-submit="save-and-create">
-                <i class="fas fa-plus"></i> Save and create another
+                <i class="fas fa-plus"></i> @lang('Save and create another')
             </button>
             <button type="button" class="btn bg-blue-yonder-dark text-white" data-zeus-submit="save-and-edit">
-                <i class="fas fa-pencil-alt"></i> Save and continue editing
+                <i class="fas fa-pencil-alt"></i> @lang('Save and continue editing')
             </button>
         </div>
     </form>
