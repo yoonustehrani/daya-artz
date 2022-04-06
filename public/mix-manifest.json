@@ -1,25 +1,3 @@
 {
-    "/js/app.js": "/js/app.js?id=321c3b8e22d816b7b025",
-    "/js/userarea.js": "/js/userarea.js?id=fab4f568d89f2dd52958",
-    "/js/landing-opening.js": "/js/landing-opening.js?id=18c454a17e3f02cf554b",
-    "/js/zeus/app.js": "/js/zeus/app.js?id=1c77070b79d2bdd5176f",
-    "/js/zeusTickets.js": "/js/zeusTickets.js?id=8e9b88a7a45a93c590cc",
-    "/js/tinymce/langs/fa.js": "/js/tinymce/langs/fa.js?id=681dad9218a05c8c7a63",
-    "/css/zeus/rtl.css": "/css/zeus/rtl.css?id=b6538fc9c1a65bab0c7d",
-    "/css/zeus/style.css": "/css/zeus/style.css?id=4d72e321305f07183d2f",
-    "/css/landing.css": "/css/landing.css?id=c3d5baad086c51186984",
-    "/css/_fonts.css": "/css/_fonts.css?id=ead327a93e706435bf47",
-    "/css/app.css": "/css/app.css?id=618e0e18d7b2411ea294",
-    "/js/tinymce/.npmignore": "/js/tinymce/.npmignore?id=ddeebe528dc362895244",
-    "/js/tinymce/bower.json": "/js/tinymce/bower.json?id=8374981ab931002efb2b",
-    "/js/tinymce/CHANGELOG.md": "/js/tinymce/CHANGELOG.md?id=d41ab1d9cf87a91c8f19",
-    "/js/tinymce/composer.json": "/js/tinymce/composer.json?id=a26df2be2f232d7c6d11",
-    "/js/tinymce/jquery.tinymce.js": "/js/tinymce/jquery.tinymce.js?id=abc669a993b54748fbd9",
-    "/js/tinymce/jquery.tinymce.min.js": "/js/tinymce/jquery.tinymce.min.js?id=abc669a993b54748fbd9",
-    "/js/tinymce/license.txt": "/js/tinymce/license.txt?id=6f9589e0c8df783acd17",
-    "/js/tinymce/package.json": "/js/tinymce/package.json?id=27941228a00b6ca42722",
-    "/js/tinymce/README.md": "/js/tinymce/README.md?id=81aa5974d475d3f05a84",
-    "/js/tinymce/tinymce.d.ts": "/js/tinymce/tinymce.d.ts?id=3e53c5be3ed7521481a5",
-    "/js/tinymce/tinymce.js": "/js/tinymce/tinymce.js?id=59d169586630f87804b5",
-    "/js/tinymce/tinymce.min.js": "/js/tinymce/tinymce.min.js?id=2aa000f4ca21383fd155"
+    "/css/app.css": "/css/app.css?id=6a039bed00c8fffe0c51"
 }
