@@ -42,10 +42,10 @@ if (mix.inProduction) {
 }
 
 //website
-// mix.js(res.js + 'app.js', pub.js).react()
-// mix.js(res.js + "userarea.js", pub.js).react()
+mix.js(res.js + 'app.js', pub.js).react()
+mix.js(res.js + "userarea.js", pub.js).react()
 mix.sass(res.sass + 'app.scss', pub.css)
-// mix.sass(res.sass + '_fonts.scss', pub.css)
+mix.sass(res.sass + '_fonts.scss', pub.css)
 
 // // landing
 // mix.postCss(res.css + "landing.css", pub.css).options({

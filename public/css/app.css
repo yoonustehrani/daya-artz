@@ -11477,6 +11477,14 @@ h3 {
   .order-item-infos-container .order-item-section {
     width: 100% !important;
   }
+
+  .order-card > div {
+    height: auto !important;
+  }
+  .order-card > div button[type=submit] {
+    position: static !important;
+    transform: none !important;
+  }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   .process-timeline .icons-container {
@@ -12395,15 +12403,18 @@ button i.fa-phone {
   align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
 }
 .title-section .title-container .title-text {
   display: inline-block;
   margin: 0 15px;
   margin-bottom: 10px;
   padding: 5px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: 100%;
+  line-height: 1.5;
   min-width: 170px;
   background-image: url(/images/title-background.png);
   background-repeat: no-repeat;
@@ -14526,13 +14537,16 @@ span.back-aqua.big-icon {
   margin-left: auto;
   margin-right: auto;
 }
-.order-packs-section .order-card-container .order-card {
-  height: 490px;
+.order-packs-section .order-card-container .order-card > div {
+  height: 520px;
   text-align: center;
   padding: 20px;
   margin: 0;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.15);
+  position: relative;
 }
-.order-packs-section .order-card-container .order-card .card-title {
+.order-packs-section .order-card-container .order-card > div .card-title {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -14547,72 +14561,76 @@ span.back-aqua.big-icon {
   margin-left: auto;
   margin-right: auto;
 }
-.order-packs-section .order-card-container .order-card .card-price-container {
+.order-packs-section .order-card-container .order-card > div .card-price-container {
   margin-bottom: 16px;
 }
-.order-packs-section .order-card-container .order-card ul.card-options {
+.order-packs-section .order-card-container .order-card > div ul.card-options {
   list-style-type: none;
   margin-bottom: 20px;
   padding: 0;
+  text-align: right;
 }
-.order-packs-section .order-card-container .order-card ul.card-options li {
-  margin-bottom: 12px;
+.order-packs-section .order-card-container .order-card > div ul.card-options li {
+  margin-bottom: 18px;
 }
-.order-packs-section .order-card-container .order-card ul.card-options li span {
+.order-packs-section .order-card-container .order-card > div ul.card-options li span {
   font-weight: bold;
 }
-.order-packs-section .order-card-container .order-card ul.card-options li::before {
+.order-packs-section .order-card-container .order-card > div ul.card-options li::before {
   content: "✓ ";
   margin-left: 4px;
 }
-.order-packs-section .order-card-container .card-1, .order-packs-section .order-card-container .card-3 {
-  background-color: #90fced;
+.order-packs-section .order-card-container .order-card > div button[type=submit] {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.order-packs-section .order-card-container .card-1 .card-title, .order-packs-section .order-card-container .card-3 .card-title {
+.order-packs-section .order-card-container .card-1 > div, .order-packs-section .order-card-container .card-3 > div {
+  background-color: #fff;
+}
+.order-packs-section .order-card-container .card-1 > div .card-title, .order-packs-section .order-card-container .card-3 > div .card-title {
   color: #2d027c;
   border-color: #2d027c;
 }
-.order-packs-section .order-card-container .card-1 .card-price, .order-packs-section .order-card-container .card-1 .card-options, .order-packs-section .order-card-container .card-3 .card-price, .order-packs-section .order-card-container .card-3 .card-options {
+.order-packs-section .order-card-container .card-1 > div .card-price, .order-packs-section .order-card-container .card-1 > div .card-options, .order-packs-section .order-card-container .card-3 > div .card-price, .order-packs-section .order-card-container .card-3 > div .card-options {
   color: #2d027c;
 }
-.order-packs-section .order-card-container .card-1 button, .order-packs-section .order-card-container .card-3 button {
-  color: #2d027c !important;
-  border-color: #2d027c !important;
-  background-color: #90fced !important;
-}
-.order-packs-section .order-card-container .card-1 button:hover, .order-packs-section .order-card-container .card-3 button:hover {
-  background-color: #2d027c !important;
+.order-packs-section .order-card-container .card-1 > div button, .order-packs-section .order-card-container .card-3 > div button {
+  background-color: #6232de !important;
   color: white !important;
 }
-.order-packs-section .order-card-container .card-1 ul li::before {
-  color: #022721;
+.order-packs-section .order-card-container .card-1 > div button:hover, .order-packs-section .order-card-container .card-3 > div button:hover {
+  background-color: #2d027c !important;
 }
-.order-packs-section .order-card-container .card-2 {
-  background-image: linear-gradient(to bottom left, #ac7ff4, #8f60ec, #6232de);
-  background-image: -webkit-gradient(to bottom left, #ac7ff4, #8f60ec, #6232de);
-  box-shadow: 2px 2px 8px 0px #cbb8f5;
-  height: 520px !important;
+.order-packs-section .order-card-container .card-1 > div {
+  border: 2px solid #6232de;
+  background-image: url("/images/plan-bg.png");
+  background-size: cover;
+  background-position: center;
 }
-.order-packs-section .order-card-container .card-2 .card-title {
+.order-packs-section .order-card-container .card-2 > div {
+  background-image: linear-gradient(to top, #ac7ff4, #8f60ec, #6232de);
+  background-image: -webkit-gradient(to top, #ac7ff4, #8f60ec, #6232de);
+}
+.order-packs-section .order-card-container .card-2 > div .card-title {
   color: white;
   border-color: white;
 }
-.order-packs-section .order-card-container .card-2 .card-price, .order-packs-section .order-card-container .card-2 .card-options {
-  color: #90fced;
+.order-packs-section .order-card-container .card-2 > div .card-price, .order-packs-section .order-card-container .card-2 > div .card-options {
+  color: white;
   text-align: center;
 }
-.order-packs-section .order-card-container .card-2 ul li::before {
+.order-packs-section .order-card-container .card-2 > div ul li::before {
   color: white;
 }
-.order-packs-section .order-card-container .card-2 button {
+.order-packs-section .order-card-container .card-2 > div button {
+  color: white !important;
+  background-color: #6232de !important;
+}
+.order-packs-section .order-card-container .card-2 > div button:hover {
   color: #6232de !important;
-  background-color: #90fced !important;
-}
-.order-packs-section .order-card-container .card-2 button:hover {
-  background-color: #96e1d7 !important;
-}
-.order-packs-section .order-card-container .card-3 ul li::before {
-  color: #01362e;
+  background-color: white !important;
 }
 
 .order-ways-section .contact-info > div {

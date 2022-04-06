@@ -125,17 +125,19 @@
         <div class="col-12 order-card-container">
         @foreach ($service->plans->chunk(3) as $plans)
             @foreach ($plans as $plan)
-            <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-4 col-xl-3">
-                <h4 class="card-title bold">{{ $plan->title }}</h4>
-                <div class="card-price-container">
-                    <span class="card-price font-24 bold">{{ number_format($plan->price) }}</span>
-                    <span class="font-16 ltr card-price">/تومان</span>
+            <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2">
+                <div>
+                    <h4 class="card-title bold">{{ $plan->title }}</h4>
+                    <div class="card-price-container">
+                        <span class="card-price font-24 bold">{{ number_format($plan->price) }}</span>
+                        <span class="font-16 ltr card-price">/تومان</span>
+                    </div>
+                    {!! $plan->caption !!}
+                    <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn badge-pill">ثبت سفارش</button>
+                    </form>
                 </div>
-                {!! $plan->caption !!}
-                <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
-                    @csrf
-                    <button type="submit" class="btn btn-outline-light badge-pill">ثبت سفارش</button>
-                </form>
             </div>
             @endforeach
         @endforeach
