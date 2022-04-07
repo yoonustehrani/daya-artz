@@ -4,7 +4,7 @@
     <title>{{ $post->title }} - وبلاگ دایا آرتز</title>
     @component('components.seo', ['instance' => $post, 'slug' => 'posts']) @endcomponent
     <script type="application/ld+json">
-        {
+        [{
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": "{{ $post->title }}",
@@ -15,7 +15,22 @@
             @endif
             "datePublished": "{{ $post->created_at->format('Y-m-d') }}",
             "dateModified": "{{ $post->updated_at->format('Y-m-d') }}"
-        }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "وبلاگ",
+                "item": "{{ route('blog.index') }}"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ $post->title }}",
+                "item": "{{ route('blog.show', ['slug' => $post->slug]) }}"
+              }]
+        }]
     </script>
 @endpush
 
