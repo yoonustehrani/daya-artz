@@ -126,3 +126,11 @@ if (! function_exists('make_bills')) {
         return $bills;
     }
 }
+
+if (! function_exists('get_seo_settings')) {
+    function get_seo_settings($slug, $instance) {
+        return \Cache::rememberForever("{$slug}.{$instance->id}.seo_settings", function () use($instance) {
+            return $instance->seo_settings;
+        });
+    }
+}
