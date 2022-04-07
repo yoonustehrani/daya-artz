@@ -2,6 +2,17 @@
 
 @section('title', 'طراحی لوگو - طراحی گرافیک - گرافیک دیزاین')
 
+@push('head')
+<script type="application/ld+json">
+    [{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "https://dayaartz.com",
+        "logo": "https://dayaartz.com/images/daya-cyan-logo.png"
+    }]
+</script>
+@endpush
+
 @section('header')
     <div class="header-section">
         <div class="header-text p-4 col-12 col-md-6">
