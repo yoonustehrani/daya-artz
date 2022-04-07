@@ -3,28 +3,16 @@
 @push('head')
     <title>{{ $post->title }} - وبلاگ دایا آرتز</title>
     @component('components.seo', ['instance' => $post, 'slug' => 'posts']) @endcomponent
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": "{{ $post->title }}",
-            @if ($post->image && $post->image->file)
-            "image": [
-              "{{ asset($post->image->file->path) }}"
-            ],
-            @endif
-            "datePublished": "{{ $post->created_at->format('Y-m-d') }}",
-            "dateModified": "{{ $post->updated_at->format('Y-m-d') }}"
-        }
-    </script>
 @endpush
 
 @section('content')
-    <div>
+    <div itemscope itemtype="https://schema.org/BlogPosting">
         <div class="section w-100">
             <div class="horizontal-centerlize-w col-12 col-lg-11 col-xl-10 post-info-section mt-3">
                 <div class="post-info-container vertical-centerlize p-4">
-                    <h1 class="horizontal-centerlize post-title mb-4 pr-2">{{ $post->title }}</h1>
+                    <h1 itemprop="headline" class="horizontal-centerlize post-title mb-4 pr-2">{{ $post->title }}</h1>
+                    <meta itemprop="datePublished" content="{{ $post->created_at->format('Y-m-d') }}">
+                    <meta itemprop="dateModified" content="{{ $post->updated_at->format('Y-m-d') }}">
                     <div class="post-info-flex rtl">
                         <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2">
                             <i class="fas fa-icons"></i>
@@ -44,15 +32,15 @@
                         @endif
                     </div>
                 </div>
-                <div class="post-info-cover float-left mt-2 mt-md-0">
+                <div itemscope itemtype="https://schema.org/ImageObject" class="post-info-cover float-left mt-2 mt-md-0">
                     @if ($post->image && $post->image->file)
-                        <img src="{{ asset($post->image->file->path) }}" alt="{{ $post->image->alt }}" class="w-100 h-100">
+                        <img itemprop="image" src="{{ asset($post->image->file->path) }}" alt="{{ $post->image->alt }}" class="w-100 h-100">
                     @endif
                 </div>
             </div>
         </div>
         <div class="section post-main-section p-2 mt-4">
-            <div class="post-main-text">{!! $post->body !!}</div>
+            <div itemprop="articleBody" class="post-main-text">{!! $post->body !!}</div>
         </div>
     </div>
     {{-- @if ($post->related->count())
