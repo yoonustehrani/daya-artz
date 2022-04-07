@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import AlertService from '../../../services/AlertService';
 import { changeUserEmail, resendBasedOnAuthMethod } from '../../redux/actions';
+import { Windmill } from 'react-activity';
 
 class EmailValidation extends Component {
     constructor(props) {
@@ -53,7 +54,7 @@ class EmailValidation extends Component {
         if (okay) this.Alert.success({title: 'ایمیل حاوی لینک تایید حساب ارسال شد', timer: 2000})
     }
     render() {
-        let { user, resend } = this.props
+        let { user, resend, sending_data, history, changeSection } = this.props
         let { edit, resendIn, editing } = this.state
         let {left_attempts} = resend
         return user.email && user.email_verified_at || user.phone_number && ! user.phone_verified
@@ -74,13 +75,15 @@ class EmailValidation extends Component {
                         onClick={this.handleResend}
                         className="btn btn-lg">{resendIn > 0 ? resendIn : "ارسال مجدد ایمیل"}</button>
                     }
-                    <p className="text-right mt-5 text-small">آدرس ایمیل {user.email} اشتباه است ؟ <a onClick={() => this.setState({edit: true})} href="#edit">ویرایش</a></p>
+                    <p className="text-right mt-5 text-small">آدرس ایمیل {user.email} اشتباه است ؟ <span className='span-hover' onClick={() => this.setState({edit: true})}>ویرایش</span></p>
+                    <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, "login")}>خروج از حساب کاربری</span>              
                 </div>
             :   <div>
                     <h2>ویرایش ایمیل</h2>
                     <form onSubmit={this.handleEdit} className="form-group w-50">
                         <div className="input-group">
                             <div className="input-group-prepend">
+                                {sending_data && <span className='auth-windmill'><Windmill size={30} color="#6332df" /></span>}
                                 <button disabled={editing} className="btn btn-def m-0 w-auto btn-success" type="submit">ویرایش</button>
                             </div>
                             <input type="text" className="form-control text-left ltr" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})}/>

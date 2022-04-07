@@ -3,7 +3,7 @@ import SwiperItem from './SwiperItem';
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import SwiperCore, { Navigation } from 'swiper/core'
-import LoaderComponents from '../../react/components/LoaderComponent'
+import LoaderComponents from '../../userarea/components/LoaderComponent'
 import axios from 'axios';
 
 class BlogSwiper extends Component {

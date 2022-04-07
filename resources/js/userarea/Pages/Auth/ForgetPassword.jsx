@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { state_select } from '../../../components/select2'
 import { Link } from 'react-router-dom';
+import { Windmill } from 'react-activity';
 
 class ForgetPassword extends Component {
     componentDidMount() {
@@ -12,7 +13,7 @@ class ForgetPassword extends Component {
     }
     
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, handleLogin, fields_info, login_method } = this.props, { phone_number, email } = fields_info
+        let { changeLoginMethod, changeSection, onChangeField, handleLogin, fields_info, login_method, sending_data } = this.props, { phone_number, email } = fields_info
         return (
             <div>
                 <h2>فراموشی رمز عبور</h2>
@@ -39,6 +40,7 @@ class ForgetPassword extends Component {
                         <div className="input-group-append"><span className="input-group-text"><i className="fas fa-mobile"></i></span></div>
                     </div>
                 </div>
+                {sending_data && <span className='auth-windmill'><Windmill size={30} color="#6332df" /></span>}
                 <button className="btn btn-lg badge-pill " onClick={this.checkCode.bind(this)}>ارسال کد</button>
                 <Link to="/auth/login" className="change-form-mobile mt-2">برای ورود به دایا آرتز کلیک کنید!</Link>
             </div>

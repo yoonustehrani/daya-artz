@@ -16121,6 +16121,20 @@ span.back-aqua.big-icon {
   color: #000;
 }
 
+.auth-windmill {
+  display: inline-block;
+  transform: translate(-40px, 28px);
+  position: absolute;
+}
+
+.span-hover {
+  transition: 0.3s;
+  cursor: pointer;
+}
+.span-hover:hover {
+  color: #6332df;
+}
+
 .user-area-layout-container {
   width: 100%;
   height: auto;

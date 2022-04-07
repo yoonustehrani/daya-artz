@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { changeUserPhoneNumber, resendBasedOnAuthMethod, verifyPhoneNumber } from '../../redux/actions';
 import AlertService from '../../../services/AlertService';
+import { Windmill } from 'react-activity';
 
 class PhoneValidation extends Component {
     constructor(props) {
@@ -68,7 +69,7 @@ class PhoneValidation extends Component {
     }
     render() {
         let {resendIn, edit, editing, requesting} = this.state
-        let { onChangeField, code, user, resend } = this.props
+        let { onChangeField, code, user, resend, sending_data, history, changeSection } = this.props
         let {left_attempts} = resend
         return user.phone_number && user.phone_verified
         ? <Redirect to="/dashboard"/>
@@ -81,6 +82,7 @@ class PhoneValidation extends Component {
                     <form onSubmit={this.handleVerify} className="form-group">
                         <div className="input-group">
                             <input type="text" maxLength={6} value={code} className="form-control text-left ltr" placeholder="کد ارسالی" onChange={onChangeField.bind(this, "validation", "code")}/>
+                            {sending_data && <span className='auth-windmill'><Windmill size={30} color="#6332df" /></span>}
                             <div className="input-group-append">
                                 <button disabled={requesting || code.length < 6} className="btn btn-def btn-primary m-0 w-auto" type="submit">تایید</button>
                                 {left_attempts > 0 &&
@@ -93,7 +95,8 @@ class PhoneValidation extends Component {
                             </div>
                         </div>
                     </form>
-                    <p>شماره تلفن {user.phone_number} اشتباه است ؟ <a onClick={() => this.setState({edit: true})} href="#edit">ویرایش</a></p>
+                    <p>شماره تلفن {user.phone_number} اشتباه است ؟ <span className='span-hover' onClick={() => this.setState({edit: true})}>ویرایش</span></p>
+                    <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, "login")}>خروج از حساب کاربری</span>              
                 </div>
             :   <div>
                     <h2>ویرایش تلفن همراه</h2>

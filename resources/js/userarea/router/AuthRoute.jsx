@@ -2,7 +2,7 @@ import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom'
 // Redux
 import { connect } from 'react-redux';
-import { logInUsingCredentials, registerUser } from '../redux/actions';
+import { logInUsingCredentials, registerUser, logoutUser } from '../redux/actions';
 // custom components
 import Background from '../Pages/Auth/components/Background';
 import DayaLogo from '../Pages/Auth/components/DayaLogo';
@@ -43,6 +43,7 @@ class AuthRoute extends Component {
             },
             state: route_regex.exec(this.props.location.pathname) ? route_regex.exec(this.props.location.pathname)[1] : "login",
             login_method: "email",
+            sending_data: false
         }
     }
 
@@ -56,8 +57,16 @@ class AuthRoute extends Component {
         }))
     }
 
+    setSendig = (value) => {
+        this.setState({
+            sending_data: value
+        })
+    }
+
     changeSection = (history, newState) => {
+        console.log('triggered');
         let { state } = this.state, replaca = newState ? newState : state === "signup" || state === "verification" ? "login" : "signup" 
+        state === "verification" ? setTimeout(() => this.props.authLogout(), 500) : null
         setTimeout(() => {
             $(".change-form").each(function() {
                 $(this).addClass("width-change")
@@ -67,14 +76,13 @@ class AuthRoute extends Component {
                 $(".login-form").addClass("zoomOut")
             }
         }, 0)
-
         setTimeout(() => {
             $(".change-form").each(function() {
                 $(this).find("h2, p").each(function() {
                     $(this).toggleClass("d-none")
                 })
                 if(state === "signup" || state === "verification") {
-                    $(this).find("button")[0].innerHTML = "ثبت نام"
+                    $(this).find("button")[0].innerHTML = state === "signup" ? "ثبت نام" : "خروج"
                     $(this).find("button").toggleClass("bounceOutLeft bounceInRight")
                 } else {
                     $(this).find("button")[0].innerHTML = "ورود"
@@ -87,8 +95,15 @@ class AuthRoute extends Component {
             })
             $(".change-form-content").each(function() {
                 $(this).toggleClass("left-20 right-20")
-                $(this).find("h2, p").each(function() {
-                    $(this).toggleClass("d-none")
+                $(this).find("h2, p").each(function(i, elem) {
+                    $(elem).removeClass("d-none")
+                    if ((replaca === "login" || replaca === "forgetPassword") && (i <= 1 || i > 3)) {
+                        $(elem).addClass("d-none")
+                    } else if (replaca === "signup" && i > 1) {
+                        $(elem).addClass("d-none")
+                    } else if (replaca === "verification" && i <= 3) {
+                        $(elem).addClass("d-none")
+                    }
                 })
             })
             if (window.screen.width < 768) {
@@ -96,7 +111,6 @@ class AuthRoute extends Component {
             }
             history.push(`/auth/${replaca}`)
         }, 500)
-
         setTimeout(() => {
             $(".change-form").each(function() {
                 $(this).removeClass("width-change")
@@ -105,7 +119,6 @@ class AuthRoute extends Component {
             $(".daya-logo").find("img").toggleClass("tada")
             $(".login-form").removeClass("zoomIn")
         }, 1500);
-
         this.setState(prevState => ({
             state: replaca
         }))
@@ -114,22 +127,26 @@ class AuthRoute extends Component {
     handleLogin = (e) => {
         e.preventDefault();
         // change stats => loading
+        this.setSendig(true)
         let { authLogin } = this.props;
         let {email, phone_number, password} = this.state.login;
         let credentials = this.state.login_method == "email" ? {email, password} : {phone_number, password};
         authLogin(credentials).then(res => {
             // change status => not loading
+            this.setSendig(false)
         })
     }
 
     handleRegister = (e) => {
         e.preventDefault();
         // change stats => loading
+        this.setSendig(true)
         let { authRegister } = this.props;
         let {email, phone_number, password, password_confirmation} = this.state.signup
         let info = this.state.login_method == "email" ? {email, password, password_confirmation} : {phone_number, password, password_confirmation};
         authRegister(info).then(res => {
             // change status => not loading
+            this.setSendig(false)
         })
     }
 
@@ -172,7 +189,7 @@ class AuthRoute extends Component {
     }
 
     render() {
-        let {signup, login, forgetPassword, validation, login_method, state} = this.state, { history, location, match, user, authResend } = this.props
+        let {signup, login, forgetPassword, validation, login_method, state, sending_data} = this.state, { history, location, match, user, authResend } = this.props
         return (
             <>
                 <GuestMiddleware exception={['/auth/verification/email/', '/auth/verification/phone/']} location={location}/>
@@ -185,20 +202,16 @@ class AuthRoute extends Component {
                         <Suspense fallback={<LoaderComponent />}>
                             <Switch>
                                 <Route exact path={`/auth/signup`} children={(props) => (
-                                    <Signup {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />                                    
+                                    <Signup {...props} sending_data={sending_data} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleRegister={this.handleRegister} fields_info={signup} login_method={login_method} />                                    
                                 )} />
                                 <Route exact path={`/auth/login`} children={(props) => (
-                                    <Login {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />                                    
+                                    <Login {...props} sending_data={sending_data} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={login} login_method={login_method} />                                    
                                 )} />
                                 <Route exact path={`/auth/forgetPassword`} children={(props) => (
-                                    <ForgetPassword {...props} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />                                    
+                                    <ForgetPassword {...props} sending_data={sending_data} changeLoginMethod={this.changeLoginMethod} changeSection={this.changeSection} onChangeField={this.onChangeField} handleLogin={this.handleLogin} fields_info={forgetPassword} login_method={login_method} />                                    
                                 )} />
-                                <PrivateRoute exact path="/auth/verification/email">
-                                    <EmailValidation/>                                    
-                                </PrivateRoute>
-                                <PrivateRoute exact path="/auth/verification/phone">
-                                    <PhoneValidation code={validation.code} onChangeField={this.onChangeField}/>
-                                </PrivateRoute>
+                                <PrivateRoute exact path="/auth/verification/email" CallableComponent={EmailValidation} sending_data={sending_data} changeSection={this.changeSection} />
+                                <PrivateRoute exact path="/auth/verification/phone" CallableComponent={PhoneValidation} sending_data={sending_data} code={validation.code} onChangeField={this.onChangeField} changeSection={this.changeSection} />
                                 <Route path="*">
                                     <NoMatch redirect="/auth/login"/>
                                 </Route>
@@ -218,7 +231,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     authLogin: credentials => dispatch(logInUsingCredentials(credentials)),
-    authRegister: information => dispatch(registerUser(information))
+    authRegister: information => dispatch(registerUser(information)),
+    authLogout: () => dispatch(logoutUser())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthRoute)

@@ -4,11 +4,14 @@ class welcome extends Component {
     componentDidMount() {
         let { state } = this.props, elements = $(".change-form-content").find("h2, p")
         elements.map((i, elem) => {
-            if ((state === "signup" || state === "verification" || state === "verification") && i > 1) {
+            if ((state === "login" || state === "forgetPassword") && (i <= 1 || i > 3)) {
+                $(".change-form-content").addClass("right-20")
+                $(elem).addClass("d-none")
+            } else if (state === "signup" && i > 1) {
                 $(".change-form-content").addClass("left-20")
                 $(elem).addClass("d-none")
-            } else if ((state === "login" || state === "forgetPassword") && i < 2) {
-                $(".change-form-content").addClass("right-20")
+            } else if (state === "verification" && i <= 3) {
+                $(".change-form-content").addClass("left-20")
                 $(elem).addClass("d-none")
             }
         })
@@ -21,6 +24,8 @@ class welcome extends Component {
                 <p>در صورت داشتن حساب کاربری دایا آرتز کلیک کنید...</p>
                 <h2>!سلام دوست عزیز</h2>
                 <p>اگه هنوز ثبت نام نکردی با زدن دکمه زیر ثبت نامت رو آغاز کن...</p>
+                <h2>!خروج</h2>
+                <p>میتونی با زدن دکمه زیر از حساب کاربریت خارج بشی</p>
             </div>
         );
     }
