@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useJalaliDate } from '../../react/hooks';
+import { useJalaliDate } from '../../userarea/hooks';
 class SwiperItem extends Component {
     render() {
         let { title, description, reading_time, url, created_at, image } = this.props, {alt, file} = image??{}, { path, thumbnail_path } = file??{}

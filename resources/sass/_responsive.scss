@@ -1390,6 +1390,15 @@ $xl-xl-breakpoint: 1600px;
             width: 100% !important;
         }
     }
+    .order-card {
+        > div {
+            height: auto !important;
+            button[type="submit"] {
+                position: static !important;
+                transform: none !important;
+            }
+        }
+    }
 } // end tablet and mobile
 
 // tablet

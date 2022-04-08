@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Windmill } from 'react-activity';
 import { Link } from 'react-router-dom';
 import { state_select } from '../../../components/select2'
 
@@ -8,7 +9,7 @@ class Login extends Component {
     }
     
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, fields_info, login_method, handleLogin, history } = this.props, { email, phone_number, password } = fields_info
+        let { changeLoginMethod, changeSection, onChangeField, fields_info, login_method, handleLogin, history, sending_data } = this.props, { email, phone_number, password } = fields_info
         return (
             <div>
                 <h2>ورود به دایا آرتز</h2>
@@ -43,6 +44,7 @@ class Login extends Component {
                         <input type="password" className="form-control" value={password} placeholder="رمز عبور" onChange={onChangeField.bind(this, "login", "password")} />
                         <div className="input-group-append"><span className="input-group-text"><i className="fas fa-lock"></i></span></div>
                     </div>
+                    {sending_data && <span className='auth-windmill'><Windmill size={30} color="#6332df" /></span>}
                     <button className="btn btn-lg badge-pill" type="submit">ورود</button>
                     <br />
                     <Link to="/auth/forgetPassword" className="forgot-ps">رمز عبور خودتون رو فراموش کردید؟</Link>

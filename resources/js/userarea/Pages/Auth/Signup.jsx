@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { state_select } from '../../../components/select2'
+import { Windmill } from 'react-activity';
 
 class Signup extends Component {
     
@@ -8,7 +9,7 @@ class Signup extends Component {
     }
     
     render() {
-        let { changeLoginMethod, changeSection, onChangeField, handleRegister, fields_info, login_method, history } = this.props, { email, phone_number, password, password_confirmation } = fields_info
+        let { changeLoginMethod, changeSection, onChangeField, handleRegister, fields_info, login_method, history, sending_data } = this.props, { email, phone_number, password, password_confirmation } = fields_info
         return (
             <div>
                 <h2>ثبت نام در دایا آرتز</h2>
@@ -47,6 +48,7 @@ class Signup extends Component {
                         <input type="password" value={password_confirmation} name="password_confirmation" className="form-control" placeholder="تکرار رمز عبور" onChange={onChangeField.bind(this, "signup", "password_confirmation")} />
                         <div className="input-group-append"><span className="input-group-text"><i className="fas fa-redo"></i></span></div>
                     </div>
+                    {sending_data && <span className='auth-windmill'><Windmill size={30} color="#6332df" /></span>}
                     <button className="btn btn-lg badge-pill" type="submit">ثبت نام</button>
                 </form>
                 <span className="change-form-mobile d-md-none mt-2" onClick={changeSection.bind(this, history, false)}>برای ورود به دایا آرتز کلیک کنید!</span>

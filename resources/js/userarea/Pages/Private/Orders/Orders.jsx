@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // custom components
 import Loading from '../Layout/components/Loading';
 import NoItem from '../Layout/components/NoItem';
-import OrderContainer from '../Orders/components/OrderContainer'
+import OrderContainer from './components/OrderContainer'
 import Paginate from '../../../../components/Paginate';
 import { useHttpService } from '../../../hooks';
 

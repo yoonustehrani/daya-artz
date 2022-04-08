@@ -1,4 +1,10 @@
 {
+<<<<<<< HEAD
+    "/js/app.js": "/js/app.js?id=8d8697ffe3b16d9a7f82",
+    "/js/userarea.js": "/js/userarea.js?id=6b2fe166109f637fa5f2",
+    "/css/app.css": "/css/app.css?id=688a8f1a95e7c4a9fefa",
+    "/css/_fonts.css": "/css/_fonts.css?id=017c9c6fab757e5e2376"
+=======
     "/js/app.js": "/js/app.js?id=7625709e793c5492ad0f",
     "/js/userarea.js": "/js/userarea.js?id=c1b3e19a55ed9a44dbed",
     "/js/landing-opening.js": "/js/landing-opening.js?id=841cd4bbb998132cfcfb",
@@ -22,4 +28,5 @@
     "/js/tinymce/tinymce.d.ts": "/js/tinymce/tinymce.d.ts?id=3e53c5be3ed7521481a5",
     "/js/tinymce/tinymce.js": "/js/tinymce/tinymce.js?id=59d169586630f87804b5",
     "/js/tinymce/tinymce.min.js": "/js/tinymce/tinymce.min.js?id=2aa000f4ca21383fd155"
+>>>>>>> 647b2ff9099209700b2c47281c16fdf3c90d8b94
 }

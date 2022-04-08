@@ -307,3 +307,15 @@
         color: #000;
     }
 }
+.auth-windmill {
+    display: inline-block;
+    transform: translate(-40px, 28px);
+    position: absolute;
+}
+.span-hover {
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+        color: $horny-eggplant;
+    }
+}
