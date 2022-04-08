@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import LoaderComponent from '../../react/components/LoaderComponent';
-import { useJalaliDate } from '../../react/hooks';
+import LoaderComponent from '../../userarea/components/LoaderComponent';
+import { useJalaliDate } from '../../userarea/hooks';
 import TicketChat from './TicketChat';
 
 class ChatPage extends Component {

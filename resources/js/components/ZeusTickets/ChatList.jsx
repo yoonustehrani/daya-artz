@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import LoaderComponent from '../../react/components/LoaderComponent';
+import LoaderComponent from '../../userarea/components/LoaderComponent';
 
 class ChatList extends Component {
     render() {
