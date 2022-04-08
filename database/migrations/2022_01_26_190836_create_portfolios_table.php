@@ -23,6 +23,8 @@ class CreatePortfoliosTable extends Migration
             $table->text('about_company');
             $table->text('company_opinion');
             $table->json('details');
+            $table->json('tabular_details');
+            $table->json('timeline');
             $table->timestamps();
             $table->foreign('service_id')->references('id')->on('services')->cascadeOnDelete()->cascadeOnUpdate();
         });

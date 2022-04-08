@@ -39,14 +39,14 @@
         </div>
     </div>
 </div>
-@if ($portfolio->details)
+{{-- @if ($portfolio->details)
     @isset($portfolio->details->order)
         <x-portfolio-details :details="collect($portfolio->details->order)"/>
     @endisset
     @isset ($portfolio->details->timeline)
         <x-portfolio-timeline :timeline="collect($portfolio->details->timeline)"/>
     @endisset
-@endif
+@endif --}}
 
 <div id="customer-detail" class="header-section service-benefits-section auto-height p-3">
     <div class="header-text col-12 col-md-8">
@@ -63,9 +63,9 @@
         <img src="{{ asset('images/profile-back.svg') }}" class="rules-back">
     </div>
 </div>
-@isset($portfolio->details->tabular)
+{{-- @isset($portfolio->details->tabular)
     <x-portfolio-tabular :tabular="collect($portfolio->details->tabular)"/> 
-@endisset
+@endisset --}}
 <div id="start-order" class="float-left w-100">
     <x-start-order />
 </div>
