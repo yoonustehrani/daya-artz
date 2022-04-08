@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useJalaliDate } from '../../react/hooks';
+import { useJalaliDate } from '../../userarea/hooks';
 
 class TicketMessage extends Component {
     render() {

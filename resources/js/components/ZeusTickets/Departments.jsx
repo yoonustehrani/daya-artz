@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LoaderComponent from '../../react/components/LoaderComponent'
+import LoaderComponent from '../../userarea/components/LoaderComponent'
 
 export default class Departments extends Component {
     componentDidMount() {

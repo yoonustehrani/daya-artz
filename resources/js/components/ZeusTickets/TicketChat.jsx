@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Windmill } from 'react-activity'
 import InfiniteScroll from 'react-infinite-scroller'
-import LoaderComponent from '../../react/components/LoaderComponent'
+import LoaderComponent from '../../userarea/components/LoaderComponent'
 import TicketMessage from './TicketMessage'
 
 export default class TicketChat extends Component {

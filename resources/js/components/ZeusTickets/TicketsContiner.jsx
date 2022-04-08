@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useHttpService } from '../../react/hooks';
+import { useHttpService } from '../../userarea/hooks';
 import ChatList from './ChatList';
 import ChatPage from './ChatPage';
 import Departments from './Departments';
