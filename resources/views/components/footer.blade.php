@@ -1,6 +1,6 @@
 <div class="footer-content w-100">
     <div class="float-left col-12 text-center mb-5 mt-4 logo-container">
-        <img src="{{ asset('images/daya-logo-circular.png') }}" alt="daya-logo">
+        <img src="{{ asset('images/daya-logo-circular.png') }}" alt="لوگوی دایا">
         <p class="ml-2 text-light">DAYAARTZ</p>
     </div>
     <div class="col-12 float-left px-3 footer-info-container">
@@ -28,7 +28,7 @@
                     <li><a href="{{ route('contact') }}">تماس با ما</a></li>
                     <li><a href="{{ route('userarea', ['path' => 'tickets']) }}">ارسال تیکت</a></li>
                 </ul>
-                <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" alt="zarin-paal" class="float-right ml-2">
+                <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" alt="لوگوی زرین پال" class="float-right ml-2">
                 <a id="enamad-logo" referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=269100&amp;Code=RUmxsLwfWAGM1kGgdjv4"></a>
             </div>
         </div>

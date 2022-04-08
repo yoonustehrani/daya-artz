@@ -14,8 +14,8 @@
         <p>تیم طراحی <b class="aqua">دایا آرتز</b> با ارائه لیست کاملی از خدمات طراحی برای شما مشتریان در تلاش است تا ثبت سفارشات شما را به راحت ترین روش ممکن ایجاد کند.</p>
     </div>
     <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
-        <img src="{{ asset('images/services.svg') }}" class="rules">
-        <img src="{{ asset('images/services-back-vector.png') }}" class="rules-back">
+        <img src="{{ asset('images/services.svg') }}" class="rules" alt="خدمات دایا آرتز">
+        <img src="{{ asset('images/services-back-vector.png') }}" class="rules-back" alt="vector background">
     </div>
     <div class="triangle d-none d-md-block"></div>
 </div>
@@ -158,13 +158,13 @@
     <div class="section contact-us-first-section w-100 text-center">
         <div class="contact-us-background w-100">
             <div class="background-left">
-                <img src="{{ asset('images/contact-us-background-2.png') }}" alt="">
+                <img src="{{ asset('images/contact-us-background-2.png') }}" alt="vector background">
             </div>
             <div class="background-right">
-                <img src="{{ asset('images/contact-us-background-1.png') }}" alt="">
+                <img src="{{ asset('images/contact-us-background-1.png') }}" alt="vector background">
             </div>
             <div class="contact-us-vector-1">
-                <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="">
+                <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="ارتباط با دایا">
             </div>
         </div>
         <div class="contact-us-form">
@@ -192,7 +192,7 @@
             @foreach ($services as $service)
             <div class="other-service">
                 <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
-                <p class="title service-title">{{ $service->title }}</p>
+                <h3 class="title service-title">{{ $service->title }}</h3>
                 <a class="service-subtitle" href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
                 <div class="button-container">
                     <a href="#" class="btn mx-1 my-1 my-md-0 btn-gradient scroll-to-form">ثبت سفارش</a>

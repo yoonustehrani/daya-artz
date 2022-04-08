@@ -34,7 +34,7 @@
     <div class="section col-12 p-4">
         <div class="col-12 title-section mb-3">
             <div class="title-container">
-                <p class="title-text">{{ get_setting('mainpage.services.title') }}</p>
+                <h2 class="title-text">{{ get_setting('mainpage.services.title') }}</h2>
                 <span class="title-underline"></span>
             </div>
         </div>
@@ -45,48 +45,48 @@
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fab fa-apple"></i></span>
-                    <h1 class="block w-100 text-center">لوگو</h1>
-                    <h3 class="block w-100 text-center">طراحی لوگو با فلسفه فکری</h3>
+                    <h3 class="block w-100 text-center">لوگو</h3>
+                    <p class="block w-100 text-center">طراحی لوگو با فلسفه فکری</p>
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-paste"></i></span>
-                    <h1 class="block w-100 text-center">سربرگ</h1>
-                    <h3 class="block w-100 text-center">طراحی سربرگ رسمی و اداری</h3>
+                    <h3 class="block w-100 text-center">سربرگ</h3>
+                    <p class="block w-100 text-center">طراحی سربرگ رسمی و اداری</p>
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-newspaper"></i></span>
-                    <h1 class="block w-100 text-center">کاتالوگ</h1>
-                    <h3 class="block w-100 text-center">کاتالوگ و بروشور هنری</h3>
+                    <h3 class="block w-100 text-center">کاتالوگ</h3>
+                    <p class="block w-100 text-center">کاتالوگ و بروشور هنری</p>
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-id-card"></i></span>
-                    <h1 class="block w-100 text-center">کارت ویزیت</h1>
-                    <h3 class="block w-100 text-center">طراحی کارت ویزیت حرفه ای</h3>
+                    <h3 class="block w-100 text-center">کارت ویزیت</h3>
+                    <p class="block w-100 text-center">طراحی کارت ویزیت حرفه ای</p>
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-briefcase"></i></span>
-                    <h1 class="block w-100 text-center">ست اداری</h1>
-                    <h3 class="block w-100 text-center">کارت ویزیت، سربرگ، تقویم و...</h3>
+                    <h3 class="block w-100 text-center">ست اداری</h3>
+                    <p class="block w-100 text-center">کارت ویزیت، سربرگ، تقویم و...</p>
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
-                    <h1 class="block w-100 text-center">ترکیبی</h1>
-                    <h3 class="block w-100 text-center">پکیج خودتو بساز</h3>
+                    <h3 class="block w-100 text-center">ترکیبی</h3>
+                    <p class="block w-100 text-center">پکیج خودتو بساز</p>
                     <button class="btn btn-gradient">سفارش</button>
                 </div>
             </div>
@@ -103,7 +103,7 @@
             <div class="order-vectors-container">
                 <div class="order-section col-xl-6 col-12">
                     <div class="order-vector">
-                        <img src="{{ asset('images/speed-order.svg') }}" alt="fast-order">
+                        <img src="{{ asset('images/speed-order.svg') }}" alt="سفارش سریع دایاآرتز">
                     </div>
                     <div class="order-detail">
                         <h3 class="mb-4">سفارش سریع</h3>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="order-section col-xl-6 col-12 rtl">
                     <div class="order-vector">
-                        <img src="{{ asset('images/pro-order.svg') }}" alt="pro-order">
+                        <img src="{{ asset('images/pro-order.svg') }}" alt="سفارش تخصصی دایاآرتز">
                     </div>    
                     <div class="order-detail">
                         <h3 class="mb-4">سفارش تخصصی</h3>
@@ -175,13 +175,13 @@
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
             <div class="image-box col-xl-2 col-lg-3 col-sm-3 col-12">
-                <img src="{{ asset('images/daya-cyan-logo.png') }}" alt="">
+                <img src="{{ asset('images/daya-cyan-logo.png') }}" alt="لوگوی دایاآرتز">
             </div>
             <div class="col-xl-10 col-lg-9 col-sm-8 col-12 text-right">
                 <p class="title cyan">درباره دایا آرتز</p>
                 <p>تیم طراحی گرافیک دایا آرتز فعالیت خود را درسال 1396 آغاز نمود و سهم متناسبی از  بازار طراحی های دیجیتال، به دست آورد. در سال 1399 تیم فنی - هنری دایا آرتز تحقیقات خود را در زمینه رویکرد استارت آپی و درک تفاوت های نیاز مشتریان بازار طراحی دیجیتال را به ویژه در طراحی لوگو شروع کرد و حاصل دو سال پیاپی ادغام تحقیق و تجربه و فناوری ، پلتفرم الکترونیک دایا آرتز را سرپا ساخت .
                 <br>
-                <a href="http://localhost/about" class="btn btn-info badge-pill float-left">بیشتر بخوانید</a></p>
+                <a href="{{ route('about') }}" class="btn btn-info badge-pill float-left">بیشتر بخوانید</a></p>
             </div>
         </div>
     </div>

@@ -21,12 +21,12 @@
     <!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height p-3">
         <div class="header-text col-12 col-md-8">
-            <h4>مزیت های {{ $service->title }} در دایا آرتز ...</h2>
+            <h2>مزیت های {{ $service->title }} در دایا آرتز ...</h2>
             {!! $service->description !!}
         </div>
         <div class="header-vector col-10 col-sm-8 col-md-4 mb-3 mb-md-0">
-            <img src="{{ asset('images/benefits.svg') }}" alt="rules vector" class="rules">
-            <img src="{{ asset('images/benefits-background.svg') }}" alt="rules-back" class="rules-back">
+            <img src="{{ asset('images/benefits.svg') }}" alt="مزیت های دایا" class="rules">
+            <img src="{{ asset('images/benefits-background.svg') }}" alt="vector background" class="rules-back">
         </div>
         <div class="triangle d-none d-md-block"></div>
     </div>
@@ -146,7 +146,7 @@
     <div class="section w-100 mt-5 mb-5 order-ways-section">
         <div class="title-section mb-5 w-100">
             <div class="title-container">
-                <h2 class="title-text">ثبت سفارش</h2>
+                <p class="title-text">ثبت سفارش</p>
             </div>
         </div>
         <div class="absolute-contact w-100">
@@ -194,19 +194,19 @@
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
-                <h2 class="title-text">راهنمای دایا آرتز</h2>
+                <h3 class="title-text">راهنمای دایا آرتز</h3>
             </div>
         </div>
         <div class="section contact-us-first-section w-100 text-center">
             <div class="contact-us-background w-100">
                 <div class="background-left">
-                    <img src="{{ asset('images/contact-us-background-2.png') }}" alt="">
+                    <img src="{{ asset('images/contact-us-background-2.png') }}" alt="vector background">
                 </div>
                 <div class="background-right">
-                    <img src="{{ asset('images/contact-us-background-1.png') }}" alt="">
+                    <img src="{{ asset('images/contact-us-background-1.png') }}" alt="vector background">
                 </div>
                 <div class="contact-us-vector-1">
-                    <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="">
+                    <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="ارتباط با دایا">
                 </div>
             </div>
             <div class="contact-us-form">

@@ -1,16 +1,16 @@
 <div class="col-12 mt-5 title-section">
     <div class="title-container">
-        <h2 class="title-text">لوگو</h2>
+        <h2 class="title-text">{{ get_setting('mainpage.info_item.title') }}</h2>
         <span class="title-underline"></span>
     </div>
 </div>
 <div class="col-12 float-left p-3">
     <div class="tab-element">
         <ul class="tabs-container col-12 float-left p-0">
-            <li class="tab badge badge-pill eggplant active">لوگو چیست؟</li>
-            <li class="tab badge badge-pill eggplant">انواع لوگو</li>
-            <li class="tab badge badge-pill eggplant">کاربرد لوگو</li>
-            <li class="tab badge badge-pill eggplant">فلسفه فکری لوگو</li>
+            <li class="tab active"><h3 class="badge badge-pill eggplant">لوگو چیست</h3></li>
+            <li class="tab"><h3 class="badge badge-pill eggplant">انواع لوگو</h3></li>
+            <li class="tab"><h3 class="badge badge-pill eggplant">کاربرد لوگو</h3></li>
+            <li class="tab"><h3 class="badge badge-pill eggplant">فلسفه فکری لوگو</h3></li>
         </ul>
         <div class="tab-contents col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12 float-left mt-3">
             <article class="tab-content active">

@@ -63,7 +63,7 @@
             </ul>
         </div>
         <div class="image-box float-right p-0 col-lg-6 col-12">
-            <img src="{{ asset('images/about-us-vector.svg') }}" alt="">
+            <img src="{{ asset('images/about-us-vector.svg') }}" alt="مزیت های دایاآرتز">
         </div>
     </div>
     <div class="section col-lg-10 offset-lg-1 col-12 p-3 px-4 px-md-5 mt-3">
@@ -75,7 +75,7 @@
         <div class="section col-12 p-2">
             <div class="col-12 title-section">
                 <div class="title-container">
-                    <h1 class="title-text">فلسفه لوگو دایا آرتز</h1>
+                    <h2 class="title-text">فلسفه لوگو دایا آرتز</h2>
                     <span class="title-underline"></span>
                 </div>
             </div>

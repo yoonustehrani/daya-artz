@@ -171,6 +171,7 @@ input.eggplant {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        list-style-type: none;
         li {
             margin: 5px;
             &:hover {
@@ -210,12 +211,12 @@ input.eggplant {
     direction: rtl;
     .service-container {
         .service-item {
-            h1 {
+            h3 {
                 font-size: 20px;
                 font-weight: bold;
                 margin-top: 14px;
             }
-            h3 {
+            p {
                 font-size: 16px;
                 margin-bottom: 18px;
                 line-height: 1.3rem;
@@ -1144,7 +1145,7 @@ span.back-aqua {
                 span {
                     color: #000;
                 }
-                h3 {
+                p {
                     color: #000;
                     font-size: 20px;
                     direction: ltr;
@@ -1621,7 +1622,7 @@ $labelData: '';
     .header-text {
         height: auto !important;
     }
-    h4 {
+    h2 {
         color: #fff;
         border-right: 3px solid #fff;
         font-weight: bold;
