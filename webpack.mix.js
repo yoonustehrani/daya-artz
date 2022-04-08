@@ -74,9 +74,9 @@ mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
 mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
 mix.js(res.js + "components/zeusTickets.js", pub.js).react()
 // // tinymce
-// mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
+mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
 mix.js(zeus.res.js + 'tinymce/langs/fa.js', 'public/js/tinymce/langs')
 
 // just need to run once if you got an err
-//  .copy(pub.fonts + "fa-**", res.webfonts)
+//  mix.copy(pub.fonts + "fa-**", res.webfonts)
     // .copy('node_modules/animate.css/animate.css', res.css)
