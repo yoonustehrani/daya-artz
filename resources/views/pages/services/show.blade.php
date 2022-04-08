@@ -21,6 +21,7 @@
                 "name": "{{ get_setting('seo.services.brand', 'Daya Artz') }}",
                 "logo": "{{ get_setting('seo.brand.logo', 'https://dayaartz.com/images/daya-cyan-logo.png') }}"
             },
+            @if ($offers->count())
             "offers": {
                 "@type": "Offer",
                 "url": "{{ request()->url() }}",
@@ -33,6 +34,7 @@
                 },
                 "availability": "https://schema.org/OnlineOnly"
             },
+            @endif
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.5",

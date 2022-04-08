@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SitemapController;
 use App\Models\Order;
 use App\Models\Service;
 use App\Models\Setting;
@@ -113,6 +114,9 @@ Route::get('test', function (Request $request) {
 
 //     // return 'sent';
 // });
+
+Route::get('/sitemaps/sitemap-index.xml', [SitemapController::class, 'index'])->name('sitemaps.index');
+Route::get('/sitemaps/{slug}-sitemap.xml', [SitemapController::class, 'show'])->name('sitemaps.show');
 
 Route::get('payment/{driver}/verify', [PaymentController::class, 'update'])->name('payment.verify');
 
