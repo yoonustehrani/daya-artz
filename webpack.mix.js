@@ -59,20 +59,20 @@ mix.sass(res.sass + '_fonts.scss', pub.css)
 //     .js(res.js + "landing-opening.js", pub.js).react()
 
 // //zeus
-// mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
-//     require('postcss-import'),
-//     require('tailwindcss/nesting'),
-//     require('tailwindcss'),
-//     require('autoprefixer')
-// ])
-// mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
-//     require('postcss-import'),
-//     require('tailwindcss/nesting'),
-//     require('tailwindcss'),
-//     require('autoprefixer')
-// ])
-// mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
-// mix.js(res.js + "components/zeusTickets.js", pub.js).react()
+mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
+    require('postcss-import'),
+    require('tailwindcss/nesting'),
+    require('tailwindcss'),
+    require('autoprefixer')
+])
+mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
+    require('postcss-import'),
+    require('tailwindcss/nesting'),
+    require('tailwindcss'),
+    require('autoprefixer')
+])
+mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
+mix.js(res.js + "components/zeusTickets.js", pub.js).react()
 // // tinymce
 // mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
 // mix.js(zeus.res.js + 'tinymce/langs/fa.js', 'public/js/tinymce/langs')

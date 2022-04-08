@@ -1,32 +1,10 @@
 {
-<<<<<<< HEAD
-    "/js/app.js": "/js/app.js?id=8d8697ffe3b16d9a7f82",
-    "/js/userarea.js": "/js/userarea.js?id=6b2fe166109f637fa5f2",
-    "/css/app.css": "/css/app.css?id=688a8f1a95e7c4a9fefa",
+    "/js/app.js": "/js/app.js?id=95aa81e919172ff84a14",
+    "/js/userarea.js": "/js/userarea.js?id=fb0fab5307fed3d9efe2",
+    "/js/zeus/app.js": "/js/zeus/app.js?id=ce19e11dd284641cc776",
+    "/js/zeusTickets.js": "/js/zeusTickets.js?id=aa5659966ce6947010c4",
+    "/css/app.css": "/css/app.css?id=4ab2522eb212629ac04c",
+    "/css/zeus/rtl.css": "/css/zeus/rtl.css?id=5e76b1c7f6a91a25a954",
+    "/css/zeus/style.css": "/css/zeus/style.css?id=2fa746bbc2a4035384bf",
     "/css/_fonts.css": "/css/_fonts.css?id=017c9c6fab757e5e2376"
-=======
-    "/js/app.js": "/js/app.js?id=7625709e793c5492ad0f",
-    "/js/userarea.js": "/js/userarea.js?id=c1b3e19a55ed9a44dbed",
-    "/js/landing-opening.js": "/js/landing-opening.js?id=841cd4bbb998132cfcfb",
-    "/js/zeus/app.js": "/js/zeus/app.js?id=78053d414b83c2e5b3a8",
-    "/js/zeusTickets.js": "/js/zeusTickets.js?id=57d3cb45882f54c4dde8",
-    "/js/tinymce/langs/fa.js": "/js/tinymce/langs/fa.js?id=f12f83a7f03a29ed3649",
-    "/css/zeus/rtl.css": "/css/zeus/rtl.css?id=9c661202bc5fda271e30",
-    "/css/zeus/style.css": "/css/zeus/style.css?id=c3187445d4909605181b",
-    "/css/landing.css": "/css/landing.css?id=b6378cfd8d8c4ef1fd42",
-    "/css/_fonts.css": "/css/_fonts.css?id=9f3e88d6ab779433132e",
-    "/css/app.css": "/css/app.css?id=ecbcf755d08fc7fdd59e",
-    "/js/tinymce/.npmignore": "/js/tinymce/.npmignore?id=ddeebe528dc362895244",
-    "/js/tinymce/CHANGELOG.md": "/js/tinymce/CHANGELOG.md?id=d41ab1d9cf87a91c8f19",
-    "/js/tinymce/README.md": "/js/tinymce/README.md?id=81aa5974d475d3f05a84",
-    "/js/tinymce/bower.json": "/js/tinymce/bower.json?id=8374981ab931002efb2b",
-    "/js/tinymce/composer.json": "/js/tinymce/composer.json?id=a26df2be2f232d7c6d11",
-    "/js/tinymce/jquery.tinymce.js": "/js/tinymce/jquery.tinymce.js?id=abc669a993b54748fbd9",
-    "/js/tinymce/jquery.tinymce.min.js": "/js/tinymce/jquery.tinymce.min.js?id=abc669a993b54748fbd9",
-    "/js/tinymce/license.txt": "/js/tinymce/license.txt?id=6f9589e0c8df783acd17",
-    "/js/tinymce/package.json": "/js/tinymce/package.json?id=27941228a00b6ca42722",
-    "/js/tinymce/tinymce.d.ts": "/js/tinymce/tinymce.d.ts?id=3e53c5be3ed7521481a5",
-    "/js/tinymce/tinymce.js": "/js/tinymce/tinymce.js?id=59d169586630f87804b5",
-    "/js/tinymce/tinymce.min.js": "/js/tinymce/tinymce.min.js?id=2aa000f4ca21383fd155"
->>>>>>> 647b2ff9099209700b2c47281c16fdf3c90d8b94
 }
