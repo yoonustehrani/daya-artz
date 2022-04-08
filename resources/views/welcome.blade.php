@@ -8,7 +8,7 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "url": "https://dayaartz.com",
-        "logo": "https://dayaartz.com/images/daya-cyan-logo.png"
+        "logo": "{{ get_setting('seo.brand.logo', 'https://dayaartz.com/images/daya-cyan-logo.png') }}"
     }]
 </script>
 @endpush

@@ -3,6 +3,21 @@
 @push('head')
     <title>{{ $page->title }}</title>
     @component('components.seo', ['instance' => $page, 'slug' => 'pages']) @endcomponent
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "{{ asset('/') }}",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ route('blog.index') }}?q={search_query}"
+            },
+            "query-input": "required name=search_query"
+        }
+    }
+</script>
 @endpush
 
 @section('header')
@@ -67,7 +82,7 @@
                     @if ($post->author_id)
                         <p class="blog-post-source">نوشته شده توسط: ویکی پدیا</p>
                     @endif
-                    <h3 itemprop="name" class="block mt-4">{{ $post->title }}</h3>
+                    <h3 itemprop="headline" class="block mt-4">{{ $post->title }}</h3>
                     <p class="blog-post-description text-secondary">{{ $post->description }}</p>
                     <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
                 </div>

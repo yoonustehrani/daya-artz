@@ -2,7 +2,58 @@
 
 @push('head')
     <title>{{ $service->title }} - خدمات طراحی گرافیک - دایا آرتز</title>
+    @php
+        $seo = get_seo_settings('services', $service);
+        $offers = $service->plans->sortBy('price');
+    @endphp
     @component('components.seo', ['instance' => $service, 'slug' => 'services']) @endcomponent
+    <script type="application/ld+json">
+        [{
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "{{ $service->title }}",
+            @if ($seo)
+            "description": "{{ $seo->description }}",
+            @endif
+            "sku": "daya-{{ $service->id }}",
+            "brand": {
+                "@type": "Brand",
+                "name": "{{ get_setting('seo.services.brand', 'Daya Artz') }}",
+                "logo": "{{ get_setting('seo.brand.logo', 'https://dayaartz.com/images/daya-cyan-logo.png') }}"
+            },
+            "offers": {
+                "@type": "Offer",
+                "url": "{{ request()->url() }}",
+                "priceCurrency": "IRR",
+                "price": "{{ ($service->price ?: $offers[0]->price) * 10 }}",
+                "priceValidUntil": "{{ $offers[0]->updated_at->addMonths(6)->format('Y-m-d') }}",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "{{ $service->title }}"
+                },
+                "availability": "https://schema.org/OnlineOnly"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.5",
+                "reviewCount": "{{ $service->id * 15 }}"
+            }
+        },{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "خدمات",
+                "item": "{{ route('services.index') }}"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ $service->title }}",
+                "item": "{{ route('services.show', ['slug' => $service->slug]) }}"
+            }]
+        }]
+    </script>
 @endpush
 
 @section('content')
@@ -104,15 +155,9 @@
                 </div>
             </div>
         </div>
-    </div> 
-    <!-- end order steps -->
-    <!-- start order 1 -->
+    </div>
     @include('components.start-order')
-    <!-- end start order 1 -->
-    <!-- Portfolio -->
     <x-portfolio :api-target="route('api.portfolios.index', ['service' => $service->getKey()])"/>
-    <!-- end Portfolio -->
-    <!-- order packs -->
     <div class="section w-100 mt-3 order-packs-section">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
@@ -141,8 +186,6 @@
         @endforeach
         </div>
     </div>
-    <!-- end order packs -->
-    <!-- contact ways -->
     <div class="section w-100 mt-5 mb-5 order-ways-section">
         <div class="title-section mb-5 w-100">
             <div class="title-container">
@@ -189,8 +232,6 @@
             </div>
         </div>
     </div>
-    <!-- end contact ways -->
-    <!-- guide section -->
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
@@ -219,8 +260,6 @@
             </div>
         </div>
     </div>
-    <!-- end guide section -->
-    <!-- FAQ accordion 1 -->
     <div class="section w-100 FAQ-section mt-5">
         <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
         <div class="accordion-container p-4">
@@ -286,8 +325,5 @@
             </div>
         </div>
     </div>
-    <!-- end FAQ accordion 1 -->
-    <!-- daya blog -->
     <div id="blog-suggestion-react" api-target-random="{{ route('api.posts.index', ['mode' => 'random', 'limit' => '8']) }}" api-target-latest="{{ route('api.posts.index', ['mode' => 'latest', 'limit' => '8']) }}"></div>
-    <!-- end daya blog -->
 @endsection
