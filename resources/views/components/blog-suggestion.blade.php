@@ -1,7 +1,7 @@
 <div class="section w-100 mt-5">
     <div class="title-section col-12 mb-3">
         <div class="title-container">
-            <h2 class="title-text">دایا بلاگ</h2>
+            <p class="title-text">دایا بلاگ</p>
             <span class="title-underline"></span>
         </div>
     </div>
@@ -10,7 +10,7 @@
             <article class="blog-post col-12 col-md-4 col-lg-3 swiper-slide">
                 <a href="#">
                     <div class="img-container w-100">
-                        <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post-cover" class="w-100 h-100">
+                        <img src="{{ asset('images/gallery/blog-post-1.jpg') }}" alt="post cover" class="w-100 h-100">
                         <span class="article-date">19 فروردین <br> 1400</span>
                     </div>
                     <div class="article-info">
@@ -24,7 +24,7 @@
             <article class="blog-post col-12 col-md-4 col-lg-3 swiper-slide">
                 <a href="#">
                     <div class="img-container w-100">
-                        <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post-cover" class="w-100 h-100">
+                        <img src="{{ asset('images/gallery/blog-post-2.jpg') }}" alt="post cover" class="w-100 h-100">
                         <span class="article-date">19 فروردین <br> 1400</span>
                     </div>
                     <div class="article-info">
@@ -38,7 +38,7 @@
             <article class="blog-post col-12 col-md-4 col-lg-3 swiper-slide">
                 <a href="#">
                     <div class="img-container w-100">
-                        <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post-cover" class="w-100 h-100">
+                        <img src="{{ asset('images/gallery/blog-post-3.jpg') }}" alt="post cover" class="w-100 h-100">
                         <span class="article-date">19 فروردین <br> 1400</span>
                     </div>
                     <div class="article-info">

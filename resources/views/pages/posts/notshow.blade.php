@@ -79,6 +79,6 @@
     @endif --}}
             {{-- TODO Centralize if related posts are less than 3 --}}
     <div class="section col-12 col-md-10 offset-md-1 col-xl-8 offset-xl-2 blog-post-end">
-        <img src="{{ asset('images/blog-post-end.svg') }}">
+        <img src="{{ asset('images/blog-post-end.svg') }}" alt="وبلاگ دایا آرتز">
     </div>
 @endsection

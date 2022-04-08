@@ -3,7 +3,7 @@
         <i class="fas fa-bars"></i>
     </span>
     <div class="logo-container">
-        <img src="{{ asset(get_setting('header.menu.logo')) }}">
+        <img src="{{ asset(get_setting('header.menu.logo')) }}" alt="لوگوی دایا">
     </div>
     <div id="m-menu" class="menu-container d-none d-md-inline-block">
         <div class="menu-header p-3 d-md-none">

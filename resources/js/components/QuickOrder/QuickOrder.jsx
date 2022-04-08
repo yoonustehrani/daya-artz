@@ -11,26 +11,31 @@ class QuickOrder extends Component {
                     title: "لوگو",
                     name: "logo",
                     icon: "images/brand.svg",
+                    alt: "لوگو"
                 },
                 {
                     title: "کاتالوگ",
                     name: "catalog",
                     icon: "images/big-brochure.svg",
+                    alt: "کاتالوگ"
                 },
                 {
                     title: "کارت ویزیت",
                     name: "visit-card",
                     icon: "images/credit-card.svg",
+                    alt: "کارت ویزیت"
                 },
                 {
                     title: "سربرگ",
                     name: "letterhead",
                     icon: "images/paper.svg",
+                    alt: "سربرگ"
                 },
                 {
                     title: "ست اداری",
                     name: "official set",
                     icon: "images/office-tools.svg",
+                    alt: "ست اداری"
                 },
             ],
             order: {
@@ -193,7 +198,7 @@ class QuickOrder extends Component {
                                     <input type="checkbox" className="checkbox-input" disabled={! active} checked={order.order_items.includes(service.name)} name={service.name} onChange={this.handleToggle}/>
                                     <span className="checkbox-tile">
                                         <span className="checkbox-icon">
-                                            <img src={APP_PATH + service.icon}/>
+                                            <img src={APP_PATH + service.icon} alt={service.alt} />
                                         </span>
                                         <span className="checkbox-label">{service.title}</span>
                                     </span>

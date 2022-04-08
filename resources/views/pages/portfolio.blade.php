@@ -59,8 +59,8 @@
         </ul>
     </div>
     <div class="header-vector col-10 col-sm-8 col-md-4 mb-3 mb-md-0">
-        <img src="{{ asset('images/profile.svg') }}" class="rules">
-        <img src="{{ asset('images/profile-back.svg') }}" class="rules-back">
+        <img src="{{ asset('images/profile.svg') }}" class="rules" alt="جزئیات سفارش">
+        <img src="{{ asset('images/profile-back.svg') }}" class="rules-back" alt="vector background">
     </div>
 </div>
 {{-- @isset($portfolio->details->tabular)
@@ -72,19 +72,19 @@
 <div id="daya-guide" class="section w-100 text-center mt-5 daya-guide">
     <div class="title-section w-100">
         <div class="title-container">
-            <h2 class="title-text">مشاوره دایا آرتز</h2>
+            <h3 class="title-text">مشاوره دایا آرتز</h3>
         </div>
     </div>
     <div class="section contact-us-first-section w-100 text-center">
         <div class="contact-us-background w-100">
             <div class="background-left">
-                <img src="{{ asset('images/contact-us-background-2.png') }}" alt="">
+                <img src="{{ asset('images/contact-us-background-2.png') }}" alt="vector background">
             </div>
             <div class="background-right">
-                <img src="{{ asset('images/contact-us-background-1.png') }}" alt="">
+                <img src="{{ asset('images/contact-us-background-1.png') }}" alt="vector background">
             </div>
             <div class="contact-us-vector-1">
-                <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="">
+                <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="ارتباط با دایا">
             </div>
         </div>
         <div class="contact-us-form">
@@ -97,111 +97,7 @@
         </div>
     </div>
 </div>
-{{-- <div id="daya-samples" class="section col-12 p-4 mt-5">
-    <div class="col-12 title-section">
-        <div class="title-container">
-            <h2 class="title-text">طرح های مشابه</h2>
-        </div>
-    </div>
-    <div class="col-12 mt-4 float-left portfolio-section p-2">
-        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
-        <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
-            <div class="portfolio-avatar">
-                <img src="{{ asset('images/gallery/orange-studio-logo.jpg') }}" alt="">
-            </div>
-            <div class="portfolio-detail">
-                <p class="title">استدیو ترنج</p>
-                <ul>
-                    <li>صنایع دستی <i class="fas fa-brush"></i></li>
-                    <li>طراحی تخصصی</li>
-                    <li>عناصر مرتبط</li>
-                    <li>رنگ شناسی حرفه ای</li>
-                </ul>
-            </div>
-        </div>
-        </a>
-        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
-        <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
-            <div class="portfolio-avatar">
-                <img src="{{ asset('images/gallery/reverse-logo.jpg') }}" alt="">
-            </div>
-            <div class="portfolio-detail">
-                <p class="title">Reverse Band</p>
-                <ul>
-                    <li>موسیقی <i class="fas fa-headphones"></i></li>
-                    <li>طراحی تخصصی</li>
-                    <li>عناصر مرتبط</li>
-                    <li>رنگ شناسی حرفه ای</li>
-                </ul>
-            </div>
-        </div>
-        </a>
-        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
-        <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
-            <div class="portfolio-avatar">
-                <img src="{{ asset('images/gallery/elnovel-logo.jpg') }}" alt="">
-            </div>
-            <div class="portfolio-detail">
-                <p class="title">ال ناول</p>
-                <ul>
-                    <li>داستان و ادبیات <i class="fas fa-book-open"></i></li>
-                    <li>طراحی تخصصی</li>
-                    <li>عناصر مرتبط</li>
-                    <li>رنگ شناسی حرفه ای</li>
-                </ul>
-            </div>
-        </div>
-        </a>
-        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
-        <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
-            <div class="portfolio-avatar">
-                <img src="{{ asset('images/gallery/vispubish-logo.jpg') }}" alt="">
-            </div>
-            <div class="portfolio-detail">
-                <p class="title">ویسپوبیش</p>
-                <ul>
-                    <li>پایگاه مقالات ادبی <i class="fas fa-pen"></i></li>
-                    <li>طراحی تخصصی</li>
-                    <li>عناصر مرتبط</li>
-                    <li>رنگ شناسی حرفه ای</li>
-                </ul>
-            </div>
-        </div>
-        </a>
-        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
-        <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
-            <div class="portfolio-avatar">
-                <img src="{{ asset('images/gallery/sampi-logo.jpg') }}" alt="">
-            </div>
-            <div class="portfolio-detail">
-                <p class="title">Sampi Tech Group</p>
-                <ul>
-                    <li>استارتاپ استدیو <i class="fas fa-code"></i></li>
-                    <li>طراحی تخصصی</li>
-                    <li>عناصر مرتبط</li>
-                    <li>رنگ شناسی حرفه ای</li>
-                </ul>
-            </div>
-        </div>
-        </a>
-        <a href="{{ route('portfolio.show', ['slug' => 'test']) }}">
-        <div class="portfolio col-xl-2 col-lg-3 col-md-4 col-6 p-0 animated fadeIn">
-            <div class="portfolio-avatar">
-                <img src="{{ asset('images/gallery/tehran-tejarat-logo.jpg') }}" alt="">
-            </div>
-            <div class="portfolio-detail">
-                <p class="title">تهران تجارت</p>
-                <ul>
-                    <li>شرکت بازرگانی <i class="fas fa-briefcase"></i></li>
-                    <li>طراحی تخصصی</li>
-                    <li>عناصر مرتبط</li>
-                    <li>رنگ شناسی حرفه ای</li>
-                </ul>
-            </div>
-        </div>
-        </a>
-    </div>
-</div> --}}
+
 <div class="section-guide-container animated slideInLeft closed">
     <div class="section-guide-bg">
         <div class="section-guide">
