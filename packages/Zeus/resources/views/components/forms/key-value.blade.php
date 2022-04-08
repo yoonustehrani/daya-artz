@@ -1,4 +1,4 @@
-<div class="p-3">
+<div class="p-3 lg:col-span-2">
     <label>
         <span class="text-gray-700 italic">@lang($row->title) :</span>
     </label>
