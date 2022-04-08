@@ -23,4 +23,26 @@ class Portfolio extends ZeusModel
     {
         return $this->belongsTo(Service::class);
     }
+    protected function setTabularDetailsAttribute($details)
+    {
+        if (is_string($details)) {
+            $details = json_decode($details);
+        }
+        $this->attributes['tabular_details'] = json_encode($details ?? []);
+    }
+    protected function getTabularDetailsAttribute($details)
+    {
+        return json_decode($details);
+    }
+    protected function setTimelineAttribute($details)
+    {
+        if (is_string($details)) {
+            $details = json_decode($details);
+        }
+        $this->attributes['timeline'] = json_encode($details ?? []);
+    }
+    protected function getTimelineAttribute($details)
+    {
+        return json_decode($details);
+    }
 }

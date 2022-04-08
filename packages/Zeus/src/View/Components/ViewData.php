@@ -85,6 +85,10 @@ class ViewData extends Component
                 $component = 'pill';
                 $this->attrs['class'] = "pill bg-mango-light mx-2 py-1";
                 break;
+            case 'price':
+                $component = 'text';
+                $this->value = number_format($this->value, config('zconfig.package.currency_decimals')) . " " . config('zconfig.package.curreny', '$');
+                break;
             case 'radio':
             case 'select':
                 $component = 'pill';
