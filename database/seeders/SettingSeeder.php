@@ -59,6 +59,11 @@ class SettingSeeder extends Seeder
                     'header.buttons',
                     "<a href='/services' class='btn badge-pill bg-purple ml-4'>مشاهده خدمات</a> <a class='btn btn-gradient bg-aqua'>شروع سفارش</a>"
                 ],
+                [
+                    'عنوان آینفو آیتم ها',
+                    'info_item.title',
+                    'درباره لوگو'
+                ]
             ],
             // 'group' => [
             //     [
