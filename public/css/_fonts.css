@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @font-face {
   font-family: "IranSansWeb";
   src: url(/fonts/IRANSansWeb.ttf) format("truetype");
@@ -14,6 +13,3 @@ div {
 cite::before {
   font-family: "IranSansWeb";
 }
-=======
-@font-face{font-family:IranSansWeb;src:url(/fonts/IRANSansWeb.ttf) format("truetype")}a,blockquote,button,cite:before,div,h1,h2,h3,h4,h5,h6,input,label,li,p,span,textarea,ul{font-family:IranSansWeb}
->>>>>>> 647b2ff9099209700b2c47281c16fdf3c90d8b94

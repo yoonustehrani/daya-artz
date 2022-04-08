@@ -36,6 +36,6 @@
     <div class="last-item">
         <a href="{{ route('userarea') }}" class="login-btn">ورود/عضویت <i class="far fa-sign-in vertical-middle"></i></a>
         <a href="{{ get_setting('header.menu.button.href') }}" class="btn-white">{{ get_setting('header.menu.button.text') }}</a>
-        <a href="tel:+982128423542" class="btn-phone"><i class="fas fa-phone"></i></a>
+        <a href="tel:{{ get_setting('header.menu.phone_number') }}" class="btn-phone"><i class="fas fa-phone"></i></a>
     </div>
 </nav>
