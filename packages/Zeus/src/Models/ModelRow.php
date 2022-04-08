@@ -70,7 +70,7 @@ class ModelRow extends BaseModel
                 array_push($rules, 'string');
                 break;
             case 'slug':
-                array_push($rules, 'string','alpha_dash');
+                array_push($rules, 'string');
                 break;
             case 'select':
                 $choices = optional($this->details)->choices;

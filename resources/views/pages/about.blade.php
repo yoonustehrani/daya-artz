@@ -1,7 +1,8 @@
 @extends('layouts.page')
 
 @push('head')
-    <title>About us | Daya Artz</title>
+    <title>{{ $page->title }}</title>
+    @component('components.seo', ['instance' => $page, 'slug' => 'pages']) @endcomponent
 @endpush
 
 @section('content')

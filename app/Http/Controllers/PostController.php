@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -18,6 +19,7 @@ class PostController extends Controller
         request()->validate([
             'q' => 'nullable|string|min:3',
         ]);
+        $page = Page::whereSlug('/blog')->firstOrFail();
         $posts = Post::select(['id','title', 'slug', 'description', 'reading_time', 'created_at'])
             ->with('image.file')
             ->latest();
@@ -27,7 +29,7 @@ class PostController extends Controller
         }
         $posts = $posts->simplePaginate(12)->withQueryString();
         $pagination = $posts->toArray();
-        return view('pages.posts.index', compact('posts', 'pagination'));
+        return view('pages.posts.index', compact('posts', 'pagination', 'page'));
     }
     public function indexApi(Request $request)
     {

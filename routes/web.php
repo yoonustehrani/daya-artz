@@ -46,9 +46,10 @@ Route::get('blog/{slug}', [PostController::class, 'show'])->name('blog.show');
 
 Route::get('portfolio/{slug}', [PortfolioController::class, 'show'])->name('portfolio.show');
 Route::get('landing/{slug}', [LandingsController::class, 'show'])->name('landings.show');
-Route::view('about', 'pages.about')->name('about');
-Route::view('contact', 'pages.contact')->name('contact');
-Route::view('policy', 'pages.policy')->name('policy');
+
+Route::get('about', [WebsiteController::class, 'page'])->name('about');
+Route::get('policy', [WebsiteController::class, 'page'])->name('policy');
+Route::get('contact', [WebsiteController::class, 'page'])->name('contact');
 
 Route::post('order/{service}/plan/{plan}', function(Request $request, $service, $plan) {
     $service = Service::findOrFail($service);

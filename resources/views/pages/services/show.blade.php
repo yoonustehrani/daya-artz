@@ -1,7 +1,8 @@
 @extends('layouts.page')
 
 @push('head')
-    <title>{{ $service->title }}</title>
+    <title>{{ $service->title }} - خدمات طراحی گرافیک - دایا آرتز</title>
+    @component('components.seo', ['instance' => $service, 'slug' => 'services']) @endcomponent
 @endpush
 
 @section('content')
@@ -20,11 +21,8 @@
     <!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height p-3">
         <div class="header-text col-12 col-md-8">
-            <h4>مزیت های دایا ...</h2>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای </p>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای </p>
-            <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای </p>
-            <br>
+            <h4>مزیت های {{ $service->title }} در دایا آرتز ...</h2>
+            {!! $service->description !!}
         </div>
         <div class="header-vector col-10 col-sm-8 col-md-4 mb-3 mb-md-0">
             <img src="{{ asset('images/benefits.svg') }}" alt="rules vector" class="rules">
@@ -123,7 +121,7 @@
             </div>
         </div>
         <div class="col-12 order-card-container">
-        @foreach ($service->plans->chunk(3) as $plans)
+        @foreach ($service->plans->sortBy('order')->chunk(3) as $plans)
             @foreach ($plans as $plan)
             <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2">
                 <div>

@@ -1,25 +1,25 @@
 @extends('layouts.page')
 
 @push('head')
-    <title>نمونه کار | Daya Artz Blog</title>
+    <title>{{ $portfolio->title }} - نمونه {{ $portfolio->service->title }}</title>
 @endpush
-
+{{-- @component('components.seo', ['instance' => $page, 'slug' => 'pages']) @endcomponent --}}
 @section('content')
 <div id="logo-info" class="w-100 float-left dotted-background p-4 p-md-2 p-lg-5">
     <div class="float-right col-12">
         <div class="sample-images-slider">
             @if ($portfolio->images->count() > 0)
             <div class="showing-image">
-                <img class="animated fadeIn" id="portfolio-main-img" src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
-                data-src="{{ asset($portfolio->images[0]->file->path) }}"
+                <img class="animated fadeIn" id="portfolio-main-img" data-src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
+                src="{{ asset($portfolio->images[0]->file->path) }}"
                 alt="{{ $portfolio->images[0]->alt }}">
             </div>
             <div class="small-items-container">
                 <span id="prev-image"><i class="fas fa-chevron-left"></i></span>
                 @foreach ($portfolio->images as $item)
                 <div>
-                    <img src="{{ asset($item->file->thumbnail_path) }}"
-                    data-src="{{ asset($item->file->path) }}"
+                    <img data-src="{{ asset($item->file->thumbnail_path) }}"
+                    src="{{ asset($item->file->path) }}"
                     alt="{{ $item->alt }}">
                 </div>
                 @endforeach
@@ -28,14 +28,15 @@
             @endif
         </div>
         <div class="sample-info mt-4 mt-md-0">
-            <h1>نمونه طراحی {{ $portfolio->service->title }}</h1>
+            <h1 class="w-100">نمونه طراحی {{ $portfolio->service->title }} </h1>
             <ul class="p-0 m-0 w-100">
-                <li>نام برند: <h3>{{ $portfolio->title }}</h3></li>
-                <li>طرف قرارداد: <h3>{{ $portfolio->company }}</h3></li>
+                <li> عنوان پروژه: <h3>{{ $portfolio->title }}</h3></li>
+                <li>کارفرما پروژه: <h3>{{ $portfolio->company }}</h3></li>
                 {{-- <li>نوع لوگو: <h3>تایپو گرافی</h3></li> --}}
                 {{-- <li>امتیاز لوگو: <h3>8/10</h3></li> --}}
                 {{-- <li>نظر کابران: <span class="mr-2"><i class="fab fa-gratipay"></i> 273</span></li> --}}
             </ul>
+            {!! $portfolio->description !!}
         </div>
     </div>
 </div>

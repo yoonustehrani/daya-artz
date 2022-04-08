@@ -18,12 +18,12 @@ class SeoTool extends ExtensionFramework
 
     public function shouldBeInjected(): bool
     {
-        return in_array($this->modelType->namespace, ['posts']);
+        return in_array($this->modelType->namespace, ['posts', 'services', 'portfolios', 'pages']);
     }
     public function shouldHandleAdjustment(): bool
     {
         if (! $this->modelType) return false;
-        return in_array($this->modelType->namespace, ['posts']);
+        return in_array($this->modelType->namespace, ['posts', 'services', 'portfolios', 'pages']);
     }
     public function inject(): string
     {
@@ -48,6 +48,7 @@ class SeoTool extends ExtensionFramework
             } else {
                 $model->seo_settings()->save($indexable);
             }
+            \Cache::forever("{$this->modelType->slug}.{$model->id}.seo_settings", $indexable);
         }
     }
     public function hasSeoTrait($model)

@@ -1,8 +1,8 @@
 <div id="time-line" class="w-100 float-left p-4 process-timeline dotted-background">
     @php
         $details = $timeline->values()->map(fn($t) => explode(',', $t));
-        $icons = $details->map(fn($t) => $t[0])->toArray();
-        $dates = $details->map(fn($t) => $t[1])->toArray();
+        $icons = $details->map(fn($t) => trim($t[0]))->toArray();
+        $dates = $details->map(fn($t) => trim($t[1]))->toArray();
     @endphp
     <div class="icons-container">
         @foreach ($icons as $icon)
