@@ -1,14 +1,14 @@
 @extends('layouts.default')
 
-@section('title', 'طراحی لوگو - طراحی گرافیک - گرافیک دیزاین')
-
 @push('head')
+<title>{{ $page->title }}</title>
+    @component('components.seo', ['instance' => $page, 'slug' => 'pages']) @endcomponent
 <script type="application/ld+json">
     [{
         "@context": "https://schema.org",
         "@type": "Organization",
         "url": "https://dayaartz.com",
-        "logo": "https://dayaartz.com/images/daya-cyan-logo.png"
+        "logo": "{{ get_setting('seo.brand.logo', 'https://dayaartz.com/images/daya-cyan-logo.png') }}"
     }]
 </script>
 @endpush

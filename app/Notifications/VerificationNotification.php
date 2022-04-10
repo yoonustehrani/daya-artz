@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use App\Broadcasting\SMSChannel;
 use App\Http\Utils\SMS;
+use App\Http\Utils\SMSTool;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -48,8 +49,10 @@ class VerificationNotification extends Notification
     {
         $verification = $notifiable->generateVerificationCode('verify_phone', generate_code(), false, 2);
         if (!! config('services.sms.active')) {
-            \Log::critical("verification code is: {$verification->code}");
-            // (new SMS())->to($notifiable->phone_number)->sendAuth("کد احراز هویت : {$verification->code}");
+            $pattern = "xfi0x9hy0k";
+            (new SMSTool)->getDriver('faraz')->sendPattern('+983000505', $notifiable->phone_number, $pattern, [
+                'code' => (string) $verification->code
+            ]);
         }
     }
     

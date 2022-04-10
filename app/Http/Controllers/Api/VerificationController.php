@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Events\UserVerifiedTheirAccount;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -119,6 +120,19 @@ class VerificationController extends Controller
             $user->resendSms();
             return ['okay' => true];
         }
+    }
+    public function verifyEmail($id, $hash, Request $request) {
+        $user = User::findOrFail($id);
+        if (! hash_equals($hash, sha1($user->email))) {
+            abort(401);
+        }
+        if ($user->hasVerifiedEmail()) {
+            return 'email is already verified';
+        }
+        if ($user->markEmailAsVerified()) {
+            # run event for user
+        }
+        return redirect()->to(route('userarea'));
     }
     public function editEmail(Request $request)
     {

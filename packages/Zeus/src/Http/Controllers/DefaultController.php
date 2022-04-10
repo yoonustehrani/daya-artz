@@ -65,12 +65,10 @@ class DefaultController extends Controller
         $this->authorizeModelType($modeltype, 'create');
         $model = \ZeusPanel::getModel($modeltype->model_class);
         $modeltype->load(['rows' => fn($q) => $q->where('create', true)->with('relation')]);
-        // return $modeltype;
-        // $this->validatModelType($modeltype);
-        // try {
-        //     \DB::beginTransaction();
+        $this->validatModelType($modeltype);
+        try {
+            \DB::beginTransaction();
             $modeltype->rows->filter(fn($r) => is_null($r->model_relation_id) || $r->relation->type === 'belongsTo')->each(fn($row) => $this->fullfil_model_with_data($model, $row));
-            return $model;
             // $modeltype->rows->filter(fn($r) => ! is_null($r->model_relation_id) && $r->relation->type === 'belongsTo')->each(function($r) use($model) {
             //     if (request($r->field)) {
             //         $model->{$r->relation->local_method}()->associate(request($r->field));
@@ -105,7 +103,7 @@ class DefaultController extends Controller
                     }
                 }
             }
-            // \DB::commit();
+            \DB::commit();
             return redirect()->to(
                 $this->redirection_path(
                     request()->input('__submit_type'),
@@ -113,12 +111,12 @@ class DefaultController extends Controller
                     ['id' => $model->getKey()]
                 )
             );
-    //     } catch (\Exception $e) {
-    //         \DB::rollback();
-    //         \Log::error($e->getMessage());
-    //         flash()->error(__('zlang::modeltype.messages.not-created', ['name' => __($modeltype->name_singular)]));
-    //         return back();
-    //     }
+        } catch (\Exception $e) {
+            \DB::rollback();
+            \Log::error($e->getMessage());
+            flash()->error(__('zlang::modeltype.messages.not-created', ['name' => __($modeltype->name_singular)]));
+            return back();
+        }
     }
     public function edit($id)
     {

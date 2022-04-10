@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
+use ZeusExtensions\SeoTool\Traits\HasSeoConfigured;
 
-class Service extends Model
+class Service extends ZeusModel
 {
     public $timestamps = false;
     protected $fillable = ['title', 'subtitle', 'slug', 'group', 'description', 'icon_class'];
