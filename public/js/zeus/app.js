@@ -1,49 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./packages/ZeusExtensions/resources/js/components/index.js":
-/*!******************************************************************!*\
-  !*** ./packages/ZeusExtensions/resources/js/components/index.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var ReactImageExtension = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-  return __webpack_require__.e(/*! import() */ "packages_ZeusExtensions_resources_js_components_ReactImageExtension_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ./ReactImageExtension */ "./packages/ZeusExtensions/resources/js/components/ReactImageExtension/index.js"));
-});
-var imagePickerTarget = document.getElementById("react-image-picker");
-
-if (imagePickerTarget) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-    fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      children: "Loading ..."
-    }),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ReactImageExtension, {
-      target: imagePickerTarget.getAttribute('data-target'),
-      multiple: imagePickerTarget.hasAttribute('data-multiple')
-    })
-  }), imagePickerTarget);
-}
-
-/***/ }),
-
-/***/ "./packages/ZeusExtensions/resources/js/extensions.js":
-/*!************************************************************!*\
-  !*** ./packages/ZeusExtensions/resources/js/extensions.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-__webpack_require__(/*! ./components */ "./packages/ZeusExtensions/resources/js/components/index.js");
-
-/***/ }),
-
 /***/ "./packages/Zeus/resources/js/bootstrap.js":
 /*!*************************************************!*\
   !*** ./packages/Zeus/resources/js/bootstrap.js ***!
@@ -233,6 +190,49 @@ $('div[zeus-react-multi-select]').each(function () {
     })
   }), this);
 });
+
+/***/ }),
+
+/***/ "./packages/ZeusExtensions/resources/js/components/index.js":
+/*!******************************************************************!*\
+  !*** ./packages/ZeusExtensions/resources/js/components/index.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var ReactImageExtension = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return __webpack_require__.e(/*! import() */ "packages_ZeusExtensions_resources_js_components_ReactImageExtension_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ./ReactImageExtension */ "./packages/ZeusExtensions/resources/js/components/ReactImageExtension/index.js"));
+});
+var imagePickerTarget = document.getElementById("react-image-picker");
+
+if (imagePickerTarget) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+    fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: "Loading ..."
+    }),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ReactImageExtension, {
+      target: imagePickerTarget.getAttribute('data-target'),
+      multiple: imagePickerTarget.hasAttribute('data-multiple')
+    })
+  }), imagePickerTarget);
+}
+
+/***/ }),
+
+/***/ "./packages/ZeusExtensions/resources/js/extensions.js":
+/*!************************************************************!*\
+  !*** ./packages/ZeusExtensions/resources/js/extensions.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ./components */ "./packages/ZeusExtensions/resources/js/components/index.js");
 
 /***/ }),
 

@@ -8,6 +8,7 @@ use Zeus\Models\ZeusModel;
 
 class Page extends ZeusModel
 {
+    use HasFactory;
     public static function booted() {
         static::saved(function($page) {
             \Cache::forever("website.pages.{$page->slug}", $page);
@@ -16,5 +17,4 @@ class Page extends ZeusModel
             \Cache::forget("website.pages.{$page->slug}");
         });
     }
-    use HasFactory;
 }
