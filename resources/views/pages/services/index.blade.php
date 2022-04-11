@@ -6,7 +6,6 @@
 @endpush
 
 @section('header')
-<!-- services Header -->
 <div class="header-section policy-header dotted-background services-header">
     <div class="header-text p-4 col-12 col-md-7">
         <h1>خدمات <a class="aqua" href="{{ route('home') }}">دایا آرتز</a></h1>
@@ -19,11 +18,9 @@
     </div>
     <div class="triangle d-none d-md-block"></div>
 </div>
-<!-- end services Header -->
 @endsection
 
 @section('content')
-<!-- services groups -->
 <div class="section w-100 mt-5 mb-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
@@ -51,9 +48,7 @@
         @endforeach
     </div>
 </div>
-<!-- services groups -->
 
-<!-- search section -->
 <div class="section dotted-background bg-purple-gr col-12 py-4 p-md-4">
     <p class="title title-bigger text-light text-center">دنبال چه نوع طراحی میگردی؟</p>
     <div class="input-group input-group-lg search-box-services col-xl-6 offset-xl-3 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-12 float-left p-0">
@@ -63,9 +58,7 @@
         <input class="h-100 form-control text-light" type="text" placeholder="اینجا بنویس">
     </div>
 </div>
-<!-- end search section -->
 
-<!-- main services section -->
 <div class="section w-100 mt-5 mb-0 mb-md-3">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
@@ -73,62 +66,25 @@
         </div>
     </div>
     <div class="main-services-container w-100 p-2">
+        @foreach ($main_services as $main)
         <div class="main-service">
-            <div class="icon-container"><span class="back-aqua big-icon"><i class="fab fa-apple"></i></span><h2>لوگو</h2></div>
+            <div class="icon-container">
+                <span class="back-aqua big-icon">
+                    <i class="fab fa-apple"></i>
+                </span>
+                <h2>{{ $main->title }}</h2>
+            </div>
             <div class="info-container">
-                <p class="title service-title">طراحی لوگو با بالاترین کیفیت</p>
-                <p class="service-description">لوگو نخستین بازتاب شخصیت و هویت برندآرمانی و تجاری شماست. لوگو طنابی تنیده شده از هدف، باور و هسته فعالیت شماست</p>
+                <p class="title service-title">{{ $main->subtitle }}</p>
+                <p class="service-description">{{ $main->short_description }}</p>
                 <div class="button-container">
                     <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a class="btn badge-pill">ادامه متن</a>
+                    <a href="{{ route('services.show', ['slug' => $main->slug]) }}" class="btn badge-pill">ادامه متن</a>
                 </div>
             </div>
         </div>
-        <div class="main-service">
-            <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-scroll"></i></span><h2>سربرگ</h2></div>
-            <div class="info-container">
-                <p class="title service-title">طراحی سربرگ رسمی و حرفه ای</p>
-                <p class="service-description">سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
-                <div class="button-container">
-                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a class="btn badge-pill">ادامه متن</a>
-                </div>
-            </div>
-        </div>
-        <div class="main-service">
-            <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-book-open"></i></span><h2>کاتالوگ</h2></div>
-            <div class="info-container">
-                <p class="title service-title">بهترین باز خورد ها با کاتالوگ های خاص</p>
-                <p class="service-description">کاتالوگ مهم ترین ابزار برای تبلیغ و انتشار تبلیغات فروش یک محصول است. انتقال صحیح به مشتریان از مهم ترین ارمغان های کاتالوگ است</p>
-                <div class="button-container">
-                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a class="btn badge-pill">ادامه متن</a>
-                </div>
-            </div>
-        </div>
-        <div class="main-service">
-            <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-address-card"></i></span><h2>کارت ویزیت</h2></div>
-            <div class="info-container">
-                <p class="title service-title">انواع کارت ویزیت های ساده و جذاب</p>
-                <p class="service-description">سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند</p>
-                <div class="button-container">
-                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a class="btn badge-pill">ادامه متن</a>
-                </div>
-            </div>
-        </div>
-        <div class="main-service">
-            <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-mail-bulk"></i></span><h2>ست اداری</h2></div>
-            <div class="info-container">
-                <p class="title service-title">کارت ویزیت، سربرگ، تقویم و سررسید، خودکار و...</p>
-                <p class="service-description">لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند، و وابسته به هدف و نوع متقاضیان انتخاب می شود</p>
-                <div class="button-container">
-                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a class="btn badge-pill">ادامه متن</a>
-                </div>
-            </div>
-        </div>
-        <div class="main-service">
+        @endforeach
+        <div class="main-service d-none">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-plus-circle"></i></span><h2>ترکیبی</h2></div>
             <div class="info-container">
                 <p class="title service-title">ترکیب خود را بسازید</p>
@@ -141,9 +97,7 @@
         </div>
     </div>
 </div>
-<!-- end main services -->
 
-<!-- guide section -->
 <div class="section w-100 text-center mb-4 daya-guide">
     <div class="title-section w-100">
         <div class="title-container">

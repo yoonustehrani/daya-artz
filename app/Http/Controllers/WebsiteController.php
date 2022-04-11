@@ -17,10 +17,11 @@ class WebsiteController extends Controller
     }
     public function services()
     {
-        $service_groups = Service::whereNull('parent_id')->select("*")->where('group', '<>', 'main')->get()->groupBy('group');
-        $main_services = Service::whereNull('parent_id')->where('group', 'main')->get();
         $page = get_website_page('/services');
-        return view('pages.services.index', compact('service_groups', 'page'));
+        $services = Service::whereNull('parent_id')->select("*")->get();
+        $main_services = $services->filter(fn($s) => $s->main);
+        $service_groups = $services->groupBy('group');
+        return view('pages.services.index', compact('service_groups', 'main_services', 'page'));
     }
     public function service($slug)
     {
