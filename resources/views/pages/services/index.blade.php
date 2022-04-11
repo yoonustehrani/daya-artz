@@ -31,29 +31,24 @@
         </div>
     </div>
     <div class="services-groups-container w-100">
-        <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
-            <span class="computer-container">
-                <i class="fas fa-desktop computer-icon"></i>
-                <i class="fas fa-print inside-computer"></i>
-            </span>
-            <h3 class="group-name">طراحی چاپی</h3>
-        </div>
-        <div class="d-none d-md-block matcher-line match-line-1"></div>
-        <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
-            <span class="computer-container">
-                <i class="fas fa-desktop computer-icon"></i>
-                <i class="fas fa-pencil-ruler inside-computer"></i>
-            </span>
-            <h3 class="group-name">طراحی دیجیتالی</h3>
-        </div>
-        <div class="d-none d-md-block matcher-line match-line-2"></div>
-        <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
-            <span class="computer-container">
-                <i class="fas fa-desktop computer-icon"></i>
-                <i class="fab fa-twitter inside-computer"></i>
-            </span>
-            <h3 class="group-name">طراحی فضای مجازی </h3>
-        </div>
+        @php
+            $group_icons = get_setting('settings_page.groups.icon_list') ?: [];
+            if (is_string($group_icons)) {
+                $group_icons = explode(',', $group_icons);
+            }
+        @endphp
+        @foreach ($service_groups->keys() as $group_name)
+            <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
+                <span class="computer-container">
+                    <i class="fas fa-desktop computer-icon"></i>
+                    <i class="{{ $group_icons[$loop->index] ?? 'far fa-pencil-ruler' }} inside-computer"></i>
+                </span>
+                <h3 class="group-name">{{ $group_name }}</h3>
+            </div>
+            @if (! $loop->last)
+            <div class="d-none d-md-block matcher-line match-line-{{ $loop->index + 1 }}"></div>
+            @endif
+        @endforeach
     </div>
 </div>
 <!-- services groups -->
