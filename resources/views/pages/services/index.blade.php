@@ -29,7 +29,7 @@
     </div>
     <div class="services-groups-container w-100">
         @php
-            $group_icons = get_setting('settings_page.groups.icon_list') ?: [];
+            $group_icons = get_setting('services_page.groups.icon_list') ?: [];
             if (is_string($group_icons)) {
                 $group_icons = explode(',', $group_icons);
             }
@@ -66,11 +66,14 @@
         </div>
     </div>
     <div class="main-services-container w-100 p-2">
+        @php
+            $group_link_title = get_setting('services_page.main.button') ?: __('Continue to read');
+        @endphp
         @foreach ($main_services as $main)
         <div class="main-service">
             <div class="icon-container">
                 <span class="back-aqua big-icon">
-                    <i class="fab fa-apple"></i>
+                    <i class="{{ $main->icon_class }}"></i>
                 </span>
                 <h2>{{ $main->title }}</h2>
             </div>
@@ -79,7 +82,7 @@
                 <p class="service-description">{{ $main->short_description }}</p>
                 <div class="button-container">
                     <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a href="{{ route('services.show', ['slug' => $main->slug]) }}" class="btn badge-pill">ادامه متن</a>
+                    <a href="{{ route('services.show', ['slug' => $main->slug]) }}" class="btn badge-pill">{{ $group_link_title }}</a>
                 </div>
             </div>
         </div>
@@ -90,8 +93,8 @@
                 <p class="title service-title">ترکیب خود را بسازید</p>
                 <p class="service-description">اگه نیاز به طراحی های متنوع در بخش ها و خدمات مختلف هستید، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
                 <div class="button-container">
-                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a class="btn badge-pill">ادامه متن</a>
+                    {{-- <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
+                    <a class="btn badge-pill">{{ get_setting('settings_page.') }}</a> --}}
                 </div>
             </div>
         </div>
@@ -130,6 +133,9 @@
 
 {{-- Service Groups --}}
 <div class="service-groups-container">
+    @php
+        $link_title = get_setting('services_page.group_items.button') ?: __('Continue to read');
+    @endphp
     @foreach ($service_groups as $group => $services)
     <div class="section w-100 mt-3 mt-md-5">
         <div class="title-section w-100 mb-4">
@@ -145,7 +151,7 @@
                 <a class="service-subtitle" href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
                 <div class="button-container">
                     <a href="#" class="btn mx-1 my-1 my-md-0 btn-gradient scroll-to-form">ثبت سفارش</a>
-                    <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient my-1 my-md-0">مشاهده نمونه کار</a>
+                    <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient my-1 my-md-0">{{ $link_title }}</a>
                 </div>
             </div>
             @endforeach
