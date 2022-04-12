@@ -56,5 +56,5 @@ return [
         'sandbox' => false
     ],
 
-    'sms' => ['active' => true]
+    'sms' => ['active' => false]
 ];

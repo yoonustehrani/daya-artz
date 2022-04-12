@@ -92,15 +92,15 @@ class VerificationController extends Controller
                         $user->level = 'new';
                     }
                     if ($user->save()) {
-                        event(new UserVerifiedTheirAccount($user));
                         $verification->delete();
                         \DB::commit();
+                        event(new UserVerifiedTheirAccount($user));
                         return response()->json(['okay' => true, 'verified' => true]);
                     }
                 }
             }
             \DB::rollback();
-            return response()->json(['errors' => ['code' => 'کد وارد شده نامعتبر است.']], 422);
+            return response()->json(['errors' => ['code' => ['کد وارد شده نامعتبر است.']]], 422);
         } catch (\Throwable $th) {
             \DB::rollback();
             return ['okay' => false, 'verified' => !! $user->phone_verified];
