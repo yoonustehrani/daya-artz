@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /userarea/
+Disallow: /userarea
 
 Sitemap: https://dayaartz.com/sitemaps/sitemap-index.xml
