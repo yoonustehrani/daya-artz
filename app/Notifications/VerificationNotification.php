@@ -48,12 +48,10 @@ class VerificationNotification extends Notification
     public function toSms($notifiable)
     {
         $verification = $notifiable->generateVerificationCode('verify_phone', generate_code(), false, 2);
-        if (!! config('services.sms.active')) {
-            $pattern = "xfi0x9hy0k";
-            (new SMSTool)->getDriver('faraz')->sendPattern('+983000505', $notifiable->phone_number, $pattern, [
-                'code' => (string) $verification->code
-            ]);
-        }
+        $pattern = "xfi0x9hy0k";
+        (new SMSTool)->getDriver('faraz')->sendPattern('+983000505', $notifiable->phone_number, $pattern, [
+            'code' => (string) $verification->code
+        ]);
     }
     
     /**

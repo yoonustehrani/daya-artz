@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Utils\SMSTool;
 use App\Models\Offer;
 use App\Models\Bill;
 use App\Models\Page;
@@ -143,5 +144,15 @@ if (! function_exists('get_website_page')) {
         });
         abort_if(! $page, 404);
         return $page;
+    }
+}
+
+if (! function_exists('sms_driver')) {
+    /**
+     * @return App\Http\Utils\SMSDrivers\Faraz
+     */
+    function sms_driver()
+    {
+        return (new SMSTool)->getDriver('faraz');
     }
 }

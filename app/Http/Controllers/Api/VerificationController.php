@@ -129,8 +129,12 @@ class VerificationController extends Controller
         if ($user->hasVerifiedEmail()) {
             return 'email is already verified';
         }
-        if ($user->markEmailAsVerified()) {
-            # run event for user
+        $user->email_verified_at = now();
+        if ($user->level === 'register') {
+            $user->level = 'new';
+        }
+        if ($user->save()) {
+            event(new UserVerifiedTheirAccount($user));
         }
         return redirect()->to(route('userarea'));
     }

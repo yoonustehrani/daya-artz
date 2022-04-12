@@ -1,5 +1,6 @@
 <?php
 
+use App\Broadcasting\SMSChannel;
 use App\Events\UserVerifiedTheirAccount;
 use App\Http\Controllers\Api\VerificationController;
 use App\Http\Controllers\LandingsController;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SitemapController;
 use App\Models\Service;
+use App\Notifications\WelcomeNotification;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,9 +59,13 @@ Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('us
 
 Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verifyEmail'])->middleware('signed')->name('verification.email.verify');
 
-// Route::get('test', function (Request $request) {
-//     $user = new User();
-//     $user->phone_number = '9150013422';
+Route::get('test', function (Request $request) {
+    $user = User::find(3);
+    $user->notifyNow(
+        (new WelcomeNotification)
+    );
+    // ->delay(['mail' => now()->addMinute(), SMSChannel::class => now()->addSeconds(10)])
+    return $user;
 //     $pattern = "xfi0x9hy0k";
 //     (new SMSTool)->getDriver('faraz')->sendPattern('+983000505', $user->phone_number, $pattern, [
 //         'code' => 
@@ -86,7 +92,7 @@ Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verifyEm
 //     // $company = Company::first();
 //     // $company->load('business_type', 'product_type');
 //     // return $company;
-// })->name('tempo');
+})->name('tempo');
 
 
 // Route::get('email', function() {
