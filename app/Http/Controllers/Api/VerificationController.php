@@ -92,6 +92,7 @@ class VerificationController extends Controller
                         $user->level = 'new';
                     }
                     if ($user->save()) {
+                        \Cache::forget("phone-validation-user-{$user->phone_number}");
                         $verification->delete();
                         \DB::commit();
                         event(new UserVerifiedTheirAccount($user));
@@ -134,6 +135,7 @@ class VerificationController extends Controller
             $user->level = 'new';
         }
         if ($user->save()) {
+            \Cache::forget("email-validation-user-{$user->email}");
             event(new UserVerifiedTheirAccount($user));
         }
         return redirect()->to(route('userarea'));
