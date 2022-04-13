@@ -728,7 +728,6 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
 
       var _this$props2 = this.props,
           fields = _this$props2.fields,
-          title = _this$props2.title,
           controller = _this$props2.controller,
           _this$state3 = this.state,
           sending_data = _this$state3.sending_data,
@@ -737,11 +736,6 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
           errs = _this$state3.errs;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "form-title",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
-            children: title
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "fields-container",
           children: fields.map(function (field, i) {
             var value = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(_this2.state[controller], field.path).get(),
@@ -873,8 +867,6 @@ var UserInfo = /*#__PURE__*/function (_Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _defineProperty(_assertThisInitialized(_this), "title", "اطلاعات کاربری");
-
     _defineProperty(_assertThisInitialized(_this), "fields", [{
       component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"],
       title: "ایمیل",
@@ -905,16 +897,10 @@ var UserInfo = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(UserInfo, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      document.title = this.title;
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
         fields: this.fields,
-        title: this.title,
         controller: "user"
       });
     }

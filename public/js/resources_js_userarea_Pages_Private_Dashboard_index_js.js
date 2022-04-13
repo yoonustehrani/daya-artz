@@ -245,14 +245,11 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "dashboard-container",
         children: Object.keys(dashboard_items).map(function (key, i) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: key,
-            children: dashboard_items[key].map(function (item, index) {
-              return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(components[key], _objectSpread({
-                key: index
-              }, item));
-            })
-          }, i);
+          return dashboard_items[key].map(function (item, index) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(components[key], _objectSpread({
+              key: index
+            }, item));
+          });
         })
       });
     }
@@ -265,10 +262,6 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     user: state.auth.user
   };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {};
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps)(Dashboard));

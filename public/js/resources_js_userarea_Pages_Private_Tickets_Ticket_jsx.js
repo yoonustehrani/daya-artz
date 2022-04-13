@@ -525,13 +525,14 @@ function TicketMessage(_ref) {
       created_at = _ref.created_at,
       body = _ref.body;
   var date = (0,_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: side === "customer" ? "right-msg" : "left-msg",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "msg-meta"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "msg-content pb-1",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "msg-side",
+        children: side === "customer" ? "شما" : "پشتیبانی دایا"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
         children: body
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "text-left ltr m-0",
@@ -543,7 +544,7 @@ function TicketMessage(_ref) {
           }), date.format('HH:mm:ss')]
         })
       })]
-    })]
+    })
   });
 }
 

@@ -61,7 +61,7 @@ var BottomItem = /*#__PURE__*/function (_Component) {
           title = _this$props.title,
           items = _this$props.items;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "dashboard-item-container col-12 col-md-4",
+        className: "dashboard-item-container col-12 col-lg-4",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "dashboard-bottom-item",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {

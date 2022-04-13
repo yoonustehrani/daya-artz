@@ -5,7 +5,6 @@ import PhoneInput from './Components/PhoneInput';
 import ProfileLayout from './ProfileLayout';
 
 class UserInfo extends Component {
-    title = "اطلاعات کاربری"
     fields = [
         {
             component: TextInput,
@@ -36,15 +35,11 @@ class UserInfo extends Component {
             type: "password",
         },
     ]
-    componentDidMount() {
-        document.title = this.title
-    }
     
     render() {
         return (
             <ProfileLayout 
                 fields = {this.fields} 
-                title = {this.title} 
                 controller = "user"
             />
         );

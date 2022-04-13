@@ -20,7 +20,9 @@
     <footer class="section w-100 footer mt-5">
         <x-footer />
     </footer>
-    <script>APP_PATH = "{{ asset('/') }}";</script>
+    <script>
+        APP_PATH = "{{ asset('/') }}";
+    </script>
     <script src="{{ mix('js/app.js') }}"></script>
     @stack('scripts')
 </body>

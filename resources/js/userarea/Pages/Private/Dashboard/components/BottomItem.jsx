@@ -6,7 +6,7 @@ class BottomItem extends Component {
     render() {
         let { title, items } = this.props
         return (
-            <div className="dashboard-item-container col-12 col-md-4">
+            <div className="dashboard-item-container col-12 col-lg-4">
                 <div className="dashboard-bottom-item">
                     <div className="top-header">
                         <div className="shapes-back-img">

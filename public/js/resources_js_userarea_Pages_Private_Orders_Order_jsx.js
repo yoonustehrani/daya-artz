@@ -315,7 +315,7 @@ var Order = /*#__PURE__*/function (_Component) {
           onFilterClick: this.onFilterClick,
           current: filter,
           filters: statuses
-        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_5__["default"], {}) : items && items.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_5__["default"], {}) : items && items.length > 0 && this.filteredItems().length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "order-items-container",
           children: items.length > 0 && this.filteredItems().map(function (item, i) {
             var _statuses$item$status;
@@ -374,7 +374,7 @@ function FilterBar(_ref) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       className: "p-0 px-2",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("select", {
-        className: "form-control w-auto",
+        className: "form-control w-auto hoverable",
         value: current,
         onChange: onFilterClick,
         children: filters && Object.entries(filters).map(function (_ref2, i) {
@@ -384,6 +384,7 @@ function FilterBar(_ref) {
 
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
             value: filter,
+            className: "hoverable",
             children: name
           }, i);
         })

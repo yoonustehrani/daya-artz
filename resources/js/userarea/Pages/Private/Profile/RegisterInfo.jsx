@@ -5,7 +5,6 @@ import ProfileLayout from './ProfileLayout';
 import { useEffect } from 'react';
 
 function RegisterInfo() {
-    let title = "مشخصات فردی"
     let fields = [
         {
             component: TextInput,
@@ -28,13 +27,10 @@ function RegisterInfo() {
         //     validate_types: ["phone_number"]
         // },
     ]
-    useEffect(() => {
-        document.title = title
-    }, [title])
+
     return (
         <ProfileLayout 
             fields={fields} 
-            title={title} 
             controller = "customer" 
         />
     );

@@ -6,7 +6,7 @@ class TopItem extends Component {
     render() {
         let { number, title, buttons, icon } = this.props
         return (
-            <div className="dashboard-item-container col-12 col-md-4">
+            <div className="dashboard-item-container col-12 col-md-6 col-lg-4">
                 <div className="dashboard-top-item">
                     <div className="shapes-back-img">
                         <span className="top-item-icon"><i className={icon}></i></span>

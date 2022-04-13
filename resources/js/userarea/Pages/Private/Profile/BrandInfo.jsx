@@ -9,7 +9,6 @@ import Radio from './Components/Radio';
 import ProfileLayout from './ProfileLayout';
 
 function BrandInfo() {
-    let title = "مشخصات کسب و کار"
     let fields = [
         {
             component: TextInput,
@@ -96,14 +95,10 @@ function BrandInfo() {
             default_value: "#000000",
         },
     ]
-    useEffect(() => {
-        document.title = title
-    }, [title])
 
     return (
         <ProfileLayout 
             fields = {fields} 
-            title = {title} 
             controller="company"
         />
     );
