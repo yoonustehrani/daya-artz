@@ -214,10 +214,10 @@
                         <span class="font-16 ltr card-price">/تومان</span>
                     </div>
                     {!! $plan->caption !!}
-                    <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
+                    {{-- <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
                         @csrf
                         <button type="submit" class="btn badge-pill">ثبت سفارش</button>
-                    </form>
+                    </form> --}}
                 </div>
             </div>
             @endforeach

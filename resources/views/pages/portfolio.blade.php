@@ -2,8 +2,15 @@
 
 @push('head')
     <title>{{ $portfolio->title }} - نمونه {{ $portfolio->service->title }}</title>
+    @component('components.seo', [
+        'instance' => $portfolio,
+        'slug' => 'portfolios',
+        'og' => [
+            'title' => $portfolio->title,
+            'image' => ($portfolio->images && isset($portfolio->images[0])) ? $portfolio->images[0]->file : null
+        ]
+    ]) @endcomponent
 @endpush
-{{-- @component('components.seo', ['instance' => $page, 'slug' => 'pages']) @endcomponent --}}
 @section('content')
 <div id="logo-info" class="w-100 float-left dotted-background p-4 p-md-2 p-lg-5">
     <div class="float-right col-12">

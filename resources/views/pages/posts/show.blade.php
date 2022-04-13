@@ -2,7 +2,19 @@
 
 @push('head')
     <title>{{ $post->title }} - وبلاگ دایا آرتز</title>
-    @component('components.seo', ['instance' => $post, 'slug' => 'posts']) @endcomponent
+    @component('components.seo', [
+        'instance' => $post,
+        'slug' => 'posts',
+        'og' => [
+            'title' => $post->title,
+            'type' => 'article',
+            'type_details' => [
+                'published_time' => $post->created_at->format('Y-m-d'),
+                'modified_time' => $post->updated_at->format('Y-m-d')
+            ],
+            'image' => ($post->image && $post->image->file) ? $post->image->file : null
+        ]
+    ]) @endcomponent
     <script type="application/ld+json">
         [{
             "@context": "https://schema.org",

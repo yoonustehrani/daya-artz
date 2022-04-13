@@ -103,6 +103,7 @@ class Faraz implements SMSDriver
     }
     public function send($mode = 'default')
     {
+        if (config('app.env') != 'production') return ['okay' => true];
         if (is_array($this->config)) {
             switch ($mode) {
                 case 'pattern':

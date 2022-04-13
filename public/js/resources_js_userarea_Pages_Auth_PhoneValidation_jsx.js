@@ -176,7 +176,7 @@ var PhoneValidation = /*#__PURE__*/function (_Component) {
                 case 2:
                   result = _context3.sent;
 
-                  if (!result.payload.verified) {
+                  if (result.payload && !result.payload.verified) {
                     _this.Alert.error({
                       title: 'کد وارد شده اشتباه است',
                       timer: 2000

@@ -12,14 +12,16 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        $page = Page::whereSlug('/')->firstOrFail();
+        $page = get_website_page('/');
         return view('welcome', compact('page'));
     }
     public function services()
     {
-        $service_groups = Service::whereNull('parent_id')->select("*")->where('group', '<>', 'main')->get()->groupBy('group');
-        $page = Page::whereSlug('/services')->firstOrFail();
-        return view('pages.services.index', compact('service_groups', 'page'));
+        $page = get_website_page('/services');
+        $services = Service::whereNull('parent_id')->select("*")->get();
+        $main_services = $services->filter(fn($s) => $s->main);
+        $service_groups = $services->groupBy('group');
+        return view('pages.services.index', compact('service_groups', 'main_services', 'page'));
     }
     public function service($slug)
     {
@@ -35,7 +37,7 @@ class WebsiteController extends Controller
     public function page(Request $request)
     {
         $slug = $request->path();
-        $page = Page::whereSlug("/{$slug}")->firstOrFail();
+        $page = get_website_page("/{$slug}");
         abort_if(! $page->view, 404);
         return view($page->view, compact('page'));
     }

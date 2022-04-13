@@ -2,6 +2,7 @@
 
 use App\Models\Offer;
 use App\Models\Bill;
+use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 
 if (! function_exists('generate_code')) {
@@ -132,5 +133,15 @@ if (! function_exists('get_seo_settings')) {
         return \Cache::rememberForever("{$slug}.{$instance->id}.seo_settings", function () use($instance) {
             return $instance->seo_settings;
         });
+    }
+}
+
+if (! function_exists('get_website_page')) {
+    function get_website_page($slug) {
+        $page = \Cache::rememberForever("website.pages.{$slug}", function () use($slug) {
+            return Page::whereSlug($slug)->first();
+        });
+        abort_if(! $page, 404);
+        return $page;
     }
 }
