@@ -48,7 +48,8 @@ return [
 
     'farazSMS' => [
         'base_url' => 'https://rest.ippanel.com/v1/',
-        'apikey' => 'wwCG0nQcdunKIsSZg5doljNKdIHIZkOFV-q60pg5KLo='
+        'apikey' => 'wwCG0nQcdunKIsSZg5doljNKdIHIZkOFV-q60pg5KLo=',
+        'from_number' => '+983000505'
     ],
     
     'zarinpal' => [

@@ -1,5 +1,6 @@
 <?php
 
+use App\Broadcasting\SMSChannel;
 use App\Events\UserVerifiedTheirAccount;
 use App\Http\Controllers\Api\VerificationController;
 use App\Http\Controllers\LandingsController;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SitemapController;
 use App\Models\Service;
+use App\Notifications\WelcomeNotification;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +26,6 @@ use App\Models\Service;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/', function() {
-//     $user = User::first();
-//     // $verification = "";
-//     // return $user->generateVerificationCode('verify_phone', generate_code(), false, 2);
-//     // event(new UserRegistered($user));
-//     return $user;
-// });
 
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
 
@@ -58,59 +53,49 @@ Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('us
 Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verifyEmail'])->middleware('signed')->name('verification.email.verify');
 
 // Route::get('test', function (Request $request) {
-//     $user = new User();
-//     $user->phone_number = '9150013422';
-//     $pattern = "xfi0x9hy0k";
-//     (new SMSTool)->getDriver('faraz')->sendPattern('+983000505', $user->phone_number, $pattern, [
-//         'code' => 
-//     ]);
-//     // return config('sanctum');
-//     // if ($request->has('delete')) {
-//     //     App\Models\Service::whereRaw("1=1")->delete();
-//     //     App\Models\File::whereRaw("1=1")->delete();
-//     //     App\Models\Image::whereRaw("1=1")->delete();
-//     //     App\Models\Post::whereRaw("1=1")->delete();
-//     //     App\Models\Tag::whereRaw("1=1")->delete();
-//     //     App\Models\Category::whereRaw("1=1")->delete();
-//     //     return redirect()->to(route('tempo'));
-//     // }
-//     // return App\Models\Service::with('plans', 'portfolios.images')->get()->groupBy('group');
-//     // return view('test');
-//     // return App\Models\Order::latest()->get();
-// // $user = User::find(2);
-//     // $user->notifyNow(new VerificationNotification([SMSChannel::class]));
-//     // $json_string = '{"name": "yoonus", "age": 18}';
-//     // dd(json_decode($json_string));
-//     // $offers = App\Offer::limit(3)->get();
-//     // return $offers;
-//     // $company = Company::first();
-//     // $company->load('business_type', 'product_type');
-//     // return $company;
+//     $user = User::find(3);
+//     $user->notifyNow(
+//         (new WelcomeNotification)
+//     );
+//     // ->delay(['mail' => now()->addMinute(), SMSChannel::class => now()->addSeconds(10)])
+//     return $user;
+// //     $pattern = "xfi0x9hy0k";
+// //     (new SMSTool)->getDriver('faraz')->sendPattern('+983000505', $user->phone_number, $pattern, [
+// //         'code' => 
+// //     ]);
+// //     // return config('sanctum');
+// //     // if ($request->has('delete')) {
+// //     //     App\Models\Service::whereRaw("1=1")->delete();
+// //     //     App\Models\File::whereRaw("1=1")->delete();
+// //     //     App\Models\Image::whereRaw("1=1")->delete();
+// //     //     App\Models\Post::whereRaw("1=1")->delete();
+// //     //     App\Models\Tag::whereRaw("1=1")->delete();
+// //     //     App\Models\Category::whereRaw("1=1")->delete();
+// //     //     return redirect()->to(route('tempo'));
+// //     // }
+// //     // return App\Models\Service::with('plans', 'portfolios.images')->get()->groupBy('group');
+// //     // return view('test');
+// //     // return App\Models\Order::latest()->get();
+// // // $user = User::find(2);
+// //     // $user->notifyNow(new VerificationNotification([SMSChannel::class]));
+// //     // $json_string = '{"name": "yoonus", "age": 18}';
+// //     // dd(json_decode($json_string));
+// //     // $offers = App\Offer::limit(3)->get();
+// //     // return $offers;
+// //     // $company = Company::first();
+// //     // $company->load('business_type', 'product_type');
+// //     // return $company;
 // })->name('tempo');
 
 
 // Route::get('email', function() {
-//     // return new OrderSubmit();
-//     // return new Welcome(User::first());
-//     // $order = Order::latest()->first();
-//     return new OrderFinalStage;
-//     // return view('emails.welcome');
-//     // $trs = Transaction::first();
-//     // $user = User::first();
-//     // event(new UserVerifiedTheirAccount($user));
-//     // $user->notifyNow(new WelcomeNotification);
-
-//     // return 'sent';
+//     $user = User::whereEmail("yoonustehrani@dayaartz.com")->first();
+//     return new App\Mail\VerificationEmail($user, "https://google.com");
 // });
 
 Route::get('/sitemaps/sitemap-index.xml', [SitemapController::class, 'index'])->name('sitemaps.index');
 Route::get('/sitemaps/{slug}-sitemap.xml', [SitemapController::class, 'show'])->name('sitemaps.show');
 
 Route::get('payment/{driver}/verify', [PaymentController::class, 'update'])->name('payment.verify');
-
-// Route::get('orders', function() {
-//     return App\Models\Order::latest()->get();
-// });
-
 
 \ZeusPanel::routes();
