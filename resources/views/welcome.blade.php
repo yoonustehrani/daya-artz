@@ -56,46 +56,16 @@
                 </div>
             </div>
             @endforeach
-            {{-- <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-paste"></i></span>
-                    <h3 class="block w-100 text-center">سربرگ</h3>
-                    <p class="block w-100 text-center">طراحی سربرگ رسمی و اداری</p>
-                    <button class="btn btn-gradient">سفارش</button>
-                </div>
-            </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-newspaper"></i></span>
-                    <h3 class="block w-100 text-center">کاتالوگ</h3>
-                    <p class="block w-100 text-center">کاتالوگ و بروشور هنری</p>
-                    <button class="btn btn-gradient">سفارش</button>
-                </div>
-            </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-id-card"></i></span>
-                    <h3 class="block w-100 text-center">کارت ویزیت</h3>
-                    <p class="block w-100 text-center">طراحی کارت ویزیت حرفه ای</p>
-                    <button class="btn btn-gradient">سفارش</button>
-                </div>
-            </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-briefcase"></i></span>
-                    <h3 class="block w-100 text-center">ست اداری</h3>
-                    <p class="block w-100 text-center">کارت ویزیت، سربرگ، تقویم و...</p>
-                    <button class="btn btn-gradient">سفارش</button>
-                </div>
-            </div>
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
-                    <h3 class="block w-100 text-center">ترکیبی</h3>
-                    <p class="block w-100 text-center">پکیج خودتو بساز</p>
-                    <button class="btn btn-gradient">سفارش</button>
+                    <h3 class="block w-100 text-center">
+                        <a href="{{ route('services.index') }}">خدمات دیگر دایا آرتز</a>
+                    </h3>
+                    <p class="block w-100 text-center">لیست کاملی از خدمات طراحی گرافیک</p>
+                    {{-- <button class="btn btn-gradient">سفارش</button> --}}
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
     <div class="section w-100 order-section-container">
