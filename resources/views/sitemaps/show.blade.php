@@ -4,7 +4,7 @@
         <url>
             <loc>{{ $item->url }}</loc>
             @if($item->updated_at)
-            <lastmod>{{ $item->updated_at }}</lastmod>
+            <lastmod>{{ $item->updated_at->format('Y-m-d') }}</lastmod>
             @endif
             <changefreq>{{ $item->change_frequency }}</changefreq>
             <priority>{{ $item->priority }}</priority>
