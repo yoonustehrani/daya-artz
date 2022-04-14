@@ -77,9 +77,9 @@ var TicketsFaq = /*#__PURE__*/function (_Component) {
       answer: "دایا آرتز به عنوان یک کسب و کار نوپا فعالیت نوآورانه خود را در زمینه کسب و کار های دیجیتال آغاز کرده است."
     }]);
 
-    _defineProperty(_assertThisInitialized(_this), "openfaq", function (e) {
-      $(e.target).parent("span").siblings("p").toggleClass("d-none");
-      $(e.target).toggleClass("fa-plus fa-minus");
+    _defineProperty(_assertThisInitialized(_this), "openfaq", function (index) {
+      $(".tickets-faq").children().eq(index).find("p").toggleClass("d-none");
+      $(".tickets-faq").children().eq(index).find("span i").toggleClass("fa-plus fa-minus");
     });
 
     return _this;
@@ -91,12 +91,12 @@ var TicketsFaq = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "tickets-faq",
+        className: "tickets-faq mt-4",
         children: this.faqs.map(function (item, i) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            onClick: _this2.openfaq.bind(_this2, i),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                onClick: _this2.openfaq.bind(_this2),
                 className: "fas fa-plus"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {

@@ -4602,29 +4602,14 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                 })
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-            className: "has-sub",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-              href: "#orders",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+              to: "/orders",
+              className: "link",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
                 className: "fas fa-hand-pointer"
-              }), "\u0633\u0641\u0627\u0631\u0634\u0627\u062A"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-              className: "submenu-m",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                  to: "/orders",
-                  className: "link",
-                  children: "\u0644\u06CC\u0633\u062A \u0633\u0641\u0627\u0631\u0634 \u0647\u0627"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                  to: "/orders/new",
-                  className: "link",
-                  children: "\u0633\u0641\u0627\u0631\u0634 \u062C\u062F\u06CC\u062F"
-                })
-              })]
-            })]
+              }), "\u0644\u06CC\u0633\u062A \u0633\u0641\u0627\u0631\u0634 \u0647\u0627"]
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
             className: "has-sub",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
@@ -4705,7 +4690,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           className: "home-link",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
             className: "fas fa-link"
-          }), " http://dayaartz.com"]
+          }), " ", APP_ROUTE]
         })]
       });
     }
@@ -4722,6 +4707,31 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps)(Sidebar));
+
+/***/ }),
+
+/***/ "./resources/js/userarea/Pages/Private/Layout/components/Title.jsx":
+/*!*************************************************************************!*\
+  !*** ./resources/js/userarea/Pages/Private/Layout/components/Title.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Title)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+function Title(_ref) {
+  var text = _ref.text;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "form-title",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", {
+      children: text
+    })
+  });
+}
 
 /***/ }),
 
@@ -6257,9 +6267,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Pages_Private_Layout_components_Title__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Pages/Private/Layout/components/Title */ "./resources/js/userarea/Pages/Private/Layout/components/Title.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -6295,6 +6306,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var PrivateRoute = /*#__PURE__*/function (_Component) {
   _inherits(PrivateRoute, _Component);
 
@@ -6316,27 +6328,30 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
           children = _this$props.children,
           user = _this$props.user,
           exact = _this$props.exact,
-          CallableComponent = _this$props.CallableComponent;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
+          CallableComponent = _this$props.CallableComponent,
+          title = _this$props.title;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
         path: path,
         exact: exact,
         render: function render(_ref) {
           var history = _ref.history,
               location = _ref.location,
               match = _ref.match;
-          return user ? location.pathname === "/" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
+          return user ? location.pathname === "/" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Redirect, {
             to: {
               pathname: "/dashboard",
               state: {
                 from: location
               }
             }
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-            children: [CallableComponent && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CallableComponent, _objectSpread(_objectSpread({
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Private_Layout_components_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              text: title
+            }), CallableComponent && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(CallableComponent, _objectSpread(_objectSpread({
               history: history,
               location: location
             }, match), _this.props)), children]
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Redirect, {
             to: {
               pathname: "/auth/login",
               state: {
@@ -6450,11 +6465,13 @@ function RouteWithSubRoutes(_ref) {
   var path = _ref.path,
       exact = _ref.exact,
       CallableComponent = _ref.CallableComponent,
-      subroutes = _ref.subroutes;
+      subroutes = _ref.subroutes,
+      title = _ref.title;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_PrivateRoute__WEBPACK_IMPORTED_MODULE_0__["default"], {
     path: path,
     exact: exact,
     CallableComponent: CallableComponent,
+    title: title,
     children: subroutes && subroutes.length >= 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Switch, {
       children: subroutes.map(function (sub, i) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RouteWithSubRoutes, _objectSpread({}, sub), i);
@@ -6536,23 +6553,28 @@ var digitRegex = '[0-9]{1,}';
 var routes = [{
   path: '/dashboard',
   exact: true,
-  CallableComponent: Dashboard
+  CallableComponent: Dashboard,
+  title: "داشبورد"
 }, {
   path: '/brandInfo',
   exact: true,
-  CallableComponent: BrandInfo
+  CallableComponent: BrandInfo,
+  title: "مشخصات کسب و کار"
 }, {
   path: '/registerInfo',
   exact: true,
-  CallableComponent: RegisterInfo
+  CallableComponent: RegisterInfo,
+  title: "مشخصات فردی"
 }, {
   path: "/userInfo",
   exact: true,
-  CallableComponent: UserInfo
+  CallableComponent: UserInfo,
+  title: "اطلاعات کاربری"
 }, {
   path: '/orders',
   exact: true,
-  CallableComponent: Orders
+  CallableComponent: Orders,
+  title: "سفارشات"
 }, {
   path: "/orders/:orderId(".concat(uuidRegex, ")"),
   exact: true,
@@ -6576,11 +6598,13 @@ var routes = [{
 }, {
   path: '/finance/transactions',
   exact: true,
-  CallableComponent: Transactions
+  CallableComponent: Transactions,
+  title: "تراکنش ها"
 }, {
   path: '/finance/discounts',
   exact: true,
-  CallableComponent: Discounts
+  CallableComponent: Discounts,
+  title: "کوپن های تخفیف"
 }, // {
 //     path: '/finance',
 //     exact: true,
@@ -6589,11 +6613,13 @@ var routes = [{
 {
   path: '/tickets/new',
   exact: true,
-  CallableComponent: NewTicket
+  CallableComponent: NewTicket,
+  title: "ثبت درخواست پشتیبانی"
 }, {
   path: '/tickets/faq',
   exact: true,
-  CallableComponent: TicketsFaq
+  CallableComponent: TicketsFaq,
+  title: "سوالات متداول"
 }, {
   path: "/tickets/:ticketId(".concat(uuidRegex, ")"),
   exact: true,
@@ -6601,12 +6627,14 @@ var routes = [{
 }, {
   path: '/tickets',
   exact: true,
-  CallableComponent: Tickets
-}, {
-  path: "/contracts/:contractId",
-  exact: true,
-  CallableComponent: Contract
+  CallableComponent: Tickets,
+  title: "درخواست های پشتیبانی"
 } // {
+//     path: "/contracts/:contractId",
+//     exact: true,
+//     CallableComponent: Contract
+// },
+// {
 //     path: "/contracts",
 //     exact: true,
 //     CallableComponent: Contracts
@@ -70723,7 +70751,7 @@ function _setPrototypeOf(o, p) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\\\daya-artz"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\projects\\\\test\\\\daya-artz","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

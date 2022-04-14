@@ -90,13 +90,9 @@ class Dashboard extends Component {
         return (
             <div className="dashboard-container">
                 {Object.keys(dashboard_items).map((key, i) => (
-                    <div className={key} key={i}>
-                        {
-                            dashboard_items[key].map((item, index) => (
-                                React.createElement(components[key], {key: index, ...item})
-                            ))
-                        }
-                    </div>
+                    dashboard_items[key].map((item, index) => (
+                        React.createElement(components[key], {key: index, ...item})
+                    ))
                 ))}
             </div>
         )
@@ -106,9 +102,4 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => ({
     user: state.auth.user
 })
-
-const mapDispatchToProps = dispatch => ({
-    
-})
-
 export default connect(mapStateToProps)(Dashboard);

@@ -27,16 +27,16 @@ class Sidebar extends Component {
                             <li><Link to="/brandInfo" className="link">مشخصات کسب و کار</Link></li>
                         </ul>
                     </li>
-                    <li className="has-sub">
-                        <a href="#orders"><i className="fas fa-hand-pointer"></i>سفارشات</a>
-                        <ul className="submenu-m">
-                            <li>
-                                <Link to="/orders" className="link">لیست سفارش ها</Link>
-                            </li>
-                            <li>
+                    <li>
+                        {/* <a href="#orders"><i className="fas fa-hand-pointer"></i>سفارشات</a> */}
+                        {/* <ul className="submenu-m"> */}
+                            {/* <li> */}
+                                <Link to="/orders" className="link"><i className="fas fa-hand-pointer"></i>لیست سفارش ها</Link>
+                            {/* </li> */}
+                            {/* <li>
                                 <Link to="/orders/new" className="link">سفارش جدید</Link>
                             </li>
-                        </ul>
+                        </ul> */}
                     </li>
                     <li className="has-sub">
                         <a to="#finance"><i className="fas fa-hand-holding-usd"></i>امور مالی</a>
@@ -90,7 +90,7 @@ class Sidebar extends Component {
                         <a onClick={() => this.props.dispatch(logoutUser())} href="#logout"><i className="fas fa-power-off"></i>خروج</a>
                     </li>
                 </ul>
-                <a href={APP_PATH} className="home-link"><i className="fas fa-link"></i> http://dayaartz.com</a>
+                <a href={APP_PATH} className="home-link"><i className="fas fa-link"></i> {APP_ROUTE}</a>
             </div>
         );
     }

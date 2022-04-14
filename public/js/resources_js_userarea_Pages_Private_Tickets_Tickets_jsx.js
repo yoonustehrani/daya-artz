@@ -164,7 +164,6 @@ var Tickets = /*#__PURE__*/function (_Component) {
   _createClass(Tickets, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.title = "درخواست های پشتیبانی";
       this.loadTickets();
     }
   }, {
@@ -173,13 +172,8 @@ var Tickets = /*#__PURE__*/function (_Component) {
       var _this$state = this.state,
           tickets = _this$state.tickets,
           loading = _this$state.loading;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "form-title mb-5",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
-            children: "\u062F\u0631\u062E\u0648\u0627\u0633\u062A \u0647\u0627\u06CC \u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC"
-          })
-        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : tickets && tickets.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : tickets && tickets.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "table-responsive userarea-table",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("table", {
             className: "table table-striped table-bordered table-hover thead-light",
@@ -209,7 +203,7 @@ var Tickets = /*#__PURE__*/function (_Component) {
               })
             })]
           })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_4__["default"], {})
       });
     }
   }]);

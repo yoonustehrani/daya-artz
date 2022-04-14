@@ -5,10 +5,8 @@ function TicketMessage({ side, created_at, body }) {
     let date = useJalaliDate(created_at)
     return (
         <div className={side === "customer" ? "right-msg" : "left-msg"}>
-            <div className="msg-meta">
-                {/* <span>{user_name ?? "پشتیبانی دایا"}</span> */}
-            </div>
             <div className="msg-content pb-1">
+                <span className='msg-side'>{side === "customer" ? "شما" : "پشتیبانی دایا"}</span>
                 <p>{body}</p>
                 <div className="text-left ltr m-0">
                     <span>

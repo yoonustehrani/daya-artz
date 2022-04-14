@@ -529,7 +529,6 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
 
       var _this$props2 = this.props,
           fields = _this$props2.fields,
-          title = _this$props2.title,
           controller = _this$props2.controller,
           _this$state3 = this.state,
           sending_data = _this$state3.sending_data,
@@ -538,11 +537,6 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
           errs = _this$state3.errs;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "form-title",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
-            children: title
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "fields-container",
           children: fields.map(function (field, i) {
             var value = new _helpers__WEBPACK_IMPORTED_MODULE_3__.NestedObj(_this2.state[controller], field.path).get(),
@@ -634,7 +628,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function RegisterInfo() {
-  var title = "مشخصات فردی";
   var fields = [{
     component: _Components_TextInput__WEBPACK_IMPORTED_MODULE_0__["default"],
     title: "نام",
@@ -654,12 +647,8 @@ function RegisterInfo() {
   //     validate_types: ["phone_number"]
   // },
   ];
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    document.title = title;
-  }, [title]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ProfileLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     fields: fields,
-    title: title,
     controller: "customer"
   });
 }

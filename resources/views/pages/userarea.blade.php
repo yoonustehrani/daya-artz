@@ -13,6 +13,7 @@
     <script>
         const APP_PATH = "{{ asset('/') }}"
         const API_BASE_URL = "{{ route('api.') }}"
+        const APP_ROUTE = "{{ route('home') }}";
     </script>
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ mix('js/userarea.js') }}"></script>

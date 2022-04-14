@@ -74,16 +74,17 @@
                     font-weight: bold;
                     width: 100%;
                     line-break: anywhere;
+                    line-height: 1.5;
                 }
                 
                 span {
                     font-size: 15px;
                     color: $gray;
-                    margin: 0;
+                    margin-top: 5px;
                 }
             }
             a.home-link {
-                font-size: 14px;
+                font-size: 16px;
                 cursor: pointer;
                 transition: 0.5s;
                 color: $aqua;
@@ -101,7 +102,7 @@
                 padding-right: 0px;
                 list-style-type: none;
                 margin-top: 20px;
-                height: calc(100% - 215px);
+                height: calc(100% - 230px);
                 &::-webkit-scrollbar {
                     width: 8px;
                 }
@@ -321,31 +322,53 @@
                 }
             }
             .dashboard-container {
-                .top_items, .middle_items, .bottom_items {
-                    display: flex;
-                    align-items: stretch;
-                    flex-wrap: wrap;
+                display: flex;
+                align-items: stretch;
+                flex-wrap: wrap;
+                :nth-child(1), :nth-child(2), :nth-child(3) {
+                    .shapes-back-img {
+                        background-position-y: 0;
+                    }
                 }
-                .middle_items {
-                    :nth-child(1) {
-                        p {
-                            background-color: #6299AB;
-                        }
+                :nth-child(1), :nth-child(4), :nth-child(7) {
+                    .shapes-back-img {background-position-x: 66.666%;}
+                }
+                :nth-child(2), :nth-child(5), :nth-child(8) {
+                    .shapes-back-img {background-position-x: 33.3333%;}
+                }
+                :nth-child(3), :nth-child(6), :nth-child(9) {
+                    .shapes-back-img {background-position-x: 0%;}
+                }
+                :nth-child(4) {
+                    .shapes-back-img {background-position-y: -148px;}
+                    p {
+                        background-color: #6299AB;
                     }
-                    :nth-child(2) {
-                        p {
-                            background-color: #7553C1;
-                        }
+                }
+                :nth-child(5) {
+                    .shapes-back-img {background-position-y: -180px;}
+                    p {
+                        background-color: #7553C1;
                     }
-                    :nth-child(3) {
-                        p {
-                            background-color: #BD6D7C;
-                        }
+                }
+                :nth-child(6) {
+                    .shapes-back-img {background-position-y: -148px;}
+                    p {
+                        background-color: #BD6D7C;
                     }
+                }
+                :nth-child(7) {
+                    .shapes-back-img {background-position-y: -234px;}
+                }
+                :nth-child(8) {
+                    .shapes-back-img {background-position-y: -266px;}
+                }
+                :nth-child(9) {
+                    .shapes-back-img {background-position-y: -234px;}
                 }
                 .dashboard-item-container {
                     float: left;
-                    margin-top: 50px;
+                    margin-top: 30px;
                     * {
                         color: #fff;
                     }
@@ -362,10 +385,8 @@
                         border-radius: 8px;
                         .shapes-back-img {
                             background-image: url("/images/footer-background.png");
-                            background-size: cover;
                             width: 100%;
                             height: 100%;
-                            background-position: center;
                             background-repeat: no-repeat;
                             float: left;
                             border-radius: 8px;
@@ -405,6 +426,7 @@
                                 display: flex;
                                 align-items: baseline;
                                 justify-content: center;
+                                margin: 0;
                             }
                             h4 {
                                 margin: 0;
@@ -646,6 +668,10 @@
                     width: 22%;
                     margin: 0 1.5% 1.5%;
                     background: #fefffc;
+                    transition: 0.4s;
+                    &:hover {
+                        box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 15%);
+                    }
                     .order-title {
                         width: 100%;
                         display: flex;
@@ -1353,14 +1379,14 @@
                     flex-direction: row;
                     justify-content: space-evenly;
                     align-items: flex-start;
+                    flex-wrap: wrap;
                     border-bottom: 3px solid #000;
                     padding: 8px;
                     text-align: center;
                     h4 {
                         font-size: 16px;
-                        &:first-child {
-                            margin-left: 15px;
-                        }
+                        margin-right: 10px;
+                        margin-left: 10px;
                         span {
                             font-size: 14px;
                             font-weight: bold;
@@ -1386,8 +1412,8 @@
                     }
                     > div {
                         padding: 0 30px 0 30px;
+                        width: 100%;
                         > div {
-                            width: 60%;
                             display: flex;
                             flex-wrap: nowrap;
                             justify-content: flex-start;
@@ -1404,6 +1430,11 @@
                                     font-size: 16px;
                                 }
                             }
+                            .msg-side {
+                                font-weight: bold;
+                                display: inline-block;
+                                margin-bottom: 10px;
+                            }
                             .msg-content {
                                 padding: 15px;
                                 border-radius: 8px;
@@ -1418,7 +1449,7 @@
                                 .msg-content {
                                     background-color: $horny-bg-msg;
                                     margin-left: 15px;
-                                    // border-radius: 15px 15px 15px 0;
+                                    border-radius: 15px 15px 15px 0;
                                 }
                             }
                             &.right-msg {
@@ -1426,7 +1457,7 @@
                                 .msg-content {
                                     background-color: $light-bg-msg;
                                     margin-right: 15px;
-                                    // border-radius: 15px 15px 0 15px;
+                                    border-radius: 15px 15px 0 15px;
                                 }
                             }
                         }
@@ -1545,7 +1576,7 @@
             // new ticekt
             .new-ticket-container {
                 > div:first-child {
-                    width: 150px;
+                    width: 200px;
                 }
                 .msg-text-section {
                     margin: 10px 0 20px 0;
@@ -1647,6 +1678,12 @@
                     text-align: right;
                     padding: 8px 15px 8px 15px;
                     margin: 0 0 30px;
+                    color: #000;
+                    cursor: pointer;
+                    transition: 0.4s;
+                    &:hover {
+                        color: $pink;
+                    }
                     h4 {
                         font-size: 18px;
                         display: inline;
@@ -1656,12 +1693,6 @@
                         margin-left: 20px;
                         i {
                             font-size: 20px;
-                            color: #000;
-                            cursor: pointer;
-                            transition: 0.4s;
-                            &:hover {
-                                color: $pink;
-                            }
                         }
                     }
                     p {

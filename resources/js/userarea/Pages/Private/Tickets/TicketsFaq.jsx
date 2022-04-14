@@ -28,17 +28,17 @@ class TicketsFaq extends Component {
         }
     ]
 
-    openfaq = (e) => {
-        $(e.target).parent("span").siblings("p").toggleClass("d-none")
-        $(e.target).toggleClass("fa-plus fa-minus")
+    openfaq = (index) => {
+        $(".tickets-faq").children().eq(index).find("p").toggleClass("d-none")
+        $(".tickets-faq").children().eq(index).find("span i").toggleClass("fa-plus fa-minus")
     }
 
     render() {
         return (
-            <div className="tickets-faq">
+            <div className="tickets-faq mt-4">
                 {this.faqs.map((item, i) => (
-                    <div key={i}>
-                        <span><i onClick={this.openfaq.bind(this)} className="fas fa-plus"></i></span>
+                    <div key={i} onClick={this.openfaq.bind(this, i)}>
+                        <span><i className="fas fa-plus"></i></span>
                         <h4>{item.question}</h4>
                         <p className="d-none animated fadeIn">{item.answer}</p>
                     </div>

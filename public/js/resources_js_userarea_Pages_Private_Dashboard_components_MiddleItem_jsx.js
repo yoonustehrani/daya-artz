@@ -59,7 +59,7 @@ var MiddleItem = /*#__PURE__*/function (_Component) {
           title = _this$props.title,
           number = _this$props.number;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "dashboard-item-container col-12 col-md-4",
+        className: "dashboard-item-container col-12 col-md-6 col-lg-4",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "dashboard-middle-item",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
