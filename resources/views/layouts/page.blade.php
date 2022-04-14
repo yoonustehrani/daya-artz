@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     @stack('head')
+    @include('components.gstag')
 </head>
 <body>
     <header class="min-header">
