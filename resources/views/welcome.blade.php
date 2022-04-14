@@ -60,7 +60,7 @@
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
                     <h3 class="block w-100 text-center">
-                        <a href="{{ route('services.index') }}">خدمات دیگر دایا آرتز</a>
+                        <a class="text-dark" href="{{ route('services.index') }}">خدمات دیگر دایا آرتز</a>
                     </h3>
                     <p class="block w-100 text-center">لیست کاملی از خدمات طراحی گرافیک</p>
                     {{-- <button class="btn btn-gradient">سفارش</button> --}}
