@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\QuickOrderSubmitted;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RecaptchaRequest;
 use App\Models\Order;
@@ -39,6 +40,7 @@ class FormsController extends Controller
         $order->details = ['order_items' => $order_items];
         if ($order->save()) {
             \Cache::put($cache_key, true, 2 * 24 * 24);
+            event(new QuickOrderSubmitted($order, $request->input('phone_number'), $request->input('fullname')));
             return response()->json([
                 'okay' => true,
                 'message' => __('messages.order.recived', ['code' => $order->code]),

@@ -57,5 +57,12 @@ return [
         'sandbox' => false
     ],
 
+    'telegram_bots' => [
+        'notifier' => [
+            'token' => '5095238584:AAGT7GlypV8ZznQIDmowjPLEc0gMOndZJSw',
+            'channel_chat_id' => -1001707124270
+        ]
+    ],
+
     'sms' => ['active' => false]
 ];

@@ -14,15 +14,17 @@ use Illuminate\Queue\SerializesModels;
 class QuickOrderSubmitted
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
+    public $order;
+    public $data;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Order $order, $phone_number)
+    public function __construct(Order $order, $phone_number, $fullname)
     {
-        //
+        $this->order = $order;
+        $this->data = compact('phone_number', 'fullname');
     }
 
     /**
