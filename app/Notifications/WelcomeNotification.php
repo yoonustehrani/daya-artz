@@ -53,10 +53,11 @@ class WelcomeNotification extends Notification implements ShouldQueue
      */
     public function toSms($notifiable)
     {
-        sms_driver()->sendMessage(
+        sms_driver()->sendPattern(
             config('services.farazSMS.from_number'),
             $notifiable->phone_number,
-            __('sms.welcome', ['name' => $notifiable->lastname ?: __('User')])
+            '9ijbkelwrbjl3gm',
+            ['name' => $notifiable->lastname ?: __('User')]
         );
     }
     /**
