@@ -71,6 +71,42 @@
         @endif
     </div>
     <!-- end first-section -->
+    <!-- childs service section -->
+    <div class="section w-100 pt-3 pb-4 dotted-background">
+        <div class="title-section w-100 mb-4">
+            <div class="title-container">
+                <p class="title-text">خدمات زیر مجموعه</p>
+                <span class="title-underline"></span>
+            </div>
+        </div>
+        <div class="other-services-container w-100">
+            <div class="other-service">
+                <span class="back-aqua"><i class="far fa-text"></i></span>
+                <h3 class="title service-title">لوگوی تصویری</h3>
+                <a class="service-subtitle" href="#child-url">یونس کونتو بخورم</a>
+                <div class="button-container">
+                    <a href="#child-url" class="btn btn-gradient">بیشتر بدانید</a>
+                </div>
+            </div>
+            <div class="other-service">
+                <span class="back-aqua"><i class="far fa-text"></i></span>
+                <h3 class="title service-title">لوگوی تصویری</h3>
+                <a class="service-subtitle" href="#child-url">یونس کونتو بخورم</a>
+                <div class="button-container">
+                    <a href="#child-url" class="btn btn-gradient">بیشتر بدانید</a>
+                </div>
+            </div>
+            <div class="other-service">
+                <span class="back-aqua"><i class="far fa-text"></i></span>
+                <h3 class="title service-title">لوگوی تصویری</h3>
+                <a class="service-subtitle" href="#child-url">یونس کونتو بخورم</a>
+                <div class="button-container">
+                    <a href="#child-url" class="btn btn-gradient">بیشتر بدانید</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end childs service section -->
     <!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height p-3">
         <div class="header-text col-12 col-md-8">
@@ -178,10 +214,10 @@
                         <span class="font-16 ltr card-price">/تومان</span>
                     </div>
                     {!! $plan->caption !!}
-                    <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
+                    {{-- <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
                         @csrf
                         <button type="submit" class="btn badge-pill">ثبت سفارش</button>
-                    </form>
+                    </form> --}}
                 </div>
             </div>
             @endforeach

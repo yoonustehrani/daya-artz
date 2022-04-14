@@ -60,7 +60,7 @@ class Order extends Component {
                 {statuses && <FilterBar onFilterClick={this.onFilterClick} current={filter} filters={statuses}/>}
                 {
                     loading ? <Activity/>
-                    : items && items.length > 0
+                    : items && items.length > 0 && this.filteredItems().length > 0
                     ? <div className="order-items-container">
                         {items.length > 0 && this.filteredItems().map((item, i) => (
                             <Link to={`/orders/${order.id}/items/${item.id}`} key={item.id}>

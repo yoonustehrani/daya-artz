@@ -25,7 +25,6 @@ class Tickets extends Component {
         })
     }
     componentDidMount() {
-        document.title = "درخواست های پشتیبانی"
         this.loadTickets()
     }
     
@@ -33,7 +32,6 @@ class Tickets extends Component {
         let { tickets, loading } = this.state
         return (
             <div>
-                <div className="form-title mb-5"><h4>درخواست های پشتیبانی</h4></div>
                 {loading ? <Activity/> : tickets && tickets.length > 0 ?
                     <div className="table-responsive userarea-table">
                         <table className="table table-striped table-bordered table-hover thead-light">

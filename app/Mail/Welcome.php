@@ -28,7 +28,7 @@ class Welcome extends Mailable
      */
     public function build()
     {
-        $username = __('Dear user', ['username' => $this->user->fullname ?: __('User')]);
+        $username = __('Dear user', ['username' => $this->user->callable_name ?: __('User')]);
         return $this->subject(__('Welcome to Daya Artz'))
                     ->to($this->user->email)
                     ->markdown('emails.html.welcome', compact('username'))

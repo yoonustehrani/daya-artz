@@ -2,15 +2,15 @@
 
 @push('head')
 <title>{{ $page->title }}</title>
-    @component('components.seo', ['instance' => $page, 'slug' => 'pages']) @endcomponent
-<script type="application/ld+json">
-    [{
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "url": "https://dayaartz.com",
-        "logo": "{{ get_setting('seo.brand.logo', 'https://dayaartz.com/images/daya-cyan-logo.png') }}"
-    }]
-</script>
+    @component('components.seo', ['instance' => $page, 'slug' => 'pages', 'og' => ['title' => $page->title]]) @endcomponent
+    <script type="application/ld+json">
+        [{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "url": "https://dayaartz.com",
+            "logo": "{{ get_setting('seo.brand.logo', 'https://dayaartz.com/images/daya-cyan-logo.png') }}"
+        }]
+    </script>
 @endpush
 
 @section('header')

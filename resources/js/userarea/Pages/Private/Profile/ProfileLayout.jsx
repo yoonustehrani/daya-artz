@@ -77,12 +77,9 @@ class ProfileLayout extends Component {
     }
 
     render() {
-        let { fields, title, controller } = this.props, { sending_data, showSuccess, showErr, errs } = this.state
+        let { fields, controller } = this.props, { sending_data, showSuccess, showErr, errs } = this.state
         return (
             <div>
-                <div className="form-title">
-                    <h4>{title}</h4>
-                </div>
                 <div className='fields-container'>
                     {fields.map((field, i) => {
                         let value = new NestedObj(this.state[controller], field.path).get(), not_null

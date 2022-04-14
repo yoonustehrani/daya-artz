@@ -28,31 +28,31 @@ class ServiceSeeder extends Seeder
                 "title" => "سربرگ",
                 "subtitle" => "طراحی سربرگ رسمی و حرفه ای",
                 "description" => "سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند",
-                "icon_class" => "fas fa-scroll"
+                "icon_class" => "far fa-copy"
             ],
             [
                 "title" => "کاتالوگ",
                 "subtitle" => "بهترین باز خورد ها با کاتالوگ های خاص",
                 "description" => "کاتالوگ مهم ترین ابزار برای تبلیغ و انتشار تبلیغات فروش یک محصول است. انتقال صحیح به مشتریان از مهم ترین ارمغان های کاتالوگ است",
-                "icon_class" => "fas fa-book-open"
+                "icon_class" => "far fa-book-open"
             ],
             [
                 "title" => "کارت ویزیت",
                 "subtitle" => "انواع کارت ویزیت های ساده و خاص",
                 "description" => "سربرگ نشان دهنده ی هویت سازمانی و قانونی بودن یک کسب و کار است. سربرگ ها جدی ترین و جزئی ترین بخش های هویت یک فعالیت رسمی هستند",
-                "icon_class" => "fas fa-address-card"
+                "icon_class" => "far fa-address-card"
             ],
             [
                 "title" => "ست اداری",
                 "subtitle" => "ویزیت ، سربرگ ، تقویم و سررسید ، خودکار و ...",
                 "description" => "لوازم ست اداری همگی متحدالرنگ و همسو و هم جهت ارمان ها و برند شرکت طراحی می شوند ، و وابسته به هدف و نوع متقاضیان انتخاب می شود",
-                "icon_class" => "fas fa-mail-bulk"
+                "icon_class" => "far fa-mail-bulk"
             ],
             // [
             //     "title" => "ترکیبی",
             //     "subtitle" => "ترکیب خود را بسازید",
             //     "description" => "اگه نیاز به طراحی های متنوع در بخش عا و خدمات مختلف هستید ، این بسته بهترین انتخاب برای شما و برندتان خواهد بود",
-            //     "icon_class" => "fas fa-plus-circle"
+            //     "icon_class" => "far fa-plus-circle"
             // ]
         ];
         // foreach ($services as $service) {
@@ -81,28 +81,28 @@ class ServiceSeeder extends Seeder
                 "subtitle" => "طراحی بنر دیجیتالی و چاپی",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-ad"
+                "icon_class" => "far fa-ad"
             ],
             [
                 "title" => "بروشور",
                 "subtitle" => "طراحی انواع بروشور",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-map"
+                "icon_class" => "far fa-map"
             ],
             [
                 "title" => "تراکت",
                 "subtitle" => "طراحی تراکت در انواع سایز و مدل",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-sticky-note"
+                "icon_class" => "far fa-sticky-note"
             ],
             [
                 "title" => "اسلایدر وب سایت",
                 "subtitle" => "طراحی اسلایدر های حرفه ای",
                 "description" => "",
                 "group" => "خدمات طراحی دیجیتالی",
-                "icon_class" => "fas fa-image"
+                "icon_class" => "far fa-image"
             ],
             [
                 "title" => "منو رستوران و کافی شاپ",
@@ -123,49 +123,49 @@ class ServiceSeeder extends Seeder
                 "subtitle" => "پاکت های نامه رسمی و فانتزی",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-envelope"
+                "icon_class" => "far fa-envelope"
             ],
             [
                 "title" => "بیلبورد",
                 "subtitle" => "طراحی انواع بیلبورد و استند و استرابورد",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-images"
+                "icon_class" => "far fa-images"
             ],
             [
                 "title" => "موزیک",
                 "subtitle" => "کاور ، تم آلبوم و ...",
                 "description" => "",
                 "group" => "خدمات طراحی دیجیتالی",
-                "icon_class" => "fas fa-guitar"
+                "icon_class" => "far fa-guitar"
             ],
             [
                 "title" => "تقویم",
                 "subtitle" => "طراحی انواع تقویم و سررسید",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-calendar-check"
+                "icon_class" => "far fa-calendar-check"
             ],
             [
                 "title" => "فاکتور",
                 "subtitle" => "طراحی انواع فاکتور های خاص و اداری",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-receipt"
+                "icon_class" => "far fa-receipt"
             ],
             [
                 "title" => "جلد کتاب",
                 "subtitle" => "جلد انواع کتاب ، مجلات و ...",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-book"
+                "icon_class" => "far fa-book"
             ],
             [
                 "title" => "بسته بندی",
                 "subtitle" => "بسته بندی های ساده و خاص",
                 "description" => "",
                 "group" => "خدمات طراحی چاپی",
-                "icon_class" => "fas fa-box"
+                "icon_class" => "far fa-box"
             ]
         ];
         foreach ($other_service as $service) {

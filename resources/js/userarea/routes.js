@@ -29,26 +29,31 @@ const routes = [
         path: '/dashboard',
         exact: true,
         CallableComponent: Dashboard,
+        title: "داشبورد"
     },
     {
         path: '/brandInfo',
         exact: true,
         CallableComponent: BrandInfo,
+        title: "مشخصات کسب و کار"
     },
     {
         path: '/registerInfo',
         exact: true,
-        CallableComponent: RegisterInfo
+        CallableComponent: RegisterInfo,
+        title: "مشخصات فردی"
     },
     {
         path: "/userInfo",
         exact: true,
-        CallableComponent: UserInfo
+        CallableComponent: UserInfo,
+        title: "اطلاعات کاربری"
     },
     {
         path: '/orders',
         exact: true,
         CallableComponent: Orders,
+        title: "سفارشات"
     },
     {
         path: `/orders/:orderId(${uuidRegex})`,
@@ -79,11 +84,13 @@ const routes = [
         path: '/finance/transactions',
         exact: true,
         CallableComponent: Transactions,
+        title: "تراکنش ها"
     },
     {
         path: '/finance/discounts',
         exact: true,
         CallableComponent: Discounts,
+        title: "کوپن های تخفیف"
     },
     // {
     //     path: '/finance',
@@ -93,12 +100,14 @@ const routes = [
     {
         path: '/tickets/new',
         exact: true,
-        CallableComponent: NewTicket
+        CallableComponent: NewTicket,
+        title: "ثبت درخواست پشتیبانی"
     },
     {
         path: '/tickets/faq',
         exact: true,
-        CallableComponent: TicketsFaq
+        CallableComponent: TicketsFaq,
+        title: "سوالات متداول"
     },
     {
         path: `/tickets/:ticketId(${uuidRegex})`,
@@ -108,13 +117,14 @@ const routes = [
     {
         path: '/tickets',
         exact: true,
-        CallableComponent: Tickets
+        CallableComponent: Tickets,
+        title: "درخواست های پشتیبانی"
     },
-    {
-        path: "/contracts/:contractId",
-        exact: true,
-        CallableComponent: Contract
-    },
+    // {
+    //     path: "/contracts/:contractId",
+    //     exact: true,
+    //     CallableComponent: Contract
+    // },
     // {
     //     path: "/contracts",
     //     exact: true,

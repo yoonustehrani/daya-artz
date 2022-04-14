@@ -2,7 +2,7 @@
 
 @push('head')
     <title>{{ $page->title }}</title>
-    @component('components.seo', ['instance' => $page, 'slug' => 'pages']) @endcomponent
+    @component('components.seo', ['instance' => $page, 'slug' => 'pages', 'og' => ['title' => $page->title]]) @endcomponent
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",

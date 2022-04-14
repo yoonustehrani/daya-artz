@@ -41,13 +41,13 @@ if (mix.inProduction) {
     mix.version()
 }
 
-//website
-mix.js(res.js + 'app.js', pub.js).react()
-mix.js(res.js + "userarea.js", pub.js).react()
+// website
 mix.sass(res.sass + 'app.scss', pub.css)
 mix.sass(res.sass + '_fonts.scss', pub.css)
+mix.js(res.js + 'app.js', pub.js).react()
+mix.js(res.js + "userarea.js", pub.js).react()
 
-// // landing
+// landing
 mix.postCss(res.css + "landing.css", pub.css).options({
     postCss: [
         require('postcss-import'),
@@ -58,7 +58,7 @@ mix.postCss(res.css + "landing.css", pub.css).options({
 })
     .js(res.js + "landing-opening.js", pub.js).react()
 
-//zeus
+// //zeus
 mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
     require('postcss-import'),
     require('tailwindcss/nesting'),
@@ -74,8 +74,8 @@ mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
 mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
 mix.js(res.js + "components/zeusTickets.js", pub.js).react()
 // // tinymce
-mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
-mix.js(zeus.res.js + 'tinymce/langs/fa.js', 'public/js/tinymce/langs')
+// // mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
+// mix.js(zeus.res.js + 'tinymce/langs/fa.js', 'public/js/tinymce/langs')
 
 // just need to run once if you got an err
 //  mix.copy(pub.fonts + "fa-**", res.webfonts)

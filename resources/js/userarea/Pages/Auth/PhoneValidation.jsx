@@ -60,7 +60,7 @@ class PhoneValidation extends Component {
         if (code.length === 6) {
             this.setState({requesting: true}, async () => {
                 const result = await authVerifyPhone(code)
-                if (! result.payload.verified) {
+                if (result.payload && ! result.payload.verified) {
                     this.Alert.error({title: 'کد وارد شده اشتباه است', timer: 2000})
                 }
                 this.setState({requesting: false})
