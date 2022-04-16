@@ -41,13 +41,6 @@ class VerificationNotification extends Notification implements ShouldQueue
         return (new VerificationEmail($notifiable, $verification_url));
     }
 
-        // return (new MailMessage)
-        //             ->greeting("درود")
-        //             ->subject('تایید آدرس ایمیل')
-        //             ->line('')
-        //             ->action('تایید آدرس ایمیل', $verification_url)
-        //             ->line('اگر شما اکانتی در وب سایت ما نساخته اید ، این ایمیل را نادیده بگیرید.');
-
     public function toSms($notifiable)
     {
         $verification = $notifiable->generateVerificationCode('verify_phone', generate_code(), false, 2);

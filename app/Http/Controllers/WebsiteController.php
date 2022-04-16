@@ -13,7 +13,8 @@ class WebsiteController extends Controller
     public function index()
     {
         $page = get_website_page('/');
-        return view('welcome', compact('page'));
+        $services = Service::whereNull('parent_id')->where('main', true)->select(['id', 'title', 'subtitle', 'slug', 'icon_class'])->get();
+        return view('welcome', compact('page', 'services'));
     }
     public function services()
     {

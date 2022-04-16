@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Utils\SMSTool;
+use App\Http\Utils\TelegramBot;
 use App\Models\Offer;
 use App\Models\Bill;
 use App\Models\Page;
@@ -154,5 +155,11 @@ if (! function_exists('sms_driver')) {
     function sms_driver()
     {
         return (new SMSTool)->getDriver('faraz');
+    }
+}
+
+if (! function_exists('telegram_notifier_bot')) {
+    function telegram_notifier_bot() {
+        return new TelegramBot(config('services.telegram_bots.notifier.token'));
     }
 }

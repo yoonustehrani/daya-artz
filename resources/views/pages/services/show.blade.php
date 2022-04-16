@@ -72,7 +72,7 @@
     </div>
     <!-- end first-section -->
     <!-- childs service section -->
-    <div class="section w-100 pt-3 pb-4 dotted-background">
+    {{-- <div class="section w-100 pt-3 pb-4 dotted-background">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
                 <p class="title-text">خدمات زیر مجموعه</p>
@@ -105,7 +105,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- end childs service section -->
     <!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height p-3">

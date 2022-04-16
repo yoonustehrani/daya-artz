@@ -38,7 +38,7 @@ class VerificationEmail extends Mailable
                         'verification_url' => $this->verification_url,
                         'username' => $username
                     ])
-                    // ->text('emails.text.welcome')
+                    ->text('emails.text.verification')
                     ->from('website@dayaartz.com', 'Daya Website');
     }
 }

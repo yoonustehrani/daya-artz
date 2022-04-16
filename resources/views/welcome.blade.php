@@ -41,53 +41,29 @@
         <div class="subtitle-container">
             <p class="text-center rtl">خدمات شش گانه طراحی گرافیک دایا آرتز بر پایه هویت برند، در بالاترین کیفیت ممکن پیش روی شماست</p>
         </div>
-        <div class="services-container">
+        <div class="services-container rtl">
+            @foreach ($services as $service)
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fab fa-apple"></i></span>
-                    <h3 class="block w-100 text-center">لوگو</h3>
-                    <p class="block w-100 text-center">طراحی لوگو با فلسفه فکری</p>
-                    <button class="btn btn-gradient">سفارش</button>
+                    <span class="service-icon back-aqua"><i class="{{ $service->icon_class }}"></i></span>
+                    <h3 class="block w-100 text-center">
+                        <a class="text-dark" href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->title }}</a>
+                    </h3>
+                    <p class="block w-100 text-center">{{ $service->subtitle }}</p>
+                    <a href="{{ route('services.show', ['slug' => $service->slug]) }}">
+                        <button class="btn btn-gradient">مشاهده</button>
+                    </a>
                 </div>
             </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-paste"></i></span>
-                    <h3 class="block w-100 text-center">سربرگ</h3>
-                    <p class="block w-100 text-center">طراحی سربرگ رسمی و اداری</p>
-                    <button class="btn btn-gradient">سفارش</button>
-                </div>
-            </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-newspaper"></i></span>
-                    <h3 class="block w-100 text-center">کاتالوگ</h3>
-                    <p class="block w-100 text-center">کاتالوگ و بروشور هنری</p>
-                    <button class="btn btn-gradient">سفارش</button>
-                </div>
-            </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-id-card"></i></span>
-                    <h3 class="block w-100 text-center">کارت ویزیت</h3>
-                    <p class="block w-100 text-center">طراحی کارت ویزیت حرفه ای</p>
-                    <button class="btn btn-gradient">سفارش</button>
-                </div>
-            </div>
-            <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-briefcase"></i></span>
-                    <h3 class="block w-100 text-center">ست اداری</h3>
-                    <p class="block w-100 text-center">کارت ویزیت، سربرگ، تقویم و...</p>
-                    <button class="btn btn-gradient">سفارش</button>
-                </div>
-            </div>
+            @endforeach
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
                 <div class="service-item p-4 text-center">
                     <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
-                    <h3 class="block w-100 text-center">ترکیبی</h3>
-                    <p class="block w-100 text-center">پکیج خودتو بساز</p>
-                    <button class="btn btn-gradient">سفارش</button>
+                    <h3 class="block w-100 text-center">
+                        <a class="text-dark" href="{{ route('services.index') }}">خدمات دیگر دایا آرتز</a>
+                    </h3>
+                    <p class="block w-100 text-center">لیست کاملی از خدمات طراحی گرافیک</p>
+                    {{-- <button class="btn btn-gradient">سفارش</button> --}}
                 </div>
             </div>
         </div>

@@ -39,8 +39,7 @@ class PostController extends Controller
         ]);
         $mode = $request->query('mode');
         $limit = intval($request->query('limit'));
-        $result = cache()->remember("api.posts.index::{$mode}", 60 * 60, function() use($mode, $limit) {
-            $posts = Post::select(
+        $result = $posts = Post::select(
                 ['id','title', 'slug', 'description', 'reading_time', 'created_at']
             )->with('image.file')->limit($limit);
             switch ($mode) {
@@ -55,7 +54,6 @@ class PostController extends Controller
                 $post->url = route('blog.show', ['slug' => $post->slug]);
                 return $post;
             });
-        });
         return response()->json($result);
     }
     /**

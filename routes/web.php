@@ -87,7 +87,6 @@ Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verifyEm
 // //     // return $company;
 // })->name('tempo');
 
-
 // Route::get('email', function() {
 //     $user = User::whereEmail("yoonustehrani@dayaartz.com")->first();
 //     return new App\Mail\VerificationEmail($user, "https://google.com");

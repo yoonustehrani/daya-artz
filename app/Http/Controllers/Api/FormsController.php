@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\QuickOrderSubmitted;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RecaptchaRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\RateLimiter;
 
 class FormsController extends Controller
 {
@@ -18,6 +20,12 @@ class FormsController extends Controller
             'description' => 'nullable|string|max:2000',
             'order_items' => 'required|array'
         ]);
+        $cache_key = $request->getSession()->getId() . now()->format('Y-m-d');
+        if (\Cache::has($cache_key)) {
+            return response()->json([
+                'errors' => ['order' => [__('messages.quick-order.cache_exists')]]
+            ], 422);
+        }
         // ValidationException
         $order_items = $request->input('order_items');
         $order = new Order();
@@ -31,6 +39,8 @@ class FormsController extends Controller
         $order->description = $desscription . $request->input('description');
         $order->details = ['order_items' => $order_items];
         if ($order->save()) {
+            \Cache::put($cache_key, true, 2 * 24 * 24);
+            event(new QuickOrderSubmitted($order, $request->input('phone_number'), $request->input('fullname')));
             return response()->json([
                 'okay' => true,
                 'message' => __('messages.order.recived', ['code' => $order->code]),
