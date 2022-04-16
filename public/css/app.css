@@ -12403,6 +12403,13 @@ a:hover {
   cursor: pointer;
 }
 
+#zarinpal {
+  display: inline-block;
+}
+#zarinpal img {
+  width: 40px;
+}
+
 .section, .title-section {
   float: left;
 }

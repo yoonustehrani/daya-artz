@@ -28,7 +28,9 @@
                     <li><a href="{{ route('contact') }}">تماس با ما</a></li>
                     <li><a href="{{ route('userarea', ['path' => 'tickets']) }}">ارسال تیکت</a></li>
                 </ul>
-                <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" alt="لوگوی زرین پال" class="float-right ml-2">
+                <div id="zarinpal">
+                    <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>
+                </div>
                 <a id="enamad-logo" referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=269100&amp;Code=RUmxsLwfWAGM1kGgdjv4"></a>
             </div>
         </div>
