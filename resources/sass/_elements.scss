@@ -504,6 +504,7 @@ span.back-aqua {
 .portfolio-section {
     display: flex;
     align-items: stretch;
+    flex-wrap: wrap;
     .portfolio {
         float: left;
         margin: 0px;
@@ -1921,7 +1922,7 @@ $labelData: '';
                 .card-price-container {
                     margin-bottom: 16px;
                 }
-                ul.card-options {
+                ul {
                     list-style-type: none;
                     margin-bottom: 20px;
                     padding: 0;
@@ -1945,7 +1946,7 @@ $labelData: '';
                 }
             }
         }
-        .card-1, .card-3 {
+        .card-1, .card-3, .card-5 {
             > div {
                 background-color: #fff;
                 .card-title {
@@ -1964,7 +1965,7 @@ $labelData: '';
                 }
             }
         } 
-        .card-1 {
+        .card-1, .card-5 {
             > div {
                 border: 2px solid #6232de;
                 background-image: url('/images/plan-bg.png');
@@ -1972,7 +1973,7 @@ $labelData: '';
                 background-position: center;
             }
         }
-        .card-2 {
+        .card-2, .card-4 {
             > div {
                 background-image: linear-gradient(to top, #ac7ff4, #8f60ec, #6232de);
                 background-image: -webkit-gradient(to top, #ac7ff4, #8f60ec, #6232de);
@@ -2482,9 +2483,10 @@ $labelData: '';
     align-items: center;
     float: right;
     padding: 2%;
-    > h3 {
+    > h1 {
         font-size: 26px;
         font-weight: bold;
+        line-height: 1.5;
     }
     ul {
         list-style-type: none !important;
