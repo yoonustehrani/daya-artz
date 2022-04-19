@@ -51911,13 +51911,19 @@ $(document).on('click', '.awesome-table tr.row > td:last-child .toggle-next-tr',
 
 $('#logout-button').on('click', submitLogoutForm);
 var mceOptions = {
-  plugins: ['advlist autolink lists link preview wordcount directionality table image'],
+  plugins: ['advlist autolink lists link preview wordcount directionality table image textcolor colorpicker'],
   toolbar: [{
     name: 'history',
     items: ['undo', 'redo']
   }, {
     name: 'formatting',
     items: ['styleselect', 'bold', 'italic']
+  }, {
+    name: 'fontsize',
+    items: ['fontsizeselect']
+  }, {
+    name: 'color',
+    items: ['forecolor', 'backcolor']
   }, {
     name: 'alignment',
     items: ['align']

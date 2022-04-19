@@ -13,6 +13,7 @@ import './services'
 import './scrollTo'
 import './portfolioImages'
 import './loadEnamad'
+import './lazyLoad'
 
 // quick order
 const quickOrderElement = document.getElementById("react-quick-order")

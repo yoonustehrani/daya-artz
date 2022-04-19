@@ -102,11 +102,13 @@ $('#logout-button').on('click', submitLogoutForm)
 
 const mceOptions = {
     plugins: [
-        'advlist autolink lists link preview wordcount directionality table image',
+        'advlist autolink lists link preview wordcount directionality table image textcolor colorpicker',
     ],
     toolbar: [
         { name: 'history', items: [ 'undo', 'redo' ]},
         { name: 'formatting', items: [ 'styleselect', 'bold', 'italic', ]},
+        { name: 'fontsize', items: ['fontsizeselect'] },
+        { name: 'color', items: ['forecolor', 'backcolor'] },
         { name: 'alignment', items: [ 'align']},
         { name: 'direction', items: [ 'ltr', 'rtl' ]},
         { name: 'indentation', items: [ 'outdent', 'indent' ]},

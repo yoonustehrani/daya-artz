@@ -3110,7 +3110,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _portfolioImages__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_portfolioImages__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _loadEnamad__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./loadEnamad */ "./resources/js/components/loadEnamad.js");
 /* harmony import */ var _loadEnamad__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_loadEnamad__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _lazyLoad__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lazyLoad */ "./resources/js/components/lazyLoad.js");
+/* harmony import */ var _lazyLoad__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_lazyLoad__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -3131,7 +3134,7 @@ __webpack_require__.r(__webpack_exports__);
 var quickOrderElement = document.getElementById("react-quick-order");
 
 if (quickOrderElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
     reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
     targetApi: quickOrderElement.getAttribute('data-post-api')
   }), quickOrderElement);
@@ -3141,7 +3144,7 @@ if (quickOrderElement) {
 var portfolioSectionElement = document.querySelector("div[react-portfolio-section]");
 
 if (portfolioSectionElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_PortfolioSection__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_PortfolioSection__WEBPACK_IMPORTED_MODULE_2__["default"], {
     targetApi: portfolioSectionElement.getAttribute('data-target-api')
   }), portfolioSectionElement);
 } // blog suggestion
@@ -3150,7 +3153,7 @@ if (portfolioSectionElement) {
 var blogSuggestionElement = document.getElementById("blog-suggestion-react");
 
 if (blogSuggestionElement) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_BlogSuggestion__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_BlogSuggestion__WEBPACK_IMPORTED_MODULE_3__["default"], {
     apiTargetLatest: blogSuggestionElement.getAttribute("api-target-latest"),
     apiTargetRandom: blogSuggestionElement.getAttribute("api-target-random")
   }), blogSuggestionElement);
@@ -3173,6 +3176,20 @@ $(".tab").on("click", function () {
     if (item_index === i) {
       $(this).addClass("active");
     }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/lazyLoad.js":
+/*!*********************************************!*\
+  !*** ./resources/js/components/lazyLoad.js ***!
+  \*********************************************/
+/***/ (() => {
+
+$(function () {
+  $("img[data-src]").each(function (index, elem) {
+    $(elem).attr(src, $(elem).attr("data-src"));
   });
 });
 

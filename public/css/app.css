@@ -10880,6 +10880,9 @@ h3 {
   .post-main-section .post-main-text p {
     font-size: 16px !important;
   }
+  .post-main-section .post-main-text img {
+    max-width: 90% !important;
+  }
 
   .post-item {
     height: 100px !important;
@@ -14245,17 +14248,14 @@ span.back-aqua.big-icon {
 .post-main-section .post-main-text {
   padding: 0 1rem;
 }
-.post-main-section .post-main-text h2 {
-  font-size: 26px;
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 25px;
-}
 .post-main-section .post-main-text p {
-  font-size: 18px;
   color: #4a4a4a;
-  text-align: right;
-  margin: 20px 0;
+  font-size: 18px;
+}
+.post-main-section .post-main-text img {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .post-main-section .recommand-section {
   padding: 8px;
