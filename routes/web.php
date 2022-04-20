@@ -52,7 +52,11 @@ Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('us
 
 Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verifyEmail'])->middleware('signed')->name('verification.email.verify');
 
-// Route::get('test', function (Request $request) {
+Route::get('test', function (Request $request) {
+    $tgbot = new \App\Http\Utils\TelegramBot("5334104425:AAGrSGa6ysifA2ueez3LkgmjLFMmos9kebg");
+    // dd(
+    //     $tgbot->getUpdates()
+    // );
 //     $user = User::find(3);
 //     $user->notifyNow(
 //         (new WelcomeNotification)
@@ -85,7 +89,7 @@ Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verifyEm
 // //     // $company = Company::first();
 // //     // $company->load('business_type', 'product_type');
 // //     // return $company;
-// })->name('tempo');
+})->name('tempo');
 
 // Route::get('email', function() {
 //     $user = User::whereEmail("yoonustehrani@dayaartz.com")->first();

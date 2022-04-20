@@ -44,7 +44,8 @@ class BackupFromDatabase extends Command
         $now = now();
         $filename = "dbbackup-{$database}-" . $now->format('Y-m-d') . '@' . $now->format('H:i:s') . '.sql.gz';
         $final_path = storage_path("app/backup/{$filename}");
-        exec("mysqldump --user={$username} --password='{$password}' --host={$host} {$database} | gzip -9 > {$final_path}");
+        exec("mysqldump --user={$username}asdas --password='{$password}' --host={$host} {$database} | gzip --best > {$final_path}");
+        
         return 0;
     }
 }

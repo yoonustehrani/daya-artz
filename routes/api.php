@@ -36,12 +36,13 @@ Route::get('/', fn() => ['okay' => true]);
 
 Route::prefix('forms')->name('forms.')->group(function() {
     Route::post('quick-order', [FormsController::class, 'quickOrder'])->name('orders.quick');
+    Route::get('quick-order/services', [OrderController::class, 'services'])->name('orders.services.search');
     Route::post('contact', [FormsController::class, 'contact'])->name('contact');
 });
 
 Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
 Route::get('portfolio/{service?}', [PortfolioController::class, 'index'])->name('portfolios.index');
-Route::get('services', []);
+
 /**
  * Auth Api routes
  */
