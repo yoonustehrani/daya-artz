@@ -10207,13 +10207,13 @@ h3 {
     height: 220px !important;
   }
   .post-info-section .post-info-container {
-    width: calc(100% - 190px) !important;
+    width: calc(100% - 95px) !important;
   }
   .post-info-section .post-info-container .post-title {
     font-size: 22px !important;
   }
   .post-info-section .post-info-container .post-info-flex span, .post-info-section .post-info-container .post-info-flex i {
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
   .post-info-section .post-info-cover {
     width: 220px !important;
@@ -10882,6 +10882,7 @@ h3 {
   }
   .post-main-section .post-main-text img {
     max-width: 90% !important;
+    height: auto !important;
   }
 
   .post-item {
@@ -14247,6 +14248,10 @@ span.back-aqua.big-icon {
 }
 .post-main-section .post-main-text {
   padding: 0 1rem;
+}
+.post-main-section .post-main-text h2 {
+  color: #000;
+  font-size: 26px;
 }
 .post-main-section .post-main-text p {
   color: #4a4a4a;

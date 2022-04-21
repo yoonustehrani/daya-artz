@@ -87,8 +87,8 @@
                         <h4 class="mb-3">پروسه کلاسیک<span><i class="check fas fa-check-circle"></i></span></h4>
                         <h4 class="mb-3">روند تکمیل و آسان<span><i class="check fas fa-check-circle"></i></span></h4>
                         <h4 class="mb-4">تکمیل برخط سفارش<span><i class="check fas fa-check-circle"></i></span></h4>
-                        <div class="order-btn-container mt-lg-4">
-                            <button class="btn btn-gradient silver-progress-button reverse" id="scroll-to-form-btn">
+                        <div class="order-btn-container mt-lg-4 scroll-to-form">
+                            <button class="btn btn-gradient silver-progress-button reverse">
                                 <p class="before">آغاز سفارش</p>
                                 <p class="after">مشاهده فرم</p>
                                 <span class="handler flex-center"><i class="fas fa-hand-point-right"></i></span>
