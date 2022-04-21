@@ -51959,7 +51959,7 @@ var mceOptions = {
     document.body.append(picker);
 
     function insertImage(file) {
-      editor.insertContent("&nbsp;<img src=\"".concat(APP_PATH + file.path, "\"/>&nbsp;"));
+      editor.insertContent("&nbsp;<img data-src=\"".concat(APP_PATH + file.path, "\" src=\"").concat(APP_PATH + file.thumbnail_path, "\"/>&nbsp;"));
       picker.style.display = 'none';
     }
 
