@@ -33,6 +33,10 @@ class TelegramBot
     {
         return $this->makeRequest($this->setMethod('getMe'));
     }
+    public function getUpdates()
+    {
+        return $this->makeRequest($this->setMethod('getUpdates'));
+    }
     public function sendMessage($chat_id, $text, $extra = [])
     {
         $path = $this->setMethod('sendMessage');
@@ -50,6 +54,17 @@ class TelegramBot
             'photo' => $photo_url,
         ];
         return $this->makeRequest($path, 'post', array_merge($data, $extra));
+    }
+    public function sendDocument($chat_id, $document, $caption)
+    {
+        $path = $this->setMethod('sendDocument');
+        $data = [
+            'chat_id' => $chat_id,
+            'document' => $document,
+            'caption' => $caption,
+            'protect_content' => true
+        ];
+        
     }
     public function pinChatMessage($chat_id, $message_id, $notification = true)
     {

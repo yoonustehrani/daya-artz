@@ -199,7 +199,7 @@
     <div class="section w-100 mt-3 order-packs-section">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
-                <h2 class="title-text">{{ $service->subtitle }}</h2>
+                <h2 class="title-text">{{ 'پلن های قیمتی' . ' ' . $service->title}}</h2>
                 <h4 class="subtitle">بسته های هوشمند جهت سفارش {{ $service->title }} برای شما</h4>
             </div>
         </div>
