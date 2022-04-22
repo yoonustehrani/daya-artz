@@ -109,7 +109,7 @@
                         <div class="order-btn-container mt-lg-4">
                             <button class="btn btn-gradient silver-progress-button">
                                 <p class="before">روند سفارش</p>
-                                <p class="after">شروع شود</p>
+                                <p class="after">بزودی</p>
                                 <span class="handler flex-center"><i class="fas fa-hand-point-left r-180"></i></span>
                             </button>
                         </div>
@@ -118,35 +118,7 @@
             </div>
         </div>
     </div>
-    <div class="section w-100 mt-5 mb-5">
-        <div class="absolute-contact w-100">
-            <div class="contact-section section w-100">
-                <div class="col-md-11 contact-section-back d-none d-md-block"></div>
-                <div class="section contact-info w-100">
-                    <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-phone"></i></span>
-                        <h4>تلفن تماس</h4>
-                        <p class="text-secondary">ثبت سفارش و دریافت پشتیبانی از طریق شماره های:</p>
-                        <a class="btn btn-gradient ltr" href="tel:+989015045025">0901 504 5025</a>
-                        <a class="btn btn-gradient ltr" href="tel:+989016045025">0901 604 5025</a>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-robot"></i></span>
-                        <h4>ربات تلگرام</h4>
-                        <p class="text-secondary">ثبت سفارش تخصصی و هوشمند با ربات تلگرام:</p>
-                        <a class="btn btn-gradient ltr mt-12-p" href="https://telegram.me/DayaArtzBot">@DAYAARTZBOT</a>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-3 col-xl-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-mobile"></i></span>
-                        <h4>پیام رسان</h4>
-                        <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
-                        <a class="btn btn-gradient ltr" href="https://telegram.me/dayasales">0901 604 5025</a>
-                        <a class="btn btn-gradient ltr" href="https://t.me/dayaartz">@DAYAARTZ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-contact-ways />
     @include('components.circular-percentage')
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">

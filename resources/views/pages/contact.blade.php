@@ -88,13 +88,13 @@
     </div>
     <div class="contact-ways-container w-100 mb-5">
         <div class="text-center mb-4 col-10 col-md-3">
-            <span><i class="contact-way-icon fas fa-phone mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
+            <span><i class="contact-way-icon far fa-phone mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
             <div>
-                <a href="tel:+989015045025">
-                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-mobile"></i></span><p class="text-center vertical-center">(+98) 901 504 50 25</p></div>
+                <a href="tel:+982128423542">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon far fa-phone-office"></i></span><p class="text-center vertical-center">021 2842 3542</p></div>
                 </a>
-                <a href="tel:+989016045025">
-                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-mobile"></i></span><p class="text-center vertical-center">(+98) 901 604 50 25</p></div>
+                <a href="tel:+989015045025">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon far fa-mobile"></i></span><p class="text-center vertical-center">(+98) 901 504 50 25</p></div>
                 </a>
             </div>
         </div>
@@ -104,18 +104,18 @@
                 <a href="https://instagram.com/dayaartz">
                     <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-instagram"></i></span><p class="text-center vertical-center">DayaArtz</p></div>
                 </a>
-                <a href="https://t.me/Dayaartz">
-                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-telegram-plane"></i></span><p class="text-center vertical-center">@@DayaArtz</p></div>
+                <a href="https://t.me/dayacontact">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-telegram-plane"></i></span><p class="text-center vertical-center">@@dayacontact</p></div>
                 </a>
-                <a href="https://wa.me/989015045025?text={{ urlencode('سلام من به پشتیبانی احتیاج دارم') }}">
+                <a href="https://wa.me/989016045025?text={{ urlencode('سلام من به پشتیبانی احتیاج دارم') }}">
                     <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-whatsapp"></i></span><p class="text-center vertical-center">(+98) 901 604 5025</p></div>
                 </a>
             </div>
         </div>
         <div class="text-center mb-4 col-10 col-md-3">
-            <span><i class="contact-way-icon fas fa-robot mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
+            <span><i class="contact-way-icon fal fa-robot mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
             <a href="https://telegram.me/DayaArtzBot">
-                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fas fa-robot"></i></span><p class="text-center vertical-center">@Dayaartzbot</p></div>
+                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon far fa-robot"></i></span><p class="text-center vertical-center">بزودی</p></div>
             </a>
         </div>
     </div>

@@ -15,11 +15,11 @@ $xl-xl-breakpoint: 1600px;
                 width: 50px !important;
             }
             .menu-container {
-                width: calc(100% - 280px) !important;
+                width: calc(100% - 220px) !important;
                 ul.main-menu {
                     padding-right: 0 !important;
                     li {
-                        margin: 0 8px !important;
+                        margin: 0 12px !important;
                         a {
                             font-size: 14px !important;
                             padding: 14px 0 !important;
@@ -28,7 +28,7 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
             .last-item {
-                width: 230px !important;
+                width: 169px !important;
                 a {
                     font-size: 13px !important;
                 }
@@ -1517,11 +1517,11 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
             .logo-container {
-                width: 48px !important;
+                width: 60px !important;
                 margin: 0 0.5rem;
             }
             .last-item {
-                width: 213px !important;
+                width: 155px !important;
                 a {
                     font-size: 12px !important;
                 }

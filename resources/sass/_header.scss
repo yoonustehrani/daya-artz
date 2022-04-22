@@ -55,7 +55,7 @@
         }
         @media screen and (min-width: $md-breakpoint) {
             .menu-container {
-                width: calc(100% - 350px);
+                width: calc(100% - 281px);
                 height: 100%;
                 display: inline-block;
                 ul {
@@ -72,7 +72,7 @@
                         list-style: none;
                         display: inline-block;
                         box-sizing: border-box;
-                        margin: 0 10px;
+                        margin: 0 15px;
                         > a {
                             width: 100%;
                             float: left;
@@ -151,7 +151,7 @@
         }
         .last-item {
             height: 100%;
-            width: 276px;
+            width: 207px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -346,13 +346,13 @@
             width: 50px;
         }
         .menu-container {
-            width: calc(100% - 300px);
+            width: calc(100% - 238px);
             .menu-items-container li a {
                 padding: 16px 5px;
             }
         }
         .last-item {
-            width: 250px;
+            width: 186px;
             a {
                 font-size: 14px;
             }

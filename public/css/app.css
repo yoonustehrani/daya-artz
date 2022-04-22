@@ -10112,20 +10112,20 @@ h3 {
     width: 50px !important;
   }
   .header > nav .menu-container, .min-header > nav .menu-container {
-    width: calc(100% - 280px) !important;
+    width: calc(100% - 220px) !important;
   }
   .header > nav .menu-container ul.main-menu, .min-header > nav .menu-container ul.main-menu {
     padding-right: 0 !important;
   }
   .header > nav .menu-container ul.main-menu li, .min-header > nav .menu-container ul.main-menu li {
-    margin: 0 8px !important;
+    margin: 0 12px !important;
   }
   .header > nav .menu-container ul.main-menu li a, .min-header > nav .menu-container ul.main-menu li a {
     font-size: 14px !important;
     padding: 14px 0 !important;
   }
   .header > nav .last-item, .min-header > nav .last-item {
-    width: 230px !important;
+    width: 169px !important;
   }
   .header > nav .last-item a, .min-header > nav .last-item a {
     font-size: 13px !important;
@@ -11584,11 +11584,11 @@ h3 {
     font-size: 30px !important;
   }
   .header > nav .logo-container, .min-header > nav .logo-container {
-    width: 48px !important;
+    width: 60px !important;
     margin: 0 0.5rem;
   }
   .header > nav .last-item, .min-header > nav .last-item {
-    width: 213px !important;
+    width: 155px !important;
   }
   .header > nav .last-item a, .min-header > nav .last-item a {
     font-size: 12px !important;
@@ -12587,8 +12587,15 @@ input.eggplant:focus {
 .tab-element ul.tabs-container li {
   margin: 5px;
 }
+.tab-element ul.tabs-container li h3 {
+  transition: 0.3s;
+}
 .tab-element ul.tabs-container li:hover {
   cursor: pointer;
+}
+.tab-element ul.tabs-container li.active h3 {
+  background-color: #17093c;
+  color: #fff !important;
 }
 .tab-element .tab-contents .tab-content {
   display: none;
@@ -15438,7 +15445,7 @@ span.back-aqua.big-icon {
 }
 @media screen and (min-width: 768px) {
   .header > nav .menu-container, .min-header > nav .menu-container {
-    width: calc(100% - 350px);
+    width: calc(100% - 281px);
     height: 100%;
     display: inline-block;
   }
@@ -15457,7 +15464,7 @@ span.back-aqua.big-icon {
     list-style: none;
     display: inline-block;
     box-sizing: border-box;
-    margin: 0 10px;
+    margin: 0 15px;
   }
   .header > nav .menu-container ul li > a, .min-header > nav .menu-container ul li > a {
     width: 100%;
@@ -15535,7 +15542,7 @@ span.back-aqua.big-icon {
 }
 .header > nav .last-item, .min-header > nav .last-item {
   height: 100%;
-  width: 276px;
+  width: 207px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15736,13 +15743,13 @@ span.back-aqua.big-icon {
     width: 50px;
   }
   #header-nav .menu-container {
-    width: calc(100% - 300px);
+    width: calc(100% - 238px);
   }
   #header-nav .menu-container .menu-items-container li a {
     padding: 16px 5px;
   }
   #header-nav .last-item {
-    width: 250px;
+    width: 186px;
   }
   #header-nav .last-item a {
     font-size: 14px;
