@@ -12587,8 +12587,15 @@ input.eggplant:focus {
 .tab-element ul.tabs-container li {
   margin: 5px;
 }
+.tab-element ul.tabs-container li h3 {
+  transition: 0.3s;
+}
 .tab-element ul.tabs-container li:hover {
   cursor: pointer;
+}
+.tab-element ul.tabs-container li.active h3 {
+  background-color: #17093c;
+  color: #fff !important;
 }
 .tab-element .tab-contents .tab-content {
   display: none;

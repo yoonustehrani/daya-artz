@@ -224,7 +224,7 @@
         @endforeach
         </div>
     </div>
-    @component('components.contact-ways')@endcomponent
+    <x-contact-ways />
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
@@ -253,6 +253,7 @@
             </div>
         </div>
     </div>
+    <x-quick-order-form />
     <div class="section w-100 FAQ-section mt-5">
         <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
         <div class="accordion-container p-4">

@@ -174,8 +174,17 @@ input.eggplant {
         list-style-type: none;
         li {
             margin: 5px;
+            h3 {
+                transition: 0.3s;
+            }
             &:hover {
                 cursor: pointer;
+            }
+            &.active {
+                h3 {
+                    background-color: #17093c;
+                    color: #fff !important;
+                }
             }
         }
     }

@@ -118,7 +118,7 @@
             </div>
         </div>
     </div>
-    @component('components.contact-ways')@endcomponent
+    <x-contact-ways />
     @include('components.circular-percentage')
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
