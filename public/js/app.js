@@ -3467,19 +3467,32 @@ change_icons.forEach(function (element, i) {
 var quickOrderForm = $("#quick-order-container");
 
 if (quickOrderForm.length > 0) {
-  var homePageBtn = $("#scroll-to-form-btn"),
-      targetPosition = quickOrderForm.offset().top + $("body").scrollTop(),
-      onClickBtn = function onClickBtn() {
+  onClickBtn = function onClickBtn() {
+    targetPosition = $(quickOrderForm).offset().top + $("body").scrollTop();
+    $(window).width() >= 768 ? targetPosition -= 100 : targetPosition -= 20;
     $("body").animate({
       scrollTop: targetPosition
     }, 500);
   };
 
-  homePageBtn.on("click", onClickBtn);
-  $(".main-services-container, .service-groups-container").find('.scroll-to-form').each(function (i, elem) {
+  var scrollToBtns = $(".scroll-to-form");
+  $(scrollToBtns).each(function (index, elem) {
     $(elem).on("click", onClickBtn);
   });
-}
+} // scroll to blog section
+
+
+$(".post-main-text a[href^='#h_']").each(function (index, elem) {
+  $(elem).on("click", function (e) {
+    e.preventDefault();
+    var targetElem = $($(elem).attr("href"));
+    targetPosition = targetElem.offset().top + $("body").scrollTop();
+    $(window).width() >= 768 ? targetPosition -= 100 : targetPosition -= 20;
+    $("body").animate({
+      scrollTop: targetPosition
+    }, 500);
+  });
+});
 
 /***/ }),
 
