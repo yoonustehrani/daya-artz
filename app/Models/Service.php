@@ -9,6 +9,7 @@ use ZeusExtensions\SeoTool\Traits\HasSeoConfigured;
 class Service extends ZeusModel
 {
     public $timestamps = false;
+    public $asText = 'title';
     protected $fillable = ['title', 'subtitle', 'slug', 'group', 'description', 'icon_class'];
     public function parent()
     {
@@ -37,6 +38,10 @@ class Service extends ZeusModel
     public function portfolios()
     {
         return $this->hasMany(Portfolio::class);
+    }
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parent_id');
     }
     public function getUriAttribute()
     {

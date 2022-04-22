@@ -27,7 +27,7 @@ class WebsiteController extends Controller
     public function service($slug)
     {
         $service = Service::whereSlug($slug)
-                    ->with(['plans' => function($q) { $q->unexpired(); }])
+                    ->with(['plans' => function($q) { $q->unexpired(); }, 'children'])
                     ->firstOrFail();
         return view('pages.services.show', compact('service'));
     }
