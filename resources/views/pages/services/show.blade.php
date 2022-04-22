@@ -82,7 +82,7 @@
         <div class="other-services-container w-100">
             @foreach ($service->children as $child)
             <div class="other-service">
-                <span class="back-aqua"><i class="far fa-text"></i></span>
+                <span class="back-aqua"><i class="{{ $child->icon_class }}"></i></span>
                 <h3 class="title service-title">{{ $child->title }}</h3>
                 <a class="service-subtitle" href="{{ route('services.show', ['slug' => $child->slug]) }}">{{ $child->subtitle }}</a>
                 <div class="button-container">
