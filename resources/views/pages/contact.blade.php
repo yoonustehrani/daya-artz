@@ -90,11 +90,11 @@
         <div class="text-center mb-4 col-10 col-md-3">
             <span><i class="contact-way-icon far fa-phone mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
             <div>
+                <a href="tel:+982128423542">
+                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon far fa-phone-office"></i></span><p class="text-center vertical-center">021 2842 3542</p></div>
+                </a>
                 <a href="tel:+989015045025">
                     <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon far fa-mobile"></i></span><p class="text-center vertical-center">(+98) 901 504 50 25</p></div>
-                </a>
-                <a href="tel:+982128423542">
-                    <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon far fa-phone"></i></span><p class="text-center vertical-center">021 2842 3542</p></div>
                 </a>
             </div>
         </div>
