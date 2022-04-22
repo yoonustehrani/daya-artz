@@ -224,52 +224,7 @@
         @endforeach
         </div>
     </div>
-    <div class="section w-100 mt-5 mb-5 order-ways-section">
-        <div class="title-section mb-5 w-100">
-            <div class="title-container">
-                <p class="title-text">ثبت سفارش</p>
-            </div>
-        </div>
-        <div class="absolute-contact w-100">
-            <div class="contact-section section w-100">
-                <div class="col-12 bg-heavy-aqua contact-section-back d-none d-md-block"></div>
-                <div class="section contact-info w-100">
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-phone"></i></span>
-                        <h4>تلفن</h4>
-                        <p class="text-secondary">با شماره گیری تلفن های ثابت زیر سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr">+98 123456789</button>
-                        <button class="btn btn-gradient ltr">021 1234567</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-crosshairs"></i></span>
-                        <h4>سفارش تخصصی</h4>
-                        <p class="text-secondary">ثبت سفارش شما به شیوه تخصصی توسط فرم ها</p>
-                        <button class="btn btn-gradient ltr">سفارش</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-robot"></i></span>
-                        <h4>ربات تلگرام</h4>
-                        <p class="text-secondary">توسط ربات تلگرام ما سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr mt-12-p">@DAYABOT</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-space-shuttle"></i></span>
-                        <h4>سفارش فوری</h4>
-                        <p class="text-secondary">ثبت سفارش شما به صورت فوری و سریع توسط فرم ها</p>
-                        <button class="btn btn-gradient ltr">سفارش</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-mobile"></i></span>
-                        <h4>پیامرسان</h4>
-                        <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr">+98 123456789</button>
-                        <button class="btn btn-gradient ltr">@DAYAADMIN</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @component('components.contact-ways')@endcomponent
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
