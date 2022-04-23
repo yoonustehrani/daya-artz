@@ -214,6 +214,7 @@
         @endforeach
         </div>
     </div>
+    @endif
     <x-contact-ways />
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
