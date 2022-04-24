@@ -2819,6 +2819,32 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
       }, _this.handleRecaptcha.bind(_assertThisInitialized(_this), _this.handleFormSubmit));
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleSearch", function (e) {
+      var value = e.target.value,
+          searchApi = _this.props.searchApi;
+
+      _this.setState({
+        searching: true,
+        searchValue: value
+      }, function () {
+        if (value.length < 2) {
+          _this.setState({
+            searchResults: [],
+            searching: false
+          });
+        } else {
+          axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(searchApi, "?q=").concat(value)).then(function (res) {
+            var data = res.data;
+
+            _this.setState({
+              searchResults: data,
+              searching: false
+            });
+          });
+        }
+      });
+    });
+
     _this.state = {
       services: [{
         title: "لوگو",
@@ -2852,6 +2878,9 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
         fullname: "",
         description: ""
       },
+      searchResults: [],
+      searching: false,
+      searchValue: "",
       rules: {
         phone_number: ['required', 'regex:/09[0-9]{9}/', 'numeric'],
         fullname: ['required', 'string', 'min:3', 'max:40'],
@@ -2879,7 +2908,10 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
           errors = _this$state.errors,
           message = _this$state.message,
           active = _this$state.active,
-          loading = _this$state.loading;
+          loading = _this$state.loading,
+          searchResults = _this$state.searchResults,
+          searching = _this$state.searching,
+          searchValue = _this$state.searchValue;
       var fullname = order.fullname,
           phone_number = order.phone_number,
           description = order.description;
@@ -2955,6 +2987,58 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
                   className: "fas fa-mobile-alt"
                 })
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "input-group float-right mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "text",
+              className: "form-control",
+              placeholder: "\u062C\u0633\u062A\u062C\u0648\u06CC \u062E\u062F\u0645\u0627\u062A \u062F\u06CC\u06AF\u0631",
+              value: searchValue,
+              onChange: this.handleSearch
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "input-group-append",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "input-group-text",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                  className: "far fa-search"
+                })
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "combo-box",
+              children: searching ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "py-2 flex-center",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {
+                  size: 20,
+                  color: "#C5AEF6"
+                })
+              }) : searchResults && searchResults.length > 0 ? searchResults.map(function (item, i) {
+                var icon_class = item.icon_class,
+                    title = item.title,
+                    group = item.group,
+                    id = item.id;
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "combo-item",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                    className: "combo-group",
+                    children: group
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                    className: "combo-right",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                      className: "combo-title",
+                      children: title
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "combo-icon",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                        className: icon_class
+                      })
+                    })]
+                  })]
+                });
+              }) : searchResults.length === 0 && searchValue.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                className: "combo-no-item",
+                children: "\u0646\u062A\u06CC\u062C\u0647 \u0627\u06CC \u06CC\u0627\u0641\u062A \u0646\u0634\u062F"
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -3136,7 +3220,8 @@ var quickOrderElement = document.getElementById("react-quick-order");
 if (quickOrderElement) {
   (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
     reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
-    targetApi: quickOrderElement.getAttribute('data-post-api')
+    targetApi: quickOrderElement.getAttribute('data-post-api'),
+    searchApi: quickOrderElement.getAttribute("data-search")
   }), quickOrderElement);
 } // portfolio section
 
@@ -4097,9 +4182,9 @@ var useHttpService = function useHttpService() {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css":
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css":
 /*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css ***!
   \*********************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -17223,32 +17308,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************!*\
   !*** ./resources/sass/_fonts.scss ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./packages/Zeus/resources/css/style.css":
-/*!***********************************************!*\
-  !*** ./packages/Zeus/resources/css/style.css ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./packages/Zeus/resources/css/rtl.css":
-/*!*********************************************!*\
-  !*** ./packages/Zeus/resources/css/rtl.css ***!
-  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -70842,7 +70901,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[2]!./swiper-bundle.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[9].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css");
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./swiper-bundle.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css");
 
             
 
@@ -70851,11 +70910,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_9_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -80093,8 +80152,6 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/zeus/rtl": 0,
-/******/ 			"css/zeus/style": 0,
 /******/ 			"css/_fonts": 0
 /******/ 		};
 /******/ 		
@@ -80145,11 +80202,9 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/_fonts"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/_fonts"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/_fonts"], () => (__webpack_require__("./resources/sass/_fonts.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/_fonts"], () => (__webpack_require__("./packages/Zeus/resources/css/style.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/_fonts"], () => (__webpack_require__("./packages/Zeus/resources/css/rtl.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/_fonts"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/_fonts"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/_fonts"], () => (__webpack_require__("./resources/sass/_fonts.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
