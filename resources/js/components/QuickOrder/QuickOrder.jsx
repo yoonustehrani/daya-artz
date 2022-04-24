@@ -44,6 +44,9 @@ class QuickOrder extends Component {
                 fullname: "",
                 description: ""
             },
+            searchResults: [],
+            searching: false,
+            searchValue: "",
             rules: {
                 phone_number: ['required','regex:/09[0-9]{9}/', 'numeric'],
                 fullname: ['required', 'string', 'min:3', 'max:40'],
@@ -150,8 +153,21 @@ class QuickOrder extends Component {
             errors: {}, 
         }, this.handleRecaptcha.bind(this, this.handleFormSubmit))
     }
+    handleSearch = (e) => {
+        let { value } = e.target, { searchApi } = this.props
+        this.setState({searching: true, searchValue: value}, () => {
+            if (value.length < 2) {
+                this.setState({searchResults: [], searching: false})
+            } else {
+                axios.get(`${searchApi}?q=${value}`).then(res => {
+                    let { data } = res
+                    this.setState({searchResults: data, searching: false})
+                })
+            }
+        })
+    }
     render() {
-        let { services, order, error, errors, message, active, loading } = this.state
+        let { services, order, error, errors, message, active, loading, searchResults, searching, searchValue } = this.state
         let {fullname, phone_number, description} = order
         let messages = [];
         if (Object.keys(errors).length) {
@@ -189,6 +205,29 @@ class QuickOrder extends Component {
                         <input type="text" name="fast-order-number" disabled={! active} className="form-control ltr text-left" placeholder="شماره تلفن" value={phone_number} onChange={this.handleChange.bind(this, 'phone_number')}/>
                         <div className="input-group-append">
                             <span className="input-group-text"><i className="fas fa-mobile-alt"></i></span>
+                        </div>
+                    </div>
+                    <div className="input-group float-right mb-3">
+                        <input type="text" className='form-control' placeholder='جستجوی خدمات دیگر' value={searchValue} onChange={this.handleSearch} />
+                        <div className="input-group-append">
+                            <span className="input-group-text"><i className="far fa-search"></i></span>
+                        </div>
+                        <div className="combo-box">
+                            {searching ? <div className='py-2 flex-center'><Spinner size={20} color="#C5AEF6"/></div>
+                             : searchResults && searchResults.length > 0 ? searchResults.map((item, i) => {
+                                let { icon_class, title, group, id } = item
+                                return (
+                                    <div className='combo-item'>
+                                        <p className="combo-group">{group}</p>
+                                        <div className='combo-right'>
+                                            <p className='combo-title'>{title}</p>
+                                            <span className='combo-icon'><i className={icon_class}></i></span>
+                                        </div>
+                                    </div>
+                                )
+                             })
+                             : searchResults.length === 0 && searchValue.length > 0 && <p className='combo-no-item'>نتیجه ای یافت نشد</p>
+                            }
                         </div>
                     </div>
                     <div className="order-types mb-3 w-100">

@@ -15382,6 +15382,68 @@ span.back-aqua.big-icon {
   background-color: #af3acc;
 }
 
+.combo-box {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  float: right;
+  max-height: 300px;
+  overflow: hidden auto;
+  position: absolute;
+  top: calc(1.5em + 0.75rem + 2px);
+  z-index: 10;
+}
+.combo-box .combo-no-item {
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: normal;
+  color: #707070;
+}
+.combo-box::-webkit-scrollbar {
+  width: 2px;
+}
+.combo-box::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+}
+.combo-box::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+.combo-box .combo-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.combo-box .combo-item * {
+  margin-bottom: 0;
+}
+.combo-box .combo-item .combo-group {
+  font-size: 14px;
+  color: #ac7ff4;
+}
+.combo-box .combo-item .combo-right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.combo-box .combo-item .combo-right .combo-title {
+  font-size: 16px;
+  color: #000;
+}
+.combo-box .combo-item .combo-right .combo-icon {
+  font-size: 18px;
+  color: #C2AEF3;
+  margin-left: 6px;
+}
+.combo-box .combo-item:hover {
+  background-color: #E4DBFA;
+}
+
 .header {
   background: linear-gradient(50deg, #e77cf2, #6332de);
   background: -webkit-linear-gradient(50deg, #e77cf2, #6332de);
