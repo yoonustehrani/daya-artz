@@ -2635,20 +2635,52 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "handleToggle", function (e) {
-      var _e$target = e.target,
-          name = _e$target.name,
-          checked = _e$target.checked;
+    _defineProperty(_assertThisInitialized(_this), "handleToggle", function () {
+      var searching = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      var e = arguments.length > 1 ? arguments[1] : undefined;
 
-      _this.setState(function (prev) {
-        return {
-          order: _objectSpread(_objectSpread({}, prev.order), {}, {
-            order_items: checked && !prev.order.order_items.includes(name) ? [].concat(_toConsumableArray(prev.order.order_items), [name]) : prev.order.order_items.filter(function (x) {
-              return x !== name;
+      var targetInput = $(e.target).closest("label.combo-item").find("input"),
+          _ref = searching ? {
+        id: $(targetInput).attr("comboid"),
+        title: $(targetInput).attr("title"),
+        icon: $(targetInput).attr("icon"),
+        checked: $(targetInput).attr("checked")
+      } : e.target,
+          id = _ref.id,
+          checked = _ref.checked,
+          title = _ref.title,
+          icon = _ref.icon,
+          services = _this.state.services;
+
+      if (id) {
+        _this.setState(function (prev) {
+          return {
+            order: _objectSpread(_objectSpread({}, prev.order), {}, {
+              order_items: !prev.order.order_items.includes(id) ? [].concat(_toConsumableArray(prev.order.order_items), [id]) : prev.order.order_items.filter(function (x) {
+                return x !== id;
+              })
             })
-          })
-        };
-      });
+          };
+        }, function () {
+          if (searching) {
+            !services.some(function (service) {
+              return service.id === id;
+            }) && _this.setState(function (prev) {
+              return {
+                services: [].concat(_toConsumableArray(prev.services), [{
+                  id: id,
+                  title: title,
+                  icon_class: icon
+                }])
+              };
+            });
+
+            _this.setState({
+              displayCombo: false
+            });
+          }
+        });
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (key, e) {
@@ -2698,7 +2730,7 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleFormSubmit", /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(recaptch_token) {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(recaptch_token) {
         var _this$state$order, fullname, phone_number, description, order_items, data, response, _response$data, okay, message, _error$response, _data, status, newState;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
@@ -2805,7 +2837,7 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
       }));
 
       return function (_x) {
-        return _ref2.apply(this, arguments);
+        return _ref3.apply(this, arguments);
       };
     }());
 
@@ -2845,33 +2877,14 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "onDisplayCombo", function (displayCombo, e) {
+      _this.setState({
+        displayCombo: displayCombo
+      });
+    });
+
     _this.state = {
-      services: [{
-        title: "لوگو",
-        name: "logo",
-        icon: "images/brand.svg",
-        alt: "لوگو"
-      }, {
-        title: "کاتالوگ",
-        name: "catalog",
-        icon: "images/big-brochure.svg",
-        alt: "کاتالوگ"
-      }, {
-        title: "کارت ویزیت",
-        name: "visit-card",
-        icon: "images/credit-card.svg",
-        alt: "کارت ویزیت"
-      }, {
-        title: "سربرگ",
-        name: "letterhead",
-        icon: "images/paper.svg",
-        alt: "سربرگ"
-      }, {
-        title: "ست اداری",
-        name: "official set",
-        icon: "images/office-tools.svg",
-        alt: "ست اداری"
-      }],
+      services: [],
       order: {
         order_items: [],
         phone_number: "",
@@ -2891,15 +2904,32 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
       errors: {},
       loading: false,
       active: true,
-      message: null
+      message: null,
+      loadingInitials: true,
+      displayCombo: false
     };
     return _this;
   }
 
   _createClass(QuickOrder, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var dataInitial = this.props.dataInitial;
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get(dataInitial).then(function (res) {
+        var data = res.data;
+
+        _this2.setState({
+          services: data,
+          loadingInitials: false
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$state = this.state,
           services = _this$state.services,
@@ -2911,7 +2941,9 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
           loading = _this$state.loading,
           searchResults = _this$state.searchResults,
           searching = _this$state.searching,
-          searchValue = _this$state.searchValue;
+          searchValue = _this$state.searchValue,
+          loadingInitials = _this$state.loadingInitials,
+          displayCombo = _this$state.displayCombo;
       var fullname = order.fullname,
           phone_number = order.phone_number,
           description = order.description;
@@ -2989,14 +3021,53 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
                 })
               })
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "order-types mb-3 w-100",
+            children: loadingInitials ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "flex-center w-100",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {
+                size: 30,
+                color: "#C5AEF6"
+              })
+            }) : services && services.length > 0 && services.map(function (service, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "checkbox",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
+                  className: "checkbox-wrapper",
+                  htmlFor: service.id,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    type: "checkbox",
+                    className: "checkbox-input",
+                    disabled: !active,
+                    checked: order.order_items.includes("".concat(service.id)),
+                    id: service.id,
+                    onChange: _this3.handleToggle.bind(_this3, false)
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+                    className: "checkbox-tile",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "checkbox-icon",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                        className: service.icon_class
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: "checkbox-label",
+                      children: service.title
+                    })]
+                  })]
+                })
+              }, i);
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "input-group float-right mb-3",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "text",
+              id: "combo-input",
               className: "form-control",
               placeholder: "\u062C\u0633\u062A\u062C\u0648\u06CC \u062E\u062F\u0645\u0627\u062A \u062F\u06CC\u06AF\u0631",
               value: searchValue,
-              onChange: this.handleSearch
+              onChange: this.handleSearch,
+              onFocus: this.onDisplayCombo.bind(this, true),
+              onBlur: this.onDisplayCombo.bind(this, false)
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "input-group-append",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -3006,7 +3077,7 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
                 })
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "combo-box",
+              className: "combo-box ".concat(displayCombo ? "d-block" : "d-none"),
               children: searching ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "py-2 flex-center",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_4__.Spinner, {
@@ -3017,12 +3088,27 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
                 var icon_class = item.icon_class,
                     title = item.title,
                     group = item.group,
-                    id = item.id;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                    id = item.id,
+                    checked = order.order_items.includes(id.toString());
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
                   className: "combo-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-                    className: "combo-group",
-                    children: group
+                  onMouseDown: _this3.handleToggle.bind(_this3, true),
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    type: "checkbox",
+                    className: "d-none",
+                    disabled: !active,
+                    checked: checked,
+                    comboid: item.id,
+                    title: item.title,
+                    icon: item.icon_class
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                    className: "combo-left",
+                    children: [checked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                      className: "fas fa-check-circle"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                      className: "combo-group",
+                      children: group
+                    })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                     className: "combo-right",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
@@ -3035,42 +3121,12 @@ var QuickOrder = /*#__PURE__*/function (_Component) {
                       })
                     })]
                   })]
-                });
+                }, i);
               }) : searchResults.length === 0 && searchValue.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
                 className: "combo-no-item",
                 children: "\u0646\u062A\u06CC\u062C\u0647 \u0627\u06CC \u06CC\u0627\u0641\u062A \u0646\u0634\u062F"
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "order-types mb-3 w-100",
-            children: services.map(function (service, i) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "checkbox",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-                  className: "checkbox-wrapper",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                    type: "checkbox",
-                    className: "checkbox-input",
-                    disabled: !active,
-                    checked: order.order_items.includes(service.name),
-                    name: service.name,
-                    onChange: _this2.handleToggle
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-                    className: "checkbox-tile",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                      className: "checkbox-icon",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                        src: APP_PATH + service.icon,
-                        alt: service.alt
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                      className: "checkbox-label",
-                      children: service.title
-                    })]
-                  })]
-                })
-              }, i);
-            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "form-group",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
@@ -3221,7 +3277,8 @@ if (quickOrderElement) {
   (0,react_dom__WEBPACK_IMPORTED_MODULE_0__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_QuickOrder__WEBPACK_IMPORTED_MODULE_1__["default"], {
     reCAPTCHA_Key: quickOrderElement.getAttribute('data-recaptcha'),
     targetApi: quickOrderElement.getAttribute('data-post-api'),
-    searchApi: quickOrderElement.getAttribute("data-search")
+    searchApi: quickOrderElement.getAttribute("data-search"),
+    dataInitial: quickOrderElement.getAttribute("data-initial")
   }), quickOrderElement);
 } // portfolio section
 

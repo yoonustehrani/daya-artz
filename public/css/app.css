@@ -13073,6 +13073,10 @@ span.back-aqua.big-icon {
   color: #494949;
   margin-bottom: 5px;
 }
+.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-icon i {
+  font-size: 45px;
+  color: #C2AEF3;
+}
 .fast-order-container .fast-order-section .fast-order-form .order-types .checkbox-icon svg, .fast-order-container .fast-order-section .fast-order-form .order-types img {
   width: 3rem;
   height: 3rem;
@@ -15418,13 +15422,11 @@ span.back-aqua.big-icon {
   width: 100%;
   transition: 0.3s;
   cursor: pointer;
+  direction: ltr;
+  margin: 0;
 }
 .combo-box .combo-item * {
   margin-bottom: 0;
-}
-.combo-box .combo-item .combo-group {
-  font-size: 14px;
-  color: #ac7ff4;
 }
 .combo-box .combo-item .combo-right {
   display: flex;
@@ -15439,6 +15441,20 @@ span.back-aqua.big-icon {
   font-size: 18px;
   color: #C2AEF3;
   margin-left: 6px;
+}
+.combo-box .combo-item .combo-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.combo-box .combo-item .combo-left .combo-group {
+  font-size: 14px;
+  color: #8f60ec;
+}
+.combo-box .combo-item .combo-left i {
+  color: #6232de;
+  margin-right: 8px;
+  font-size: 14px;
 }
 .combo-box .combo-item:hover {
   background-color: #E4DBFA;

@@ -674,6 +674,10 @@ span.back-aqua {
                     transition: 0.375s ease;
                     color: #494949;
                     margin-bottom: 5px;
+                    i {
+                        font-size: 45px;
+                        color: $light-eggplant;
+                    }
                 }
                 .checkbox-icon svg, img {
                     width: 3rem;
@@ -2715,12 +2719,10 @@ $labelData: '';
         width: 100%;
         transition: 0.3s;
         cursor: pointer;
+        direction: ltr;
+        margin: 0;
         * {
             margin-bottom: 0;
-        }
-        .combo-group {
-            font-size: 14px;
-            color: #ac7ff4;
         }
         .combo-right {
             display: flex;
@@ -2734,6 +2736,20 @@ $labelData: '';
                 font-size: 18px;
                 color: $light-eggplant;
                 margin-left: 6px;
+            }
+        }
+        .combo-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .combo-group {
+                font-size: 14px;
+                color: #8f60ec;
+            }
+            i {
+                color: #6232de;
+                margin-right: 8px;
+                font-size: 14px;
             }
         }
         &:hover {

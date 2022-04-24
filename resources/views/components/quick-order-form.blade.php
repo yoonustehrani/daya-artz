@@ -18,7 +18,7 @@
             <br/>
             <p class="text-secondary text-gray-500">توجه داشته باشید حداقل زمان تماس کارشناسان <b>دایا آرتز</b> با شما بعد از ثبت سفارش بین ۱۲ الی ۲۴ ساعت می باشد.</p>
             <p class="text-secondaty text-gray-500">ضمنا اگر می‌خواید به صورت شخصی سازی شده و هوشمند سفارشتون رو ثبت کنید؛ از سیستم سفارش تخصصی استفاده کنین</p>
-            <button class="btn btn-lg btn-dark rounded-lg text-xl text-slate-50 duration-300">برو بریم</button>
+            <a class="btn btn-lg btn-dark rounded-lg text-xl text-slate-50 duration-300">به زودی</a>
         </div>
         <div 
             class="fast-order-form col-12 col-md-6 col-xl-4 mt-4 mt-md-0 px-3 w-full md:w-1/2 xl:w-1/3 md:mt-0"
