@@ -26,6 +26,7 @@
             data-post-api="{{ route('api.forms.orders.quick') }}"
             data-recaptcha="{{ config('services.reCAPTCHA.site_key') }}"
             data-search="{{ route('api.forms.orders.services.search') }}"
+            data-initial="{{ route('api.forms.orders.services.main') }}"
         ></div>
     </div>
 </div>

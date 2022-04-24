@@ -37,7 +37,8 @@ Route::get('/', fn() => ['okay' => true]);
 
 Route::prefix('forms')->name('forms.')->group(function() {
     Route::post('quick-order', [FormsController::class, 'quickOrder'])->name('orders.quick');
-    Route::get('quick-order/services', [ApiOrderController::class, 'services'])->name('orders.services.search');
+    Route::get('quick-order/services', [ApiOrderController::class, 'search'])->name('orders.services.search');
+    Route::get('quick-order/services/main', [ApiOrderController::class, 'index'])->name('orders.services.main');
     Route::post('contact', [FormsController::class, 'contact'])->name('contact');
 });
 
