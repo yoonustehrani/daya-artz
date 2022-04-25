@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Zeus\Models\ZeusModel;
-use ZeusExtensions\SeoTool\Traits\HasSeoConfigured;
 
 class Service extends ZeusModel
 {
