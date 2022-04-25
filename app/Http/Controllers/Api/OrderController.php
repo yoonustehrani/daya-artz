@@ -18,6 +18,7 @@ class OrderController extends Controller
         $services = \Cache::remember('quick-order.search.' . \Str::slug($query), 60 * 60, function () use($query) {
             return Service::select($this->selection)
             ->where('main', false)
+            ->where('package', false)
             ->where(function($builder) use($query) {
                 $builder->where('title', 'like', "%{$query}%")->orWhere('subtitle', 'like', "%{$query}%");
             })
@@ -28,7 +29,7 @@ class OrderController extends Controller
     }
     public function index()
     {
-        $services = Service::select($this->selection)->where('main', true)->get();
+        $services = Service::select($this->selection)->where('package', false)->where('main', true)->get();
         return response()->json($services);
     }
 }
