@@ -15,11 +15,11 @@ $xl-xl-breakpoint: 1600px;
                 width: 50px !important;
             }
             .menu-container {
-                width: calc(100% - 280px) !important;
+                width: calc(100% - 220px) !important;
                 ul.main-menu {
                     padding-right: 0 !important;
                     li {
-                        margin: 0 8px !important;
+                        margin: 0 12px !important;
                         a {
                             font-size: 14px !important;
                             padding: 14px 0 !important;
@@ -28,7 +28,7 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
             .last-item {
-                width: 230px !important;
+                width: 169px !important;
                 a {
                     font-size: 13px !important;
                 }
@@ -111,13 +111,13 @@ $xl-xl-breakpoint: 1600px;
     .post-info-section {
         height: 220px !important;
         .post-info-container {
-            width: calc(100% - 190px) !important;
+            width: calc(100% - 95px) !important;
             .post-title {
                 font-size: 22px !important;
             }
             .post-info-flex {
                 span, i {
-                    font-size: 15px !important;
+                    font-size: 16px !important;
                 }
             }
         }
@@ -818,6 +818,10 @@ $xl-xl-breakpoint: 1600px;
             p{
                 font-size: 16px !important;
             }
+            img {
+                max-width: 90% !important;
+                height: auto !important;
+            }
         }
     }
     .post-item {
@@ -1513,11 +1517,11 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
             .logo-container {
-                width: 48px !important;
+                width: 60px !important;
                 margin: 0 0.5rem;
             }
             .last-item {
-                width: 213px !important;
+                width: 155px !important;
                 a {
                     font-size: 12px !important;
                 }

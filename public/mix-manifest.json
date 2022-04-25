@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "/js/app.js": "/js/app.js?id=e524bbb2fd76d73bbea7",
     "/js/userarea.js": "/js/userarea.js?id=3d69f8f77fe089e88fb3",
     "/js/landing-opening.js": "/js/landing-opening.js?id=9e1ce28df4c9f1d67233",
@@ -22,4 +23,10 @@
     "/js/tinymce/tinymce.d.ts": "/js/tinymce/tinymce.d.ts?id=3e53c5be3ed7521481a5",
     "/js/tinymce/tinymce.js": "/js/tinymce/tinymce.js?id=59d169586630f87804b5",
     "/js/tinymce/tinymce.min.js": "/js/tinymce/tinymce.min.js?id=2aa000f4ca21383fd155"
+=======
+    "/js/app.js": "/js/app.js?id=90a6b0cd386567f8365c",
+    "/js/userarea.js": "/js/userarea.js?id=984c2a1e64cb43fb53b4",
+    "/css/app.css": "/css/app.css?id=eb11e2954ef0c4b22cc5",
+    "/css/_fonts.css": "/css/_fonts.css?id=017c9c6fab757e5e2376"
+>>>>>>> site
 }

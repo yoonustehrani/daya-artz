@@ -102,11 +102,13 @@ $('#logout-button').on('click', submitLogoutForm)
 
 const mceOptions = {
     plugins: [
-        'advlist autolink lists link preview wordcount directionality table image',
+        'advlist autolink lists link preview wordcount directionality table image textcolor colorpicker',
     ],
     toolbar: [
         { name: 'history', items: [ 'undo', 'redo' ]},
         { name: 'formatting', items: [ 'styleselect', 'bold', 'italic', ]},
+        { name: 'fontsize', items: ['fontsizeselect'] },
+        { name: 'color', items: ['forecolor', 'backcolor'] },
         { name: 'alignment', items: [ 'align']},
         { name: 'direction', items: [ 'ltr', 'rtl' ]},
         { name: 'indentation', items: [ 'outdent', 'indent' ]},
@@ -128,7 +130,7 @@ const mceOptions = {
             picker.style.display = 'none'
             document.body.append(picker)
             function insertImage(file) {
-                editor.insertContent(`&nbsp;<img src="${APP_PATH + file.path}"/>&nbsp;`)
+                editor.insertContent(`&nbsp;<img data-src="${APP_PATH + file.path}" src="${APP_PATH + file.thumbnail_path}"/>&nbsp;`)
                 picker.style.display = 'none'
             }
             render(

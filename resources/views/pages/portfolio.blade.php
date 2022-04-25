@@ -17,8 +17,8 @@
         <div class="sample-images-slider">
             @if ($portfolio->images->count() > 0)
             <div class="showing-image">
-                <img class="animated fadeIn" id="portfolio-main-img" data-src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
-                src="{{ asset($portfolio->images[0]->file->path) }}"
+                <img class="animated fadeIn" id="portfolio-main-img" data-src="{{ asset($portfolio->images[0]->file->path) }}"
+                src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
                 alt="{{ $portfolio->images[0]->alt }}">
             </div>
             <div class="small-items-container">

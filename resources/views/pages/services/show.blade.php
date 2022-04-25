@@ -71,8 +71,8 @@
         @endif
     </div>
     <!-- end first-section -->
-    <!-- childs service section -->
-    {{-- <div class="section w-100 pt-3 pb-4 dotted-background">
+    @if ($service->children->count())
+    <div class="section w-100 pt-3 pb-4 dotted-background">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
                 <p class="title-text">خدمات زیر مجموعه</p>
@@ -80,33 +80,19 @@
             </div>
         </div>
         <div class="other-services-container w-100">
+            @foreach ($service->children as $child)
             <div class="other-service">
-                <span class="back-aqua"><i class="far fa-text"></i></span>
-                <h3 class="title service-title">لوگوی تصویری</h3>
-                <a class="service-subtitle" href="#child-url">یونس کونتو بخورم</a>
+                <span class="back-aqua"><i class="{{ $child->icon_class }}"></i></span>
+                <h3 class="title service-title">{{ $child->title }}</h3>
+                <a class="service-subtitle" href="{{ route('services.show', ['slug' => $child->slug]) }}">{{ $child->subtitle }}</a>
                 <div class="button-container">
-                    <a href="#child-url" class="btn btn-gradient">بیشتر بدانید</a>
+                    <a href="{{ route('services.show', ['slug' => $child->slug]) }}" class="btn btn-gradient">بیشتر بدانید</a>
                 </div>
             </div>
-            <div class="other-service">
-                <span class="back-aqua"><i class="far fa-text"></i></span>
-                <h3 class="title service-title">لوگوی تصویری</h3>
-                <a class="service-subtitle" href="#child-url">یونس کونتو بخورم</a>
-                <div class="button-container">
-                    <a href="#child-url" class="btn btn-gradient">بیشتر بدانید</a>
-                </div>
-            </div>
-            <div class="other-service">
-                <span class="back-aqua"><i class="far fa-text"></i></span>
-                <h3 class="title service-title">لوگوی تصویری</h3>
-                <a class="service-subtitle" href="#child-url">یونس کونتو بخورم</a>
-                <div class="button-container">
-                    <a href="#child-url" class="btn btn-gradient">بیشتر بدانید</a>
-                </div>
-            </div>
+            @endforeach
         </div>
-    </div> --}}
-    <!-- end childs service section -->
+    </div>
+    @endif
     <!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height p-3">
         <div class="header-text col-12 col-md-8">
@@ -194,12 +180,16 @@
             </div>
         </div>
     </div>
+
     @include('components.start-order')
+    
     <x-portfolio :api-target="route('api.portfolios.index', ['service' => $service->getKey()])"/>
+    
+    @if ($service->children->isEmpty())
     <div class="section w-100 mt-3 order-packs-section">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
-                <h2 class="title-text">{{ $service->subtitle }}</h2>
+                <h2 class="title-text">{{ 'پلن های قیمتی' . ' ' . $service->title}}</h2>
                 <h4 class="subtitle">بسته های هوشمند جهت سفارش {{ $service->title }} برای شما</h4>
             </div>
         </div>
@@ -224,52 +214,7 @@
         @endforeach
         </div>
     </div>
-    <div class="section w-100 mt-5 mb-5 order-ways-section">
-        <div class="title-section mb-5 w-100">
-            <div class="title-container">
-                <p class="title-text">ثبت سفارش</p>
-            </div>
-        </div>
-        <div class="absolute-contact w-100">
-            <div class="contact-section section w-100">
-                <div class="col-12 bg-heavy-aqua contact-section-back d-none d-md-block"></div>
-                <div class="section contact-info w-100">
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-phone"></i></span>
-                        <h4>تلفن</h4>
-                        <p class="text-secondary">با شماره گیری تلفن های ثابت زیر سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr">+98 123456789</button>
-                        <button class="btn btn-gradient ltr">021 1234567</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-crosshairs"></i></span>
-                        <h4>سفارش تخصصی</h4>
-                        <p class="text-secondary">ثبت سفارش شما به شیوه تخصصی توسط فرم ها</p>
-                        <button class="btn btn-gradient ltr">سفارش</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-robot"></i></span>
-                        <h4>ربات تلگرام</h4>
-                        <p class="text-secondary">توسط ربات تلگرام ما سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr mt-12-p">@DAYABOT</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-space-shuttle"></i></span>
-                        <h4>سفارش فوری</h4>
-                        <p class="text-secondary">ثبت سفارش شما به صورت فوری و سریع توسط فرم ها</p>
-                        <button class="btn btn-gradient ltr">سفارش</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-mobile"></i></span>
-                        <h4>پیامرسان</h4>
-                        <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr">+98 123456789</button>
-                        <button class="btn btn-gradient ltr">@DAYAADMIN</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-contact-ways />
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
@@ -298,6 +243,7 @@
             </div>
         </div>
     </div>
+    <x-quick-order-form />
     <div class="section w-100 FAQ-section mt-5">
         <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
         <div class="accordion-container p-4">

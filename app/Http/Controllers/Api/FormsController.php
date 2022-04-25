@@ -39,7 +39,7 @@ class FormsController extends Controller
         $order->description = $desscription . $request->input('description');
         $order->details = ['order_items' => $order_items];
         if ($order->save()) {
-            \Cache::put($cache_key, true, 2 * 24 * 24);
+            \Cache::put($cache_key, true, 2 * 60 * 60);
             event(new QuickOrderSubmitted($order, $request->input('phone_number'), $request->input('fullname')));
             return response()->json([
                 'okay' => true,

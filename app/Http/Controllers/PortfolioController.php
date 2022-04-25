@@ -11,19 +11,16 @@ class PortfolioController extends Controller
     public function index($service = null)
     {
         if ($service) {
-            $portfolios = Portfolio::where('service_id', $service)
+            $service = Service::findOrFail($service);
+            $portfolios = \Cache::remember("service.{$service->id}.portfolios", 60 * 5, function () use($service) {
+                return Portfolio::whereIn('service_id', [$service->id, $service->parent_id])
+                    ->with('images.file')
                     ->get()
-                    ->each(function($p) {
-                        $p->url = route('portfolio.show', ['slug' => $p->slug]);
-                    });
-                    $portfolios->load('images.file');
-                    return $portfolios;
-            // $portfolios = \Cache::rememberForever("service.{$service}.portfolios", function () use($service) {
-                
-            // });
+                    ->append('url');
+            });
         } else {
-            $portfolios = Portfolio::take(6)->with('images.file')->inRandomOrder()->get()->each(function($p) {
-                $p->url = route('portfolio.show', ['slug' => $p->slug]);
+            $portfolios = \Cache::remember('services.random.portfolios', 60 * 10, function () {
+                return Portfolio::take(6)->with('images.file')->inRandomOrder()->get()->append('url');
             });
         }
         return response()->json($portfolios);
@@ -31,9 +28,6 @@ class PortfolioController extends Controller
     public function show($slug)
     {
         $portfolio = Portfolio::whereSlug($slug)->with('service', 'images.file')->firstOrFail();
-        if (request()->has('debug')) {
-            return $portfolio;
-        }
         return view('pages.portfolio', compact('portfolio'));
     }
 }

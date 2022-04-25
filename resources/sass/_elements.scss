@@ -174,8 +174,17 @@ input.eggplant {
         list-style-type: none;
         li {
             margin: 5px;
+            h3 {
+                transition: 0.3s;
+            }
             &:hover {
                 cursor: pointer;
+            }
+            &.active {
+                h3 {
+                    background-color: #17093c;
+                    color: #fff !important;
+                }
             }
         }
     }
@@ -665,6 +674,10 @@ span.back-aqua {
                     transition: 0.375s ease;
                     color: #494949;
                     margin-bottom: 5px;
+                    i {
+                        font-size: 45px;
+                        color: $light-eggplant;
+                    }
                 }
                 .checkbox-icon svg, img {
                     width: 3rem;
@@ -1508,16 +1521,17 @@ $labelData: '';
     .post-main-text {
         padding: 0 1rem;
         h2 {
-            font-size: 26px;
-            font-weight: bold;
             color: #000;
-            margin-bottom: 25px;
+            font-size: 26px;
         }
         p {
-            font-size: 18px;
             color: $long-txt;
-            text-align: right;
-            margin: 20px 0;
+            font-size: 18px;
+        }
+        img {
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
     .recommand-section {
@@ -1982,7 +1996,7 @@ $labelData: '';
                     color: white;
                     border-color: white;
                 }
-                .card-price, .card-options {
+                .card-price, ul {
                     color: white;
                     text-align: center;
                 }
@@ -2667,5 +2681,79 @@ $labelData: '';
     color: #fff;
     &:hover {
         background-color: $purple;
+    }
+}
+// quick order form combo box
+.combo-box {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+    width: 100%;
+    float: right;
+    max-height: 300px;
+    overflow: hidden auto;
+    position: absolute;
+    top: calc(1.5em + 0.75rem + 2px);
+    z-index: 10;
+    .combo-no-item {
+        margin-bottom: 0;
+        font-size: 16px;
+        font-weight: normal;
+        color: #707070;
+    }
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3 );
+        background-color: #F5F5F5;
+    }
+    .combo-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 10px;
+        width: 100%;
+        transition: 0.3s;
+        cursor: pointer;
+        direction: ltr;
+        margin: 0;
+        * {
+            margin-bottom: 0;
+        }
+        .combo-right {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .combo-title {
+                font-size: 16px;
+                color: #000;
+            }
+            .combo-icon {
+                font-size: 18px;
+                color: $light-eggplant;
+                margin-left: 6px;
+            }
+        }
+        .combo-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .combo-group {
+                font-size: 14px;
+                color: #8f60ec;
+            }
+            i {
+                color: #6232de;
+                margin-right: 8px;
+                font-size: 14px;
+            }
+        }
+        &:hover {
+            background-color: $light-bg-msg;
+        }
     }
 }

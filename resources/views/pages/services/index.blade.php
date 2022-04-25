@@ -50,6 +50,7 @@
 </div>
 
 <div class="section dotted-background bg-purple-gr col-12 py-4 p-md-4">
+    <div data-search="{{ route('api.services.index') }}"></div>
     <p class="title title-bigger text-light text-center">دنبال چه نوع طراحی میگردی؟</p>
     <div class="input-group input-group-lg search-box-services col-xl-6 offset-xl-3 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-12 float-left p-0">
         <div class="input-group-prepend">

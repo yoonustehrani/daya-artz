@@ -6,44 +6,16 @@ class QuickOrder extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            services: [
-                {
-                    title: "لوگو",
-                    name: "logo",
-                    icon: "images/brand.svg",
-                    alt: "لوگو"
-                },
-                {
-                    title: "کاتالوگ",
-                    name: "catalog",
-                    icon: "images/big-brochure.svg",
-                    alt: "کاتالوگ"
-                },
-                {
-                    title: "کارت ویزیت",
-                    name: "visit-card",
-                    icon: "images/credit-card.svg",
-                    alt: "کارت ویزیت"
-                },
-                {
-                    title: "سربرگ",
-                    name: "letterhead",
-                    icon: "images/paper.svg",
-                    alt: "سربرگ"
-                },
-                {
-                    title: "ست اداری",
-                    name: "official set",
-                    icon: "images/office-tools.svg",
-                    alt: "ست اداری"
-                },
-            ],
+            services: [],
             order: {
                 order_items: [],
                 phone_number: "",
                 fullname: "",
                 description: ""
             },
+            searchResults: [],
+            searching: false,
+            searchValue: "",
             rules: {
                 phone_number: ['required','regex:/09[0-9]{9}/', 'numeric'],
                 fullname: ['required', 'string', 'min:3', 'max:40'],
@@ -54,19 +26,30 @@ class QuickOrder extends Component {
             errors: {},
             loading: false,
             active: true,
-            message: null
+            message: null,
+            loadingInitials: true,
+            displayCombo: false
         }
     }
-    handleToggle = (e) => {
-        let { name, checked } = e.target;
-        this.setState(prev => ({
-            order: {
-                ...prev.order,
-                order_items: checked && ! prev.order.order_items.includes(name)
-                ? [...prev.order.order_items, name]
-                : prev.order.order_items.filter(x => x !== name)
-            }
-        }))
+    handleToggle = (searching=false, e) => {
+        let targetInput = $(e.target).closest("label.combo-item").find("input"),
+        { id, checked, title, icon } = searching ? {id: $(targetInput).attr("comboid"), title: $(targetInput).attr("title"), icon: $(targetInput).attr("icon"), checked: $(targetInput).attr("checked")} : e.target,
+        { services } = this.state        
+        if (id) {
+            this.setState(prev => ({
+                order: {
+                    ...prev.order,
+                    order_items: ! prev.order.order_items.includes(id)
+                    ? [...prev.order.order_items, id]
+                    : prev.order.order_items.filter(x => x !== id)
+                }
+            }), () => {
+                if (searching) {
+                    !services.some(service => service.id === id) && this.setState(prev => ({services: [...prev.services, {id: id, title: title, icon_class: icon }]}))
+                    this.setState({displayCombo: false})
+                }
+            })
+        }
     }
     handleChange = (key, e) => {
         let { value } = e.target
@@ -150,8 +133,32 @@ class QuickOrder extends Component {
             errors: {}, 
         }, this.handleRecaptcha.bind(this, this.handleFormSubmit))
     }
+    handleSearch = (e) => {
+        let { value } = e.target, { searchApi } = this.props
+        this.setState({searching: true, searchValue: value}, () => {
+            if (value.length < 2) {
+                this.setState({searchResults: [], searching: false})
+            } else {
+                axios.get(`${searchApi}?q=${value}`).then(res => {
+                    let { data } = res
+                    this.setState({searchResults: data, searching: false})
+                })
+            }
+        })
+    }
+    onDisplayCombo = (displayCombo, e) => {
+        this.setState({displayCombo: displayCombo})
+    }
+    componentDidMount() {
+        let { dataInitial } = this.props
+        axios.get(dataInitial).then(res => {
+            let { data } = res
+            this.setState({services: data, loadingInitials: false})
+        })
+    }
+    
     render() {
-        let { services, order, error, errors, message, active, loading } = this.state
+        let { services, order, error, errors, message, active, loading, searchResults, searching, searchValue, loadingInitials, displayCombo } = this.state
         let {fullname, phone_number, description} = order
         let messages = [];
         if (Object.keys(errors).length) {
@@ -192,19 +199,47 @@ class QuickOrder extends Component {
                         </div>
                     </div>
                     <div className="order-types mb-3 w-100">
-                        {services.map((service, i) => (
+                        {loadingInitials ? <div className="flex-center w-100"><Spinner size={30} color="#C5AEF6" /></div>
+                         : services && services.length > 0 && services.map((service, i) => (
                             <div key={i} className="checkbox">
-                                <label className="checkbox-wrapper">
-                                    <input type="checkbox" className="checkbox-input" disabled={! active} checked={order.order_items.includes(service.name)} name={service.name} onChange={this.handleToggle}/>
+                                <label className="checkbox-wrapper" htmlFor={service.id}>
+                                    <input type="checkbox" className="checkbox-input" disabled={! active} checked={order.order_items.includes(`${service.id}`)} id={service.id} onChange={this.handleToggle.bind(this, false)}/>
                                     <span className="checkbox-tile">
                                         <span className="checkbox-icon">
-                                            <img src={APP_PATH + service.icon} alt={service.alt} />
+                                            <i className={service.icon_class}></i>
                                         </span>
                                         <span className="checkbox-label">{service.title}</span>
                                     </span>
                                 </label>
                             </div>
                         ))}
+                    </div>
+                    <div className="input-group float-right mb-3">
+                        <input type="text" id='combo-input' className='form-control' placeholder='جستجوی خدمات دیگر' value={searchValue} onChange={this.handleSearch} onFocus={this.onDisplayCombo.bind(this, true)} onBlur={this.onDisplayCombo.bind(this, false)} />
+                        <div className="input-group-append">
+                            <span className="input-group-text"><i className="far fa-search"></i></span>
+                        </div>
+                        <div className={`combo-box ${displayCombo ? "d-block" : "d-none"}`}>
+                            {searching ? <div className='py-2 flex-center'><Spinner size={20} color="#C5AEF6"/></div>
+                             : searchResults && searchResults.length > 0 ? searchResults.map((item, i) => {
+                                let { icon_class, title, group, id } = item, checked = order.order_items.includes(id.toString())
+                                return (
+                                    <label className='combo-item' key={i} onMouseDown={this.handleToggle.bind(this, true)}>
+                                        <input type="checkbox" className='d-none' disabled={! active} checked={checked} comboid={item.id} title={item.title} icon={item.icon_class} />
+                                        <div className='combo-left'>
+                                            {checked && <i className='fas fa-check-circle'></i>}
+                                            <p className="combo-group">{group}</p>
+                                        </div>
+                                        <div className='combo-right'>
+                                            <p className='combo-title'>{title}</p>
+                                            <span className='combo-icon'><i className={icon_class}></i></span>
+                                        </div>
+                                    </label>
+                                )
+                             })
+                             : searchResults.length === 0 && searchValue.length > 0 && <p className='combo-no-item'>نتیجه ای یافت نشد</p>
+                            }
+                        </div>
                     </div>
                     <div className="form-group">
                         <textarea name="fast-order-description" cols="30" rows="10" disabled={! active} value={description} onChange={this.handleChange.bind(this, 'description')} className="form-control" placeholder="توضیحات"></textarea>

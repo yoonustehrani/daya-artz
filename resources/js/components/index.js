@@ -13,11 +13,12 @@ import './services'
 import './scrollTo'
 import './portfolioImages'
 import './loadEnamad'
+import './lazyLoad'
 
 // quick order
 const quickOrderElement = document.getElementById("react-quick-order")
 if (quickOrderElement) {
-    render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
+    render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')} searchApi={quickOrderElement.getAttribute("data-search")} dataInitial={quickOrderElement.getAttribute("data-initial")}/>, quickOrderElement)
 }
 
 // portfolio section

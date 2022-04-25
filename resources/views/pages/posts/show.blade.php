@@ -53,21 +53,21 @@
                 <div class="post-info-container vertical-centerlize p-4">
                     <h1 class="horizontal-centerlize post-title mb-4 pr-2">{{ $post->title }}</h1>
                     <div class="post-info-flex rtl">
-                        <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2">
+                        <div class="col-12 col-lg-6 mb-4 mb-md-3 mb-lg-4 pr-2">
                             <i class="fas fa-icons"></i>
                             <span>دسته بندی موضوعی: </span>
                             <span itemprop="genre">{{ optional($post->category)->title }}</span>
                         </div>
-                        <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2">
+                        <div class="col-12 col-lg-6 mb-4 mb-md-3 mb-lg-4 pr-2">
                             <i class="fas fa-calendar-day"></i>
                             <span>تاریخ انتشار: </span>
                             <span>
                                 <time datetime="{{ $post->created_at->format('Y-m-d') }}">{{ jdate($post->created_at)->format('%e %B %Y') }}</time>
                             </span>
                         </div>
-                        <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-hourglass-start"></i><span>مدت زمان مطالعه: </span><span>{{ $post->reading_time }}</span></div>
+                        <div class="col-12 col-lg-6 mb-4 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-hourglass-start"></i><span>مدت زمان مطالعه: </span><span>{{ $post->reading_time }}</span></div>
                         @if ($post->author_id)
-                            <div class="col-12 col-md-6 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-user-edit"></i><span>نویسنده: </span><span>{{ $post->author->fullname }}</span></div>
+                            <div class="col-12 col-lg-6 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-user-edit"></i><span>نویسنده: </span><span>{{ $post->author->fullname }}</span></div>
                         @endif
                     </div>
                 </div>
