@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\OrderController as ApiOrderController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserArea\InvoiceController;
 use App\Http\Controllers\Api\UserArea\OrderController;
 use App\Http\Controllers\Api\UserArea\OrderItemController;
@@ -42,6 +43,7 @@ Route::prefix('forms')->name('forms.')->group(function() {
     Route::post('contact', [FormsController::class, 'contact'])->name('contact');
 });
 
+Route::get('services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
 Route::get('portfolio/{service?}', [PortfolioController::class, 'index'])->name('portfolios.index');
 
