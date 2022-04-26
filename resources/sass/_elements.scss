@@ -1960,7 +1960,7 @@ $labelData: '';
                 }
             }
         }
-        .card-1, .card-3, .card-5 {
+        .card-1, .card-3, .card-4, .card-6, .card-7, .card-9 {
             > div {
                 background-color: #fff;
                 .card-title {
@@ -1979,7 +1979,7 @@ $labelData: '';
                 }
             }
         } 
-        .card-1, .card-5 {
+        .card-1, .card-4, .card-7 {
             > div {
                 border: 2px solid #6232de;
                 background-image: url('/images/plan-bg.png');
@@ -1987,7 +1987,7 @@ $labelData: '';
                 background-position: center;
             }
         }
-        .card-2, .card-4 {
+        .card-2, .card-5, .card-8 {
             > div {
                 background-image: linear-gradient(to top, #ac7ff4, #8f60ec, #6232de);
                 background-image: -webkit-gradient(to top, #ac7ff4, #8f60ec, #6232de);
