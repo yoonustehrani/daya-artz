@@ -53,12 +53,12 @@ class ServiceSeeder extends Seeder
             //     "subtitle" => "ترکیب خود را بسازید",
             //     "description" => "اگه نیاز به طراحی های متنوع در بخش عا و خدمات مختلف هستید ، این بسته بهترین انتخاب برای شما و برندتان خواهد بود",
             //     "icon_class" => "far fa-plus-circle"
-            // ]
+            //
         ];
         foreach ($services as $service) {
             $service = new Service($service);
             $service->group = 'خدمات اصلی';
-            $service->main = false;
+            $service->main = true;
             $service->slug = str_replace(' ', '-',$service->title);
             $service->package = false;
             $service->save();
