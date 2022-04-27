@@ -55,26 +55,27 @@ class ServiceSeeder extends Seeder
             //     "icon_class" => "far fa-plus-circle"
             // ]
         ];
-        // foreach ($services as $service) {
-        //     $service = new Service($service);
-        //     $service->group = 'main';
-        //     $service->slug = str_replace(' ', '-',$service->title);
-        //     $service->package = false;
-        //     // $service->save();
-        //     if ($service->save()) {
-        //         $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
-        //         $files = File::where('type', 'image')->take(5)->inRandomOrder()->get()->map(function($file) {
-        //             return [
-        //                 'file_id' => $file->id,
-        //                 'alt' => \Str::random(16)
-        //             ];
-        //         })->toArray();
-        //         $portfolios = $service->portfolios()->saveMany(Portfolio::factory()->count(3)->make());
-        //         foreach ($portfolios as $p) {
-        //             $p->images()->createMany($files);
-        //         }
-        //     }
-        // }
+        foreach ($services as $service) {
+            $service = new Service($service);
+            $service->group = 'خدمات اصلی';
+            $service->main = false;
+            $service->slug = str_replace(' ', '-',$service->title);
+            $service->package = false;
+            $service->save();
+            // if ($service->save()) {
+                // $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
+                // $files = File::where('type', 'image')->take(5)->inRandomOrder()->get()->map(function($file) {
+                //     return [
+                //         'file_id' => $file->id,
+                //         'alt' => \Str::random(16)
+                //     ];
+                // })->toArray();
+                // $portfolios = $service->portfolios()->saveMany(Portfolio::factory()->count(3)->make());
+                // foreach ($portfolios as $p) {
+                //     $p->images()->createMany($files);
+                // }
+            // }
+        }
         $other_service = [
             [
                 "title" => "بنر تبلیغاتی",
@@ -171,6 +172,7 @@ class ServiceSeeder extends Seeder
         foreach ($other_service as $service) {
             $service = new Service($service);
             $service->package = false;
+            $service->main = false;
             $service->slug = str_replace(' ', '-',$service->title);
             $service->content = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error consequuntur incidunt nulla pariatur reiciendis placeat officia aliquam cum asperiores. Delectus repudiandae necessitatibus ipsum minima dolor sunt culpa, tenetur consequatur nobis.
             Magni ipsam ab, alias accusamus deserunt fugit id! Similique ipsum, tempore in, ullam error nam dolorum nihil consectetur harum voluptatum deleniti iusto ut. Rerum adipisci nulla saepe necessitatibus ad quidem.
@@ -182,19 +184,20 @@ class ServiceSeeder extends Seeder
             Fugit consequatur repellendus aliquid vitae vero modi quisquam, mollitia corrupti, reiciendis dignissimos aperiam accusamus facilis incidunt, magni soluta? Aliquam necessitatibus consequuntur ratione impedit! Temporibus obcaecati explicabo esse, officia exercitationem inventore!
             Molestias dignissimos enim architecto, hic distinctio expedita dolore quae repellat facilis! Modi suscipit est assumenda officiis perspiciatis laudantium aspernatur facilis. Sit distinctio eius voluptatibus error, sed dicta magni aspernatur nisi.
             Tenetur labore, impedit laudantium iste maiores minus quisquam numquam neque quae beatae cupiditate ratione, eveniet eum distinctio explicabo architecto aperiam. Consequatur illo facere possimus alias voluptates modi perspiciatis quia labore!</p>";
-            if ($service->save()) {
-                $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
-                $portfolios = $service->portfolios()->saveMany(Portfolio::factory()->count(5)->make());
-                foreach ($portfolios as $p) {
-                    $files = File::where('type', 'image')->take(3)->inRandomOrder()->get()->map(function($file) {
-                        return [
-                            'file_id' => $file->id,
-                            'alt' => \Str::random(16)
-                        ];
-                    })->toArray();
-                    $p->images()->createMany($files);
-                }
-            }
+            $service->save();
+            // if ($service->save()) {
+                // $service->plans()->saveMany(ServicePlan::factory()->count(3)->make());
+                // $portfolios = $service->portfolios()->saveMany(Portfolio::factory()->count(5)->make());
+                // foreach ($portfolios as $p) {
+                //     $files = File::where('type', 'image')->take(3)->inRandomOrder()->get()->map(function($file) {
+                //         return [
+                //             'file_id' => $file->id,
+                //             'alt' => \Str::random(16)
+                //         ];
+                //     })->toArray();
+                //     $p->images()->createMany($files);
+                // }
+            // }
         }
     }
 }
