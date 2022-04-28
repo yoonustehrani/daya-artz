@@ -58,7 +58,7 @@ mix.postCss(res.css + "landing.css", pub.css).options({
 })
     .js(res.js + "landing-opening.js", pub.js).react()
 
-// // //zeus
+// zeus
 mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
     require('postcss-import'),
     require('tailwindcss/nesting'),
@@ -73,7 +73,8 @@ mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
 ])
 mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
 mix.js(res.js + "components/zeusTickets.js", pub.js).react()
-// // tinymce
+
+// tinymce
 mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
 mix.js(zeus.res.js + 'tinymce/langs/fa.js', 'public/js/tinymce/langs')
 

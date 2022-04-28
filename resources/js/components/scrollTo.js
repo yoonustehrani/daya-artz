@@ -2,8 +2,8 @@
 let quickOrderForm = $("#quick-order-container")
 if (quickOrderForm.length > 0) {
     onClickBtn = () => {
-        targetPosition = $(quickOrderForm).offset().top + $("body").scrollTop()
-        $(window).width() >= 768 ? targetPosition -= 100 : targetPosition -= 20
+        targetPosition = $(quickOrderForm).offset().top + $("body").scrollTop() - 100
+        // $(window).width() >= 768 ? targetPosition -= 100 : targetPosition -= 20
         $("body").animate({
             scrollTop: targetPosition
         }, 500)
@@ -19,8 +19,8 @@ $(".post-main-text a[href^='#h_']").each(function(index, elem) {
     $(elem).on("click", (e) => {
         e.preventDefault()
         let targetElem = $($(elem).attr("href"))
-        targetPosition = targetElem.offset().top + $("body").scrollTop()
-        $(window).width() >= 768 ? targetPosition -= 100 : targetPosition -= 20
+        targetPosition = targetElem.offset().top + $("body").scrollTop() - 100
+        // $(window).width() >= 768 ? targetPosition -= 100 : targetPosition -= 20
         $("body").animate({
             scrollTop: targetPosition
         }, 500)

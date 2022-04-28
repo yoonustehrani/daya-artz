@@ -83,7 +83,7 @@
 <div class="section w-100 text-center contact-us-section-2 mt-5">
     <div class="title-section w-100 mb-3 mb-md-5">
         <div class="title-container">
-            <p class="title-text">راه های ارتباطی</p>
+            <h1 class="title-text">راه های ارتباطی دایا آرتز</h1>
         </div>
     </div>
     <div class="contact-ways-container w-100 mb-5">
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="text-center mb-4 col-10 col-md-3">
-            <span><i class="contact-way-icon fab fa-battle-net mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
+            <span><i class="contact-way-icon fad fa-wifi mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
             <div>
                 <a href="https://instagram.com/dayaartz">
                     <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon fab fa-instagram"></i></span><p class="text-center vertical-center">DayaArtz</p></div>
@@ -115,7 +115,7 @@
         <div class="text-center mb-4 col-10 col-md-3">
             <span><i class="contact-way-icon fal fa-robot mb-4 mt-4 mb-md-5 mt-md-5"></i></span>
             <a href="https://telegram.me/DayaArtzBot">
-                <div class="address-label mb-4 p-2"><span class="float-left vertical-center"><i class="label-icon far fa-robot"></i></span><p class="text-center vertical-center">بزودی</p></div>
+                <div class="address-label mb-4 p-2 soon"><span class="float-left vertical-center"><i class="label-icon far fa-robot"></i></span><p class="text-center vertical-center">بزودی</p></div>
             </a>
         </div>
     </div>

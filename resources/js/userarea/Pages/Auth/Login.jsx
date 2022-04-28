@@ -13,10 +13,10 @@ class Login extends Component {
         return (
             <div>
                 <h2>ورود به دایا آرتز</h2>
-                <div className="login-icons">
+                {/* <div className="login-icons">
                     <span><i className="fab fa-google"></i></span>
                     <span><i className="fab fa-linkedin-in"></i></span>
-                </div>
+                </div> */}
                 <span className="gray mb-2 animated" onClick={changeLoginMethod.bind(this)}>
                     {login_method === "email" ? "با استفاده از شماره تلفن" : "با استفاده از اکانت ایمیل"}
                     <i className="fas fa-long-arrow-alt-left mr-1"></i>
@@ -30,11 +30,12 @@ class Login extends Component {
                         </div>
                         <div className={`input-group animated ${login_method === "phone"  ? "" : "d-none"}`}>
                             <div className="input-group-prepend">
-                                <span className="country_codes_holder">
+                                {/* <span className="country_codes_holder">
                                     <select id="login-country-select">
                                         <option value="iran">+98</option>
                                     </select>
-                                </span>
+                                </span> */}
+                                <span className="input-group-text ltr">+98</span>
                             </div>
                             <input type="text" value={phone_number} className="form-control ltr" placeholder="شماره موبایل" onChange={onChangeField.bind(this, "login", "phone_number")} />
                             <div className="input-group-append"><span className="input-group-text"><i className="fas fa-mobile"></i></span></div>

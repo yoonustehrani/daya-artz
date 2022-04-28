@@ -13,14 +13,22 @@ class PortfolioController extends Controller
         if ($service) {
             $service = Service::findOrFail($service);
             $portfolios = \Cache::remember("service.{$service->id}.portfolios", 60 * 5, function () use($service) {
-                return Portfolio::whereIn('service_id', [$service->id, $service->parent_id])
-                    ->with('images.file')
+                $results = Portfolio::select(['id', 'title', 'slug'])
+                    ->where('service_id', $service->id)
                     ->get()
                     ->append('url');
+                if ($results->count()) {
+                    $results->load('images.file');
+                }
+                return $results;
             });
         } else {
             $portfolios = \Cache::remember('services.random.portfolios', 60 * 10, function () {
-                return Portfolio::take(6)->with('images.file')->inRandomOrder()->get()->append('url');
+                $results = Portfolio::select(['id', 'title', 'slug'])->take(6)->inRandomOrder()->get()->append('url');
+                if ($results->count()) {
+                    $results->load('images.file');
+                }
+                return $results;
             });
         }
         return response()->json($portfolios);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import { normal } from '../../../../components/select2'
+import { department_select } from '../../../../components/select2'
 import AlertService from '../../../../services/AlertService';
 import { useHttpService } from '../../../hooks';
 import Activity from '../Layout/components/Activity';
@@ -77,7 +77,7 @@ class NewTicket extends Component {
                 loading: false,
                 departments: response
             }, () => {
-                $("#department-section").select2(normal("بخش مربوطه"))
+                $("#department-section").select2(department_select)
                 $("#department-section").on("select2:select", () => {
                     this.changeDepartment($("#department-section").val())
                 })
@@ -102,7 +102,7 @@ class NewTicket extends Component {
                         <select id="department-section">
                             <option></option>
                             {departments.length > 0 && departments.map(dep => (
-                                <option key={dep.id} value={dep.id}>{dep.name}</option>
+                                <option key={dep.id} value={dep.id} title={dep.about}>{dep.name}</option>
                             ))}
                         </select>
                     </div>

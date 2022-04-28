@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="section post-main-section p-2 mt-4">
-            <div class="post-main-text">{!! $post->body !!}</div>
+            <div class="post-main-text" id="post-content">{!! $post->body !!}</div>
         </div>
     </div>
     {{-- @if ($post->related->count())

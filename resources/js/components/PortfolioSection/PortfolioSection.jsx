@@ -15,8 +15,8 @@ const PortfolioSection = function({targetApi}) {
     }, [])
     return (
         <>
-        {loading && <div className="d-flex justify-content-center"><Spinner /></div>}
-        {portfolios.length > 0 
+        {loading ? <div className="d-flex justify-content-center w-100"><Spinner size={30} /></div>
+        : portfolios.length > 0 
             ? portfolios.map((item, i) => <PortfolioItem key={i} image={item.images[0] ?? null} {...item}/>)
             : <p className="w-100 text-center">نمونه کاری جهت نمایش وجود ندارد</p>
         }

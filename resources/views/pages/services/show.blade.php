@@ -80,13 +80,14 @@
             </div>
         </div>
         <div class="other-services-container w-100">
+            <p class="text-center w-100">در این بخش می توانید با انتخاب خدمات زیر شاهد پلن های تعرفه و قیمت گذاری {{ $service->title }} باشید</p>
             @foreach ($service->children as $child)
             <div class="other-service">
                 <span class="back-aqua"><i class="{{ $child->icon_class }}"></i></span>
                 <h3 class="title service-title">{{ $child->title }}</h3>
                 <a class="service-subtitle" href="{{ route('services.show', ['slug' => $child->slug]) }}">{{ $child->subtitle }}</a>
                 <div class="button-container">
-                    <a href="{{ route('services.show', ['slug' => $child->slug]) }}" class="btn btn-gradient">بیشتر بدانید</a>
+                    <a href="{{ route('services.show', ['slug' => $child->slug]) }}" class="btn btn-gradient">مشاهده تعرفه</a>
                 </div>
             </div>
             @endforeach
@@ -174,7 +175,7 @@
                     </div>
                 </div>
                 <div class="step-info step-5">
-                    <h4>تصویه و تحویل</h4>
+                    <h4>تسویه و تحویل</h4>
                     <p>پرداخت کامل هزینه سفارش و دریافت فایل مورد نظر شما</p>
                 </div>
             </div>
@@ -196,7 +197,7 @@
         <div class="col-12 order-card-container">
         @foreach ($service->plans->sortBy('order')->chunk(3) as $plans)
             @foreach ($plans as $plan)
-            <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2">
+            <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2 mx-xl-2">
                 <div>
                     <h4 class="card-title bold">{{ $plan->title }}</h4>
                     <div class="card-price-container">

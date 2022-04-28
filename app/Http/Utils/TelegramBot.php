@@ -12,9 +12,9 @@ class TelegramBot
         $this->telegram_path = str_replace('BOT_TOKEN', $bot_token ,$this->telegram_path);
         return $this;
     }
-    private function makeRequest($path, $type = 'get', $body = null)
+    private function makeRequest($path, $type = 'get', $body = null, $key = 'form_params')
     {
-        $options = $body ? ['form_params' => $body] : [];
+        $options = $body ? [$key => $body] : [];
         $options = array_merge($options, ['timeout' => 60, 'headers' => ['Accept' => 'application/json']]);
         $request = new \GuzzleHttp\Client;
         if ($type == 'post') {
@@ -23,7 +23,7 @@ class TelegramBot
             $request = $request->get($path, $options);
         }
         $response = $request->getBody();
-        return $response;
+        return json_decode($response->getContents());
     }
     private function setMethod($method_name)
     {
@@ -55,16 +55,24 @@ class TelegramBot
         ];
         return $this->makeRequest($path, 'post', array_merge($data, $extra));
     }
-    public function sendDocument($chat_id, $document, $caption)
+    public function sendDocument($chat_id, $document, $caption = "", $extra = [])
     {
         $path = $this->setMethod('sendDocument');
-        $data = [
-            'chat_id' => $chat_id,
-            'document' => $document,
-            'caption' => $caption,
-            'protect_content' => true
+        $final_data = [
+            [
+                'name' => 'chat_id',
+                'contents' => $chat_id
+            ],
+            [
+                'name' => 'document',
+                'contents' => \GuzzleHttp\Psr7\Utils::tryFopen($document, 'r')
+            ],
+            [
+                'name' => 'caption',
+                'contents' => $caption
+            ]
         ];
-        
+        return $this->makeRequest($path, 'post', array_merge($final_data, $extra), 'multipart');
     }
     public function pinChatMessage($chat_id, $message_id, $notification = true)
     {

@@ -1,6 +1,7 @@
 // custom fonts
 @font-face {
     font-family: 'IranSansWeb';
+    font-display: swap;
     src: url(/fonts/IRANSansWeb.ttf) format("truetype");
 }
 $iran-sans: "IranSansWeb";

@@ -124,6 +124,7 @@ class QuickOrder extends Component {
                 })
             }
         }
+        this.scrollToTop()
     }
     handleSubmit = (e) => {
         e.preventDefault()
@@ -139,7 +140,7 @@ class QuickOrder extends Component {
             if (value.length < 2) {
                 this.setState({searchResults: [], searching: false})
             } else {
-                axios.get(`${searchApi}?q=${value}`).then(res => {
+                axios.get(`${searchApi}?q=${value.trim()}`).then(res => {
                     let { data } = res
                     this.setState({searchResults: data, searching: false})
                 })
@@ -148,6 +149,13 @@ class QuickOrder extends Component {
     }
     onDisplayCombo = (displayCombo, e) => {
         this.setState({displayCombo: displayCombo})
+    }
+    scrollToTop = () => {
+        let targetElem = $("#react-quick-order"),
+        target_position = targetElem.offset().top + $("body").scrollTop() - 100
+        $("body").animate({
+            scrollTop: target_position
+        }, 500)
     }
     componentDidMount() {
         let { dataInitial } = this.props
@@ -225,7 +233,7 @@ class QuickOrder extends Component {
                                 let { icon_class, title, group, id } = item, checked = order.order_items.includes(id.toString())
                                 return (
                                     <label className='combo-item' key={i} onMouseDown={this.handleToggle.bind(this, true)}>
-                                        <input type="checkbox" className='d-none' disabled={! active} checked={checked} comboid={item.id} title={item.title} icon={item.icon_class} />
+                                        <input type="checkbox" className='d-none' disabled={! active} checked={checked} comboid={item.id} title={item.title} icon={item.icon_class} onChange={() => {}} />
                                         <div className='combo-left'>
                                             {checked && <i className='fas fa-check-circle'></i>}
                                             <p className="combo-group">{group}</p>
