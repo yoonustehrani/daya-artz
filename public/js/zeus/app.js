@@ -1,6 +1,49 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./packages/ZeusExtensions/resources/js/components/index.js":
+/*!******************************************************************!*\
+  !*** ./packages/ZeusExtensions/resources/js/components/index.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var ReactImageExtension = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return __webpack_require__.e(/*! import() */ "packages_ZeusExtensions_resources_js_components_ReactImageExtension_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ./ReactImageExtension */ "./packages/ZeusExtensions/resources/js/components/ReactImageExtension/index.js"));
+});
+var imagePickerTarget = document.getElementById("react-image-picker");
+
+if (imagePickerTarget) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+    fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: "Loading ..."
+    }),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ReactImageExtension, {
+      target: imagePickerTarget.getAttribute('data-target'),
+      multiple: imagePickerTarget.hasAttribute('data-multiple')
+    })
+  }), imagePickerTarget);
+}
+
+/***/ }),
+
+/***/ "./packages/ZeusExtensions/resources/js/extensions.js":
+/*!************************************************************!*\
+  !*** ./packages/ZeusExtensions/resources/js/extensions.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ./components */ "./packages/ZeusExtensions/resources/js/components/index.js");
+
+/***/ }),
+
 /***/ "./packages/Zeus/resources/js/bootstrap.js":
 /*!*************************************************!*\
   !*** ./packages/Zeus/resources/js/bootstrap.js ***!
@@ -190,49 +233,6 @@ $('div[zeus-react-multi-select]').each(function () {
     })
   }), this);
 });
-
-/***/ }),
-
-/***/ "./packages/ZeusExtensions/resources/js/components/index.js":
-/*!******************************************************************!*\
-  !*** ./packages/ZeusExtensions/resources/js/components/index.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var ReactImageExtension = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-  return __webpack_require__.e(/*! import() */ "packages_ZeusExtensions_resources_js_components_ReactImageExtension_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ./ReactImageExtension */ "./packages/ZeusExtensions/resources/js/components/ReactImageExtension/index.js"));
-});
-var imagePickerTarget = document.getElementById("react-image-picker");
-
-if (imagePickerTarget) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-    fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      children: "Loading ..."
-    }),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ReactImageExtension, {
-      target: imagePickerTarget.getAttribute('data-target'),
-      multiple: imagePickerTarget.hasAttribute('data-multiple')
-    })
-  }), imagePickerTarget);
-}
-
-/***/ }),
-
-/***/ "./packages/ZeusExtensions/resources/js/extensions.js":
-/*!************************************************************!*\
-  !*** ./packages/ZeusExtensions/resources/js/extensions.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-__webpack_require__(/*! ./components */ "./packages/ZeusExtensions/resources/js/components/index.js");
 
 /***/ }),
 
@@ -11237,7 +11237,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /*!
  * 
- * persian-date -  1.1.0-rc2
+ * persian-date -  1.1.0
  * Reza Babakhani <babakhani.reza@gmail.com>
  * http://babakhani.github.io/PersianWebToolkit/docs/persian-date/
  * Under MIT license 
@@ -11254,7 +11254,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	var installedModules = {};
 /******/
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_728__(moduleId) {
+/******/ 	function __nested_webpack_require_724__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
@@ -11268,7 +11268,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		};
 /******/
 /******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_728__);
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_724__);
 /******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
@@ -11279,17 +11279,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_728__.m = modules;
+/******/ 	__nested_webpack_require_724__.m = modules;
 /******/
 /******/ 	// expose the module cache
-/******/ 	__nested_webpack_require_728__.c = installedModules;
+/******/ 	__nested_webpack_require_724__.c = installedModules;
 /******/
 /******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__nested_webpack_require_728__.i = function(value) { return value; };
+/******/ 	__nested_webpack_require_724__.i = function(value) { return value; };
 /******/
 /******/ 	// define getter function for harmony exports
-/******/ 	__nested_webpack_require_728__.d = function(exports, name, getter) {
-/******/ 		if(!__nested_webpack_require_728__.o(exports, name)) {
+/******/ 	__nested_webpack_require_724__.d = function(exports, name, getter) {
+/******/ 		if(!__nested_webpack_require_724__.o(exports, name)) {
 /******/ 			Object.defineProperty(exports, name, {
 /******/ 				configurable: false,
 /******/ 				enumerable: true,
@@ -11299,27 +11299,27 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__nested_webpack_require_728__.n = function(module) {
+/******/ 	__nested_webpack_require_724__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
 /******/ 			function getDefault() { return module['default']; } :
 /******/ 			function getModuleExports() { return module; };
-/******/ 		__nested_webpack_require_728__.d(getter, 'a', getter);
+/******/ 		__nested_webpack_require_724__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
 /******/
 /******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__nested_webpack_require_728__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/ 	__nested_webpack_require_724__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__nested_webpack_require_728__.p = "";
+/******/ 	__nested_webpack_require_724__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __nested_webpack_require_728__(__nested_webpack_require_728__.s = 8);
+/******/ 	return __nested_webpack_require_724__(__nested_webpack_require_724__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __nested_webpack_require_3161__) {
+/***/ (function(module, exports, __nested_webpack_require_3157__) {
 
 "use strict";
 
@@ -11328,7 +11328,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var durationUnit = __nested_webpack_require_3161__(4).durationUnit;
+var durationUnit = __nested_webpack_require_3157__(4).durationUnit;
 
 var Helpers = function () {
     function Helpers() {
@@ -11459,7 +11459,7 @@ module.exports = Helpers;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __nested_webpack_require_7658__) {
+/***/ (function(module, exports, __nested_webpack_require_7654__) {
 
 "use strict";
 
@@ -11468,16 +11468,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var TypeChecking = __nested_webpack_require_7658__(10);
-var Algorithms = __nested_webpack_require_7658__(2);
-var Helpers = __nested_webpack_require_7658__(0);
-var Duration = __nested_webpack_require_7658__(5);
-var Validator = __nested_webpack_require_7658__(11);
+var TypeChecking = __nested_webpack_require_7654__(10);
+var Algorithms = __nested_webpack_require_7654__(2);
+var Helpers = __nested_webpack_require_7654__(0);
+var Duration = __nested_webpack_require_7654__(5);
+var Validator = __nested_webpack_require_7654__(11);
 var toPersianDigit = new Helpers().toPersianDigit;
 var leftZeroFill = new Helpers().leftZeroFill;
 var normalizeDuration = new Helpers().normalizeDuration;
-var fa = __nested_webpack_require_7658__(7);
-var en = __nested_webpack_require_7658__(6);
+var fa = __nested_webpack_require_7654__(7);
+var en = __nested_webpack_require_7654__(6);
 
 /**
  * @description persian date class
@@ -11497,7 +11497,7 @@ var PersianDateClass = function () {
         this.leapYearMode = PersianDateClass.leapYearMode;
 
         this.algorithms = new Algorithms(this);
-        this.version = "1.1.0-rc2";
+        this.version = "1.1.0";
         this._utcMode = false;
         if (this.localType !== 'fa') {
             this.formatPersian = false;
@@ -13003,7 +13003,7 @@ module.exports = PersianDateClass;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __nested_webpack_require_55444__) {
+/***/ (function(module, exports, __nested_webpack_require_55436__) {
 
 "use strict";
 
@@ -13013,8 +13013,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 // Start algorithm class
-var ASTRO = __nested_webpack_require_55444__(3);
-var State = __nested_webpack_require_55444__(9);
+var ASTRO = __nested_webpack_require_55436__(3);
+var State = __nested_webpack_require_55436__(9);
 
 var Algorithms = function () {
     function Algorithms(parent) {
@@ -14163,7 +14163,7 @@ module.exports = {
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __nested_webpack_require_99876__) {
+/***/ (function(module, exports, __nested_webpack_require_99868__) {
 
 "use strict";
 
@@ -14172,7 +14172,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Helpers = __nested_webpack_require_99876__(0);
+var Helpers = __nested_webpack_require_99868__(0);
 var normalizeDuration = new Helpers().normalizeDuration;
 var absRound = new Helpers().absRound;
 var absFloor = new Helpers().absFloor;
@@ -14304,12 +14304,12 @@ module.exports = {
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __nested_webpack_require_106725__) {
+/***/ (function(module, exports, __nested_webpack_require_106717__) {
 
 "use strict";
 
 
-var PersianDateClass = __nested_webpack_require_106725__(1);
+var PersianDateClass = __nested_webpack_require_106717__(1);
 PersianDateClass.calendarType = 'persian';
 PersianDateClass.leapYearMode = 'astronomical';
 PersianDateClass.localType = 'fa';

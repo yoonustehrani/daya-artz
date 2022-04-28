@@ -758,6 +758,9 @@ span.back-aqua {
 .font-12 {
     font-size: 14px;
 }
+.font-10 {
+    font-size: 10px;
+}
 .font-bold {
     font-weight: bold;
 }
@@ -2015,7 +2018,7 @@ $labelData: '';
                     color: white;
                     border-color: white;
                 }
-                .card-price, ul {
+                .card-price {
                     color: white;
                     text-align: center;
                 }

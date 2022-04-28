@@ -80,13 +80,14 @@
             </div>
         </div>
         <div class="other-services-container w-100">
+            <p class="text-center w-100">در این بخش می توانید با انتخاب خدمات زیر شاهد پلن های تعرفه و قیمت گذاری {{ $service->title }} باشید</p>
             @foreach ($service->children as $child)
             <div class="other-service">
                 <span class="back-aqua"><i class="{{ $child->icon_class }}"></i></span>
                 <h3 class="title service-title">{{ $child->title }}</h3>
                 <a class="service-subtitle" href="{{ route('services.show', ['slug' => $child->slug]) }}">{{ $child->subtitle }}</a>
                 <div class="button-container">
-                    <a href="{{ route('services.show', ['slug' => $child->slug]) }}" class="btn btn-gradient">بیشتر بدانید</a>
+                    <a href="{{ route('services.show', ['slug' => $child->slug]) }}" class="btn btn-gradient">مشاهده تعرفه</a>
                 </div>
             </div>
             @endforeach
