@@ -17,16 +17,17 @@
         <div class="sample-images-slider">
             @if ($portfolio->images->count() > 0)
             <div class="showing-image">
-                <img class="animated fadeIn" id="portfolio-main-img" data-src="{{ asset($portfolio->images[0]->file->path) }}"
+                <a href="{{ asset($portfolio->images[0]->file->path) }}" data-lity><img class="animated fadeIn" id="portfolio-main-img" data-src="{{ asset($portfolio->images[0]->file->path) }}"
                 src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
                 alt="{{ $portfolio->images[0]->alt }}">
+                </a>
             </div>
             <div class="small-items-container">
                 <span id="prev-image"><i class="fas fa-chevron-left"></i></span>
                 @foreach ($portfolio->images as $item)
                 <div>
-                    <img data-src="{{ asset($item->file->thumbnail_path) }}"
-                    src="{{ asset($item->file->path) }}"
+                    <img main-src="{{ asset($item->file->path) }}"
+                    src="{{ asset($item->file->thumbnail_path) }}"
                     alt="{{ $item->alt }}">
                 </div>
                 @endforeach
@@ -115,7 +116,7 @@
                 <li><span>فلسفه فکری لوگو</span> <span></span></li>
                 <li><span>شروع ثبت سفارش</span> <span></span></li>
                 <li><span>راهنمای دایا</span> <span></span></li>
-                <li><span>طرح های مشابه</span> <span></span></li>
+                <li><span>سفارش سریع</span> <span></span></li>
             </ul>
         </div>
     </div>
@@ -125,4 +126,6 @@
         </span>
     </span>
 </div>
+
+<x-quick-order-form/>
 @endsection

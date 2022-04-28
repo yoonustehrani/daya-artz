@@ -50,14 +50,8 @@
 </div>
 
 <div class="section dotted-background bg-purple-gr col-12 py-4 p-md-4">
-    <div data-search="{{ route('api.services.index') }}"></div>
     <p class="title title-bigger text-light text-center">دنبال چه نوع طراحی میگردی؟</p>
-    <div class="input-group input-group-lg search-box-services col-xl-6 offset-xl-3 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-12 float-left p-0">
-        <div class="input-group-prepend">
-            <button class="btn btn-search" type="button">جستجو</button>
-        </div>
-        <input class="h-100 form-control text-light" type="text" placeholder="اینجا بنویس">
-    </div>
+    <div id="react-service-search" data-search="{{ route('api.services.index') }}"></div>
 </div>
 
 <div class="section w-100 mt-5 mb-0 mb-md-3">
@@ -73,7 +67,7 @@
         @foreach ($main_services as $main)
         <div class="main-service">
             <div class="icon-container">
-                <span class="back-aqua big-icon">
+                <span class="back-aqua">
                     <i class="{{ $main->icon_class }}"></i>
                 </span>
                 <h2>{{ $main->title }}</h2>
@@ -123,7 +117,11 @@
         <div class="contact-us-form">
             <p class="title contact-us-title mb-3 mb-md-2 mb-md-4">راهنمایی احتیاج دارید ؟</p>
             <form action="#">
-                <div class="input-group mb-2 mb-md-4"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
+                <div class="input-group mini-field d-inline-flex mb-2 mb-md-4 float-right"><input class="form-control" type="text" name="name" placeholder="نام و نام خانوادگی"></div>
+                <div class="input-group mini-field d-inline-flex mb-2 mb-md-4 float-left">
+                    <div class="input-group-prepend"><span class="input-group-text">+98</span></div>
+                    <input type="text" name="number" placeholder="شماره موبایل" class="form-control ltr">
+                </div>
                 <div class="form-group"><textarea class="form-control" name="message" cols="30" rows="10" placeholder="متن پیام شما"></textarea></div>
                 <button class="float-left btn btn-dark">ارسال پیام</button>
             </form>

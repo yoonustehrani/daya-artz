@@ -559,13 +559,15 @@
                 padding: 0;
                 margin: 8px;
                 text-align: right;
-                columns: 1;
                 list-style-type: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
                 li {
                     font-size: 16px;
                     font-weight: bold;
                     color: #fff;
-                    margin: 5px 0;
+                    margin: 5px 15px;
                     * {
                         color: inherit;
                     }
@@ -580,10 +582,9 @@
             }
             .order-info-container {
                 @extend .order-box-detail;
-                columns: none;
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
+                justify-content: space-between !important;
                 text-align: right;
                 margin: 0px auto 25px;
                 border-bottom: 2px solid rgb( 0 0 0 / 20%);
@@ -1576,7 +1577,7 @@
             // new ticekt
             .new-ticket-container {
                 > div:first-child {
-                    width: 200px;
+                    width: 260px;
                 }
                 .msg-text-section {
                     margin: 10px 0 20px 0;

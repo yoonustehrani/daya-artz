@@ -15,7 +15,7 @@ if ($(".section-guide-container").length > 0) {
     })
 
     // the code below is for checking which element is in viewport
-    const section_ids = ["#logo-info", "#order-detail", "#customer-detail", "#about-logo", "#start-order", "#daya-guide", "#daya-samples"]
+    const section_ids = ["#logo-info", "#order-detail", "#customer-detail", "#about-logo", "#start-order", "#daya-guide", "#quick-order-container"]
     $("body").on('scroll', function() {
         let sections_info = [], current_section_index
         section_ids.map((id, index) => {

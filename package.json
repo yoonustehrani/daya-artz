@@ -43,6 +43,7 @@
         "bootstrap": "^4.6.0",
         "dropzone": "^6.0.0-beta.2",
         "immer": "^9.0.6",
+        "lity": "^2.4.1",
         "moment-jalaali": "^0.9.4",
         "persian-datepicker": "^1.2.0",
         "postcss-preset-env": "^7.2.3",

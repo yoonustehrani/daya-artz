@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <div class="step-info step-5">
-                    <h4>تصویه و تحویل</h4>
+                    <h4>تسویه و تحویل</h4>
                     <p>پرداخت کامل هزینه سفارش و دریافت فایل مورد نظر شما</p>
                 </div>
             </div>
@@ -196,7 +196,7 @@
         <div class="col-12 order-card-container">
         @foreach ($service->plans->sortBy('order')->chunk(3) as $plans)
             @foreach ($plans as $plan)
-            <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2">
+            <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2 mx-xl-2">
                 <div>
                     <h4 class="card-title bold">{{ $plan->title }}</h4>
                     <div class="card-price-container">

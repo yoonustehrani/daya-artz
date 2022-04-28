@@ -38,6 +38,10 @@ var validate = function validate(inputsArray) {
                 !validator__WEBPACK_IMPORTED_MODULE_0___default().isMobilePhone(value) ? err = "شماره تلفن وارد شده معتبر نیست" : null;
                 break;
 
+              case "state_code":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isNumeric(value) || !value.length !== 3 ? err = "کد استان وارد شده معتبر نیست" : null;
+                break;
+
               case "short_text":
                 !validator__WEBPACK_IMPORTED_MODULE_0___default().isLength(value, {
                   min: 0,

@@ -28,9 +28,12 @@ $xl-xl-breakpoint: 1600px;
                 }
             }
             .last-item {
-                width: 169px !important;
+                width: 170px !important;
                 a {
                     font-size: 13px !important;
+                    i.fa-phone {
+                        font-size: 16px !important;
+                    }
                 }
                 .btn-phone {
                     width: 34px;
@@ -458,7 +461,6 @@ $xl-xl-breakpoint: 1600px;
         }
     }
     .order-box-detail {
-        columns: 2 !important;
         text-align: center !important;
         li {
             display: inline-block;
@@ -726,6 +728,9 @@ $xl-xl-breakpoint: 1600px;
             top: 2% !important;
             width: 100%;
         }
+    }
+    .daya-guide .mini-field {
+        width: 100% !important;
     }
     .contact-p {
         font-size: 16px !important;
@@ -1017,6 +1022,13 @@ $xl-xl-breakpoint: 1600px;
             }
         }
     }
+    .order-box-detail {
+        text-align: right !important;
+        justify-content: right !important;
+        li {
+            display: inline-block;
+        }
+    }
     .process-timeline {
         display: flex;
         flex-direction: row;
@@ -1152,10 +1164,13 @@ $xl-xl-breakpoint: 1600px;
         left: 0 !important;
         right: 0 !important;
         form {
-            width: 90% !important;
+            width: 100% !important;
         }
         p {
             width: 100% !important;
+        }
+        button, a {
+            width: auto !important;
         }
     }
     .top-background {
@@ -1450,6 +1465,7 @@ $xl-xl-breakpoint: 1600px;
     .order-card {
         > div {
             height: auto !important;
+            min-height: unset !important;
             button[type="submit"] {
                 position: static !important;
                 transform: none !important;
@@ -1521,14 +1537,17 @@ $xl-xl-breakpoint: 1600px;
                 margin: 0 0.5rem;
             }
             .last-item {
-                width: 155px !important;
+                width: 165px !important;
                 a {
-                    font-size: 12px !important;
+                    font-size: 13px !important;
+                    i.fa-phone {
+                        font-size: 18px !important;
+                    }
                 }
-                .btn-phone {
-                    width: 30px;
-                    height: 30px;
-                }
+                // .btn-phone {
+                //     width: 30px;
+                //     height: 30px;
+                // }
             }
         }
     }
@@ -1611,6 +1630,11 @@ $xl-xl-breakpoint: 1600px;
     .dashboard-container {
         :nth-child(odd) .shapes-back-img {background-position-y: 0 !important;}
         :nth-child(even) .shapes-back-img {background-position-y: -193px !important;}
+    }
+    .order-box-detail {
+        li {
+            margin: 5px 8px !important;
+        }
     }
 } // end mobile
 
@@ -1923,7 +1947,6 @@ $xl-xl-breakpoint: 1600px;
     }
     .order-box-bg {
         .order-box-detail {
-            columns: 2 !important;
             text-align: center !important;
             li {
                 display: inline-block;

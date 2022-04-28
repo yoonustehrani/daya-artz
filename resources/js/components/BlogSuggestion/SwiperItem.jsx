@@ -12,7 +12,7 @@ class SwiperItem extends Component {
                     </div>
                     <div className="article-info">
                         {/* <p className="blog-post-source">نوشته شده توسط دایا آرتز</p> */}
-                        <h3 className="title block">{title}</h3>
+                        <h3 className="title block mt-4">{title}</h3>
                         <p className="blog-post-description text-secondary">{description}</p>
                         <div className="article-time"><span>زمان مطالعه: {reading_time} <i className="far fa-clock"></i></span></div>
                     </div>

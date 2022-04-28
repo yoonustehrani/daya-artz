@@ -50,17 +50,20 @@ class PhoneInput extends Component {
                     </span>
                 }
                 <div className="input-group ltr animated">
-                    <div className={`input-group-prepend ${type === "telephone" && "state-code"}`}>
+                    {/* <div className={`input-group-prepend ${type === "telephone" && "state-code"}`}>
                         {type === "cellphone" ? (
                                 <span className="country_codes_holder">
                                     <select ref={this.country_code_ref}>
                                         <option value="iran">+98</option>
                                     </select>
                                 </span>)
-                            : (<input type="tel" ref={this.state_code_ref} className="form-control ltr" placeholder="کد استان" />)    
+                            : (
+                                <input type="tel" ref={this.state_code_ref} className="form-control ltr" placeholder="کد استان" />
+                            )    
                         }
-                    </div>
-                    <input type="tel" value={value ?? ""} className="form-control ltr" placeholder={type === "cellphone" ? "شماره موبایل" : "شماره تلفن"} onChange={(e) => onChangeHandler(path, e.target, validate_types, title, not_null, true)} />
+                    </div> */}
+                    {type === "cellphone" && <div className='input-group-prepend'><span className='input-group-text ltr'>+98</span></div>}
+                    <input type="tel" value={value ?? ""} className="form-control ltr" placeholder={type === "cellphone" ? "شماره موبایل" : "شماره تلفن همراه با پیش شماره استان"} onChange={(e) => onChangeHandler(path, e.target, validate_types, title, not_null, true)} />
                 </div>
             </div>
         );

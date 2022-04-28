@@ -23,7 +23,7 @@ const OrderContainer = ({items, created_at, id, code, method, status, type}) => 
                     ))}
                 </div>
                 <div className="w-100 text-center mt-3">
-                    <Link to={`/orders/${id}`} className="btn btn-light">اطلاعات بیشتر</Link>
+                    <Link to={`/orders/${id}`} className="btn btn-outline-light">اطلاعات بیشتر</Link>
                 </div>
             </div>
         </div>

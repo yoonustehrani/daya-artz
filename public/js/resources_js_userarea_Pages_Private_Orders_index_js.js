@@ -454,7 +454,7 @@ var OrderContainer = function OrderContainer(_ref) {
         className: "w-100 text-center mt-3",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
           to: "/orders/".concat(id),
-          className: "btn btn-light",
+          className: "btn btn-outline-light",
           children: "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0628\u06CC\u0634\u062A\u0631"
         })
       })]
