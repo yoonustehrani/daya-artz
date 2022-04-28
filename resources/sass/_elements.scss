@@ -109,7 +109,7 @@ button {
 
 .about-section {
     background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
-    background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+    // background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
     // height: fit-content;
     > div {
         min-height: 300px;
@@ -1226,7 +1226,7 @@ span.back-aqua {
 // FAQ Accordion
 .FAQ-section {
     background: linear-gradient(135deg, #a77cf2 #8f4eff);
-    background: -webkit-linear-gradient(135deg, #a77cf2, #8f4eff);
+    // background: -webkit-linear-gradient(135deg, #a77cf2, #8f4eff);
     border-right: 2px solid #18093c;
     h4.faq-title {
         color: #fff;
@@ -1905,7 +1905,7 @@ $labelData: '';
             padding-left: 24px;
             background-origin: padding-box;
             background: linear-gradient(to right, white 3px, rgba(0,0,0,0) 3px 9px, white 9px 13px, transparent 13px), linear-gradient(to left, white 3px, rgba(0,0,0,0) 3px 9px, white 9px 13px, transparent 13px);
-            background: -webkit-linear-gradient(to right, white 3px, rgba(0,0,0,0) 3px 9px, w2ite 9px 13px, tra2sparent 13px), -webkit-linear-gradient(to left, white 3px, rgba(0,0,0,0) 3p2 9px, white 9px 12px, transparent 13px);
+            // background: -webkit-linear-gradient(to right, white 3px, rgba(0,0,0,0) 3px 9px, w2ite 9px 13px, tra2sparent 13px), -webkit-linear-gradient(to left, white 3px, rgba(0,0,0,0) 3p2 9px, white 9px 12px, transparent 13px);
             text-shadow: 2px 2px 0px $aqua;
         }
         button {
@@ -2141,7 +2141,7 @@ $labelData: '';
 }
 .bg-purple-gr {
     background: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
-    background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+    // background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
 }
 // main-services
 .main-services-container {
@@ -2274,7 +2274,7 @@ $labelData: '';
     left: 0;
     .section-guide-bg {
         background: linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
-        background: -webkit-linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
+        // background: -webkit-linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
         // box-shadow: 2px 2px 15px 0px #6232de;
         box-shadow: 0 5px 35px rgb(0 0 0 / 6%);
         height: initial;
@@ -2549,7 +2549,7 @@ $labelData: '';
 }
 .portfolio-order-detail {
     background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
-    background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+    // background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
     text-align: center;
     h4 {
         color: white;
@@ -2674,7 +2674,7 @@ $labelData: '';
         margin-top: 50px;
         border-radius: 20px;
         background: linear-gradient(to right, #d5bfe9 20%, #ad80db 40%, #854bc4 60%, #61368c 80%,#351a60 100%);
-        background: -webkit-linear-gradient(to right, #d5bfe9 20%, #ad80db 40%, #854bc4 60%, #61368c 80%,#351a60 100%);
+        // background: -webkit-linear-gradient(to right, #d5bfe9 20%, #ad80db 40%, #854bc4 60%, #61368c 80%,#351a60 100%);
         span {
             color: white;
             text-align: center;

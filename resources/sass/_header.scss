@@ -1,20 +1,20 @@
 .header {
     background: linear-gradient(50deg, #e77cf2, #6332de);
-    background: -webkit-linear-gradient(50deg, #e77cf2, #6332de);
+    // background: -webkit-linear-gradient(50deg, #e77cf2, #6332de);
     @media screen and (min-width: $md-breakpoint) {
         background: linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
-        background: -webkit-linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
+        // background: -webkit-linear-gradient(50deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
     }
     @media screen and (min-width: $xl-breakpoint) {
         background: linear-gradient(60deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
-        background: -webkit-linear-gradient(60deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
+        // background: -webkit-linear-gradient(60deg, #ffffff 0 26%,#a77cf2 26.09%, #6332de);
     }
     // min-height: 600px;
 }
 
 .min-header {
     background: linear-gradient(to right, #a77cf2, #6332de);
-    background: -webkit-linear-gradient(to right, #a77cf2, #6332de);
+    // background: -webkit-linear-gradient(to right, #a77cf2, #6332de);
 }
 
 .header, .min-header {
@@ -26,7 +26,7 @@
         #header-nav {
             position: fixed;
             background: linear-gradient(to right, #a77cf2, #6332de);
-            background: -webkit-linear-gradient(to right, #a77cf2, #6332de);
+            // background: -webkit-linear-gradient(to right, #a77cf2, #6332de);
             left: 0;
             right: 0;
         }
@@ -207,7 +207,7 @@
         height: 0;
         padding-bottom: 75%;
         background: linear-gradient(50deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
-        background: -webkit-linear-gradient(50deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+        // background: -webkit-linear-gradient(50deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
         position: absolute;
         left: 0%;
         bottom: 0%;
@@ -219,7 +219,7 @@
         @media screen and (min-width: $xl-breakpoint) {
             padding-bottom: 35%;
             background: linear-gradient(60deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
-            background: -webkit-linear-gradient(60deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
+            // background: -webkit-linear-gradient(60deg, #F9E7E7 0% 50%, rgba(62, 34, 34, 0) 50% 100%);
         }
     }
     .header-vector {
@@ -297,7 +297,7 @@
         height: 100% !important;
         padding-bottom: 0 !important;
         background: linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
-        background: -webkit-linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
+        // background: -webkit-linear-gradient(to top right, rgba(249, 231, 231, 0.8) 0% 50%, rgba(62, 34, 34, 0) 50% 100%) !important;
     }
     .header-vector {
         height: auto;
