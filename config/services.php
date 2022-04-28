@@ -61,6 +61,10 @@ return [
         'notifier' => [
             'token' => '5095238584:AAGT7GlypV8ZznQIDmowjPLEc0gMOndZJSw',
             'channel_chat_id' => -1001707124270
+        ],
+        'server' => [
+            'token' => '5334104425:AAGrSGa6ysifA2ueez3LkgmjLFMmos9kebg',
+            'channel_chat_id' => -1001794637315
         ]
     ],
 
