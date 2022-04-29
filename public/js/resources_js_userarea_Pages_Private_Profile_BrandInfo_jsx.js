@@ -10,7 +10,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "state_select": () => (/* binding */ state_select),
-/* harmony export */   "normal": () => (/* binding */ normal)
+/* harmony export */   "normal": () => (/* binding */ normal),
+/* harmony export */   "department_select": () => (/* binding */ department_select)
 /* harmony export */ });
 var state_select = {
   templateResult: function templateResult(state) {
@@ -33,6 +34,18 @@ var normal = function normal() {
     dir: "rtl",
     placeholder: placeholder
   };
+};
+var department_select = {
+  width: "100%",
+  dir: "rtl",
+  placeholder: "بخش مربوطه",
+  templateResult: function templateResult(dep) {
+    if (!dep.title) {
+      return dep.text;
+    }
+
+    return $("<span class=\"font-bold\">".concat(dep.text, "</span><p class=\"font-12\">").concat(dep.title, "</p>"));
+  }
 };
 
 /***/ }),
@@ -72,6 +85,10 @@ var validate = function validate(inputsArray) {
 
               case "phone_number":
                 !validator__WEBPACK_IMPORTED_MODULE_0___default().isMobilePhone(value) ? err = "شماره تلفن وارد شده معتبر نیست" : null;
+                break;
+
+              case "state_code":
+                !validator__WEBPACK_IMPORTED_MODULE_0___default().isNumeric(value) || !value.length !== 3 ? err = "کد استان وارد شده معتبر نیست" : null;
                 break;
 
               case "short_text":
@@ -571,28 +588,17 @@ var PhoneInput = /*#__PURE__*/function (_Component) {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "input-group ltr animated",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "input-group-prepend ".concat(type === "telephone" && "state-code"),
-            children: type === "cellphone" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "country_codes_holder",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("select", {
-                ref: this.country_code_ref,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                  value: "iran",
-                  children: "+98"
-                })
-              })
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "tel",
-              ref: this.state_code_ref,
-              className: "form-control ltr",
-              placeholder: "\u06A9\u062F \u0627\u0633\u062A\u0627\u0646"
+          children: [type === "cellphone" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "input-group-prepend",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "input-group-text ltr",
+              children: "+98"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "tel",
             value: value !== null && value !== void 0 ? value : "",
             className: "form-control ltr",
-            placeholder: type === "cellphone" ? "شماره موبایل" : "شماره تلفن",
+            placeholder: type === "cellphone" ? "شماره موبایل" : "شماره تلفن همراه با پیش شماره استان",
             onChange: function onChange(e) {
               return onChangeHandler(path, e.target, validate_types, title, not_null, true);
             }

@@ -10,7 +10,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "state_select": () => (/* binding */ state_select),
-/* harmony export */   "normal": () => (/* binding */ normal)
+/* harmony export */   "normal": () => (/* binding */ normal),
+/* harmony export */   "department_select": () => (/* binding */ department_select)
 /* harmony export */ });
 var state_select = {
   templateResult: function templateResult(state) {
@@ -33,6 +34,18 @@ var normal = function normal() {
     dir: "rtl",
     placeholder: placeholder
   };
+};
+var department_select = {
+  width: "100%",
+  dir: "rtl",
+  placeholder: "بخش مربوطه",
+  templateResult: function templateResult(dep) {
+    if (!dep.title) {
+      return dep.text;
+    }
+
+    return $("<span class=\"font-bold\">".concat(dep.text, "</span><p class=\"font-12\">").concat(dep.title, "</p>"));
+  }
 };
 
 /***/ }),
@@ -161,14 +174,8 @@ var ForgetPassword = /*#__PURE__*/function (_Component) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "input-group-prepend",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "country_codes_holder",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("select", {
-                  id: "forget_pass_select",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    value: "iran",
-                    children: "+98"
-                  })
-                })
+                className: "input-group-text ltr",
+                children: "+98"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               type: "text",

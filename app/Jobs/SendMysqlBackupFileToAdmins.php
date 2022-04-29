@@ -38,9 +38,12 @@ class SendMysqlBackupFileToAdmins implements ShouldQueue
             $this->fail(new Exception("File {$this->filename} does not exist"));
             return;
         }
-        $tgbot = new TelegramBot("5334104425:AAGrSGa6ysifA2ueez3LkgmjLFMmos9kebg");
+        $tgbot = new TelegramBot(config('services.telegram_bots.server.token'));
         $dt = $this->datetime->format('Y-m-d H:i:s');
-        $tgbot->sendMessage(-1001794637315, "💾 Mysql Backup: {$dt} 👇");
-        
+        $result = $tgbot->sendDocument(config('services.telegram_bots.server.channel_chat_id'), $this->filename, "💾 Mysql Backup: {$dt}");
+        if (! optional($result)->ok) {
+            $this->fail(new Exception("Telegram response was not okay"));
+            return;
+        }
     }
 }

@@ -30,11 +30,12 @@ class ForgetPassword extends Component {
                     </div>
                     <div className={`input-group animated ${login_method === "phone" ? "" : "d-none"}`}>
                         <div className="input-group-prepend">
-                            <span className="country_codes_holder">
+                            {/* <span className="country_codes_holder">
                                 <select id="forget_pass_select">
                                     <option value="iran">+98</option>
                                 </select>
-                            </span>
+                            </span> */}
+                            <span className="input-group-text ltr">+98</span>
                         </div>
                         <input type="text" value={phone_number} className="form-control ltr" placeholder="شماره موبایل" onChange={onChangeField.bind(this, "forgetPassword", "phone_number")} />
                         <div className="input-group-append"><span className="input-group-text"><i className="fas fa-mobile"></i></span></div>

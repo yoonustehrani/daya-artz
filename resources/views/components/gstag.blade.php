@@ -1,3 +1,4 @@
+@unless (config('app.env') == 'local')
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCLC4ZVHRT"></script>
 <script>
@@ -7,3 +8,4 @@ gtag('js', new Date());
 
 gtag('config', 'G-VCLC4ZVHRT');
 </script>
+@endunless

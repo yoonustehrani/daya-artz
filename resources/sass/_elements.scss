@@ -109,7 +109,7 @@ button {
 
 .about-section {
     background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
-    background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+    // background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
     // height: fit-content;
     > div {
         min-height: 300px;
@@ -231,8 +231,8 @@ input.eggplant {
                 line-height: 1.3rem;
             }
             button {
-                background: linear-gradient(to right, $aqua 0%, $light-aqua 50%, $aqua-purple 100%);
-                background: -webkit-gradient(to right, $aqua 0%, $light-aqua 50%, $aqua-purple 100%);
+                background: linear-gradient(to right, $aqua 0%, $light-aqua 50%, $light-eggplant 100%);
+                background: -webkit-gradient(to right, $aqua 0%, $light-aqua 50%, $light-eggplant 100%);
             }
         }
     }
@@ -613,11 +613,13 @@ span.back-aqua {
             .order-types {
                 display: flex;
                 flex-direction: row-reverse;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
                 flex-wrap: wrap;
                 .checkbox {
                     // margin: 0 10px;
+                    margin-right: 5px;
+                    margin-left: 5px;
                 }
                 .checkbox-input {
                     clip: rect(0 0 0 0);
@@ -674,6 +676,10 @@ span.back-aqua {
                     transition: 0.375s ease;
                     color: #494949;
                     margin-bottom: 5px;
+                    i {
+                        font-size: 45px;
+                        color: #000;
+                    }
                 }
                 .checkbox-icon svg, img {
                     width: 3rem;
@@ -748,6 +754,15 @@ span.back-aqua {
 }
 .font-16 {
     font-size: 16px;
+}
+.font-12 {
+    font-size: 14px;
+}
+.font-10 {
+    font-size: 10px;
+}
+.font-bold {
+    font-weight: bold;
 }
 .silver {
     color: $silver;
@@ -1004,6 +1019,9 @@ span.back-aqua {
     .contact-us-form {
         top: 8%;
         width: 40%;
+        .mini-field {
+            width: 49%;
+        }
     }
 }
 
@@ -1103,6 +1121,7 @@ span.back-aqua {
           float: right;
           font-size: 32px;
           font-weight: bold;
+          width: 100%;
         }
         input, textarea {
             font-size: 20px;
@@ -1118,6 +1137,9 @@ span.back-aqua {
             &:hover {
                 background-color: $eggplant;
             }
+        }
+        span.input-group-text {
+            background-color: #EAECFA !important;
         }
     }
 }
@@ -1204,7 +1226,7 @@ span.back-aqua {
 // FAQ Accordion
 .FAQ-section {
     background: linear-gradient(135deg, #a77cf2 #8f4eff);
-    background: -webkit-linear-gradient(135deg, #a77cf2, #8f4eff);
+    // background: -webkit-linear-gradient(135deg, #a77cf2, #8f4eff);
     border-right: 2px solid #18093c;
     h4.faq-title {
         color: #fff;
@@ -1883,7 +1905,7 @@ $labelData: '';
             padding-left: 24px;
             background-origin: padding-box;
             background: linear-gradient(to right, white 3px, rgba(0,0,0,0) 3px 9px, white 9px 13px, transparent 13px), linear-gradient(to left, white 3px, rgba(0,0,0,0) 3px 9px, white 9px 13px, transparent 13px);
-            background: -webkit-linear-gradient(to right, white 3px, rgba(0,0,0,0) 3px 9px, w2ite 9px 13px, tra2sparent 13px), -webkit-linear-gradient(to left, white 3px, rgba(0,0,0,0) 3p2 9px, white 9px 12px, transparent 13px);
+            // background: -webkit-linear-gradient(to right, white 3px, rgba(0,0,0,0) 3px 9px, w2ite 9px 13px, tra2sparent 13px), -webkit-linear-gradient(to left, white 3px, rgba(0,0,0,0) 3p2 9px, white 9px 12px, transparent 13px);
             text-shadow: 2px 2px 0px $aqua;
         }
         button {
@@ -1908,8 +1930,9 @@ $labelData: '';
         margin-left: auto;
         margin-right: auto;
         .order-card {
+            max-width: 450px;
             > div {
-                height: 520px;
+                min-height: 550px;
                 text-align: center;
                 padding: 20px;
                 margin: 0;
@@ -1956,7 +1979,7 @@ $labelData: '';
                 }
             }
         }
-        .card-1, .card-3, .card-5 {
+        .card-1, .card-3, .card-4, .card-6, .card-7, .card-9 {
             > div {
                 background-color: #fff;
                 .card-title {
@@ -1965,6 +1988,9 @@ $labelData: '';
                 }
                 .card-price, .card-options {
                     color: #2d027c
+                }
+                ul {
+                    color: $horny-eggplant;
                 }
                 button {
                     background-color: #6232de !important;
@@ -1975,7 +2001,7 @@ $labelData: '';
                 }
             }
         } 
-        .card-1, .card-5 {
+        .card-1, .card-4, .card-7 {
             > div {
                 border: 2px solid #6232de;
                 background-image: url('/images/plan-bg.png');
@@ -1983,7 +2009,7 @@ $labelData: '';
                 background-position: center;
             }
         }
-        .card-2, .card-4 {
+        .card-2, .card-5, .card-8 {
             > div {
                 background-image: linear-gradient(to top, #ac7ff4, #8f60ec, #6232de);
                 background-image: -webkit-gradient(to top, #ac7ff4, #8f60ec, #6232de);
@@ -1992,11 +2018,12 @@ $labelData: '';
                     color: white;
                     border-color: white;
                 }
-                .card-price, .card-options {
+                .card-price {
                     color: white;
                     text-align: center;
                 }
                 ul {
+                    color: white;
                     li::before {
                         color: white;
                     }
@@ -2114,7 +2141,7 @@ $labelData: '';
 }
 .bg-purple-gr {
     background: linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
-    background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
+    // background: -webkit-linear-gradient(to right, #ac7ff4, #8f60ec, #6232de);
 }
 // main-services
 .main-services-container {
@@ -2198,6 +2225,7 @@ $labelData: '';
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    direction: rtl;
     > .other-service {
         background-color: white;
         box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 4%);
@@ -2246,7 +2274,7 @@ $labelData: '';
     left: 0;
     .section-guide-bg {
         background: linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
-        background: -webkit-linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
+        // background: -webkit-linear-gradient(to bottom right, rgba($color: #ac7ff4, $alpha: 0.8), rgba($color: #8f60ec, $alpha: 0.8), rgba($color: #6232de, $alpha: 0.8));
         // box-shadow: 2px 2px 15px 0px #6232de;
         box-shadow: 0 5px 35px rgb(0 0 0 / 6%);
         height: initial;
@@ -2414,7 +2442,7 @@ $labelData: '';
     .showing-image {
         position: relative;
         width: 100%;
-        > img {
+        img {
             width: 100%;
             height: 100%;
             position: absolute;
@@ -2521,7 +2549,7 @@ $labelData: '';
 }
 .portfolio-order-detail {
     background-image: linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
-    background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
+    // background-image: -webkit-linear-gradient(to left, #ac7ff4, #8f60ec, #6232de);
     text-align: center;
     h4 {
         color: white;
@@ -2646,7 +2674,7 @@ $labelData: '';
         margin-top: 50px;
         border-radius: 20px;
         background: linear-gradient(to right, #d5bfe9 20%, #ad80db 40%, #854bc4 60%, #61368c 80%,#351a60 100%);
-        background: -webkit-linear-gradient(to right, #d5bfe9 20%, #ad80db 40%, #854bc4 60%, #61368c 80%,#351a60 100%);
+        // background: -webkit-linear-gradient(to right, #d5bfe9 20%, #ad80db 40%, #854bc4 60%, #61368c 80%,#351a60 100%);
         span {
             color: white;
             text-align: center;
@@ -2678,4 +2706,88 @@ $labelData: '';
     &:hover {
         background-color: $purple;
     }
+}
+// quick order form combo box
+.combo-box {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+    width: 100%;
+    float: right;
+    max-height: 300px;
+    overflow: hidden auto;
+    position: absolute;
+    top: calc(1.5em + 0.75rem + 2px);
+    z-index: 10;
+    .combo-no-item {
+        margin-bottom: 0;
+        font-size: 16px;
+        font-weight: normal;
+        color: #707070;
+    }
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3 );
+        background-color: #F5F5F5;
+    }
+    .combo-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 10px;
+        width: 100%;
+        transition: 0.3s;
+        cursor: pointer;
+        direction: ltr;
+        margin: 0;
+        * {
+            margin-bottom: 0;
+        }
+        .combo-right {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .combo-title {
+                font-size: 16px;
+                color: #000;
+            }
+            .combo-icon {
+                font-size: 18px;
+                color: $light-eggplant;
+                margin-left: 6px;
+            }
+        }
+        .combo-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .combo-group {
+                font-size: 14px;
+                color: #8f60ec;
+            }
+            i {
+                color: #6232de;
+                margin-right: 8px;
+                font-size: 14px;
+            }
+        }
+        &:hover {
+            background-color: $light-bg-msg;
+        }
+    }
+}
+
+.combo-box-services {
+    @extend .combo-box;
+    top: 60px !important;
+    border-radius: 0.3rem;
+}
+
+.soon {
+    background: linear-gradient(to right, #C2AEF3 50%, #9177D1 100%) !important;
 }

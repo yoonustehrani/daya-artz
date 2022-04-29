@@ -19,13 +19,13 @@
                     <span class="back-aqua"><i class="fal fa-crosshairs"></i></span>
                     <h4>سفارش تخصصی</h4>
                     <p class="text-secondary">ثبت سفارش شما به شیوه تخصصی توسط فرم ها</p>
-                    <button class="btn btn-gradient ltr">بزودی</button>
+                    <button class="btn btn-gradient ltr soon">بزودی</button>
                 </div>
                 <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                     <span class="back-aqua"><i class="fal fa-robot"></i></span>
                     <h4>ربات تلگرام</h4>
                     <p class="text-secondary">ثبت سفارش تخصصی و هوشمند با ربات تلگرام:</p>
-                    <a class="btn btn-gradient ltr mt-12-p" href="#">بزودی</a>
+                    <a class="btn btn-gradient ltr mt-12-p soon" href="#">بزودی</a>
                 </div>
                 <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                     <span class="back-aqua"><i class="fal fa-space-shuttle"></i></span>

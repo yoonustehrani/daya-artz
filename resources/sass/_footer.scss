@@ -97,10 +97,23 @@
                     }
                     li:before {
                         content: "\f0c1";
-                        font-family: "Font Awesome 5 Free";
+                        font-family: "Font Awesome 5 Pro";
                         font-weight: 900;
                         color: #dfdfdf;
                         margin-left: 5px;
+                    }
+                }
+                ul.footer-phones {
+                    li:before {
+                        display: none;
+                    }
+                    li {
+                        display: block;
+                        direction: ltr;
+                        color: #fff;
+                        i {
+                            margin-right: 5px;
+                        }
                     }
                 }
             }

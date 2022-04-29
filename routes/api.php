@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\OrderController as ApiOrderController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserArea\InvoiceController;
 use App\Http\Controllers\Api\UserArea\OrderController;
 use App\Http\Controllers\Api\UserArea\OrderItemController;
@@ -37,10 +38,12 @@ Route::get('/', fn() => ['okay' => true]);
 
 Route::prefix('forms')->name('forms.')->group(function() {
     Route::post('quick-order', [FormsController::class, 'quickOrder'])->name('orders.quick');
-    Route::get('quick-order/services', [ApiOrderController::class, 'services'])->name('orders.services.search');
+    Route::get('quick-order/services', [ApiOrderController::class, 'search'])->name('orders.services.search');
+    Route::get('quick-order/services/main', [ApiOrderController::class, 'index'])->name('orders.services.main');
     Route::post('contact', [FormsController::class, 'contact'])->name('contact');
 });
 
+Route::get('services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
 Route::get('portfolio/{service?}', [PortfolioController::class, 'index'])->name('portfolios.index');
 

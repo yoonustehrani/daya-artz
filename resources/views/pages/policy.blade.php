@@ -9,7 +9,7 @@
 <!-- Policy Header -->
 <div class="header-section policy-header">
     <div class="header-text p-4 col-12 col-md-7">
-        <h2>قوانین و مقررات <a href="{{ route('home') }}">دایا آرتز</a></h2>
+        <h1>شرایط استفاده از خدمات <a href="{{ route('home') }}">دایا آرتز</a></h1>
         <br>
         <p>تیم طراحی لوگو و خدمات گرافیکی <a href="{{ route('home') }}">دایا آرتز</a> در چارچوب های اخلاقی جمهوری اسلامی ایران و تابع انجمن صنفی طراحان گرافیک ایران است که اصول حرفه ای و متود های کیفی جهانی را سرلوح فعالیت های خود قرار داده است.</p>
     </div>
@@ -32,7 +32,7 @@
     </div>
     <div class="daya-duties">
         <div class="customer-vector">
-            <img src="{{ asset("/images/commitments.svg") }}" alt="تعهدات و سیاست های دایا آرتز>
+            <img src="{{ asset("/images/commitments.svg") }}" alt="تعهدات و سیاست های دایا آرتز">
         </div>
         <div class="duty-item">
             <p>1- آیا تیم دایا آرتز در جهت حفظ اطلاعات کارفرمایان حقوقی و حقیقی مسئول است؟ بله کاملا</p>
@@ -73,7 +73,7 @@
 <div class="section w-100 FAQ-section mt-5">
     <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
     <div class="accordion-container p-4">
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>دایا آرتز برای چه کسب و کار هایی طراحی می کنه ؟</h4>
                 <span>
@@ -83,7 +83,7 @@
             </div>
             <p class="answer animated flipInY d-none">دایا آرتز برای تمامی مشاغل و کسب و کار های موجود، فعالیت طراحی گرافیک را به شکل حرفه ایی دنبال می کند . از رستوران و کافی شاپ تا استارتاپ ها و شرکت های توسعه فناوری ؛ نیاز هایشان توسط دایا آرتز سنجیده شده تا بهترین خدمات را دریافت کنند.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>دایا آرتز چگونه ما را پشتیبانی و پیگیری می کند ؟</h4>
                 <span>
@@ -93,7 +93,7 @@
             </div>
             <p class="answer animated flipInY d-none">دایا آرتز دارای یک سیستم پشتیبانی منظم و فعال آنلاین می باشد که منظم به سوالات شما پاسخ می دهد و همچنین در یک اقدام فوق العاده امکان پیگیری های چند جانبه شما را از طریق پنل شخصی کارفرما ایجاد کرده است . ضمنا دایا آرتز از طریق تماس تلفنی و شبکه های اجتماعی نیز پشتیبان و پیگیر مخاطبان خود می باشد .</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>به چه روش هایی امکان سفارش داریم ؟</h4>
                 <span>
@@ -103,7 +103,7 @@
             </div>
             <p class="answer animated flipInY d-none">سفارش تلفنی، سفارش از طریق ربات تلگرام، سفارش از طریق سیستم شبکه های اجتماعی، سفارش فوری و همچنین امکان خاص و ویژه سفارش تخصصی برای تمامی مخاطبان قابل استفاده است.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>سفارش تخصصی چیست ؟</h4>
                 <span>
@@ -113,7 +113,7 @@
             </div>
             <p class="answer animated flipInY d-none">روش هوشمند و ویژه که دایا آرتز برای ثبت سفارش با جزئیات کامل، توسعه داده است. سفارش تخصصی فراهم گردیده است که به جزئیات اهمیت دهد و روند سفارش را برای شما دقیق و هیجان انگیز کند.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>دایا آرتز و امنیت فوق العاده ؛ محرمانه ها چیستند ؟</h4>
                 <span>
@@ -123,7 +123,7 @@
             </div>
             <p class="answer animated flipInY d-none">دایا آرتز متعهد می شود که در قبال اطلاعات شما و به ویژه استارت آپ ها مطابق قرارداد محرمانگی در حفظ اطلاعات و امنیت بصری هویت برند شما کوشا باشد و صیانت از آن را در اولویت خود قرار دهد .</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>نحوه ارائه طراحی های آماده شده و دریافت فایل ها به چه شکل است ؟</h4>
                 <span>
@@ -179,7 +179,7 @@
 <div class="section w-100 FAQ-section mt-5">
     <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
     <div class="accordion-container p-4">
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>دایا آرتز چه جور کسب و کاری است ؟</h4>
                 <span>
@@ -189,7 +189,7 @@
             </div>
             <p class="answer animated flipInY d-none">دایا آرتز به عنوان یک کسب و کار نوپا فعالیت نوآورانه خود را در زمینه کسب و کار های دیجیتال آغاز کرده است</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>مراحل پرداخت و تسویه سفارش چگونه است ؟</h4>
                 <span>
@@ -199,7 +199,7 @@
             </div>
             <p class="answer animated flipInY d-none">پرداخت و تسویه سفارش در دو نوبت انجام می شود. نخست مبلغ نصف سفارش به عنوان پیش پرداختی برای طراحی اتود های اولیه تسویه می شود و سپس پس از دریافت نهایی پروژه تسویه باقی مانده مبلغ سفارش امکان پذیر است.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>چرا نیاز است بخشی از مبلغ سفارش پیش پرداخت شود ؟</h4>
                 <span>
@@ -209,7 +209,7 @@
             </div>
             <p class="answer animated flipInY d-none">درواقع این عمل به نفع مشتریان است چراکه مخاطب ضمن پرداخت بخشی از مبلغ سفارش خود، درواقع دارد آن هزینه را برای طراحی اتود های اولیه اش پرداخت می کند، این مسئله یعنی مشتریان مالکیت حقوقی اتود ها را دارا هستند و می توانند با دریافت اتود های اولیه خود از ادامه پروژه صرف نظر کنند.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>آیا امکان تسویه کامل وجود دارد ؟</h4>
                 <span>
@@ -219,7 +219,7 @@
             </div>
             <p class="answer animated flipInY d-none">بله، امکان تسویه کامل وجود دارد.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>آیا عودت مبالغ پرداخت شده امکان پذیر است ؟</h4>
                 <span>
@@ -229,7 +229,7 @@
             </div>
             <p class="answer animated flipInY d-none">بله قطعا، می توانید جزئیات شرایط عودت مبالغ پرداخت شده را در تفاهمنامه دایا آرتز و مشتریان دریافت کنید.</p>
         </div>
-        <div class="item-wrapper col-12 col-md-6">
+        <div class="item-wrapper col-12 col-md-6 p-0 p-md-2 p-xl-0">
             <div class="question-wrapper">
                 <h4>روش های پرداخت چیست؟</h4>
                 <span>
@@ -247,7 +247,7 @@
 <!-- end FAQ accordion 2 -->
 
 <!-- rules -->
-<div class="section my-5">
+<div class="section w-100 my-5">
     <div class="title-section w-100 mb-4">
         <div class="title-container">
             <h3 class="title-text w-100 m-0">قوانین مشترک و تبصره های روند سفارش و طراحی</h3>
