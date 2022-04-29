@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('backup:database')->timezone('Asia/Tehran')->hourlyAt(0);
+        $schedule->command('backup:database')->timezone('Asia/Tehran')->hourly();
     }
 
     /**
