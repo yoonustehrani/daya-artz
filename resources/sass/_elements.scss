@@ -1225,8 +1225,8 @@ span.back-aqua {
 }
 // FAQ Accordion
 .FAQ-section {
-    background: linear-gradient(135deg, #a77cf2 #8f4eff);
-    // background: -webkit-linear-gradient(135deg, #a77cf2, #8f4eff);
+    background: linear-gradient(135deg, #a77cf2, #8f4eff);
+    background: -webkit-linear-gradient(135deg, #a77cf2, #8f4eff);
     border-right: 2px solid #18093c;
     h4.faq-title {
         color: #fff;
