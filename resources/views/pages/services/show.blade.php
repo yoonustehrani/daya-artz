@@ -195,7 +195,7 @@
             </div>
         </div>
         @foreach ($service->plans->sortBy('order')->chunk(3) as $plans)
-            <div class="col-12 my-3 order-card-container">
+            <div class="col-12 mb-3 order-card-container">
                 @foreach ($plans as $plan)
                 <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2 mx-xl-2">
                     <div>
