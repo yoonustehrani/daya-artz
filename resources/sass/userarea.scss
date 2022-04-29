@@ -25,7 +25,7 @@
         width: 100%;
         height: 200px;
         background: linear-gradient(to right bottom, #ac7ff4, #8f60ec);
-        background: -webkit-linear-gradient(to right bottom, #ac7ff4, #8f60ec);
+        // background: -webkit-linear-gradient(to right bottom, #ac7ff4, #8f60ec);
         i {
             transition: 0.5s;
         }
@@ -114,7 +114,7 @@
                 &::-webkit-scrollbar-thumb {
                     border-radius: 10px;
                     background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
-                    background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+                    // background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
                 }
                 li {
                     transition: 0.5s;
@@ -486,7 +486,7 @@
                 margin-top: 10px;
                 .order-box-bg {
                     background: linear-gradient(to bottom left, #6232de, #8f60ec, #ac7ff4);
-                    background: -webkit-linear-gradient(to bottom left, #6232de, #8f60ec, #ac7ff4);
+                    // background: -webkit-linear-gradient(to bottom left, #6232de, #8f60ec, #ac7ff4);
                     width: 100%;
                     height: auto;
                     border-radius: 8px;
@@ -528,9 +528,14 @@
                                 .service-order-item {
                                     border-radius: 8px;
                                     background-color: #fff;
-                                    box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 15%);
                                     width: 120px;
                                     margin: 10px;
+                                    transition: 0.4s;
+                                    &:hover {
+                                        transform: scale(1.1);
+                                        box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 15%);
+                                        background-color: $horny-bg-msg;
+                                    }
                                     > div {
                                             display: flex;
                                             flex-direction: column;
@@ -1409,7 +1414,7 @@
                     &::-webkit-scrollbar-thumb {
                         border-radius: 10px;
                         background: linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
-                        background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
+                        // background: -webkit-linear-gradient(to bottom right, #ac7ff4, #8f60ec, #6232de);
                     }
                     > div {
                         padding: 0 30px 0 30px;

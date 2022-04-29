@@ -124,6 +124,7 @@ class QuickOrder extends Component {
                 })
             }
         }
+        this.scrollToTop()
     }
     handleSubmit = (e) => {
         e.preventDefault()
@@ -148,6 +149,13 @@ class QuickOrder extends Component {
     }
     onDisplayCombo = (displayCombo, e) => {
         this.setState({displayCombo: displayCombo})
+    }
+    scrollToTop = () => {
+        let targetElem = $("#react-quick-order"),
+        target_position = targetElem.offset().top + $("body").scrollTop() - 100
+        $("body").animate({
+            scrollTop: target_position
+        }, 500)
     }
     componentDidMount() {
         let { dataInitial } = this.props

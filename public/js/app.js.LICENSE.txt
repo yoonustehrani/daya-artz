@@ -29,6 +29,10 @@ object-assign
  * Date: 2021-03-02T17:08Z
  */
 
+/*! Lity - v2.4.1 - 2020-04-26
+* http://sorgalla.com/lity/
+* Copyright (c) 2015-2020 Jan Sorgalla; Licensed MIT */
+
 /*! Select2 4.1.0-rc.0 | https://github.com/select2/select2/blob/master/LICENSE.md */
 
 /** @license React v0.19.1
