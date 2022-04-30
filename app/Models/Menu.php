@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Menu extends Model
+class Menu extends ZeusModel
 {
     use HasFactory;
     public $timestamps = false;
