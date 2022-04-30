@@ -119,11 +119,6 @@
         </div>
     </div>
     <div class="section w-100 mt-5 mb-5 order-ways-section">
-        <div class="title-section mb-5 w-100">
-            <div class="title-container">
-                <p class="title-text">ثبت سفارش</p>
-            </div>
-        </div>
         <div class="absolute-contact w-100">
             <div class="contact-section section w-100">
                 <div class="col-12 bg-heavy-aqua contact-section-back d-none d-md-block"></div>
