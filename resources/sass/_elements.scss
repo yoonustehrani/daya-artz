@@ -844,7 +844,7 @@ span.back-aqua {
             bottom: -8%;
             right: 10%;
             width: 70px;
-            height: 45px;
+            min-height: 45px;
         }
         .img-container {
             position: relative;
@@ -1640,6 +1640,10 @@ $labelData: '';
 
 // service
 .service-first-section {
+    h2 {
+        font-weight: bold;
+        font-size: 24px;
+    }
     h4 {
         font-size: 20px;
         color: #000;
