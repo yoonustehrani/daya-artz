@@ -11,6 +11,9 @@ import GuestMiddleware from '../components/GuestMiddleware';
 import PrivateRoute from './PrivateRoute';
 import NoMatch from './NoMatch';
 import LoaderComponent from '../components/LoaderComponent';
+// helpers
+import validator from 'validator';
+import validate from '../../helpers/Validator';
 
 const Login = lazy(() => import('../Pages/Auth/Login'));
 const Signup = lazy(() => import('../Pages/Auth/Signup'));
@@ -49,12 +52,25 @@ class AuthRoute extends Component {
 
     onChangeField = (fieldType, field, e) => {
         e.persist()
-        this.setState(prevState => ({
-            [fieldType]: {
-                ...prevState[fieldType],
-                [field]: e.target.value
+        const value = e.target.value
+        if ((field === "phone_number" && validator.isNumeric(value, {no_symbols: true}) || value === "") || field !== "phone_number") {
+            const inputsArray = field === "email" ? [{validate_types: ["email"], value: value }] : field === "phone_number" ? [{validate_types: ["phone_number"], value: value}] : null,
+            errs = validate(inputsArray)
+            $(e.target).parent(".input-group").next().remove("span.text-danger")
+            $(e.target).removeClass("input-err")
+            if (errs && errs.length > 0) {
+                errs.map(err => {
+                    $(e.target).addClass("input-err")
+                    $(e.target).parent(".input-group").after(`<span class="text-danger d-block m-1 w-100 text-right">${err}</span>`)
+                })
             }
-        }))
+            this.setState(prevState => ({
+                [fieldType]: {
+                    ...prevState[fieldType],
+                    [field]: value
+                }
+            }))
+        }
     }
 
     setSendig = (value) => {
