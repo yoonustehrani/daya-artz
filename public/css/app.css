@@ -17611,7 +17611,7 @@ span.back-aqua.big-icon {
   bottom: -8%;
   right: 10%;
   width: 70px;
-  height: 45px;
+  min-height: 45px;
 }
 .blog-posts-container .blog-post .img-container {
   position: relative;
@@ -18574,6 +18574,7 @@ span.back-aqua.big-icon {
   font-weight: bold;
   border-right: 3px solid #fff;
   text-align: center;
+  line-height: 1.4;
 }
 .post-info-section .post-info-container .post-info-flex {
   display: flex;
@@ -18629,10 +18630,54 @@ span.back-aqua.big-icon {
 }
 .post-main-section .post-main-text {
   padding: 0 1rem;
+  direction: rtl;
+}
+.post-main-section .post-main-text p:first-child {
+  font-weight: bold;
+  font-size: 20px;
+}
+.post-main-section .post-main-text ol:nth-child(2), .post-main-section .post-main-text ul:nth-child(2) {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  padding: 10px 40px 10px 10px;
+  border-radius: 10px;
+  background: #F1F0F8;
+}
+.post-main-section .post-main-text ol:nth-child(2) li, .post-main-section .post-main-text ul:nth-child(2) li {
+  transition: 0.3s;
+}
+.post-main-section .post-main-text ol:nth-child(2) li:hover, .post-main-section .post-main-text ul:nth-child(2) li:hover {
+  transform: scale(1.02);
+}
+.post-main-section .post-main-text ol:nth-child(2) li a:hover, .post-main-section .post-main-text ul:nth-child(2) li a:hover {
+  transform: none !important;
 }
 .post-main-section .post-main-text h2 {
   color: #000;
-  font-size: 26px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.post-main-section .post-main-text h3, .post-main-section .post-main-text h4, .post-main-section .post-main-text h5, .post-main-section .post-main-text h6 {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.post-main-section .post-main-text a {
+  transition: 0.3s;
+}
+.post-main-section .post-main-text ol, .post-main-section .post-main-text ul {
+  font-size: 18px;
+}
+.post-main-section .post-main-text ol li, .post-main-section .post-main-text ul li {
+  margin: 10px 0;
+}
+.post-main-section .post-main-text ol li a, .post-main-section .post-main-text ul li a {
+  transition: 0.3s;
+}
+.post-main-section .post-main-text ol li a:hover, .post-main-section .post-main-text ul li a:hover {
+  transform: scale(1.02);
+  display: inline-block;
 }
 .post-main-section .post-main-text p {
   color: #4a4a4a;
@@ -18717,6 +18762,10 @@ span.back-aqua.big-icon {
 .blog-post-end img {
   width: 100%;
   height: auto;
+}
+.service-first-section h2 {
+  font-weight: bold;
+  font-size: 24px;
 }
 .service-first-section h4 {
   font-size: 20px;
