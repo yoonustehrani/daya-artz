@@ -323,6 +323,9 @@ var ProfileLayout = /*#__PURE__*/function (_Component) {
           company = _this$state.company,
           customer = _this$state.customer,
           errs = _this$state.errs;
+      controller === "user" && user.phone_number[0] === "0" ? user = _objectSpread(_objectSpread({}, user), {}, {
+        phone_number: user.phone_number.slice(1)
+      }) : null;
 
       if ((0,_helpers__WEBPACK_IMPORTED_MODULE_3__.isObjEmpty)(errs)) {
         _this.setState({

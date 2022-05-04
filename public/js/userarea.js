@@ -6017,13 +6017,13 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           value: value
         }] : null,
             errs = (0,_helpers_Validator__WEBPACK_IMPORTED_MODULE_10__["default"])(inputsArray);
-        $(e.target).parent(".input-group").next().remove("span.text-danger");
+        $(e.target).siblings().remove("span.text-danger");
         $(e.target).removeClass("input-err");
 
         if (errs && errs.length > 0) {
           errs.map(function (err) {
             $(e.target).addClass("input-err");
-            $(e.target).parent(".input-group").after("<span class=\"text-danger d-block m-1 w-100 text-right\">".concat(err, "</span>"));
+            $(e.target).parent(".input-group").append("<span class=\"text-danger d-block mt-1 w-100 text-right\">".concat(err, "</span>"));
           });
         }
 
@@ -6040,7 +6040,6 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "changeSection", function (history, newState) {
-      console.log('triggered');
       var state = _this.state.state,
           replaca = newState ? newState : state === "signup" || state === "verification" ? "login" : "signup";
       state === "verification" ? setTimeout(function () {
@@ -6112,7 +6111,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleLogin", function (e) {
-      e.preventDefault(); // change stats => loading
+      e.preventDefault(); // change status => loading
 
       _this.setSendig(true);
 
@@ -6121,6 +6120,7 @@ var AuthRoute = /*#__PURE__*/function (_Component) {
           email = _this$state$login.email,
           phone_number = _this$state$login.phone_number,
           password = _this$state$login.password;
+      phone_number[0] === "0" ? phone_number = phone_number.slice(1) : null;
       var credentials = _this.state.login_method == "email" ? {
         email: email,
         password: password

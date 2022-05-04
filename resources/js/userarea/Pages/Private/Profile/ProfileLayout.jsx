@@ -42,6 +42,7 @@ class ProfileLayout extends Component {
 
     updateInfo = () => {
         let { controller, modifyUser, modifyCustomer, modifyCompany } = this.props, { user, company, customer, errs } = this.state
+        controller === "user" && user.phone_number[0] === "0" ? user = {...user, phone_number: user.phone_number.slice(1)} : null
         if (isObjEmpty(errs)) {
             this.setState(
                 {sending_data: true, showSuccess: false, showErr: false},

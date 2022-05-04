@@ -56,12 +56,12 @@ class AuthRoute extends Component {
         if ((field === "phone_number" && validator.isNumeric(value, {no_symbols: true}) || value === "") || field !== "phone_number") {
             const inputsArray = field === "email" ? [{validate_types: ["email"], value: value }] : field === "phone_number" ? [{validate_types: ["phone_number"], value: value}] : null,
             errs = validate(inputsArray)
-            $(e.target).parent(".input-group").next().remove("span.text-danger")
+            $(e.target).siblings().remove("span.text-danger")
             $(e.target).removeClass("input-err")
             if (errs && errs.length > 0) {
                 errs.map(err => {
                     $(e.target).addClass("input-err")
-                    $(e.target).parent(".input-group").after(`<span class="text-danger d-block m-1 w-100 text-right">${err}</span>`)
+                    $(e.target).parent(".input-group").append(`<span class="text-danger d-block mt-1 w-100 text-right">${err}</span>`)
                 })
             }
             this.setState(prevState => ({
@@ -80,7 +80,6 @@ class AuthRoute extends Component {
     }
 
     changeSection = (history, newState) => {
-        console.log('triggered');
         let { state } = this.state, replaca = newState ? newState : state === "signup" || state === "verification" ? "login" : "signup" 
         state === "verification" ? setTimeout(() => this.props.authLogout(), 500) : null
         setTimeout(() => {
@@ -142,10 +141,11 @@ class AuthRoute extends Component {
 
     handleLogin = (e) => {
         e.preventDefault();
-        // change stats => loading
+        // change status => loading
         this.setSendig(true)
         let { authLogin } = this.props;
         let {email, phone_number, password} = this.state.login;
+        phone_number[0] === "0" ? phone_number = phone_number.slice(1) : null
         let credentials = this.state.login_method == "email" ? {email, password} : {phone_number, password};
         authLogin(credentials).then(res => {
             // change status => not loading
