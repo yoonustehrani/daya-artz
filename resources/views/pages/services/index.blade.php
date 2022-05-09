@@ -37,7 +37,7 @@
         @foreach ($service_groups->keys() as $group_name)
             <div class="group-item col-12 col-md-3 mb-5 mb-md-0">
                 <span class="computer-container">
-                    <i class="fas fa-desktop computer-icon"></i>
+                    <i class="far fa-desktop computer-icon"></i>
                     <i class="{{ $group_icons[$loop->index] ?? 'far fa-pencil-ruler' }} inside-computer"></i>
                 </span>
                 <h3 class="group-name">{{ $group_name }}</h3>

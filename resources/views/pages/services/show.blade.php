@@ -61,7 +61,7 @@
 @section('content')
     <!-- first-section -->
     <div class="section col-12 mt-4 service-first-section dotted-background">
-        <div class="title-section w-100">
+        <div class="title-section w-100 mb-2">
             <div class="title-container">
                 <h1 class="title-text">{{ $service->title }}</h1>
             </div>

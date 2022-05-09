@@ -11,6 +11,9 @@ import GuestMiddleware from '../components/GuestMiddleware';
 import PrivateRoute from './PrivateRoute';
 import NoMatch from './NoMatch';
 import LoaderComponent from '../components/LoaderComponent';
+// helpers
+import validator from 'validator';
+import validate from '../../helpers/Validator';
 
 const Login = lazy(() => import('../Pages/Auth/Login'));
 const Signup = lazy(() => import('../Pages/Auth/Signup'));
@@ -49,12 +52,25 @@ class AuthRoute extends Component {
 
     onChangeField = (fieldType, field, e) => {
         e.persist()
-        this.setState(prevState => ({
-            [fieldType]: {
-                ...prevState[fieldType],
-                [field]: e.target.value
+        const value = e.target.value
+        if ((field === "phone_number" && validator.isNumeric(value, {no_symbols: true}) || value === "") || field !== "phone_number") {
+            const inputsArray = field === "email" ? [{validate_types: ["email"], value: value }] : field === "phone_number" ? [{validate_types: ["phone_number"], value: value}] : null,
+            errs = validate(inputsArray)
+            $(e.target).siblings().remove("span.text-danger")
+            $(e.target).removeClass("input-err")
+            if (errs && errs.length > 0) {
+                errs.map(err => {
+                    $(e.target).addClass("input-err")
+                    $(e.target).parent(".input-group").append(`<span class="text-danger d-block mt-1 w-100 text-right">${err}</span>`)
+                })
             }
-        }))
+            this.setState(prevState => ({
+                [fieldType]: {
+                    ...prevState[fieldType],
+                    [field]: value
+                }
+            }))
+        }
     }
 
     setSendig = (value) => {
@@ -64,7 +80,6 @@ class AuthRoute extends Component {
     }
 
     changeSection = (history, newState) => {
-        console.log('triggered');
         let { state } = this.state, replaca = newState ? newState : state === "signup" || state === "verification" ? "login" : "signup" 
         state === "verification" ? setTimeout(() => this.props.authLogout(), 500) : null
         setTimeout(() => {
@@ -126,10 +141,11 @@ class AuthRoute extends Component {
 
     handleLogin = (e) => {
         e.preventDefault();
-        // change stats => loading
+        // change status => loading
         this.setSendig(true)
         let { authLogin } = this.props;
         let {email, phone_number, password} = this.state.login;
+        phone_number[0] === "0" ? phone_number = phone_number.slice(1) : null
         let credentials = this.state.login_method == "email" ? {email, password} : {phone_number, password};
         authLogin(credentials).then(res => {
             // change status => not loading

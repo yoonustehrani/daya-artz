@@ -13,7 +13,7 @@
             <div>
                 <ul class="text-right p-0">
                     <li><a href="{{ route('userarea', ['path' => 'dashboard']) }}">حساب من</a></li>
-                    <li><a href="#">سفارش فوری</a></li>
+                    <li><a href="#" class="scroll-to-form">سفارش فوری</a></li>
                     <li><a href="#">سفارش تخصصی</a></li>
                     {{-- <li><a href="#">راهنمای سفارشات</a></li> --}}
                     <li><a href="{{ route('policy') }}">شرایط و ضوابط</a></li>
