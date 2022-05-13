@@ -15,6 +15,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\SitemapController;
 use App\Models\Service;
 use App\Notifications\WelcomeNotification;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +97,11 @@ Route::get('/sitemaps/sitemap-index.xml', [SitemapController::class, 'index'])->
 Route::get('/sitemaps/{slug}-sitemap.xml', [SitemapController::class, 'show'])->name('sitemaps.show');
 
 Route::get('payment/{driver}/verify', [PaymentController::class, 'update'])->name('payment.verify');
+
+Route::get('files/{file}/get', function(Request $request, $file) {
+    $file_path = "private/{$file}";
+    abort_if(! Storage::exists($file_path), 404);
+    return Storage::download($file_path, "hello.txt");
+});
 
 \ZeusPanel::routes();
