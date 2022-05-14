@@ -12616,6 +12616,10 @@ h3 {
   .ticket-messages > div > div {
     width: 60%;
   }
+
+  .service-first-section {
+    padding: 0 4%;
+  }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .header > nav, .min-header > nav {
@@ -15072,10 +15076,24 @@ span.back-aqua.big-icon {
   font-weight: bold;
   font-size: 24px;
 }
+.service-first-section h3 {
+  font-size: 20px;
+}
 .service-first-section h4 {
   font-size: 20px;
-  color: #000;
   line-height: 2;
+}
+.service-first-section sub {
+  font-size: 18px;
+  line-height: 1.6;
+}
+.service-first-section ol, .service-first-section ul {
+  margin-top: 15px;
+  font-size: 18px;
+  direction: rtl;
+}
+.service-first-section ol li, .service-first-section ul li {
+  margin: 5px 0;
 }
 
 .service-benefits-section {

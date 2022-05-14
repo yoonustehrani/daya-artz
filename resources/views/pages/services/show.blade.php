@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="other-services-container w-100">
-            <p class="text-center w-100">در این بخش می توانید با انتخاب خدمات زیر شاهد پلن های تعرفه و قیمت گذاری {{ $service->title }} باشید</p>
+            <p class="text-center w-100">شما می‌توانید با انتخاب خدمات زیر مجموعه سرویس {{ $service->title }} از جزئیات تعرفه و پلن های قیمت گذاری {{ $service->title }} مطلع شوید و سفارش خود را ثبت کنید</p>
             @foreach ($service->children as $child)
             <div class="other-service">
                 <span class="back-aqua"><i class="{{ $child->icon_class }}"></i></span>
