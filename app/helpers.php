@@ -55,14 +55,13 @@ if (! function_exists('custom_route')) {
 
 if (! function_exists('get_menu_items')) {
     function get_menu_items($menu_name) {
-        $menu = \Cache::rememberForever("site.menus.{$menu_name}", function () use($menu_name) {
+        return \Cache::rememberForever("site.menus.{$menu_name}", function () use($menu_name) {
             $menu = App\Models\Menu::where('name', $menu_name)->with('items')->first();
             if ($menu) {
                 return $menu->items->toArray();
             }
             return [];
         });
-        return $menu;
     }
 }
 
