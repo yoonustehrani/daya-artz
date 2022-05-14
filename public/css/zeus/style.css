@@ -14669,6 +14669,9 @@ input:checked + .toggle-bg {
 .m-2 {
   margin: 0.5rem; } 
 
+.m-8 {
+  margin: 2rem; } 
+
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem; } 
@@ -14906,6 +14909,9 @@ input:checked + .toggle-bg {
 .h-\[calc\(100\%-3\.75rem\)\] {
   height: calc(100% - 3.75rem); } 
 
+.h-1 {
+  height: 0.25rem; } 
+
 .max-h-96 {
   max-height: 24rem; } 
 
@@ -14972,6 +14978,9 @@ input:checked + .toggle-bg {
 
 .w-2\/3 {
   width: 66.666667%; } 
+
+.w-16 {
+  width: 4rem; } 
 
 .min-w-\[60px\] {
   min-width: 60px; } 
@@ -15835,6 +15844,12 @@ input:checked + .toggle-bg {
 .font-semibold {
   font-weight: 600; } 
 
+.font-light {
+  font-weight: 300; } 
+
+.font-black {
+  font-weight: 900; } 
+
 .uppercase {
   text-transform: uppercase; } 
 
@@ -15858,6 +15873,9 @@ input:checked + .toggle-bg {
 
 .tracking-wider {
   letter-spacing: 0.05em; } 
+
+.tracking-wide {
+  letter-spacing: 0.025em; } 
 
 .text-white {
   --tw-text-opacity: 1;
@@ -16539,6 +16557,9 @@ input:checked + .toggle-bg {
   .md\:inline {
     display: inline; } 
 
+  .md\:flex {
+    display: flex; } 
+
   .md\:hidden {
     display: none; } 
 
@@ -16553,6 +16574,9 @@ input:checked + .toggle-bg {
 
   .md\:h-auto {
     height: auto; } 
+
+  .md\:min-h-screen {
+    min-height: 100vh; } 
 
   .md\:w-auto {
     width: auto; } 
@@ -16672,6 +16696,9 @@ input:checked + .toggle-bg {
   .md\:pl-0 {
     padding-left: 0px; } 
 
+  .md\:pb-0 {
+    padding-bottom: 0px; } 
+
   .md\:text-left {
     text-align: left; } 
 
@@ -16698,6 +16725,10 @@ input:checked + .toggle-bg {
   .md\:text-8xl {
     font-size: 6rem;
     line-height: 1; } 
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem; } 
 
   .md\:opacity-100 {
     opacity: 1; } 
