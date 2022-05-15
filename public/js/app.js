@@ -3307,7 +3307,7 @@ var ServiceSearch = /*#__PURE__*/function (_Component) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
           className: "h-100 form-control text-light",
           type: "text",
-          placeholder: "\u0627\u06CC\u0646\u062C\u0627 \u0628\u0646\u0648\u06CC\u0633",
+          placeholder: "\u0627\u06CC\u0646\u062C\u0627 \u0628\u0646\u0648\u06CC\u0633: \u0637\u0631\u0627\u062D\u06CC \u0644\u0648\u06AF\u0648",
           value: searchValue,
           onChange: this.handleSearch,
           onFocus: this.onDisplayCombo.bind(this, true),

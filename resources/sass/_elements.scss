@@ -1685,10 +1685,24 @@ $labelData: '';
         font-weight: bold;
         font-size: 24px;
     }
+    h3 {
+        font-size: 20px;
+    }
     h4 {
         font-size: 20px;
-        color: #000;
         line-height: 2;
+    }
+    sub {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+    ol, ul {
+        margin-top: 15px;
+        font-size: 18px;
+        direction: rtl;
+        li {
+            margin: 5px 0;
+        }
     }
 }
 .service-benefits-section {

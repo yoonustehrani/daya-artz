@@ -31,7 +31,7 @@ class ServiceSearch extends Component {
                 {/* <div className="input-group-prepend">
                     <button className="btn btn-search" type="button">جستجو</button>
                 </div> */}
-                <input className="h-100 form-control text-light" type="text" placeholder="اینجا بنویس" value={searchValue} onChange={this.handleSearch} onFocus={this.onDisplayCombo.bind(this, true)} onBlur={this.onDisplayCombo.bind(this, false)} />
+                <input className="h-100 form-control text-light" type="text" placeholder="اینجا بنویس: طراحی لوگو" value={searchValue} onChange={this.handleSearch} onFocus={this.onDisplayCombo.bind(this, true)} onBlur={this.onDisplayCombo.bind(this, false)} />
                 <div className={`combo-box-services ${displayCombo ? "d-block" : "d-none"}`}>
                     {searching ? <div className='py-2 flex-center'><Spinner size={20} color="#C5AEF6"/></div>
                         : searchResults && searchResults.length > 0 ? searchResults.map((item, i) => {

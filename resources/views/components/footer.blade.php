@@ -46,7 +46,7 @@
         </div>
         <div class="col-lg-3 col-sm-6 col-12">
             <p class="title">دایا مجازی</p>
-            <div class="mb-4 social-media-rows">
+            <div class="mb-2 mb-md-0 social-media-rows">
                 <div class="social-media-container">
                     <a href="https://instagram.com/dayaartz"><i class="fab fa-instagram"></i></a>
                     <a href="https://t.me/dayaartz"><i class="fab fa-telegram-plane ml-4"></i></a>
@@ -58,7 +58,8 @@
             </div>
             <p class="ltr m-text-center">
                 <i class="far fa-copyright"></i>
-                Sampi Group. All rights reserved
+                Sampi Group. All rights reserved <br>
+                کلیه حقوق این وب سایت محفوظ و متعلق به شرکت ارمغان کهکشان پارس می باشد
             </p>
         </div>
     </div>
