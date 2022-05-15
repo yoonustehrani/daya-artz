@@ -25,6 +25,7 @@
         APP_PATH = "{{ asset('/') }}";
     </script>
     <script src="{{ mix('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
     @stack('scripts')
 </body>
 </html>

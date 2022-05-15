@@ -14,7 +14,7 @@ import './services'
 import './scrollTo'
 import './portfolioImages'
 import './loadEnamad'
-import './lazyLoad'
+// import './lazyLoad'
 import './lity'
 
 // quick order
