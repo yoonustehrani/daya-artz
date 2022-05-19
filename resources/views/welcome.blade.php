@@ -57,14 +57,14 @@
             </div>
             @endforeach
             <div class="service-container col-6 p-0 p-md-2 col-md-4 col-lg-3 col-xl-2">
-                <div class="service-item p-4 text-center">
-                    <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
-                    <h3 class="block w-100 text-center">
-                        <a class="text-dark" href="{{ route('services.index') }}">خدمات دیگر دایا آرتز</a>
-                    </h3>
-                    <p class="block w-100 text-center">لیست کاملی از خدمات طراحی گرافیک</p>
-                    {{-- <button class="btn btn-gradient">سفارش</button> --}}
-                </div>
+                <a class="text-dark" href="{{ route('services.index') }}">
+                    <div class="service-item p-4 text-center">
+                        <span class="service-icon back-aqua"><i class="fas fa-cart-plus"></i></span>
+                        <h3 class="block w-100 text-center">خدمات دیگر دایا آرتز</h3>
+                        <p class="block w-100 text-center">لیست کاملی از خدمات طراحی گرافیک</p>
+                        {{-- <button class="btn btn-gradient">سفارش</button> --}}
+                    </div>
+                </a>
             </div>
         </div>
     </div>
