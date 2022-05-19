@@ -125,11 +125,11 @@
 .m-1 {
     margin: 0.25rem;
 }
-.m-2 {
-    margin: 0.5rem;
-}
 .m-8 {
     margin: 2rem;
+}
+.m-2 {
+    margin: 0.5rem;
 }
 .my-3 {
     margin-top: 0.75rem;
@@ -359,6 +359,9 @@
 .h-\[calc\(100\%-36px\)\] {
     height: calc(100% - 36px);
 }
+.h-1 {
+    height: 0.25rem;
+}
 .h-4\/5 {
     height: 80%;
 }
@@ -367,9 +370,6 @@
 }
 .h-\[calc\(100\%-3\.75rem\)\] {
     height: calc(100% - 3.75rem);
-}
-.h-1 {
-    height: 0.25rem;
 }
 .max-h-96 {
     max-height: 24rem;
@@ -432,14 +432,14 @@
 .w-auto {
     width: auto;
 }
+.w-16 {
+    width: 4rem;
+}
 .w-36 {
     width: 9rem;
 }
 .w-2\/3 {
     width: 66.666667%;
-}
-.w-16 {
-    width: 4rem;
 }
 .min-w-\[60px\] {
     min-width: 60px;
@@ -966,6 +966,9 @@
     --tw-bg-opacity: 1;
     background-color: rgb(100 116 139 / var(--tw-bg-opacity));
 }
+.bg-transparent {
+    background-color: transparent;
+}
 .bg-emerald-300 {
     --tw-bg-opacity: 1;
     background-color: rgb(110 231 183 / var(--tw-bg-opacity));
@@ -973,9 +976,6 @@
 .bg-cyan-50 {
     --tw-bg-opacity: 1;
     background-color: rgb(236 254 255 / var(--tw-bg-opacity));
-}
-.bg-transparent {
-    background-color: transparent;
 }
 .bg-green-800 {
     --tw-bg-opacity: 1;
@@ -1205,6 +1205,9 @@
 .pr-4 {
     padding-right: 1rem;
 }
+.pt-4 {
+    padding-top: 1rem;
+}
 .pl-2 {
     padding-left: 0.5rem;
 }
@@ -1219,9 +1222,6 @@
 }
 .pb-16 {
     padding-bottom: 4rem;
-}
-.pt-4 {
-    padding-top: 1rem;
 }
 .pl-3 {
     padding-left: 0.75rem;
@@ -2326,11 +2326,11 @@ label span.ml-3.fa-clock:last-child {
     .md\:pb-5 {
         padding-bottom: 1.25rem;
     }
-    .md\:pl-0 {
-        padding-left: 0px;
-    }
     .md\:pb-0 {
         padding-bottom: 0px;
+    }
+    .md\:pl-0 {
+        padding-left: 0px;
     }
     .md\:text-left {
         text-align: left;
