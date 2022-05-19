@@ -28,27 +28,32 @@ class Ticket extends Component {
             new_message: e.target.value
         })
     }
+    sendHttpRequest = async () => {
+        let data = new FormData()
+        data.append('message', this.state.new_message)
+        this.state.files.map(file => {
+            data.append('files[]', file)
+        })
+        data.append('_method', 'PUT')
+        const response = await this.http.post(`tickets/${this.props.params.ticketId}`, data, { headers: {"Content-Type": "multipart/form-data"} })
+        if (response.okay) {
+            this.setState(prevState => ({
+                new_message: "",
+                sending: false,
+                messages: [
+                    ...prevState.messages,
+                    response.message
+                ],
+                files: []
+            }))
+        }
+        this.setState({sending: false})
+    }
     sendMessage = (e) => {
         e.preventDefault()
         let { new_message, sending } = this.state
         if (new_message.length > 0 && ! sending) {
-            this.setState({
-                sending: true
-            }, async () => {
-                const response = await this.http.put(`tickets/${this.props.params.ticketId}`, {message: new_message})
-                if (response.okay) {
-                    this.setState(prevState => ({
-                        new_message: "",
-                        sending: false,
-                        messages: [
-                            ...prevState.messages,
-                            response.message
-                        ],
-                    }))
-                    return
-                }
-                this.setState({sending: false})
-            })
+            this.setState({ sending: true}, this.sendHttpRequest)
         }
     }
     loadTicket = async () => {

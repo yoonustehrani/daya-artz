@@ -72,7 +72,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::post('tickets/', [TicketController::class, 'store'])->name('tickets.store');
     Route::get('tickets/departments', [TicketController::class, 'departments'])->name('tickets.departments.index');
     Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
-    Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+    Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update')->middleware('throttle:3,1,ticketing_system');
     Route::get('transactions', [ReportController::class, 'transactions'])->name('transactions.index');
     // Invoices
     Route::get('invoices', [InvoiceController::class, 'index'])->name('invoices.index');

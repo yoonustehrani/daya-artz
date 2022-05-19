@@ -642,7 +642,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function DirectPayment() {
+function DirectPayment(_ref) {
+  var amount = _ref.amount,
+      pay = _ref.pay;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       transactionDate = _useState2[0],
@@ -676,7 +679,11 @@ function DirectPayment() {
         confirmButtonText: "بستن"
       });
     } else {
-      console.log('you can send your req');
+      pay({
+        transaction_code: transactionCode,
+        transaction_date: transactionDate,
+        four_digits: fourDigits
+      });
     }
   },
       handleValidate = {
@@ -1153,6 +1160,7 @@ function PaymentPopup(_ref) {
   var close = _ref.close,
       id = _ref.id,
       amount = _ref.amount;
+  var http = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useHttpService)("/userarea/bills/".concat(id, "/"));
   var methods = {
     online: 'پرداخت به صورت آنلاین',
     direct: 'پرداخت از طریق واریز به حساب'
@@ -1175,16 +1183,15 @@ function PaymentPopup(_ref) {
 
   function _payOnline() {
     _payOnline = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(method) {
-      var http, response, gateway;
+      var response, gateway;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              http = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useHttpService)("/userarea/bills/".concat(id, "/"));
-              _context.next = 3;
+              _context.next = 2;
               return http.post("pay/".concat(method));
 
-            case 3:
+            case 2:
               response = _context.sent;
 
               if (response.okay) {
@@ -1192,7 +1199,7 @@ function PaymentPopup(_ref) {
                 window.location.href = gateway;
               }
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -1200,6 +1207,40 @@ function PaymentPopup(_ref) {
       }, _callee);
     }));
     return _payOnline.apply(this, arguments);
+  }
+
+  function sendPaymentDetails(_x2) {
+    return _sendPaymentDetails.apply(this, arguments);
+  }
+
+  function _sendPaymentDetails() {
+    _sendPaymentDetails = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(details) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return http.post('pay/manual', {
+                details: details
+              });
+
+            case 2:
+              response = _context2.sent;
+
+              if (response.okay) {
+                console.log(response);
+              } // (new AlertService).
+
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+    return _sendPaymentDetails.apply(this, arguments);
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -1231,7 +1272,8 @@ function PaymentPopup(_ref) {
           amount: amount,
           pay: payOnline
         }), payMethod === "direct" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DirectPayment__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          amount: amount
+          amount: amount,
+          pay: sendPaymentDetails
         })]
       })]
     })

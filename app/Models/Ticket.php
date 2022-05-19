@@ -11,6 +11,7 @@ class Ticket extends Model
 {
     use HasFactory, HasUuidAsPrimaryKey, SoftDeletes;
 
+    const ALL_STATUS = [];
     const ALLOWED_STATUSES = ['open', 'in-progress', 'awaiting-reply', 'reviewd'];
 
     protected $casts = [
