@@ -4,7 +4,7 @@ import validator from "validator";
 import AlertService from "../../../../../../services/AlertService";
 import '../../../../../../components/datepicker'
 
-export default function DirectPayment() {
+export default function DirectPayment({amount, pay}) {
     const [transactionDate, setTransactionDate] = useState(""),
     [transactionCode, setTransactionCode] = useState(""),
     [fourDigits, setForDigits] = useState(""),
@@ -19,7 +19,11 @@ export default function DirectPayment() {
         if (errs.length) {
             (new AlertService).error({title: "ورودی نادرست", html: `${errs.map(err => ("<br/>" + err))}`, confirmButtonText: "بستن"})
         } else {
-            console.log('you can send your req');
+            pay({
+                transaction_code: transactionCode,
+                transaction_date: transactionDate,
+                four_digits: fourDigits
+            });
         }
     },
     handleValidate = {

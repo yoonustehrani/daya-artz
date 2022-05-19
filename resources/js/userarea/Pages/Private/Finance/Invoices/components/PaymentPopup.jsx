@@ -4,6 +4,7 @@ import OnlinePayment from './OnlinePayment'
 import DirectPayment from './DirectPayment'
 
 export default function PaymentPopup({close, id, amount}) {
+    const http = useHttpService(`/userarea/bills/${id}/`)
     const methods = {
         online: 'پرداخت به صورت آنلاین',
         direct: 'پرداخت از طریق واریز به حساب'
@@ -15,12 +16,18 @@ export default function PaymentPopup({close, id, amount}) {
         }
     }
     async function payOnline(method) {
-        const http = useHttpService(`/userarea/bills/${id}/`)
         const response = await http.post(`pay/${method}`)
         if (response.okay) {
             let {gateway} = response
             window.location.href = gateway
         }
+    }
+    async function sendPaymentDetails(details) {
+        const response = await http.post('pay/manual', {details})
+        if (response.okay) {
+            console.log(response);
+        }
+        // (new AlertService).
     }
     return (
         <div className="popup-container" onClick={onClose}>
@@ -34,7 +41,7 @@ export default function PaymentPopup({close, id, amount}) {
                 </div>
                 <div className="popup-content">
                     {payMethod === "online" && <OnlinePayment amount={amount} pay={payOnline}/>}
-                    {payMethod === "direct" && <DirectPayment amount={amount}/>}
+                    {payMethod === "direct" && <DirectPayment amount={amount} pay={sendPaymentDetails}/>}
                 </div>
             </div>
         </div>

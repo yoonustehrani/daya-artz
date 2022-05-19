@@ -46,7 +46,8 @@ class PaymentController extends Controller
                 ];
             }
         } else {
-            // $transaction->save();
+            $transaction->details = ['user_data' => $request->input('details')];
+            $transaction->save();
             return [
                 'okay' => true,
                 'transaction' => $transaction
