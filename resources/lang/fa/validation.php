@@ -84,7 +84,7 @@ return [
     ],
     'max' => [
         'numeric' => 'The :attribute must not be greater than :max.',
-        'file' => 'The :attribute must not be greater than :max kilobytes.',
+        'file' => 'حجم :attribute نباید بیش از :max کیلوبایت باشد.',
         'string' => ':attribute نباید بیشتر از :max حرف باشد.',
         'array' => 'The :attribute must not have more than :max items.',
     ],
@@ -169,6 +169,7 @@ return [
         'order_items' => 'خدمات درخواستی',
         'message' => 'متن پیام',
         'ticket_content' => 'متن تیکت',
-        'department' => 'بخش مربوطه'
+        'department' => 'بخش مربوطه',
+        'files' => 'فایل ها'
     ],
 ];

@@ -10,5 +10,5 @@ class File extends Model
 {
     use HasFactory, HasUuidAsPrimaryKey;
 
-    protected $fillable = ['path', 'thumbnail_path', 'name', 'type'];
+    protected $fillable = ['path', 'thumbnail_path', 'name', 'type', 'ext'];
 }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api\UserArea;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewTicketMessageRequest;
+use App\Http\Requests\NewTicketRequest;
+use App\Models\File;
 use App\Models\Ticket;
 use App\Models\TicketDepartment;
 use App\Models\TicketMessage;
@@ -34,14 +37,9 @@ class TicketController extends Controller
         return response()->json(compact('ticket', 'messages'));
     }
 
-    public function store(Request $request)
+    public function store(NewTicketRequest $request)
     {
-        $request->validate([
-            'title' => 'required|min:3|max:60',
-            'ticket_content' => 'required|min:10|max:2000',
-            'department' => 'required|numeric|min:1'
-        ]);
-        $department = TicketDepartment::findOrFail($request->input('department'));
+        $department = TicketDepartment::select(['id'])->findOrFail($request->input('department'));
         try {
             \DB::beginTransaction();
             $ticket = new Ticket([
@@ -50,11 +48,16 @@ class TicketController extends Controller
             ]);
             $ticket->ticket_department_id = $department->getKey();
             if ($request->user()->tickets()->save($ticket)) {
-                $ticket->messages()->save(new TicketMessage([
+                $ticket_message = new TicketMessage([
                     'side' => 'customer',
                     'body' => $request->input('ticket_content'),
                     'user_id' => $request->user()->getKey()
-                ]));
+                ]);
+                $ticket->messages()->save($ticket_message);
+                $files = $this->handleUploadedFilesForMessage($request);
+                if ($files->count()) {
+                    $ticket_message->files()->saveMany($files);
+                }
                 \DB::commit();
                 return response()->json([
                     'okay' => true,
@@ -63,26 +66,36 @@ class TicketController extends Controller
             }
         } catch (\Throwable $th) {
             \DB::rollback();
-            abort(403);
+            abort(500);
         }
     }
 
-    public function update(Request $request, Ticket $ticket)
+    public function update(NewTicketMessageRequest $request, Ticket $ticket)
     {
         $this->authorize('update', $ticket);
-        $request->validate([
-            'message' => 'required|string|min:3|max:2000'
-        ]);
-        // abort_if(403, );
-        $message = new TicketMessage;
-        $message->side = 'customer';
-        $message->body = $request->input('message');
-        $message->user_id = $request->user()->id;
-        $ticket->messages()->save($message);
-        return response()->json([
-            'okay' => true,
-            'message' => $message
-        ]);
+        try {
+            \DB::beginTransaction();
+            $ticket_message = new TicketMessage([
+                'side' => 'customer',
+                'body' => $request->input('message'),
+                'user_id' => $request->user()->id
+            ]);
+            $ticket->messages()->save($ticket_message);
+            $ticket->updated_at = $ticket_message->created_at;
+            $ticket->save();
+            $files = $this->handleUploadedFilesForMessage($request);
+            if ($files->count()) {
+                $ticket_message->files()->saveMany($files);
+            }
+            \DB::commit();
+            return response()->json([
+                'okay' => true,
+                'message' => $ticket_message
+            ]);
+        } catch (\Throwable $th) {
+            \DB::rollback();
+            abort(500);
+        }
     }
 
     public function destroy(Request $request)
@@ -94,5 +107,20 @@ class TicketController extends Controller
     {
         $departments = TicketDepartment::orderBy('name')->get();
         return response()->json($departments);
+    }
+    /**
+     * @param \Illuminate\Foundation\Http\FormRequest $request
+     * @return \Illuminate\Support\Collection
+     */
+    protected function handleUploadedFilesForMessage($request)
+    {
+        return collect($request->file('files'))->map(function($uploaded_file) {
+            return new File([
+                'path' => $uploaded_file->store('private/images'),
+                'name' => $uploaded_file->getClientOriginalName(),
+                'type' => 'image',
+                'ext' => $uploaded_file->extension()
+            ]);
+        });
     }
 }

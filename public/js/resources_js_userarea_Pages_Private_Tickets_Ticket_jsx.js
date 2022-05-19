@@ -127,6 +127,53 @@ var Ticket = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "sendHttpRequest", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var data, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              data = new FormData();
+              data.append('message', _this.state.new_message);
+
+              _this.state.files.map(function (file) {
+                data.append('files[]', file);
+              });
+
+              data.append('_method', 'PUT');
+              _context.next = 6;
+              return _this.http.post("tickets/".concat(_this.props.params.ticketId), data, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
+              });
+
+            case 6:
+              response = _context.sent;
+
+              if (response.okay) {
+                _this.setState(function (prevState) {
+                  return {
+                    new_message: "",
+                    sending: false,
+                    messages: [].concat(_toConsumableArray(prevState.messages), [response.message]),
+                    files: []
+                  };
+                });
+              }
+
+              _this.setState({
+                sending: false
+              });
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })));
+
     _defineProperty(_assertThisInitialized(_this), "sendMessage", function (e) {
       e.preventDefault();
       var _this$state = _this.state,
@@ -136,47 +183,7 @@ var Ticket = /*#__PURE__*/function (_Component) {
       if (new_message.length > 0 && !sending) {
         _this.setState({
           sending: true
-        }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-          var response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _context.next = 2;
-                  return _this.http.put("tickets/".concat(_this.props.params.ticketId), {
-                    message: new_message
-                  });
-
-                case 2:
-                  response = _context.sent;
-
-                  if (!response.okay) {
-                    _context.next = 6;
-                    break;
-                  }
-
-                  _this.setState(function (prevState) {
-                    return {
-                      new_message: "",
-                      sending: false,
-                      messages: [].concat(_toConsumableArray(prevState.messages), [response.message])
-                    };
-                  });
-
-                  return _context.abrupt("return");
-
-                case 6:
-                  _this.setState({
-                    sending: false
-                  });
-
-                case 7:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        })));
+        }, _this.sendHttpRequest);
       }
     });
 

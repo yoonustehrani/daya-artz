@@ -24,11 +24,6 @@ class CreateFilesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::create('fileables', function (Blueprint $table) {
-            $table->foreignUuid('zeus_files');
-            $table->morphs('fileable');
-            $table->json('details');
-        });
     }
 
     /**
@@ -38,7 +33,6 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zeus_files');
-        Schema::dropIfExists('zeus_fileables');
+        Schema::dropIfExists('files');
     }
 }

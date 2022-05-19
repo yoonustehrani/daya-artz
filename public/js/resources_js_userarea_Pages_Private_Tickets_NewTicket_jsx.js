@@ -176,7 +176,7 @@ var NewTicket = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "sendNewTicket", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var _this$state, title, department, ticket_content, files, data, response, okay, ticket;
+      var _this$state, title, department, ticket_content, files, data, response;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
@@ -198,23 +198,21 @@ var NewTicket = /*#__PURE__*/function (_Component) {
               files.map(function (file) {
                 data.append('files[]', file);
               });
-              console.log();
-              _context.next = 7;
+              _context.next = 6;
               return _this.http.post('', data, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
               });
 
-            case 7:
+            case 6:
               response = _context.sent;
-              okay = response.okay, ticket = response.ticket;
 
-              if (okay) {
-                _this.props.history.push("/tickets/".concat(ticket.id));
+              if (response.okay) {
+                _this.props.history.push("/tickets/".concat(response.ticket.id));
               }
 
-            case 10:
+            case 8:
             case "end":
               return _context.stop();
           }

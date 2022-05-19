@@ -23,13 +23,9 @@ class NewTicket extends Component {
         files.map(file => {
             data.append('files[]', file)
         })
-        console.log();
-        const response = await this.http.post('', data, {
-            headers: { "Content-Type": "multipart/form-data" }
-        })
-        let {okay, ticket} = response
-        if(okay) {
-            this.props.history.push(`/tickets/${ticket.id}`)
+        const response = await this.http.post('', data, { headers: { "Content-Type": "multipart/form-data" } })
+        if(response.okay) {
+            this.props.history.push(`/tickets/${response.ticket.id}`)
         }
     }
     onFileSelect = (e) => {

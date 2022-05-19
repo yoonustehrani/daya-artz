@@ -8,7 +8,6 @@ use App\Http\Requests\RecaptchaRequest;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Service;
-use Error;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 
@@ -30,7 +29,7 @@ class FormsController extends Controller
             'description' => 'nullable|string|max:2000',
             'order_items' => 'required|array'
         ]);
-        $order_items = Service::findOrFail($request->input('order_items'));
+        $order_items = Service::select(['id', 'title'])->findOrFail($request->input('order_items'));
         try {
             \DB::beginTransaction();
             $order = new Order();

@@ -15,4 +15,13 @@ class TicketMessage extends Model
     {
         $builder->whereNull('read_at');
     }
+
+    public function files()
+    {
+        return $this->morphToMany(File::class, 'fileable');
+    }
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
 }
