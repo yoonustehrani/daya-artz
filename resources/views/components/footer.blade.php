@@ -1,6 +1,6 @@
 <div class="footer-content w-100">
     <div class="float-left col-12 text-center mb-5 mt-4 logo-container">
-        <img src="{{ asset('images/daya-logo-circular.png') }}" alt="لوگوی دایا">
+        <img data-src="{{ asset('images/daya-logo-circular.png') }}" class="lazyload" alt="لوگوی دایا">
         <p class="ml-2 text-light">DAYAARTZ</p>
     </div>
     <div class="col-12 float-left px-3 footer-info-container">

@@ -7,7 +7,7 @@ class SwiperItem extends Component {
             <article className="blog-post col-12 col-md-4 col-lg-3 swiper-slide">
                 <a href={url}>
                     <div className="img-container w-100">
-                        <img src={path ? `${APP_PATH + path}` : ""} alt={alt} className="w-100 h-100" />
+                        <img data-src={path ? `${APP_PATH + path}` : ""} alt={alt} className="lazyload w-100 h-100" />
                         <span className="article-date">{useJalaliDate(created_at).format("jD jMMMM")} <br/> {useJalaliDate(created_at).format("jYYYY")}</span>
                     </div>
                     <div className="article-info">

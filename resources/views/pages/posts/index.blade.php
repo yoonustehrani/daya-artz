@@ -44,7 +44,7 @@
         </form>
     </div>
     <div class="header-vector col-lg-6 col-md-5 col-12 mb-3 mb-md-0">
-        <img src="{{ asset('images/blog.svg') }}" alt="وبلاگ دایا آرتز">
+        <img data-src="{{ asset('images/blog.svg') }}" class="lazyload" alt="وبلاگ دایا آرتز">
     </div>
     <div class="triangle d-none d-md-block"></div>
 </div>

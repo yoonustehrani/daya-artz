@@ -14,8 +14,8 @@
         <p>تیم طراحی لوگو و خدمات گرافیکی <a href="{{ route('home') }}">دایا آرتز</a> در چارچوب های اخلاقی جمهوری اسلامی ایران و تابع انجمن صنفی طراحان گرافیک ایران است که اصول حرفه ای و متود های کیفی جهانی را سرلوح فعالیت های خود قرار داده است.</p>
     </div>
     <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
-        <img src="{{ asset('images/rules.svg') }}" alt="قوانین و مقررات دایا آرتز" class="rules">
-        <img src="{{ asset('images/rules-back.svg') }}" alt="پس زمینه قوانین و مقررات دایا آرتز" class="rules-back">
+        <img data-src="{{ asset('images/rules.svg') }}" alt="قوانین و مقررات دایا آرتز" class="rules lazyload">
+        <img data-src="{{ asset('images/rules-back.svg') }}" alt="پس زمینه قوانین و مقررات دایا آرتز" class="rules-back lazyload">
     </div>
     <div class="triangle d-none d-md-block"></div>
 </div>
@@ -32,7 +32,7 @@
     </div>
     <div class="daya-duties">
         <div class="customer-vector">
-            <img src="{{ asset("/images/commitments.svg") }}" alt="تعهدات و سیاست های دایا آرتز">
+            <img data-src="{{ asset("/images/commitments.svg") }}" class="lazyload" alt="تعهدات و سیاست های دایا آرتز">
         </div>
         <div class="duty-item">
             <p>1- آیا تیم دایا آرتز در جهت حفظ اطلاعات کارفرمایان حقوقی و حقیقی مسئول است؟ بله کاملا</p>
@@ -146,7 +146,7 @@
     </div>
     <div class="daya-duties">
         <div class="customer-vector">
-            <img src="{{ asset('images/privacy.svg') }}" alt="تعهدات و امتیازات مشتریان دایا آرتز">
+            <img data-src="{{ asset('images/privacy.svg') }}" class="lazyload" alt="تعهدات و امتیازات مشتریان دایا آرتز">
         </div>
         <div class="duty-item">
             <p>1- مهم ترین تعهد مشتریان و کارفرمایان چیست؟</p>
@@ -255,7 +255,7 @@
     </div>
     <div class="daya-duties">
         <div class="customer-vector">
-            <img src="{{ asset('/images/customer.svg') }}" alt="قوانین مشترک و تبصره های روند سفارش و طراحی">
+            <img data-src="{{ asset('/images/customer.svg') }}" class="lazyload" alt="قوانین مشترک و تبصره های روند سفارش و طراحی">
         </div>
         <div class="duty-item">
             <p>1- دایا آرتز متعهد شده است تا خلاقیت و نوآوری در تمامی طراحی های خود داشته باشد بنابراین از هرگونه کپی و عدم رعایت حقوق دیگر همکاران طراح در دیگر تیم ها پرهیز می کند. خواهش هستیم مشتریان در جهت حفظ حقوق معنوی و فکری لوگو و سفارشاتشان کوشا باشند و این نکته را به دیده اغماض ننگرند. مشتریان و کارفرمایان نیز توجه داشته باشند، انسان نمی تواند تمامی طراحی ها و موارد گرافیکی جهان را برشمارد و یک به یک آن ها را بازبینی کند، از طرفی شباهت های بسیار جزئی بین لوگو و ترسیمات امری اجتناب ناپذیر است بنابراین دایا در طرز فکر ایجاد لوگو و طراحی تمایز ویژه نیز ایجاد می کند با اینحال اعتراض نسبت به شباهت های جزئی میان لوگو ها پذیرفتنی نیست </p>

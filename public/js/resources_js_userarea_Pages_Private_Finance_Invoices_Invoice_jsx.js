@@ -651,12 +651,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 48c097b87bd1a3ad49df1c0541744fb3000afcf1
 function DirectPayment(_ref) {
   var amount = _ref.amount,
       pay = _ref.pay;
 
+<<<<<<< HEAD
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
+=======
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+>>>>>>> 48c097b87bd1a3ad49df1c0541744fb3000afcf1
       _useState2 = _slicedToArray(_useState, 2),
       transactionDate = _useState2[0],
       setTransactionDate = _useState2[1],
@@ -676,6 +683,7 @@ function DirectPayment(_ref) {
       ba_shaba = 'IR-17 0120 0000 0000 9546 6188 31',
       ba_hesab = "9546618831",
       errs = [],
+<<<<<<< HEAD
       sendForm = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       var okay;
@@ -734,6 +742,32 @@ function DirectPayment(_ref) {
       return _ref2.apply(this, arguments);
     };
   }(),
+=======
+      sendForm = function sendForm() {
+    validator__WEBPACK_IMPORTED_MODULE_5___default().isNumeric(transactionCode) && validator__WEBPACK_IMPORTED_MODULE_5___default().isLength(transactionCode, {
+      min: 5,
+      max: 20
+    }) ? null : errs.push("شماره پیگیری تراکنش نامعتبر است");
+    validator__WEBPACK_IMPORTED_MODULE_5___default().isNumeric(fourDigits) && fourDigits.length === 4 || fourDigits.length === 0 ? null : errs.push("لطفا 4 رقم آخر کارت خود را به درستی وارد کنید");
+    validator__WEBPACK_IMPORTED_MODULE_5___default().isDate(transactionDate) ? null : errs.push("تاریخ انجام تراکنش نا معتبر است");
+
+    if (errs.length) {
+      new _services_AlertService__WEBPACK_IMPORTED_MODULE_2__["default"]().error({
+        title: "ورودی نادرست",
+        html: "".concat(errs.map(function (err) {
+          return "<br/>" + err;
+        })),
+        confirmButtonText: "بستن"
+      });
+    } else {
+      pay({
+        transaction_code: transactionCode,
+        transaction_date: transactionDate,
+        four_digits: fourDigits
+      });
+    }
+  },
+>>>>>>> 48c097b87bd1a3ad49df1c0541744fb3000afcf1
       handleValidate = {
     trCode: function trCode(e, clb) {
       clb(); // (validator.isNumeric(e.target.value.trim()) && validator.isLength(transactionCode, {min: 5, max: 20})) || e.target.value.trim().length === 0 ? clb() : e.preventDefault();
@@ -1280,8 +1314,11 @@ function PaymentPopup(_ref) {
 
   function _sendPaymentDetails() {
     _sendPaymentDetails = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(details) {
+<<<<<<< HEAD
       var _response$okay;
 
+=======
+>>>>>>> 48c097b87bd1a3ad49df1c0541744fb3000afcf1
       var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
@@ -1296,6 +1333,7 @@ function PaymentPopup(_ref) {
               response = _context2.sent;
 
               if (response.okay) {
+<<<<<<< HEAD
                 new _services_AlertService__WEBPACK_IMPORTED_MODULE_5__["default"]().success({
                   title: "ثبت شد",
                   html: response.message
@@ -1305,6 +1343,13 @@ function PaymentPopup(_ref) {
               return _context2.abrupt("return", (_response$okay = response.okay) !== null && _response$okay !== void 0 ? _response$okay : false);
 
             case 5:
+=======
+                console.log(response);
+              } // (new AlertService).
+
+
+            case 4:
+>>>>>>> 48c097b87bd1a3ad49df1c0541744fb3000afcf1
             case "end":
               return _context2.stop();
           }
@@ -1314,7 +1359,11 @@ function PaymentPopup(_ref) {
     return _sendPaymentDetails.apply(this, arguments);
   }
 
+<<<<<<< HEAD
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+=======
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+>>>>>>> 48c097b87bd1a3ad49df1c0541744fb3000afcf1
     className: "popup-container",
     onClick: onClose,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -1342,7 +1391,11 @@ function PaymentPopup(_ref) {
         children: [payMethod === "online" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_OnlinePayment__WEBPACK_IMPORTED_MODULE_3__["default"], {
           amount: amount,
           pay: payOnline
+<<<<<<< HEAD
         }), payMethod === "direct" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_DirectPayment__WEBPACK_IMPORTED_MODULE_4__["default"], {
+=======
+        }), payMethod === "direct" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DirectPayment__WEBPACK_IMPORTED_MODULE_4__["default"], {
+>>>>>>> 48c097b87bd1a3ad49df1c0541744fb3000afcf1
           amount: amount,
           pay: sendPaymentDetails
         })]

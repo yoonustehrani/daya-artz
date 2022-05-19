@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="header-vector col-12 col-md-6">
-            <img src="{{ get_setting('mainpage.header.svg-header') }}" alt="دایا آرتز مکانی برای تحقق رویای گرافیکی">
+            <img data-src="{{ get_setting('mainpage.header.svg-header') }}" class="lazyload" alt="دایا آرتز مکانی برای تحقق رویای گرافیکی">
             <div class="triangle d-none d-md-block"></div>
         </div>
     </div>
@@ -79,7 +79,7 @@
             <div class="order-vectors-container">
                 <div class="order-section col-xl-6 col-12">
                     <div class="order-vector">
-                        <img src="{{ asset('images/speed-order.svg') }}" alt="سفارش سریع دایاآرتز">
+                        <img data-src="{{ asset('images/speed-order.svg') }}" class="lazyload" alt="سفارش سریع دایاآرتز">
                     </div>
                     <div class="order-detail">
                         <h3 class="mb-4">سفارش سریع</h3>
@@ -98,7 +98,7 @@
                 </div>
                 <div class="order-section col-xl-6 col-12 rtl">
                     <div class="order-vector">
-                        <img src="{{ asset('images/pro-order.svg') }}" alt="سفارش تخصصی دایاآرتز">
+                        <img data-src="{{ asset('images/pro-order.svg') }}" class="lazyload" alt="سفارش تخصصی دایاآرتز">
                     </div>    
                     <div class="order-detail">
                         <h3 class="mb-4">سفارش تخصصی</h3>
@@ -151,7 +151,7 @@
     <div class="section about-section col-12 p-0 mb-2">
         <div class="float-left col-12 p-4 py-5">
             <div class="image-box col-xl-2 col-lg-3 col-sm-3 col-12">
-                <img src="{{ asset('images/daya-cyan-logo.png') }}" alt="لوگوی دایاآرتز">
+                <img data-src="{{ asset('images/daya-cyan-logo.png') }}" class="lazyload" alt="لوگوی دایاآرتز">
             </div>
             <div class="col-xl-10 col-lg-9 col-sm-8 col-12 text-right">
                 <p class="title cyan">درباره دایا آرتز</p>

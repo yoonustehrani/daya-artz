@@ -73,7 +73,7 @@
                 </div>
                 <div class="post-info-cover float-left mt-2 mt-md-0">
                     @if ($post->image && $post->image->file)
-                        <img src="{{ asset($post->image->file->path) }}" alt="{{ $post->image->alt }}" class="w-100 h-100">
+                        <img data-src="{{ asset($post->image->file->path) }}" alt="{{ $post->image->alt }}" class="w-100 h-100 lazyload">
                     @endif
                 </div>
             </div>
@@ -118,6 +118,6 @@
     @endif --}}
             {{-- TODO Centralize if related posts are less than 3 --}}
     <div class="section col-12 col-md-10 offset-md-1 col-xl-8 offset-xl-2 blog-post-end">
-        <img src="{{ asset('images/blog-post-end.svg') }}" alt="وبلاگ دایا آرتز">
+        <img data-src="{{ asset('images/blog-post-end.svg') }}" class="lazyload" alt="وبلاگ دایا آرتز">
     </div>
 @endsection

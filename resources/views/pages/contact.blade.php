@@ -11,13 +11,13 @@
 <div class="section contact-us-first-section w-100 text-center mb-4">
     <div class="contact-us-background w-100">
         <div class="background-left">
-            <img src="{{ asset('images/contact-us-background-2.png') }}" alt="پس زمینه وکتور ارتباط با دایا">
+            <img data-src="{{ asset('images/contact-us-background-2.png') }}" class="lazyload" alt="پس زمینه وکتور ارتباط با دایا">
         </div>
         <div class="background-right">
-            <img src="{{ asset('images/contact-us-background-1.png') }}" alt="پس زمینه ارتباط با دایا">
+            <img data-src="{{ asset('images/contact-us-background-1.png') }}" class="lazyload" alt="پس زمینه ارتباط با دایا">
         </div>
         <div class="contact-us-vector-1">
-            <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="ارتباط با دایا">
+            <img data-src="{{ asset('images/contact-us-vector-1.png') }}" class="lazyload" alt="ارتباط با دایا">
         </div>
     </div>
     <div class="contact-us-form">
@@ -119,7 +119,7 @@
             </a>
         </div>
     </div>
-    <div class="contact-us-vector-2 text-center col-12 col-md-4 offset-md-4 mb-5"><img src="{{ asset('images/contact-us-vector-2.svg') }}" alt="راه های ارتباطی با دایا"></div>
+    <div class="contact-us-vector-2 text-center col-12 col-md-4 offset-md-4 mb-5"><img data-src="{{ asset('images/contact-us-vector-2.svg') }}" class="lazyload" alt="راه های ارتباطی با دایا"></div>
 </div>
 <!-- end contact ways and vector -->
 @endsection
