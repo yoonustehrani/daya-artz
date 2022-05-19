@@ -19,7 +19,7 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::first();
+        $user = User::find(5);
         $services = Service::all();
         $statuses = collect(OrderItem::STATUS);
         if ($user && $services->count()) {

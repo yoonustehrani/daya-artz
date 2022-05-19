@@ -47,10 +47,12 @@ class PaymentController extends Controller
             }
         } else {
             $transaction->details = ['user_data' => $request->input('details')];
-            $transaction->save();
+            $transaction->transaction_id = $request->input('details.transaction_code');
+            $bill->transactions()->save($transaction);
             return [
                 'okay' => true,
-                'transaction' => $transaction
+                'transaction' => $transaction,
+                'message' => __('messages.transaction_saved')
             ];
         }
         return [

@@ -39,7 +39,7 @@ return [
     'transactions' => [
         'provider' => [
             'zarinpal' => 'درگاه زرین پال',
-            'direct' => 'واریز به حساب'
+            'manual' => 'واریز به حساب'
         ],
         'status' => [
             'verified' => 'تایید شده',

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useHttpService } from '../../../../../hooks'
 import OnlinePayment from './OnlinePayment'
 import DirectPayment from './DirectPayment'
+import AlertService from "../../../../../../services/AlertService"
 
 export default function PaymentPopup({close, id, amount}) {
     const http = useHttpService(`/userarea/bills/${id}/`)
@@ -25,9 +26,12 @@ export default function PaymentPopup({close, id, amount}) {
     async function sendPaymentDetails(details) {
         const response = await http.post('pay/manual', {details})
         if (response.okay) {
-            console.log(response);
+            (new AlertService).success({
+                title: "ثبت شد",
+                html: response.message
+            })
         }
-        // (new AlertService).
+        return response.okay ?? false;
     }
     return (
         <div className="popup-container" onClick={onClose}>
