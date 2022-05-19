@@ -18,7 +18,7 @@
                 <hr>
                 <p class="item">
                     <span>پذیرنده</span>
-                    <span>@lang($transaction->provider) <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" height="20" alt="لوگوی زرین پال"></span>
+                    <span>@lang($transaction->provider) <img data-src="{{ asset('images/gallery/zarin-paal.jpg') }}" class="lazyload" height="20" alt="لوگوی زرین پال"></span>
                 </p>
             </div>
             <div class="text-center rtl mt-3">

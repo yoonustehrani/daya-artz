@@ -17,7 +17,7 @@
         <div class="sample-images-slider">
             @if ($portfolio->images->count() > 0)
             <div class="showing-image">
-                <a href="{{ asset($portfolio->images[0]->file->path) }}" data-lity><img class="animated fadeIn" id="portfolio-main-img" data-src="{{ asset($portfolio->images[0]->file->path) }}"
+                <a href="{{ asset($portfolio->images[0]->file->path) }}" data-lity><img class="animated fadeIn lazyload" id="portfolio-main-img" data-src="{{ asset($portfolio->images[0]->file->path) }}"
                 src="{{ asset($portfolio->images[0]->file->thumbnail_path) }}"
                 alt="{{ $portfolio->images[0]->alt }}">
                 </a>
@@ -27,8 +27,9 @@
                 @foreach ($portfolio->images as $item)
                 <div>
                     <img main-src="{{ asset($item->file->path) }}"
-                    src="{{ asset($item->file->thumbnail_path) }}"
-                    alt="{{ $item->alt }}">
+                    data-src="{{ asset($item->file->thumbnail_path) }}"
+                    alt="{{ $item->alt }}"
+                    class="lazyload">
                 </div>
                 @endforeach
                 <span id="next-image"><i class="fas fa-chevron-right"></i></span>
@@ -66,8 +67,8 @@
         </ul>
     </div>
     <div class="header-vector col-10 col-sm-8 col-md-4 mb-3 mb-md-0">
-        <img src="{{ asset('images/profile.svg') }}" class="rules" alt="جزئیات سفارش">
-        <img src="{{ asset('images/profile-back.svg') }}" class="rules-back" alt="vector background">
+        <img data-src="{{ asset('images/profile.svg') }}" class="rules lazyload" alt="جزئیات سفارش">
+        <img data-src="{{ asset('images/profile-back.svg') }}" class="rules-back lazyload" alt="vector background">
     </div>
 </div>
 @isset($portfolio->tabular_details)
@@ -85,13 +86,13 @@
     <div class="section contact-us-first-section w-100 text-center">
         <div class="contact-us-background w-100">
             <div class="background-left">
-                <img src="{{ asset('images/contact-us-background-2.png') }}" alt="vector background">
+                <img data-src="{{ asset('images/contact-us-background-2.png') }}" class="lazyload" alt="vector background">
             </div>
             <div class="background-right">
-                <img src="{{ asset('images/contact-us-background-1.png') }}" alt="vector background">
+                <img data-src="{{ asset('images/contact-us-background-1.png') }}" class="lazyload" alt="vector background">
             </div>
             <div class="contact-us-vector-1">
-                <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="ارتباط با دایا">
+                <img data-src="{{ asset('images/contact-us-vector-1.png') }}" class="lazyload" alt="ارتباط با دایا">
             </div>
         </div>
         <div class="contact-us-form">

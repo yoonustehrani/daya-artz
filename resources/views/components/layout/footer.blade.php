@@ -1,6 +1,6 @@
 <footer class="w-full mt-6 text-center">
     <p class="text-base text-indigo-600 font-bold w-fit inline-block">DAYAARTZ</p>
-    <img src="{{ asset("/images/daya-logo-opening.png") }}" alt="dayaartz logo" class="w-10 mr-1 align-middle inline-block">
+    <img data-src="{{ asset("/images/daya-logo-opening.png") }}" alt="dayaartz logo" class="lazyload w-10 mr-1 align-middle inline-block">
     <div class="my-6 flex w-full justify-between items-start flex-wrap text-indigo-600 text-lg leading-relaxed px-4 sm:px-6 xl:px-16">
         <div class="w-full lg:w-1/3 mb-4 lg:mb-0">
             <div class="text-right xl:w-96 mx-auto">

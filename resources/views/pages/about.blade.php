@@ -63,7 +63,7 @@
             </ul>
         </div>
         <div class="image-box float-right p-0 col-lg-6 col-12">
-            <img src="{{ asset('images/about-us-vector.svg') }}" alt="مزیت های دایاآرتز">
+            <img data-src="{{ asset('images/about-us-vector.svg') }}" class="lazyload" alt="مزیت های دایاآرتز">
         </div>
     </div>
     <div class="section col-lg-10 offset-lg-1 col-12 p-3 px-4 px-md-5 mt-3">

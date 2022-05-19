@@ -2356,9 +2356,9 @@ var SwiperItem = /*#__PURE__*/function (_Component) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "img-container w-100",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: path ? "".concat(APP_PATH + path) : "",
+              "data-src": path ? "".concat(APP_PATH + path) : "",
               alt: alt,
-              className: "w-100 h-100"
+              className: "lazyload w-100 h-100"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
               className: "article-date",
               children: [(0,_userarea_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at).format("jD jMMMM"), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), " ", (0,_userarea_hooks__WEBPACK_IMPORTED_MODULE_1__.useJalaliDate)(created_at).format("jYYYY")]
@@ -2433,7 +2433,8 @@ var PortfolioItem = function PortfolioItem(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       className: "portfolio-avatar",
       children: image && image.file && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
-        src: APP_PATH + image.file.path,
+        "data-src": APP_PATH + image.file.path,
+        className: "lazyload",
         alt: image.alt
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
