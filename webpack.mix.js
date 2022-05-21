@@ -46,6 +46,9 @@ mix.sass(res.sass + 'app.scss', pub.css)
 mix.sass(res.sass + '_fonts.scss', pub.css)
 mix.js(res.js + 'app.js', pub.js).react()
 mix.js(res.js + "userarea.js", pub.js).react()
+// err
+mix.sass(res.sass + "err.scss", pub.css)
+mix.js(res.js + "err.js", pub.js)
 
 // landing
 // mix.postCss(res.css + "landing.css", pub.css).options({
