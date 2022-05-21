@@ -18412,6 +18412,26 @@ span.back-aqua.big-icon {
 .user-area-layout-container .user-area-panel .main-content-container .factor-container .popup-container .popup-box .popup-content .popup-list li span {
   font-weight: normal;
 }
+.user-area-layout-container .user-area-panel .main-content-container .new-ticket-btn-container {
+  width: 100%;
+  margin: 20px 0;
+}
+.user-area-layout-container .user-area-panel .main-content-container .new-ticket-btn-container a {
+  background-color: #6232de;
+  transition: 0.3s;
+  color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 2rem;
+  padding: 8px 12px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .new-ticket-btn-container a i {
+  margin-right: 8px;
+}
+.user-area-layout-container .user-area-panel .main-content-container .new-ticket-btn-container a:hover {
+  background-color: #7553C1;
+}
 .user-area-layout-container .user-area-panel .main-content-container .ticket-container > * {
   width: 100%;
 }

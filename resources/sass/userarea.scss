@@ -1372,6 +1372,24 @@
                     }
                 }
             }
+            .new-ticket-btn-container {
+                width: 100%;
+                margin: 20px 0;
+                a {
+                    background-color: #6232de;
+                    transition: 0.3s;
+                    color: #fff;
+                    width: fit-content;
+                    border-radius: 2rem;
+                    padding: 8px 12px;
+                    i {
+                        margin-right: 8px;
+                    }
+                    &:hover {
+                        background-color: #7553C1;
+                    }
+                }
+            }
             .ticket-container {
                 > * {
                     width: 100%;

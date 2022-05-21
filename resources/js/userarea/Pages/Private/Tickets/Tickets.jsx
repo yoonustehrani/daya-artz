@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { useHttpService } from '../../../hooks';
 // custom components
 import Activity from '../Layout/components/Activity';
@@ -32,6 +33,9 @@ class Tickets extends Component {
         let { tickets, loading } = this.state
         return (
             <div>
+                <div className='new-ticket-btn-container'>
+                    <Link to={"/tickets/new"} className='flex-center'>ثبت درخواست جدید <i className='fas fa-plus'></i></Link>
+                </div>
                 {loading ? <Activity/> : tickets && tickets.length > 0 ?
                     <div className="table-responsive userarea-table">
                         <table className="table table-striped table-bordered table-hover thead-light">
