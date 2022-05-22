@@ -27,8 +27,8 @@ return [
     ],
 
     'custom' => [
-        'routes' => base_path('routes/custom.php'),
-        'api-routes' => base_path('routes/custom-api.php')
+        'routes' => base_path('routes/custom/custom.php'),
+        'api-routes' => base_path('routes/custom/custom-api.php')
     ],
 
     'developers' => [
