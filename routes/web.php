@@ -50,9 +50,9 @@ Route::get('contact', [WebsiteController::class, 'page'])->name('contact');
 // })->whereNumber(['service', 'plan'])->name('order.store'); // ->middleware('auth:sanctum')
 
 Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('userarea');
+Route::view('web-catalog/{path?}', 'pages.catalog')->where('path', '.*')->name('web.catalog');
 
 Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verifyEmail'])->middleware('signed')->name('verification.email.verify');
-
 // Route::get('test', function (Request $request) {
 //     $user = User::find(3);
 //     $user->notifyNow(
@@ -98,10 +98,10 @@ Route::get('/sitemaps/{slug}-sitemap.xml', [SitemapController::class, 'show'])->
 
 Route::get('payment/{driver}/verify', [PaymentController::class, 'update'])->name('payment.verify');
 
-Route::get('files/{file}/get', function(Request $request, $file) {
-    $file_path = "private/{$file}";
-    abort_if(! Storage::exists($file_path), 404);
-    return Storage::download($file_path, "hello.txt");
-});
+// Route::get('files/{file}/get', function(Request $request, $file) {
+//     $file_path = "private/{$file}";
+//     abort_if(! Storage::exists($file_path), 404);
+//     return Storage::download($file_path, "hello.txt");
+// });
 
 \ZeusPanel::routes();
