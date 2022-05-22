@@ -7,6 +7,7 @@ import { number_format } from "../../../../../../helpers";
 
 export default function DirectPayment({amount, pay}) {
     const [transactionDate, setTransactionDate] = useState(""),
+    [enDate, setEnDate] = useState(""),
     [transactionCode, setTransactionCode] = useState(""),
     [fourDigits, setForDigits] = useState(""),
     [disabled, disable] = useState(false),
@@ -17,7 +18,7 @@ export default function DirectPayment({amount, pay}) {
     sendForm = async () => {
         validator.isNumeric(transactionCode) && validator.isLength(transactionCode, {min: 5, max: 20}) ? null : errs.push("شماره پیگیری تراکنش نامعتبر است")
         validator.isNumeric(fourDigits) && fourDigits.length === 4 || fourDigits.length === 0 ? null : errs.push("لطفا 4 رقم آخر کارت خود را به درستی وارد کنید")
-        // validator.isDate(transactionDate) ? null : errs.push("تاریخ انجام تراکنش نا معتبر است")
+        validator.isDate(enDate) ? null : errs.push("تاریخ انجام تراکنش نا معتبر است")
         if (errs.length) {
             (new AlertService).error({title: "ورودی نادرست", html: `${errs.map(err => ("<br/>" + err))}`, confirmButtonText: "بستن"})
         } else {
@@ -36,15 +37,13 @@ export default function DirectPayment({amount, pay}) {
     },
     handleValidate = {
         trCode: (e, clb) => {
-            clb()
-            // (validator.isNumeric(e.target.value.trim()) && validator.isLength(transactionCode, {min: 5, max: 20})) || e.target.value.trim().length === 0 ? clb() : e.preventDefault();
+            (validator.isNumeric(e.target.value.trim()) && validator.isLength(e.target.value, {min: 0, max: 20})) || e.target.value.trim().length === 0 ? clb() : e.preventDefault();
         },
         trFour: (e, clb) => {
             (validator.isNumeric(e.target.value.trim()) && e.target.value.trim().length <= 4) || e.target.value.trim().length === 0 ? clb() : e.preventDefault()
         },
         trDate: (value, clb) =>  {
-            clb()
-            // validator.isDate(value) ? clb() : null
+            validator.isDate(value) ? clb() : null
         }
     }
 
@@ -53,6 +52,7 @@ export default function DirectPayment({amount, pay}) {
             onSelect: (unix) => {
                 handleValidate.trDate(new Date(unix), () => {
                     setTransactionDate(new persianDate(unix).format('YYYY/MM/DD HH:mm:ss'))
+                    setEnDate(new Date(unix))
                 })
             },
             initialValue: false,

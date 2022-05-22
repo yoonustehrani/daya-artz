@@ -662,16 +662,20 @@ function DirectPayment(_ref) {
       setTransactionDate = _useState2[1],
       _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
-      transactionCode = _useState4[0],
-      setTransactionCode = _useState4[1],
+      enDate = _useState4[0],
+      setEnDate = _useState4[1],
       _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState6 = _slicedToArray(_useState5, 2),
-      fourDigits = _useState6[0],
-      setForDigits = _useState6[1],
-      _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      transactionCode = _useState6[0],
+      setTransactionCode = _useState6[1],
+      _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState8 = _slicedToArray(_useState7, 2),
-      disabled = _useState8[0],
-      disable = _useState8[1],
+      fourDigits = _useState8[0],
+      setForDigits = _useState8[1],
+      _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState10 = _slicedToArray(_useState9, 2),
+      disabled = _useState10[0],
+      disable = _useState10[1],
       ba_card = '6104 - 3388 - 0004 - 6282',
       ba_shaba = 'IR-17 0120 0000 0000 9546 6188 31',
       ba_hesab = "9546618831",
@@ -687,10 +691,11 @@ function DirectPayment(_ref) {
                 min: 5,
                 max: 20
               }) ? null : errs.push("شماره پیگیری تراکنش نامعتبر است");
-              validator__WEBPACK_IMPORTED_MODULE_7___default().isNumeric(fourDigits) && fourDigits.length === 4 || fourDigits.length === 0 ? null : errs.push("لطفا 4 رقم آخر کارت خود را به درستی وارد کنید"); // validator.isDate(transactionDate) ? null : errs.push("تاریخ انجام تراکنش نا معتبر است")
+              validator__WEBPACK_IMPORTED_MODULE_7___default().isNumeric(fourDigits) && fourDigits.length === 4 || fourDigits.length === 0 ? null : errs.push("لطفا 4 رقم آخر کارت خود را به درستی وارد کنید");
+              validator__WEBPACK_IMPORTED_MODULE_7___default().isDate(enDate) ? null : errs.push("تاریخ انجام تراکنش نا معتبر است");
 
               if (!errs.length) {
-                _context.next = 6;
+                _context.next = 7;
                 break;
               }
 
@@ -701,18 +706,18 @@ function DirectPayment(_ref) {
                 })),
                 confirmButtonText: "بستن"
               });
-              _context.next = 10;
+              _context.next = 11;
               break;
 
-            case 6:
-              _context.next = 8;
+            case 7:
+              _context.next = 9;
               return pay({
                 transaction_code: transactionCode,
                 transaction_date: transactionDate,
                 four_digits: fourDigits
               });
 
-            case 8:
+            case 9:
               okay = _context.sent;
 
               if (okay) {
@@ -722,7 +727,7 @@ function DirectPayment(_ref) {
                 disable(true);
               }
 
-            case 10:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -736,13 +741,16 @@ function DirectPayment(_ref) {
   }(),
       handleValidate = {
     trCode: function trCode(e, clb) {
-      clb(); // (validator.isNumeric(e.target.value.trim()) && validator.isLength(transactionCode, {min: 5, max: 20})) || e.target.value.trim().length === 0 ? clb() : e.preventDefault();
+      validator__WEBPACK_IMPORTED_MODULE_7___default().isNumeric(e.target.value.trim()) && validator__WEBPACK_IMPORTED_MODULE_7___default().isLength(e.target.value, {
+        min: 0,
+        max: 20
+      }) || e.target.value.trim().length === 0 ? clb() : e.preventDefault();
     },
     trFour: function trFour(e, clb) {
       validator__WEBPACK_IMPORTED_MODULE_7___default().isNumeric(e.target.value.trim()) && e.target.value.trim().length <= 4 || e.target.value.trim().length === 0 ? clb() : e.preventDefault();
     },
     trDate: function trDate(value, clb) {
-      clb(); // validator.isDate(value) ? clb() : null
+      validator__WEBPACK_IMPORTED_MODULE_7___default().isDate(value) ? clb() : null;
     }
   };
 
@@ -751,6 +759,7 @@ function DirectPayment(_ref) {
       onSelect: function onSelect(unix) {
         handleValidate.trDate(new Date(unix), function () {
           setTransactionDate(new persianDate(unix).format('YYYY/MM/DD HH:mm:ss'));
+          setEnDate(new Date(unix));
         });
       },
       initialValue: false,
