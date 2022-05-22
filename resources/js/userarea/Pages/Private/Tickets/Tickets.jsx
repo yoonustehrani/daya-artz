@@ -5,6 +5,7 @@ import { useHttpService } from '../../../hooks';
 import Activity from '../Layout/components/Activity';
 import NoItem from '../Layout/components/NoItem'
 import TicketRow from './components/TicketRow';
+import Paginate from '../../../../components/Paginate'
 
 // todo : pagination
 class Tickets extends Component {
@@ -13,30 +14,46 @@ class Tickets extends Component {
         this.http = useHttpService('/userarea/')
         this.state = {
             tickets: [],
-            loading: true
+            loading: false
         }
     }
 
-    loadTickets = async () => {
-        const response = await this.http.get('tickets')
-        let tickets = response.data
-        this.setState({
-            tickets,
-            loading: false
+    loadTickets = async (pageIndex) => {
+        this.setState({loading: true}, () => {
+            this.http.get(`tickets?page=${pageIndex}`).then(res => {
+                let tickets = res.data,
+                paginateInfo = {
+                    current_page: res.current_page,
+                    next_page_url: res.next_page_url,
+                    prev_page_url: res.prev_page_url,
+        
+                }
+                this.setState({
+                    tickets,
+                    paginateInfo,
+                    loading: false
+                })
+            })
         })
     }
+
+    change_page_handler = (next=true) => {
+        let currentPage = Number(this.state.paginateInfo.current_page)
+        this.loadTickets(next ? currentPage + 1 : currentPage - 1)
+    }
+
     componentDidMount() {
-        this.loadTickets()
+        this.loadTickets(1)
     }
     
     render() {
-        let { tickets, loading } = this.state
+        let { tickets, loading, paginateInfo } = this.state
         return (
             <div>
                 <div className='new-ticket-btn-container'>
                     <Link to={"/tickets/new"} className='flex-center'>ثبت درخواست جدید <i className='fas fa-plus'></i></Link>
                 </div>
-                {loading ? <Activity/> : tickets && tickets.length > 0 ?
+                {loading ? <Activity/> : tickets && tickets.length > 0 ? <>
                     <div className="table-responsive userarea-table">
                         <table className="table table-striped table-bordered table-hover thead-light">
                             <thead>
@@ -56,6 +73,7 @@ class Tickets extends Component {
                             </tbody>
                         </table>
                     </div>
+                    <Paginate current_page={paginateInfo.current_page} next_page_url={paginateInfo.next_page_url} prev_page_url={paginateInfo.prev_page_url} next_page_handler={this.change_page_handler} prev_page_handler={this.change_page_handler.bind(this, false)} /></>
                     : <NoItem/>
                 }
             </div>

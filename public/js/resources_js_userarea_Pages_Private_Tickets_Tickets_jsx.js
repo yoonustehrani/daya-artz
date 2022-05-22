@@ -1,6 +1,61 @@
 "use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_userarea_Pages_Private_Tickets_Tickets_jsx"],{
 
+/***/ "./resources/js/components/Paginate/index.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Paginate/index.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Paginate(_ref) {
+  var current_page = _ref.current_page,
+      next_page_url = _ref.next_page_url,
+      prev_page_url = _ref.prev_page_url,
+      next_page_handler = _ref.next_page_handler,
+      prev_page_handler = _ref.prev_page_handler;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("nav", {
+    className: "pagination-nav",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+      className: "pagination-btn ".concat(!prev_page_url ? "disabled" : ""),
+      onClick: function onClick() {
+        return prev_page_handler();
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+        className: "fad fa-chevron-double-left mr-1"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: "\u0642\u0628\u0644\u06CC"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      className: "page-index",
+      children: current_page
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+      className: "pagination-btn ".concat(!next_page_url ? "disabled" : ""),
+      onClick: function onClick() {
+        return next_page_handler();
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: "\u0628\u0639\u062F\u06CC"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+        className: "fad fa-chevron-double-right ml-1"
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Paginate);
+
+/***/ }),
+
 /***/ "./resources/js/userarea/Pages/Private/Layout/components/Activity.jsx":
 /*!****************************************************************************!*\
   !*** ./resources/js/userarea/Pages/Private/Layout/components/Activity.jsx ***!
@@ -66,12 +121,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks */ "./resources/js/userarea/hooks.js");
 /* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Layout/components/Activity */ "./resources/js/userarea/Pages/Private/Layout/components/Activity.jsx");
 /* harmony import */ var _Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Layout/components/NoItem */ "./resources/js/userarea/Pages/Private/Layout/components/NoItem.jsx");
 /* harmony import */ var _components_TicketRow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/TicketRow */ "./resources/js/userarea/Pages/Private/Tickets/components/TicketRow.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Paginate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../components/Paginate */ "./resources/js/components/Paginate/index.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -112,7 +168,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
  // todo : pagination
+
 
 
 
@@ -129,36 +187,55 @@ var Tickets = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "loadTickets", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response, tickets;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _this.http.get('tickets');
+    _defineProperty(_assertThisInitialized(_this), "loadTickets", /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(pageIndex) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.setState({
+                  loading: true
+                }, function () {
+                  _this.http.get("tickets?page=".concat(pageIndex)).then(function (res) {
+                    var tickets = res.data,
+                        paginateInfo = {
+                      current_page: res.current_page,
+                      next_page_url: res.next_page_url,
+                      prev_page_url: res.prev_page_url
+                    };
 
-            case 2:
-              response = _context.sent;
-              tickets = response.data;
+                    _this.setState({
+                      tickets: tickets,
+                      paginateInfo: paginateInfo,
+                      loading: false
+                    });
+                  });
+                });
 
-              _this.setState({
-                tickets: tickets,
-                loading: false
-              });
-
-            case 5:
-            case "end":
-              return _context.stop();
+              case 1:
+              case "end":
+                return _context.stop();
+            }
           }
-        }
-      }, _callee);
-    })));
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+
+    _defineProperty(_assertThisInitialized(_this), "change_page_handler", function () {
+      var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var currentPage = Number(_this.state.paginateInfo.current_page);
+
+      _this.loadTickets(next ? currentPage + 1 : currentPage - 1);
+    });
 
     _this.http = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useHttpService)('/userarea/');
     _this.state = {
       tickets: [],
-      loading: true
+      loading: false
     };
     return _this;
   }
@@ -166,55 +243,64 @@ var Tickets = /*#__PURE__*/function (_Component) {
   _createClass(Tickets, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.loadTickets();
+      this.loadTickets(1);
     }
   }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
           tickets = _this$state.tickets,
-          loading = _this$state.loading;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          loading = _this$state.loading,
+          paginateInfo = _this$state.paginateInfo;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "new-ticket-btn-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
             to: "/tickets/new",
             className: "flex-center",
-            children: ["\u062B\u0628\u062A \u062F\u0631\u062E\u0648\u0627\u0633\u062A \u062C\u062F\u06CC\u062F ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
+            children: ["\u062B\u0628\u062A \u062F\u0631\u062E\u0648\u0627\u0633\u062A \u062C\u062F\u06CC\u062F ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
               className: "fas fa-plus"
             })]
           })
-        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : tickets && tickets.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "table-responsive userarea-table",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("table", {
-            className: "table table-striped table-bordered table-hover thead-light",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
-                    className: "fas fa-hashtag"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
-                  children: "\u0639\u0646\u0648\u0627\u0646 \u062A\u06CC\u06A9\u062A"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
-                  children: "\u0634\u0645\u0627\u0631\u0647 \u062A\u06CC\u06A9\u062A"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
-                  children: "\u0648\u0636\u0639\u06CC\u062A \u062A\u06CC\u06A9\u062A"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
-                  children: "\u062F\u067E\u0627\u0631\u062A\u0645\u0627\u0646"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
-                  children: "\u062A\u0627\u0631\u06CC\u062E \u0627\u06CC\u062C\u0627\u062F"
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("tbody", {
-              children: tickets.map(function (ticket, i) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TicketRow__WEBPACK_IMPORTED_MODULE_5__["default"], _objectSpread({
-                  index: i + 1
-                }, ticket), ticket.id);
-              })
-            })]
-          })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : tickets && tickets.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "table-responsive userarea-table",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("table", {
+              className: "table table-striped table-bordered table-hover thead-light",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("thead", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+                      className: "fas fa-hashtag"
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                    children: "\u0639\u0646\u0648\u0627\u0646 \u062A\u06CC\u06A9\u062A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                    children: "\u0634\u0645\u0627\u0631\u0647 \u062A\u06CC\u06A9\u062A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                    children: "\u0648\u0636\u0639\u06CC\u062A \u062A\u06CC\u06A9\u062A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                    children: "\u062F\u067E\u0627\u0631\u062A\u0645\u0627\u0646"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                    children: "\u062A\u0627\u0631\u06CC\u062E \u0627\u06CC\u062C\u0627\u062F"
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("tbody", {
+                children: tickets.map(function (ticket, i) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_TicketRow__WEBPACK_IMPORTED_MODULE_5__["default"], _objectSpread({
+                    index: i + 1
+                  }, ticket), ticket.id);
+                })
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Paginate__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            current_page: paginateInfo.current_page,
+            next_page_url: paginateInfo.next_page_url,
+            prev_page_url: paginateInfo.prev_page_url,
+            next_page_handler: this.change_page_handler,
+            prev_page_handler: this.change_page_handler.bind(this, false)
+          })]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layout_components_NoItem__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
       });
     }
   }]);
