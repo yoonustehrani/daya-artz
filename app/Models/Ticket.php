@@ -11,8 +11,8 @@ class Ticket extends Model
 {
     use HasFactory, HasUuidAsPrimaryKey, SoftDeletes;
 
-    const ALL_STATUS = [];
-    const ALLOWED_STATUSES = ['open', 'in-progress', 'awaiting-reply', 'reviewd'];
+    const ALL_STATUS = ['open', 'on-hold', 'in-progress', 'awaiting-reply', 'reviewed', 'closed'];
+    const ALLOWED_STATUSES = ['open', 'in-progress', 'awaiting-reply', 'reviewed'];
 
     protected $casts = [
         'closed_at' => 'datetime',
@@ -66,5 +66,13 @@ class Ticket extends Model
     public function getUriAttribute()
     {
         return route('userarea', ['path' => '/tickets/' . $this->getKey()]);
+    }
+    public function retriveAllStatus()
+    {
+        $to_return = [];
+        foreach (self::ALL_STATUS as $status) {
+            $to_return[$status] = __("userarea.tickets.status.{$status}");
+        }
+        return $to_return;
     }
 }

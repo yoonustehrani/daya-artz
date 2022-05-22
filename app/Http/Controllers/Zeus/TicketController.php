@@ -51,7 +51,8 @@ class TicketController extends Controller
         $ticket = Ticket::findOrFail($ticket);
         $messages = $ticket->messages()->latest()->simplePaginate(10);
         $ticket->unread_messages()->whereSide('customer')->update(['read_at' => now()]);
-        return response()->json(compact('ticket', 'messages'));
+        $statuses = $ticket->retriveAllStatus();
+        return response()->json(compact('ticket', 'messages', 'statuses'));
     }
     /**
      * This method accepts the values needed to edit on Ticket from Requested params
@@ -65,6 +66,12 @@ class TicketController extends Controller
     {
         $ticket = Ticket::findOrFail($ticket);
         $ticket->fill($request->all());
+        $ticket->messaging_is_allowed = in_array($ticket->status, Ticket::ALLOWED_STATUSES);
+        if ($ticket->messaging_is_allowed) {
+           $ticket->closed_at = null;
+        } else if($ticket->status === 'closed' && is_null($ticket->closed_at)) {
+            $ticket->closed_at = now();
+        }
         $ticket->save();
         return response()->json([
             'okay' => true,
