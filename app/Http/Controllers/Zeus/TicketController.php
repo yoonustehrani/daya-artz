@@ -39,7 +39,8 @@ class TicketController extends Controller
         $tickets = $department->tickets()->withCount(['unread_messages' => function(Builder $query) {
             $query->whereSide('customer');
         }])->latest()->paginate(10);
-        return response()->json(compact('tickets'));
+        $statuses = Ticket::retriveAllStatus();
+        return response()->json(compact('tickets', 'statuses'));
     }
     /**
      * This method returns the ticket with paginated messages
@@ -51,8 +52,7 @@ class TicketController extends Controller
         $ticket = Ticket::findOrFail($ticket);
         $messages = $ticket->messages()->latest()->simplePaginate(10);
         $ticket->unread_messages()->whereSide('customer')->update(['read_at' => now()]);
-        $statuses = $ticket->retriveAllStatus();
-        return response()->json(compact('ticket', 'messages', 'statuses'));
+        return response()->json(compact('ticket', 'messages'));
     }
     /**
      * This method accepts the values needed to edit on Ticket from Requested params

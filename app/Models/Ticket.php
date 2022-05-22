@@ -67,7 +67,7 @@ class Ticket extends Model
     {
         return route('userarea', ['path' => '/tickets/' . $this->getKey()]);
     }
-    public function retriveAllStatus()
+    public static function retriveAllStatus()
     {
         $to_return = [];
         foreach (self::ALL_STATUS as $status) {

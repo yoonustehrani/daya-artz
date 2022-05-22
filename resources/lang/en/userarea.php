@@ -7,14 +7,14 @@ return [
             'on-hold' => 'On hold',
             'in-progress' => 'In progress',
             'awaiting-reply' => 'Awaiting your reply',
-            'reviewd' => 'Reviewed',
+            'reviewed' => 'Reviewed',
             'closed' => 'Closed'
         ]
     ],
     'orders' => [
         'status' => [
             'submitted' => 'Submitted',
-            'reviewd' => 'Reviewd',
+            'reviewed' => 'Reviewed',
             'designing' => 'Designing',
             'finished' => 'Design finished',
             'checked-out' => 'Checked out',
