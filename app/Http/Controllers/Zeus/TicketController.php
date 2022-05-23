@@ -39,7 +39,8 @@ class TicketController extends Controller
         $tickets = $department->tickets()->withCount(['unread_messages' => function(Builder $query) {
             $query->whereSide('customer');
         }])->latest()->paginate(10);
-        return response()->json(compact('tickets'));
+        $statuses = Ticket::retriveAllStatus();
+        return response()->json(compact('tickets', 'statuses'));
     }
     /**
      * This method returns the ticket with paginated messages
@@ -65,6 +66,12 @@ class TicketController extends Controller
     {
         $ticket = Ticket::findOrFail($ticket);
         $ticket->fill($request->all());
+        $ticket->messaging_is_allowed = in_array($ticket->status, Ticket::ALLOWED_STATUSES);
+        if ($ticket->messaging_is_allowed) {
+           $ticket->closed_at = null;
+        } else if($ticket->status === 'closed' && is_null($ticket->closed_at)) {
+            $ticket->closed_at = now();
+        }
         $ticket->save();
         return response()->json([
             'okay' => true,
