@@ -6,7 +6,7 @@ import TicketChat from './TicketChat';
 
 class ChatPage extends Component {
     render() {
-        let { loadMoreMessages, messagesPagination, ticketMessages, loadingMessages, tickets, loadingCurrentTicket, currentTicket, sendMsg, sendingMsg, scrollToEnd, statuses, ticketUrl } = this.props,
+        let { loadMoreMessages, messagesPagination, ticketMessages, loadingMessages, tickets, loadingCurrentTicket, currentTicket, sendMsg, sendingMsg, scrollToEnd, statuses, ticketUrl, changeStatus } = this.props,
         { id, title, status, tracking_code, unread_messages_count, messaging_is_allowed, notes, closed_at, created_at, updated_at, deleted_at, } = currentTicket??{}
         return (
             <div className='w-full lg:w-9/12 lg:pl-2 h-full p-left'>
@@ -22,7 +22,7 @@ class ChatPage extends Component {
                     <li className='mx-5 my-2'>توضیحات: <span className="font-normal ml-1 ">{notes??""}</span></li>
                 </ul>
                 <hr className='text-slate-900 w-full mx-auto border-2' />
-                <ChangeStatus ticketUrl={ticketUrl} ticketId={id} statuses={statuses} currentStatus={status} />
+                <ChangeStatus ticketUrl={ticketUrl} ticketId={id} statuses={statuses} currentStatus={status} changeStatus={changeStatus} />
                 <hr className='text-slate-900 w-full mx-auto border-2' />
                 <TicketChat loadMoreMessages={loadMoreMessages} messages={ticketMessages} messagesPagination={messagesPagination} loadingMessages={loadingMessages} sendMsg={sendMsg} sendingMsg={sendingMsg} scrollToEnd={scrollToEnd} />
             </div>

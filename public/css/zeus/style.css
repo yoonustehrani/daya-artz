@@ -13331,6 +13331,14 @@ readers do not read off random characters that represent icons */
 
 .rai-windmill:after{background:currentColor;border-radius:.125em;content:"";height:100%;left:50%;margin-left:-.0625em;position:absolute;top:0;width:.125em} 
 
+@-webkit-keyframes dots-pulse{0%{opacity:.1}15%{opacity:1}to{opacity:.1}} 
+
+@keyframes dots-pulse{0%{opacity:.1}15%{opacity:1}to{opacity:.1}} 
+
+.rai-squares .rai-square{-webkit-animation-duration:inherit;animation-duration:inherit;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:dots-pulse;animation-name:dots-pulse;-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out;background-color:currentColor;display:inline-block;height:.5em;margin-right:.1875em;width:.5em} 
+
+.rai-squares .rai-square:last-child{margin-right:0} 
+
 /*
 ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com 
 */ 
@@ -14723,10 +14731,6 @@ input:checked + .toggle-bg {
   margin-top: auto;
   margin-bottom: auto; } 
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem; } 
-
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem; } 
@@ -15557,9 +15561,9 @@ input:checked + .toggle-bg {
 .bg-green-600\/50 {
   background-color: rgb(5 150 105 / 0.5); } 
 
-.bg-indigo-400 {
+.bg-blue-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(129 140 248 / var(--tw-bg-opacity)); } 
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity)); } 
 
 .bg-indigo-100 {
   --tw-bg-opacity: 1;
@@ -15572,14 +15576,6 @@ input:checked + .toggle-bg {
 .bg-slate-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity)); } 
-
-.bg-sky-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity)); } 
-
-.bg-blue-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity)); } 
 
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3; } 
@@ -16353,6 +16349,10 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity)); } 
 
+.hover\:bg-blue-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity)); } 
+
 .hover\:bg-indigo-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(199 210 254 / var(--tw-bg-opacity)); } 
@@ -16360,22 +16360,6 @@ input:checked + .toggle-bg {
 .hover\:bg-indigo-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(165 180 252 / var(--tw-bg-opacity)); } 
-
-.hover\:bg-sky-400:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(56 189 248 / var(--tw-bg-opacity)); } 
-
-.hover\:bg-sky-200:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(186 230 253 / var(--tw-bg-opacity)); } 
-
-.hover\:bg-sky-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity)); } 
-
-.hover\:bg-blue-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity)); } 
 
 .hover\:font-bold:hover {
   font-weight: 700; } 

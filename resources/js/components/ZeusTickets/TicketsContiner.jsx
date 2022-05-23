@@ -112,6 +112,11 @@ class TicketsContiner extends Component {
             ticketMessages: filteredMsgs
         })
     }
+    changeStatus = (status) => {
+        this.setState(prevState => ({
+            currentTicket: {...prevState.currentTicket, status: status}
+        }))
+    }
 
     render() {
         let { departments, currentDepartment, tickets, currentTicket, loadingTickets, loadingCurrentTicket, loadingDepartments, loadingMessages, ticketMessages, messagesPagination, ticketsPagination, sendingMsg, statuses } = this.state
@@ -120,7 +125,7 @@ class TicketsContiner extends Component {
                 <Departments departments={departments} currentDepartment={currentDepartment} loadingDepartments={loadingDepartments} getDepartments={this.getDepartments} getTickets={this.getTickets} />
                 {currentDepartment && !loadingDepartments ? <div className='w-full mt-6 flex items-stretch'>
                     <ChatList tickets={tickets} openTicket={this.openTicket} loadingTickets={loadingTickets} ticketsPagination={ticketsPagination} getTickets={this.getTickets} currentDepartment={currentDepartment} />
-                    <ChatPage tickets={tickets} currentTicket={currentTicket} loadingCurrentTicket={loadingCurrentTicket} ticketMessages={ticketMessages} loadMoreMessages={this.openTicket} loadingMessages={loadingMessages} messagesPagination={messagesPagination} sendMsg={this.sendMsg} sendingMsg={sendingMsg} scrollToEnd={this.scrollToEnd} statuses={statuses} ticketUrl={this.props.getTicketUrl} />
+                    <ChatPage tickets={tickets} currentTicket={currentTicket} loadingCurrentTicket={loadingCurrentTicket} ticketMessages={ticketMessages} loadMoreMessages={this.openTicket} loadingMessages={loadingMessages} messagesPagination={messagesPagination} sendMsg={this.sendMsg} sendingMsg={sendingMsg} scrollToEnd={this.scrollToEnd} statuses={statuses} ticketUrl={this.props.getTicketUrl} changeStatus={this.changeStatus} />
                 </div> : !loadingDepartments && <p className='w-fit mx-auto mt-6'>لطفا یکی از دپارتمان ها را انتخاب کنید</p>}
             </div>
         );
