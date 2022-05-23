@@ -13331,6 +13331,14 @@ readers do not read off random characters that represent icons */
 
 .rai-windmill:after{background:currentColor;border-radius:.125em;content:"";height:100%;left:50%;margin-left:-.0625em;position:absolute;top:0;width:.125em} 
 
+@-webkit-keyframes dots-pulse{0%{opacity:.1}15%{opacity:1}to{opacity:.1}} 
+
+@keyframes dots-pulse{0%{opacity:.1}15%{opacity:1}to{opacity:.1}} 
+
+.rai-squares .rai-square{-webkit-animation-duration:inherit;animation-duration:inherit;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:dots-pulse;animation-name:dots-pulse;-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out;background-color:currentColor;display:inline-block;height:.5em;margin-right:.1875em;width:.5em} 
+
+.rai-squares .rai-square:last-child{margin-right:0} 
+
 /*
 ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com 
 */ 

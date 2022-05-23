@@ -3,6 +3,7 @@
 @import '../fonts/fontawesome/css/all.css';
 @import 'react-activity/dist/Spinner.css';
 @import 'react-activity/dist/Windmill.css';
+@import 'react-activity/dist/Squares.css';
 @layer base {
     html {
         width: 100%;

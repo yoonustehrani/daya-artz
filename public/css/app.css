@@ -670,7 +670,7 @@
 }
 
 .bg-navy-eggplant {
-  background-color: #5C318B;
+  background-color: #5d318c;
 }
 
 .bg-green {
@@ -14569,7 +14569,7 @@ span.back-aqua.big-icon {
   stroke-width: 15px;
 }
 .chart-one svg .circle-foreground {
-  stroke: #5C318B;
+  stroke: #5d318c;
   stroke-dasharray: 48.67px 486.7px;
   stroke-dashoffset: 48.67px;
   stroke-linecap: round;
@@ -14640,7 +14640,7 @@ span.back-aqua.big-icon {
   stroke-width: 15px;
 }
 .chart-two svg .circle-foreground {
-  stroke: #5C318B;
+  stroke: #5d318c;
   stroke-dasharray: 267.685px 486.7px;
   stroke-dashoffset: 267.685px;
   stroke-linecap: round;
@@ -14711,7 +14711,7 @@ span.back-aqua.big-icon {
   stroke-width: 15px;
 }
 .chart-three svg .circle-foreground {
-  stroke: #5C318B;
+  stroke: #5d318c;
   stroke-dasharray: 73.005px 486.7px;
   stroke-dashoffset: 73.005px;
   stroke-linecap: round;
@@ -14782,7 +14782,7 @@ span.back-aqua.big-icon {
   stroke-width: 15px;
 }
 .chart-four svg .circle-foreground {
-  stroke: #5C318B;
+  stroke: #5d318c;
   stroke-dasharray: 97.34px 486.7px;
   stroke-dashoffset: 97.34px;
   stroke-linecap: round;
@@ -16122,7 +16122,7 @@ span.back-aqua.big-icon {
 }
 
 .purple-btn {
-  background-color: #5C318B;
+  background-color: #5d318c;
   font-weight: normal;
   transition: 0.4s;
   color: #fff;
@@ -17467,7 +17467,7 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container .dashboard-container .dashboard-item-container .dashboard-top-item .top-item-info > div a {
   font-size: 16px;
-  background-color: #5C318B;
+  background-color: #5d318c;
   float: right;
   font-weight: normal;
   transition: 0.4s;
@@ -18028,7 +18028,7 @@ span.back-aqua.big-icon {
 }
 .user-area-layout-container .user-area-panel .main-content-container a.purple-pill {
   font-size: 16px;
-  background-color: #5C318B;
+  background-color: #5d318c;
   font-weight: normal;
   transition: 0.4s;
 }

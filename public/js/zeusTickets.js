@@ -2081,6 +2081,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/AlertService */ "./resources/js/services/AlertService.js");
 /* harmony import */ var _userarea_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../userarea/hooks */ "./resources/js/userarea/hooks.js");
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -2118,6 +2120,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var changeStatus = /*#__PURE__*/function (_Component) {
   _inherits(changeStatus, _Component);
 
@@ -2134,43 +2137,57 @@ var changeStatus = /*#__PURE__*/function (_Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _defineProperty(_assertThisInitialized(_this), "changeStatus", /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(status) {
-        var _this$props, ticketUrl, ticketId, res;
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      sending: false
+    });
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _this$props = _this.props, ticketUrl = _this$props.ticketUrl, ticketId = _this$props.ticketId;
-                console.log(ticketUrl.replace("ticketId", ticketId), ticketId);
-                _context.next = 4;
-                return _this.http.patch(ticketUrl.replace("ticketId", ticketId), {
-                  status: status
-                });
+    _defineProperty(_assertThisInitialized(_this), "changeStatus", function (status) {
+      var _this$props = _this.props,
+          ticketUrl = _this$props.ticketUrl,
+          ticketId = _this$props.ticketId,
+          _changeStatus = _this$props.changeStatus,
+          statuses = _this$props.statuses,
+          sending = _this.state.sending;
 
-              case 4:
-                res = _context.sent;
-
-                if (res.okay) {
-                  new _services_AlertService__WEBPACK_IMPORTED_MODULE_2__["default"]().success({
-                    title: "ثبت شد",
-                    message: "تغییر وضعیت درخواست شما با موفقیت ثبت شد"
+      if (!sending) {
+        _this.setState({
+          sending: true
+        }, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          var res;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.next = 2;
+                  return _this.http.patch(ticketUrl.replace("ticketId", ticketId), {
+                    status: status
                   });
-                }
 
-              case 6:
-              case "end":
-                return _context.stop();
+                case 2:
+                  res = _context.sent;
+
+                  if (res.data.okay) {
+                    _changeStatus(statuses[status]);
+
+                    _this.setState({
+                      sending: false
+                    });
+
+                    _this.Alert.success({
+                      title: "ثبت شد",
+                      text: "\u062A\u063A\u06CC\u06CC\u0631 \u0648\u0636\u0639\u06CC\u062A \u062A\u06CC\u06A9\u062A \u0628\u0647 ".concat(_this.props.statuses[status], " \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u062B\u0628\u062A \u0634\u062F")
+                    });
+                  }
+
+                case 4:
+                case "end":
+                  return _context.stop();
+              }
             }
-          }
-        }, _callee);
-      }));
-
-      return function (_x) {
-        return _ref.apply(this, arguments);
-      };
-    }());
+          }, _callee);
+        })));
+      }
+    });
 
     return _this;
   }
@@ -2179,6 +2196,13 @@ var changeStatus = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.http = (0,_userarea_hooks__WEBPACK_IMPORTED_MODULE_3__.useHttpService)("");
+      this.Alert = new _services_AlertService__WEBPACK_IMPORTED_MODULE_2__["default"]({
+        customClass: {
+          container: "rtl"
+        },
+        timer: 3000,
+        showConfirmButton: false
+      });
     }
   }, {
     key: "render",
@@ -2186,14 +2210,20 @@ var changeStatus = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var _this$props2 = this.props,
-          ticketId = _this$props2.ticketId,
           statuses = _this$props2.statuses,
-          currentStatus = _this$props2.currentStatus;
+          currentStatus = _this$props2.currentStatus,
+          sending = this.state.sending;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "flex justify-start items-center flex-wrap m-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-          className: "w-full font-bold mb-3",
-          children: "\u062A\u063A\u06CC\u06CC\u0631 \u0648\u0636\u0639\u06CC\u062A \u062F\u0631\u062E\u0648\u0627\u0633\u062A: "
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "mb-3 w-full flex justify-start items-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            className: "font-bold inline-block w-fit ml-2",
+            children: "\u062A\u063A\u06CC\u06CC\u0631 \u0648\u0636\u0639\u06CC\u062A \u062F\u0631\u062E\u0648\u0627\u0633\u062A: "
+          }), sending && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_5__.Squares, {
+            size: 24,
+            color: "#6332df"
+          })]
         }), statuses && Object.keys(statuses).length > 0 && Object.keys(statuses).map(function (statusKey, i) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             className: "rounded-md py-2 px-6 hover:bg-blue-500 text-white duration-200 mx-3 my-2 ".concat(currentStatus === statuses[statusKey] ? "bg-blue-500" : "bg-blue-300"),
@@ -2413,6 +2443,7 @@ var ChatPage = /*#__PURE__*/function (_Component) {
           scrollToEnd = _this$props.scrollToEnd,
           statuses = _this$props.statuses,
           ticketUrl = _this$props.ticketUrl,
+          changeStatus = _this$props.changeStatus,
           _ref = currentTicket !== null && currentTicket !== void 0 ? currentTicket : {},
           id = _ref.id,
           title = _ref.title,
@@ -2489,7 +2520,8 @@ var ChatPage = /*#__PURE__*/function (_Component) {
             ticketUrl: ticketUrl,
             ticketId: id,
             statuses: statuses,
-            currentStatus: status
+            currentStatus: status,
+            changeStatus: changeStatus
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
             className: "text-slate-900 w-full mx-auto border-2"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_TicketChat__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2888,6 +2920,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3166,6 +3202,16 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "changeStatus", function (status) {
+      _this.setState(function (prevState) {
+        return {
+          currentTicket: _objectSpread(_objectSpread({}, prevState.currentTicket), {}, {
+            status: status
+          })
+        };
+      });
+    });
+
     _this.http = (0,_userarea_hooks__WEBPACK_IMPORTED_MODULE_2__.useHttpService)("");
     _this.state = {
       departments: [],
@@ -3230,7 +3276,8 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
             sendingMsg: sendingMsg,
             scrollToEnd: this.scrollToEnd,
             statuses: statuses,
-            ticketUrl: this.props.getTicketUrl
+            ticketUrl: this.props.getTicketUrl,
+            changeStatus: this.changeStatus
           })]
         }) : !loadingDepartments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
           className: "w-fit mx-auto mt-6",
