@@ -4464,9 +4464,9 @@ var useHttpService = function useHttpService() {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[10].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[10].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css":
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[11].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[11].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css":
 /*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[10].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[10].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[11].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[11].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css ***!
   \***********************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -18218,6 +18218,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Lity - v2.4.
 
 /***/ }),
 
+/***/ "./packages/Zeus/resources/css/rtl.css":
+/*!*********************************************!*\
+  !*** ./packages/Zeus/resources/css/rtl.css ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -18257,10 +18270,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./packages/Zeus/resources/css/style.css":
-/*!***********************************************!*\
-  !*** ./packages/Zeus/resources/css/style.css ***!
-  \***********************************************/
+/***/ "./resources/css/catalog.css":
+/*!***********************************!*\
+  !*** ./resources/css/catalog.css ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -18270,10 +18283,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./packages/Zeus/resources/css/rtl.css":
-/*!*********************************************!*\
-  !*** ./packages/Zeus/resources/css/rtl.css ***!
-  \*********************************************/
+/***/ "./packages/Zeus/resources/css/style.css":
+/*!***********************************************!*\
+  !*** ./packages/Zeus/resources/css/style.css ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -71867,7 +71880,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_10_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_10_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[10].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[10].oneOf[1].use[2]!./swiper-bundle.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[10].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[10].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css");
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_11_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_11_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[11].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[11].oneOf[1].use[2]!./swiper-bundle.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[11].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[11].oneOf[1].use[2]!./node_modules/swiper/swiper-bundle.css");
 
             
 
@@ -71876,11 +71889,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_10_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_10_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_11_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_11_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_10_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_10_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_11_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_11_oneOf_1_use_2_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -81118,10 +81131,11 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/zeus/rtl": 0,
 /******/ 			"css/zeus/style": 0,
+/******/ 			"css/catalog": 0,
 /******/ 			"css/err": 0,
-/******/ 			"css/_fonts": 0
+/******/ 			"css/_fonts": 0,
+/******/ 			"css/zeus/rtl": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -81171,12 +81185,13 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/err","css/_fonts"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/err","css/_fonts"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/err","css/_fonts"], () => (__webpack_require__("./resources/sass/_fonts.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/err","css/_fonts"], () => (__webpack_require__("./resources/sass/err.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/err","css/_fonts"], () => (__webpack_require__("./packages/Zeus/resources/css/style.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/zeus/rtl","css/zeus/style","css/err","css/_fonts"], () => (__webpack_require__("./packages/Zeus/resources/css/rtl.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/style","css/catalog","css/err","css/_fonts","css/zeus/rtl"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/style","css/catalog","css/err","css/_fonts","css/zeus/rtl"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/style","css/catalog","css/err","css/_fonts","css/zeus/rtl"], () => (__webpack_require__("./resources/sass/_fonts.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/style","css/catalog","css/err","css/_fonts","css/zeus/rtl"], () => (__webpack_require__("./resources/sass/err.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/style","css/catalog","css/err","css/_fonts","css/zeus/rtl"], () => (__webpack_require__("./resources/css/catalog.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/zeus/style","css/catalog","css/err","css/_fonts","css/zeus/rtl"], () => (__webpack_require__("./packages/Zeus/resources/css/style.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/zeus/style","css/catalog","css/err","css/_fonts","css/zeus/rtl"], () => (__webpack_require__("./packages/Zeus/resources/css/rtl.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

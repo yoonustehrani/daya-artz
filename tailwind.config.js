@@ -20,7 +20,7 @@ module.exports = {
 		'./packages/Zeus/src/View/**/*.php',
         // custom zeus pages
         './resources/views/custom/*.blade.php',
-        './resources/js/components/ZeusTickets/*.jsx'
+        './resources/js/components/ZeusTickets/*.jsx',
     ],
     theme: {
         fontFamily: {
