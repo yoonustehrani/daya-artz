@@ -20,6 +20,7 @@ class TicketsContiner extends Component {
             sendingMsg: false,
             ticketsPagination: {},
             messagesPagination: {},
+            statuses: {}
         }
     }
 
@@ -53,7 +54,8 @@ class TicketsContiner extends Component {
                         hasMore: next_page_url !== null
                     },
                     tickets: [...prevState.tickets, ...data],
-                    loadingTickets: false
+                    loadingTickets: false,
+                    statuses: res.statuses
                 }))
             }
         })
@@ -112,13 +114,13 @@ class TicketsContiner extends Component {
     }
 
     render() {
-        let { departments, currentDepartment, tickets, currentTicket, loadingTickets, loadingCurrentTicket, loadingDepartments, loadingMessages, ticketMessages, messagesPagination, ticketsPagination, sendingMsg } = this.state
+        let { departments, currentDepartment, tickets, currentTicket, loadingTickets, loadingCurrentTicket, loadingDepartments, loadingMessages, ticketMessages, messagesPagination, ticketsPagination, sendingMsg, statuses } = this.state
         return (
             <div className='w-full h-full'>
                 <Departments departments={departments} currentDepartment={currentDepartment} loadingDepartments={loadingDepartments} getDepartments={this.getDepartments} getTickets={this.getTickets} />
                 {currentDepartment && !loadingDepartments ? <div className='w-full mt-6 flex items-stretch'>
                     <ChatList tickets={tickets} openTicket={this.openTicket} loadingTickets={loadingTickets} ticketsPagination={ticketsPagination} getTickets={this.getTickets} currentDepartment={currentDepartment} />
-                    <ChatPage tickets={tickets} currentTicket={currentTicket} loadingCurrentTicket={loadingCurrentTicket} ticketMessages={ticketMessages} loadMoreMessages={this.openTicket} loadingMessages={loadingMessages} messagesPagination={messagesPagination} sendMsg={this.sendMsg} sendingMsg={sendingMsg} scrollToEnd={this.scrollToEnd} />
+                    <ChatPage tickets={tickets} currentTicket={currentTicket} loadingCurrentTicket={loadingCurrentTicket} ticketMessages={ticketMessages} loadMoreMessages={this.openTicket} loadingMessages={loadingMessages} messagesPagination={messagesPagination} sendMsg={this.sendMsg} sendingMsg={sendingMsg} scrollToEnd={this.scrollToEnd} statuses={statuses} ticketUrl={this.props.getTicketUrl} />
                 </div> : !loadingDepartments && <p className='w-fit mx-auto mt-6'>لطفا یکی از دپارتمان ها را انتخاب کنید</p>}
             </div>
         );

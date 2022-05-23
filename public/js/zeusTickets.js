@@ -2076,11 +2076,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/AlertService */ "./resources/js/services/AlertService.js");
-/* harmony import */ var _userarea_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../userarea/hooks */ "./resources/js/userarea/hooks.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/AlertService */ "./resources/js/services/AlertService.js");
+/* harmony import */ var _userarea_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../userarea/hooks */ "./resources/js/userarea/hooks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -2126,45 +2134,72 @@ var changeStatus = /*#__PURE__*/function (_Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      statuses: []
-    });
+    _defineProperty(_assertThisInitialized(_this), "changeStatus", /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(status) {
+        var _this$props, ticketUrl, ticketId, res;
 
-    _defineProperty(_assertThisInitialized(_this), "changeStatus", function (status) {// const res = await this.http.post({status: status})
-      // if (res.okay) {
-      //     (new AlertService).success({title: "ثبت شد", message: "تغییر وضعیت درخواست شما با موفقیت ثبت شد"})
-      // }
-    });
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this$props = _this.props, ticketUrl = _this$props.ticketUrl, ticketId = _this$props.ticketId;
+                console.log(ticketUrl.replace("ticketId", ticketId), ticketId);
+                _context.next = 4;
+                return _this.http.patch(ticketUrl.replace("ticketId", ticketId), {
+                  status: status
+                });
+
+              case 4:
+                res = _context.sent;
+
+                if (res.okay) {
+                  new _services_AlertService__WEBPACK_IMPORTED_MODULE_2__["default"]().success({
+                    title: "ثبت شد",
+                    message: "تغییر وضعیت درخواست شما با موفقیت ثبت شد"
+                  });
+                }
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
 
     return _this;
   }
 
   _createClass(changeStatus, [{
     key: "componentDidMount",
-    value: function componentDidMount() {// this.http = useHttpService("")
-      // const response = await this.http.get("/get_statuses_api")
-      // if (response) {
-      //     this.setState({statuses: response.data})
-      // }
+    value: function componentDidMount() {
+      this.http = (0,_userarea_hooks__WEBPACK_IMPORTED_MODULE_3__.useHttpService)("");
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var statuses = this.state.statuses,
-          ticketId = this.props.ticketId;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "flex justify-center items-center flex-wrap m-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-          className: "w-full font-bold",
+      var _this$props2 = this.props,
+          ticketId = _this$props2.ticketId,
+          statuses = _this$props2.statuses,
+          currentStatus = _this$props2.currentStatus;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "flex justify-start items-center flex-wrap m-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "w-full font-bold mb-3",
           children: "\u062A\u063A\u06CC\u06CC\u0631 \u0648\u0636\u0639\u06CC\u062A \u062F\u0631\u062E\u0648\u0627\u0633\u062A: "
-        }), statuses && statuses.length > 0 && statuses.map(function (status, i) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-            className: "rounded-md p-3 bg-indigo-400 hover:bg-indigo-600 text-white duration-200 mx-4",
+        }), statuses && Object.keys(statuses).length > 0 && Object.keys(statuses).map(function (statusKey, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+            className: "rounded-md py-2 px-6 hover:bg-blue-500 text-white duration-200 mx-3 my-2 ".concat(currentStatus === statuses[statusKey] ? "bg-blue-500" : "bg-blue-300"),
             href: "#",
-            onClick: _this2.changeStatus.bind(_this2, status),
-            children: status
+            onClick: _this2.changeStatus.bind(_this2, statusKey),
+            children: statuses[statusKey]
           }, i);
         })]
       });
@@ -2172,7 +2207,7 @@ var changeStatus = /*#__PURE__*/function (_Component) {
   }]);
 
   return changeStatus;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (changeStatus);
 
@@ -2376,6 +2411,8 @@ var ChatPage = /*#__PURE__*/function (_Component) {
           sendMsg = _this$props.sendMsg,
           sendingMsg = _this$props.sendingMsg,
           scrollToEnd = _this$props.scrollToEnd,
+          statuses = _this$props.statuses,
+          ticketUrl = _this$props.ticketUrl,
           _ref = currentTicket !== null && currentTicket !== void 0 ? currentTicket : {},
           id = _ref.id,
           title = _ref.title,
@@ -2449,7 +2486,10 @@ var ChatPage = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
             className: "text-slate-900 w-full mx-auto border-2"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChangeStatus__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            ticektId: id
+            ticketUrl: ticketUrl,
+            ticketId: id,
+            statuses: statuses,
+            currentStatus: status
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
             className: "text-slate-900 w-full mx-auto border-2"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_TicketChat__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2979,7 +3019,8 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
                         hasMore: _next_page_url !== null
                       },
                       tickets: [].concat(_toConsumableArray(prevState.tickets), _toConsumableArray(data)),
-                      loadingTickets: false
+                      loadingTickets: false,
+                      statuses: res.statuses
                     };
                   });
                 }
@@ -3137,7 +3178,8 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
       loadingDepartments: false,
       sendingMsg: false,
       ticketsPagination: {},
-      messagesPagination: {}
+      messagesPagination: {},
+      statuses: {}
     };
     return _this;
   }
@@ -3157,7 +3199,8 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
           ticketMessages = _this$state.ticketMessages,
           messagesPagination = _this$state.messagesPagination,
           ticketsPagination = _this$state.ticketsPagination,
-          sendingMsg = _this$state.sendingMsg;
+          sendingMsg = _this$state.sendingMsg,
+          statuses = _this$state.statuses;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "w-full h-full",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Departments__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -3185,7 +3228,9 @@ var TicketsContiner = /*#__PURE__*/function (_Component) {
             messagesPagination: messagesPagination,
             sendMsg: this.sendMsg,
             sendingMsg: sendingMsg,
-            scrollToEnd: this.scrollToEnd
+            scrollToEnd: this.scrollToEnd,
+            statuses: statuses,
+            ticketUrl: this.props.getTicketUrl
           })]
         }) : !loadingDepartments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
           className: "w-fit mx-auto mt-6",
