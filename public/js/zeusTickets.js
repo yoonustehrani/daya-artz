@@ -2065,6 +2065,119 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/components/ZeusTickets/ChangeStatus.jsx":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/ZeusTickets/ChangeStatus.jsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/AlertService */ "./resources/js/services/AlertService.js");
+/* harmony import */ var _userarea_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../userarea/hooks */ "./resources/js/userarea/hooks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+var changeStatus = /*#__PURE__*/function (_Component) {
+  _inherits(changeStatus, _Component);
+
+  var _super = _createSuper(changeStatus);
+
+  function changeStatus() {
+    var _this;
+
+    _classCallCheck(this, changeStatus);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      statuses: []
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "changeStatus", function (status) {// const res = await this.http.post({status: status})
+      // if (res.okay) {
+      //     (new AlertService).success({title: "ثبت شد", message: "تغییر وضعیت درخواست شما با موفقیت ثبت شد"})
+      // }
+    });
+
+    return _this;
+  }
+
+  _createClass(changeStatus, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {// this.http = useHttpService("")
+      // const response = await this.http.get("/get_statuses_api")
+      // if (response) {
+      //     this.setState({statuses: response.data})
+      // }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var statuses = this.state.statuses,
+          ticketId = this.props.ticketId;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "flex justify-center items-center flex-wrap m-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          className: "w-full font-bold",
+          children: "\u062A\u063A\u06CC\u06CC\u0631 \u0648\u0636\u0639\u06CC\u062A \u062F\u0631\u062E\u0648\u0627\u0633\u062A: "
+        }), statuses && statuses.length > 0 && statuses.map(function (status, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+            className: "rounded-md p-3 bg-indigo-400 hover:bg-indigo-600 text-white duration-200 mx-4",
+            href: "#",
+            onClick: _this2.changeStatus.bind(_this2, status),
+            children: status
+          }, i);
+        })]
+      });
+    }
+  }]);
+
+  return changeStatus;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (changeStatus);
+
+/***/ }),
+
 /***/ "./resources/js/components/ZeusTickets/ChatList.jsx":
 /*!**********************************************************!*\
   !*** ./resources/js/components/ZeusTickets/ChatList.jsx ***!
@@ -2205,8 +2318,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _userarea_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../userarea/components/LoaderComponent */ "./resources/js/userarea/components/LoaderComponent.jsx");
 /* harmony import */ var _userarea_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../userarea/hooks */ "./resources/js/userarea/hooks.js");
-/* harmony import */ var _TicketChat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TicketChat */ "./resources/js/components/ZeusTickets/TicketChat.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ChangeStatus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChangeStatus */ "./resources/js/components/ZeusTickets/ChangeStatus.jsx");
+/* harmony import */ var _TicketChat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TicketChat */ "./resources/js/components/ZeusTickets/TicketChat.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2228,6 +2342,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2274,66 +2389,70 @@ var ChatPage = /*#__PURE__*/function (_Component) {
           updated_at = _ref.updated_at,
           deleted_at = _ref.deleted_at;
 
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "w-full lg:w-9/12 lg:pl-2 h-full p-left",
-        children: loadingCurrentTicket ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_userarea_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        children: loadingCurrentTicket ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_userarea_components_LoaderComponent__WEBPACK_IMPORTED_MODULE_1__["default"], {
           size: 30
-        }) : this.props.currentTicket ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }) : this.props.currentTicket ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "bg-on-white",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
             className: "w-full p-0 flex flex-wrap list-none text-slate-900 font-bold",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               className: "mx-5 my-2",
-              children: ["\u06A9\u062F \u067E\u06CC\u06AF\u06CC\u0631\u06CC: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: ["\u06A9\u062F \u067E\u06CC\u06AF\u06CC\u0631\u06CC: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "font-normal ml-1 ",
                 children: tracking_code
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               className: "mx-5 my-2",
-              children: ["\u0639\u0646\u0648\u0627\u0646 \u062F\u0631\u062E\u0648\u0627\u0633\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: ["\u0639\u0646\u0648\u0627\u0646 \u062F\u0631\u062E\u0648\u0627\u0633\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "font-normal ml-1 ",
                 children: title
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               className: "mx-5 my-2",
-              children: ["\u0648\u0636\u0639\u06CC\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: ["\u0648\u0636\u0639\u06CC\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "font-normal ml-1 ",
                 children: status
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               className: "mx-5 my-2",
-              children: ["\u062A\u0639\u062F\u0627\u062F \u067E\u06CC\u0627\u0645 \u062E\u0648\u0627\u0646\u062F\u0647 \u0646\u0634\u062F\u0647: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: ["\u062A\u0639\u062F\u0627\u062F \u067E\u06CC\u0627\u0645 \u062E\u0648\u0627\u0646\u062F\u0647 \u0646\u0634\u062F\u0647: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "font-normal ml-1 ",
                 children: unread_messages_count
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               className: "mx-5 my-2",
-              children: ["\u0627\u0645\u06A9\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u067E\u06CC\u0627\u0645: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: ["\u0627\u0645\u06A9\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u067E\u06CC\u0627\u0645: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "font-normal ml-1 ",
                 children: messaging_is_allowed ? "yes" : "no"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               className: "mx-5 my-2",
-              children: ["\u062A\u0627\u0631\u06CC\u062E \u0627\u06CC\u062C\u0627\u062F: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: ["\u062A\u0627\u0631\u06CC\u062E \u0627\u06CC\u062C\u0627\u062F: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "font-normal ml-1 ",
                 children: (0,_userarea_hooks__WEBPACK_IMPORTED_MODULE_2__.useJalaliDate)(created_at).format("jYYYY/jMM/jDD")
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               className: "mx-5 my-2",
-              children: ["\u0622\u062E\u0631\u06CC\u0646 \u062A\u063A\u06CC\u06CC\u0631: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: ["\u0622\u062E\u0631\u06CC\u0646 \u062A\u063A\u06CC\u06CC\u0631: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "font-normal ml-1 ",
                 children: (0,_userarea_hooks__WEBPACK_IMPORTED_MODULE_2__.useJalaliDate)(updated_at).format("jYYYY/jMM/jDD")
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               className: "mx-5 my-2",
-              children: ["\u062A\u0648\u0636\u06CC\u062D\u0627\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: ["\u062A\u0648\u0636\u06CC\u062D\u0627\u062A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "font-normal ml-1 ",
                 children: notes !== null && notes !== void 0 ? notes : ""
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
             className: "text-slate-900 w-full mx-auto border-2"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_TicketChat__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChangeStatus__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            ticektId: id
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
+            className: "text-slate-900 w-full mx-auto border-2"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_TicketChat__WEBPACK_IMPORTED_MODULE_4__["default"], {
             loadMoreMessages: loadMoreMessages,
             messages: ticketMessages,
             messagesPagination: messagesPagination,
@@ -2342,7 +2461,7 @@ var ChatPage = /*#__PURE__*/function (_Component) {
             sendingMsg: sendingMsg,
             scrollToEnd: scrollToEnd
           })]
-        }) : tickets.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        }) : tickets.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
           className: "w-fit mx-auto mt-6",
           children: "\u0644\u0637\u0641\u0627 \u06CC\u06A9\u06CC \u0627\u0632 \u062A\u06CC\u06A9\u062A \u0647\u0627 \u0631\u0627 \u0627\u0646\u062A\u062E\u0627\u0628 \u06A9\u0646\u06CC\u062F"
         }) : null
@@ -2686,7 +2805,7 @@ var TicketMessage = /*#__PURE__*/function (_Component) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
           children: body
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-right m-0",
+          className: "text-right mt-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
             children: [side !== "customer" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
               className: "fas fa-user-tie mx-1"

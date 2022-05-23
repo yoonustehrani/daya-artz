@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoaderComponent from '../../userarea/components/LoaderComponent';
 import { useJalaliDate } from '../../userarea/hooks';
+import ChangeStatus from './ChangeStatus';
 import TicketChat from './TicketChat';
 
 class ChatPage extends Component {
@@ -21,7 +22,9 @@ class ChatPage extends Component {
                     <li className='mx-5 my-2'>توضیحات: <span className="font-normal ml-1 ">{notes??""}</span></li>
                 </ul>
                 <hr className='text-slate-900 w-full mx-auto border-2' />
-              <TicketChat loadMoreMessages={loadMoreMessages} messages={ticketMessages} messagesPagination={messagesPagination} loadingMessages={loadingMessages} sendMsg={sendMsg} sendingMsg={sendingMsg} scrollToEnd={scrollToEnd} />
+                <ChangeStatus ticektId={id} />
+                <hr className='text-slate-900 w-full mx-auto border-2' />
+                <TicketChat loadMoreMessages={loadMoreMessages} messages={ticketMessages} messagesPagination={messagesPagination} loadingMessages={loadingMessages} sendMsg={sendMsg} sendingMsg={sendingMsg} scrollToEnd={scrollToEnd} />
             </div>
             : tickets.length ? <p className='w-fit mx-auto mt-6'>لطفا یکی از تیکت ها را انتخاب کنید</p> : null
             }
