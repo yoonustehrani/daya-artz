@@ -66,8 +66,8 @@ class TicketController extends Controller
     {
         $ticket = Ticket::findOrFail($ticket);
         $ticket->fill($request->all());
-        $ticket->messaging_is_allowed = in_array($ticket->status, Ticket::ALLOWED_STATUSES);
-        if ($ticket->messaging_is_allowed) {
+        $messaging_is_allowed = in_array($ticket->status, Ticket::ALLOWED_STATUSES);
+        if ($messaging_is_allowed) {
            $ticket->closed_at = null;
         } else if($ticket->status === 'closed' && is_null($ticket->closed_at)) {
             $ticket->closed_at = now();
