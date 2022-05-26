@@ -4,12 +4,6 @@ const { default: plugin } = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
-        // landing
-        "./resources/views/pages/landing/opening.blade.php",
-        "./resources/views/components/layout/*.blade.php" ,
-        "./resources/views/components/quick-order-form.blade.php",
-        "./resources/js/components/QuickOrder/QuickOrder.jsx",
-        "./resources/js/landing-opening.js",
         // zeus
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
@@ -20,7 +14,7 @@ module.exports = {
 		'./packages/Zeus/src/View/**/*.php',
         // custom zeus pages
         './resources/views/custom/*.blade.php',
-        './resources/js/components/ZeusTickets/*.jsx'
+        './resources/js/components/ZeusTickets/*.jsx',
     ],
     theme: {
         fontFamily: {
@@ -64,8 +58,6 @@ module.exports = {
 				}
             },
             backgroundImage: {
-                'shaped': "url('/images/shaped-background.png')",
-                "icon": "url('/images/item-background.png')",
                 "zeus-dashboard-vbg": "url('/images/zeus-images/dashboard-bvector.png')"
             },
             screens: {
