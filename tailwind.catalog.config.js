@@ -6,6 +6,7 @@ module.exports = {
     content: [
         // catalog
         "./resources/js/components/Catalog/**/*.jsx",
+        './resources/views/pages/catalog.blade.php'
     ],
     theme: {
         fontFamily: {

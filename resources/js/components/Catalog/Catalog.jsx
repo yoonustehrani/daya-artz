@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import FilterSidebar from './FilterSidebar';
+import Header from './Header'
+import Main from './Main';
 
 class Catalog extends Component {
     render() {
-        return (
-            <div className=''>
-                this message is in react
-            </div>
-        );
+        return (<>
+            <Header/>
+            <Main/>
+            <FilterSidebar/>
+        </>);
     }
 }
 

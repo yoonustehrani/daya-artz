@@ -8,8 +8,8 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <title>کاتالوگ دایا آرتز</title>
 </head>
-<body>
-    <div id="react-catalog"></div>
+<body class="w-full h-full overflow-y-auto overflow-x-hidden p-0 m-0 bg-body fixed">
+    <div id="react-catalog" class="h-full"></div>
     <script>
         const APP_PATH = "{{ asset('/') }}"
         const API_BASE_URL = "{{ route('api.') }}"
