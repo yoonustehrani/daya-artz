@@ -15,9 +15,10 @@ class CreateFormAnswersTable extends Migration
     {
         Schema::create('form_answers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('form_id')->references('id')->on('forms')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignUuid('form_id')->references('id')->on('forms')->cascadeOnUpdate()->cascadeOnDelete();
             $table->bigInteger('user_id')->nullable();
             $table->string('name')->nullable();
+            $table->string('ip');
             $table->timestamps();
         });
     }

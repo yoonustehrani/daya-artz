@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class FormInput extends Model
 {
     use HasFactory;
+
+    public function answers()
+    {
+        return $this->belongsToMany(FormAnswer::class);
+    }
 }

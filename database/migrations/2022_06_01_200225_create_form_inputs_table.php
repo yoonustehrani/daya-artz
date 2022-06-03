@@ -15,7 +15,8 @@ class CreateFormInputsTable extends Migration
     {
         Schema::create('form_inputs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('form_id')->references('id')->on('forms')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('form_id')->references('id')->on('forms')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->integer('order')->default(0);
             $table->string('label');
             $table->string('type');
             $table->string('default')->nullable();

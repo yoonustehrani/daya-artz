@@ -41,6 +41,8 @@ Route::prefix('forms')->name('forms.')->group(function() {
     Route::get('quick-order/services', [ApiOrderController::class, 'search'])->name('orders.services.search');
     Route::get('quick-order/services/main', [ApiOrderController::class, 'index'])->name('orders.services.main');
     Route::post('contact', [FormsController::class, 'contact'])->name('contact');
+    Route::get('/{key}', [FormsController::class, 'show'])->name('show');
+    Route::post('/{key}/answer', [FormsController::class, 'store'])->name('store');
 });
 
 Route::get('services', [ServiceController::class, 'index'])->name('services.index');

@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Events\QuickOrderSubmitted;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RecaptchaRequest;
+use App\Models\Form;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Service;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 
@@ -77,5 +79,22 @@ class FormsController extends Controller
             'email' => 'required|email:filter,dns|max:255'
         ]);
         return redirect()->to(route('contact'));
+    }
+
+    public function show($key)
+    {
+        $form = Form::select(['id', 'title'])->active()->where('key', $key)->firstOrFail();
+        $form->load([
+            'inputs' => function(Builder $builder) {
+                $builder->select();
+            }
+        ]);
+
+        return $form;
+    }
+
+    public function store()
+    {
+
     }
 }
