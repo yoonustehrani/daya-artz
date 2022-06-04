@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FormAnswer extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['user_id', 'ip', 'name'];
     public function form()
     {
         return $this->belongsTo(Form::class);
@@ -16,6 +16,6 @@ class FormAnswer extends Model
 
     public function inputs()
     {
-        return $this->belongsToMany(FormInput::class);
+        return $this->belongsToMany(FormInput::class, 'form_input_answers', 'answer_id', 'input_id')->withPivot('value');
     }
 }

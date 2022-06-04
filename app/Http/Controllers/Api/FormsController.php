@@ -6,10 +6,10 @@ use App\Events\QuickOrderSubmitted;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RecaptchaRequest;
 use App\Models\Form;
+use App\Models\FormAnswer;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Service;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 
@@ -83,18 +83,42 @@ class FormsController extends Controller
 
     public function show($key)
     {
-        $form = Form::select(['id', 'title'])->active()->where('key', $key)->firstOrFail();
-        $form->load([
-            'inputs' => function(Builder $builder) {
-                $builder->select();
-            }
-        ]);
-
-        return $form;
+        $form = Form::select(['id', 'title'])->with(['inputs' => function($q) {
+            $q->orderBy('order');
+        }])->active()->where('key', $key)->firstOrFail();
+        return response()->json($form);
+        // getting answers $answers->inputs()->select(['id', 'label'])->get()->append(['answer_value'])
     }
 
-    public function store()
+    public function store(Request $request, $key)
     {
-
+        $form = Form::select(['id', 'title'])->active()->where('key', $key)->firstOrFail();
+        $form->load(['inputs' => function($q) {
+            $q->select(['id', 'form_id', 'name', 'default', 'required', 'validation_rules']);
+        }]);
+        $request_rules = $form->validation_rules;
+        if ($request_rules->count()) {
+            $request->validate($request_rules->toArray());
+        }
+        $submissions = collect([]);
+        $form->inputs->each(function($input) use($submissions, $request) {
+            $value = $request->input($input->name) ?: $input->default;
+            $submissions->put($input->id, ['value' => serialize($value)]);
+        });
+        try {
+            $answer = new FormAnswer([
+                'ip' => $request->ip(),
+                'user_id' => $request->user() ? $request->user()->id : null,
+                'name' => $request->input('__name')
+            ]);
+            \DB::beginTransaction();
+            $form->answers()->save($answer);
+            $answer->inputs()->attach($submissions->toArray());
+            \DB::commit();
+            return ['okay' => true, 'message' => 'Ok Done !'];
+        } catch (\Throwable $th) {
+            \DB::rollback();
+            abort(500);
+        }
     }
 }

@@ -24,4 +24,19 @@ class Form extends Model
     {
         $builder->where('enabled', true);
     }
+
+    public function getValidationRulesAttribute()
+    {
+        $validation_rules = collect([]);
+        $this->inputs->filter(fn($i) => ! is_null($i->validation_rules) || $i->required)->each(function($input) use($validation_rules) {
+            $rules = $input->validation_rules ? explode('|', $input->validation_rules) : [];
+            if ($input->required) {
+                array_unshift($rules, 'required');
+            }
+            if (count($rules)) {
+                $validation_rules->put($input->name, $rules);
+            }
+        });
+        return $validation_rules;
+    }
 }
