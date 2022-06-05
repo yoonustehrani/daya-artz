@@ -11,7 +11,6 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Service;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
 
 class FormsController extends Controller
 {
@@ -93,6 +92,7 @@ class FormsController extends Controller
     public function store(Request $request, $key)
     {
         $form = Form::select(['id', 'title'])->active()->where('key', $key)->firstOrFail();
+        return $form;
         $form->load(['inputs' => function($q) {
             $q->select(['id', 'form_id', 'name', 'default', 'required', 'validation_rules']);
         }]);

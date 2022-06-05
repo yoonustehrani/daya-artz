@@ -5,8 +5,9 @@ namespace App\Models;
 use App\Traits\HasUuidAsPrimaryKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Form extends Model
+class Form extends ZeusModel
 {
     use HasFactory, HasUuidAsPrimaryKey;
 
