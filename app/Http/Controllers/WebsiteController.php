@@ -19,7 +19,7 @@ class WebsiteController extends Controller
     public function services()
     {
         $page = get_website_page('/services');
-        $services = Service::whereNull('parent_id')->select("*")->get();
+        $services = Service::whereNull('parent_id')->where('package', false)->get();
         $main_services = $services->filter(fn($s) => $s->main);
         $service_groups = $services->groupBy('group');
         return view('pages.services.index', compact('service_groups', 'main_services', 'page'));
@@ -27,8 +27,12 @@ class WebsiteController extends Controller
     public function service($slug)
     {
         $service = Service::whereSlug($slug)
-                    ->with(['plans' => function($q) { $q->unexpired(); }, 'children'])
+                    ->where('package', false)
+                    ->with(['plans' => function($q) {
+                        $q->unexpired();
+                    }, 'children'])
                     ->firstOrFail();
+        // return $service->plans->groupBy('row');
         return view('pages.services.show', compact('service'));
     }
     public function portfolioIndexApi($service)

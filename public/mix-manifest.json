@@ -1,13 +1,11 @@
 {
-    "/js/app.js": "/js/app.js?id=8ae29715dc5ced492c5e",
+    "/js/app.js": "/js/app.js?id=28ec225bb2bc53e5f0fd",
     "/js/userarea.js": "/js/userarea.js?id=68a17f6666e7507e0f45",
     "/js/catalog.js": "/js/catalog.js?id=a33fed9f6101691ffe4f",
-    "/js/zeus/app.js": "/js/zeus/app.js?id=0e168fce734f467a20d0",
-    "/js/zeusTickets.js": "/js/zeusTickets.js?id=69a0805e983b957ed6cc",
-    "/css/app.css": "/css/app.css?id=e314946d5d17f5203773",
-    "/css/zeus/style.css": "/css/zeus/style.css?id=005a22ab52298aa119d7",
+    "/js/landing-opening.js": "/js/landing-opening.js?id=11bb7878a2ba0cbfcb4d",
+    "/css/app.css": "/css/app.css?id=97129119d6157283e5c6",
+    "/css/landing.css": "/css/landing.css?id=fc66d96b63221be2b1ee",
     "/css/catalog.css": "/css/catalog.css?id=c6aec5fa4bfc5d6ad9e0",
     "/css/err.css": "/css/err.css?id=73547d21b2bf93f3b6b0",
-    "/css/_fonts.css": "/css/_fonts.css?id=121683e29715980330e5",
-    "/css/zeus/rtl.css": "/css/zeus/rtl.css?id=072db0b2124a59ebf29e"
+    "/css/_fonts.css": "/css/_fonts.css?id=121683e29715980330e5"
 }

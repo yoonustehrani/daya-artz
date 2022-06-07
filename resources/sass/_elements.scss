@@ -1538,6 +1538,9 @@ $labelData: '';
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    table {
+        direction: rtl;
+    }
     .post-main-text {
         padding: 0 1rem;
         direction: rtl;
@@ -2038,62 +2041,62 @@ $labelData: '';
                     transform: translateX(-50%);
                 }
             }
-        }
-        .card-1, .card-3, .card-4, .card-6, .card-7, .card-9 {
-            > div {
-                background-color: #fff;
-                .card-title {
-                    color: #2d027c;
-                    border-color: #2d027c;
+            &:nth-child(3n+3) {
+                > div {
+                    border: 2px solid #6232de;
+                    background-image: url('/images/plan-bg.png');
+                    background-size: cover;
+                    background-position: center;
                 }
-                .card-price, .card-options {
-                    color: #2d027c
-                }
-                ul {
-                    color: $horny-eggplant;
-                }
-                button {
-                    background-color: #6232de !important;
-                    color: white !important;
-                    &:hover {
-                        background-color: #2d027c !important;
+            }
+            &:nth-child(3n+3), &:nth-child(3n+1) {
+                > div {
+                    background-color: #fff;
+                    .card-title {
+                        color: #2d027c;
+                        border-color: #2d027c;
+                    }
+                    .card-price, .card-options {
+                        color: #2d027c
+                    }
+                    ul {
+                        color: $horny-eggplant;
+                    }
+                    button {
+                        background-color: #6232de !important;
+                        color: white !important;
+                        &:hover {
+                            background-color: #2d027c !important;
+                        }
                     }
                 }
             }
-        } 
-        .card-1, .card-4, .card-7 {
-            > div {
-                border: 2px solid #6232de;
-                background-image: url('/images/plan-bg.png');
-                background-size: cover;
-                background-position: center;
-            }
-        }
-        .card-2, .card-5, .card-8 {
-            > div {
-                background-image: linear-gradient(to top, #ac7ff4, #8f60ec, #6232de);
-                background-image: -webkit-gradient(to top, #ac7ff4, #8f60ec, #6232de);
-                // box-shadow: 2px 2px 8px 0px #cbb8f5;
-                .card-title {
-                    color: white;
-                    border-color: white;
-                }
-                .card-price {
-                    color: white;
-                    text-align: center;
-                }
-                ul {
-                    color: white;
-                    li::before {
+            &:nth-child(3n+2) {
+                > div {
+                    background-image: linear-gradient(to top, #ac7ff4, #8f60ec, #6232de);
+                    background-image: -webkit-gradient(to top, #ac7ff4, #8f60ec, #6232de);
+                    // box-shadow: 2px 2px 8px 0px #cbb8f5;
+                    .card-title {
                         color: white;
+                        border-color: white;
                     }
-                }
-                button {
-                    color: white !important;
-                    background-color: #6232de !important;
-                    &:hover {
-                        color: #6232de !important;
-                        background-color: white !important;
+                    .card-price {
+                        color: white;
+                        text-align: center;
+                    }
+                    ul {
+                        color: white;
+                        li::before {
+                            color: white;
+                        }
+                    }
+                    button {
+                        color: white !important;
+                        background-color: #6232de !important;
+                        &:hover {
+                            color: #6232de !important;
+                            background-color: white !important;
+                        }
                     }
                 }
             }

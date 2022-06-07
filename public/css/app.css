@@ -14935,6 +14935,9 @@ span.back-aqua.big-icon {
   left: 50%;
   transform: translateX(-50%);
 }
+.post-main-section table {
+  direction: rtl;
+}
 .post-main-section .post-main-text {
   padding: 0 1rem;
   direction: rtl;
@@ -15428,55 +15431,55 @@ span.back-aqua.big-icon {
   left: 50%;
   transform: translateX(-50%);
 }
-.order-packs-section .order-card-container .card-1 > div, .order-packs-section .order-card-container .card-3 > div, .order-packs-section .order-card-container .card-4 > div, .order-packs-section .order-card-container .card-6 > div, .order-packs-section .order-card-container .card-7 > div, .order-packs-section .order-card-container .card-9 > div {
-  background-color: #fff;
-}
-.order-packs-section .order-card-container .card-1 > div .card-title, .order-packs-section .order-card-container .card-3 > div .card-title, .order-packs-section .order-card-container .card-4 > div .card-title, .order-packs-section .order-card-container .card-6 > div .card-title, .order-packs-section .order-card-container .card-7 > div .card-title, .order-packs-section .order-card-container .card-9 > div .card-title {
-  color: #2d027c;
-  border-color: #2d027c;
-}
-.order-packs-section .order-card-container .card-1 > div .card-price, .order-packs-section .order-card-container .card-1 > div .card-options, .order-packs-section .order-card-container .card-3 > div .card-price, .order-packs-section .order-card-container .card-3 > div .card-options, .order-packs-section .order-card-container .card-4 > div .card-price, .order-packs-section .order-card-container .card-4 > div .card-options, .order-packs-section .order-card-container .card-6 > div .card-price, .order-packs-section .order-card-container .card-6 > div .card-options, .order-packs-section .order-card-container .card-7 > div .card-price, .order-packs-section .order-card-container .card-7 > div .card-options, .order-packs-section .order-card-container .card-9 > div .card-price, .order-packs-section .order-card-container .card-9 > div .card-options {
-  color: #2d027c;
-}
-.order-packs-section .order-card-container .card-1 > div ul, .order-packs-section .order-card-container .card-3 > div ul, .order-packs-section .order-card-container .card-4 > div ul, .order-packs-section .order-card-container .card-6 > div ul, .order-packs-section .order-card-container .card-7 > div ul, .order-packs-section .order-card-container .card-9 > div ul {
-  color: #6332df;
-}
-.order-packs-section .order-card-container .card-1 > div button, .order-packs-section .order-card-container .card-3 > div button, .order-packs-section .order-card-container .card-4 > div button, .order-packs-section .order-card-container .card-6 > div button, .order-packs-section .order-card-container .card-7 > div button, .order-packs-section .order-card-container .card-9 > div button {
-  background-color: #6232de !important;
-  color: white !important;
-}
-.order-packs-section .order-card-container .card-1 > div button:hover, .order-packs-section .order-card-container .card-3 > div button:hover, .order-packs-section .order-card-container .card-4 > div button:hover, .order-packs-section .order-card-container .card-6 > div button:hover, .order-packs-section .order-card-container .card-7 > div button:hover, .order-packs-section .order-card-container .card-9 > div button:hover {
-  background-color: #2d027c !important;
-}
-.order-packs-section .order-card-container .card-1 > div, .order-packs-section .order-card-container .card-4 > div, .order-packs-section .order-card-container .card-7 > div {
+.order-packs-section .order-card-container .order-card:nth-child(3n+3) > div {
   border: 2px solid #6232de;
   background-image: url("/images/plan-bg.png");
   background-size: cover;
   background-position: center;
 }
-.order-packs-section .order-card-container .card-2 > div, .order-packs-section .order-card-container .card-5 > div, .order-packs-section .order-card-container .card-8 > div {
+.order-packs-section .order-card-container .order-card:nth-child(3n+3) > div, .order-packs-section .order-card-container .order-card:nth-child(3n+1) > div {
+  background-color: #fff;
+}
+.order-packs-section .order-card-container .order-card:nth-child(3n+3) > div .card-title, .order-packs-section .order-card-container .order-card:nth-child(3n+1) > div .card-title {
+  color: #2d027c;
+  border-color: #2d027c;
+}
+.order-packs-section .order-card-container .order-card:nth-child(3n+3) > div .card-price, .order-packs-section .order-card-container .order-card:nth-child(3n+3) > div .card-options, .order-packs-section .order-card-container .order-card:nth-child(3n+1) > div .card-price, .order-packs-section .order-card-container .order-card:nth-child(3n+1) > div .card-options {
+  color: #2d027c;
+}
+.order-packs-section .order-card-container .order-card:nth-child(3n+3) > div ul, .order-packs-section .order-card-container .order-card:nth-child(3n+1) > div ul {
+  color: #6332df;
+}
+.order-packs-section .order-card-container .order-card:nth-child(3n+3) > div button, .order-packs-section .order-card-container .order-card:nth-child(3n+1) > div button {
+  background-color: #6232de !important;
+  color: white !important;
+}
+.order-packs-section .order-card-container .order-card:nth-child(3n+3) > div button:hover, .order-packs-section .order-card-container .order-card:nth-child(3n+1) > div button:hover {
+  background-color: #2d027c !important;
+}
+.order-packs-section .order-card-container .order-card:nth-child(3n+2) > div {
   background-image: linear-gradient(to top, #ac7ff4, #8f60ec, #6232de);
   background-image: -webkit-gradient(to top, #ac7ff4, #8f60ec, #6232de);
 }
-.order-packs-section .order-card-container .card-2 > div .card-title, .order-packs-section .order-card-container .card-5 > div .card-title, .order-packs-section .order-card-container .card-8 > div .card-title {
+.order-packs-section .order-card-container .order-card:nth-child(3n+2) > div .card-title {
   color: white;
   border-color: white;
 }
-.order-packs-section .order-card-container .card-2 > div .card-price, .order-packs-section .order-card-container .card-5 > div .card-price, .order-packs-section .order-card-container .card-8 > div .card-price {
+.order-packs-section .order-card-container .order-card:nth-child(3n+2) > div .card-price {
   color: white;
   text-align: center;
 }
-.order-packs-section .order-card-container .card-2 > div ul, .order-packs-section .order-card-container .card-5 > div ul, .order-packs-section .order-card-container .card-8 > div ul {
+.order-packs-section .order-card-container .order-card:nth-child(3n+2) > div ul {
   color: white;
 }
-.order-packs-section .order-card-container .card-2 > div ul li::before, .order-packs-section .order-card-container .card-5 > div ul li::before, .order-packs-section .order-card-container .card-8 > div ul li::before {
+.order-packs-section .order-card-container .order-card:nth-child(3n+2) > div ul li::before {
   color: white;
 }
-.order-packs-section .order-card-container .card-2 > div button, .order-packs-section .order-card-container .card-5 > div button, .order-packs-section .order-card-container .card-8 > div button {
+.order-packs-section .order-card-container .order-card:nth-child(3n+2) > div button {
   color: white !important;
   background-color: #6232de !important;
 }
-.order-packs-section .order-card-container .card-2 > div button:hover, .order-packs-section .order-card-container .card-5 > div button:hover, .order-packs-section .order-card-container .card-8 > div button:hover {
+.order-packs-section .order-card-container .order-card:nth-child(3n+2) > div button:hover {
   color: #6232de !important;
   background-color: white !important;
 }

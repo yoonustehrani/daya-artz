@@ -19,6 +19,7 @@ class CreateServicePlansTable extends Migration
             $table->string('title');
             $table->text('caption');
             $table->integer('price');
+            $table->string('row')->default('1');
             $table->integer('order')->default(0);
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();

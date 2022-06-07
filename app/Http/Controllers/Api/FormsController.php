@@ -85,6 +85,7 @@ class FormsController extends Controller
         $form = Form::select(['id', 'title'])->with(['inputs' => function($q) {
             $q->orderBy('order');
         }])->active()->where('key', $key)->firstOrFail();
+
         return response()->json($form);
         // getting answers $answers->inputs()->select(['id', 'label'])->get()->append(['answer_value'])
     }

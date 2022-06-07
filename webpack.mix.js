@@ -46,7 +46,7 @@ mix.sass(res.sass + 'app.scss', pub.css)
 mix.sass(res.sass + '_fonts.scss', pub.css)
 mix.js(res.js + 'app.js', pub.js).react()
 mix.js(res.js + "userarea.js", pub.js).react()
-// // err
+// err
 mix.sass(res.sass + "err.scss", pub.css)
 // catalog
 mix.postCss(res.css + "catalog.css", pub.css, [
@@ -58,31 +58,31 @@ mix.postCss(res.css + "catalog.css", pub.css, [
     .js(src.res.js + "catalog.js", src.pub.js).react()
 
 // landing
-// mix.postCss(res.css + "landing.css", pub.css, [
-//         require('postcss-import'),
-//         require('tailwindcss/nesting'),
-//         require('tailwindcss')({config: './tailwind.landing.config.js'}),
-//         require('autoprefixer'),
-//     ])
-//     .js(res.js + "landing-opening.js", pub.js).react()
+mix.postCss(res.css + "landing.css", pub.css, [
+        require('postcss-import'),
+        require('tailwindcss/nesting'),
+        require('tailwindcss')({config: './tailwind.landing.config.js'}),
+        require('autoprefixer'),
+    ])
+    .js(res.js + "landing-opening.js", pub.js).react()
 
-// // zeus
-mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
-    require('postcss-import'),
-    require('tailwindcss/nesting'),
-    require('tailwindcss')({config: "./tailwind.zeus.config.js"}),
-    require('autoprefixer')
-])
-mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
-    require('postcss-import'),
-    require('tailwindcss/nesting'),
-    require('tailwindcss')({config: './tailwind.zeus.config.js'}),
-    require('autoprefixer')
-])
-mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
-mix.js(res.js + "components/zeusTickets.js", pub.js).react()
+// zeus
+// mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
+//     require('postcss-import'),
+//     require('tailwindcss/nesting'),
+//     require('tailwindcss')({config: "./tailwind.zeus.config.js"}),
+//     require('autoprefixer')
+// ])
+// mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
+//     require('postcss-import'),
+//     require('tailwindcss/nesting'),
+//     require('tailwindcss')({config: './tailwind.zeus.config.js'}),
+//     require('autoprefixer')
+// ])
+// mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
+// mix.js(res.js + "components/zeusTickets.js", pub.js).react()
 
-// // tinymce
+// tinymce
 // mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
 // mix.js(zeus.res.js + 'tinymce/langs/fa.js', 'public/js/tinymce/langs')
 

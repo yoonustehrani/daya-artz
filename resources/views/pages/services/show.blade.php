@@ -194,10 +194,10 @@
                 <h4 class="subtitle">بسته های هوشمند جهت سفارش {{ $service->title }} برای شما</h4>
             </div>
         </div>
-        @foreach ($service->plans->sortBy('order')->chunk(3) as $plans)
+        @foreach ($service->plans->groupBy('row')->sortKeys() as $key => $plans)
             <div class="col-12 mb-3 order-card-container">
-                @foreach ($plans as $plan)
-                <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2 mx-xl-2">
+                @foreach ($plans->sortBy('order') as $plan)
+                <div class="order-card col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2 mx-xl-2">
                     <div>
                         <h4 class="card-title bold">{{ $plan->title }}</h4>
                         <div class="card-price-container">
