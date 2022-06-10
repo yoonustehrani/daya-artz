@@ -1,6 +1,6 @@
 <x-layout.landing :title="$page->title">
     <x-slot name="header">
-        <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
+        {{-- <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
             <img data-src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] absolute md:static opacity-20 md:opacity-100 right-0">
             <img data-src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute right-0 md:bottom-[4%] lg:bottom-[6%]">
             <div class="w-full md:w-auto px-4 md:px-2 py-4 text-center flex flex-col justify-evenly items-center">
@@ -21,28 +21,26 @@
             </div>
             <img data-src="{{ asset('/images/baloone-left-2.png') }}" alt="baloone-left" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] hidden sm:inline absolute md:static opacity-20 md:opacity-100 left-0">
             <img data-src="{{ asset('/images/baloone-left-1.png') }}" alt="baloone-left" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute left-0 md:bottom-[4%] lg:bottom-[6%]">
-        </div>
+        </div> --}}
     </x-slot>
     {{-- Customer Type section --}}
-    <section class="w-full text-gray-900 py-10 px-12 text-lg">
+    <section class="w-full text-gray-900 py-10 px-12 text-lg flex flex-col items-center">
         <h2 class="text-4xl text-center font-bold piped">ایده ما چیه و چطور به کسب و کارت کمک میکنیم ؟</h2>
-        <div class="p-3 grid grid-cols-3 gap-4">
-            <img class="lg:h-96 p-5 lg:col-span-1 place-self-center" 
-            src="{{ asset('images/landing/man-owning-a-business.svg') }}"
-            alt="">
-            <div class="lg:col-span-2 mt-16 p-5">
+        <div class="w-full xl:w-10/12">
+            <img class="lg:h-96 p-5 float-right m-5" src="{{ asset('images/landing/man-owning-a-business.svg') }}" alt="">
+            <div class="p-5 pt-24">
                 <p class="font-bold text-2xl">
                     اگر شما دارای یک کسب و کار شخصی هستید
                     <i class="far fa-caret-circle-down"></i>
                 </p>
-                {{-- <h3 class=""></h3> --}}
                 <p class="p-3 mt-3 text-justify text-gray-700">
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                 </p>
             </div>
         </div>
-        <div class="p-3 grid lg:grid-cols-3 gap-4">
-            <div class="lg:col-span-2 mt-16 p-5">
+        <div class="w-full xl:w-10/12">
+            <img class="lg:h-96 p-5 float-left m-5" src="{{ asset('images/landing/man-working-as-manager.svg') }}" alt="">
+            <div class="p-5 pt-24">
                 <p class="font-bold text-2xl">
                     اگر شما مدیر مسئول یک سازمان یا شرکت هستید
                     <i class="far fa-caret-circle-down"></i>
@@ -51,11 +49,10 @@
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                 </p>
             </div>
-            <img class="lg:h-96 p-5 place-self-center" src="{{ asset('images/landing/man-working-as-manager.svg') }}" alt="">
         </div>
-        <div class="p-3 grid lg:grid-cols-3 gap-4">
-            <img class="lg:h-96 p-5 place-self-center" src="{{ asset('images/landing/man-with-an-idea.svg') }}" alt="">
-            <div class="lg:col-span-2 mt-16 p-5">
+        <div class="w-full xl:w-10/12">
+            <img class="lg:h-96 p-5 float-right m-5 " src="{{ asset('images/landing/man-with-an-idea.svg') }}" alt="">
+            <div class="p-5 pt-24">
                 <p class="font-bold text-2xl">
                     اگر شما ایده راه اندازی یک کسب و کار در ذهن تان دارید
                     <i class="far fa-caret-circle-down"></i>
@@ -161,5 +158,56 @@
             </div>
         </div>
     </section>
-    
+    <section class="w-full mt-3 flex flex-col items-center">
+        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words">
+            <div class="bg-white rounded-xl relative w-full xl:w-1/4 float-right xl:m-5 xl:mt-10 shadow-xl">
+                <img class="absolute z-10 -top-4 -right-4" src="{{ asset('images/landing/tape.png') }}" alt="">
+                <div class="bg-purple-300/60 rounded-xl relative p-5 pb-0">
+                    <img class="w-full h-auto" src="{{ asset('images/landing/fastfood.svg') }}" alt="">
+                </div>
+                <div class="py-3 px-6">
+                    <span class="w-fit px-3 bg-purple-500 text-white rounded-full">کوچک - محلی</span>
+                    <p class="mt-3 p-3">
+                        <b>نام کسب و کار :</b> فست فود "همگر"
+                        <br>
+                        <b>سابقه فعالیت :‌</b> ۱۱ ماه
+                        <br>
+                        <b>هدف تبلیغاتی :</b> تبلیغات محلی و جذب مشتری
+                    </p>
+                </div>
+                <img class="absolute z-10 -bottom-5 -left-5" src="{{ asset('images/landing/tape.png') }}" alt="">
+            </div>
+            <div class="px-5 pt-[60px] text-lg leading-loose text-[#0102B5]">
+                <h4 class="text-2xl">مثال #1</h4>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+            </div>
+        </div>
+        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words">
+            <div class="bg-white rounded-xl relative w-full xl:w-1/4 float-left xl:m-5 xl:mt-10 shadow-xl">
+                <img class="absolute z-10 -top-4 -right-4" src="{{ asset('images/landing/tape.png') }}" alt="">
+                <div class="bg-purple-300/60 p-5 pb-0">
+                    <img class="w-full h-auto" src="{{ asset('images/landing/restaurant.svg') }}" alt="">
+                </div>
+                <div class="py-3 px-6">
+                    <span class="w-fit px-3 bg-purple-500 text-white rounded-full">سرشناس - لاکچری</span>
+                    <p class="mt-3 p-3">
+                        <b>نام کسب و کار :</b> رستوران "پالرمو"
+                        <br>
+                        <b>سابقه فعالیت :‌</b> ۱۵ سال
+                        <br>
+                        <b>هدف تبلیغاتی :</b> تبدیل شدن به یک برند خاص در سطح شهر
+                    </p>
+                </div>
+                <img class="absolute z-10 -bottom-5 -left-5" src="{{ asset('images/landing/tape.png') }}" alt="">
+            </div>
+            <div class="px-5 pt-[60px] text-lg leading-loose text-[#0102B5]">
+                <h4 class="text-2xl">مثال #2</h4>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+            </div>
+        </div>
+    </section>
 </x-layout.landing>

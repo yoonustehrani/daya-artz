@@ -267,6 +267,11 @@
     .absolute-dot {
         @apply absolute h-full w-fit top-0 -left-2 z-10 items-center flex;
     }
+    .bg-paper {
+        background-image: url(/images/landing/paper.png);
+        background-position-x: left;
+        background-repeat: repeat-x;
+    }
     @screen md {
         .fast-order-section {
             width: 96% !important;
