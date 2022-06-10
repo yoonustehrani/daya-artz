@@ -4,11 +4,11 @@ const { default: plugin } = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
-        "./resources/views/pages/landing/opening.blade.php",
-        "./resources/views/components/layout/*.blade.php" ,
-        "./resources/views/components/quick-order-form.blade.php",
-        "./resources/js/components/QuickOrder/QuickOrder.jsx",
-        "./resources/js/landing-opening.js",
+        "./resources/views/pages/landing/new-opening.blade.php",
+        "./resources/views/components/layout/*.blade.php",
+        // "./resources/views/components/quick-order-form.blade.php",
+        // "./resources/js/components/QuickOrder/QuickOrder.jsx",
+        // "./resources/js/landing-opening.js",
     ],
     theme: {
         fontFamily: {

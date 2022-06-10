@@ -251,6 +251,22 @@
     p {
         line-height: 2;
     }
+    .piped:before, .piped:after {
+        content: '|';
+        @apply mx-2;
+    }
+    .borderable-circle {
+        @apply p-6 xl:p-12 rounded-[50%] aspect-square w-full border-2 border-dashed;
+        p, span {
+            -webkit-filter: blur(0.000001px);
+        }
+        p {
+            @apply leading-relaxed;
+        }
+    }
+    .absolute-dot {
+        @apply absolute h-full w-fit top-0 -left-2 z-10 items-center flex;
+    }
     @screen md {
         .fast-order-section {
             width: 96% !important;

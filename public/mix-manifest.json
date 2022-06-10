@@ -1,11 +1,3 @@
 {
-    "/js/app.js": "/js/app.js?id=28ec225bb2bc53e5f0fd",
-    "/js/userarea.js": "/js/userarea.js?id=68a17f6666e7507e0f45",
-    "/js/catalog.js": "/js/catalog.js?id=a33fed9f6101691ffe4f",
-    "/js/landing-opening.js": "/js/landing-opening.js?id=11bb7878a2ba0cbfcb4d",
-    "/css/app.css": "/css/app.css?id=97129119d6157283e5c6",
-    "/css/landing.css": "/css/landing.css?id=fc66d96b63221be2b1ee",
-    "/css/catalog.css": "/css/catalog.css?id=c6aec5fa4bfc5d6ad9e0",
-    "/css/err.css": "/css/err.css?id=73547d21b2bf93f3b6b0",
-    "/css/_fonts.css": "/css/_fonts.css?id=121683e29715980330e5"
+    "/css/landing.css": "/css/landing.css?id=a15b290c30cc2836af6a"
 }
