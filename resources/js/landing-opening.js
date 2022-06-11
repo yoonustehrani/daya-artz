@@ -6,6 +6,37 @@
 // if (quickOrderElement) {
 //     render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
 // }
+
+const changeCountDown = (countDown, diffObj) => {
+    let {inSeconds, inMinutes, inHours, inDays} = diffObj
+    let getTwoDigitForInt = int => int > 9 ? int : `0${int}`
+    countDown.querySelector('li:nth-child(1) > span.number').innerText = getTwoDigitForInt(inSeconds)
+    countDown.querySelector('li:nth-child(2) > span.number').innerText = getTwoDigitForInt(inMinutes)
+    countDown.querySelector('li:nth-child(3) > span.number').innerText = getTwoDigitForInt(inHours)
+    countDown.querySelector('li:nth-child(4) > span.number').innerText = getTwoDigitForInt(inDays)
+}
+
+const getDiffObject = diff => ({
+    inDays: diff.getUTCDate() - 1,
+    inHours: diff.getUTCHours(),
+    inMinutes: diff.getUTCMinutes(),
+    inSeconds: diff.getUTCSeconds()
+})
+
+const setupCountDown = (countDown, initialDate) => {
+    changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())))
+    setInterval(() => {
+        changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())))
+    }, 1000);
+}
+
+const countDown = document.querySelector('ul[data-countdown]')
+const countDownDateTime = new Date(countDown.getAttribute('data-countdown'))
+// const diff = new Date( - new Date().getTime());
+setupCountDown(countDown, countDownDateTime.getTime())
+
+
+
 document.querySelectorAll('#faq-list > div > p:first-child').forEach((el, i) => {
     el.addEventListener('click', function() {
         let icon = this.querySelector('i.far').classList

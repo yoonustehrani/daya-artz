@@ -1,15 +1,30 @@
 <x-layout.landing :title="$page->title">
+    @php
+        $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2022-06-19 00:00:00', 'Asia/Tehran')->toISOString();
+    @endphp
     <x-slot name="header">
         <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
             <img data-src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] absolute md:static opacity-20 md:opacity-100 right-0">
             <img data-src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute right-0 md:bottom-[4%] lg:bottom-[6%]">
             <div class="w-full md:w-auto px-4 md:px-2 py-4 text-center flex flex-col justify-evenly items-center">
                 <p class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white w-full font-bold leading-normal my-3 xl:my-0"><span class="text-cyan-300">همین حالا</span> سفارشت رو ثبت کن؛ <span class="text-cyan-300">زمان</span> محدودست</p>
-                <ul class="p-0 flex flex-nowrap justify-center items-stretch w-full text-gray-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center font-bold my-3 xl:my-0">
-                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">45<span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ثانیه</span></li>
-                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">59<span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">دقیقه</span></li>
-                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">23<span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ساعت</span></li>
-                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">09<span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">روز</span></li>
+                <ul data-countdown="{{ $date }}" class="p-0 flex flex-nowrap justify-center items-stretch w-full text-gray-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center font-bold my-3 xl:my-0">
+                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
+                        <span class="number"></span>
+                        <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ثانیه</span>
+                    </li>
+                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
+                        <span class="number"></span>
+                        <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">دقیقه</span>
+                    </li>
+                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
+                        <span class="number"></span>
+                        <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ساعت</span>
+                    </li>
+                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
+                        <span class="number"></span>
+                        <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">روز</span>
+                    </li>
                 </ul>
                 <div class="text-center text-sm md:text-base lg:text-xl xl:text-2xl w-full text-white rtl my-3 xl:my-0">
                     <h3 class="font-bold text-base md:text-xl lg:text-2xl xl:text-3xl leading-normal mb-2 md:mb-4"><span class="text-cyan-300">دایا آرتز</span> در <span class="text-cyan-300">جشنواره افتتاحیه</span> سایتش با رویکرد استارت آپی قصد دارد:</h3>
@@ -220,21 +235,21 @@
                 <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">دایا آرتز کجاست ؟ <i class="float-left far fa-times-circle"></i></p>
                 <p class="mt-6 text-xl transition duration-500 ease-in-out">
                     <i class="fas fa-plus m-2"></i>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nostrum ab corrupti, omnis, labore repellat vero ea ad consectetur nobis dolorem, mollitia at et minima quis perspiciatis placeat aperiam officia.
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 px-6">
                 <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">دایا آرتز کجاست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
                 <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
                     <i class="fas fa-plus m-2"></i>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nostrum ab corrupti, omnis, labore repellat vero ea ad consectetur nobis dolorem, mollitia at et minima quis perspiciatis placeat aperiam officia.
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 px-6">
                 <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">دایا آرتز کجاست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
                 <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
                     <i class="fas fa-plus m-2"></i>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nostrum ab corrupti, omnis, labore repellat vero ea ad consectetur nobis dolorem, mollitia at et minima quis perspiciatis placeat aperiam officia.
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده
                 </p>
             </div>
         </div>

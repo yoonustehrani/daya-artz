@@ -14,6 +14,42 @@
 // if (quickOrderElement) {
 //     render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
 // }
+var changeCountDown = function changeCountDown(countDown, diffObj) {
+  var inSeconds = diffObj.inSeconds,
+      inMinutes = diffObj.inMinutes,
+      inHours = diffObj.inHours,
+      inDays = diffObj.inDays;
+
+  var getTwoDigitForInt = function getTwoDigitForInt(_int) {
+    return _int > 9 ? _int : "0".concat(_int);
+  };
+
+  countDown.querySelector('li:nth-child(1) > span.number').innerText = getTwoDigitForInt(inSeconds);
+  countDown.querySelector('li:nth-child(2) > span.number').innerText = getTwoDigitForInt(inMinutes);
+  countDown.querySelector('li:nth-child(3) > span.number').innerText = getTwoDigitForInt(inHours);
+  countDown.querySelector('li:nth-child(4) > span.number').innerText = getTwoDigitForInt(inDays);
+};
+
+var getDiffObject = function getDiffObject(diff) {
+  return {
+    inDays: diff.getUTCDate() - 1,
+    inHours: diff.getUTCHours(),
+    inMinutes: diff.getUTCMinutes(),
+    inSeconds: diff.getUTCSeconds()
+  };
+};
+
+var setupCountDown = function setupCountDown(countDown, initialDate) {
+  changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
+  setInterval(function () {
+    changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
+  }, 1000);
+};
+
+var countDown = document.querySelector('ul[data-countdown]');
+var countDownDateTime = new Date(countDown.getAttribute('data-countdown')); // const diff = new Date( - new Date().getTime());
+
+setupCountDown(countDown, countDownDateTime.getTime());
 document.querySelectorAll('#faq-list > div > p:first-child').forEach(function (el, i) {
   el.addEventListener('click', function () {
     var icon = this.querySelector('i.far').classList;
