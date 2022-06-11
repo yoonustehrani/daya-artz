@@ -1,12 +1,25 @@
-import { render } from 'react-dom'
-import QuickOrder from './components/QuickOrder'
+// import { render } from 'react-dom'
+// import QuickOrder from './components/QuickOrder'
 
 // quick order
-const quickOrderElement = document.getElementById("react-quick-order")
-if (quickOrderElement) {
-    render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
-}
-
+// const quickOrderElement = document.getElementById("react-quick-order")
+// if (quickOrderElement) {
+//     render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
+// }
+document.querySelectorAll('#faq-list > div > p:first-child').forEach((el, i) => {
+    el.addEventListener('click', function() {
+        let icon = this.querySelector('i.far').classList
+        icon.toggle('fa-times-circle')
+        icon.toggle('fa-caret-circle-down')
+        this.parentNode.querySelector('p:nth-child(2)').classList.toggle('hidden')
+        this.parentNode.parentNode.querySelectorAll(`div:not(:nth-child(${i + 1}))`).forEach(sibling => {
+            sibling.querySelector('p:nth-child(2)').classList.add('hidden')
+            let ic = sibling.querySelector('i.far').classList
+            ic.remove('fa-times-circle')
+            ic.add('fa-caret-circle-down')
+        })
+    })
+})
 // this code is for handling the menu in < md sizes
 var body = document.body
 function toggle_menu() {

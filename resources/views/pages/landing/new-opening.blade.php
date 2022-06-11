@@ -213,10 +213,33 @@
             </div>
         </div>
     </section>
-    <section class="w-full flex flex-col items-center mt-6 bg-gradient-to-l from-daya-purple-light via-daya-purple-medium to-daya-purple-dark text-gray-900 p-6">
-        <h2 class="text-4xl text-center text-stone-100 font-bold piped">سوالات متداول</h2>
-        <div class="w-full lg:10/12 xl:w-8/12 bg-red-400 p-4 mt-4">
-            dool
+    <section class="w-full flex flex-col items-center mt-6 bg-gradient-to-l from-daya-purple-light via-daya-purple-medium to-daya-purple-dark text-stone-100 p-6">
+        <h2 class="text-4xl text-center font-bold piped">سوالات متداول</h2>
+        <div class="w-full lg:10/12 xl:w-8/12 p-4 mt-4 grid grid-cols-1 gap-8" id="faq-list">
+            <div class="border-b-2 border-stone-100 py-3 px-6">
+                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">دایا آرتز کجاست ؟ <i class="float-left far fa-times-circle"></i></p>
+                <p class="mt-6 text-xl transition duration-500 ease-in-out">
+                    <i class="fas fa-plus m-2"></i>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nostrum ab corrupti, omnis, labore repellat vero ea ad consectetur nobis dolorem, mollitia at et minima quis perspiciatis placeat aperiam officia.
+                </p>
+            </div>
+            <div class="border-b-2 border-stone-100 py-3 px-6">
+                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">دایا آرتز کجاست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
+                    <i class="fas fa-plus m-2"></i>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nostrum ab corrupti, omnis, labore repellat vero ea ad consectetur nobis dolorem, mollitia at et minima quis perspiciatis placeat aperiam officia.
+                </p>
+            </div>
+            <div class="border-b-2 border-stone-100 py-3 px-6">
+                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">دایا آرتز کجاست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
+                    <i class="fas fa-plus m-2"></i>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nostrum ab corrupti, omnis, labore repellat vero ea ad consectetur nobis dolorem, mollitia at et minima quis perspiciatis placeat aperiam officia.
+                </p>
+            </div>
         </div>
     </section>
+    @push('scripts')
+        <script src="{{ mix('js/landing-opening.js') }}"></script>
+    @endpush
 </x-layout.landing>
