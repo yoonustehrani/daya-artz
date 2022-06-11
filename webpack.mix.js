@@ -47,7 +47,7 @@ if (mix.inProduction) {
 // mix.js(res.js + 'app.js', pub.js).react()
 // mix.js(res.js + "userarea.js", pub.js).react()
 // err
-// mix.sass(res.sass + "err.scss", pub.css)
+mix.sass(res.sass + "err.scss", pub.css)
 // catalog
 // mix.postCss(res.css + "catalog.css", pub.css, [
 //     require("postcss-import"),
