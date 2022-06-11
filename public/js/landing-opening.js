@@ -7,13 +7,6 @@
   \*****************************************/
 /***/ (() => {
 
-// import { render } from 'react-dom'
-// import QuickOrder from './components/QuickOrder'
-// quick order
-// const quickOrderElement = document.getElementById("react-quick-order")
-// if (quickOrderElement) {
-//     render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
-// }
 var changeCountDown = function changeCountDown(countDown, diffObj) {
   var inSeconds = diffObj.inSeconds,
       inMinutes = diffObj.inMinutes,
@@ -47,8 +40,7 @@ var setupCountDown = function setupCountDown(countDown, initialDate) {
 };
 
 var countDown = document.querySelector('ul[data-countdown]');
-var countDownDateTime = new Date(countDown.getAttribute('data-countdown')); // const diff = new Date( - new Date().getTime());
-
+var countDownDateTime = new Date(countDown.getAttribute('data-countdown'));
 setupCountDown(countDown, countDownDateTime.getTime());
 document.querySelectorAll('#faq-list > div > p:first-child').forEach(function (el, i) {
   el.addEventListener('click', function () {
