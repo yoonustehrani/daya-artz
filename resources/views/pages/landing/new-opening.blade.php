@@ -1,6 +1,6 @@
 <x-layout.landing :title="$page->title">
     <x-slot name="header">
-        {{-- <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
+        <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
             <img data-src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] absolute md:static opacity-20 md:opacity-100 right-0">
             <img data-src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute right-0 md:bottom-[4%] lg:bottom-[6%]">
             <div class="w-full md:w-auto px-4 md:px-2 py-4 text-center flex flex-col justify-evenly items-center">
@@ -21,7 +21,7 @@
             </div>
             <img data-src="{{ asset('/images/baloone-left-2.png') }}" alt="baloone-left" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] hidden sm:inline absolute md:static opacity-20 md:opacity-100 left-0">
             <img data-src="{{ asset('/images/baloone-left-1.png') }}" alt="baloone-left" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute left-0 md:bottom-[4%] lg:bottom-[6%]">
-        </div> --}}
+        </div>
     </x-slot>
     {{-- Customer Type section --}}
     <section class="w-full text-gray-900 py-10 px-12 text-lg flex flex-col items-center">
@@ -72,7 +72,7 @@
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full flex justify-center items-center text-base 2xl:text-2xl">جمع آوری اطلاعات و تعیین اهداف تبلیغاتی</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">01</span>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                 <div class="borderable-circle mt-16 border-transparent border-b-black border-r-black rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">02</span>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                             </ol>
                         </div>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">03</span>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                 <div class="borderable-circle mt-2 border-black border-l-transparent rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">06</span>
                             </div>
                         </div>
@@ -137,7 +137,7 @@
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">انجام طراحی های مورد نیاز</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">05</span>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
             <div class="borderable-circle mt-2 border-black border-t-transparent rotate-45">
                 <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                     <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                        <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                        <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                             <span class="lg:text-4xl font-bold text-white mt-2">04</span>
                         </div>
                     </div>
@@ -158,15 +158,17 @@
             </div>
         </div>
     </section>
+    {{-- The 2 examples section --}}
     <section class="w-full mt-3 flex flex-col items-center">
-        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words">
-            <div class="bg-white rounded-xl relative w-full xl:w-1/4 float-right xl:m-5 xl:mt-10 shadow-xl">
+        {{-- Example #1 --}}
+        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words flex md:block flex-col items-center">
+            <div class="bg-white rounded-xl relative w-2/3 md:w-1/3 xl:w-1/4 md:float-right m-5 mt-10 shadow-xl">
                 <img class="absolute z-10 -top-4 -right-4" src="{{ asset('images/landing/tape.png') }}" alt="">
-                <div class="bg-purple-300/60 rounded-xl relative p-5 pb-0">
+                <div class="bg-violet-300/60 rounded-xl p-5 pb-0">
                     <img class="w-full h-auto" src="{{ asset('images/landing/fastfood.svg') }}" alt="">
                 </div>
                 <div class="py-3 px-6">
-                    <span class="w-fit px-3 bg-purple-500 text-white rounded-full">کوچک - محلی</span>
+                    <span class="w-fit px-3 bg-violet-500 text-white rounded-full">کوچک - محلی</span>
                     <p class="mt-3 p-3">
                         <b>نام کسب و کار :</b> فست فود "همگر"
                         <br>
@@ -177,21 +179,22 @@
                 </div>
                 <img class="absolute z-10 -bottom-5 -left-5" src="{{ asset('images/landing/tape.png') }}" alt="">
             </div>
-            <div class="px-5 pt-[60px] text-lg leading-loose text-[#0102B5]">
+            <div class="px-5 pt-5 md:pt-[60px] text-lg leading-loose text-[#0102B5]">
                 <h4 class="text-2xl">مثال #1</h4>
                 <p>
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                 </p>
             </div>
         </div>
-        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words">
-            <div class="bg-white rounded-xl relative w-full xl:w-1/4 float-left xl:m-5 xl:mt-10 shadow-xl">
+        {{-- Example #2 --}}
+        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words flex md:block flex-col items-center">
+            <div class="bg-white rounded-xl relative w-2/3 md:w-1/3 xl:w-1/4 md:float-left m-5 mt-10 shadow-xl">
                 <img class="absolute z-10 -top-4 -right-4" src="{{ asset('images/landing/tape.png') }}" alt="">
-                <div class="bg-purple-300/60 p-5 pb-0">
+                <div class="bg-violet-300/60 rounded-xl p-5 pb-0">
                     <img class="w-full h-auto" src="{{ asset('images/landing/restaurant.svg') }}" alt="">
                 </div>
                 <div class="py-3 px-6">
-                    <span class="w-fit px-3 bg-purple-500 text-white rounded-full">سرشناس - لاکچری</span>
+                    <span class="w-fit px-3 bg-violet-500 text-white rounded-full">سرشناس - لاکچری</span>
                     <p class="mt-3 p-3">
                         <b>نام کسب و کار :</b> رستوران "پالرمو"
                         <br>
@@ -202,12 +205,18 @@
                 </div>
                 <img class="absolute z-10 -bottom-5 -left-5" src="{{ asset('images/landing/tape.png') }}" alt="">
             </div>
-            <div class="px-5 pt-[60px] text-lg leading-loose text-[#0102B5]">
+            <div class="px-5 pt-5 md:pt-[60px] text-lg leading-loose text-[#0102B5]">
                 <h4 class="text-2xl">مثال #2</h4>
                 <p>
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                 </p>
             </div>
+        </div>
+    </section>
+    <section class="w-full flex flex-col items-center mt-6 bg-gradient-to-l from-daya-purple-light via-daya-purple-medium to-daya-purple-dark text-gray-900 p-6">
+        <h2 class="text-4xl text-center text-stone-100 font-bold piped">سوالات متداول</h2>
+        <div class="w-full lg:10/12 xl:w-8/12 bg-red-400 p-4 mt-4">
+            dool
         </div>
     </section>
 </x-layout.landing>
