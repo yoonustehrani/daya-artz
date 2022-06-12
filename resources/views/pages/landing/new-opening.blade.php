@@ -1,31 +1,65 @@
 <x-layout.landing :title="$page->title">
+    @php
+        $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2022-06-19 00:00:00', 'Asia/Tehran')->toISOString();
+    @endphp
     <x-slot name="header">
-        {{-- <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
-            <img data-src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] absolute md:static opacity-20 md:opacity-100 right-0">
-            <img data-src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute right-0 md:bottom-[4%] lg:bottom-[6%]">
+        <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
+            <img data-src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="animate-pulse lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[650px] 2xl:h-fit absolute md:static opacity-20 md:opacity-100 right-0">
+            <img data-src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[650px] 2xl:h-fit hidden md:inline absolute right-0 md:bottom-[4%] lg:bottom-[6%]">
             <div class="w-full md:w-auto px-4 md:px-2 py-4 text-center flex flex-col justify-evenly items-center">
-                <p class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white w-full font-bold leading-normal my-3 xl:my-0"><span class="text-cyan-300">همین حالا</span> سفارشت رو ثبت کن؛ <span class="text-cyan-300">زمان</span> محدودست</p>
-                <ul class="p-0 flex flex-nowrap justify-center items-stretch w-full text-gray-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center font-bold my-3 xl:my-0">
-                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">45<span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ثانیه</span></li>
-                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">59<span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">دقیقه</span></li>
-                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">23<span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ساعت</span></li>
-                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">09<span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">روز</span></li>
+                <p class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white w-full font-bold leading-normal my-3 xl:my-0">
+                    &rdquo;
+                    هدف های بزرگ تبلیغاتی،
+                    <span class="text-cyan-300 underline underline-offset-[20px]">نیاز های پنهانی</span>
+                    دارند !
+                    &ldquo;
+                </p>
+                <ul data-countdown="{{ $date }}" class="p-0 flex flex-nowrap justify-center items-stretch w-full text-gray-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center font-bold my-3 xl:my-0">
+                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
+                        <span class="number"></span>
+                        <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ثانیه</span>
+                    </li>
+                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
+                        <span class="number"></span>
+                        <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">دقیقه</span>
+                    </li>
+                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
+                        <span class="number"></span>
+                        <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ساعت</span>
+                    </li>
+                    <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
+                        <span class="number"></span>
+                        <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">روز</span>
+                    </li>
                 </ul>
-                <div class="text-center text-sm md:text-base lg:text-xl xl:text-2xl w-full text-white rtl my-3 xl:my-0">
-                    <h3 class="font-bold text-base md:text-xl lg:text-2xl xl:text-3xl leading-normal mb-2 md:mb-4"><span class="text-cyan-300">دایا آرتز</span> در <span class="text-cyan-300">جشنواره افتتاحیه</span> سایتش با رویکرد استارت آپی قصد دارد:</h3>
-                    <p>فقط تا پایان مدت این زمان سنج، پکیج های هدف گذاری شده و خدمات یگانه خود را با <span class="text-cyan-300 italic">تخفیف افتتاحیه</span> به کسب و کار های حرفه ای ارائه دهد.
-                        <br>
-                        <b>زمان را محاسبه نکن! امروز دایا آرتز را کشف کنید.</b> بسته های بهینه شده برای کسب و کار شما آماده هستند.
+                <div class="text-center text-sm md:text-base lg:text-xl xl:text-2xl w-full text-white rtl my-2 xl:my-0">
+                    <p class="font-bold text-base md:text-xl lg:text-2xl xl:text-3xl leading-normal mb-2 md:mb-8">
+                        دایا آرتز یک
+                        <span class="text-cyan-300">استارت آپ</span> <span class="text-red-300">طراحی گرافیک</span>
+                        با ایده های نوین است
+                        <i class="fa-2x fal fa-lightbulb-on"></i>
                     </p>
-                </div>    
+                    <p class="text-xl my-8 leading-loose lg:leading-normal">
+                        ما در دایا آرتز برای 
+                        <span class="bg-rose-400/80 rounded-full px-3 text-white">رشد کسب و کار</span>
+                        شما در زمینه 
+                        <span class="bg-cyan-300/50 rounded-full px-3 text-white">تبلیغات و برند سازی</span>
+                        از برنامه ریزی تا رسیدن به هدف هاتون همراه شما هستیم
+                    </p>
+                    <p class="text-3xl font-semibold my-8">اما چطوری ؟! به زودی میفهمی !</p>
+                    <p class="text-2xl mt-8 leading-loose text-center"><span class="font-bold">زمان را محاسبه نکنید</span> و همین امروز ایده ما رو کشف کنید.</p>
+                    <div class="mt-8 text-gray-200">
+                        <i id="double-arrow" class="fal fa-3x p-4 animate-bounce fa-angle-double-down cursor-pointer"></i>
+                    </div>
+                </div>
             </div>
-            <img data-src="{{ asset('/images/baloone-left-2.png') }}" alt="baloone-left" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] hidden sm:inline absolute md:static opacity-20 md:opacity-100 left-0">
+            <img data-src="{{ asset('/images/baloone-left-2.png') }}" alt="baloone-left" class="animate-pulse lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] hidden sm:inline absolute md:static opacity-20 md:opacity-100 left-0">
             <img data-src="{{ asset('/images/baloone-left-1.png') }}" alt="baloone-left" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute left-0 md:bottom-[4%] lg:bottom-[6%]">
-        </div> --}}
+        </div>
     </x-slot>
     {{-- Customer Type section --}}
-    <section class="w-full text-gray-900 py-10 px-12 text-lg flex flex-col items-center">
-        <h2 class="text-4xl text-center font-bold piped">ایده ما چیه و چطور به کسب و کارت کمک میکنیم ؟</h2>
+    <section id="customers-section" class="w-full text-gray-900 py-10 px-12 text-lg flex flex-col items-center">
+        <h2 class="text-4xl text-center font-bold piped">ایده ما چیه و چطور به کسب و کارت کمک می کنیم ؟</h2>
         <div class="w-full xl:w-10/12">
             <img class="lg:h-96 p-5 float-right m-5" src="{{ asset('images/landing/man-owning-a-business.svg') }}" alt="">
             <div class="p-5 pt-24">
@@ -33,8 +67,14 @@
                     اگر شما دارای یک کسب و کار شخصی هستید
                     <i class="far fa-caret-circle-down"></i>
                 </p>
-                <p class="p-3 mt-3 text-justify text-gray-700">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                <p class="p-3 mt-3 text-justify text-gray-700">اگر شما دارای یک کسب و کار و بیزینس شخصی هستین، مثلا یک فروشگاه یا شرکت خدماتی یا حتی یک کافی شاپ، دایا آرتز در خدمت شماست تا به رشد کسب و کار شما کمک کنه. اما چطوری ما این کار رو انجام میدیم؟!</p>
+                <p class="px-3 text-justify text-gray-700">ما به عنوان یک استارت آپ طراحی گرافیک، با بررسی اهداف کاری شما، پیش نیاز های طراحی گرافیکی آن‌ها را شناسایی می‌کنیم و با اجرای هدفمند این طراحی ها، در مسیر 
+                <span class="underline underline-offset-[10px] decoration-dashed">رشد تبلیغاتی و برندینگ</span>
+                همراهتان هستیم.
+                <br>
+                <i class="fas fa-hashtag"></i>
+                برای مثال اگر می‌خواید فروش بیشتری داشته باشید یا برند خودتون رو قوی کنید ما خدمات طراحی گرافیک مورد نیاز برای دستیابی به این اهداف تبلیغاتی  رو به شما پیشنهاد و فرآیند طراحی تخصصی آن‌ها را  اجرا می‌کنیم.
+                <span class="text-gray-900 font-semibold">(مانند طراحی  قالب اینستاگرام، طراحی منو کافی شاپ/رستوران و طراحی بروشور تبلیغاتی)</span>
                 </p>
             </div>
         </div>
@@ -46,7 +86,12 @@
                     <i class="far fa-caret-circle-down"></i>
                 </p>
                 <p class="p-3 mt-3 text-justify text-gray-700">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                    اگر شما  یکی از مدیران دارای مسئولیت در شرکت یا سازمان خود هستید - برای مثال مدیر ارشد بازاریابی یا مدیر دیجیتال مارکتینگ یک شرکت به ‌خصوص - ما آماده هستیم تا بر اساس اهداف کاریتون، به شما بهینه ترین خدمات طراحی گرافیک رو پس از بررسی اهداف کاریتون پیشنهاد بدیم. بنابراین دایا آرتز بر اساس هدف و نیاز های واقعی کسب و کار شما، براتون طراحی خدمات گرافیک انجام میده.
+                </p>
+                <p class="px-3 text-justify text-gray-700">
+                    <i class="fas fa-hashtag"></i>
+                    برای مثال اگر یک مدیر ارشد دیجیتال مارکتینگ در یک شرکت هستید و قصد دارید نرخ تبدیل خودتون رو بالا ببرید، دایا آرتز با بررسی هدف و ساختار شرکت یا سازمان شما براتون مناسب ترین خدمات طراحی گرافیک رو پیشنهاد می کنه.
+                    <span class="text-gray-900 font-semibold">(مانند طراحی کاتالوگ محصولات/خدمات، طراحی ست اداری و طراحی بنر تبلیغاتی)</span>
                 </p>
             </div>
         </div>
@@ -57,8 +102,11 @@
                     اگر شما ایده راه اندازی یک کسب و کار در ذهن تان دارید
                     <i class="far fa-caret-circle-down"></i>
                 </p>
-                <p class="p-3 mt-3 text-justify text-gray-700">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                <p class="p-3 mt-3 text-justify text-gray-700">اگر شما در حال راه اندازی یک کسب و کار و بیزینس تازه هستین، مثلا اگر دارید یک استارت آپ یا رستوران یا حتی یک کارگاه تولیدی رو راه اندازی می‌کنید، ما اینجا هستیم تا خدمات تخصصی طراحی گرافیک خود را بر اساس هدف برندینگ یا دغدغه تبلیغاتی شما، با حداقل بودجه برایتان برنامه‌ریزی و اجرا کنیم.</p>
+                <p class="px-3 text-justify text-gray-700">
+                    <i class="fas fa-hashtag"></i>
+                    برای مثال بر اساس نوع کسب و کار شما، برایتان بهترین پیشنهاد های زمینه توسعه و طراحی برند را آماده می‌کنیم تا به یک برند قوی تبدیل شوید.
+                    <span class="text-gray-900 font-semibold">(مانند طراحی لوگو،‌ طراحی هویت بصری و طراحی کارت ویزیت / تراکت)</span>
                 </p>
             </div>
         </div>
@@ -70,9 +118,9 @@
             <div class="relative aspect-square w-full">
                 <div class="borderable-circle border-black border-b-transparent rotate-45 overflow-hidden">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center p-5">
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full flex justify-center items-center text-base 2xl:text-2xl">جمع آوری اطلاعات و تعیین اهداف تبلیغاتی</p>
+                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full flex justify-center items-center text-base 2xl:text-2xl">شما هدف تبلیغاتی یا برنامه برندسازی خود را به ما اعلام می کنید</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">01</span>
                             </div>
                         </div>
@@ -85,11 +133,18 @@
                 <div class="borderable-circle mt-16 border-transparent border-b-black border-r-black rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">02</span>
                             </div>
                         </div>
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">اعلام اهداف تبلیغاتی به <a href="{{ route('home') }}">دایا آرتز</a></p>
+                        <div class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl">
+                            <span>دایا آرتز پروسه تحقیقات درباره هدف شما را آغاز می کند :</span>
+                            <ol class="text-base list-decimal list-inside text-center mt-2">
+                                <li>آنالیز کسب و کار</li>
+                                <li>آنالیز بازار</li>
+                                <li>آنالیز رقبا</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
                 <span class="absolute-dot my-4"><i class="fas fa-circle"></i></span>
@@ -98,16 +153,9 @@
             <div class="relative aspect-square w-full">
                 <div class="borderable-circle border-black border-r-transparent rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
-                        <div class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl">
-                            <span>پروسه تحقیقات :</span>
-                            <ol class="text-base list-decimal list-inside text-center mt-2">
-                                <li>آنالیز کسب و کار</li>
-                                <li>آنالیز بازار</li>
-                                <li>آنالیز رقبا</li>
-                            </ol>
-                        </div>
+                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدفتان به شما ارائه می شود</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">03</span>
                             </div>
                         </div>
@@ -122,11 +170,11 @@
                 <div class="borderable-circle mt-2 border-black border-l-transparent rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">06</span>
                             </div>
                         </div>
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">ارائه طراحی های انجام شده بعلاوه برنامه استفاده هدفمند به شما</p>
+                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">حالا شما همه پیش نیاز های لازم برای دستیابی به هدف تبلیغاتی خود را دارید</p>
                     </div>
                 </div>
                 <span class="absolute-dot -mt-1"><i class="fas fa-circle"></i></span>
@@ -135,9 +183,9 @@
             <div class="relative aspect-square w-full">
                 <div class="borderable-circle -mt-4 border-transparent border-t-black border-l-black rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">انجام طراحی های مورد نیاز</p>
+                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">طراحی های انجام شده بعلاوه برنامه استفاده هدفمند از آنها به شما ارائه می شود</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                            <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                            <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">05</span>
                             </div>
                         </div>
@@ -149,25 +197,50 @@
             <div class="borderable-circle mt-2 border-black border-t-transparent rotate-45">
                 <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                     <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
-                        <div class="w-full h-full rounded-full bg-purple-700 flex justify-center items-center">
+                        <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                             <span class="lg:text-4xl font-bold text-white mt-2">04</span>
                         </div>
                     </div>
-                    <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">تهیه لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدف تبلیغاتی</p>
+                    <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">
+                        این طراحی ها به صورت تخصصی و هدفمند توسط طراحان دایا آرتز 
+                        <span class="text-rose-500">(با ۲۵٪ تخفیف افتتاحیه)</span>
+                        طراحی می شود.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
+    <section class="w-full p-6 flex flex-col items-center">
+        <div class="w-full md:w-10/12 lg:w-full 2xl:w-10/12 grid lg:grid-cols-2 xl:gap-4">
+            <div class="p-5 self-center text-lg">
+                <h3 class="text-3xl font-bold"><i class="fa-2x fal fa-clipboard-list"></i> فرم درخواست استفاده از خدمات دایا آرتز</h3>
+                <p class="mt-3 p-3">با تکمیل و ارسال این فرم، کارشناسان ما با شما تماس حاصل خواهند کرد تا طی یک مکالمه مختصر از جزئیات بیشتر هدف شما آگاه شوند و در اسرع وقت لیستی از پیشنهادهای تخصصی تیم کارشناسان دایا آرتز بر اساس نیاز های واقعی طراحی گرافیک کسب و کارتان برای شما ارسال شود.
+                    <br>
+                    <br>
+                    <span class="font-semibold">- فرآیند همکاری پس از دریافت لیست پیشنهادهای تخصصی ما چگونه است ؟</span>
+                </p>
+                <ul class="px-5 list-inside">
+                    <li>۱. لیست خدمات پیشنهادی به تأیید شما می‌رسد</li>
+                    <li>۲. جزئیات این خدمات طراحی وارد پروسه سفارش می‌شود</li>
+                    <li>۳. لیست سفارش‌ها بر اساس برنامه دقیق و منظم توسط ما طراحی می‌شوند</li>
+                    <li>۴. طراحی های تکمیل شده طی دو مرحله به شما ارائه میشوند</li>
+                </ul>
+            </div>
+            <div class="flex flex-col items-center text-gray-900" id="form"></div>
+        </div>
+    </section>
+    {{-- The 2 examples section --}}
     <section class="w-full mt-3 flex flex-col items-center">
-        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words">
-            <div class="bg-white rounded-xl relative w-full xl:w-1/4 float-right xl:m-5 xl:mt-10 shadow-xl">
+        {{-- Example #1 --}}
+        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words flex md:block flex-col items-center">
+            <div class="bg-white rounded-xl relative w-2/3 md:w-1/3 xl:w-1/4 md:float-right m-5 mt-10 shadow-xl">
                 <img class="absolute z-10 -top-4 -right-4" src="{{ asset('images/landing/tape.png') }}" alt="">
-                <div class="bg-purple-300/60 rounded-xl relative p-5 pb-0">
+                <div class="bg-violet-300/60 rounded-xl p-5 pb-0">
                     <img class="w-full h-auto" src="{{ asset('images/landing/fastfood.svg') }}" alt="">
                 </div>
                 <div class="py-3 px-6">
-                    <span class="w-fit px-3 bg-purple-500 text-white rounded-full">کوچک - محلی</span>
-                    <p class="mt-3 p-3">
+                    <span class="w-fit px-3 bg-violet-500 text-white rounded-full">کوچک - محلی</span>
+                    <p class="my-3 p-3">
                         <b>نام کسب و کار :</b> فست فود "همگر"
                         <br>
                         <b>سابقه فعالیت :‌</b> ۱۱ ماه
@@ -177,21 +250,35 @@
                 </div>
                 <img class="absolute z-10 -bottom-5 -left-5" src="{{ asset('images/landing/tape.png') }}" alt="">
             </div>
-            <div class="px-5 pt-[60px] text-lg leading-loose text-[#0102B5]">
+            <div class="px-5 pt-5 md:pt-[60px] text-lg leading-loose text-[#0102B5]">
                 <h4 class="text-2xl">مثال #1</h4>
-                <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                <p>مدیر فست فود محلی و کوچک و دنج <span class="font-semibold">«همگر»</span> برای جذب مشتریان محلی خود به یک طراح گرافیک مراجعه می‌کند و از او می‌خواهد که برایش، یک منو کاتالوگی جدید و یک عدد کارت ویزیت جذاب طراحی کند. طراح گرافیک ناشناس هزینه طراحی گرافیک برای نیاز های مدیر فست فود محلی «همگر» را به صورت متوسط بالای
+                    <span class="underline underline-offset-[10px] text-red-600">5,000,000 تومان</span>    
+                برآورد می کند.</p>
+                <br>
+                <p>مدیر «همگر» به صورت اتفاقی با استارت آپ طراحی گرافیک دایا آرتز آشنا می‌شود و از آن‌ها تقاضا لیست طراحی مورد نیازش را بر اساس هدف کسب و کارش درخواست می کند. دایا آرتز برای مدیر «همگر» لیست زیر را ارسال می‌کند :</p>
+                <ul class="list-outside">
+                    <li>1. طراحی تراکت یک رو تبلیغاتی برای جذب مشتریان جدید و افزایش فروش با آن ها</li>
+                    <li>2. طراحی کارت ویزیت دورو برای حفظ مشتریان جدیدو تکریم مشتری‌های قدیمی</li>
+                    <li>3. طراحی قالب تک پست اینستاگرام برای جذب مشتری از شبکه‌ اجتماعی و فضای آنلاین</li>
+                </ul>
+                <br>
+                <p>مدیر فست فود «همگر» پس از دریافت پیشنهادها دایا آرتز ترغیب به همکاری با ایشان می‌شود چرا که پیشنهادها ایشان را تخصصی تر و مناسب‌تر با اهداف فعلی کسب و کارش شناسایی می‌کند ضمن اینکه هزینه طراحی های برآورد شده توسط دایا آرتز برای هدف فروش بیشتر مدیر «همگر» تقریباً
+                    <span class="underline underline-offset-[10px] text-red-600">2,000,000 تومان ارزان‌تر</span>
+                از برآورد هزینه‌های طراح ناشناس بوده است.
+                دایا آرتز پس از طراحی نیاز های مدیر فست فود، فرم برنامه‌ریزی شده برای استفاده از طراحی های انجام شده را به مدیر همگر ارائه می دهد و فست فود همگر پس از انجام اهداف تعیین شده اش به فروش و مشتریان بیشتر رسید.
                 </p>
             </div>
         </div>
-        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words">
-            <div class="bg-white rounded-xl relative w-full xl:w-1/4 float-left xl:m-5 xl:mt-10 shadow-xl">
+        {{-- Example #2 --}}
+        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words flex md:block flex-col items-center">
+            <div class="bg-white rounded-xl relative w-2/3 md:w-1/3 xl:w-1/4 md:float-left m-5 mt-10 shadow-xl">
                 <img class="absolute z-10 -top-4 -right-4" src="{{ asset('images/landing/tape.png') }}" alt="">
-                <div class="bg-purple-300/60 p-5 pb-0">
+                <div class="bg-violet-300/60 rounded-xl p-5 pb-0">
                     <img class="w-full h-auto" src="{{ asset('images/landing/restaurant.svg') }}" alt="">
                 </div>
                 <div class="py-3 px-6">
-                    <span class="w-fit px-3 bg-purple-500 text-white rounded-full">سرشناس - لاکچری</span>
+                    <span class="w-fit px-3 bg-violet-500 text-white rounded-full">سرشناس - لاکچری</span>
                     <p class="mt-3 p-3">
                         <b>نام کسب و کار :</b> رستوران "پالرمو"
                         <br>
@@ -202,12 +289,76 @@
                 </div>
                 <img class="absolute z-10 -bottom-5 -left-5" src="{{ asset('images/landing/tape.png') }}" alt="">
             </div>
-            <div class="px-5 pt-[60px] text-lg leading-loose text-[#0102B5]">
+            <div class="px-5 pt-5 md:pt-[60px] text-lg leading-loose text-[#0102B5]">
                 <h4 class="text-2xl">مثال #2</h4>
-                <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                <p>مؤسس <span class="font-semibold">رستوران"پالرمو"</span> از مدیر ارشد اجرایی رستورانش می‌خواهد که ظرف یک سال آینده رستورانش به یک برند ویژه و مطرح در سطح شهر تبدیل شود. مدیر ارشد اجرایی رستوران پالرمو دچار نگرانی برای موقعیت کاری‌اش شده است. با دوست طراح گرافیک خود برای اجرا طرح مؤسس رستوران مشورت می کند.</p>
+                <br>
+                <p>طراح به مدیر اجرایی توصیه می‌کند برای ارتقا سطح بصری رستوران با او قرار دادی ببندد تا تمامی اقلام منو، کارت ویزیت و ست اداری بازطراحی شود و برای لباس‌های پرسنل سنجاق سینه طراحی شود. مدیر اجرایی رستوران تسلیم پیشنهادهای دوستش می‌شود چرا که هیچ راه حل دیگری برای معروف شدن در شهری به آن بزرگی به ذهنش نمی رسد. بنابراین تصمیم به ارزان کردن سرویس های رستوران برای معروف شدن ضمن پیشنهاد های دوستش می کند.</p>
+                <br>
+                <p>مدیر ارشد اجرایی به صورت اتفاقی بنر تبلیغاتی استارت آپ طراحی گرافیک دایا آرتز را می‌بیند و از ایشان تقاضا لیست پیشنهادی می کند.دایا آرتز برای مدیر ارشد اجرایی رستوران پالرمو لیست پیشنهاداتش را ارسال می‌کند :</p>
+                <ul class="pr-3">
+                    <li>1- ترمیم و بازطراحی لوگو و هویت بصری رستوران برای بروز شدن برندینگ رستوران مطابق بازار مدرن</li>
+                    <li>2- طراحی پکیج طراحی های اینستاگرامی برای جذب مخاطب و معرفی رستوران در سطح فضا مجازی</li>
+                    <li>3- طراحی یک بنر تبلیغاتی برای استفاده در سطح شهر به صورت بیلبورد و تبلیغات در محیط</li>
+                    <li>4- طراحی کارت ویزیت در پلن حرفه‌ای برای نگهداری مشتریان رستوران</li>
+                </ul>
+                <p>مدیر ارشد اجرایی رستوران پالرمو خیالش راحت می شود. مدیر ارشد اجرایی رستوران پالرمو با خیال راحت قرداد استارت آپ طراحی گرافیک دایا آرتز را می‌پذیرد. مدیر ارشد اجرایی طرح توسعه برند سازی و توسعه کسب و کار ستوران و تبدیلش به یک برند ویژه در سطح شهر را از دایا آرتز تحویل می‌گیرد و با هزینه‌های منصفانه و متناسب با هدف بزرگ و کلان مؤسس رستوران بازدهی قابل توجهی از طرف بازخورد برند نوسازی شده رستوران به دست می آورد.</p>
+            </div>
+        </div>
+    </section>
+    <section class="w-full flex flex-col items-center mt-6 bg-gradient-to-l from-daya-purple-light via-daya-purple-medium to-daya-purple-dark text-stone-100 p-6">
+        <h2 class="text-4xl text-center font-bold piped">سوالات متداول</h2>
+        <div class="w-full lg:10/12 xl:w-8/12 p-4 mt-4 grid grid-cols-1 gap-8" id="faq-list">
+            <div class="border-b-2 border-stone-100 py-3 px-6">
+                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">خدمات طراحی گرافیک دایا آرتز چیست ؟ <i class="float-left far fa-times-circle"></i></p>
+                <p class="mt-6 text-xl transition duration-500 ease-in-out">
+                    <i class="fas fa-plus m-2"></i>
+                    خدمات ما شامل سه گروه است :
+                    <br>
+                    1. طراحی های تبلیغاتی (مانند طراحی تراکت، کارت ویزیت،‌ کاتالوگ و …)
+                    <br>
+                    2. طراحی های هویت بصری برند (مانند طراحی لوگو، طراحی ست اداری، طراحی بسته بندی و…)
+                    <br>
+                    3. طراحی های تبلیغات در شبکه‌های اجتماعی (مانند طراحی قالب پیج اینستاگرام،‌ آواتار شبکه‌های اجتماعی،‌ طراحی پست های تبلیغاتی و ...)
+                    </ul>
+                </p>
+            </div>
+            <div class="border-b-2 border-stone-100 py-3 px-6">
+                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">خدمات دایا آرتز مناسب چه کسانی است ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
+                    <i class="fas fa-plus m-2"></i>
+                    تمامی صاحبان و مدیران کسب و کار در هر زمینه شغلی و در هر اندازه سازمانی و یا هر سطح از بودجه تبلیغاتی می‌توانند برای استفاده از خدمات طراحی گرافیک دایا آرتز اقدام کنند.
+                    <span id="to-customers" class="underline underline-offset-8 text-blue-700 cursor-pointer">(توضیحات بیشتر)</span>
+                </p>
+            </div>
+            <div class="border-b-2 border-stone-100 py-3 px-6">
+                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">وجه تمایز دایا آرتز با دیگر طراحان گرافیک در چیست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
+                    <i class="fas fa-plus m-2"></i>
+                    طراحی گرافیک در دایا آرتز بر مبنای هدف تبلیغاتی شما انجام می‌شود. به این شکل که شما فقط به کارشناسان دایا آرتز هدف تبلیغاتی خود را اعلام می کنید و ما به شما لیستی از طراحی های موردنیاز برای دستیابی به هدفتان را (بر مبنای آنالیز دقیق کسب و کار شما، بازار شما و رقبایتان) به شما ارائه می کنیم.
+                    <br>
+                    در حالی که اگر شما به طراحان گرافیک حال حاضر در بازار مراجعه کنید ممکن است طراحی هایی برای شما انجام شود که در مسیر دستیابی به هدف تبلیغاتی تان بی اثر و اضافی باشد و یا حتی از طراحی های به شدت لازم و ضروری غافل شوید.
+                </p>
+            </div>
+            <div class="border-b-2 border-stone-100 py-3 px-6">
+                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">از چه راهی می‌توانم از خدمات شما استفاده کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
+                    <i class="fas fa-plus m-2 leading-relaxed"></i>
+                    شما می‌توانید با تکمیل و ارسال
+                    فرم درخواست استفاده از خدمات دایا آرتز
+                    قدم اول همکاری با ما را بردارید و همچنین می‌توانید با استفاده از راه‌های ارتباطی زیر با کارشناسان ما در ارتباط باشید :
+                    <br>
+                    <br>
+                    - تماس تلفنی با شماره ثابت : <a class="inline-block [direction:ltr]" href="tel:+982128423542">021 2842 3542</a> – کلید 1 (واحد فروش)
+                    <br>
+                    - تماس تلفنی با شماره تلفن : <a class="inline-block [direction:ltr]" href="tel:+989015045025">0901 504 5025</a>
+                    <br>
+                    - از طریق واتس اپ با شماره : <a class="inline-block [direction:ltr]" href="https://wa.me/989016045025">0901 604 5025</a>
                 </p>
             </div>
         </div>
     </section>
+    @push('scripts')
+        <script src="{{ mix('js/landing-opening.js') }}"></script>
+    @endpush
 </x-layout.landing>

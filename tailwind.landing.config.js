@@ -7,7 +7,7 @@ module.exports = {
         "./resources/views/pages/landing/new-opening.blade.php",
         "./resources/views/components/layout/*.blade.php",
         // "./resources/views/components/quick-order-form.blade.php",
-        // "./resources/js/components/QuickOrder/QuickOrder.jsx",
+        "./resources/js/components/Landing/**/*.jsx",
         // "./resources/js/landing-opening.js",
     ],
     theme: {
@@ -49,7 +49,12 @@ module.exports = {
 				'blue-yonder': {
 					DEFAULT: '#577399ff',
 					dark: '#212B39'
-				}
+				},
+                'daya-purple': {
+                    light: '#AC7FF4',
+                    dark: '#6232DE',
+                    medium: '#8F60EC'
+                }
             },
             backgroundImage: {
                 "zeus-dashboard-vbg": "url('/images/zeus-images/dashboard-bvector.png')"

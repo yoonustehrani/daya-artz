@@ -1,11 +1,66 @@
+import React from 'react'
 import { render } from 'react-dom'
-import QuickOrder from './components/QuickOrder'
+import Form from './components/Landing/Form'
 
-// quick order
-const quickOrderElement = document.getElementById("react-quick-order")
-if (quickOrderElement) {
-    render(<QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')}/>, quickOrderElement)
+const formDiv = document.getElementById('form')
+
+if (formDiv) {
+    render(
+        <React.StrictMode>
+            <Form />
+        </React.StrictMode>,
+        formDiv
+    )
 }
+
+const changeCountDown = (countDown, diffObj) => {
+    let {inSeconds, inMinutes, inHours, inDays} = diffObj
+    let getTwoDigitForInt = int => int > 9 ? int : `0${int}`
+    countDown.querySelector('li:nth-child(1) > span.number').innerText = getTwoDigitForInt(inSeconds)
+    countDown.querySelector('li:nth-child(2) > span.number').innerText = getTwoDigitForInt(inMinutes)
+    countDown.querySelector('li:nth-child(3) > span.number').innerText = getTwoDigitForInt(inHours)
+    countDown.querySelector('li:nth-child(4) > span.number').innerText = getTwoDigitForInt(inDays)
+}
+
+const getDiffObject = diff => ({
+    inDays: diff.getUTCDate() - 1,
+    inHours: diff.getUTCHours(),
+    inMinutes: diff.getUTCMinutes(),
+    inSeconds: diff.getUTCSeconds()
+})
+
+const setupCountDown = (countDown, initialDate) => {
+    changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())))
+    setInterval(() => {
+        changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())))
+    }, 1000);
+}
+
+const countDown = document.querySelector('ul[data-countdown]')
+const countDownDateTime = new Date(countDown.getAttribute('data-countdown'))
+setupCountDown(countDown, countDownDateTime.getTime())
+
+document.querySelectorAll('#faq-list > div > p:first-child').forEach((el, i) => {
+    el.addEventListener('click', function() {
+        let icon = this.querySelector('i.far').classList
+        icon.toggle('fa-times-circle')
+        icon.toggle('fa-caret-circle-down')
+        this.parentNode.querySelector('p:nth-child(2)').classList.toggle('hidden')
+        this.parentNode.parentNode.querySelectorAll(`div:not(:nth-child(${i + 1}))`).forEach(sibling => {
+            sibling.querySelector('p:nth-child(2)').classList.add('hidden')
+            let ic = sibling.querySelector('i.far').classList
+            ic.remove('fa-times-circle')
+            ic.add('fa-caret-circle-down')
+        })
+    })
+})
+
+const scrollToCustomers = () => {
+    document.getElementById('customers-section').scrollIntoView({behavior: "smooth"})
+}
+
+document.getElementById('double-arrow').addEventListener('click', scrollToCustomers)
+document.getElementById('to-customers').addEventListener('click', scrollToCustomers)
 
 // this code is for handling the menu in < md sizes
 var body = document.body
