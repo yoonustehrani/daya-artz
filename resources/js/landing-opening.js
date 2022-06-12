@@ -1,3 +1,13 @@
+import React from 'react'
+import { render } from 'react-dom'
+import Form from './components/Landing/Form'
+
+render(
+    <React.StrictMode>
+        <Form />
+    </React.StrictMode>,
+    document.getElementById('form')
+)
 
 const changeCountDown = (countDown, diffObj) => {
     let {inSeconds, inMinutes, inHours, inDays} = diffObj

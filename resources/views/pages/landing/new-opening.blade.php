@@ -32,7 +32,7 @@
                         <br>
                         <b>زمان را محاسبه نکن! امروز دایا آرتز را کشف کنید.</b> بسته های بهینه شده برای کسب و کار شما آماده هستند.
                     </p>
-                </div>    
+                </div>
             </div>
             <img data-src="{{ asset('/images/baloone-left-2.png') }}" alt="baloone-left" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] hidden sm:inline absolute md:static opacity-20 md:opacity-100 left-0">
             <img data-src="{{ asset('/images/baloone-left-1.png') }}" alt="baloone-left" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute left-0 md:bottom-[4%] lg:bottom-[6%]">
@@ -171,6 +171,15 @@
                     <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">تهیه لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدف تبلیغاتی</p>
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="w-full p-6 flex flex-col items-center">
+        <div class="w-full md:w-10/12 lg:w-full 2xl:w-10/12 grid lg:grid-cols-2 xl:gap-4">
+            <div class="p-5 self-center">
+                <h3 class="text-3xl font-bold">فرم درخواست</h3>
+                <p class="mt-3 p-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+            </div>
+            <div class="flex flex-col items-center text-gray-900" id="form"></div>
         </div>
     </section>
     {{-- The 2 examples section --}}
