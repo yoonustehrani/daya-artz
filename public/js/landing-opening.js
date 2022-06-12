@@ -30,7 +30,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -40,7 +40,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -187,176 +187,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _Form__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/components/Landing/Form/Form.jsx");
-
-
-/***/ }),
-
-/***/ "./resources/js/landing-opening.js":
-/*!*****************************************!*\
-  !*** ./resources/js/landing-opening.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Landing/Form */ "./resources/js/components/Landing/Form/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var formDiv = document.getElementById('form');
-
-if (formDiv) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-  }), formDiv);
-}
-
-var changeCountDown = function changeCountDown(countDown, diffObj) {
-  var inSeconds = diffObj.inSeconds,
-      inMinutes = diffObj.inMinutes,
-      inHours = diffObj.inHours,
-      inDays = diffObj.inDays;
-
-  var getTwoDigitForInt = function getTwoDigitForInt(_int) {
-    return _int > 9 ? _int : "0".concat(_int);
-  };
-
-  countDown.querySelector('li:nth-child(1) > span.number').innerText = getTwoDigitForInt(inSeconds);
-  countDown.querySelector('li:nth-child(2) > span.number').innerText = getTwoDigitForInt(inMinutes);
-  countDown.querySelector('li:nth-child(3) > span.number').innerText = getTwoDigitForInt(inHours);
-  countDown.querySelector('li:nth-child(4) > span.number').innerText = getTwoDigitForInt(inDays);
-};
-
-var getDiffObject = function getDiffObject(diff) {
-  return {
-    inDays: diff.getUTCDate() - 1,
-    inHours: diff.getUTCHours(),
-    inMinutes: diff.getUTCMinutes(),
-    inSeconds: diff.getUTCSeconds()
-  };
-};
-
-var setupCountDown = function setupCountDown(countDown, initialDate) {
-  changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
-  setInterval(function () {
-    changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
-  }, 1000);
-};
-
-var countDown = document.querySelector('ul[data-countdown]');
-var countDownDateTime = new Date(countDown.getAttribute('data-countdown'));
-setupCountDown(countDown, countDownDateTime.getTime());
-document.querySelectorAll('#faq-list > div > p:first-child').forEach(function (el, i) {
-  el.addEventListener('click', function () {
-    var icon = this.querySelector('i.far').classList;
-    icon.toggle('fa-times-circle');
-    icon.toggle('fa-caret-circle-down');
-    this.parentNode.querySelector('p:nth-child(2)').classList.toggle('hidden');
-    this.parentNode.parentNode.querySelectorAll("div:not(:nth-child(".concat(i + 1, "))")).forEach(function (sibling) {
-      sibling.querySelector('p:nth-child(2)').classList.add('hidden');
-      var ic = sibling.querySelector('i.far').classList;
-      ic.remove('fa-times-circle');
-      ic.add('fa-caret-circle-down');
-    });
-  });
-});
-
-var scrollToCustomers = function scrollToCustomers() {
-  document.getElementById('customers-section').scrollIntoView({
-    behavior: "smooth"
-  });
-};
-
-document.getElementById('double-arrow').addEventListener('click', scrollToCustomers);
-document.getElementById('to-customers').addEventListener('click', scrollToCustomers); // this code is for handling the menu in < md sizes
-
-var body = document.body;
-
-function toggle_menu() {
-  var is_open,
-      menu_el = document.getElementById("menu-list"),
-      toggle_classes = ["opacity-0", "pointer-events-none"];
-  is_open = menu_el.classList.contains("open");
-
-  if (is_open) {
-    menu_el.classList.remove("open");
-    setTimeout(function () {
-      menu_el.classList.add("hidden");
-      toggle_classes.forEach(function (classname) {
-        document.getElementById("menu-open").classList.toggle(classname);
-      });
-    }, 400);
-  } else {
-    menu_el.classList.remove("hidden");
-    setTimeout(function () {
-      menu_el.classList.add("open");
-      toggle_classes.forEach(function (classname) {
-        document.getElementById("menu-open").classList.toggle(classname);
-      });
-    }, 0);
-  }
-
-  body.classList.toggle("overflow-y-hidden");
-}
-
-body.addEventListener("click", function (e) {
-  var el = e.target,
-      menu_el = document.getElementById("menu-list");
-
-  if (menu_el.classList.contains("open") && !el.closest("#menu-list") || el.closest("#menu-close") || el.closest("#menu-open")) {
-    toggle_menu();
-  }
-}); // this code will set the header navbar fixed according to the window height
-
-function setHeader() {
-  var window_height = window.innerHeight,
-      offset_top = body.scrollTop,
-      target_header = document.getElementById("landing-header"),
-      header_nav = document.getElementById("header-nav");
-
-  if (window.innerWidth >= 768) {
-    if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
-      target_header.classList.add("pt-14");
-      header_nav.classList.add("!fixed");
-      header_nav.classList.add("slideInDown");
-      setTimeout(function () {
-        header_nav.classList.remove("slideInDown");
-      }, 200);
-    } else if (offset_top < window_height && target_header.classList.contains("pt-14")) {
-      header_nav.classList.add("slideOutUp");
-      setTimeout(function () {
-        target_header.classList.remove("pt-14");
-        header_nav.classList.remove("!fixed");
-        header_nav.classList.remove("slideOutUp");
-      }, 200);
-    }
-  } else {
-    target_header.classList.remove("pt-14");
-    header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed");
-  }
-} // we use the above code as a trigger for scroll evenets and resize window events
-
-
-body.addEventListener("scroll", function () {
-  setHeader();
-});
-window.addEventListener("resize", function () {
-  setHeader();
-});
-
-/***/ }),
-
-/***/ "./resources/css/landing.css":
-/*!***********************************!*\
-  !*** ./resources/css/landing.css ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -29816,42 +29646,7 @@ if (false) {} else {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -29880,68 +29675,163 @@ if (false) {} else {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/landing-opening": 0,
-/******/ 			"css/landing": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/js/landing-opening.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/css/landing.css")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!*****************************************!*\
+  !*** ./resources/js/landing-opening.js ***!
+  \*****************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Landing/Form */ "./resources/js/components/Landing/Form/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var formDiv = document.getElementById('form');
+
+if (formDiv) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  }), formDiv);
+}
+
+var changeCountDown = function changeCountDown(countDown, diffObj) {
+  var inSeconds = diffObj.inSeconds,
+      inMinutes = diffObj.inMinutes,
+      inHours = diffObj.inHours,
+      inDays = diffObj.inDays;
+
+  var getTwoDigitForInt = function getTwoDigitForInt(_int) {
+    return _int > 9 ? _int : "0".concat(_int);
+  };
+
+  countDown.querySelector('li:nth-child(1) > span.number').innerText = getTwoDigitForInt(inSeconds);
+  countDown.querySelector('li:nth-child(2) > span.number').innerText = getTwoDigitForInt(inMinutes);
+  countDown.querySelector('li:nth-child(3) > span.number').innerText = getTwoDigitForInt(inHours);
+  countDown.querySelector('li:nth-child(4) > span.number').innerText = getTwoDigitForInt(inDays);
+};
+
+var getDiffObject = function getDiffObject(diff) {
+  return {
+    inDays: diff.getUTCDate() - 1,
+    inHours: diff.getUTCHours(),
+    inMinutes: diff.getUTCMinutes(),
+    inSeconds: diff.getUTCSeconds()
+  };
+};
+
+var setupCountDown = function setupCountDown(countDown, initialDate) {
+  changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
+  setInterval(function () {
+    changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
+  }, 1000);
+};
+
+var countDown = document.querySelector('ul[data-countdown]');
+var countDownDateTime = new Date(countDown.getAttribute('data-countdown'));
+setupCountDown(countDown, countDownDateTime.getTime());
+document.querySelectorAll('#faq-list > div > p:first-child').forEach(function (el, i) {
+  el.addEventListener('click', function () {
+    var icon = this.querySelector('i.far').classList;
+    icon.toggle('fa-times-circle');
+    icon.toggle('fa-caret-circle-down');
+    this.parentNode.querySelector('p:nth-child(2)').classList.toggle('hidden');
+    this.parentNode.parentNode.querySelectorAll("div:not(:nth-child(".concat(i + 1, "))")).forEach(function (sibling) {
+      sibling.querySelector('p:nth-child(2)').classList.add('hidden');
+      var ic = sibling.querySelector('i.far').classList;
+      ic.remove('fa-times-circle');
+      ic.add('fa-caret-circle-down');
+    });
+  });
+});
+
+var scrollToCustomers = function scrollToCustomers() {
+  document.getElementById('customers-section').scrollIntoView({
+    behavior: "smooth"
+  });
+};
+
+document.getElementById('double-arrow').addEventListener('click', scrollToCustomers);
+document.getElementById('to-customers').addEventListener('click', scrollToCustomers); // this code is for handling the menu in < md sizes
+
+var body = document.body;
+
+function toggle_menu() {
+  var is_open,
+      menu_el = document.getElementById("menu-list"),
+      toggle_classes = ["opacity-0", "pointer-events-none"];
+  is_open = menu_el.classList.contains("open");
+
+  if (is_open) {
+    menu_el.classList.remove("open");
+    setTimeout(function () {
+      menu_el.classList.add("hidden");
+      toggle_classes.forEach(function (classname) {
+        document.getElementById("menu-open").classList.toggle(classname);
+      });
+    }, 400);
+  } else {
+    menu_el.classList.remove("hidden");
+    setTimeout(function () {
+      menu_el.classList.add("open");
+      toggle_classes.forEach(function (classname) {
+        document.getElementById("menu-open").classList.toggle(classname);
+      });
+    }, 0);
+  }
+
+  body.classList.toggle("overflow-y-hidden");
+}
+
+body.addEventListener("click", function (e) {
+  var el = e.target,
+      menu_el = document.getElementById("menu-list");
+
+  if (menu_el.classList.contains("open") && !el.closest("#menu-list") || el.closest("#menu-close") || el.closest("#menu-open")) {
+    toggle_menu();
+  }
+}); // this code will set the header navbar fixed according to the window height
+
+function setHeader() {
+  var window_height = window.innerHeight,
+      offset_top = body.scrollTop,
+      target_header = document.getElementById("landing-header"),
+      header_nav = document.getElementById("header-nav");
+
+  if (window.innerWidth >= 768) {
+    if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
+      target_header.classList.add("pt-14");
+      header_nav.classList.add("!fixed");
+      header_nav.classList.add("slideInDown");
+      setTimeout(function () {
+        header_nav.classList.remove("slideInDown");
+      }, 200);
+    } else if (offset_top < window_height && target_header.classList.contains("pt-14")) {
+      header_nav.classList.add("slideOutUp");
+      setTimeout(function () {
+        target_header.classList.remove("pt-14");
+        header_nav.classList.remove("!fixed");
+        header_nav.classList.remove("slideOutUp");
+      }, 200);
+    }
+  } else {
+    target_header.classList.remove("pt-14");
+    header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed");
+  }
+} // we use the above code as a trigger for scroll evenets and resize window events
+
+
+body.addEventListener("scroll", function () {
+  setHeader();
+});
+window.addEventListener("resize", function () {
+  setHeader();
+});
+})();
+
 /******/ })()
 ;
