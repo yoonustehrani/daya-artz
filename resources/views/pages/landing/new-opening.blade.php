@@ -57,7 +57,6 @@
             <img data-src="{{ asset('/images/baloone-left-1.png') }}" alt="baloone-left" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute left-0 md:bottom-[4%] lg:bottom-[6%]">
         </div>
     </x-slot>
-<!--
     {{-- Customer Type section --}}
     <section id="customers-section" class="w-full text-gray-900 py-10 px-12 text-lg flex flex-col items-center">
         <h2 class="text-4xl text-center font-bold piped">ایده ما چیه و چطور به کسب و کارت کمک می کنیم ؟</h2>
@@ -230,7 +229,6 @@
             <div class="flex flex-col items-center text-gray-900" id="form"></div>
         </div>
     </section>
--->
     {{-- The 2 examples section --}}
     <section class="w-full mt-3 flex flex-col items-center">
         {{-- Example #1 --}}
