@@ -47,7 +47,7 @@
                         از برنامه ریزی تا رسیدن به هدف هاتون همراه شما هستیم
                     </p>
                     <p class="text-3xl font-semibold my-8">اما چطوری ؟! به زودی میفهمی !</p>
-                    <p class="text-2xl mt-8 leading-loose text-center"><span class="font-bold">زمان را محاسبه نکنید</span>و همین امروز ایده ما رو کشف کنید.</p>
+                    <p class="text-2xl mt-8 leading-loose text-center"><span class="font-bold">زمان را محاسبه نکنید</span> و همین امروز ایده ما رو کشف کنید.</p>
                     <div class="mt-8 text-gray-200">
                         <i id="double-arrow" class="fal fa-3x p-4 animate-bounce fa-angle-double-down cursor-pointer"></i>
                     </div>
@@ -349,7 +349,7 @@
                     قدم اول همکاری با ما را بردارید و همچنین می‌توانید با استفاده از راه‌های ارتباطی زیر با کارشناسان ما در ارتباط باشید :
                     <br>
                     <br>
-                    - تماس تلفنی با شماره ثابت <a class="inline-block [direction:ltr]" href="tel:+982128423542">021 28 42 35 42</a> – کلید 1 (واحد فروش)
+                    - تماس تلفنی با شماره ثابت : <a class="inline-block [direction:ltr]" href="tel:+982128423542">021 2842 3542</a> – کلید 1 (واحد فروش)
                     <br>
                     - تماس تلفنی با شماره تلفن : <a class="inline-block [direction:ltr]" href="tel:+989015045025">0901 504 5025</a>
                     <br>
