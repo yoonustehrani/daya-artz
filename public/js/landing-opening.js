@@ -46,10 +46,16 @@ var Form = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Form);
 
-  function Form() {
+  function Form(props) {
+    var _this;
+
     _classCallCheck(this, Form);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      placeholder: "\u0647\u062F\u0641 \u0641\u0639\u0644\u06CC \u062A\u0628\u0644\u06CC\u063A\u0627\u062A\u06CC/\u0628\u0631\u0646\u062F\u06CC\u0646\u06AF \u06A9\u0647 \u062F\u063A\u062F\u063A\u0647 \u0634\u0645\u0627 \u06CC\u0627 \u0633\u0627\u0632\u0645\u0627\u0646 \u062A\u0627\u0646 \u0627\u0633\u062A \u0631\u0627 \u0634\u0631\u062D \u062F\u0647\u06CC\u062F.\n- \u0628\u0631\u0627\u06CC \u0645\u062B\u0627\u0644:\u200C \u0645\u0646 \u0642\u0635\u062F \u0627\u0641\u0632\u0627\u06CC\u0634 \u0641\u0631\u0648\u0634 \u0631\u0633\u062A\u0648\u0631\u0627\u0646 \u062E\u0648\u062F \u0631\u0627 \u0628\u0627 \u0627\u0631\u062A\u0642\u0627 \u0633\u0637\u062D \u0628\u0631\u0646\u062F \u062E\u0648\u062F \u062F\u0627\u0631\u0645"
+    };
+    return _this;
   }
 
   _createClass(Form, [{
@@ -102,7 +108,7 @@ var Form = /*#__PURE__*/function (_Component) {
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          className: "",
+          className: "col-span-full lg:col-span-1",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
             className: "font-semibold text-lg",
             children: "- \u0646\u0627\u0645 \u0648  \u0646\u0627\u0645 \u062E\u0627\u0646\u0648\u0627\u062F\u06AF\u06CC"
@@ -111,7 +117,7 @@ var Form = /*#__PURE__*/function (_Component) {
             className: "w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          className: "",
+          className: "col-span-full lg:col-span-1",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
             className: "font-semibold text-lg",
             children: "- \u0634\u0645\u0627\u0631\u0647 \u062A\u0645\u0627\u0633"
@@ -131,7 +137,7 @@ var Form = /*#__PURE__*/function (_Component) {
             className: "w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300",
             cols: "30",
             rows: "10",
-            placeholder: "\u0647\u062F\u0641 \u062D\u0627\u0644 \u062D\u0627\u0636\u0631 \u062A\u0628\u0644\u06CC\u063A\u0627\u062A\u06CC \u06A9\u0647 \u062F\u063A\u062F\u063A\u0647 \u0634\u0645\u0627 \u06CC\u0627 \u0633\u0627\u0632\u0645\u0627\u0646 \u062A\u0627\u0646 \u0627\u0633\u062A \u0631\u0627 \u0634\u0631\u062D \u062F\u0647\u06CC\u062F..."
+            placeholder: this.state.placeholder
           })]
         })]
       });
@@ -175,9 +181,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
-  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-}), document.getElementById('form'));
+var formDiv = document.getElementById('form');
+
+if (formDiv) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  }), formDiv);
+}
 
 var changeCountDown = function changeCountDown(countDown, diffObj) {
   var inSeconds = diffObj.inSeconds,
@@ -227,7 +237,16 @@ document.querySelectorAll('#faq-list > div > p:first-child').forEach(function (e
       ic.add('fa-caret-circle-down');
     });
   });
-}); // this code is for handling the menu in < md sizes
+});
+
+var scrollToCustomers = function scrollToCustomers() {
+  document.getElementById('customers-section').scrollIntoView({
+    behavior: "smooth"
+  });
+};
+
+document.getElementById('double-arrow').addEventListener('click', scrollToCustomers);
+document.getElementById('to-customers').addEventListener('click', scrollToCustomers); // this code is for handling the menu in < md sizes
 
 var body = document.body;
 

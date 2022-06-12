@@ -2,12 +2,16 @@ import React from 'react'
 import { render } from 'react-dom'
 import Form from './components/Landing/Form'
 
-render(
-    <React.StrictMode>
-        <Form />
-    </React.StrictMode>,
-    document.getElementById('form')
-)
+const formDiv = document.getElementById('form')
+
+if (formDiv) {
+    render(
+        <React.StrictMode>
+            <Form />
+        </React.StrictMode>,
+        formDiv
+    )
+}
 
 const changeCountDown = (countDown, diffObj) => {
     let {inSeconds, inMinutes, inHours, inDays} = diffObj
@@ -50,6 +54,14 @@ document.querySelectorAll('#faq-list > div > p:first-child').forEach((el, i) => 
         })
     })
 })
+
+const scrollToCustomers = () => {
+    document.getElementById('customers-section').scrollIntoView({behavior: "smooth"})
+}
+
+document.getElementById('double-arrow').addEventListener('click', scrollToCustomers)
+document.getElementById('to-customers').addEventListener('click', scrollToCustomers)
+
 // this code is for handling the menu in < md sizes
 var body = document.body
 function toggle_menu() {

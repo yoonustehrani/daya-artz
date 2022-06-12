@@ -2,6 +2,13 @@ const { Component } = require("react");
 
 class Form extends Component
 {
+    constructor(props) {
+        super(props)
+        this.state = {
+            placeholder: `هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.
+- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم`
+        }
+    }
     render() {
         return (
             <div className="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 my-2 md:my-4 bg-white shadow-lg rounded-md p-6">
@@ -23,17 +30,17 @@ class Form extends Component
                         <span className="mt-4 text-lg text-gray-600 text-center">صاحب ایده کسب و کار</span>
                     </div>
                 </div>
-                <div className="">
+                <div className="col-span-full lg:col-span-1">
                     <p className="font-semibold text-lg">- نام و  نام خانوادگی</p>
                     <input type="text" className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" />
                 </div>
-                <div className="">
+                <div className="col-span-full lg:col-span-1">
                     <p className="font-semibold text-lg">- شماره تماس</p>
                     <input type="text" className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" style={{ direction: 'ltr' }} />
                 </div>
                 <div className="col-span-full">
                     <p className="font-semibold text-lg">- هدف تبلیغاتی یا برند سازی شما</p>
-                    <textarea className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" cols="30" rows="10" placeholder="هدف حال حاضر تبلیغاتی که دغدغه شما یا سازمان تان است را شرح دهید..."></textarea>
+                    <textarea className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" cols="30" rows="10" placeholder={this.state.placeholder}></textarea>
                 </div>
             </div>
         )
