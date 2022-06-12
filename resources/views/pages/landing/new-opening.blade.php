@@ -34,10 +34,8 @@
                 </ul>
                 <div class="text-center text-sm md:text-base lg:text-xl xl:text-2xl w-full text-white rtl my-2 xl:my-0">
                     <p class="font-bold text-base md:text-xl lg:text-2xl xl:text-3xl leading-normal mb-2 md:mb-8">
-                        دایا آرتز
-                        یک
-                        <span class="text-cyan-300">استارت آپ</span>
-                        <span class="text-red-300">طراحی گرافیک</span>
+                        دایا آرتز یک
+                        <span class="text-cyan-300">استارت آپ</span> <span class="text-red-300">طراحی گرافیک</span>
                         با ایده های نوین است
                         <i class="fa-2x fal fa-lightbulb-on"></i>
                     </p>
@@ -48,20 +46,8 @@
                         <span class="bg-cyan-300/50 rounded-full px-3 text-white">تبلیغات و برند سازی</span>
                         از برنامه ریزی تا رسیدن به هدف هاتون همراه شما هستیم
                     </p>
-                    <p class="text-3xl font-semibold my-8">
-                        اما چطوری ؟! به زودی میفهمی !
-                    </p>
-                    <p class="text-2xl mt-8 leading-loose text-center">
-                        <span class="font-bold">زمان را محاسبه نکنید</span>
-                        و همین امروز ایده ما رو کشف کنید.
-                        {{-- علاوه بر این ها فقط تا پایان مدت این 
-                        <span class="font-bold underline underline-offset-[12px] decoration-dashed">زمان سنج</span>
-                        تمامی خدمات طراحی گرافیک دایا آرتز در جشنواره افتتاحیه سایت ما با
-                        <span class="font-bold underline underline-offset-[12px] decoration-dashed">۲۵٪ تخفیف</span>
-                        افتتاحیه
-                        در اختیار شما هستند.
-                        <br> --}}
-                    </p>
+                    <p class="text-3xl font-semibold my-8">اما چطوری ؟! به زودی میفهمی !</p>
+                    <p class="text-2xl mt-8 leading-loose text-center"><span class="font-bold">زمان را محاسبه نکنید</span>و همین امروز ایده ما رو کشف کنید.</p>
                     <div class="mt-8 text-gray-200">
                         <i id="double-arrow" class="fal fa-3x p-4 animate-bounce fa-angle-double-down cursor-pointer"></i>
                     </div>

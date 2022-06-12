@@ -18,6 +18,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -38,6 +42,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var _require = __webpack_require__(/*! react */ "./node_modules/react/index.js"),
     Component = _require.Component;
 
@@ -52,15 +58,51 @@ var Form = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, Form);
 
     _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "handleItemSelect", function (name) {
+      _this.setState(function (prevState) {
+        return {
+          data: _objectSpread(_objectSpread({}, prevState), {}, {
+            position: name
+          })
+        };
+      });
+    });
+
     _this.state = {
+      data: {
+        position: '',
+        fullname: '',
+        phone_number: '',
+        description: ''
+      },
+      form: {
+        positions: [{
+          name: 'owner',
+          title: 'صاحب کسب و کار',
+          icon: 'fas fa-user-tie'
+        }, {
+          name: 'manager',
+          title: 'مدیر / مسئول شرکت',
+          icon: 'fas fa-briefcase'
+        }, {
+          name: 'idea',
+          title: 'صاحب ایده کسب و کار',
+          icon: 'fas fa-lightbulb'
+        }]
+      },
       placeholder: "\u0647\u062F\u0641 \u0641\u0639\u0644\u06CC \u062A\u0628\u0644\u06CC\u063A\u0627\u062A\u06CC/\u0628\u0631\u0646\u062F\u06CC\u0646\u06AF \u06A9\u0647 \u062F\u063A\u062F\u063A\u0647 \u0634\u0645\u0627 \u06CC\u0627 \u0633\u0627\u0632\u0645\u0627\u0646 \u062A\u0627\u0646 \u0627\u0633\u062A \u0631\u0627 \u0634\u0631\u062D \u062F\u0647\u06CC\u062F.\n- \u0628\u0631\u0627\u06CC \u0645\u062B\u0627\u0644:\u200C \u0645\u0646 \u0642\u0635\u062F \u0627\u0641\u0632\u0627\u06CC\u0634 \u0641\u0631\u0648\u0634 \u0631\u0633\u062A\u0648\u0631\u0627\u0646 \u062E\u0648\u062F \u0631\u0627 \u0628\u0627 \u0627\u0631\u062A\u0642\u0627 \u0633\u0637\u062D \u0628\u0631\u0646\u062F \u062E\u0648\u062F \u062F\u0627\u0631\u0645"
     };
+    _this.inactiveClassNames = 'border-gray-500 ring-transparent';
+    _this.activeClassNames = 'border-purple-500 ring-purple-400';
     return _this;
   }
 
   _createClass(Form, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 my-2 md:my-4 bg-white shadow-lg rounded-md p-6",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -68,44 +110,27 @@ var Form = /*#__PURE__*/function (_Component) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
             className: "col-span-full font-semibold text-lg",
             children: "- \u0645\u0633\u0626\u0648\u0644\u06CC\u062A \u0634\u0645\u0627 \u062F\u0631 \u06A9\u0633\u0628 \u0648 \u06A9\u0627\u0631\u062A\u0627\u0646 \u06A9\u062F\u0627\u0645 \u06CC\u06A9 \u0627\u0632 \u0645\u0648\u0627\u0631\u062F \u0632\u06CC\u0631 \u0627\u0633\u062A\u061F"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            className: "flex flex-col items-center justify-center aspect-square border-2 rounded-md border-gray-500 p-0 md:p-3 relative ring-4 border-purple-500 ring-purple-400 duration-300 cursor-pointer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-              className: "absolute text-md z-10 top-2 left-2 w-8 h-8 bg-purple-300 grid place-items-center rounded-full",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-                className: "fas fa-check"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-              className: "text-4xl",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-                className: "fas fa-user-tie"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-              className: "mt-4 text-lg text-gray-600 text-center",
-              children: "\u0635\u0627\u062D\u0628 \u06A9\u0633\u0628 \u0648 \u06A9\u0627\u0631"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            className: "flex flex-col items-center justify-center aspect-square border-2 rounded-md border-gray-500 p-0 md:p-3 relative ring-4 ring-transparent hover:border-purple-500 hover:ring-purple-400 duration-300 cursor-pointer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-              className: "text-4xl",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-                className: "fas fa-briefcase"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-              className: "mt-4 text-lg text-gray-600 text-center",
-              children: "\u0645\u062F\u06CC\u0631 / \u0645\u0633\u0626\u0648\u0644 \u0634\u0631\u06A9\u062A"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            className: "flex flex-col items-center justify-center aspect-square border-2 rounded-md border-gray-500 p-0 md:p-3 relative ring-4 ring-transparent hover:border-purple-500 hover:ring-purple-400 duration-300 cursor-pointer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-              className: "text-4xl",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-                className: "fas fa-lightbulb"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-              className: "mt-4 text-lg text-gray-600 text-center",
-              children: "\u0635\u0627\u062D\u0628 \u0627\u06CC\u062F\u0647 \u06A9\u0633\u0628 \u0648 \u06A9\u0627\u0631"
-            })]
+          }), this.state.form.positions.map(function (position) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+              onClick: function onClick() {
+                return _this2.handleItemSelect(position.name);
+              },
+              className: "".concat(position.name === _this2.state.data.position ? _this2.activeClassNames : _this2.inactiveClassNames, " flex flex-col items-center justify-center aspect-square border-2 rounded-md p-0 md:p-3 relative ring-4 duration-300 hover:border-purple-500 hover:ring-purple-400 cursor-pointer"),
+              children: [position.name === _this2.state.data.position && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                className: "absolute text-md z-10 top-2 left-2 w-8 h-8 bg-purple-300 grid place-items-center rounded-full",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+                  className: "fas fa-check"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                className: "text-4xl",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+                  className: position.icon
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                className: "mt-4 text-lg text-gray-600 text-center",
+                children: position.title
+              })]
+            }, position.name);
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
           className: "col-span-full lg:col-span-1",
