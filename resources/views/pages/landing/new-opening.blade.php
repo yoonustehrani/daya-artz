@@ -226,7 +226,7 @@
                     <li>۴. طراحی های تکمیل شده طی دو مرحله به شما ارائه میشوند</li>
                 </ul>
             </div>
-            <div class="flex flex-col items-center text-gray-900" id="form"></div>
+            <div class="flex flex-col items-center text-gray-900" id="form" data-answer="{{ route('api.forms.store', ['key' => 'opening-mvp']) }}"></div>
         </div>
     </section>
     {{-- The 2 examples section --}}
