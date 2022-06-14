@@ -8,6 +8,11 @@
     <title>{{ $title }}</title>
 </head>
 <body class="w-full h-full m-0 p-0 overflow-x-hidden overflow-y-auto fixed bg-body">
+    <script>
+        const APP_PATH = "{{ asset('/') }}"
+        const API_BASE_URL = "{{ route('api.') }}"
+        const APP_ROUTE = "{{ route('home') }}";
+    </script>
     <header id="landing-header" class="h-auto w-full">
         @include('components.layout.menu')
         {{ $header }}

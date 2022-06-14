@@ -2,12 +2,13 @@ import React from 'react'
 import { render } from 'react-dom'
 import Form from './components/Landing/Form'
 
-const formDiv = document.getElementById('form')
+const formDiv = document.getElementById('form'),
+formUrl = formDiv.getAttribute('data-answer')
 
 if (formDiv) {
     render(
         <React.StrictMode>
-            <Form />
+            <Form formUrl={formUrl} />
         </React.StrictMode>,
         formDiv
     )

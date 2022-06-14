@@ -1,5 +1,4 @@
 const { Component } = require("react");
-import { useHistory } from "react-router-dom";
 import validator from "validator";
 import AlertService from "../../../services/AlertService";
 import { useHttpService } from "../../../userarea/hooks";
@@ -32,8 +31,14 @@ class Form extends Component {
 
     handleItemSelect = name => {
         this.setState(prevState => ({
-            data: {...prevState, position: name}
+            data: {...prevState.data, position: name}
         }))
+    }
+
+    changeValue = (value, key, onlyNumbers=false) => {
+        if (!onlyNumbers || validator.isNumeric(value) || value.length === 0) {
+            this.setState(prevState => ({data: {...prevState.data, [key]: value}}))
+        }
     }
 
     validateFields = () => {
@@ -52,7 +57,7 @@ class Form extends Component {
                     (!validator.isAlpha(value, 'en-US') || !validator.isLength(value, {min: 3, max: 40})) && errs.push(`فیلد ${key} به درستی انتخاب نشده`)
                     break;
                 case 'name':
-                    !validator.isAlpha(value, 'fa-IR') && errs.push(`لطفا فیلد ${key} را با حروف فارسی تکمیل نمایید`)
+                    !validator.isAlpha(value, 'fa-IR', {ignore: " "}) && errs.push(`لطفا فیلد ${key} را با حروف فارسی تکمیل نمایید`)
                     !validator.isLength(value, {min: 5, max: 60}) && errs.push(`طول فیلد ${key} حداقل 5 و حد اکثر 60 کاراکتر میباشد`)
                     break;
                 case 'phone':
@@ -74,24 +79,34 @@ class Form extends Component {
     }
 
     trimValues = () => {
-        let { data } = this.state
-        Object.keys(data).map(key => {
-            data[key] = data[key].trim()
+        let { data } = this.state, newData = data
+        Object.keys(newData).map(key => {
+            newData[key].trim()
         })
-        this.setState({data: data})
+        this.setState({data: newData})
     }
 
-    handleSendForm = () => {
+    handleSendForm = async () => {
         let errContainers = document.getElementsByClassName("err-container")
         errContainers.length > 0 && Array.from(errContainers).map(item => item.remove())
         this.trimValues()
-        let hasErr = this.validateFields()
+        let { position, fullname, phone_number, description } = this.state.data,
+        hasErr = this.validateFields()
         if (!hasErr) {
-            this.http.post("")
+            const res = await this.http.post(this.props.formUrl, {
+                in_company_position: position,
+                fullname: fullname,
+                phone_number: phone_number,
+                ad_goal: description
+            })
+            if (res.okay) {
+                this.Alert.success({title: "ارسال شد", text: "اطلاعات شما با موفقیت ارسال شد. منتظر تماس کارشناسان ما باشید. با تشکر"})
+            }
         }
     }
 
     render() {
+        let { position, fullname, phone_number, description } = this.state.data
         return (
             <div className="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 my-2 md:my-4 bg-white shadow-lg rounded-md p-6">
                 <div id="position" className="col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8 h-fit">
@@ -110,15 +125,15 @@ class Form extends Component {
                 </div>
                 <div id="name" className="col-span-full lg:col-span-1">
                     <p className="font-semibold text-lg">- نام و  نام خانوادگی</p>
-                    <input type="text" className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" />
+                    <input type="text" value={fullname} onChange={(e) => this.changeValue(e.target.value, "fullname", false)} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" />
                 </div>
                 <div id="phone" className="col-span-full lg:col-span-1">
                     <p className="font-semibold text-lg">- شماره تماس</p>
-                    <input type="text" className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" style={{ direction: 'ltr' }} />
+                    <input type="text" value={phone_number} onChange={(e) => this.changeValue(e.target.value, "phone_number", true)} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" style={{ direction: 'ltr' }} />
                 </div>
                 <div id="description" className="col-span-full">
                     <p className="font-semibold text-lg">- هدف تبلیغاتی یا برند سازی شما</p>
-                    <textarea className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" cols="30" rows="10" placeholder={this.state.placeholder}></textarea>
+                    <textarea value={description} onChange={(e) => this.changeValue(e.target.value, "description", false)} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-purple-500 ring-4 ring-transparent focus:ring-purple-200 duration-300" cols="30" rows="10" placeholder={this.state.placeholder}></textarea>
                 </div>
                 <div className="col-span-full text-center">
                     <button onClick={this.handleSendForm} className="w-fit py-2 px-6 text-base shadow-lg bg-slate-500 text-slate-50 hover:bg-purple-500 duration-200 cursor-pointer">ارسال اطلاعات</button>
