@@ -2940,7 +2940,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     transform: rotate(360deg); } }/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
 readers do not read off random characters that represent icons */.fa-address-card:before {
   content: "\f2bb"; }.fa-angle-double-down:before {
-  content: "\f103"; }.fa-bars:before {
+  content: "\f103"; }.fa-arrow-left:before {
+  content: "\f060"; }.fa-bars:before {
   content: "\f0c9"; }.fa-briefcase:before {
   content: "\f0b1"; }.fa-caret-circle-down:before {
   content: "\f32d"; }.fa-check:before {
@@ -2979,7 +2980,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   src: url(/fonts/fa-duotone-900.eot?44bbc17621739acf4fb165b4daf0dd97);
   src: url(/fonts/fa-duotone-900.eot?44bbc17621739acf4fb165b4daf0dd97?#iefix) format("embedded-opentype"), url(/fonts/fa-duotone-900.woff2?f27f085efb0eb08e01d6909c4655f609) format("woff2"), url(/fonts/fa-duotone-900.woff?839608c0d3a3ebbf39a331b3e4ea2075) format("woff"), url(/fonts/fa-duotone-900.ttf?1bdc95a1f9dc66afe5a9012fb3a7cc5e) format("truetype"), url(/fonts/fa-duotone-900.svg?8a4beea8bb7df767b32d000f9bb1ea08#fontawesome) format("svg"); }.fad.fa-address-card:after {
   content: "\10f2bb"; }.fad.fa-angle-double-down:after {
-  content: "\10f103"; }.fad.fa-bars:after {
+  content: "\10f103"; }.fad.fa-arrow-left:after {
+  content: "\10f060"; }.fad.fa-bars:after {
   content: "\10f0c9"; }.fad.fa-briefcase:after {
   content: "\10f0b1"; }.fad.fa-caret-circle-down:after {
   content: "\10f32d"; }.fad.fa-check:after {
@@ -3165,6 +3167,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   bottom: -1.25rem;
 }.-left-5{
   left: -1.25rem;
+}.bottom-0{
+  bottom: 0px;
 }.top-0{
   top: 0px;
 }.-right-full{
@@ -3211,6 +3215,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}.mx-4{
+  margin-left: 1rem;
+  margin-right: 1rem;
 }.my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -3241,12 +3248,14 @@ readers do not read off random characters that represent icons */.fa-address-car
   margin-top: -0px;
 }.mb-10{
   margin-bottom: 2.5rem;
-}.mt-10{
-  margin-top: 2.5rem;
-}.mt-6{
-  margin-top: 1.5rem;
 }.mt-4{
   margin-top: 1rem;
+}.mt-10{
+  margin-top: 2.5rem;
+}.mb-12{
+  margin-bottom: 3rem;
+}.mt-6{
+  margin-top: 1.5rem;
 }.mr-2{
   margin-right: 0.5rem;
 }.ml-3{
@@ -3488,6 +3497,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.bg-violet-500{
   --tw-bg-opacity: 1;
   background-color: rgb(139 92 246 / var(--tw-bg-opacity));
+}.bg-purple-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(139 92 246 / var(--tw-bg-opacity));
 }.bg-indigo-800{
   --tw-bg-opacity: 1;
   background-color: rgb(55 48 163 / var(--tw-bg-opacity));
@@ -3566,17 +3578,19 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.px-6{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}.py-2{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }.py-0\.5{
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
 }.py-0{
   padding-top: 0px;
   padding-bottom: 0px;
-}.py-2{
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }.pt-24{
   padding-top: 6rem;
+}.pb-12{
+  padding-bottom: 3rem;
 }.pb-0{
   padding-bottom: 0px;
 }.pt-5{
@@ -3595,6 +3609,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   text-align: justify;
 }.align-middle{
   vertical-align: middle;
+}.font-iransans{
+  font-family: Iransansweb;
 }.text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -3721,10 +3737,10 @@ readers do not read off random characters that represent icons */.fa-address-car
   transition-duration: 150ms;
 }.duration-200{
   transition-duration: 200ms;
-}.duration-500{
-  transition-duration: 500ms;
 }.duration-300{
   transition-duration: 300ms;
+}.duration-500{
+  transition-duration: 500ms;
 }.duration-700{
   transition-duration: 700ms;
 }.ease-in-out{
@@ -3740,7 +3756,27 @@ readers do not read off random characters that represent icons */.fa-address-car
 }@media (min-width: 768px){.landing-title{
     line-height: 2 !important;
   }
-}.\[direction\:ltr\]{
+}.animate-heartbeat {
+        transform: scale(1.0);
+        -webkit-animation: heartbeat 1s linear infinite;
+                animation: heartbeat 1s linear infinite;
+    }@-webkit-keyframes heartbeat {
+        0% {
+            transform: scale(1.0);
+        } 50% {
+            transform: scale(1.1);
+        } 100% {
+            transform: scale(1.0);
+        }
+    }@keyframes heartbeat {
+        0% {
+            transform: scale(1.0);
+        } 50% {
+            transform: scale(1.1);
+        } 100% {
+            transform: scale(1.0);
+        }
+    }.\[direction\:ltr\]{
   direction: ltr;
 }.\[animation-duration\:0\.2s\]{
   -webkit-animation-duration: 0.2s;
@@ -3755,6 +3791,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:border-b-sky-400:hover{
   --tw-border-opacity: 1;
   border-bottom-color: rgb(56 189 248 / var(--tw-border-opacity));
+}.hover\:bg-rose-400:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 113 133 / var(--tw-bg-opacity));
 }.hover\:bg-slate-50:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(248 250 252 / var(--tw-bg-opacity));
@@ -3769,6 +3808,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:text-indigo-500:hover{
   --tw-text-opacity: 1;
   color: rgb(99 102 241 / var(--tw-text-opacity));
+}.hover\:ring-purple-200:hover{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(221 214 254 / var(--tw-ring-opacity));
 }.hover\:ring-purple-400:hover{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(167 139 250 / var(--tw-ring-opacity));

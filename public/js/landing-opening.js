@@ -2516,6 +2516,16 @@ document.querySelectorAll('#faq-list > div > p:first-child').forEach(function (e
   });
 });
 
+var scrollToForm = function scrollToForm() {
+  document.getElementById('form').scrollIntoView({
+    behavior: "smooth"
+  });
+};
+
+document.querySelectorAll('.button-to-form').forEach(function (el) {
+  el.addEventListener('click', scrollToForm);
+});
+
 var scrollToCustomers = function scrollToCustomers() {
   document.getElementById('customers-section').scrollIntoView({
     behavior: "smooth"
