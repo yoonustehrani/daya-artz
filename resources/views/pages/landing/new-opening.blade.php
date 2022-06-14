@@ -7,14 +7,14 @@
             <img data-src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="animate-pulse lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[650px] 2xl:h-fit absolute md:static opacity-20 md:opacity-100 right-0">
             <img data-src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[650px] 2xl:h-fit hidden md:inline absolute right-0 md:bottom-[4%] lg:bottom-[6%]">
             <div class="w-full md:w-auto px-4 md:px-2 py-4 text-center flex flex-col justify-evenly items-center">
-                <p class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white w-full font-bold leading-normal my-3 xl:my-0">
+                <p class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white w-full font-bold landing-title mb-6">
                     &rdquo;
                     هدف های بزرگ تبلیغاتی،
-                    <span class="text-cyan-300 underline underline-offset-[20px]">نیاز های پنهانی</span>
+                    <span class="text-cyan-300 underline underline-offset-[15px] xl:underline-offset-[20px] whitespace-nowrap">نیاز های پنهانی</span>
                     دارند !
                     &ldquo;
                 </p>
-                <ul data-countdown="{{ $date }}" class="p-0 flex flex-nowrap justify-center items-stretch w-full text-gray-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center font-bold my-3 xl:my-0">
+                <ul data-countdown="{{ $date }}" class="p-0 flex flex-nowrap justify-center items-stretch w-full text-gray-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center font-bold mb-4 md:mb-6">
                     <li class="mx-2 bg-slate-50 rounded-md p-2 md:p-3 aspect-square min-w-[60px] md:min-w-[76px] lg:min-w-[80px] xl:min-w-[88px] inline-block relative shadow-lg">
                         <span class="number"></span>
                         <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">ثانیه</span>
@@ -32,24 +32,24 @@
                         <span class="text-gray-400 text-sm inline-block md:block absolute md:static left-1/2 bottom-1 -translate-x-1/2 md:translate-x-0">روز</span>
                     </li>
                 </ul>
-                <div class="text-center text-sm md:text-base lg:text-xl xl:text-2xl w-full text-white rtl my-2 xl:my-0">
-                    <p class="font-bold text-base md:text-xl lg:text-2xl xl:text-3xl leading-normal mb-2 md:mb-8">
+                <div class="text-center text-sm md:text-base lg:text-xl xl:text-2xl w-full text-white rtl my-2 xl:my-4 2xl:my-0">
+                    <p class="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl leading-normal mb-2 md:mb-8">
                         دایا آرتز یک
                         <span class="text-cyan-300">استارت آپ</span> <span class="text-red-300">طراحی گرافیک</span>
                         با ایده های نوین است
-                        <i class="fa-2x fal fa-lightbulb-on"></i>
+                        <i class="fal fa-lightbulb-on text-2xl md:text-3xl lg:text-4xl mr-1"></i>
                     </p>
-                    <p class="text-xl my-8 leading-loose lg:leading-normal">
+                    <p class="text-xl my-4 leading-loose">
                         ما در دایا آرتز برای 
-                        <span class="bg-rose-400/80 rounded-full px-3 text-white">رشد کسب و کار</span>
+                        <span class="bg-rose-400/80 rounded-full px-3 text-white whitespace-nowrap">رشد کسب و کار</span>
                         شما در زمینه 
-                        <span class="bg-cyan-300/50 rounded-full px-3 text-white">تبلیغات و برند سازی</span>
+                        <span class="bg-cyan-300/50 rounded-full px-3 text-white whitespace-nowrap">تبلیغات و برند سازی</span>
                         از برنامه ریزی تا رسیدن به هدف هاتون همراه شما هستیم
                     </p>
-                    <p class="text-3xl font-semibold my-8">اما چطوری ؟! به زودی میفهمی !</p>
-                    <p class="text-2xl mt-8 leading-loose text-center"><span class="font-bold">زمان را محاسبه نکنید</span> و همین امروز ایده ما رو کشف کنید.</p>
+                    <p class="text-2xl md:text-3xl font-semibold mt-8">اما چطوری ؟! به زودی میفهمی !</p>
+                    <p class="text-xl md:text-2xl my-4 leading-loose text-center"><span class="font-bold">زمان را محاسبه نکنید</span> و همین امروز ایده ما رو کشف کنید.</p>
                     <div class="mt-8 text-gray-200">
-                        <i id="double-arrow" class="fal fa-3x p-4 animate-bounce fa-angle-double-down cursor-pointer"></i>
+                        <i id="double-arrow" class="fal text-6xl md:text-7xl xl:text-8xl p-4 animate-bounce fa-angle-double-down cursor-pointer hover:text-indigo-300 duration-200"></i>
                     </div>
                 </div>
             </div>
@@ -58,18 +58,18 @@
         </div>
     </x-slot>
     {{-- Customer Type section --}}
-    <section id="customers-section" class="w-full text-gray-900 py-10 px-12 text-lg flex flex-col items-center">
-        <h2 class="text-4xl text-center font-bold piped">ایده ما چیه و چطور به کسب و کارت کمک می کنیم ؟</h2>
+    <section id="customers-section" class="w-full text-gray-900 p-4 md:py-10 md:px-12 text-lg flex flex-col items-center">
+        <h2 class="text-2xl lg:text-4xl text-center font-bold piped">ایده ما چیه و چطور به کسب و کارت کمک می کنیم ؟</h2>
         <div class="w-full xl:w-10/12">
             <img class="lg:h-96 p-5 float-right m-5" src="{{ asset('images/landing/man-owning-a-business.svg') }}" alt="">
             <div class="p-5 pt-24">
-                <p class="font-bold text-2xl">
+                <p class="font-bold text-xl lg:text-2xl">
                     اگر شما دارای یک کسب و کار شخصی هستید
                     <i class="far fa-caret-circle-down"></i>
                 </p>
-                <p class="p-3 mt-3 text-justify text-gray-700">اگر شما دارای یک کسب و کار و بیزینس شخصی هستین، مثلا یک فروشگاه یا شرکت خدماتی یا حتی یک کافی شاپ، دایا آرتز در خدمت شماست تا به رشد کسب و کار شما کمک کنه. اما چطوری ما این کار رو انجام میدیم؟!</p>
-                <p class="px-3 text-justify text-gray-700">ما به عنوان یک استارت آپ طراحی گرافیک، با بررسی اهداف کاری شما، پیش نیاز های طراحی گرافیکی آن‌ها را شناسایی می‌کنیم و با اجرای هدفمند این طراحی ها، در مسیر 
-                <span class="underline underline-offset-[10px] decoration-dashed">رشد تبلیغاتی و برندینگ</span>
+                <p class="lg:p-3 mt-3 text-justify text-gray-700">اگر شما دارای یک کسب و کار و بیزینس شخصی هستین، مثلا یک فروشگاه یا شرکت خدماتی یا حتی یک کافی شاپ، دایا آرتز در خدمت شماست تا به رشد کسب و کار شما کمک کنه. اما چطوری ما این کار رو انجام میدیم؟!</p>
+                <p class="lg:px-3 text-justify text-gray-700">ما به عنوان یک استارت آپ طراحی گرافیک، با بررسی اهداف کاری شما، پیش نیاز های طراحی گرافیکی آن‌ها را شناسایی می‌کنیم و با اجرای هدفمند این طراحی ها، در مسیر 
+                <span class="underline underline-offset-[12px] decoration-dashed">رشد تبلیغاتی و برندینگ</span>
                 همراهتان هستیم.
                 <br>
                 <i class="fas fa-hashtag"></i>
@@ -81,14 +81,14 @@
         <div class="w-full xl:w-10/12">
             <img class="lg:h-96 p-5 float-left m-5" src="{{ asset('images/landing/man-working-as-manager.svg') }}" alt="">
             <div class="p-5 pt-24">
-                <p class="font-bold text-2xl">
+                <p class="font-bold text-xl lg:text-2xl">
                     اگر شما مدیر مسئول یک سازمان یا شرکت هستید
                     <i class="far fa-caret-circle-down"></i>
                 </p>
-                <p class="p-3 mt-3 text-justify text-gray-700">
+                <p class="lg:p-3 mt-3 text-justify text-gray-700">
                     اگر شما  یکی از مدیران دارای مسئولیت در شرکت یا سازمان خود هستید - برای مثال مدیر ارشد بازاریابی یا مدیر دیجیتال مارکتینگ یک شرکت به ‌خصوص - ما آماده هستیم تا بر اساس اهداف کاریتون، به شما بهینه ترین خدمات طراحی گرافیک رو پس از بررسی اهداف کاریتون پیشنهاد بدیم. بنابراین دایا آرتز بر اساس هدف و نیاز های واقعی کسب و کار شما، براتون طراحی خدمات گرافیک انجام میده.
                 </p>
-                <p class="px-3 text-justify text-gray-700">
+                <p class="lg:px-3 text-justify text-gray-700">
                     <i class="fas fa-hashtag"></i>
                     برای مثال اگر یک مدیر ارشد دیجیتال مارکتینگ در یک شرکت هستید و قصد دارید نرخ تبدیل خودتون رو بالا ببرید، دایا آرتز با بررسی هدف و ساختار شرکت یا سازمان شما براتون مناسب ترین خدمات طراحی گرافیک رو پیشنهاد می کنه.
                     <span class="text-gray-900 font-semibold">(مانند طراحی کاتالوگ محصولات/خدمات، طراحی ست اداری و طراحی بنر تبلیغاتی)</span>
@@ -98,12 +98,12 @@
         <div class="w-full xl:w-10/12">
             <img class="lg:h-96 p-5 float-right m-5 " src="{{ asset('images/landing/man-with-an-idea.svg') }}" alt="">
             <div class="p-5 pt-24">
-                <p class="font-bold text-2xl">
+                <p class="font-bold text-xl lg:text-2xl">
                     اگر شما ایده راه اندازی یک کسب و کار در ذهن تان دارید
                     <i class="far fa-caret-circle-down"></i>
                 </p>
-                <p class="p-3 mt-3 text-justify text-gray-700">اگر شما در حال راه اندازی یک کسب و کار و بیزینس تازه هستین، مثلا اگر دارید یک استارت آپ یا رستوران یا حتی یک کارگاه تولیدی رو راه اندازی می‌کنید، ما اینجا هستیم تا خدمات تخصصی طراحی گرافیک خود را بر اساس هدف برندینگ یا دغدغه تبلیغاتی شما، با حداقل بودجه برایتان برنامه‌ریزی و اجرا کنیم.</p>
-                <p class="px-3 text-justify text-gray-700">
+                <p class="lg:p-3 mt-3 text-justify text-gray-700">اگر شما در حال راه اندازی یک کسب و کار و بیزینس تازه هستین، مثلا اگر دارید یک استارت آپ یا رستوران یا حتی یک کارگاه تولیدی رو راه اندازی می‌کنید، ما اینجا هستیم تا خدمات تخصصی طراحی گرافیک خود را بر اساس هدف برندینگ یا دغدغه تبلیغاتی شما، با حداقل بودجه برایتان برنامه‌ریزی و اجرا کنیم.</p>
+                <p class="lg:px-3 text-justify text-gray-700">
                     <i class="fas fa-hashtag"></i>
                     برای مثال بر اساس نوع کسب و کار شما، برایتان بهترین پیشنهاد های زمینه توسعه و طراحی برند را آماده می‌کنیم تا به یک برند قوی تبدیل شوید.
                     <span class="text-gray-900 font-semibold">(مانند طراحی لوگو،‌ طراحی هویت بصری و طراحی کارت ویزیت / تراکت)</span>
@@ -112,13 +112,13 @@
         </div>
     </section>
     {{-- Six broadways section --}}
-    <section class="w-full flex justify-center bg-stone-300 px-12">
+    <section class="w-full flex justify-center bg-stone-300 px-0 mobiles:px-4 mobilem:px-6 mobilel:px-8 lg:px-12">
         <div class="w-full xl:w-4/5 grid grid-cols-1 md:grid-cols-3 grid-rows-2 place-items-center place-content-center p-5">
             {{-- ITEM 1 --}}
-            <div class="relative aspect-square w-full">
+            <div class="relative aspect-square w-full md:mt-0">
                 <div class="borderable-circle border-black border-b-transparent rotate-45 overflow-hidden">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center p-5">
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full flex justify-center items-center text-base 2xl:text-2xl">شما هدف تبلیغاتی یا برنامه برندسازی خود را به ما اعلام می کنید</p>
+                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full flex justify-center items-center text-sm md:text-base 2xl:text-2xl">شما هدف تبلیغاتی یا برنامه برندسازی خود را به ما اعلام می کنید</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">01</span>
@@ -126,11 +126,11 @@
                         </div>
                     </div>
                 </div>
-                <span class="absolute-dot my-4"><i class="fas fa-circle"></i></span>
+                <span class="absolute-dot md:my-4"><i class="fas fa-circle"></i></span>
             </div>
             {{-- ITEM 2 --}}
-            <div class="relative aspect-square w-full">
-                <div class="borderable-circle mt-16 border-transparent border-b-black border-r-black rotate-45">
+            <div class="relative aspect-square w-full -mt-1 md:mt-0">
+                <div class="borderable-circle md:mt-16 border-transparent border-b-black border-l-black md:border-l-transparent md:border-r-black rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
@@ -139,7 +139,7 @@
                         </div>
                         <div class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl">
                             <span>دایا آرتز پروسه تحقیقات درباره هدف شما را آغاز می کند :</span>
-                            <ol class="text-base list-decimal list-inside text-center mt-2">
+                            <ol class="text-base list-decimal list-inside text-center mt-1 md:mt-2">
                                 <li>آنالیز کسب و کار</li>
                                 <li>آنالیز بازار</li>
                                 <li>آنالیز رقبا</li>
@@ -147,11 +147,11 @@
                         </div>
                     </div>
                 </div>
-                <span class="absolute-dot my-4"><i class="fas fa-circle"></i></span>
+                <span class="absolute-dot top-1/2 left-1/2 -translate-x-1/2 md:top-0 md:left-0 md:translate-[initial] md:my-4"><i class="fas fa-circle"></i></span>
             </div>
             {{-- ITEM 3 --}}
-            <div class="relative aspect-square w-full">
-                <div class="borderable-circle border-black border-r-transparent rotate-45">
+            <div class="relative aspect-square w-full -mt-1 md:mt-0">
+                <div class="borderable-circle border-black border-l-transparent border-b-transparent md:border-b-black md:border-l-black md:border-r-transparent rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدفتان به شما ارائه می شود</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
@@ -161,13 +161,13 @@
                         </div>
                     </div>
                 </div>
-                <span class="absolute h-full w-full top-6 -right-2 z-10 items-end justify-center flex my-11">
-                    <i class="fas fa-circle p-6 rounded-full border-dashed border-2 border-black border-l-transparent border-b-transparent rotate-45"></i>
+                <span class="absolute-dot top-full left-[-33px] md:h-full md:w-full md:top-6 md:left-[initial] md:-right-2 md:z-10 md:items-end md:justify-center md:flex md:my-11">
+                    <i class="fas fa-circle p-6 rounded-full border-dashed border-2 border-transparent md:border-black md:border-l-transparent md:border-b-transparent rotate-45"></i>
                 </span>
             </div>
             {{-- ITEM 6 --}}
-            <div class="relative aspect-square w-full">
-                <div class="borderable-circle mt-2 border-black border-l-transparent rotate-45">
+            <div class="relative aspect-square w-full -mt-0.5 md:mt-0 order-6 md:order-4">
+                <div class="borderable-circle md:mt-2 border-black border-t-transparent md:border-t-black md:border-l-transparent rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
@@ -177,11 +177,11 @@
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">حالا شما همه پیش نیاز های لازم برای دستیابی به هدف تبلیغاتی خود را دارید</p>
                     </div>
                 </div>
-                <span class="absolute-dot -mt-1"><i class="fas fa-circle"></i></span>
+                <span class="absolute-dot md:-mt-2 right-0 md:right-[initial] md:translate-[initial] translate-x-[40%] md:-left-[0.85rem]"><i class="fas fa-circle"></i></span>
             </div>
             {{-- ITEM 5 --}}
-            <div class="relative aspect-square w-full">
-                <div class="borderable-circle -mt-4 border-transparent border-t-black border-l-black rotate-45">
+            <div class="relative aspect-square w-full -mt-0.5 md:mt-0 order-5">
+                <div class="borderable-circle md:-mt-4 border-transparent border-t-black border-r-black md:border-r-transparent md:border-l-black rotate-45">
                     <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base 2xl:text-2xl grid place-content-center">طراحی های انجام شده بعلاوه برنامه استفاده هدفمند از آنها به شما ارائه می شود</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
@@ -191,10 +191,10 @@
                         </div>
                     </div>
                 </div>
-                <span class="absolute-dot -mt-1"><i class="fas fa-circle"></i></span>
+                <span class="absolute-dot right-0 translate-x-1/2 md:right-[initial] md:translate-[initial] md:-mt-2 md:-left-4"><i class="fas fa-circle"></i></span>
             </div>
             {{-- ITEM 4 --}}
-            <div class="borderable-circle mt-2 border-black border-t-transparent rotate-45">
+            <div class="borderable-circle -mt-0.5 md:mt-2 border-black border-t-transparent border-r-transparent md:border-r-black rotate-45 order-4 md:order-6">
                 <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                     <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                         <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
