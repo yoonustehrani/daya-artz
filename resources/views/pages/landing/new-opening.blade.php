@@ -379,8 +379,8 @@
                 <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">از چه راهی می‌توانم از خدمات شما استفاده کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
                 <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
                     <i class="fas fa-plus m-2 leading-loose"></i>
-                    تنها کافیست
-                    <button type="button" class="bg-rose-400/80 hover:bg-rose-400 duration-300 rounded-full px-3 button-to-form">تکمیل فرم درخواست از خدمات</button>
+                    تنها کافیست با
+                    <button type="button" class="bg-rose-400/80 hover:bg-rose-400 duration-300 rounded-full px-3 button-to-form">تکمیل فرم درخواست خدمات</button>
                     دایا آرتز
                     قدم اول همکاری با ما را بردارید و همچنین می‌توانید با استفاده از راه‌های ارتباطی زیر با کارشناسان ما در ارتباط باشید :
                     <br>

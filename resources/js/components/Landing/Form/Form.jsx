@@ -17,9 +17,9 @@ class Form extends Component {
             },
             form: {
                 positions: [
-                    {name: 'owner', title: 'صاحب کسب و کار', icon: 'fas fa-user-tie'},
-                    {name: 'manager', title: 'مدیر / مسئول شرکت', icon: 'fas fa-briefcase'},
-                    {name: 'idea', title: 'صاحب ایده کسب و کار', icon: 'fas fa-lightbulb'}
+                    {name: 'business-owner', title: 'صاحب کسب و کار', icon: 'fas fa-user-tie'},
+                    {name: 'company-manager', title: 'مدیر / مسئول شرکت', icon: 'fas fa-briefcase'},
+                    {name: 'ideator', title: 'صاحب ایده کسب و کار', icon: 'fas fa-lightbulb'}
                 ],
             },
             placeholder: `هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.
