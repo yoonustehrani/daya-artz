@@ -22,8 +22,7 @@ class Form extends Component {
                     {name: 'ideator', title: 'صاحب ایده کسب و کار', icon: 'fas fa-lightbulb'}
                 ],
             },
-            placeholder: `هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.
-- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم`
+            placeholder: "هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.\n- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم"
         }
         this.inactiveClassNames = 'border-gray-500 ring-transparent'
         this.activeClassNames = 'border-purple-500 ring-purple-400'

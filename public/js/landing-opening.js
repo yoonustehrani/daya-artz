@@ -2323,7 +2323,7 @@ var Form = /*#__PURE__*/function (_Component) {
           icon: 'fas fa-lightbulb'
         }]
       },
-      placeholder: "\u0647\u062F\u0641 \u0641\u0639\u0644\u06CC \u062A\u0628\u0644\u06CC\u063A\u0627\u062A\u06CC/\u0628\u0631\u0646\u062F\u06CC\u0646\u06AF \u06A9\u0647 \u062F\u063A\u062F\u063A\u0647 \u0634\u0645\u0627 \u06CC\u0627 \u0633\u0627\u0632\u0645\u0627\u0646 \u062A\u0627\u0646 \u0627\u0633\u062A \u0631\u0627 \u0634\u0631\u062D \u062F\u0647\u06CC\u062F.\n- \u0628\u0631\u0627\u06CC \u0645\u062B\u0627\u0644:\u200C \u0645\u0646 \u0642\u0635\u062F \u0627\u0641\u0632\u0627\u06CC\u0634 \u0641\u0631\u0648\u0634 \u0631\u0633\u062A\u0648\u0631\u0627\u0646 \u062E\u0648\u062F \u0631\u0627 \u0628\u0627 \u0627\u0631\u062A\u0642\u0627 \u0633\u0637\u062D \u0628\u0631\u0646\u062F \u062E\u0648\u062F \u062F\u0627\u0631\u0645"
+      placeholder: "هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.\n- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم"
     };
     _this.inactiveClassNames = 'border-gray-500 ring-transparent';
     _this.activeClassNames = 'border-purple-500 ring-purple-400';
@@ -3445,6 +3445,32 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./resources/css/landing.css ***!
   \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./packages/Zeus/resources/css/style.css":
+/*!***********************************************!*\
+  !*** ./packages/Zeus/resources/css/style.css ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./packages/Zeus/resources/css/rtl.css":
+/*!*********************************************!*\
+  !*** ./packages/Zeus/resources/css/rtl.css ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -67289,6 +67315,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/landing-opening": 0,
+/******/ 			"css/zeus/rtl": 0,
+/******/ 			"css/zeus/style": 0,
 /******/ 			"css/landing": 0,
 /******/ 			"css/err": 0
 /******/ 		};
@@ -67340,9 +67368,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/landing","css/err"], () => (__webpack_require__("./resources/js/landing-opening.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/landing","css/err"], () => (__webpack_require__("./resources/sass/err.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing","css/err"], () => (__webpack_require__("./resources/css/landing.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/js/landing-opening.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/sass/err.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/css/landing.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./packages/Zeus/resources/css/style.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./packages/Zeus/resources/css/rtl.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
