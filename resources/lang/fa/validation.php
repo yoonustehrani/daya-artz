@@ -62,7 +62,7 @@ return [
         'array' => 'The :attribute must have :value items or more.',
     ],
     'image' => 'The :attribute must be an image.',
-    'in' => 'The selected :attribute is invalid.',
+    'in' => 'گزینه انتخاب شده در فیلد :attribute نامعتبر است.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
     'ip' => 'The :attribute must be a valid IP address.',
@@ -170,6 +170,8 @@ return [
         'message' => 'متن پیام',
         'ticket_content' => 'متن تیکت',
         'department' => 'بخش مربوطه',
-        'files' => 'فایل ها'
+        'files' => 'فایل ها',
+        'ad_goal' => 'هدف تبلیغاتی',
+        'in_company_position' => 'مسئولیت شما در کسب و کار'
     ],
 ];
