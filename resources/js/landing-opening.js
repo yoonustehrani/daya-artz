@@ -55,6 +55,14 @@ document.querySelectorAll('#faq-list > div > p:first-child').forEach((el, i) => 
     })
 })
 
+const scrollToForm = () => {
+    document.getElementById('form').scrollIntoView({behavior: "smooth"})
+}
+
+document.querySelectorAll('.button-to-form').forEach(el => {
+    el.addEventListener('click', scrollToForm)
+})
+
 const scrollToCustomers = () => {
     document.getElementById('customers-section').scrollIntoView({behavior: "smooth"})
 }
