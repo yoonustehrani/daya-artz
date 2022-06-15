@@ -106,7 +106,7 @@ class Form extends Component {
             ad_goal: description
         })
         if (res.okay) {
-            this.Alert.success({title: "ارسال شد", text: res.message, heightAuto: false})
+            this.Alert.success({title: "ارسال شد", text: res.message, heightAuto: false, customClass: {container: "iran-sans"}})
         } else {
             this.setState({disabled: false})
         }
