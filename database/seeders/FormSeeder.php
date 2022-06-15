@@ -53,7 +53,8 @@ class FormSeeder extends Seeder
                         }
                     ]
                 }'),
-                "required" => 1
+                "required" => 1,
+                "validation_rules" => 'string|alpha_dash'
             ],
             [
                 "name" => "fullname",
@@ -63,7 +64,8 @@ class FormSeeder extends Seeder
                 "default" => null,
                 "placeholder" => null,
                 "details" => null,
-                "required" => 1
+                "required" => 1,
+                "validation_rules" => 'string|min:5|max:60'
             ],
             [
                 "name" => "phone_number",
@@ -73,7 +75,8 @@ class FormSeeder extends Seeder
                 "default" => null,
                 "placeholder" => null,
                 "details" => null,
-                "required" => 1
+                "required" => 1,
+                "validation_rules" => 'string|regex:/^0?9[0-9]{9}$/'
             ],
             [
                 "name" => "ad_goal",
@@ -83,7 +86,8 @@ class FormSeeder extends Seeder
                 "default" => null,
                 "placeholder" => "هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.\n- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم",
                 "details" => null,
-                "required" => 1
+                "required" => 1,
+                "validation_rules" => 'string|min:4|max:1000'
             ]
         ];
         $inputs = array_map(function($input) {
@@ -95,5 +99,5 @@ class FormSeeder extends Seeder
         }, $inputs);
 
         $form->inputs()->saveMany($inputs);
-    }        
+    }
 }

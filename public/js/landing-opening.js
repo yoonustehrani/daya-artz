@@ -3442,6 +3442,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./packages/Zeus/resources/css/style.css":
+/*!***********************************************!*\
+  !*** ./packages/Zeus/resources/css/style.css ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./packages/Zeus/resources/css/rtl.css":
+/*!*********************************************!*\
+  !*** ./packages/Zeus/resources/css/rtl.css ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/moment-jalaali/index.js":
 /*!**********************************************!*\
   !*** ./node_modules/moment-jalaali/index.js ***!
@@ -66513,7 +66539,14 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/landing-opening": 0,
+<<<<<<< HEAD
 /******/ 			"css/landing": 0
+=======
+/******/ 			"css/zeus/rtl": 0,
+/******/ 			"css/zeus/style": 0,
+/******/ 			"css/landing": 0,
+/******/ 			"css/err": 0
+>>>>>>> 4dc2daf15d1edec158d5e56059b4700b6f95d2f8
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -66563,8 +66596,16 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+<<<<<<< HEAD
 /******/ 	__webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/js/landing-opening.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/css/landing.css")))
+=======
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/js/landing-opening.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/sass/err.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/css/landing.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./packages/Zeus/resources/css/style.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./packages/Zeus/resources/css/rtl.css")))
+>>>>>>> 4dc2daf15d1edec158d5e56059b4700b6f95d2f8
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
