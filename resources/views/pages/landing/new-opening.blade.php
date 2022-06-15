@@ -73,7 +73,7 @@
                 همراهتان هستیم.
                 <br>
                 <i class="fas fa-hashtag"></i>
-                برای مثال اگر می‌خواید فروش بیشتری داشته باشید یا برند خودتون رو قوی کنید ما خدمات طراحی گرافیک مورد نیاز برای دستیابی به این اهداف تبلیغاتی  رو به شما پیشنهاد و فرآیند طراحی تخصصی آن‌ها را  اجرا می‌کنیم.
+                اگر می‌خواهید فروش بیشتری داشته باشید یا برند خودتون رو قوی کنید ما خدمات طراحی گرافیک مورد نیاز برای دستیابی به این اهداف تبلیغاتی  رو به شما پیشنهاد و فرآیند طراحی تخصصی آن‌ها را  اجرا می‌کنیم.
                 <span class="text-gray-900 font-semibold">(مانند طراحی  قالب اینستاگرام، طراحی منو کافی شاپ/رستوران و طراحی بروشور تبلیغاتی)</span>
                 </p>
             </div>
@@ -90,7 +90,7 @@
                 </p>
                 <p class="lg:px-3 text-justify text-gray-700">
                     <i class="fas fa-hashtag"></i>
-                    برای مثال اگر یک مدیر ارشد دیجیتال مارکتینگ در یک شرکت هستید و قصد دارید نرخ تبدیل خودتون رو بالا ببرید، دایا آرتز با بررسی هدف و ساختار شرکت یا سازمان شما براتون مناسب ترین خدمات طراحی گرافیک رو پیشنهاد می کنه.
+                    اگر یک مدیر ارشد دیجیتال مارکتینگ در یک شرکت هستید و قصد دارید نرخ تبدیل خودتون رو بالا ببرید، دایا آرتز با بررسی هدف و ساختار شرکت یا سازمان شما براتون مناسب ترین خدمات طراحی گرافیک رو پیشنهاد می کنه.
                     <span class="text-gray-900 font-semibold">(مانند طراحی کاتالوگ محصولات/خدمات، طراحی ست اداری و طراحی بنر تبلیغاتی)</span>
                 </p>
             </div>
@@ -105,7 +105,7 @@
                 <p class="lg:p-3 mt-3 text-justify text-gray-700">اگر شما در حال راه اندازی یک کسب و کار و بیزینس تازه هستین، مثلا اگر دارید یک استارت آپ یا رستوران یا حتی یک کارگاه تولیدی رو راه اندازی می‌کنید، ما اینجا هستیم تا خدمات تخصصی طراحی گرافیک خود را بر اساس هدف برندینگ یا دغدغه تبلیغاتی شما، با حداقل بودجه برایتان برنامه‌ریزی و اجرا کنیم.</p>
                 <p class="lg:px-3 text-justify text-gray-700">
                     <i class="fas fa-hashtag"></i>
-                    برای مثال بر اساس نوع کسب و کار شما، برایتان بهترین پیشنهاد های زمینه توسعه و طراحی برند را آماده می‌کنیم تا به یک برند قوی تبدیل شوید.
+                    بر اساس نوع کسب و کار شما، برایتان بهترین پیشنهاد های زمینه توسعه و طراحی برند را آماده می‌کنیم تا به یک برند قوی تبدیل شوید.
                     <span class="text-gray-900 font-semibold">(مانند طراحی لوگو،‌ طراحی هویت بصری و طراحی کارت ویزیت / تراکت)</span>
                 </p>
             </div>
@@ -343,7 +343,7 @@
         <h2 class="text-3xl lg:text-4xl text-center font-bold piped">سوالات متداول</h2>
         <div class="w-full lg:10/12 xl:w-8/12 md:p-4 mt-4 grid grid-cols-1 gap-4 lg:gap-8" id="faq-list">
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
-                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">وجه تمایز دایا آرتز با دیگر طراحان گرافیک در چیست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">وجه تمایز دایا آرتز با دیگر طراحان گرافیک در چیست ؟ <i class="float-left far fa-times-circle"></i></p>
                 <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose">
                     <i class="fas fa-plus m-2"></i>
                     طراحی گرافیک در دایا آرتز بر مبنای هدف تبلیغاتی شما انجام می‌شود. به این شکل که شما فقط به کارشناسان دایا آرتز هدف تبلیغاتی خود را اعلام می کنید و ما به شما لیستی از طراحی های موردنیاز برای دستیابی به هدفتان را (بر مبنای آنالیز دقیق کسب و کار شما، بازار شما و رقبایتان) به شما ارائه می کنیم.
@@ -354,7 +354,7 @@
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
-                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">خدمات طراحی گرافیک دایا آرتز چیست ؟ <i class="float-left far fa-times-circle"></i></p>
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">خدمات طراحی گرافیک دایا آرتز چیست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
                 <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
                     <i class="fas fa-plus m-2"></i>
                     خدمات ما شامل سه گروه است :

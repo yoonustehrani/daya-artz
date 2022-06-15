@@ -1,6 +1,6 @@
-<x-zview-layout-default :title="__('Form Answer', ['id' =>$answer->id])">
+<x-zview-layout-default :title="__('Form Answer Id', ['id' =>$answer->id])">
     <h1 class="title mb-4">
-        @lang('Form Answer', ['id' =>$answer->id])
+        @lang('Form Answer Id', ['id' =>$answer->id])
         -
         (<a class="text-blue-400" href="{{ route('zeus.forms.show', ['id' => $answer->form_id]) }}">@lang('Form')</a>)
     </h1>

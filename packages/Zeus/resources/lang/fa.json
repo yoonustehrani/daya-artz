@@ -59,6 +59,9 @@
     "Contains": "شامل می شود",
     "Starts with": "شروع می شود با",
     "Ends with": "پایان می یابد با",
-    "Form Answer": "پاسخ فرم شماره :id",
-    "Form": "فرم"
+    "Form Answer Id": "پاسخ فرم شماره :id",
+    "Form": "فرم",
+    "Forms": "فرم ها",
+    "Form Answer": "پاسخ فرم",
+    "Form Answers": "پاسخ های فرم"
 }
