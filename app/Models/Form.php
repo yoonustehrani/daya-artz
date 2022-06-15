@@ -5,9 +5,9 @@ namespace App\Models;
 use App\Traits\HasUuidAsPrimaryKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Zeus\Models\ZeusModel;
+use Illuminate\Validation\Rule;
 
-class Form extends ZeusModel
+class Form extends Model
 {
     use HasFactory, HasUuidAsPrimaryKey;
 
@@ -33,6 +33,10 @@ class Form extends ZeusModel
             $rules = $input->validation_rules ? explode('|', $input->validation_rules) : [];
             if ($input->required) {
                 array_unshift($rules, 'required');
+            }
+            if ($input->details && $input->details->choices) {
+                $choices = (array) $input->details->choices;
+                array_push($rules, Rule::in(array_keys($choices)));
             }
             if (count($rules)) {
                 $validation_rules->put($input->name, $rules);

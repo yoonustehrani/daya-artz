@@ -4,11 +4,12 @@ const { default: plugin } = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
-        "./resources/views/pages/landing/opening.blade.php",
-        "./resources/views/components/layout/*.blade.php" ,
-        "./resources/views/components/quick-order-form.blade.php",
-        "./resources/js/components/QuickOrder/QuickOrder.jsx",
+        "./resources/views/pages/landing/new-opening.blade.php",
+        "./resources/views/components/layout/*.blade.php",
         "./resources/js/landing-opening.js",
+        // "./resources/views/components/quick-order-form.blade.php",
+        "./resources/js/components/Landing/**/*.jsx",
+        // "./resources/js/landing-opening.js",
     ],
     theme: {
         fontFamily: {
@@ -49,13 +50,20 @@ module.exports = {
 				'blue-yonder': {
 					DEFAULT: '#577399ff',
 					dark: '#212B39'
-				}
+				},
+                'daya-purple': {
+                    light: '#AC7FF4',
+                    dark: '#6232DE',
+                    medium: '#8F60EC'
+                }
             },
             backgroundImage: {
                 "zeus-dashboard-vbg": "url('/images/zeus-images/dashboard-bvector.png')"
             },
             screens: {
-                'xs': "375px",
+                'mobiles': "320px",
+                'mobilem': "375px",
+                'mobilel': "425px",
                 '4k': "2560px"
             }
         },

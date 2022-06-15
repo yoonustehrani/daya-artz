@@ -87,15 +87,14 @@ class FormsController extends Controller
         }])->active()->where('key', $key)->firstOrFail();
 
         return response()->json($form);
-        // getting answers $answers->inputs()->select(['id', 'label'])->get()->append(['answer_value'])
+        // getting answers 
     }
 
     public function store(Request $request, $key)
     {
         $form = Form::select(['id', 'title'])->active()->where('key', $key)->firstOrFail();
-        return $form;
         $form->load(['inputs' => function($q) {
-            $q->select(['id', 'form_id', 'name', 'default', 'required', 'validation_rules']);
+            $q->select(['id', 'form_id', 'name', 'default', 'required', 'validation_rules', 'details']);
         }]);
         $request_rules = $form->validation_rules;
         if ($request_rules->count()) {

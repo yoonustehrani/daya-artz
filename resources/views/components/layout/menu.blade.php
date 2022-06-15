@@ -17,10 +17,10 @@
         </div>
     </div>
     <div class="flex items-center flex-nowrap">
-        <a href="#order_page" class="rounded-full py-0.5 px-4 border-2 border-slate-50 duration-300 hover:border-transparent hover:bg-slate-50 hover:text-indigo-500 flex justify-center items-center group">
+        {{-- <a href="#order_page" class="rounded-full py-0.5 px-4 border-2 border-slate-50 duration-300 hover:border-transparent hover:bg-slate-50 hover:text-indigo-500 flex justify-center items-center group">
             <i class="far fa-plus ml-2 group-hover:text-indigo-500 duration-300"></i>
             سفارش
-        </a>
+        </a> --}}
         <a href="tel:+989015045025" class="header-icon rounded-full bg-slate-50 p-1 duration-300 border-2 border-transparent hover:border-purple-500 cursor-pointer mr-3 w-10 h-10 flex justify-center items-center">
             <i class="far fa-phone text-slate-900 duration-300 text-xl"></i>
         </a>
