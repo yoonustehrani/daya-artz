@@ -2315,7 +2315,7 @@ var Form = /*#__PURE__*/function (_Component) {
           icon: 'fas fa-lightbulb'
         }]
       },
-      placeholder: "\u0647\u062F\u0641 \u0641\u0639\u0644\u06CC \u062A\u0628\u0644\u06CC\u063A\u0627\u062A\u06CC/\u0628\u0631\u0646\u062F\u06CC\u0646\u06AF \u06A9\u0647 \u062F\u063A\u062F\u063A\u0647 \u0634\u0645\u0627 \u06CC\u0627 \u0633\u0627\u0632\u0645\u0627\u0646 \u062A\u0627\u0646 \u0627\u0633\u062A \u0631\u0627 \u0634\u0631\u062D \u062F\u0647\u06CC\u062F.\n- \u0628\u0631\u0627\u06CC \u0645\u062B\u0627\u0644:\u200C \u0645\u0646 \u0642\u0635\u062F \u0627\u0641\u0632\u0627\u06CC\u0634 \u0641\u0631\u0648\u0634 \u0631\u0633\u062A\u0648\u0631\u0627\u0646 \u062E\u0648\u062F \u0631\u0627 \u0628\u0627 \u0627\u0631\u062A\u0642\u0627 \u0633\u0637\u062D \u0628\u0631\u0646\u062F \u062E\u0648\u062F \u062F\u0627\u0631\u0645"
+      placeholder: "هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.\n- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم"
     };
     _this.inactiveClassNames = 'border-gray-500 ring-transparent';
     _this.activeClassNames = 'border-purple-500 ring-purple-400';

@@ -87,7 +87,7 @@ class FormsController extends Controller
         }])->active()->where('key', $key)->firstOrFail();
 
         return response()->json($form);
-        // getting answers $answers->inputs()->select(['id', 'label'])->get()->append(['answer_value'])
+        // getting answers 
     }
 
     public function store(Request $request, $key)
