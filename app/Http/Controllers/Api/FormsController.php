@@ -87,7 +87,6 @@ class FormsController extends Controller
         }])->active()->where('key', $key)->firstOrFail();
 
         return response()->json($form);
-        // getting answers 
     }
 
     public function store(Request $request, $key)
@@ -115,7 +114,7 @@ class FormsController extends Controller
             $form->answers()->save($answer);
             $answer->inputs()->attach($submissions->toArray());
             \DB::commit();
-            return ['okay' => true, 'message' => 'Ok Done !'];
+            return ['okay' => true, 'message' => __('messages.form.success')];
         } catch (\Throwable $th) {
             \DB::rollback();
             abort(500);
