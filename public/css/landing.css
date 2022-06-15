@@ -3376,8 +3376,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }.grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }.flex-col{
   flex-direction: column;
 }.flex-wrap{
@@ -3608,8 +3606,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   padding-top: 3.5rem;
 }.pr-6{
   padding-right: 1.5rem;
-}.pt-4{
-  padding-top: 1rem;
 }.text-center{
   text-align: center;
 }.text-right{
@@ -3868,8 +3864,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   color: rgb(99 102 241 / var(--tw-text-opacity));
 }@media (min-width: 640px){.sm\:inline{
     display: inline;
-  }.sm\:grid{
-    display: grid;
   }.sm\:w-3\/5{
     width: 60%;
   }.sm\:grid-cols-3{
@@ -3932,11 +3926,11 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:float-left{
     float: left;
   }
-    .md\:m-5{
-    margin: 1.25rem;
-  }
     .md\:m-0{
     margin: 0px;
+  }
+    .md\:m-5{
+    margin: 1.25rem;
   }
     .md\:my-4{
     margin-top: 1rem;
@@ -4231,10 +4225,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   }.xl\:mx-6{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
-  }.xl\:mt-8{
-    margin-top: 2rem;
-  }.xl\:mt-4{
-    margin-top: 1rem;
   }.xl\:mt-6{
     margin-top: 1.5rem;
   }.xl\:h-\[650px\]{
@@ -4260,10 +4250,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   }.xl\:px-16{
     padding-left: 4rem;
     padding-right: 4rem;
-  }.xl\:pt-4{
-    padding-top: 1rem;
-  }.xl\:pt-8{
-    padding-top: 2rem;
   }.xl\:text-4xl{
     font-size: 2.25rem;
     line-height: 2.5rem;

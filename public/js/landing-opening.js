@@ -2248,29 +2248,32 @@ var Form = /*#__PURE__*/function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSendForm", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var errContainers, _this$state$data2, position, fullname, phone_number, description, hasErr, res;
+    _defineProperty(_assertThisInitialized(_this), "handleSendForm", function () {
+      var errContainers = document.getElementsByClassName("err-container");
+      errContainers.length > 0 && Array.from(errContainers).map(function (item) {
+        return item.remove();
+      });
+
+      _this.trimValues();
+
+      var hasErr = _this.validateFields();
+
+      if (!hasErr) {
+        _this.setState({
+          disabled: true
+        }, _this.handleFormRequest);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleFormRequest", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var _this$state$data2, position, fullname, phone_number, description, res;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              errContainers = document.getElementsByClassName("err-container");
-              errContainers.length > 0 && Array.from(errContainers).map(function (item) {
-                return item.remove();
-              });
-
-              _this.trimValues();
-
               _this$state$data2 = _this.state.data, position = _this$state$data2.position, fullname = _this$state$data2.fullname, phone_number = _this$state$data2.phone_number, description = _this$state$data2.description;
-              hasErr = _this.validateFields();
-
-              if (hasErr) {
-                _context.next = 10;
-                break;
-              }
-
-              _context.next = 8;
+              _context.next = 3;
               return _this.http.post(_this.props.formUrl, {
                 in_company_position: position,
                 fullname: fullname,
@@ -2279,7 +2282,7 @@ var Form = /*#__PURE__*/function (_Component) {
                 ad_goal: description
               });
 
-            case 8:
+            case 3:
               res = _context.sent;
 
               if (res.okay) {
@@ -2288,9 +2291,13 @@ var Form = /*#__PURE__*/function (_Component) {
                   text: res.message,
                   heightAuto: false
                 });
+              } else {
+                _this.setState({
+                  disabled: false
+                });
               }
 
-            case 10:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -2328,7 +2335,8 @@ var Form = /*#__PURE__*/function (_Component) {
           icon: 'fas fa-lightbulb'
         }]
       },
-      placeholder: "هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.\n- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم"
+      placeholder: "هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.\n- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم",
+      disabled: false
     };
     _this.inactiveClassNames = 'border-gray-500 ring-transparent';
     _this.activeClassNames = 'border-purple-500 ring-purple-400';
@@ -2356,7 +2364,7 @@ var Form = /*#__PURE__*/function (_Component) {
           }), this.state.form.positions.map(function (position) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               onClick: function onClick() {
-                return _this2.handleItemSelect(position.name);
+                return !_this2.state.disabled && _this2.handleItemSelect(position.name);
               },
               className: "".concat(position.name === _this2.state.data.position ? _this2.activeClassNames : _this2.inactiveClassNames, " flex flex-col items-center justify-center aspect-square border-2 rounded-md p-2 md:p-3 relative ring-4 duration-300 hover:border-purple-500 hover:ring-purple-400 cursor-pointer"),
               children: [position.name === _this2.state.data.position && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -2382,6 +2390,7 @@ var Form = /*#__PURE__*/function (_Component) {
             className: "font-semibold text-lg",
             children: "- \u0646\u0627\u0645 \u0648  \u0646\u0627\u0645 \u062E\u0627\u0646\u0648\u0627\u062F\u06AF\u06CC"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            disabled: this.state.disabled,
             type: "text",
             value: fullname,
             onChange: function onChange(e) {
@@ -2396,6 +2405,7 @@ var Form = /*#__PURE__*/function (_Component) {
             className: "font-semibold text-lg",
             children: "- \u0634\u0645\u0627\u0631\u0647 \u062A\u0645\u0627\u0633"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            disabled: this.state.disabled,
             type: "text",
             value: phone_number,
             onChange: function onChange(e) {
@@ -2413,6 +2423,7 @@ var Form = /*#__PURE__*/function (_Component) {
             className: "font-semibold text-lg",
             children: "- \u0647\u062F\u0641 \u062A\u0628\u0644\u06CC\u063A\u0627\u062A\u06CC \u06CC\u0627 \u0628\u0631\u0646\u062F \u0633\u0627\u0632\u06CC \u0634\u0645\u0627"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+            disabled: this.state.disabled,
             value: description,
             onChange: function onChange(e) {
               return _this2.changeValue(e.target.value, "description", false);
@@ -2425,6 +2436,7 @@ var Form = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "col-span-full text-center",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            disabled: this.state.disabled,
             onClick: this.handleSendForm,
             className: "w-fit py-2 px-6 text-base shadow-lg bg-slate-500 text-slate-50 hover:bg-purple-500 duration-200 cursor-pointer rounded-md",
             children: "\u0627\u0631\u0633\u0627\u0644 \u0627\u0637\u0644\u0627\u0639\u0627\u062A"
