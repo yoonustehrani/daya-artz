@@ -72,7 +72,7 @@ Route::prefix('zeus')->name('zeus.')->group(function() {
     // Auth Routes
     Route::name('auth.')->middleware(['guest:zeus'])->group(function () {
         Route::view('login', 'zview::pages.auth.login')->name('login.form');
-        Route::post('login', [LoginController::class, 'store'])->name('login');
+        Route::post('login', [LoginController::class, 'store'])->middleware('throttle:5,1,zeus_login')->name('login');
     });
     Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth:zeus')->name('auth.logout');
 });
