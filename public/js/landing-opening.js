@@ -2577,42 +2577,36 @@ body.addEventListener("click", function (e) {
     toggle_menu();
   }
 }); // this code will set the header navbar fixed according to the window height
-
-function setHeader() {
-  var window_height = window.innerHeight,
-      offset_top = body.scrollTop,
-      target_header = document.getElementById("landing-header"),
-      header_nav = document.getElementById("header-nav");
-
-  if (window.innerWidth >= 768) {
-    if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
-      target_header.classList.add("pt-14");
-      header_nav.classList.add("!fixed");
-      header_nav.classList.add("slideInDown");
-      setTimeout(function () {
-        header_nav.classList.remove("slideInDown");
-      }, 200);
-    } else if (offset_top < window_height && target_header.classList.contains("pt-14")) {
-      header_nav.classList.add("slideOutUp");
-      setTimeout(function () {
-        target_header.classList.remove("pt-14");
-        header_nav.classList.remove("!fixed");
-        header_nav.classList.remove("slideOutUp");
-      }, 200);
-    }
-  } else {
-    target_header.classList.remove("pt-14");
-    header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed");
-  }
-} // we use the above code as a trigger for scroll evenets and resize window events
-
-
-body.addEventListener("scroll", function () {
-  setHeader();
-});
-window.addEventListener("resize", function () {
-  setHeader();
-});
+// function setHeader() {
+//     var window_height = window.innerHeight, offset_top = body.scrollTop, target_header = document.getElementById("landing-header"), header_nav = document.getElementById("header-nav")
+//     if (window.innerWidth >= 768) {
+//         if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
+//             target_header.classList.add("pt-14")
+//             header_nav.classList.add("!fixed")
+//             header_nav.classList.add("slideInDown")
+//             setTimeout(() => {
+//                 header_nav.classList.remove("slideInDown")
+//             }, 200);
+//         } else if (offset_top < window_height && target_header.classList.contains("pt-14")) {
+//             header_nav.classList.add("slideOutUp")
+//             setTimeout(() => {
+//                 target_header.classList.remove("pt-14")
+//                 header_nav.classList.remove("!fixed")
+//                 header_nav.classList.remove("slideOutUp")
+//             }, 200)
+//         }
+//     } else {
+//         target_header.classList.remove("pt-14")
+//         header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed")
+//     }
+// }
+// // we use the above code as a trigger for scroll evenets and resize window events
+// body.addEventListener("scroll", function() {
+//     setHeader()
+// })   
+// window.addEventListener("resize", function() {
+//     setHeader()        
+// })
 
 /***/ }),
 
@@ -3437,6 +3431,32 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./resources/css/landing.css ***!
   \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./packages/Zeus/resources/css/style.css":
+/*!***********************************************!*\
+  !*** ./packages/Zeus/resources/css/style.css ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./packages/Zeus/resources/css/rtl.css":
+/*!*********************************************!*\
+  !*** ./packages/Zeus/resources/css/rtl.css ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -66517,6 +66537,8 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/landing-opening": 0,
+/******/ 			"css/zeus/rtl": 0,
+/******/ 			"css/zeus/style": 0,
 /******/ 			"css/landing": 0,
 /******/ 			"css/err": 0
 /******/ 		};
@@ -66568,9 +66590,11 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/landing","css/err"], () => (__webpack_require__("./resources/js/landing-opening.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/landing","css/err"], () => (__webpack_require__("./resources/sass/err.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing","css/err"], () => (__webpack_require__("./resources/css/landing.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/js/landing-opening.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/sass/err.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./resources/css/landing.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./packages/Zeus/resources/css/style.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/zeus/rtl","css/zeus/style","css/landing","css/err"], () => (__webpack_require__("./packages/Zeus/resources/css/rtl.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

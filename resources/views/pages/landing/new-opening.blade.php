@@ -231,17 +231,17 @@
     </section>
     {{-- The 2 examples section --}}
     <section class="w-full mt-3 flex flex-col items-center">
-        <h3 class="text-4xl mb-4 text-center font-bold piped">طراحی تبلیغاتی بر اساس هدف شما</h3>
+        <h3 class="text-2xl lg:text-4xl mb-4 text-center font-bold piped px-2">طراحی تبلیغاتی بر اساس هدف شما</h3>
         {{-- Example #1 --}}
-        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 pb-12 break-words flex md:block flex-col items-center mt-4 relative">
-            <div class="bg-white rounded-xl relative w-2/3 md:w-1/3 xl:w-1/4 md:float-right m-5 mt-10 shadow-xl">
+        <div class="md:bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-2 md:p-6 md:pb-12 break-words flex md:block flex-col items-center md:mt-4 relative">
+            <div class="bg-white rounded-xl relative w-2/3 md:w-1/3 xl:w-1/4 md:float-right mx-4 md:m-5 md:mt-10 shadow-xl">
                 <img class="absolute z-10 -top-4 -right-4" src="{{ asset('images/landing/tape.png') }}" alt="">
                 <div class="bg-violet-300/60 rounded-xl p-5 pb-0">
                     <img class="w-full h-auto" src="{{ asset('images/landing/fastfood.svg') }}" alt="">
                 </div>
-                <div class="py-3 px-6">
+                <div class="py-3 p-2 md:px-6">
                     <span class="w-fit px-3 bg-violet-500 text-white rounded-full">کوچک - محلی</span>
-                    <p class="my-3 p-3">
+                    <p class="my-2 md:my-3 p-1 md:p-3">
                         <b>نام کسب و کار :</b> فست فود "همگر"
                         <br>
                         <b>سابقه فعالیت :‌</b> ۱۱ ماه
@@ -251,7 +251,7 @@
                 </div>
                 <img class="absolute z-10 -bottom-5 -left-5" src="{{ asset('images/landing/tape.png') }}" alt="">
             </div>
-            <div class="px-5 pt-5 md:pt-[60px] text-lg leading-loose text-[#0102B5] text-justify">
+            <div class="md:px-5 px-3 pt-6 md:pt-[60px] text-lg leading-loose text-[#0102B5] text-justify">
                 <h4 class="text-2xl"><i class="fas fa-hashtag"></i> نمونه تبلیغاتی</h4>
                 <p>مدیر فست فود کوچک و دنج
                     <span class="font-semibold">«همگر»</span>
@@ -272,23 +272,23 @@
                      به همکاری با ما تمایل پیدا میکند. ما پس از طراحی این پیش نیاز ها، آن‌ها را بعلاوه یک برنامه استفاده هدفمند (برای دستیابی به هدف تبلیغاتی) به مدیریت «همگر» ارائه می کنیم. حالا فست فود همگر می تواند به راحتی فرآیند تبلیغاتی خود را شروع کرده و به مشتری‌های بیشتر دست یابد.
                 </p>
             </div>
-            <div class="absolute left-0 bottom-0 p-5 text-xl font-iransans font-bold">
+            <div class="lg:absolute lg:-bottom-3 text-center left-0 bottom-0 p-5 text-xl font-iransans font-bold">
                 شما هم پیشنهاد های ویژه کسب و کارتان را از ما بشنوید 
                 <i class="fas fa-arrow-left"></i>
-                <button class="py-2 px-3 mx-4 duration-300 bg-purple-500 text-white rounded-full ring-4 ring-transparent hover:ring-purple-200 animate-heartbeat button-to-form">درخواست پیشنهاد ما</button>
+                <button class="py-2 px-3 mx-4 mt-3 md:mt-0 duration-300 bg-purple-500 text-white rounded-full ring-4 ring-transparent hover:ring-purple-200 animate-heartbeat button-to-form">درخواست پیشنهاد ما</button>
             </div>
         </div>
-        <h3 class="text-4xl my-4 text-center font-bold piped">طراحی برندینگ بر اساس هدف شما</h3>
+        <h3 class="text-2xl lg:text-4xl my-4 text-center font-bold piped px-2">طراحی برندینگ بر اساس هدف شما</h3>
         {{-- Example #2 --}}
-        <div class="bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-6 break-words flex md:block flex-col items-center mt-4 relative">
-            <div class="bg-white rounded-xl relative w-2/3 md:w-1/3 xl:w-1/4 md:float-left m-5 mt-10 shadow-xl">
+        <div class="md:bg-paper rounded-b-3xl shadow-lg mb-10 xl:w-10/12 p-2 md:p-6 md:pb-12 break-words flex md:block flex-col items-center md:mt-4 relative">
+            <div class="bg-white rounded-xl relative w-2/3 md:w-1/3 xl:w-1/4 md:float-left mx-4 md:m-5 md:mt-10 shadow-xl">
                 <img class="absolute z-10 -top-4 -right-4" src="{{ asset('images/landing/tape.png') }}" alt="">
                 <div class="bg-violet-300/60 rounded-xl p-5 pb-0">
                     <img class="w-full h-auto" src="{{ asset('images/landing/restaurant.svg') }}" alt="">
                 </div>
-                <div class="py-3 px-6">
+                <div class="py-3 p-2 md:px-6"">
                     <span class="w-fit px-3 bg-violet-500 text-white rounded-full">سرشناس - لاکچری</span>
-                    <p class="mt-3 p-3">
+                    <p class="my-2 md:my-3 p-1 md:p-3">
                         <b>نام کسب و کار :</b> رستوران "پالرمو"
                         <br>
                         <b>سابقه فعالیت :‌</b> ۱۵ سال
@@ -298,7 +298,7 @@
                 </div>
                 <img class="absolute z-10 -bottom-5 -left-5" src="{{ asset('images/landing/tape.png') }}" alt="">
             </div>
-            <div class="px-5 pt-5 md:pt-[60px] text-lg leading-loose text-[#0102B5] mb-12">
+            <div class="md:px-5 px-3 pt-6 md:pt-[60px] text-lg leading-loose text-[#0102B5] text-justify">
                 <h4 class="text-2xl"><i class="fas fa-hashtag"></i> نمونه برندسازی</h4>
                 <p>مؤسس
                     <span class="font-semibold">رستوران" پالرمو"</span>
@@ -332,19 +332,19 @@
                 <br>
                 <p>حالا مدیر اجرایی رستوران پالرمو با خاطر جمعی از استراتژی هدفمند دایا آرتز مسئولیت اجرای طراحی های گرافیک رستوران را به ما می سپارد. ما طرح توسعه و تبدیل "پالرمو" به یک برند خاص در سطح استان را به آن‌ها ارائه می دهیم و با هزینه‌های استاندارد و متناسب با هدف بزرگ و کلان مؤسس رستوران، بازدهی قابل توجهی بجهت برند نوسازی شده رستوران را به آن‌ها هدیه می کنیم.</p>
             </div>
-            <div class="absolute left-0 bottom-0 p-5 text-xl font-iransans font-bold">
+            <div class="lg:absolute lg:-bottom-3 text-center left-0 bottom-0 p-5 text-xl font-iransans font-bold">
                 شما هم پیشنهاد های ویژه برندتان را از ما بشنوید 
                 <i class="fas fa-arrow-left"></i>
-                <button class="py-2 px-3 mx-4 duration-300 bg-purple-500 text-white rounded-full ring-4 ring-transparent hover:ring-purple-200 animate-heartbeat button-to-form">درخواست پیشنهاد ما</button>
+                <button class="py-2 px-3 mx-4 mt-3 md:mt-0 duration-300 bg-purple-500 text-white rounded-full ring-4 ring-transparent hover:ring-purple-200 animate-heartbeat button-to-form">درخواست پیشنهاد ما</button>
             </div>
         </div>
     </section>
-    <section class="w-full flex flex-col items-center mt-6 bg-gradient-to-l from-daya-purple-light via-daya-purple-medium to-daya-purple-dark text-stone-100 p-6">
-        <h2 class="text-4xl text-center font-bold piped">سوالات متداول</h2>
-        <div class="w-full lg:10/12 xl:w-8/12 p-4 mt-4 grid grid-cols-1 gap-8" id="faq-list">
-            <div class="border-b-2 border-stone-100 py-3 px-6">
-                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">وجه تمایز دایا آرتز با دیگر طراحان گرافیک در چیست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
-                <p class="mt-6 text-xl transition duration-500 ease-in-out leading-loose">
+    <section class="w-full flex flex-col items-center mt-6 bg-gradient-to-l from-daya-purple-light via-daya-purple-medium to-daya-purple-dark text-stone-100 p-3 md:p-6">
+        <h2 class="text-3xl lg:text-4xl text-center font-bold piped">سوالات متداول</h2>
+        <div class="w-full lg:10/12 xl:w-8/12 md:p-4 mt-4 grid grid-cols-1 gap-4 lg:gap-8" id="faq-list">
+            <div class="border-b-2 border-stone-100 py-3 md:px-6">
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">وجه تمایز دایا آرتز با دیگر طراحان گرافیک در چیست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose">
                     <i class="fas fa-plus m-2"></i>
                     طراحی گرافیک در دایا آرتز بر مبنای هدف تبلیغاتی شما انجام می‌شود. به این شکل که شما فقط به کارشناسان دایا آرتز هدف تبلیغاتی خود را اعلام می کنید و ما به شما لیستی از طراحی های موردنیاز برای دستیابی به هدفتان را (بر مبنای آنالیز دقیق کسب و کار شما، بازار شما و رقبایتان) به شما ارائه می کنیم.
                     <br>
@@ -353,9 +353,9 @@
                     با رویکرد تخصصی متفاوت دایا آرتز آشنا شوید و با مقایسه راهکار ما با راهکار های موجود در بازار بهترین تصمیم ممکن را بگیرید.
                 </p>
             </div>
-            <div class="border-b-2 border-stone-100 py-3 px-6">
-                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">خدمات طراحی گرافیک دایا آرتز چیست ؟ <i class="float-left far fa-times-circle"></i></p>
-                <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
+            <div class="border-b-2 border-stone-100 py-3 md:px-6">
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">خدمات طراحی گرافیک دایا آرتز چیست ؟ <i class="float-left far fa-times-circle"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
                     <i class="fas fa-plus m-2"></i>
                     خدمات ما شامل سه گروه است :
                     <br>
@@ -367,20 +367,20 @@
                     </ul>
                 </p>
             </div>
-            <div class="border-b-2 border-stone-100 py-3 px-6">
-                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">خدمات دایا آرتز مناسب چه کسانی است ؟ <i class="float-left far fa-caret-circle-down"></i></p>
-                <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
+            <div class="border-b-2 border-stone-100 py-3 md:px-6">
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">خدمات دایا آرتز مناسب چه کسانی است ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
                     <i class="fas fa-plus m-2"></i>
                     تمامی صاحبان و مدیران کسب و کار در هر زمینه شغلی و در هر اندازه سازمانی و یا هر سطح از بودجه تبلیغاتی می‌توانند برای استفاده از خدمات طراحی گرافیک دایا آرتز اقدام کنند.
-                    <span id="to-customers" class="underline underline-offset-8 text-blue-700 cursor-pointer">(توضیحات بیشتر)</span>
+                    <span id="to-customers" class="underline underline-offset-8 text-blue-300 hover:text-blue-400 duration-200 cursor-pointer">(توضیحات بیشتر)</span>
                 </p>
             </div>
-            <div class="border-b-2 border-stone-100 py-3 px-6">
-                <p class="font-bold select-none text-3xl pl-4 hover:cursor-pointer">از چه راهی می‌توانم از خدمات شما استفاده کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
-                <p class="mt-6 text-xl transition duration-500 ease-in-out hidden">
+            <div class="border-b-2 border-stone-100 py-3 md:px-6">
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">از چه راهی می‌توانم از خدمات شما استفاده کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
                     <i class="fas fa-plus m-2 leading-loose"></i>
                     تنها کافیست با
-                    <button type="button" class="bg-rose-400/80 hover:bg-rose-400 duration-300 rounded-full px-3 button-to-form">تکمیل فرم درخواست خدمات</button>
+                    <button type="button" class="bg-rose-400/80 hover:bg-rose-400 duration-300 rounded-full px-3 button-to-form whitespace-nowrap">تکمیل فرم درخواست خدمات</button>
                     دایا آرتز
                     قدم اول همکاری با ما را بردارید و همچنین می‌توانید با استفاده از راه‌های ارتباطی زیر با کارشناسان ما در ارتباط باشید :
                     <br>
