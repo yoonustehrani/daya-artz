@@ -1,6 +1,6 @@
 <x-layout.landing :title="$page->title">
     @php
-        $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2022-06-19 00:00:00', 'Asia/Tehran')->toISOString();
+        $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2022-06-26 00:00:00', 'Asia/Tehran')->toISOString();
     @endphp
     <x-slot name="header">
         <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
@@ -59,7 +59,7 @@
     </x-slot>
     {{-- Customer Type section --}}
     <section id="customers-section" class="w-full text-gray-900 p-4 md:py-10 md:px-12 text-lg flex flex-col items-center">
-        <h2 class="text-2xl lg:text-4xl text-center font-bold piped">ایده ما چیه و چطور به کسب و کارت کمک می کنیم ؟</h2>
+        <h2 class="text-2xl lg:text-4xl text-center font-bold piped mb-4 md:mb-8">ایده ما چیه و چطور به کسب و کارت کمک می کنیم ؟</h2>
         <div class="w-full xl:w-10/12">
             <img class="lg:h-96 p-5 float-right m-5" src="{{ asset('images/landing/man-owning-a-business.svg') }}" alt="">
             <div class="p-2 md:p-5 pt-24">
@@ -137,7 +137,7 @@
                                 <span class="lg:text-4xl font-bold text-white mt-2">02</span>
                             </div>
                         </div>
-                        <div class="text-center p-3 lg:pt-6 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl">
+                        <div class="text-center p-3 lg:pt-6 xl:p-6 xl:mt-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl">
                             <span>دایا آرتز پروسه تحقیقات درباره هدف شما را آغاز می کند :</span>
                             <ol class="text-sm lg:text-base 2xl:text-xl 4k:text-2xl list-decimal list-inside text-center mt-1 md:mt-2">
                                 <li>آنالیز کسب و کار</li>
@@ -195,13 +195,13 @@
             </div>
             {{-- ITEM 4 --}}
             <div class="borderable-circle md:mt-2 border-black border-t-transparent border-l-transparent md:border-l-black rotate-45 order-4 md:order-6 snap-always snap-center h-full md:h-auto">
-                <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-0 md:p-5">
                     <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                         <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                             <span class="lg:text-4xl font-bold text-white mt-2">04</span>
                         </div>
                     </div>
-                    <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">
+                    <p class="text-center p-3 mt-2 md:m-0 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">
                         این طراحی ها به صورت تخصصی و هدفمند توسط طراحان دایا آرتز 
                         <span class="text-rose-500">(با ۲۵٪ تخفیف افتتاحیه)</span>
                         طراحی می شود.
@@ -351,6 +351,13 @@
                     فقط کافیست با
                     <button type="button" class="bg-rose-400/80 hover:bg-rose-400 duration-300 rounded-full px-3 button-to-form">تکمیل فرم درخواست پیشنهادات ما</button>
                     با رویکرد تخصصی متفاوت دایا آرتز آشنا شوید و با مقایسه راهکار ما با راهکار های موجود در بازار بهترین تصمیم ممکن را بگیرید.
+                    <br>
+                    <br>
+                    دایا آرتز صاحب یک شخصیت حقوقی است و با عنوان اقتصادی
+                    <span class="font-bold underline underline-offset-[10px]">"شرکت ارمغان کهکشان پارس"</span>
+                    فعالیت می کند فلذا تمامی قرارداد های سازمانی از رسمیت و اعتبار بالا برخوردار هستند.
+                    <br>
+ساختار سازمانی دایا آرتز به این شکل تنظیم شده است که همه پروسه های سازمانی اعم از ثبت سفارش،‌ پشتیبانی مشتریان و طراحی گرافیک توسط متخصصین همان بخش انجام می شود و تضمین می شود که مشتریان ما رفتار حرفه ای سازمانی و قابل اعتماد را تجربه خواهند کرد.
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
@@ -376,7 +383,7 @@
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
-                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">از چه راهی می‌توانم از خدمات شما استفاده کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">از چه راهی می‌توانم با شما تماس حاصل کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
                 <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
                     <i class="fas fa-plus m-2 leading-loose"></i>
                     تنها کافیست با
