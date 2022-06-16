@@ -351,13 +351,6 @@
                     فقط کافیست با
                     <button type="button" class="bg-rose-400/80 hover:bg-rose-400 duration-300 rounded-full px-3 button-to-form">تکمیل فرم درخواست پیشنهادات ما</button>
                     با رویکرد تخصصی متفاوت دایا آرتز آشنا شوید و با مقایسه راهکار ما با راهکار های موجود در بازار بهترین تصمیم ممکن را بگیرید.
-                    <br>
-                    <br>
-                    دایا آرتز صاحب یک شخصیت حقوقی است و با عنوان اقتصادی
-                    <span class="font-bold underline underline-offset-[10px]">"شرکت ارمغان کهکشان پارس"</span>
-                    فعالیت می کند فلذا تمامی قرارداد های سازمانی از رسمیت و اعتبار بالا برخوردار هستند.
-                    <br>
-ساختار سازمانی دایا آرتز به این شکل تنظیم شده است که همه پروسه های سازمانی اعم از ثبت سفارش،‌ پشتیبانی مشتریان و طراحی گرافیک توسط متخصصین همان بخش انجام می شود و تضمین می شود که مشتریان ما رفتار حرفه ای سازمانی و قابل اعتماد را تجربه خواهند کرد.
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
@@ -380,6 +373,16 @@
                     <i class="fas fa-plus m-2"></i>
                     تمامی صاحبان و مدیران کسب و کار در هر زمینه شغلی و در هر اندازه سازمانی و یا هر سطح از بودجه تبلیغاتی می‌توانند برای استفاده از خدمات طراحی گرافیک دایا آرتز اقدام کنند.
                     <span id="to-customers" class="underline underline-offset-8 text-blue-300 hover:text-blue-400 duration-200 cursor-pointer">(توضیحات بیشتر)</span>
+                </p>
+            </div>
+            <div class="border-b-2 border-stone-100 py-3 md:px-6">
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300"> <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
+                    دایا آرتز صاحب یک شخصیت حقوقی است و با عنوان اقتصادی
+                    <span class="font-bold underline underline-offset-[10px]">"شرکت ارمغان کهکشان پارس"</span>
+                    فعالیت می کند فلذا تمامی قرارداد های سازمانی از رسمیت و اعتبار بالا برخوردار هستند.
+                    <br>
+                    ساختار سازمانی دایا آرتز به این شکل تنظیم شده است که همه پروسه های سازمانی اعم از ثبت سفارش،‌ پشتیبانی مشتریان و طراحی گرافیک توسط متخصصین همان بخش انجام می شود و تضمین می شود که مشتریان ما رفتار حرفه ای سازمانی و قابل اعتماد را تجربه خواهند کرد.
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
