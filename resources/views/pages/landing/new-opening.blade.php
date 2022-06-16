@@ -117,7 +117,7 @@
             {{-- ITEM 1 --}}
             <div class="relative aspect-square w-full md:mt-0 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle border-black border-b-transparent rotate-45 overflow-hidden">
-                    <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center p-5">
+                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full flex justify-center items-center text-sm lg:text-base 2xl:text-xl 4k:text-2xl">شما هدف تبلیغاتی یا برنامه برندسازی خود را به ما اعلام می کنید</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
@@ -131,7 +131,7 @@
             {{-- ITEM 2 --}}
             <div class="relative aspect-square w-full md:mt-0 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle md:mt-16 border-transparent border-b-black border-r-black rotate-45">
-                    <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">02</span>
@@ -152,7 +152,7 @@
             {{-- ITEM 3 --}}
             <div class="relative aspect-square w-full md:mt-0 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle border-black border-b-transparent md:border-b-black border-r-transparent rotate-45">
-                    <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدفتان به شما ارائه می شود</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
@@ -168,7 +168,7 @@
             {{-- ITEM 6 --}}
             <div class="relative aspect-square w-full md:mt-0 order-6 md:order-4 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle md:mt-2 border-black border-t-transparent md:border-t-black md:border-l-transparent rotate-45">
-                    <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">06</span>
@@ -182,7 +182,7 @@
             {{-- ITEM 5 --}}
             <div class="relative aspect-square w-full md:mt-0 order-5 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle md:-mt-4 border-transparent border-t-black border-l-black rotate-45">
-                    <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">طراحی های انجام شده بعلاوه برنامه استفاده هدفمند از آنها به شما ارائه می شود</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
@@ -195,7 +195,7 @@
             </div>
             {{-- ITEM 4 --}}
             <div class="borderable-circle md:mt-2 border-black border-t-transparent border-l-transparent md:border-l-black rotate-45 order-4 md:order-6 snap-always snap-center h-full md:h-auto">
-                <div class="w-full h-full relative rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-0 md:p-5">
+                <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-0 md:p-5">
                     <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                         <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
                             <span class="lg:text-4xl font-bold text-white mt-2">04</span>
