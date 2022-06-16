@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('/css/landing.css') }}">
     <title>{{ $title }}</title>
+    @include('components.gstag')
 </head>
 <body class="w-full h-full m-0 p-0 overflow-x-hidden overflow-y-auto fixed bg-body">
     <script>
