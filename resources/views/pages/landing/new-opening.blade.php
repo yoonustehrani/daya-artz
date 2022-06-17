@@ -115,7 +115,7 @@
     <section class="w-full flex justify-center bg-stone-300 px-0 2xl:px-4">
         <div class="w-full lg:w-11/12 xl:w-10/12 2xl:w-4/5 4k:w-3/5 md:grid flex justify-start px-2 py-4 md:px-1 lg:p-5 items-center md:grid-cols-3 md:grid-rows-2 place-items-center place-content-centersnap-x snap-mandatory md:snap-none overflow-x-auto md:overflow-x-hidden overflow-y-hidden h-72 md:h-auto">
             {{-- ITEM 1 --}}
-            <div class="relative aspect-square w-full md:mt-0 snap-always snap-center h-full md:h-auto">
+            <div class="relative aspect-square md:w-full md:mt-0 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle border-black border-b-transparent rotate-45 overflow-hidden">
                     <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full flex justify-center items-center text-sm lg:text-base 2xl:text-xl 4k:text-2xl">شما هدف تبلیغاتی یا برنامه برندسازی خود را به ما اعلام می کنید</p>
@@ -129,7 +129,7 @@
                 <span class="absolute-dot md:my-4 left-1/2 top-1/2 -translate-x-1/2 md:left-0 md:top-0"><i class="fas fa-circle"></i></span>
             </div>
             {{-- ITEM 2 --}}
-            <div class="relative aspect-square w-full md:mt-0 snap-always snap-center h-full md:h-auto">
+            <div class="relative aspect-square md:w-full md:mt-0 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle md:mt-16 border-transparent border-b-black border-r-black rotate-45">
                     <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
@@ -150,7 +150,7 @@
                 <span class="absolute-dot left-full -translate-x-1/2 md:left-0 md:translate-[initial] md:my-4"><i class="fas fa-circle"></i></span>
             </div>
             {{-- ITEM 3 --}}
-            <div class="relative aspect-square w-full md:mt-0 snap-always snap-center h-full md:h-auto">
+            <div class="relative aspect-square md:w-full md:mt-0 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle border-black border-b-transparent md:border-b-black border-r-transparent rotate-45">
                     <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدفتان به شما ارائه می شود</p>
@@ -166,7 +166,7 @@
                 </span>
             </div>
             {{-- ITEM 6 --}}
-            <div class="relative aspect-square w-full md:mt-0 order-6 md:order-4 snap-always snap-center h-full md:h-auto">
+            <div class="relative aspect-square md:w-full md:mt-0 order-6 md:order-4 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle md:mt-2 border-black border-t-transparent md:border-t-black md:border-l-transparent rotate-45">
                     <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
@@ -180,7 +180,7 @@
                 <span class="absolute-dot md:-mt-2 -top-1/2 md:top-0 right-1/2 md:right-[initial] md:translate-[initial] translate-x-[40%] md:-left-[0.85rem]"><i class="fas fa-circle"></i></span>
             </div>
             {{-- ITEM 5 --}}
-            <div class="relative aspect-square w-full md:mt-0 order-5 snap-always snap-center h-full md:h-auto">
+            <div class="relative aspect-square md:w-full md:mt-0 order-5 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle md:-mt-4 border-transparent border-t-black border-l-black rotate-45">
                     <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">طراحی های انجام شده بعلاوه برنامه استفاده هدفمند از آنها به شما ارائه می شود</p>
@@ -194,7 +194,7 @@
                 <span class="absolute-dot right-0 translate-x-1/2 md:right-[initial] md:translate-[initial] md:-mt-2 md:-left-4"><i class="fas fa-circle"></i></span>
             </div>
             {{-- ITEM 4 --}}
-            <div class="borderable-circle md:mt-2 border-black border-t-transparent border-l-transparent md:border-l-black rotate-45 order-4 md:order-6 snap-always snap-center h-full md:h-auto">
+            <div class="borderable-circle aspect-square md:mt-2 border-black border-t-transparent border-l-transparent md:border-l-black rotate-45 order-4 md:order-6 snap-always snap-center h-full md:h-auto">
                 <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-0 md:p-5">
                     <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-stone-300 flex justify-center items-center p-2">
                         <div class="w-full h-full rounded-full bg-violet-700 flex justify-center items-center">
@@ -343,8 +343,8 @@
         <h2 class="text-3xl lg:text-4xl text-center font-bold piped">سوالات متداول</h2>
         <div class="w-full lg:10/12 xl:w-8/12 md:p-4 mt-4 grid grid-cols-1 gap-4 lg:gap-8" id="faq-list">
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
-                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">وجه تمایز دایا آرتز با دیگر طراحان گرافیک در چیست ؟ <i class="float-left far fa-times-circle"></i></p>
-                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose">
+                <p class="font-bold select-none text-lg lg:text-xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">وجه تمایز دایا آرتز با دیگر طراحان گرافیک در چیست ؟ <i class="float-left far fa-times-circle"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out !leading-loose">
                     <i class="fas fa-plus m-2"></i>
                     طراحی گرافیک در دایا آرتز بر مبنای هدف تبلیغاتی شما انجام می‌شود. به این شکل که شما فقط به کارشناسان دایا آرتز هدف تبلیغاتی خود را اعلام می کنید و ما به شما لیستی از طراحی های موردنیاز برای دستیابی به هدفتان را (بر مبنای آنالیز دقیق کسب و کار شما، بازار شما و رقبایتان) به شما ارائه می کنیم.
                     <br>
@@ -354,8 +354,8 @@
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
-                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">خدمات طراحی گرافیک دایا آرتز چیست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
-                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
+                <p class="font-bold select-none text-lg lg:text-xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">خدمات طراحی گرافیک دایا آرتز چیست ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out !leading-loose hidden">
                     <i class="fas fa-plus m-2"></i>
                     خدمات ما شامل سه گروه است :
                     <br>
@@ -368,14 +368,14 @@
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
-                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">خدمات دایا آرتز مناسب چه کسانی است ؟ <i class="float-left far fa-caret-circle-down"></i></p>
-                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
+                <p class="font-bold select-none text-lg lg:text-xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">خدمات دایا آرتز مناسب چه کسانی است ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out !leading-loose hidden">
                     <i class="fas fa-plus m-2"></i>
                     تمامی صاحبان و مدیران کسب و کار در هر زمینه شغلی و در هر اندازه سازمانی و یا هر سطح از بودجه تبلیغاتی می‌توانند برای استفاده از خدمات طراحی گرافیک دایا آرتز اقدام کنند.
                     <span id="to-customers" class="underline underline-offset-8 text-blue-300 hover:text-blue-400 duration-200 cursor-pointer">(توضیحات بیشتر)</span>
                 </p>
             </div>
-            <div class="border-b-2 border-stone-100 py-3 md:px-6">
+            {{-- <div class="border-b-2 border-stone-100 py-3 md:px-6">
                 <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300"> <i class="float-left far fa-caret-circle-down"></i></p>
                 <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
                     دایا آرتز صاحب یک شخصیت حقوقی است و با عنوان اقتصادی
@@ -384,7 +384,7 @@
                     <br>
                     ساختار سازمانی دایا آرتز به این شکل تنظیم شده است که همه پروسه های سازمانی اعم از ثبت سفارش،‌ پشتیبانی مشتریان و طراحی گرافیک توسط متخصصین همان بخش انجام می شود و تضمین می شود که مشتریان ما رفتار حرفه ای سازمانی و قابل اعتماد را تجربه خواهند کرد.
                 </p>
-            </div>
+            </div> --}}
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
                 <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">از چه راهی می‌توانم با شما تماس حاصل کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
                 <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
