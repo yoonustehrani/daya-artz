@@ -256,7 +256,7 @@
         @apply mx-2;
     }
     .borderable-circle {
-        @apply p-6 xl:p-12 rounded-[50%] aspect-square w-full border-2 border-dashed;
+        @apply p-6 xl:p-12 rounded-[50%] aspect-square border-2 border-dashed;
         p, span {
             -webkit-filter: blur(0.000001px);
             box-sizing: border-box;
