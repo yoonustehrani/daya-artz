@@ -65,7 +65,6 @@ mix.postCss(res.css + "landing.css", pub.css, [
         require('autoprefixer'), 
     ])
     .js(res.js + "landing-opening.js", pub.js).react()
-
 // zeus
 // mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
 //     require('postcss-import'),

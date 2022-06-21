@@ -10,7 +10,7 @@ class FormInput extends Model
 {
     use HasFactory, HasDetailsAttribute;
 
-    protected $hidden = ['validation_rules'];
+    protected $hidden = ['validation_rules', 'pivot'];
     public $timestamps = false;
 
     public function answers()

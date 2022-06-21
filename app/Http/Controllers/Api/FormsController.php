@@ -87,15 +87,13 @@ class FormsController extends Controller
         }])->active()->where('key', $key)->firstOrFail();
 
         return response()->json($form);
-        // getting answers $answers->inputs()->select(['id', 'label'])->get()->append(['answer_value'])
     }
 
     public function store(Request $request, $key)
     {
         $form = Form::select(['id', 'title'])->active()->where('key', $key)->firstOrFail();
-        return $form;
         $form->load(['inputs' => function($q) {
-            $q->select(['id', 'form_id', 'name', 'default', 'required', 'validation_rules']);
+            $q->select(['id', 'form_id', 'name', 'default', 'required', 'validation_rules', 'details']);
         }]);
         $request_rules = $form->validation_rules;
         if ($request_rules->count()) {
@@ -116,7 +114,7 @@ class FormsController extends Controller
             $form->answers()->save($answer);
             $answer->inputs()->attach($submissions->toArray());
             \DB::commit();
-            return ['okay' => true, 'message' => 'Ok Done !'];
+            return ['okay' => true, 'message' => __('messages.form.success')];
         } catch (\Throwable $th) {
             \DB::rollback();
             abort(500);

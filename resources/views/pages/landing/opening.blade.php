@@ -41,7 +41,7 @@
             </div>
         </div>
         <img data-src="{{ asset("/images/daya-logo-opening.png") }}" alt="daya-logo" class="lazyload absolute opacity-[0.08] md:opacity-100 md:static w-100 md:w-48 lg:w-[17rem] mb-2 md:mb-0 md:mr-12 order-first md:order-last">
-    </div>     
+    </div>
     {{-- end discount description --}}
     {{-- start packages --}}
     <div class="w-full my-6 h-auto py-8 px-2 md:px-6 bg-gradient-to-bl text-slate-50 from-indigo-600 to-indigo-500">
