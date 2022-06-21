@@ -58,13 +58,13 @@ if (mix.inProduction) {
 //     .js(src.res.js + "catalog.js", src.pub.js).react()
 
 // landing
-mix.postCss(res.css + "landing.css", pub.css, [
-        require('postcss-import'),
-        require('tailwindcss/nesting'),
-        require('tailwindcss')({config: './tailwind.landing.config.js'}),
-        require('autoprefixer'),
-    ])
-    .js(res.js + "landing-opening.js", pub.js).react()
+// mix.postCss(res.css + "landing.css", pub.css, [
+//         require('postcss-import'),
+//         require('tailwindcss/nesting'),
+//         require('tailwindcss')({config: './tailwind.landing.config.js'}),
+//         require('autoprefixer'),
+//     ])
+//     .js(res.js + "landing-opening.js", pub.js).react()
 // zeus
 // mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
 //     require('postcss-import'),
