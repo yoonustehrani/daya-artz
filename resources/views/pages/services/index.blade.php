@@ -139,7 +139,7 @@
                 <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="other-service text-dark">
                     <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
                     <h3 class="title service-title">{{ $service->title }}</h3>
-                    <p>{{ $service->subtitle }}</p>
+                    <span>{{ $service->subtitle }}</span>
                 </a>
             @endforeach
         </div>
