@@ -65,7 +65,7 @@
             $group_link_title = get_setting('services_page.main.button') ?: __('Continue to read');
         @endphp
         @foreach ($main_services as $main)
-        <div class="main-service">
+        <a href="{{ route('services.show', ['slug' => $main->slug]) }}" class="main-service text-dark">
             <div class="icon-container">
                 <span class="back-aqua">
                     <i class="{{ $main->icon_class }}"></i>
@@ -75,22 +75,14 @@
             <div class="info-container">
                 <p class="title service-title">{{ $main->subtitle }}</p>
                 <p class="service-description">{{ $main->short_description }}</p>
-                <div class="button-container">
-                    <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a href="{{ route('services.show', ['slug' => $main->slug]) }}" class="btn badge-pill">{{ $group_link_title }}</a>
-                </div>
             </div>
-        </div>
+        </a>
         @endforeach
         <div class="main-service d-none">
             <div class="icon-container"><span class="back-aqua big-icon"><i class="fas fa-plus-circle"></i></span><h2>ترکیبی</h2></div>
             <div class="info-container">
                 <p class="title service-title">ترکیب خود را بسازید</p>
                 <p class="service-description">اگه نیاز به طراحی های متنوع در بخش ها و خدمات مختلف هستید، این بسته بهترین انتخاب برای شما و برندتان خواهد بود</p>
-                <div class="button-container">
-                    {{-- <a class="btn btn-gradient mr-2 scroll-to-form">سفارش</a>
-                    <a class="btn badge-pill">{{ get_setting('settings_page.') }}</a> --}}
-                </div>
             </div>
         </div>
     </div>
@@ -144,15 +136,11 @@
         </div>
         <div class="other-services-container w-100">
             @foreach ($services as $service)
-            <div class="other-service">
-                <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
-                <h3 class="title service-title">{{ $service->title }}</h3>
-                <a class="service-subtitle" href="{{ route('services.show', ['slug' => $service->slug]) }}">{{ $service->subtitle }}</a>
-                <div class="button-container">
-                    <a href="#" class="btn mx-1 my-1 my-md-0 btn-gradient scroll-to-form">ثبت سفارش</a>
-                    <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-gradient my-1 my-md-0">{{ $link_title }}</a>
-                </div>
-            </div>
+                <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="other-service text-dark">
+                    <span class="back-aqua"><i class="{{ $service->icon_class }}"></i></span>
+                    <h3 class="title service-title">{{ $service->title }}</h3>
+                    <p>{{ $service->subtitle }}</p>
+                </a>
             @endforeach
         </div>
     </div>
