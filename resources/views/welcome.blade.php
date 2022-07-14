@@ -20,6 +20,8 @@
             <br>
             <p>{!! get_setting('mainpage.header.h1.subtitle') !!}</p>
             <div class="header-btn-container mt-4 mt-md-0">
+                {{-- <a href="/services" class="fancy-btn bg-purple ml-4">مشاهده خدمات</a>
+                <button class="fancy-btn bg-aqua scroll-to-form">ثبت سفارش</button> --}}
                 {!! get_setting('mainpage.header.buttons') !!}
             </div>
         </div>
