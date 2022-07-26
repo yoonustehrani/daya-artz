@@ -16760,6 +16760,7 @@ span.back-aqua.big-icon {
   border-width: 0 0 0.05rem 0.05rem;
   border-style: solid;
   transition: 0.3s;
+  font-size: 1rem !important;
 }
 .fancy-btn:hover {
   transform-origin: center;

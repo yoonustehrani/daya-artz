@@ -58,6 +58,32 @@
     </script>
 @endpush
 
+{{-- @section('header')
+<div class="header-section policy-header dotted-background services-header">
+    <div class="p-4 col-12 col-md-7">
+        <div class="w-100">
+            <span class="d-inline text-white">
+                <i class="{{ $service->icon_class }} fa-3x"></i>
+                <span>&nbsp;</span>
+            </span>
+            <h1 class="d-inline text-white">{{ $service->title }}</h1>
+        </div>
+        <br>
+        <div>
+            <button class="fancy-btn mx-2 scroll-to-form">ثبت سفارش</button>
+            <button class="fancy-btn mx-2">پلن های قیمتی</button>
+            <button class="fancy-btn mx-2">نمونه کارها</button>
+        </div>
+        <p>{{ $service->short_description ?:  $service->subtitle }}</p>
+    </div>
+    <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
+        <img data-src="{{ asset('images/services.svg') }}" class="rules lazyload" alt="خدمات دایا آرتز">
+        <img data-src="{{ asset('images/services-back-vector.png') }}" class="rules-back lazyload" alt="vector background">
+    </div>
+    <div class="triangle d-none d-md-block"></div>
+</div>
+@endsection --}}
+
 @section('content')
     <!-- first-section -->
     <div class="section col-12 mt-4 service-first-section dotted-background">
@@ -66,9 +92,7 @@
                 <h1 class="title-text">{{ $service->title }}</h1>
             </div>
         </div>
-        @if ($service->content)
         {!! $service->content !!}
-        @endif
     </div>
     <!-- end first-section -->
     @if ($service->children->count())
