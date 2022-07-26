@@ -1,6 +1,6 @@
 <x-layout.landing :title="$page->title">
     @php
-        $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2022-06-26 00:00:00', 'Asia/Tehran')->toISOString();
+        $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2022-08-01 00:00:00', 'Asia/Tehran')->toISOString();
     @endphp
     <x-slot name="header">
         <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
