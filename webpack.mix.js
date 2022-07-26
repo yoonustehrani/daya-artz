@@ -62,7 +62,7 @@ mix.postCss(res.css + "landing.css", pub.css, [
         require('postcss-import'),
         require('tailwindcss/nesting'),
         require('tailwindcss')({config: './tailwind.landing.config.js'}),
-        require('autoprefixer'),
+        require('autoprefixer'), 
     ])
     .js(res.js + "landing-opening.js", pub.js).react()
 // zeus
