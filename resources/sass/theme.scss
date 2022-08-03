@@ -12,12 +12,41 @@
     border-style: solid;
     transition: 0.3s;
     font-size: 1rem !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    &.bg-success {
+        border-color: rgba(0,0,0,0.1);
+        box-shadow: 0 0.2rem 0 0 rgb(130 209 119 / 50%), 0 0 5px 0 rgba(0,0,0,0.5);
+    }
+    &.bg-warning {
+        border-color: rgba(0,0,0,0.1);
+        box-shadow: 0 0.2rem 0 0 rgb(255 193 7 / 50%), 0 0 5px 0 rgba(0,0,0,0.5);
+    }
+    &.whiten {
+        border-color: rgba(0,0,0,0.1);
+        box-shadow: 0 0.2rem 0 0 rgb(255 255 255 / 50%), 0 0 5px 0 rgba(0,0,0,0.5);
+    }
     &:hover {
         transform-origin: center;
         transition-duration: 0.3s;
         transform: scale(1.1,1.1);
     }
+    .circle {
+        background-color: rgba($color: $black, $alpha: 0.2);
+        width: 1.5rem;
+        height: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+    }
 }
-
+.piped {
+    &:before {
+        content: '|';
+        font-size: 3rem;
+        color: $white;
+    }
+}
 @import 'auth';
 @import 'userarea';

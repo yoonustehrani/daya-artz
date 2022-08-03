@@ -58,40 +58,31 @@
     </script>
 @endpush
 
-{{-- @section('header')
+@section('header')
 <div class="header-section policy-header dotted-background services-header">
     <div class="p-4 col-12 col-md-7">
-        <div class="w-100">
-            <span class="d-inline text-white">
-                <i class="{{ $service->icon_class }} fa-3x"></i>
-                <span>&nbsp;</span>
-            </span>
+        <div class="w-100 piped">
             <h1 class="d-inline text-white">{{ $service->title }}</h1>
         </div>
+        <p class="px-3 text-light">{{ $service->short_description ?:  $service->subtitle }}</p>
         <br>
         <div>
-            <button class="fancy-btn mx-2 scroll-to-form">ثبت سفارش</button>
-            <button class="fancy-btn mx-2">پلن های قیمتی</button>
-            <button class="fancy-btn mx-2">نمونه کارها</button>
+            <button class="fancy-btn whiten d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-form">ثبت سفارش<i class="circle mr-2 mt-0 fas fa-plus"></i></button>
+            <button class="fancy-btn bg-success d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-element" data-scroll="pricing">پلن های قیمتی<i class="circle mr-2 mt-0 fas fa-dollar-sign"></i></button>
+            <button class="fancy-btn bg-warning d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-element" data-scroll="portfolio">نمونه کارها<i class="circle mr-2 mt-0 fas fa-drafting-compass"></i></button>
         </div>
-        <p>{{ $service->short_description ?:  $service->subtitle }}</p>
     </div>
     <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
-        <img data-src="{{ asset('images/services.svg') }}" class="rules lazyload" alt="خدمات دایا آرتز">
+        {{-- <img data-src="{{ asset('images/services.svg') }}" class="rules lazyload" alt="خدمات دایا آرتز"> --}}
         <img data-src="{{ asset('images/services-back-vector.png') }}" class="rules-back lazyload" alt="vector background">
     </div>
     <div class="triangle d-none d-md-block"></div>
 </div>
-@endsection --}}
+@endsection
 
 @section('content')
     <!-- first-section -->
-    <div class="section col-12 mt-4 service-first-section dotted-background">
-        <div class="title-section w-100 mb-2">
-            <div class="title-container">
-                <h1 class="title-text">{{ $service->title }}</h1>
-            </div>
-        </div>
+    <div class="section col-12 mt-4 py-5 service-first-section dotted-background">
         {!! $service->content !!}
     </div>
     <!-- end first-section -->

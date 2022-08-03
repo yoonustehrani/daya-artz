@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
- const src = {
+const src = {
     res: {
         css: "resources/css/",
         sass: "resources/sass/",

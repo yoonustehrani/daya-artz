@@ -2083,6 +2083,25 @@ __webpack_require__(/*! ./components */ "./resources/js/components/index.js");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+$('.scroll-to-element').on('click', function (e) {
+  var elem;
+  console.log(e.target.getAttribute('data-scroll'));
+
+  switch (e.target.getAttribute('data-scroll')) {
+    case 'pricing':
+      elem = document.getElementsByClassName('order-packs-section')[0];
+      break;
+
+    case 'portfolio':
+      elem = document.getElementById('portfolio-section');
+      break;
+  }
+
+  elem && elem.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+});
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
