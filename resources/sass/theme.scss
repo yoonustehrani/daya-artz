@@ -7,6 +7,7 @@
     border: none;
     padding: 0.25rem 1rem;
     width: fit-content;
+    border-color: rgba(0,0,0,0.1);
     border-radius: 0.5rem;
     border-width: 0 0 0.05rem 0.05rem;
     border-style: solid;
@@ -15,16 +16,17 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     &.bg-success {
-        border-color: rgba(0,0,0,0.1);
         box-shadow: 0 0.2rem 0 0 rgb(130 209 119 / 50%), 0 0 5px 0 rgba(0,0,0,0.5);
     }
     &.bg-warning {
-        border-color: rgba(0,0,0,0.1);
         box-shadow: 0 0.2rem 0 0 rgb(255 193 7 / 50%), 0 0 5px 0 rgba(0,0,0,0.5);
     }
     &.whiten {
-        border-color: rgba(0,0,0,0.1);
         box-shadow: 0 0.2rem 0 0 rgb(255 255 255 / 50%), 0 0 5px 0 rgba(0,0,0,0.5);
+    }
+    &.bg-purple {
+        background-color: $purple;
+        box-shadow: 0 0.2rem 0 0 rgba($color: $purple, $alpha: 0.5), 0 0 5px 0 rgba(0,0,0,0.5);
     }
     &:hover {
         transform-origin: center;

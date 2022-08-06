@@ -66,15 +66,26 @@
         </div>
         <p class="px-3 text-light">{{ $service->short_description ?:  $service->subtitle }}</p>
         <br>
+        @if ($service->children->count())
+            <div>
+                @foreach ($service->children as $item)
+                <a href="{{ route('services.show', ['slug' => $item->slug]) }}" class="fancy-btn bg-purple text-white d-inline-flex align-items-center py-2 px-3 mx-2">
+                    {{ $item->title }} <i class="circle mr-2 mt-0 fas fa-plus"></i>
+                </a>
+                @endforeach
+            </div>
+        @endif
         <div>
             <button class="fancy-btn whiten d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-form">ثبت سفارش<i class="circle mr-2 mt-0 fas fa-plus"></i></button>
+            @if ($service->children->isEmpty())
             <button class="fancy-btn bg-success d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-element" data-scroll="pricing">پلن های قیمتی<i class="circle mr-2 mt-0 fas fa-dollar-sign"></i></button>
+            @endif
             <button class="fancy-btn bg-warning d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-element" data-scroll="portfolio">نمونه کارها<i class="circle mr-2 mt-0 fas fa-drafting-compass"></i></button>
         </div>
     </div>
     <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
-        {{-- <img data-src="{{ asset('images/services.svg') }}" class="rules lazyload" alt="خدمات دایا آرتز"> --}}
-        <img data-src="{{ asset('images/services-back-vector.png') }}" class="rules-back lazyload" alt="vector background">
+        <img data-src="{{ asset('images/services.svg') }}" class="rules lazyload" alt="خدمات دایا آرتز">
+        {{-- <img data-src="{{ asset('images/services-back-vector.png') }}" class="rules-back lazyload" alt="vector background"> --}}
     </div>
     <div class="triangle d-none d-md-block"></div>
 </div>

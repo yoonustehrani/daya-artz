@@ -16498,13 +16498,11 @@ span.back-aqua.big-icon {
 .header-section .header-text .header-btn-container .bg-aqua {
   background-color: #78cad2;
   background-image: none !important;
-  border-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.2rem 0 0 rgba(120, 202, 210, 0.5), 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 .header-section .header-text .header-btn-container .bg-purple {
   background-color: #18093c;
   color: #fff;
-  border-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.2rem 0 0 rgba(24, 9, 60, 0.5), 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 .header-section .header-title {
@@ -16756,6 +16754,7 @@ span.back-aqua.big-icon {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  border-color: rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   border-width: 0 0 0.05rem 0.05rem;
   border-style: solid;
@@ -16765,16 +16764,17 @@ span.back-aqua.big-icon {
   margin-bottom: 1rem;
 }
 .fancy-btn.bg-success {
-  border-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.2rem 0 0 rgba(130, 209, 119, 0.5), 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 .fancy-btn.bg-warning {
-  border-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.2rem 0 0 rgba(255, 193, 7, 0.5), 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 .fancy-btn.whiten {
-  border-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.2rem 0 0 rgba(255, 255, 255, 0.5), 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+.fancy-btn.bg-purple {
+  background-color: #af3acc;
+  box-shadow: 0 0.2rem 0 0 rgba(175, 58, 204, 0.5), 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 .fancy-btn:hover {
   transform-origin: center;
