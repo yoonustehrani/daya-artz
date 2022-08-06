@@ -32,7 +32,6 @@ class WebsiteController extends Controller
                         $q->unexpired();
                     }, 'children'])
                     ->firstOrFail();
-        // return $service->plans->groupBy('row');
         return view('pages.services.show', compact('service'));
     }
     public function portfolioIndexApi($service)
