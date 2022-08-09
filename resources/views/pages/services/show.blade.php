@@ -84,7 +84,7 @@
         </div>
     </div>
     <div class="header-vector col-12 col-md-5 mb-3 mb-md-0">
-        <img data-src="{{ asset('images/services.svg') }}" class="rules lazyload" alt="خدمات دایا آرتز">
+        {{-- <img data-src="{{ asset('images/vectors/vv.svg') }}" class="rules lazyload" alt="خدمات دایا آرتز"> --}}
         {{-- <img data-src="{{ asset('images/services-back-vector.png') }}" class="rules-back lazyload" alt="vector background"> --}}
     </div>
     <div class="triangle d-none d-md-block"></div>
