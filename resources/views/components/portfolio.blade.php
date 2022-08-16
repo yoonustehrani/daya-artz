@@ -1,4 +1,4 @@
-<div class="section col-12 p-4 mt-4">
+<div class="section col-12 p-4 mt-4" id="portfolio-section">
     <div class="col-12 title-section">
         <div class="title-container">
             <p class="title-text">نمونه طراحی های دایا آرتز</p>

@@ -28,11 +28,15 @@ class WebsiteController extends Controller
     {
         $service = Service::whereSlug($slug)
                     ->where('package', false)
-                    ->with(['plans' => function($q) {
-                        $q->unexpired();
-                    }, 'children'])
+                    ->with(['children' => function($q) {
+                        $q->select(['title', 'subtitle', 'slug', 'icon_class', 'parent_id']);
+                    }, 'image.file'])
                     ->firstOrFail();
-        // return $service->plans->groupBy('row');
+        if ($service->children->isEmpty()) {
+            $service->load(['plans' => function($q) {
+                $q->unexpired();
+            }]);
+        }
         return view('pages.services.show', compact('service'));
     }
     public function portfolioIndexApi($service)

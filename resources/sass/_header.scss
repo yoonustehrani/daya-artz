@@ -265,13 +265,11 @@
             .bg-aqua {
                 background-color: $aqua;
                 background-image: none !important;
-                border-color: rgba(0,0,0,0.1);
                 box-shadow: 0 0.2rem 0 0 rgb(120 202 210 / 50%), 0 0 5px 0 rgba(0,0,0,0.5);
             }
             .bg-purple {
                 background-color: $dark-blue;
                 color: $white;
-                border-color: rgba(0,0,0,0.1);
                 box-shadow: 0 0.2rem 0 0 rgb(24 9 60 / 50%), 0 0 5px 0 rgba(0,0,0,0.5);
             }
         }
