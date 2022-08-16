@@ -30,14 +30,13 @@ class WebsiteController extends Controller
                     ->where('package', false)
                     ->with(['children' => function($q) {
                         $q->select(['title', 'subtitle', 'slug', 'icon_class', 'parent_id']);
-                    }, 'image'])
+                    }, 'image.file'])
                     ->firstOrFail();
         if ($service->children->isEmpty()) {
             $service->load(['plans' => function($q) {
                 $q->unexpired();
             }]);
         }
-        return $service;
         return view('pages.services.show', compact('service'));
     }
     public function portfolioIndexApi($service)

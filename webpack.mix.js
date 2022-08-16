@@ -79,7 +79,7 @@ mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
     require('autoprefixer')
 ])
 mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
-mix.js(res.js + "components/zeusTickets.js", pub.js).react()
+// mix.js(res.js + "components/zeusTickets.js", pub.js).react()
 
 // tinymce
 // mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')

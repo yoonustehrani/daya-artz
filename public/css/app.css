@@ -13435,10 +13435,13 @@ button.silver-progress-button:hover > p.after {
   display: inline;
 }
 
-span.back-aqua {
+.back-aqua {
   background-image: url(/images/item-background.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+span.back-aqua {
   background-size: contain;
   display: inline-block;
 }
@@ -16795,6 +16798,20 @@ span.back-aqua.big-icon {
   content: "|";
   font-size: 3rem;
   color: #fff;
+}
+
+.service-image {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-image: url(/images/services-back-vector.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.service-image img {
+  padding: 20px;
+  max-width: 250px;
 }
 
 .auth-container {
