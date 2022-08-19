@@ -99,7 +99,6 @@ class ViewData extends Component
                 if ($this->value) {
                     $component = 'datetime';
                     $this->value = $this->get_datetime();
-                    \Log::alert($this->value);
                 } else {
                     $component = 'pill';
                     $this->value = __('unset');
