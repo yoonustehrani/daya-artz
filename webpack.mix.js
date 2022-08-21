@@ -58,27 +58,27 @@ mix.sass(res.sass + "err.scss", pub.css)
 //     .js(src.res.js + "catalog.js", src.pub.js).react()
 
 // landing
-// mix.postCss(res.css + "landing.css", pub.css, [
-//         require('postcss-import'),
-//         require('tailwindcss/nesting'),
-//         require('tailwindcss')({config: './tailwind.landing.config.js'}),
-//         require('autoprefixer'), 
-//     ])
-//     .js(res.js + "landing-opening.js", pub.js).react()
+mix.postCss(res.css + "landing.css", pub.css, [
+        require('postcss-import'),
+        require('tailwindcss/nesting'),
+        require('tailwindcss')({config: './tailwind.landing.config.js'}),
+        require('autoprefixer'), 
+    ])
+    // .js(res.js + "landing-opening.js", pub.js).react()
 // zeus
-mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
-    require('postcss-import'),
-    require('tailwindcss/nesting'),
-    require('tailwindcss')({config: "./tailwind.zeus.config.js"}),
-    require('autoprefixer')
-])
-mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
-    require('postcss-import'),
-    require('tailwindcss/nesting'),
-    require('tailwindcss')({config: './tailwind.zeus.config.js'}),
-    require('autoprefixer')
-])
-mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
+// mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
+//     require('postcss-import'),
+//     require('tailwindcss/nesting'),
+//     require('tailwindcss')({config: "./tailwind.zeus.config.js"}),
+//     require('autoprefixer')
+// ])
+// mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
+//     require('postcss-import'),
+//     require('tailwindcss/nesting'),
+//     require('tailwindcss')({config: './tailwind.zeus.config.js'}),
+//     require('autoprefixer')
+// ])
+// mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
 // mix.js(res.js + "components/zeusTickets.js", pub.js).react()
 
 // tinymce

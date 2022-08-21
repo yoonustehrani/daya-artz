@@ -4,12 +4,13 @@ const { default: plugin } = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
-        "./resources/views/pages/landing/new-opening.blade.php",
-        "./resources/views/components/layout/*.blade.php",
-        "./resources/js/landing-opening.js",
-        // "./resources/views/components/quick-order-form.blade.php",
-        "./resources/js/components/Landing/**/*.jsx",
-        // "./resources/js/landing-opening.js",
+        // './resources/views/pages/landing/new-opening.blade.php',
+        './resources/views/pages/landing/coffee-shop.blade.php',
+        // './resources/views/components/layout/*.blade.php',
+        // './resources/js/landing-opening.js',
+        // './resources/views/components/quick-order-form.blade.php',
+        // './resources/js/components/Landing/**/*.jsx',
+        // './resources/js/landing-opening.js',
     ],
     theme: {
         fontFamily: {
@@ -58,7 +59,7 @@ module.exports = {
                 }
             },
             backgroundImage: {
-                "zeus-dashboard-vbg": "url('/images/zeus-images/dashboard-bvector.png')"
+                "coffeeshop": "url('/images/landing/header-background.jpg')"
             },
             screens: {
                 'mobiles': "320px",
