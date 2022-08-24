@@ -56,10 +56,12 @@ module.exports = {
                     light: '#AC7FF4',
                     dark: '#6232DE',
                     medium: '#8F60EC'
-                }
+                },
+                'classy-orange': '#d6851b'
             },
             backgroundImage: {
-                "coffeeshop": "url('/images/landing/header-background.jpg')"
+                "coffeeshop": "url('/images/landing/header-background.jpg')",
+                "coffeshop-pattern": "url('/images/landing/coffee-shop-background-with-pattern.jpg')"
             },
             screens: {
                 'mobiles': "320px",
