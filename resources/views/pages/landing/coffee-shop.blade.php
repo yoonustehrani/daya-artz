@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="{{ mix('css/landing.css') }}">
     <style>
         .text-with-shadow {
-            text-shadow: -0.125rem 0.25rem 2px #000000;
+            text-shadow: -0.125rem 0.25rem 2px rgba(0,0,0,0.7);
         }
     </style>
 </head>
 <body class="w-full h-full">
-    <header class="w-full h-fit min-h-[750px] bg-coffeeshop bg-center bg-cover bg-no-repeat">
+    <header class="w-full h-fit bg-coffeeshop bg-left-top bg-cover bg-no-repeat bg-fixed pb-10">
         <nav id="header-nav" class="h-14 w-full p-2 md:px-6 bg-black/50 text-slate-50 text-lg flex flex-nowrap justify-between md:relative z-20 overflow-hidden top-0 animated [animation-duration:0.2s]">
             <div class="flex flex-nowrap items-center">
                 <span id="menu-open" class="duration-200"><i class="far fa-bars md:hidden ml-3 text-4xl"></i></span>
@@ -47,7 +47,7 @@
                 </a>
             </div>
         </nav>
-        <div class="w-fit max-w-full xl:max-w-[50%] mt-5 lg:mt-40 text-gray-50/90 px-4">
+        <div class="w-fit max-w-full xl:max-w-[50%] mt-5 lg:mt-40 lg:mb-10 text-gray-50/90 px-4">
             <p class="text-4xl font-bold leading-loose p-3 text-with-shadow">میدونی چقدر ایده های جذاب طراحی گرافیک می تونه کافی شاپتون رو ایده آل کنه ؟</p>
             <p class="text-2xl font-semibold text-justify leading-relaxed p-3">اگه صاحب کافی شاپ هستید و یا در حال افتتاح همچین جایی هستی،‌ شمارت رو تو باکس این زیر برامون بزار تا باهات تماس بگیریم و کلی ایده رو با شما در میون بزاریم.</p>
             <form class="block w-fit p-4" onsubmit="void()">
