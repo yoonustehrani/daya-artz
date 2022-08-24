@@ -47,19 +47,22 @@
                 </a>
             </div>
         </nav>
-        <div class="w-fit max-w-full xl:max-w-[50%] mt-5 lg:mt-40 lg:mb-10 text-gray-50/90 px-4">
-            <p class="text-4xl font-bold leading-loose p-3 text-with-shadow">میدونی چقدر ایده های جذاب طراحی گرافیک می تونه کافی شاپتون رو ایده آل کنه ؟</p>
-            <p class="text-2xl font-semibold text-justify leading-relaxed p-3">اگه صاحب کافی شاپ هستید و یا در حال افتتاح همچین جایی هستی،‌ شمارت رو تو باکس این زیر برامون بزار تا باهات تماس بگیریم و کلی ایده رو با شما در میون بزاریم.</p>
+        {{-- backdrop-blur-sm backdrop-opacity-70 md:backdrop-opacity-50 --}}
+        <div class="w-fit max-w-full lg:max-w-[45%] mt-5 lg:mt-40 lg:mb-10 text-slate-50 px-4 text-justify pb-10">
+            <p class="inline bg-black/70 md:bg-black/40 text-4xl font-bold px-2 rounded-lg leading-relaxed text-with-shadow">میدونی چقدر ایده های جذاب طراحی گرافیک می تونه کافی شاپتون رو ایده آل کنه ؟</p>
+            <br>
+            <br>
+            <p class="inline bg-black/70 md:bg-black/40 text-2xl px-2 leading-relaxed text-white">اگه صاحب کافی شاپ هستید و یا در حال افتتاح همچین جایی هستی،‌ شمارت رو تو باکس این زیر برامون بزار تا باهات تماس بگیریم و کلی ایده رو با شما در میون بزاریم.</p>
             <form class="block w-fit p-4" onsubmit="void()">
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="p-3 grid grid-cols-1 gap-4 font-semibold">
-                        <div class="">
-                            <label for="time-morning">تماس از ساعت 8 الی 14</label>
-                            <input type="checkbox" name="time-to-call" id="time-morning">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                    <div class="p-3 font-semibold">
+                        <div>
+                            <label class="text-with-shadow" for="time-morning">تماس از ساعت 8 الی 14</label>
+                            <input type="radio" name="time-to-call" id="time-morning">
                         </div>
-                        <div class="">
-                            <label for="time-evening">تماس از ساعت 17 الی 21</label>
-                            <input type="checkbox" name="time-to-call" id="time-morning">
+                        <div>
+                            <label class="text-with-shadow" for="time-evening">تماس از ساعت 17 الی 21</label>
+                            <input type="radio" name="time-to-call" id="time-evening">
                         </div>
                     </div>
                     <div class="p-3">
