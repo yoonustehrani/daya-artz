@@ -45,10 +45,13 @@
         </nav>
         {{-- backdrop-blur-sm backdrop-opacity-70 md:backdrop-opacity-50 --}}
         <div class="w-fit max-w-full lg:max-w-[45%] mt-5 lg:mt-40 lg:mb-10 text-slate-50 px-4 text-justify pb-10">
-            <p class="inline bg-black/70 md:bg-black/40 text-4xl font-bold px-2 rounded-lg leading-relaxed text-with-shadow">میدونی چقدر ایده های جذاب طراحی گرافیک می تونه کافی شاپتون رو ایده آل کنه ؟</p>
+            <h1 class="inline bg-black/70 md:bg-black/40 text-4xl font-bold px-2 rounded-lg leading-relaxed text-with-shadow">جذب مشتری و فروش بیشتر در کافی شاپ چه راه حل هایی دارد؟</h1>
             <br>
             <br>
-            <p class="inline bg-black/70 md:bg-black/40 text-2xl px-2 leading-relaxed text-white">اگه صاحب کافی شاپ هستید و یا در حال افتتاح همچین جایی هستی،‌ شمارت رو تو باکس این زیر برامون بزار تا باهات تماس بگیریم و کلی ایده رو با شما در میون بزاریم.</p>
+            <p class="inline bg-black/70 md:bg-black/40 text-2xl px-2 leading-relaxed text-white">دایا آرتز یک استارت آپ طراحی گرافیک است.</p>
+            <br>
+            <br>
+            <p class="inline bg-black/70 md:bg-black/40 text-xl px-2 leading-relaxed text-white">همین حالا با ثبت شماره خود، گام اول در مسیر جذب مشتری بیشتر برای کافی شاپ یا کافه رستوران خود را بردارید.</p>
             <form class="block w-fit p-4" onsubmit="void()">
                 <div class="flex flex-col md:flex-row items-center justify-center gap-4">
                     <div class="p-3 font-semibold">
@@ -247,15 +250,105 @@
                             <span class="lg:text-4xl font-bold text-white mt-2">04</span>
                         </div>
                     </div>
-                    <p class="text-center p-3 mt-2 md:m-0 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">
-                        این طراحی ها به صورت تخصصی و هدفمند توسط طراحان دایا آرتز 
-                        <span class="text-rose-500">(با ۲۵٪ تخفیف افتتاحیه)</span>
-                        طراحی می شود.
-                    </p>
+                    <p class="text-center p-3 mt-[25%] md:mt-0 md:m-0 xl:p-6 h-3/4 rounded-full text-base lg:text-xl 2xl:text-2xl 4k:text-3xl grid place-content-center">تهیه لیست پیشنهادی طراحی های لازم برای دستیابی به هدف</p>
                 </div>
             </div>
         </div>
     </section>
+    <section class="w-full flex flex-col items-center p-3 my-5">
+        <div class="my-3 py-3 text-center w-full grid place-content-center place-items-center">
+            <div class="w-fit grid place-content-center place-items-center text-gray-800">
+                <h2 class="font-bold text-2xl">ممکن است از ما بپرسید</h2>
+                <span class="h-px w-[80%] block bg-gray-800 mt-8"></span>
+                <div class="rounded-full bg-white w-10 h-10 -mt-5 z-10 text-lg flex items-center justify-center">
+                    <i class="fas text-2xl fa-question"></i>
+                </div>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 text-gray-700" id="faq-list">
+            <div class="border-t border-gray-400 py-8 px-5 text-2xl">
+                <div class="hover:cursor-pointer my-3">
+                    <h4 class="inline w-fit font-semibold">بعد از ثبت سفارش، زمان تحویل هر سفارش چه قدر طول می کشه؟</h4>
+                    <i class="inline float-left fas fa-angle-up mt-2"></i>
+                </div>
+                <p class="text-base hidden text-gray-500 mt-5 mb-3">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                </p>
+            </div>
+            <div class="border-t border-gray-400 py-8 px-5 text-2xl">
+                <div class="hover:cursor-pointer my-3">
+                    <h4 class="inline w-fit font-semibold">پشتیبانی و پیگیری سفارش ها در دایا آرتز چگونه است ؟</h4>
+                    <i class="inline float-left fas fa-angle-up mt-2"></i>
+                </div>
+                <p class="text-base hidden my-3">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                </p>
+            </div>
+            <div class="border-t border-gray-400 py-8 px-5 text-2xl">
+                <div class="hover:cursor-pointer my-3">
+                    <h4 class="inline w-fit font-semibold">مراحل و شیوه های پرداخت هزینه سفارشات به چه صورت خواهد بود ؟</h4>
+                    <i class="inline float-left fas fa-angle-up mt-2"></i>
+                </div>
+                <p class="text-base hidden my-3">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                </p>
+            </div>
+            <div class="border-t border-gray-400 py-8 px-5 text-2xl">
+                <div class="hover:cursor-pointer my-3">
+                    <h4 class="inline w-fit font-semibold">دایا آرتز دیگه برای چه کسب و کار هایی طراحی می کنه؟</h4>
+                    <i class="inline float-left fas fa-angle-up mt-2"></i>
+                </div>
+                <p class="text-base hidden my-3">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer class="w-full mt-5 bg-amber-700 text-white">
+        <div class="bg-footer-pattern bg-cover bg-left bg-no-repeat p-8 pb-0 grid grid-cols-1 md:grid-cols-3 md:place-items-center justify-center gap-4">
+            <div>
+                <p class="text-xl font-bold mb-3">درباره ما</p>
+                <div class="pt-2 text-sm">
+                    <p>گروه طراحی دایا آرتز متشکل از تیمی با تجربه و حرفه ای در زمینه های طراحی گرافیـکی و تبلیغاتی در تلاش است بستر مناسبی را برای کسانی که نیازمند طراحی یا طراحی با کیفیت و در سطح بین المللی و همچنین درآمدزایی برای طراحان حرفه ای و درجه یک کشور ایران ایجاد سازد.</p>
+                    <a id="enamad-logo" referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=269100&amp;Code=RUmxsLwfWAGM1kGgdjv4"></a>
+                </div>
+            </div>
+            <div>
+                <p class="text-xl font-bold mb-3">شماره تماس</p>
+                <div class="pt-2">
+                    <ul class="p-0 mb-4 footer-phones text-left w-fit">
+                        <li class="[direction:ltr] my-2">
+                            <i class="far fa-phone-office"></i>
+                            <a href="tel:+982128423542">021 2842 3542</a>
+                        </li>
+                        <li class="[direction:ltr] my-2">
+                            <i class="far fa-mobile"></i>
+                            <a href="tel:+989015045025">0901 504 5025</a>
+                        </li>
+                        <li class="[direction:ltr] my-2">
+                            <i class="far fa-mobile"></i>
+                            <a href="tel:+989016045025">0901 604 5025</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <p class="text-xl font-bold mb-3">دایا مجازی</p>
+                <div class="my-2 grid grid-cols-2 gap-3 text-2xl pt-2">
+                    <a class="w-12 h-12 border-2 duration-300 hover:bg-social-media-instagram hover:border-social-media-instagram rounded-full flex justify-center items-center" href="https://instagram.com/dayaartz"><i class="fab fa-instagram"></i></a>
+                    <a class="w-12 h-12 border-2 duration-300 hover:bg-social-media-telegram  hover:border-social-media-telegram rounded-full flex justify-center items-center" href="https://t.me/daya_artz"><i class="fab fa-telegram-plane"></i></a>
+                    <a class="w-12 h-12 border-2 duration-300 hover:bg-social-media-linkedin  hover:border-social-media-linkedin rounded-full flex justify-center items-center" href="https://www.linkedin.com/company/dayaartz/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="w-12 h-12 border-2 duration-300 hover:bg-social-media-whatsapp  hover:border-social-media-whatsapp rounded-full flex justify-center items-center" href="https://wa.me/989016045025"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <p class="[direction:ltr] text-center w-full col-span-full">
+                <span class="">&copy; 2022 Sampi Group. All rights reserved</span>
+                <br>
+                <span>کلیه حقوق این وب سایت محفوظ و متعلق به شرکت ارمغان کهکشان پارس می باشد</span>
+            </p>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+    <script src="{{ mix('js/landing-page.js') }}"></script>
 </body>
 </html>
