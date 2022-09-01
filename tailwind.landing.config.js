@@ -4,7 +4,7 @@ const { default: plugin } = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
-        // './resources/views/pages/landing/new-opening.blade.php',
+        './resources/views/pages/landing/new-opening.blade.php',
         './resources/views/pages/landing/coffee-shop.blade.php',
         // './resources/views/components/layout/*.blade.php',
         // './resources/js/landing-opening.js',
@@ -60,8 +60,12 @@ module.exports = {
                 'classy-orange': '#d6851b'
             },
             backgroundImage: {
-                "coffeeshop": "url('/images/landing/header-background.jpg')",
-                "coffeshop-pattern": "url('/images/landing/coffee-shop-background-with-pattern.jpg')"
+                'coffeeshop-medium': "url('/images/landing/coffee/background-coffee-1280X720.jpg')",
+                'coffeeshop': "url('/images/landing/coffee/background-coffee-1536X864.jpg')",
+                'coffeeshop-high': "url('/images/landing/coffee/background-coffee-1920X1080.jpg')",
+                // "coffeeshop": "url('/images/landing/header-background.jpg')",
+                'coffeshop-pattern': "url('/images/landing/coffee-shop-background-with-pattern.jpg')",
+                'footer-pattern': "url('/images/landing/coffee/orange-footer-pattern.png')"
             },
             screens: {
                 'mobiles': "320px",
