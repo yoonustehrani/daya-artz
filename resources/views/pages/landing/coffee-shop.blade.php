@@ -77,90 +77,146 @@
             </form>
         </div>
     </header>
-    <section class="p-3 w-full flex flex-col items-center">
-        <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center">
-            <div class="p-3 h-full">
-                <img class="max-h-[350px]" src="{{ asset('images/landing/idea-1.png') }}" alt="">
+    <div class="mt-10 mb-4 py-3 text-center w-full grid place-content-center place-items-center">
+        <div class="w-fit grid place-content-center place-items-center text-gray-800">
+            <h2 class="font-bold text-2xl">خدمات طراحی گرافیک برای انواع کافی شاپ ها</h2>
+            <span class="h-px w-[80%] block bg-gray-800 mt-8"></span>
+            <div class="rounded-full bg-white w-10 h-10 -mt-6 z-10 text-lg flex items-center justify-center">
+                <i class="far text-2xl fa-coffee-togo"></i>
+            </div>
+        </div>
+    </div>
+    <section class="p-3 w-full flex flex-col items-center gap-8 mb-10">
+        <div class="w-11/12 md:w-5/6 p-3 flex flex-col items-center md:flex-row md:justify-center">
+            <div class="p-3 h-[300px] relative">
+                <img class="h-full opacity-30 lazyload" data-src="{{ asset('images/landing/coffee/coffeeshop-back.svg') }}" alt="">
+                <img class="h-full absolute z-10 -bottom-2 left-0 lazyload" data-src="{{ asset('images/landing/coffee/coffeeshop.svg') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
-                <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span>
-                <h4 class="text-gray-800 text-2xl font-bold my-4">دکور شخصی سازی شده</h4>
+                {{-- <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span> --}}
+                <h4 class="text-gray-800 text-2xl font-bold my-4">کافی شاپ</h4>
                 <p class="text-gray-600">
-                    دکور متمایز کننده ترین بخش کافی شاپ با محیط خارج خودشه. دایـا آرتــز با
-                    طراحی و ترمیم لوگو هویت رنگ دکور شما رو زنده می کنه و ایده های بکر و ناب
-                    خودش رو برای اینکه یک محیط منحصر به فرد بسازید به شما منتقل می کنه.
+                    برای راه اندازی هر کافی شاپ از هر نوعی یا ترمیم و باز طراحی برند کافی شاپ ها، همراه شما خواهیم بود. تا با جلوگیری از هزینه های اضافی در طراحی و تبلیغات، شاهد رشد کسب و کار خود باشید. از طراحی لوگو و پیج اینستاگرام تا طراحی منو و کارت ویزیت برای کافی شاپ شما به شکل متفاوتی طراحی می‌شود!
                 </p>
             </div>
         </div>
-        <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center [direction:ltr]">
-            <div class="p-3 h-full">
-                <img class="max-h-[350px]" src="{{ asset('images/landing/idea-2.png') }}" alt="">
+        <div class="w-11/12 md:w-5/6 p-3 flex flex-col items-center md:flex-row md:justify-center [direction:ltr]">
+            <div class="p-3 h-[300px] relative">
+                <img class="h-full opacity-30 lazyload" data-src="{{ asset('images/landing/coffee/coffee-restaurant-back.svg') }}" alt="">
+                <img class="h-full absolute z-10 -bottom-8 left-0 lazyload" data-src="{{ asset('images/landing/coffee/coffee-restaurant.svg') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
-                <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span>
-                <h4 class="text-gray-800 text-2xl font-bold my-4">وفادار کردن مشتریان</h4>
+                {{-- <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span> --}}
+                <h4 class="text-gray-800 text-2xl font-bold my-4">کافه رستوران</h4>
                 <p class="text-gray-600">
-                    دلتون می خواد با طراحی کارت ویزیت های جذاب و روش های مدیریت طراحی محور مشتری های کافی شاپ خودتون رو دائمی کنید؟! معجزه طراحی گرافیک میزان رفت و آمد به کافی شاپ ها رو زیاد می کنه.
+                    مدیریت و افزایش فروش یک کافه رستوران کار آسانی نیست! بازاریابی و تبلیغات هدفمند و ایجاد یک برند مشهور از چشم انداز های مهم هر صاحب کافه رستورانی است. اگر شما یک کافه رستوران را اداره می‌کنید دایا آرتز برای توسعه برند و  طراحی تبلیغاتی شما حرف هایی دارد
                 </p>
             </div>
         </div>
-        <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center">
-            <div class="p-3 h-full">
-                <img class="max-h-[350px]" src="{{ asset('images/landing/idea-3.png') }}" alt="">
+        <div class="w-11/12 md:w-5/6 p-3 flex flex-col items-center md:flex-row md:justify-center">
+            <div class="p-3 h-[300px] relative">
+                <img class="h-full opacity-30 lazyload" data-src="{{ asset('images/landing/coffee/takeaway-back.svg') }}" alt="">
+                <img class="h-full absolute z-10 bottom-3 left-0 lazyload" data-src="{{ asset('images/landing/coffee/takeaway.svg') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
-                <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span>
-                <h4 class="text-gray-800 text-2xl font-bold my-4">مشارکت مشتریان در تبلیغ کافی شاپ</h4>
+                {{-- <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span> --}}
+                <h4 class="text-gray-800 text-2xl font-bold my-4">کافه takeaway</h4>
                 <p class="text-gray-600">
-                    اگر یک کافی شاپ دارین ولی پیج اینستاگرامتون فعالیت چندانی نداره بهتره بدونید همه رقیب هاتون توسط مشتری هاشون خودشون رو تبلـیغ مـی کنند چی جوری ؟ خـیلی راحت ،  شبکه های اجتماعی شما اگر جذاب باشـند توسط مـشتری هاتون مــدام پخش مـیشن و مـشتـری جدید براتون پیـدا می کنن دایــا آرتـز تخصصی ترین پلتفرم طراحی گرافیک شبکه های اجتماعی به ویژه اینستاگرام شناخته میشه .
+                    اگر صاحب یک کافی شاپ بیرون بر هستید یا مدیریت یک کافه Takeaway را برعهده دارید، دایا آرتز برای جذب مشتری جدید و ثابت کردن مشتری های کافه شما ایده های متفاوتی داره. از طراحی کم هزینه پیج ایسنتاگرام و ایده های تولید محتوایی تا طراحی بسته بندی های جذاب و  ایده های خلاقانه بر اساس پتانسیل های کافی شاپ شما!
                 </p>
             </div>
         </div>
     </section>
     <section class="w-full px-3 py-10 bg-coffeshop-pattern text-classy-orange bg-cover bg-no-repeat bg-left-top grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0 place-content-center">
-        <ul class="flex flex-col justify-around gap-4 items-center md:items-end md:gap-0 py-5 font-semibold text-xl">
-            <li>
+        <ul class="p-5 pb-0 md:pb-5 flex flex-col justify-around gap-4 items-start md:items-end md:gap-0 py-5 font-semibold text-lg md:text-xl">
+            <li class="">
                 <span>طراحی منو برای کافی شاپ</span>
-                <i class="fal fa-2x fa-coffee"></i>
+                <img class="inline w-10 ml-2 md:ml-0 float-right md:float-none md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/21.png') }}" alt="">
             </li>
-            <li class="md:ml-10">
+            <li class="md:ml-10 ">
                 <span>طراحی بروشور و کاتالوگ تبلیغاتی</span>
-                <i class="fal fa-2x fa-coffee"></i>
+                <img class="inline w-10 ml-2 md:ml-0 float-right md:float-none md:w-auto md:mr-2 lazyload" data-src="{{ asset('images/landing/coffee/22.png') }}" alt="">
             </li>
-            <li>
+            <li class="">
                 <span>طراحی کارت ویزیت کافی شاپی</span>
-                <i class="fal fa-2x fa-coffee"></i>
+                <img class="inline w-10 ml-2 md:ml-0 float-right md:float-none md:w-auto md:mr-2 lazyload" data-src="{{ asset('images/landing/coffee/20.png') }}" alt="">
             </li>
         </ul>
         <div class="flex flex-col justify-center items-center order-first md:order-none">
-            <img src="{{ asset('images/landing/orange-logo.png') }}" alt="">
+            <img class="lazyload" data-src="{{ asset('images/landing/orange-logo.png') }}" alt="">
             <p class="text-4xl text-center font-semibold leading-relaxed">خدمات دایا آرتز<br>متناسب با کافی شاپ شما</p>
         </div>
-        <ul class="flex flex-col justify-around gap-4 items-center md:items-start md:gap-0 py-5 font-semibold text-xl">
+        <ul class="p-5 pb-0 md:pb-5 flex flex-col justify-around gap-4 items-start md:gap-0 py-5 font-semibold text-lg md:text-xl">
             <li>
-                <i class="fal fa-2x fa-coffee"></i>
-                <span>طراحی و ترمیم لوگو کافی شاپ شما</span>
+                <img class="inline w-10 md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/24.png') }}" alt="">
+                <span>طراحی و ترمیم لوگو کافی شاپ</span>
             </li>
             <li class="md:mr-10">
-                <i class="fal fa-2x fa-coffee"></i>
-                <span>طراحی ست اداری کافی شاپ</span>
+                <img class="inline w-10 md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/26.png') }}" alt="">
+                <span>طراحی پوستر کافه گالری</span>
             </li>
             <li>
-                <i class="fal fa-2x fa-coffee"></i>
+                <img class="inline w-10 md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/23.png') }}" alt="">
                 <span>طراحی قالب های  اینستاگرامی</span>
             </li>
         </ul>
     </section>
-    <section class="w-full my-20">
-        s
+    <div class="mt-10 py-3 text-center w-full grid place-content-center place-items-center">
+        <div class="w-fit grid place-content-center place-items-center text-gray-800">
+            <h2 class="font-bold text-2xl">طراحی گرافیک مکمل ایده های تبلیغاتی</h2>
+            <span class="h-px w-[80%] block bg-gray-800 mt-8"></span>
+            <div class="rounded-full bg-white w-10 h-10 -mt-5 z-10 text-lg flex items-center justify-center">
+                <i class="far text-2xl fa-lightbulb"></i>
+            </div>
+        </div>
+    </div>
+    <section class="p-3 w-full flex flex-col items-center mb-10">
+        <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center">
+            <div class="p-3 h-full">
+                <img class="max-h-[350px] lazyload" data-src="{{ asset('images/landing/idea-1.png') }}" alt="">
+            </div>
+            <div class="p-3 pt-5 md:w-3/5">
+                <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span>
+                <h4 class="text-gray-800 text-2xl font-bold my-4">جلوه اینستاگرامی کافی شاپ</h4>
+                <p class="text-gray-600">
+                    دلتون می خواد با طراحی کارت ویزیت های جذاب و روش های مدیریت طراحی محور مشتری های کافی شاپ خودتون رو دائمی کنید؟! معجزه طراحی گرافیک میزان رفت و آمد به کافی شاپ ها رو زیاد می کنه.
+                </p>
+            </div>
+        </div>
+        <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center [direction:ltr]">
+            <div class="p-3 h-full">
+                <img class="max-h-[350px] lazyload" data-src="{{ asset('images/landing/idea-2.png') }}" alt="">
+            </div>
+            <div class="p-3 pt-5 md:w-3/5">
+                <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span>
+                <h4 class="text-gray-800 text-2xl font-bold my-4">"کوپن های تخفیف شما" با "طراحی خاص ما" !</h4>
+                <p class="text-gray-600">
+                    - مشتری ها عاشق تخفیف هستند و کافی شاپی که به آن ها تخفیف بدهد را پاتوق خود می‌کنند. حالا در نظر بگیرید که کوپن های تخفیف شما به شدت خاص باشند،  زیبا و جذاب همراه با لوگو و رنگ برند شما!
+                    <br>
+                    <span class="font-semibold text-gray-700 text-lg block mt-3">کوپن تخفیف خاص = برندسازی + جذب مشتری</span>
+                </p>
+            </div>
+        </div>
+        <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center">
+            <div class="p-3 h-full">
+                <img class="max-h-[350px] lazyload" data-src="{{ asset('images/landing/idea-3.png') }}" alt="">
+            </div>
+            <div class="p-3 pt-5 md:w-3/5">
+                <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span>
+                <h4 class="text-gray-800 text-2xl font-bold my-4">گرافیتی یا دیوارنگاری</h4>
+                <p class="text-gray-600">
+                    دلتون می خواد با طراحی کارت ویزیت های جذاب و روش های مدیریت طراحی محور مشتری های کافی شاپ خودتون رو دائمی کنید؟! معجزه طراحی گرافیک میزان رفت و آمد به کافی شاپ ها رو زیاد می کنه.
+                </p>
+            </div>
+        </div>
     </section>
-    <section class="w-full flex justify-center bg-[#3f403d] px-0 2xl:px-4">
+    <section class="w-full flex justify-center bg-[#3f403d] px-0 2xl:px-4 font-bold text-gray-800">
         <div class="w-full lg:w-11/12 xl:w-10/12 2xl:w-4/5 4k:w-3/5 md:grid flex justify-start px-2 py-4 md:px-1 lg:p-5 items-center md:grid-cols-3 md:grid-rows-2 place-items-center place-content-centersnap-x snap-mandatory md:snap-none overflow-x-auto md:overflow-x-hidden overflow-y-hidden h-72 md:h-auto">
             {{-- ITEM 1 --}}
             <div class="relative aspect-square md:w-full md:mt-0 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle border-classy-orange border-b-transparent rotate-45 overflow-hidden">
                     <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center p-5">
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full flex justify-center items-center text-sm lg:text-base 2xl:text-xl 4k:text-2xl">شما هدف تبلیغاتی یا برنامه برندسازی خود را به ما اعلام می کنید</p>
+                        <p class="text-center p-3 xl:p-6 h-full rounded-full flex justify-center items-center text-base lg:text-xl 2xl:text-2xl 4k:text-3xl">جمع آوری اطلاعات و تعیین اهداف تبلیغاتی</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-[#3f403d] flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-classy-orange flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">01</span>
@@ -179,14 +235,7 @@
                                 <span class="lg:text-4xl font-bold text-white mt-2">02</span>
                             </div>
                         </div>
-                        <div class="text-center p-3 lg:pt-6 xl:p-6 xl:mt-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl">
-                            <span>دایا آرتز پروسه تحقیقات درباره هدف شما را آغاز می کند :</span>
-                            <ol class="text-sm lg:text-base 2xl:text-xl 4k:text-2xl list-decimal list-inside text-center mt-1 md:mt-2">
-                                <li>آنالیز کسب و کار</li>
-                                <li>آنالیز بازار</li>
-                                <li>آنالیز رقبا</li>
-                            </ol>
-                        </div>
+                        <p class="text-center p-3 xl:p-6 h-full rounded-full flex justify-center items-center text-base lg:text-xl 2xl:text-2xl 4k:text-3xl">اعلام اهداف تبلیغاتی به دایا آرتز</p>
                     </div>
                 </div>
                 <span class="absolute-dot left-full -translate-x-1/2 md:left-0 md:translate-[initial] md:my-4">
@@ -197,7 +246,15 @@
             <div class="relative aspect-square md:w-full md:mt-0 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle border-classy-orange border-b-transparent md:border-b-classy-orange border-r-transparent rotate-45">
                     <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدفتان به شما ارائه می شود</p>
+                        {{-- <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدفتان به شما ارائه می شود</p> --}}
+                        <div class="text-center p-3 lg:pt-6 xl:p-6 xl:mt-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl">
+                            <span class="text-base lg:text-xl 2xl:text-2xl 4k:text-3xl">پروسه تحقیقات</span>
+                            <ol class="text-sm lg:text-base 2xl:text-xl 4k:text-2xl list-decimal list-inside text-center mt-1 md:mt-2 font-normal">
+                                <li>آنالیز کسب و کار</li>
+                                <li>آنالیز بازار</li>
+                                <li>آنالیز رقبا</li>
+                            </ol>
+                        </div>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-[#3f403d] flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-classy-orange flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">03</span>
@@ -218,7 +275,7 @@
                                 <span class="lg:text-4xl font-bold text-white mt-2">06</span>
                             </div>
                         </div>
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">حالا شما همه پیش نیاز های لازم برای دستیابی به هدف تبلیغاتی خود را دارید</p>
+                        <p class="text-center p-3 xl:p-6 h-3/4 mt-[25%] md:mt-0 rounded-full text-base lg:text-xl 2xl:text-2xl 4k:text-3xl grid place-content-center">ارائه طراحی های انجام شده<br>+<br>برنامه استفاده هدفمند</p>
                     </div>
                 </div>
                 {{-- class="bg-blue-400 absolute-dot md:-mt-2 -top-1/2 md:top-0 right-1/2 md:right-[initial] md:translate-[initial] translate-x-[40%] md:-left-[0.85rem]" --}}
@@ -230,7 +287,7 @@
             <div class="relative aspect-square md:w-full md:mt-0 order-5 snap-always snap-center h-full md:h-auto">
                 <div class="borderable-circle md:-mt-4 border-transparent border-t-classy-orange border-l-classy-orange rotate-45">
                     <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
-                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">طراحی های انجام شده بعلاوه برنامه استفاده هدفمند از آنها به شما ارائه می شود</p>
+                        <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base lg:text-xl 2xl:text-2xl 4k:text-3xl grid place-content-center">انجام طراحی های برنامه ریزی شده</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-[#3f403d] flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-classy-orange flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">05</span>
