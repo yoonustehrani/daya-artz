@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="w-full h-full overflow-x-hidden overflow-y-auto">
+<html lang="fa" class="w-full h-full m-0 p-0 overflow-x-hidden overflow-y-auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,8 @@
         }
     </style>
 </head>
-<body class="w-full h-full">
-    <header class="w-full h-fit bg-coffeeshop bg-left-top bg-cover bg-no-repeat bg-fixed pb-10">
+<body class="w-full h-full m-0 p-0">
+    <header class="w-full h-fit bg-coffeeshop-medium lg:bg-coffeeshop 2xl:bg-coffeeshop-high bg-left-top bg-cover bg-no-repeat md:bg-fixed pb-10">
         <nav id="header-nav" class="h-14 w-full p-2 md:px-6 bg-black/50 text-slate-50 text-lg flex flex-nowrap justify-between md:relative z-20 overflow-hidden top-0 animated [animation-duration:0.2s]">
             <div class="flex flex-nowrap items-center">
                 <span id="menu-open" class="duration-200"><i class="far fa-bars md:hidden ml-3 text-4xl"></i></span>
@@ -38,10 +38,6 @@
                 </div>
             </div>
             <div class="flex items-center flex-nowrap">
-                {{-- <a href="#order_page" class="rounded-full py-0.5 px-4 border-2 border-slate-50 duration-300 hover:border-transparent hover:bg-slate-50 hover:text-indigo-500 flex justify-center items-center group">
-                    <i class="far fa-plus ml-2 group-hover:text-indigo-500 duration-300"></i>
-                    سفارش
-                </a> --}}
                 <a href="tel:+989015045025" class="header-icon rounded-full bg-slate-50 p-1 duration-300 border-2 border-transparent hover:border-purple-500 cursor-pointer mr-3 w-10 h-10 flex justify-center items-center">
                     <i class="far fa-phone text-slate-900 duration-300 text-xl"></i>
                 </a>
