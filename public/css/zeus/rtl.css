@@ -304,6 +304,9 @@
 .-mt-9 {
     margin-top: -2.25rem;
 }
+.mt-0 {
+    margin-top: 0px;
+}
 .mb-0 {
     margin-bottom: 0px;
 }
@@ -318,6 +321,9 @@
 }
 .mb-1 {
     margin-bottom: 0.25rem;
+}
+.box-border {
+    box-sizing: border-box;
 }
 .block {
     display: block;
@@ -1181,6 +1187,10 @@
     --tw-bg-opacity: 1;
     background-color: rgb(55 48 163 / var(--tw-bg-opacity));
 }
+.bg-aqua {
+    --tw-bg-opacity: 1;
+    background-color: rgb(120 202 210 / var(--tw-bg-opacity));
+}
 .bg-emerald-300 {
     --tw-bg-opacity: 1;
     background-color: rgb(110 231 183 / var(--tw-bg-opacity));
@@ -1539,6 +1549,9 @@
 }
 .leading-7 {
     line-height: 1.75rem;
+}
+.\!leading-loose {
+    line-height: 2 !important;
 }
 .leading-relaxed {
     line-height: 1.625;

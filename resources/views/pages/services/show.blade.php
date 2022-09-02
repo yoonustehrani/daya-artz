@@ -5,70 +5,54 @@
     @php
         $seo = get_seo_settings('services', $service);
         $offers = $service->plans->sortBy('price');
+        $image_path = $service->image ? optional($service->image->file)->path : null;
     @endphp
     @component('components.seo', ['instance' => $service, 'slug' => 'services']) @endcomponent
-    <script type="application/ld+json">
-        [{
-            "@context": "https://schema.org/",
-            "@type": "Product",
-            "name": "{{ $service->title }}",
-            @if ($seo)
-            "description": "{{ $seo->description }}",
-            @endif
-            "sku": "daya-{{ $service->id }}",
-            "brand": {
-                "@type": "Brand",
-                "name": "{{ get_setting('seo.services.brand', 'Daya Artz') }}",
-                "logo": "{{ get_setting('seo.brand.logo', 'https://dayaartz.com/images/daya-cyan-logo.png') }}"
-            },
-            @if ($offers->count())
-            "offers": {
-                "@type": "Offer",
-                "url": "{{ request()->url() }}",
-                "priceCurrency": "IRR",
-                "price": "{{ ($service->price ?: $offers[0]->price) * 10 }}",
-                "priceValidUntil": "{{ $offers[0]->updated_at->addMonths(6)->format('Y-m-d') }}",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "{{ $service->title }}"
-                },
-                "availability": "https://schema.org/OnlineOnly"
-            },
-            @endif
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.5",
-                "reviewCount": "{{ $service->id * 15 }}"
-            }
-        },{
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "خدمات",
-                "item": "{{ route('services.index') }}"
-              },{
-                "@type": "ListItem",
-                "position": 2,
-                "name": "{{ $service->title }}",
-                "item": "{{ route('services.show', ['slug' => $service->slug]) }}"
-            }]
-        }]
-    </script>
+    @include('pages.services.json-ld')
 @endpush
+
+@section('header')
+<div class="header-section policy-header dotted-background services-header">
+    <div class="p-4 col-12 col-md-7">
+        <div class="w-100 piped">
+            <h1 class="d-inline text-white">{{ $service->title }}</h1>
+        </div>
+        <p class="px-3 text-light">{{ $service->short_description ?:  $service->subtitle }}</p>
+        <br>
+        @if ($service->children->count())
+            @foreach ($service->children->chunk(3) as $chunk)
+            <div>
+                @foreach ($chunk as $item)
+                <a href="{{ route('services.show', ['slug' => $item->slug]) }}" class="fancy-btn bg-purple text-white d-inline-flex align-items-center py-2 px-3 mx-2">
+                    {{ $item->title }} <i class="circle mr-2 mt-0 fas fa-plus"></i>
+                </a>
+                @endforeach
+            </div>
+            @endforeach
+        @endif
+        <div>
+            <button class="fancy-btn whiten d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-form">ثبت سفارش<i class="circle mr-2 mt-0 fas fa-plus"></i></button>
+            @if ($service->children->isEmpty())
+            <button class="fancy-btn bg-success d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-element" data-scroll="pricing">پلن های قیمتی<i class="circle mr-2 mt-0 fas fa-dollar-sign"></i></button>
+            @endif
+            <button class="fancy-btn bg-warning d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-element" data-scroll="portfolio">نمونه کارها<i class="circle mr-2 mt-0 fas fa-drafting-compass"></i></button>
+        </div>
+    </div>
+    @if ($image_path)
+        <div class="d-flex justify-content-center col-12 col-md-5 mb-3 mb-md-0">
+            <div class="d-flex justify-content-center align-items-center mw-100 overflow-hidden service-image">
+                <img data-src="{{ asset($image_path) }}" class="w-auto h-auto lazyload" alt="خدمات دایا آرتز">
+            </div>
+        </div>
+    @endif
+    <div class="triangle d-none d-md-block"></div>
+</div>
+@endsection
 
 @section('content')
     <!-- first-section -->
-    <div class="section col-12 mt-4 service-first-section dotted-background">
-        <div class="title-section w-100 mb-2">
-            <div class="title-container">
-                <h1 class="title-text">{{ $service->title }}</h1>
-            </div>
-        </div>
-        @if ($service->content)
+    <div class="section col-12 mt-4 py-5 service-first-section dotted-background">
         {!! $service->content !!}
-        @endif
     </div>
     <!-- end first-section -->
     @if ($service->children->count())

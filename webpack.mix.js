@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
- const src = {
+const src = {
     res: {
         css: "resources/css/",
         sass: "resources/sass/",
@@ -46,8 +46,9 @@ if (mix.inProduction) {
 // mix.sass(res.sass + '_fonts.scss', pub.css)
 // mix.js(res.js + 'app.js', pub.js).react()
 // mix.js(res.js + "userarea.js", pub.js).react()
+
 // err
-// mix.sass(res.sass + "err.scss", pub.css)
+mix.sass(res.sass + "err.scss", pub.css)
 // catalog
 // mix.postCss(res.css + "catalog.css", pub.css, [
 //     require("postcss-import"),
@@ -58,13 +59,24 @@ if (mix.inProduction) {
 //     .js(src.res.js + "catalog.js", src.pub.js).react()
 
 // landing
-// mix.postCss(res.css + "landing.css", pub.css, [
-//         require('postcss-import'),
-//         require('tailwindcss/nesting'),
-//         require('tailwindcss')({config: './tailwind.landing.config.js'}),
-//         require('autoprefixer'),
-//     ])
-//     .js(res.js + "landing-opening.js", pub.js).react()
+mix.postCss(res.css + "landing.css", pub.css, [
+        require('postcss-import'),
+        require('tailwindcss/nesting'),
+        require('tailwindcss')({config: './tailwind.landing.config.js'}),
+        require('autoprefixer'),
+    ])
+    .js(res.js + 'landing-page.js', pub.js)
+mix.browserSync({
+    port: 8080,
+    proxy: "http://127.0.0.1:8000",
+    files: [
+        "resources/views/**/*.blade.php",
+        "resources/js/**/*.js",
+        "resources/css/**/*.css"
+    ]
+});
+    // .js(res.js + "landing-opening.js", pub.js).react()
+    
 // zeus
 // mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
 //     require('postcss-import'),

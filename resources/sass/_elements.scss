@@ -383,11 +383,14 @@ button.silver-progress-button:hover > p.after {
     display: inline;
 }
 
-span.back-aqua {
+.back-aqua {
     background-image: url(/images/item-background.png);
-    // font-size: 60px !important;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+span.back-aqua {
+    // font-size: 60px !important;
     // background-size: 100% 100%;
     background-size: contain;
     display: inline-block;

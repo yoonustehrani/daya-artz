@@ -52,7 +52,7 @@
                         @endif
                     </th>
                     @endforeach
-                    <th scope="col"><i class="fas fa-server mr-2"></i>Actions</th>
+                    <th scope="col"><i class="fas fa-server mr-2"></i>@lang('Actions')</th>
                 </thead>
                 <tbody>
                 @foreach ($data as $item)

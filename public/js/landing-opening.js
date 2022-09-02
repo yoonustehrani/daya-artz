@@ -2065,10 +2065,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+<<<<<<< HEAD
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
+/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_3__);
+=======
 /* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! validator */ "./node_modules/validator/index.js");
 /* harmony import */ var validator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(validator__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _services_AlertService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../services/AlertService */ "./resources/js/services/AlertService.js");
 /* harmony import */ var _userarea_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../userarea/hooks */ "./resources/js/userarea/hooks.js");
+>>>>>>> 87b76086b5fc60956658fab6712d79ea831decbf
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -2101,6 +2109,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+<<<<<<< HEAD
+=======
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2459,172 +2469,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/landing-opening.js":
-/*!*****************************************!*\
-  !*** ./resources/js/landing-opening.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Landing/Form */ "./resources/js/components/Landing/Form/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var formDiv = document.getElementById('form'),
-    formUrl = formDiv.getAttribute('data-answer');
-
-if (formDiv) {
-  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      formUrl: formUrl
-    })
-  }), formDiv);
-}
-
-var changeCountDown = function changeCountDown(countDown, diffObj) {
-  var inSeconds = diffObj.inSeconds,
-      inMinutes = diffObj.inMinutes,
-      inHours = diffObj.inHours,
-      inDays = diffObj.inDays;
-
-  var getTwoDigitForInt = function getTwoDigitForInt(_int) {
-    return _int > 9 ? _int : "0".concat(_int);
-  };
-
-  countDown.querySelector('li:nth-child(1) > span.number').innerText = getTwoDigitForInt(inSeconds);
-  countDown.querySelector('li:nth-child(2) > span.number').innerText = getTwoDigitForInt(inMinutes);
-  countDown.querySelector('li:nth-child(3) > span.number').innerText = getTwoDigitForInt(inHours);
-  countDown.querySelector('li:nth-child(4) > span.number').innerText = getTwoDigitForInt(inDays);
-};
-
-var getDiffObject = function getDiffObject(diff) {
-  return {
-    inDays: diff.getUTCDate() - 1,
-    inHours: diff.getUTCHours(),
-    inMinutes: diff.getUTCMinutes(),
-    inSeconds: diff.getUTCSeconds()
-  };
-};
-
-var setupCountDown = function setupCountDown(countDown, initialDate) {
-  changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
-  setInterval(function () {
-    changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
-  }, 1000);
-};
-
-var countDown = document.querySelector('ul[data-countdown]');
-var countDownDateTime = new Date(countDown.getAttribute('data-countdown'));
-setupCountDown(countDown, countDownDateTime.getTime());
-document.querySelectorAll('#faq-list > div > p:first-child').forEach(function (el, i) {
-  el.addEventListener('click', function () {
-    var icon = this.querySelector('i.far').classList;
-    icon.toggle('fa-times-circle');
-    icon.toggle('fa-caret-circle-down');
-    this.parentNode.querySelector('p:nth-child(2)').classList.toggle('hidden');
-    this.parentNode.parentNode.querySelectorAll("div:not(:nth-child(".concat(i + 1, "))")).forEach(function (sibling) {
-      sibling.querySelector('p:nth-child(2)').classList.add('hidden');
-      var ic = sibling.querySelector('i.far').classList;
-      ic.remove('fa-times-circle');
-      ic.add('fa-caret-circle-down');
-    });
-  });
-});
-
-var scrollToForm = function scrollToForm() {
-  document.getElementById('form').scrollIntoView({
-    behavior: "smooth"
-  });
-};
-
-document.querySelectorAll('.button-to-form').forEach(function (el) {
-  el.addEventListener('click', scrollToForm);
-});
-
-var scrollToCustomers = function scrollToCustomers() {
-  document.getElementById('customers-section').scrollIntoView({
-    behavior: "smooth"
-  });
-};
-
-document.getElementById('double-arrow').addEventListener('click', scrollToCustomers);
-document.getElementById('to-customers').addEventListener('click', scrollToCustomers); // this code is for handling the menu in < md sizes
-
-var body = document.body;
-
-function toggle_menu() {
-  var is_open,
-      menu_el = document.getElementById("menu-list"),
-      toggle_classes = ["opacity-0", "pointer-events-none"];
-  is_open = menu_el.classList.contains("open");
-
-  if (is_open) {
-    menu_el.classList.remove("open");
-    setTimeout(function () {
-      menu_el.classList.add("hidden");
-      toggle_classes.forEach(function (classname) {
-        document.getElementById("menu-open").classList.toggle(classname);
-      });
-    }, 400);
-  } else {
-    menu_el.classList.remove("hidden");
-    setTimeout(function () {
-      menu_el.classList.add("open");
-      toggle_classes.forEach(function (classname) {
-        document.getElementById("menu-open").classList.toggle(classname);
-      });
-    }, 0);
-  }
-
-  body.classList.toggle("overflow-y-hidden");
-}
-
-body.addEventListener("click", function (e) {
-  var el = e.target,
-      menu_el = document.getElementById("menu-list");
-
-  if (menu_el.classList.contains("open") && !el.closest("#menu-list") || el.closest("#menu-close") || el.closest("#menu-open")) {
-    toggle_menu();
-  }
-}); // this code will set the header navbar fixed according to the window height
-// function setHeader() {
-//     var window_height = window.innerHeight, offset_top = body.scrollTop, target_header = document.getElementById("landing-header"), header_nav = document.getElementById("header-nav")
-//     if (window.innerWidth >= 768) {
-//         if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
-//             target_header.classList.add("pt-14")
-//             header_nav.classList.add("!fixed")
-//             header_nav.classList.add("slideInDown")
-//             setTimeout(() => {
-//                 header_nav.classList.remove("slideInDown")
-//             }, 200);
-//         } else if (offset_top < window_height && target_header.classList.contains("pt-14")) {
-//             header_nav.classList.add("slideOutUp")
-//             setTimeout(() => {
-//                 target_header.classList.remove("pt-14")
-//                 header_nav.classList.remove("!fixed")
-//                 header_nav.classList.remove("slideOutUp")
-//             }, 200)
-//         }
-//     } else {
-//         target_header.classList.remove("pt-14")
-//         header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed")
-//     }
-// }
-// // we use the above code as a trigger for scroll evenets and resize window events
-// body.addEventListener("scroll", function() {
-//     setHeader()
-// })   
-// window.addEventListener("resize", function() {
-//     setHeader()        
-// })
-
-/***/ }),
-
 /***/ "./resources/js/services/AlertService.js":
 /*!***********************************************!*\
   !*** ./resources/js/services/AlertService.js ***!
@@ -2798,6 +2642,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+>>>>>>> 87b76086b5fc60956658fab6712d79ea831decbf
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2848,6 +2693,206 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
             case "end":
               return _context.stop();
           }
+<<<<<<< HEAD
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (key, e) {
+      var value = e.target.value;
+
+      _this.setState(function (prev) {
+        var newOrder = prev.order;
+        newOrder[key] = value;
+        return {
+          order: newOrder
+        };
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleRecaptcha", function (clb) {
+      var reCAPTCHA_Key = _this.props.reCAPTCHA_Key;
+      grecaptcha.ready( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var token;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return grecaptcha.execute(reCAPTCHA_Key, {
+                  action: 'quick_order'
+                });
+
+              case 3:
+                token = _context.sent;
+                clb(token);
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      })));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleFormSubmit", /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(recaptch_token) {
+        var _this$state$order, fullname, phone_number, description, order_items, data, response, _response$data, okay, message, _error$response, _data, status, newState;
+
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this$state$order = _this.state.order, fullname = _this$state$order.fullname, phone_number = _this$state$order.phone_number, description = _this$state$order.description, order_items = _this$state$order.order_items;
+                data = {
+                  fullname: fullname,
+                  phone_number: phone_number,
+                  description: description,
+                  order_items: order_items,
+                  recaptch_token: recaptch_token
+                };
+                _context2.prev = 2;
+                _context2.next = 5;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this.props.targetApi, data);
+
+              case 5:
+                response = _context2.sent;
+                _response$data = response.data, okay = _response$data.okay, message = _response$data.message;
+
+                if (okay) {
+                  _this.setState({
+                    message: message,
+                    order: {
+                      order_items: [],
+                      phone_number: "",
+                      fullname: "",
+                      description: ""
+                    },
+                    loading: false,
+                    active: false
+                  });
+                }
+
+                _context2.next = 28;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](2);
+
+                if (!_context2.t0.response) {
+                  _context2.next = 27;
+                  break;
+                }
+
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                _error$response = _context2.t0.response, _data = _error$response.data, status = _error$response.status;
+                _context2.t1 = status;
+                _context2.next = _context2.t1 === 422 ? 17 : _context2.t1 === 403 ? 19 : 21;
+                break;
+
+              case 17:
+                newState = {
+                  error: "خطا",
+                  errors: _data.errors
+                };
+                return _context2.abrupt("break", 23);
+
+              case 19:
+                newState = {
+                  error: _data.message
+                };
+                return _context2.abrupt("break", 23);
+
+              case 21:
+                newState = {
+                  error: "خطا"
+                };
+                return _context2.abrupt("break", 23);
+
+              case 23:
+                newState['loading'] = false;
+
+                _this.setState(newState);
+
+                _context2.next = 28;
+                break;
+
+              case 27:
+                if (_context2.t0.request) {
+                  // The request was made but no response was received
+                  _this.setState({
+                    error: "پاسخی از سمت سرور دریافت نشد لطفا مجددا تلاش کنید.",
+                    loading: false
+                  });
+                } else {
+                  // Something happened in setting up the request that triggered an Error
+                  _this.setState({
+                    error: "مشکلی در ارسال اطلاعات به سمت سرور وجود دارد.",
+                    loading: false
+                  });
+                }
+
+              case 28:
+                _this.scrollToTop();
+
+              case 29:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[2, 10]]);
+      }));
+
+      return function (_x) {
+        return _ref3.apply(this, arguments);
+      };
+    }());
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+
+      _this.setState({
+        loading: true,
+        error: false,
+        errors: {}
+      }, _this.handleRecaptcha.bind(_assertThisInitialized(_this), _this.handleFormSubmit));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSearch", function (e) {
+      var value = e.target.value,
+          searchApi = _this.props.searchApi;
+
+      _this.setState({
+        searching: true,
+        searchValue: value
+      }, function () {
+        if (value.length < 2) {
+          _this.setState({
+            searchResults: [],
+            searching: false
+          });
+        } else {
+          axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(searchApi, "?q=").concat(value.trim())).then(function (res) {
+            var data = res.data;
+
+            _this.setState({
+              searchResults: data,
+              searching: false
+            });
+          });
+=======
+>>>>>>> 87b76086b5fc60956658fab6712d79ea831decbf
         }
       }, _callee, null, [[2, 11]]);
     }));
@@ -2876,10 +2921,16 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
               _context2.next = 6;
               return _this.Http.post(url, params, config);
 
+<<<<<<< HEAD
+      var dataInitial = this.props.dataInitial;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(dataInitial).then(function (res) {
+        var data = res.data;
+=======
             case 6:
               response = _context2.sent;
               _context2.next = 9;
               return response.data;
+>>>>>>> 87b76086b5fc60956658fab6712d79ea831decbf
 
             case 9:
               return _context2.abrupt("return", _context2.sent);
@@ -3015,9 +3066,208 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
           break;
       }
 
+<<<<<<< HEAD
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: [error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "alert alert-danger text-right rtl text-red-600 bg-red-300 p-5",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+            className: "p-0 m-0",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+              className: "fas fa-exclamation-circle"
+            }), " ", error]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+            className: "m-0 mr-4 p-0 px-2",
+            children: messages.map(function (m, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                children: m
+              }, i);
+            })
+          })]
+        }), message && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "alert alert-success text-right rtl text-green-600 bg-green-200 p-5",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+              className: "fas fa-check-circle"
+            }), " ", message]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+          action: "#",
+          onSubmit: this.handleSubmit,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "input-group float-right mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "text",
+              name: "fast-order-name",
+              disabled: !active,
+              className: "form-control",
+              placeholder: "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062E\u0627\u0646\u0648\u0627\u062F\u06AF\u06CC",
+              value: fullname,
+              onChange: this.handleChange.bind(this, 'fullname')
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "input-group-append",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "input-group-text",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                  className: "fas fa-user"
+                })
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "input-group float-right mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "text",
+              name: "fast-order-number",
+              disabled: !active,
+              className: "form-control ltr text-left",
+              placeholder: "\u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646",
+              value: phone_number,
+              onChange: this.handleChange.bind(this, 'phone_number')
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "input-group-append",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "input-group-text",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                  className: "fas fa-mobile-alt"
+                })
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "order-types mb-3 w-100",
+            children: loadingInitials ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "flex-center w-100",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_3__.Spinner, {
+                size: 30,
+                color: "#C5AEF6"
+              })
+            }) : services && services.length > 0 && services.map(function (service, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "checkbox",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+                  className: "checkbox-wrapper",
+                  htmlFor: service.id,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "checkbox",
+                    className: "checkbox-input",
+                    disabled: !active,
+                    checked: order.order_items.includes("".concat(service.id)),
+                    id: service.id,
+                    onChange: _this3.handleToggle.bind(_this3, false)
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+                    className: "checkbox-tile",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                      className: "checkbox-icon",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                        className: service.icon_class
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                      className: "checkbox-label",
+                      children: service.title
+                    })]
+                  })]
+                })
+              }, i);
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "input-group float-right mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "text",
+              id: "combo-input",
+              className: "form-control",
+              placeholder: "\u062C\u0633\u062A\u062C\u0648\u06CC \u062E\u062F\u0645\u0627\u062A \u062F\u06CC\u06AF\u0631",
+              value: searchValue,
+              onChange: this.handleSearch,
+              onFocus: this.onDisplayCombo.bind(this, true),
+              onBlur: this.onDisplayCombo.bind(this, false)
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "input-group-append",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "input-group-text",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                  className: "far fa-search"
+                })
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "combo-box ".concat(displayCombo ? "d-block" : "d-none"),
+              children: searching ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "py-2 flex-center",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_3__.Spinner, {
+                  size: 20,
+                  color: "#C5AEF6"
+                })
+              }) : searchResults && searchResults.length > 0 ? searchResults.map(function (item, i) {
+                var icon_class = item.icon_class,
+                    title = item.title,
+                    group = item.group,
+                    id = item.id,
+                    checked = order.order_items.includes(id.toString());
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+                  className: "combo-item",
+                  onMouseDown: _this3.handleToggle.bind(_this3, true),
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "checkbox",
+                    className: "d-none",
+                    disabled: !active,
+                    checked: checked,
+                    comboid: item.id,
+                    title: item.title,
+                    icon: item.icon_class,
+                    onChange: function onChange() {}
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                    className: "combo-left",
+                    children: [checked && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                      className: "fas fa-check-circle"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                      className: "combo-group",
+                      children: group
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                    className: "combo-right",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                      className: "combo-title",
+                      children: title
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                      className: "combo-icon",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                        className: icon_class
+                      })
+                    })]
+                  })]
+                }, i);
+              }) : searchResults.length === 0 && searchValue.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                className: "combo-no-item",
+                children: "\u0646\u062A\u06CC\u062C\u0647 \u0627\u06CC \u06CC\u0627\u0641\u062A \u0646\u0634\u062F"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "form-group",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+              name: "fast-order-description",
+              cols: "30",
+              rows: "10",
+              disabled: !active,
+              value: description,
+              onChange: this.handleChange.bind(this, 'description'),
+              className: "form-control",
+              placeholder: "\u062A\u0648\u0636\u06CC\u062D\u0627\u062A"
+            })
+          }), loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "btn",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_3__.Spinner, {})
+          }), !loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            disabled: !active,
+            type: "submit",
+            style: {
+              cursor: active ? 'pointer' : 'not-allowed'
+            },
+            className: "btn rounded-lg text-xl text-slate-50 duration-300",
+            children: "\u062B\u0628\u062A \u0633\u0641\u0627\u0631\u0634"
+          })]
+        })]
+=======
       _this.Alert.error({
         title: 'خطا',
         html: message
+>>>>>>> 87b76086b5fc60956658fab6712d79ea831decbf
       });
 
       return {
@@ -3036,6 +3286,10 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
       // console.log('Error', err.message);
     }
 
+<<<<<<< HEAD
+  return QuickOrder;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+=======
     return {
       data: {
         message: "Error"
@@ -3047,6 +3301,7 @@ var HttpClient = /*#__PURE__*/_createClass(function HttpClient() {
   this.Alert = new _AlertService__WEBPACK_IMPORTED_MODULE_1__["default"]();
 });
 
+>>>>>>> 87b76086b5fc60956658fab6712d79ea831decbf
 
 
 /***/ }),
@@ -3426,19 +3681,6 @@ function mod(a, b) {
     gregorianCalenderDate.gd
   );
 }
-
-/***/ }),
-
-/***/ "./resources/css/landing.css":
-/*!***********************************!*\
-  !*** ./resources/css/landing.css ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
 
 /***/ }),
 
@@ -66419,42 +66661,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -66504,68 +66711,171 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\projects\\\\test\\
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/landing-opening": 0,
-/******/ 			"css/landing": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/js/landing-opening.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/landing"], () => (__webpack_require__("./resources/css/landing.css")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!*****************************************!*\
+  !*** ./resources/js/landing-opening.js ***!
+  \*****************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Landing/Form */ "./resources/js/components/Landing/Form/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var formDiv = document.getElementById('form'),
+    formUrl = formDiv.getAttribute('data-answer');
+
+if (formDiv) {
+  (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Landing_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      formUrl: formUrl
+    })
+  }), formDiv);
+}
+
+var changeCountDown = function changeCountDown(countDown, diffObj) {
+  var inSeconds = diffObj.inSeconds,
+      inMinutes = diffObj.inMinutes,
+      inHours = diffObj.inHours,
+      inDays = diffObj.inDays;
+
+  var getTwoDigitForInt = function getTwoDigitForInt(_int) {
+    return _int > 9 ? _int : "0".concat(_int);
+  };
+
+  countDown.querySelector('li:nth-child(1) > span.number').innerText = getTwoDigitForInt(inSeconds);
+  countDown.querySelector('li:nth-child(2) > span.number').innerText = getTwoDigitForInt(inMinutes);
+  countDown.querySelector('li:nth-child(3) > span.number').innerText = getTwoDigitForInt(inHours);
+  countDown.querySelector('li:nth-child(4) > span.number').innerText = getTwoDigitForInt(inDays);
+};
+
+var getDiffObject = function getDiffObject(diff) {
+  return {
+    inDays: diff.getUTCDate() - 1,
+    inHours: diff.getUTCHours(),
+    inMinutes: diff.getUTCMinutes(),
+    inSeconds: diff.getUTCSeconds()
+  };
+};
+
+var setupCountDown = function setupCountDown(countDown, initialDate) {
+  changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
+  setInterval(function () {
+    changeCountDown(countDown, getDiffObject(new Date(initialDate - new Date().getTime())));
+  }, 1000);
+};
+
+var countDown = document.querySelector('ul[data-countdown]');
+var countDownDateTime = new Date(countDown.getAttribute('data-countdown'));
+setupCountDown(countDown, countDownDateTime.getTime());
+document.querySelectorAll('#faq-list > div > p:first-child').forEach(function (el, i) {
+  el.addEventListener('click', function () {
+    var icon = this.querySelector('i.far').classList;
+    icon.toggle('fa-times-circle');
+    icon.toggle('fa-caret-circle-down');
+    this.parentNode.querySelector('p:nth-child(2)').classList.toggle('hidden');
+    this.parentNode.parentNode.querySelectorAll("div:not(:nth-child(".concat(i + 1, "))")).forEach(function (sibling) {
+      sibling.querySelector('p:nth-child(2)').classList.add('hidden');
+      var ic = sibling.querySelector('i.far').classList;
+      ic.remove('fa-times-circle');
+      ic.add('fa-caret-circle-down');
+    });
+  });
+});
+
+var scrollToForm = function scrollToForm() {
+  document.getElementById('form').scrollIntoView({
+    behavior: "smooth"
+  });
+};
+
+document.querySelectorAll('.button-to-form').forEach(function (el) {
+  el.addEventListener('click', scrollToForm);
+});
+
+var scrollToCustomers = function scrollToCustomers() {
+  document.getElementById('customers-section').scrollIntoView({
+    behavior: "smooth"
+  });
+};
+
+document.getElementById('double-arrow').addEventListener('click', scrollToCustomers);
+document.getElementById('to-customers').addEventListener('click', scrollToCustomers); // this code is for handling the menu in < md sizes
+
+var body = document.body;
+
+function toggle_menu() {
+  var is_open,
+      menu_el = document.getElementById("menu-list"),
+      toggle_classes = ["opacity-0", "pointer-events-none"];
+  is_open = menu_el.classList.contains("open");
+
+  if (is_open) {
+    menu_el.classList.remove("open");
+    setTimeout(function () {
+      menu_el.classList.add("hidden");
+      toggle_classes.forEach(function (classname) {
+        document.getElementById("menu-open").classList.toggle(classname);
+      });
+    }, 400);
+  } else {
+    menu_el.classList.remove("hidden");
+    setTimeout(function () {
+      menu_el.classList.add("open");
+      toggle_classes.forEach(function (classname) {
+        document.getElementById("menu-open").classList.toggle(classname);
+      });
+    }, 0);
+  }
+
+  body.classList.toggle("overflow-y-hidden");
+}
+
+body.addEventListener("click", function (e) {
+  var el = e.target,
+      menu_el = document.getElementById("menu-list");
+
+  if (menu_el.classList.contains("open") && !el.closest("#menu-list") || el.closest("#menu-close") || el.closest("#menu-open")) {
+    toggle_menu();
+  }
+}); // this code will set the header navbar fixed according to the window height
+// function setHeader() {
+//     var window_height = window.innerHeight, offset_top = body.scrollTop, target_header = document.getElementById("landing-header"), header_nav = document.getElementById("header-nav")
+//     if (window.innerWidth >= 768) {
+//         if (offset_top >= window_height && !target_header.classList.contains("pt-14")) {
+//             target_header.classList.add("pt-14")
+//             header_nav.classList.add("!fixed")
+//             header_nav.classList.add("slideInDown")
+//             setTimeout(() => {
+//                 header_nav.classList.remove("slideInDown")
+//             }, 200);
+//         } else if (offset_top < window_height && target_header.classList.contains("pt-14")) {
+//             header_nav.classList.add("slideOutUp")
+//             setTimeout(() => {
+//                 target_header.classList.remove("pt-14")
+//                 header_nav.classList.remove("!fixed")
+//                 header_nav.classList.remove("slideOutUp")
+//             }, 200)
+//         }
+//     } else {
+//         target_header.classList.remove("pt-14")
+//         header_nav.classList.remove("slideInDown", "slideOutUp", "!fixed")
+//     }
+// }
+// // we use the above code as a trigger for scroll evenets and resize window events
+// body.addEventListener("scroll", function() {
+//     setHeader()
+// })   
+// window.addEventListener("resize", function() {
+//     setHeader()        
+// })
+})();
+
 /******/ })()
 ;
