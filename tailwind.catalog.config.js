@@ -53,6 +53,15 @@ module.exports = {
                 'shaped': "url('/images/shaped-background.png')",
                 "icon": "url('/images/item-background.png')",
             },
+            keyframes: {
+                'fade-in': {
+                    '0%' : {opacity: '0'},
+                    '100%': {opacity: '1'}
+                }
+            },
+            animation: {
+                'fade-in': 'fade-in 500ms linear forwards'
+            },
             screens: {
                 'xs': "375px",
                 '4k': "2560px"

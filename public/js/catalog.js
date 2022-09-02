@@ -253,9 +253,9 @@ var FilterSidebar = /*#__PURE__*/function (_Component) {
           className: "flex flex-wrap justify-end",
           children: selectedFilters && selectedFilters.length > 0 && selectedFilters.map(function (filter, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
-              className: "m-2 bg-slate-50 p-2 flex justify-center items-center text-violet-400 rounded-xl select-none",
+              className: "m-2 bg-slate-50 p-2 flex justify-center items-center text-violet-400 rounded-xl select-none animate-fade-in",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                className: "mr-2 text-lg flex hover:text-violet-500 duration-200 cursor-pointer",
+                className: "mr-2 text-lg flex hover:text-violet-500 hover:scale-110 duration-200 cursor-pointer",
                 onClick: _this2.editFilter.bind(_this2, filter, true),
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
                   className: "far fa-times"

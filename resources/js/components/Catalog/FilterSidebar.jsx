@@ -28,7 +28,7 @@ class FilterSidebar extends Component {
                 </div>
                 <div className='flex flex-wrap justify-end'>
                     {selectedFilters && selectedFilters.length > 0 && selectedFilters.map((filter, i) => (
-                        <p key={i} className='m-2 bg-slate-50 p-2 flex justify-center items-center text-violet-400 rounded-xl select-none'><span className='mr-2 text-lg flex hover:text-violet-500 duration-200 cursor-pointer' onClick={this.editFilter.bind(this, filter, true)}><i className='far fa-times'></i></span> {filter.title}</p>   
+                        <p key={i} className='m-2 bg-slate-50 p-2 flex justify-center items-center text-violet-400 rounded-xl select-none animate-fade-in'><span className='mr-2 text-lg flex hover:text-violet-500 hover:scale-110 duration-200 cursor-pointer' onClick={this.editFilter.bind(this, filter, true)}><i className='far fa-times'></i></span> {filter.title}</p>   
                     ))}
                 </div>
                 <div className='my-4'>
