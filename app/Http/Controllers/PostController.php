@@ -29,6 +29,7 @@ class PostController extends Controller
         ]);
         $page = Page::whereSlug('/blog')->firstOrFail();
         $posts = Post::select(['id','title', 'slug', 'description', 'reading_time', 'created_at'])
+            ->published()
             ->with('image.file')
             ->latest();
         $query = $request->query('q');
@@ -49,7 +50,7 @@ class PostController extends Controller
         $limit = intval($request->query('limit'));
         $result = $posts = Post::select(
                 ['id','title', 'slug', 'description', 'reading_time', 'created_at']
-            )->with('image.file')->limit($limit);
+            )->published()->with('image.file')->limit($limit);
             switch ($mode) {
                 case 'latest':
                     $posts->latest();
@@ -72,14 +73,14 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        $post = Post::with('image.file')->whereSlug($slug)->firstOrFail();
+        $post = Post::with('image.file')->whereSlug($slug)->published()->firstOrFail();
         $post->load('tags', 'category');
         if ($post->author_id) {
             $post->load('author');
         }
-        if ($post->tags->count() > 0) {
-            $post->related = $post->related()->take(3)->get();
-        }
+        // if ($post->tags->count() > 0) {
+        //     $post->related = $post->related()->take(3)->get();
+        // }
         return view('pages.posts.show', compact('post'));
     }
 }
