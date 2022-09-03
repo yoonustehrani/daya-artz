@@ -11,7 +11,7 @@ class Post extends ZeusModel
 
     public function scopePublished($builder)
     {
-        $builder->where('published', true);
+        $builder->whereNull('publishes_at')->orWhere('publishes_at', '>', now());
     }
 
     public function author()
