@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="flex items-center flex-nowrap">
-                <a href="tel:+989015045025" class="header-icon rounded-full bg-slate-50 p-1 duration-300 border-2 border-transparent hover:border-purple-500 cursor-pointer mr-3 w-10 h-10 flex justify-center items-center">
+                <a href="tel:+989015045025" class="header-icon rounded-full bg-slate-50 p-1 duration-300 border-2 border-transparent hover:border-amber-500 cursor-pointer mr-3 w-10 h-10 flex justify-center items-center">
                     <i class="far fa-phone text-slate-900 duration-300 text-xl"></i>
                 </a>
             </div>
@@ -541,12 +541,51 @@
             <h2 class="font-bold text-2xl">فرم درخواست خدمات دایا آرتز</h2>
             <span class="h-px w-[80%] block bg-gray-800 mt-8"></span>
             <div class="rounded-full bg-white w-10 h-10 -mt-5 z-10 text-lg flex items-center justify-center">
-                <i class="far text-2xl fa-lightbulb"></i>
+                <i class="far text-2xl fa-paperclip"></i>
             </div>
         </div>
     </div>
-    <section class="w-full p-3 my-10">
-        <p class="text-3xl text-center">فرم MVP</p>
+    <section class="w-full p-3 my-10 grid grid-cols-1 md:grid-cols-2">
+        <div class="p-3 flex flex-col items-center text-gray-900">
+            <div class="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 my-2 md:my-4 bg-white shadow-lg rounded-md p-6">
+                <div id="position" class="col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8 h-fit">
+                    <p class="col-span-full font-semibold text-lg">- مسئولیت شما در کسب و کارتان کدام یک از موارد زیر است؟</p>
+                    <div class="border-amber-500 ring-amber-400 flex flex-col items-center justify-center aspect-square border-2 rounded-md p-2 md:p-3 relative ring-4 duration-300 hover:border-amber-500 hover:ring-amber-400 cursor-pointer">
+                        <span class="absolute text-md z-10 top-2 left-2 w-8 h-8 bg-amber-300 grid place-items-center rounded-full">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span class="text-4xl"><i class="fas fa-coffee"></i></span>
+                        <span class="mt-4 text-lg text-gray-600 text-center">کافی شاپ</span>
+                    </div>
+                    <div class="border-gray-500 ring-transparent flex flex-col items-center justify-center aspect-square border-2 rounded-md p-2 md:p-3 relative ring-4 duration-300 hover:border-amber-500 hover:ring-amber-400 cursor-pointer">
+                        <span class="text-4xl"><i class="fas fa-user"></i></span>
+                        <span class="mt-4 text-lg text-gray-600 text-center">کافی شاپ</span>
+                    </div>
+                    <div class="border-gray-500 ring-transparent flex flex-col items-center justify-center aspect-square border-2 rounded-md p-2 md:p-3 relative ring-4 duration-300 hover:border-amber-500 hover:ring-amber-400 cursor-pointer">
+                        <span class="text-4xl"><i class="fas fa-user"></i></span>
+                        <span class="mt-4 text-lg text-gray-600 text-center">کافی شاپ</span>
+                    </div>
+                </div>
+                <div id="name" class="col-span-full lg:col-span-1">
+                    <p class="font-semibold text-lg">- نام و  نام خانوادگی</p>
+                    <input type="text" class="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" />
+                </div>
+                <div id="phone" class="col-span-full lg:col-span-1">
+                    <p class="font-semibold text-lg">- شماره تماس</p>
+                    <input type="text" class="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" style="direction: ltr" />
+                </div>
+                <div id="description" class="col-span-full">
+                    <p class="font-semibold text-lg">- هدف تبلیغاتی یا برند سازی شما</p>
+                    <textarea class="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" cols="30" rows="10"></textarea>
+                </div>
+                <div class="col-span-full text-center">
+                    <button class="w-fit py-2 px-6 text-base shadow-lg bg-slate-500 text-slate-50 hover:text-gray-700 hover:bg-amber-500 duration-200 cursor-pointer rounded-md">ارسال اطلاعات</button>
+                </div>
+            </div>
+        </div>
+        <div class="p-3">
+            image goes here
+        </div>
     </section>
     {{-- Startup path - six --}}
     <section class="w-full flex justify-center bg-[#3f403d] px-0 2xl:px-4 font-bold text-gray-800">

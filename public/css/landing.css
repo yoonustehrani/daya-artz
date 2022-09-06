@@ -2940,16 +2940,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   100% {
     transform: rotate(360deg); } }/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
 readers do not read off random characters that represent icons */.fa-address-card:before {
-  content: "\f2bb"; }.fa-angle-double-down:before {
+  content: "\f2bb"; }.fa-align-right:before {
+  content: "\f038"; }.fa-angle-double-down:before {
   content: "\f103"; }.fa-angle-up:before {
   content: "\f106"; }.fa-arrow-left:before {
   content: "\f060"; }.fa-bars:before {
   content: "\f0c9"; }.fa-box:before {
   content: "\f466"; }.fa-caret-circle-down:before {
-  content: "\f32d"; }.fa-check-circle:before {
+  content: "\f32d"; }.fa-check:before {
+  content: "\f00c"; }.fa-check-circle:before {
   content: "\f058"; }.fa-circle:before {
   content: "\f111"; }.fa-clipboard-list:before {
-  content: "\f46d"; }.fa-coffee-togo:before {
+  content: "\f46d"; }.fa-coffee:before {
+  content: "\f0f4"; }.fa-coffee-togo:before {
   content: "\f6c5"; }.fa-hashtag:before {
   content: "\f292"; }.fa-home:before {
   content: "\f015"; }.fa-instagram:before {
@@ -2957,14 +2960,17 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\f0eb"; }.fa-lightbulb-on:before {
   content: "\f672"; }.fa-linkedin-in:before {
   content: "\f0e1"; }.fa-mobile:before {
-  content: "\f10b"; }.fa-phone:before {
+  content: "\f10b"; }.fa-paperclip:before {
+  content: "\f0c6"; }.fa-pencil:before {
+  content: "\f040"; }.fa-phone:before {
   content: "\f095"; }.fa-phone-office:before {
   content: "\f67d"; }.fa-plus:before {
   content: "\f067"; }.fa-question:before {
   content: "\f128"; }.fa-telegram-plane:before {
   content: "\f3fe"; }.fa-times:before {
   content: "\f00d"; }.fa-times-circle:before {
-  content: "\f057"; }.fa-user-circle:before {
+  content: "\f057"; }.fa-user:before {
+  content: "\f007"; }.fa-user-circle:before {
   content: "\f2bd"; }.fa-user-headset:before {
   content: "\f82d"; }.fa-whatsapp:before {
   content: "\f232"; }@font-face {
@@ -2982,28 +2988,34 @@ readers do not read off random characters that represent icons */.fa-address-car
   font-display: block;
   src: url(/fonts/fa-duotone-900.eot?44bbc17621739acf4fb165b4daf0dd97);
   src: url(/fonts/fa-duotone-900.eot?44bbc17621739acf4fb165b4daf0dd97?#iefix) format("embedded-opentype"), url(/fonts/fa-duotone-900.woff2?f27f085efb0eb08e01d6909c4655f609) format("woff2"), url(/fonts/fa-duotone-900.woff?839608c0d3a3ebbf39a331b3e4ea2075) format("woff"), url(/fonts/fa-duotone-900.ttf?1bdc95a1f9dc66afe5a9012fb3a7cc5e) format("truetype"), url(/fonts/fa-duotone-900.svg?bac7a949fdfa983ff8a5a0bbabe0cbba#fontawesome) format("svg"); }.fad.fa-address-card:after {
-  content: "\10f2bb"; }.fad.fa-angle-double-down:after {
+  content: "\10f2bb"; }.fad.fa-align-right:after {
+  content: "\10f038"; }.fad.fa-angle-double-down:after {
   content: "\10f103"; }.fad.fa-angle-up:after {
   content: "\10f106"; }.fad.fa-arrow-left:after {
   content: "\10f060"; }.fad.fa-bars:after {
   content: "\10f0c9"; }.fad.fa-box:after {
   content: "\10f466"; }.fad.fa-caret-circle-down:after {
-  content: "\10f32d"; }.fad.fa-check-circle:after {
+  content: "\10f32d"; }.fad.fa-check:after {
+  content: "\10f00c"; }.fad.fa-check-circle:after {
   content: "\10f058"; }.fad.fa-circle:after {
   content: "\10f111"; }.fad.fa-clipboard-list:after {
-  content: "\10f46d"; }.fad.fa-coffee-togo:after {
+  content: "\10f46d"; }.fad.fa-coffee:after {
+  content: "\10f0f4"; }.fad.fa-coffee-togo:after {
   content: "\10f6c5"; }.fad.fa-hashtag:after {
   content: "\10f292"; }.fad.fa-home:after {
   content: "\10f015"; }.fad.fa-lightbulb:after {
   content: "\10f0eb"; }.fad.fa-lightbulb-on:after {
   content: "\10f672"; }.fad.fa-mobile:after {
-  content: "\10f10b"; }.fad.fa-phone:after {
+  content: "\10f10b"; }.fad.fa-paperclip:after {
+  content: "\10f0c6"; }.fad.fa-pencil:after {
+  content: "\10f040"; }.fad.fa-phone:after {
   content: "\10f095"; }.fad.fa-phone-office:after {
   content: "\10f67d"; }.fad.fa-plus:after {
   content: "\10f067"; }.fad.fa-question:after {
   content: "\10f128"; }.fad.fa-times:after {
   content: "\10f00d"; }.fad.fa-times-circle:after {
-  content: "\10f057"; }.fad.fa-user-circle:after {
+  content: "\10f057"; }.fad.fa-user:after {
+  content: "\10f007"; }.fad.fa-user-circle:after {
   content: "\10f2bd"; }.fad.fa-user-headset:after {
   content: "\10f82d"; }@font-face {
   font-family: 'Font Awesome 5 Pro';
@@ -3199,6 +3211,10 @@ readers do not read off random characters that represent icons */.fa-address-car
   bottom: -2rem;
 }.bottom-3{
   bottom: 0.75rem;
+}.top-2{
+  top: 0.5rem;
+}.left-2{
+  left: 0.5rem;
 }.z-10{
   z-index: 10;
 }.z-20{
@@ -3215,6 +3231,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   order: -9999;
 }.col-span-full{
   grid-column: 1 / -1;
+}.col-span-2{
+  grid-column: span 2 / span 2;
 }.float-right{
   float: right;
 }.float-left{
@@ -3332,6 +3350,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   height: 300px;
 }.h-12{
   height: 3rem;
+}.h-8{
+  height: 2rem;
 }.max-h-\[350px\]{
   max-height: 350px;
 }.w-full{
@@ -3354,6 +3374,12 @@ readers do not read off random characters that represent icons */.fa-address-car
   width: 91.666667%;
 }.w-12{
   width: 3rem;
+}.w-1\/2{
+  width: 50%;
+}.w-1{
+  width: 0.25rem;
+}.w-8{
+  width: 2rem;
 }.min-w-\[60px\]{
   min-width: 60px;
 }.min-w-\[50\%\]{
@@ -3430,6 +3456,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }.flex-col{
   flex-direction: column;
+}.flex-wrap{
+  flex-wrap: wrap;
 }.flex-nowrap{
   flex-wrap: nowrap;
 }.place-content-center{
@@ -3438,6 +3466,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   place-content: stretch;
 }.place-items-center{
   place-items: center;
+}.place-items-stretch{
+  place-items: stretch;
 }.items-start{
   align-items: flex-start;
 }.items-center{
@@ -3509,6 +3539,15 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.border-gray-400{
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}.border-gray-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}.border-purple-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(139 92 246 / var(--tw-border-opacity));
+}.border-amber-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(245 158 11 / var(--tw-border-opacity));
 }.border-b-transparent{
   border-bottom-color: transparent;
 }.border-b-black{
@@ -3597,6 +3636,15 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.bg-amber-700{
   --tw-bg-opacity: 1;
   background-color: rgb(180 83 9 / var(--tw-bg-opacity));
+}.bg-purple-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(196 181 253 / var(--tw-bg-opacity));
+}.bg-slate-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}.bg-amber-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 211 77 / var(--tw-bg-opacity));
 }.bg-gradient-to-r{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }.bg-gradient-to-l{
@@ -3815,6 +3863,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.text-gray-500{
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}.text-gray-50{
+  --tw-text-opacity: 1;
+  color: rgb(249 250 251 / var(--tw-text-opacity));
 }.underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -3855,12 +3906,21 @@ readers do not read off random characters that represent icons */.fa-address-car
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}.outline-none{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }.ring-4{
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }.ring-transparent{
   --tw-ring-color: transparent;
+}.ring-purple-400{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(167 139 250 / var(--tw-ring-opacity));
+}.ring-amber-400{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(251 191 36 / var(--tw-ring-opacity));
 }.backdrop-blur-md{
   --tw-backdrop-blur: blur(12px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -3924,6 +3984,8 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.\[animation-duration\:0\.2s\]{
   -webkit-animation-duration: 0.2s;
           animation-duration: 0.2s;
+}.\[direction\:rtl\]{
+  direction: rtl;
 }.placeholder\:text-right::-moz-placeholder{
   text-align: right;
 }.placeholder\:text-right:-ms-input-placeholder{
@@ -3947,6 +4009,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:border-social-media-whatsapp:hover{
   --tw-border-opacity: 1;
   border-color: rgb(37 211 102 / var(--tw-border-opacity));
+}.hover\:border-amber-500:hover{
+  --tw-border-opacity: 1;
+  border-color: rgb(245 158 11 / var(--tw-border-opacity));
 }.hover\:border-b-sky-400:hover{
   --tw-border-opacity: 1;
   border-bottom-color: rgb(56 189 248 / var(--tw-border-opacity));
@@ -3968,6 +4033,12 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:bg-social-media-whatsapp:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(37 211 102 / var(--tw-bg-opacity));
+}.hover\:bg-purple-500:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(139 92 246 / var(--tw-bg-opacity));
+}.hover\:bg-amber-500:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 158 11 / var(--tw-bg-opacity));
 }.hover\:text-indigo-300:hover{
   --tw-text-opacity: 1;
   color: rgb(165 180 252 / var(--tw-text-opacity));
@@ -3980,12 +4051,27 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}.hover\:text-gray-700:hover{
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }.hover\:ring-purple-200:hover{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(221 214 254 / var(--tw-ring-opacity));
+}.hover\:ring-purple-400:hover{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(167 139 250 / var(--tw-ring-opacity));
+}.hover\:ring-amber-400:hover{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(251 191 36 / var(--tw-ring-opacity));
 }.focus\:border-gray-600:focus{
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}.focus\:border-purple-500:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(139 92 246 / var(--tw-border-opacity));
+}.focus\:border-amber-500:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(245 158 11 / var(--tw-border-opacity));
 }.focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -3996,6 +4082,12 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.focus\:ring-white:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity));
+}.focus\:ring-purple-200:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(221 214 254 / var(--tw-ring-opacity));
+}.focus\:ring-amber-200:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(253 230 138 / var(--tw-ring-opacity));
 }.focus\:ring-opacity-10:focus{
   --tw-ring-opacity: 0.1;
 }@media (min-width: 640px){.sm\:inline{
@@ -4006,6 +4098,8 @@ readers do not read off random characters that represent icons */.fa-address-car
     grid-auto-columns: auto;
   }.sm\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }.sm\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }@media (min-width: 768px){
     .md\:bg-paper {
@@ -4390,6 +4484,8 @@ readers do not read off random characters that represent icons */.fa-address-car
     bottom: 6%;
   }.lg\:-bottom-3{
     bottom: -0.75rem;
+  }.lg\:col-span-1{
+    grid-column: span 1 / span 1;
   }.lg\:mt-40{
     margin-top: 10rem;
   }.lg\:mb-10{
@@ -4464,6 +4560,8 @@ readers do not read off random characters that represent icons */.fa-address-car
     width: 25%;
   }.xl\:w-8\/12{
     width: 66.666667%;
+  }.xl\:w-3\/4{
+    width: 75%;
   }.xl\:min-w-\[88px\]{
     min-width: 88px;
   }.xl\:grid-cols-4{
