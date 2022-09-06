@@ -12,3 +12,34 @@ document.querySelectorAll('#faq-list > div > div:first-child').forEach((el, i) =
         })
     })
 })
+
+// handling header
+var body = document.body
+function toggle_menu() {
+    let is_open, menu_el = document.getElementById("menu-list"), toggle_classes = ["opacity-0", "pointer-events-none"]
+    is_open = menu_el.classList.contains("open-full")
+    if (is_open) {
+        menu_el.classList.remove("open-full")
+        setTimeout(() => {
+            menu_el.classList.add("hidden")
+            toggle_classes.forEach(classname => {
+                document.getElementById("menu-open").classList.toggle(classname)
+            })
+        }, 400);
+    } else {
+        menu_el.classList.remove("hidden")
+        setTimeout(() => {
+            menu_el.classList.add("open-full")
+            toggle_classes.forEach(classname => {
+                document.getElementById("menu-open").classList.toggle(classname)
+            })
+        }, 0);
+    }
+    body.classList.toggle("overflow-y-hidden")
+}
+body.addEventListener("click", (e) => {
+    let el = e.target, menu_el = document.getElementById("menu-list")
+    if ((menu_el.classList.contains("open-full") && !el.closest("#menu-list")) || el.closest("#menu-close") || el.closest("#menu-open")) {
+        toggle_menu()
+    }
+})

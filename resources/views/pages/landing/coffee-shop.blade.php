@@ -22,7 +22,7 @@
                         data-src="{{ asset('images/daya-white-logo.png') }}"
                         alt="دایا آرتز" class="lazyload h-full">
                 </a>
-                <div id="menu-list" class="p-3 md:p-0 absolute md:static -right-full top-0 duration-700 w-5/6 sm:w-3/5 md:w-fit max-w-2xl md:max-w-none z-30 h-full bg-gradient-to-br from-indigo-700 to-indigo-500 md:h-auto md:bg-none md:inline-block">
+                <div id="menu-list" class="p-3 md:p-0 fixed md:static -right-full top-0 duration-700 w-5/6 sm:w-3/5 md:w-fit max-w-2xl md:max-w-none z-30 h-full bg-gradient-to-br from-slate-800/[98%] to-slate-900/[98%] md:h-auto md:bg-none md:inline-block">
                     <div class="w-full flex justify-between items-center md:hidden">
                         <a href="{{ route("userarea") }}" class="flex items-center"><span class="text-2xl ml-2"><i class="far fa-user-circle"></i></span>ورود به حساب کاربری</a>
                         <span id="menu-close"><i class="far fa-times text-4xl"></i></span>
