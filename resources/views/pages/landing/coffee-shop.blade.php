@@ -170,7 +170,7 @@
     <section class="p-3 w-full flex flex-col items-center mb-10">
         <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center">
             <div class="p-3 h-full">
-                <img class="max-h-[350px] lazyload" data-src="{{ asset('images/landing/idea-1.png') }}" alt="">
+                <img class="max-h-[350px] lazyload" data-src="{{ asset('images/landing/idea-3.png') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
                 <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span>
@@ -196,7 +196,7 @@
         </div>
         <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center">
             <div class="p-3 h-full">
-                <img class="max-h-[350px] lazyload" data-src="{{ asset('images/landing/idea-3.png') }}" alt="">
+                <img class="max-h-[350px] lazyload" data-src="{{ asset('images/landing/idea-1.png') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
                 <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span>
@@ -529,7 +529,7 @@
             </div> --}}
         </div>
     </section>
-    <section class="w-full p-3">
+    <section class="w-full p-3 my-10">
         <p class="text-3xl text-center">فرم MVP</p>
     </section>
     <section class="w-full flex justify-center bg-[#3f403d] px-0 2xl:px-4 font-bold text-gray-800">
