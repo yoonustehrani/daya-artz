@@ -2385,17 +2385,12 @@ if (react_form) {
 
 document.querySelectorAll('#faq-list > div > div:first-child').forEach(function (el, i) {
   el.addEventListener('click', function () {
-    var _this = this;
-
     var icon = this.querySelector('i.fas').classList;
-    icon.toggle('fa-angle-down');
-    icon.toggle('fa-angle-up');
+    icon.toggle('rotate-180');
     this.parentNode.querySelector('p').classList.toggle('hidden');
     document.querySelectorAll("#faq-list > div:not(:nth-child(".concat(i + 1, ")) > div:first-child")).forEach(function (sibling) {
-      var icon = _this.querySelector('i.fas').classList;
-
-      icon.remove('fa-angle-down');
-      icon.add('fa-angle-up');
+      var icon = sibling.querySelector('i.fas').classList;
+      icon.remove('rotate-180');
       sibling.parentNode.querySelector('p').classList.add('hidden');
     });
   });

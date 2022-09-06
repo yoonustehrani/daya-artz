@@ -68,7 +68,7 @@ mix.postCss(res.css + "landing.css", pub.css, [
     .js(res.js + 'landing-page.js', pub.js).react()
 mix.browserSync({
     port: 8080,
-    proxy: "http://127.0.0.1:80",
+    proxy: "http://127.0.0.1:8000",
     files: [
         "resources/views/**/*.blade.php",
         "resources/js/**/*.js",
