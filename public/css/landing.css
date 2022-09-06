@@ -3487,6 +3487,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   flex-direction: row-reverse;
 }.flex-col{
   flex-direction: column;
+}.flex-wrap{
+  flex-wrap: wrap;
 }.flex-nowrap{
   flex-wrap: nowrap;
 }.place-content-center{
@@ -3676,6 +3678,8 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.bg-gray-300{
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}.bg-slate-700\/30{
+  background-color: rgb(51 65 85 / 0.3);
 }.bg-gradient-to-r{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }.bg-gradient-to-l{
@@ -3896,6 +3900,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.text-gray-500{
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}.text-red-200{
+  --tw-text-opacity: 1;
+  color: rgb(254 202 202 / var(--tw-text-opacity));
 }.underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
