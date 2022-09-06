@@ -1,3 +1,13 @@
+// header form by react
+import React from 'react'
+import { render } from 'react-dom'
+import HeaderForm from './components/Landing/Form/HeaderForm'
+const react_form = document.getElementById("react_form"), header_form_url = react_form.getAttribute("header-form-url")
+if (react_form) {
+    render(<HeaderForm headerFormUrl={header_form_url} />, react_form)
+}
+
+// faq
 document.querySelectorAll('#faq-list > div > div:first-child').forEach((el, i) => {
     el.addEventListener('click', function() {
         let icon = this.querySelector('i.fas').classList

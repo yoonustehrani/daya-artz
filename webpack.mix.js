@@ -65,14 +65,16 @@ mix.postCss(res.css + "landing.css", pub.css, [
         require('tailwindcss')({config: './tailwind.landing.config.js'}),
         require('autoprefixer'),
     ])
-    .js(res.js + 'landing-page.js', pub.js)
+    .js(res.js + 'landing-page.js', pub.js).react()
 mix.browserSync({
     port: 8080,
     proxy: "http://127.0.0.1:80",
     files: [
         "resources/views/**/*.blade.php",
         "resources/js/**/*.js",
-        "resources/css/**/*.css"
+        "resources/js/**/*.jsx",
+        "resources/css/**/*.css",
+
     ]
 });
     // .js(res.js + "landing-opening.js", pub.js).react()
