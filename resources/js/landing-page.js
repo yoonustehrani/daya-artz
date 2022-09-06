@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MvpForm from './components/Landing/Coffeeshop/MvpForm';
+
 document.querySelectorAll('#faq-list > div > div:first-child').forEach((el, i) => {
     el.addEventListener('click', function() {
         let icon = this.querySelector('i.fas').classList
@@ -41,3 +45,9 @@ body.addEventListener("click", (e) => {
         toggle_menu()
     }
 })
+
+const formElement = document.getElementById('react-coffeeshop-form')
+
+if (formElement) {
+    ReactDOM.render(<MvpForm />, formElement)
+}

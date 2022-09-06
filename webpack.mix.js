@@ -65,7 +65,7 @@ mix.postCss(res.css + "landing.css", pub.css, [
         require('tailwindcss')({config: './tailwind.landing.config.js'}),
         require('autoprefixer'),
     ])
-    .js(res.js + 'landing-page.js', pub.js)
+    .js(res.js + 'landing-page.js', pub.js).react()
 mix.browserSync({
     port: 8080,
     proxy: "http://127.0.0.1:8000",
