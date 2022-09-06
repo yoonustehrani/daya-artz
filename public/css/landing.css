@@ -2968,8 +2968,7 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\f128"; }.fa-telegram-plane:before {
   content: "\f3fe"; }.fa-times:before {
   content: "\f00d"; }.fa-times-circle:before {
-  content: "\f057"; }.fa-user:before {
-  content: "\f007"; }.fa-user-circle:before {
+  content: "\f057"; }.fa-user-circle:before {
   content: "\f2bd"; }.fa-user-headset:before {
   content: "\f82d"; }.fa-user-tie:before {
   content: "\f508"; }.fa-utensils-alt:before {
@@ -3014,8 +3013,7 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\10f067"; }.fad.fa-question:after {
   content: "\10f128"; }.fad.fa-times:after {
   content: "\10f00d"; }.fad.fa-times-circle:after {
-  content: "\10f057"; }.fad.fa-user:after {
-  content: "\10f007"; }.fad.fa-user-circle:after {
+  content: "\10f057"; }.fad.fa-user-circle:after {
   content: "\10f2bd"; }.fad.fa-user-headset:after {
   content: "\10f82d"; }.fad.fa-user-tie:after {
   content: "\10f508"; }.fad.fa-utensils-alt:after {
@@ -3292,9 +3290,6 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.my-5{
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-}.my-10{
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
 }.mb-6{
   margin-bottom: 1.5rem;
 }.mb-4{
@@ -3664,22 +3659,19 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.bg-amber-300{
   --tw-bg-opacity: 1;
   background-color: rgb(252 211 77 / var(--tw-bg-opacity));
-}.bg-slate-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
 }.bg-red-300{
   --tw-bg-opacity: 1;
   background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }.bg-purple-300{
   --tw-bg-opacity: 1;
   background-color: rgb(196 181 253 / var(--tw-bg-opacity));
-}.bg-gray-300\/80{
-  background-color: rgb(209 213 219 / 0.8);
-}.bg-gray-300{
+}.bg-slate-500{
   --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
 }.bg-slate-700\/30{
   background-color: rgb(51 65 85 / 0.3);
+}.bg-gray-300\/80{
+  background-color: rgb(209 213 219 / 0.8);
 }.bg-gradient-to-r{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }.bg-gradient-to-l{
@@ -4068,9 +4060,6 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:bg-social-media-whatsapp:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(37 211 102 / var(--tw-bg-opacity));
-}.hover\:bg-amber-500:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 158 11 / var(--tw-bg-opacity));
 }.hover\:bg-purple-500:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(139 92 246 / var(--tw-bg-opacity));
@@ -4086,9 +4075,6 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}.hover\:text-gray-700:hover{
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
 }.hover\:ring-purple-200:hover{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(221 214 254 / var(--tw-ring-opacity));
@@ -4125,18 +4111,9 @@ readers do not read off random characters that represent icons */.fa-address-car
   --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity));
 }.focus\:ring-opacity-10:focus{
   --tw-ring-opacity: 0.1;
-}.disabled\:bg-gray-600:disabled{
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
-}.disabled\:bg-gray-400:disabled{
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }.disabled\:bg-gray-300:disabled{
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-}.disabled\:text-gray-500:disabled{
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
 }.disabled\:text-gray-400:disabled{
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
