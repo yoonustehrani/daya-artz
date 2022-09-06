@@ -224,8 +224,8 @@
             </div>
         </div>
         <div class="w-full md:w-11/12 backdrop-blur-sm p-5 rounded-md shadow-lg md:text-lg font-semibold
-        grid grid-flow-col auto-cols-[95%] md:grid-cols-4 md:place-content-around place-content-stretch
-        overflow-x-auto snap-x snap-mandatory md:snap-none gap-4 md:gap-8">
+        grid gap-4 md:gap-8 auto-cols-[95%] md:auto-cols-auto grid-flow-col md:grid-flow-row
+        md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:place-content-around overflow-x-auto snap-x snap-mandatory md:snap-none">
             <div class="px-3 py-5 snap-always snap-center bg-amber-500 flex flex-col items-center rounded-md text-white">
                 <div class="bg-white px-3 py-2 my-3 w-fit rounded-full">
                     <span class="text-amber-600 text-xl font-bold">افتتاح رستوران</span>
@@ -536,6 +536,15 @@
         </div>
     </section>
     {{-- Mvp form --}}
+    <div class="mt-10 py-3 text-center w-full grid place-content-center place-items-center">
+        <div class="w-fit grid place-content-center place-items-center text-gray-800">
+            <h2 class="font-bold text-2xl">فرم درخواست خدمات دایا آرتز</h2>
+            <span class="h-px w-[80%] block bg-gray-800 mt-8"></span>
+            <div class="rounded-full bg-white w-10 h-10 -mt-5 z-10 text-lg flex items-center justify-center">
+                <i class="far text-2xl fa-lightbulb"></i>
+            </div>
+        </div>
+    </div>
     <section class="w-full p-3 my-10">
         <p class="text-3xl text-center">فرم MVP</p>
     </section>
