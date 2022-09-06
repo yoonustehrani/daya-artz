@@ -524,7 +524,7 @@
             </div>
         </div>
     </div>
-    <section class="w-full p-3 my-10 grid grid-cols-1 md:grid-cols-2">
+    <section class="w-full p-3 mb-10 grid grid-cols-1 md:grid-cols-2">
         <div id="react-coffeeshop-form" class="p-3 flex flex-col items-center text-gray-900"></div>
         <div class="p-3">
             image goes here
