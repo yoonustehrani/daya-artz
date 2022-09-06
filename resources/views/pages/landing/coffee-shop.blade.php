@@ -50,28 +50,7 @@
             <br>
             <br>
             <p class="inline bg-black/70 md:bg-black/40 text-xl px-2 leading-relaxed text-white">همین حالا با ثبت شماره خود، گام اول در مسیر جذب مشتری بیشتر برای کافی شاپ یا کافه رستوران خود را بردارید.</p>
-            <form class="block w-fit p-4" onsubmit="void()">
-                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                    <div class="p-3 font-semibold">
-                        <div>
-                            <label class="text-with-shadow" for="time-morning">تماس از ساعت 8 الی 14</label>
-                            <input type="radio" name="time-to-call" id="time-morning">
-                        </div>
-                        <div>
-                            <label class="text-with-shadow" for="time-evening">تماس از ساعت 17 الی 21</label>
-                            <input type="radio" name="time-to-call" id="time-evening">
-                        </div>
-                    </div>
-                    <div class="p-3">
-                        <input
-                        class="text-left placeholder:text-right [direction:ltr] text-xl form-input bg-black/50 px-4 py-3 rounded-md border-transparent shadow-sm focus:outline-none focus:border-gray-600 focus:ring focus:ring-white focus:ring-opacity-10" 
-                        type="text" name="phone_number" placeholder="شماره موبایل">
-                    </div>
-                </div>
-                <div class="w-full px-3">
-                    <button class="float-left text-gray-800 text-xl bg-gray-300/80 py-1 px-6 rounded-md shadow-md" type="button">ارسال</button>
-                </div>
-            </form>
+            <div id="react_form" header-form-url="{{ route('api.forms.store', ['key' => 'coffeeshop-landing']) }}"></div>
         </div>
     </header>
     {{-- Client types title --}}
@@ -749,6 +728,10 @@
             </p>
         </div>
     </footer>
+    <script>
+        const APP_PATH = "{{ asset('/') }}"
+        const API_BASE_URL = "{{ route('api.') }}"
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
     <script src="{{ mix('js/landing-page.js') }}"></script>
 </body>

@@ -24,7 +24,11 @@ export default function MvpForm(props) {
     const placeHolder = "هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.\n- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم",
         inactiveClassNames = 'border-gray-500 ring-transparent',
         activeClassNames = 'border-amber-500 ring-amber-400'
-    
+    return (
+        <div>
+            <h1 className="text-3xl">Kir</h1>
+        </div>
+    )
     // return form && (
     //     <Formik
     //         initialValues={form.data}

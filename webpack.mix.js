@@ -36,11 +36,14 @@ const src = {
     }
 }
 var { res, pub, zeus } = src
+
 mix.disableNotifications()
+
 if (mix.inProduction) {
     mix.version()
 }
 
+let [sourceMapForProduction, sourceMapType] = [mix.inProduction(), mix.inProduction() ? 'eval' : undefined];
 // website
 // mix.sass(res.sass + 'app.scss', pub.css)
 // mix.sass(res.sass + '_fonts.scss', pub.css)
@@ -66,13 +69,16 @@ mix.postCss(res.css + "landing.css", pub.css, [
         require('autoprefixer'),
     ])
     .js(res.js + 'landing-page.js', pub.js).react()
+    .sourceMaps(sourceMapForProduction, sourceMapType)
 mix.browserSync({
     port: 8080,
     proxy: "http://127.0.0.1:8000",
     files: [
         "resources/views/**/*.blade.php",
         "resources/js/**/*.js",
-        "resources/css/**/*.css"
+        "resources/js/**/*.jsx",
+        "resources/css/**/*.css",
+
     ]
 });
     // .js(res.js + "landing-opening.js", pub.js).react()

@@ -6,11 +6,11 @@ module.exports = {
     content: [
         './resources/views/pages/landing/new-opening.blade.php',
         './resources/views/pages/landing/coffee-shop.blade.php',
-        './resources/js/landing-page.js'
+        './resources/js/landing-page.js',
         // './resources/views/components/layout/*.blade.php',
         // './resources/js/landing-opening.js',
         // './resources/views/components/quick-order-form.blade.php',
-        // './resources/js/components/Landing/**/*.jsx',
+        './resources/js/components/Landing/**/*.jsx',
         // './resources/js/landing-opening.js',
     ],
     theme: {
