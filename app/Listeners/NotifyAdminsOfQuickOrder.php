@@ -3,11 +3,9 @@
 namespace App\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class NotifyAdminsOfQuickOrder implements ShouldQueue
 {
-    use InteractsWithQueue;
     public $delay = 120;
     public $tries = 3;
     /**
