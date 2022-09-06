@@ -74,6 +74,7 @@
             </form>
         </div>
     </header>
+    {{-- Client types title --}}
     <div class="mt-10 mb-4 py-3 text-center w-full grid place-content-center place-items-center">
         <div class="w-fit grid place-content-center place-items-center text-gray-800">
             <h2 class="font-bold text-2xl">خدمات طراحی گرافیک برای انواع کافی شاپ ها</h2>
@@ -83,6 +84,7 @@
             </div>
         </div>
     </div>
+    {{-- Client types --}}
     <section class="p-3 w-full flex flex-col items-center gap-8 mb-10">
         <div class="w-11/12 md:w-5/6 p-3 flex flex-col items-center md:flex-row md:justify-center">
             <div class="p-3 h-[300px] relative">
@@ -124,6 +126,7 @@
             </div>
         </div>
     </section>
+    {{-- Services --}}
     <section class="w-full px-3 py-10 bg-coffeeshop-pattern text-classy-orange bg-cover bg-no-repeat bg-left-top grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0 place-content-center">
         <ul class="p-5 pb-0 md:pb-5 flex flex-col justify-around gap-4 items-start md:items-end md:gap-0 py-5 font-semibold text-lg md:text-xl">
             <li class="">
@@ -158,6 +161,7 @@
             </li>
         </ul>
     </section>
+    {{-- Ideas title --}}
     <div class="mt-10 py-3 text-center w-full grid place-content-center place-items-center">
         <div class="w-fit grid place-content-center place-items-center text-gray-800">
             <h2 class="font-bold text-2xl">طراحی گرافیک مکمل ایده های تبلیغاتی</h2>
@@ -167,6 +171,7 @@
             </div>
         </div>
     </div>
+    {{-- Ideas --}}
     <section class="p-3 w-full flex flex-col items-center mb-10">
         <div class="w-11/12 md:w-4/5 p-3 flex flex-col items-center md:flex-row md:justify-center">
             <div class="p-3 h-full">
@@ -207,6 +212,7 @@
             </div>
         </div>
     </section>
+    {{-- Packages --}}
     <section class="w-full py-5 h-auto bg-coffee-pattern bg-repeat bg-left-top flex flex-col gap-3 justify-center items-center">
         <div class="w-full py-3 text-center grid place-content-center place-items-center">
             <div class="w-fit bg-white/50 backdrop-blur-md grid place-content-center place-items-center text-gray-800 p-3 rounded-md">
@@ -529,9 +535,11 @@
             </div> --}}
         </div>
     </section>
+    {{-- Mvp form --}}
     <section class="w-full p-3 my-10">
         <p class="text-3xl text-center">فرم MVP</p>
     </section>
+    {{-- Startup path - six --}}
     <section class="w-full flex justify-center bg-[#3f403d] px-0 2xl:px-4 font-bold text-gray-800">
         <div class="w-full lg:w-11/12 xl:w-10/12 2xl:w-4/5 4k:w-3/5 md:grid flex justify-start px-2 py-4 md:px-1 lg:p-5 items-center md:grid-cols-3 md:grid-rows-2 place-items-center snap-mandatory md:snap-none overflow-x-auto md:overflow-x-hidden overflow-y-hidden h-72 md:h-auto">
             {{-- ITEM 1 --}}
@@ -634,6 +642,7 @@
             </div>
         </div>
     </section>
+    {{-- FAQ --}}
     <section class="w-full flex flex-col items-center p-3 my-5">
         <div class="my-3 py-3 text-center w-full grid place-content-center place-items-center">
             <div class="w-fit grid place-content-center place-items-center text-gray-800">
@@ -648,7 +657,7 @@
             <div class="border-t border-gray-400 py-8 px-5 text-2xl">
                 <div class="hover:cursor-pointer my-3">
                     <h4 class="inline w-fit font-semibold">بعد از ثبت سفارش، زمان تحویل هر سفارش چه قدر طول می کشه؟</h4>
-                    <i class="inline float-left fas fa-angle-up mt-2"></i>
+                    <i class="inline float-left duration-300 fas fa-angle-up mt-2"></i>
                 </div>
                 <p class="text-base hidden text-gray-500 mt-5 mb-3">
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
@@ -657,7 +666,7 @@
             <div class="border-t border-gray-400 py-8 px-5 text-2xl">
                 <div class="hover:cursor-pointer my-3">
                     <h4 class="inline w-fit font-semibold">پشتیبانی و پیگیری سفارش ها در دایا آرتز چگونه است ؟</h4>
-                    <i class="inline float-left fas fa-angle-up mt-2"></i>
+                    <i class="inline float-left duration-300 fas fa-angle-up mt-2"></i>
                 </div>
                 <p class="text-base hidden my-3">
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
@@ -666,7 +675,7 @@
             <div class="border-t border-gray-400 py-8 px-5 text-2xl">
                 <div class="hover:cursor-pointer my-3">
                     <h4 class="inline w-fit font-semibold">مراحل و شیوه های پرداخت هزینه سفارشات به چه صورت خواهد بود ؟</h4>
-                    <i class="inline float-left fas fa-angle-up mt-2"></i>
+                    <i class="inline float-left duration-300 fas fa-angle-up mt-2"></i>
                 </div>
                 <p class="text-base hidden my-3">
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
@@ -675,7 +684,7 @@
             <div class="border-t border-gray-400 py-8 px-5 text-2xl">
                 <div class="hover:cursor-pointer my-3">
                     <h4 class="inline w-fit font-semibold">دایا آرتز دیگه برای چه کسب و کار هایی طراحی می کنه؟</h4>
-                    <i class="inline float-left fas fa-angle-up mt-2"></i>
+                    <i class="inline float-left duration-300 fas fa-angle-up mt-2"></i>
                 </div>
                 <p class="text-base hidden my-3">
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
@@ -683,6 +692,7 @@
             </div>
         </div>
     </section>
+    {{-- Footer --}}
     <footer class="w-full mt-5 bg-amber-700 text-white">
         <div class="bg-footer-pattern bg-cover bg-left bg-no-repeat p-8 pb-0 grid grid-cols-1 md:grid-cols-3 md:place-items-center justify-center gap-4">
             <div>
