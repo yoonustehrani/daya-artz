@@ -6,11 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $page->title }}</title>
     <link rel="stylesheet" href="{{ mix('css/landing.css') }}">
-    <style>
-        .text-with-shadow {
-            text-shadow: -0.125rem 0.25rem 2px rgba(0,0,0,0.7);
-        }
-    </style>
 </head>
 <body class="w-full h-full m-0 p-0">
     <header class="w-full h-fit bg-coffeeshop-medium lg:bg-coffeeshop 2xl:bg-coffeeshop-high bg-left-top bg-cover bg-no-repeat md:bg-fixed pb-10">
