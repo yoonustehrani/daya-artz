@@ -50,7 +50,7 @@
             <br>
             <br>
             <p class="inline bg-black/70 md:bg-black/40 text-xl px-2 leading-relaxed text-white">همین حالا با ثبت شماره خود، گام اول در مسیر جذب مشتری بیشتر برای کافی شاپ یا کافه رستوران خود را بردارید.</p>
-            <div id="react_form" header-form-url="{{ route('api.forms.store', ['key' => 'coffeeshop-landing']) }}"></div>
+            <div id="react_form" header-form-url="{{ route('api.forms.store', ['key' => 'coffeeshop-landing-header']) }}"></div>
         </div>
     </header>
     {{-- Client types title --}}
@@ -525,7 +525,7 @@
         </div>
     </div>
     <section class="w-full p-3 mb-10 grid grid-cols-1 md:grid-cols-2">
-        <div id="react-coffeeshop-form" class="p-3 flex flex-col items-center text-gray-900"></div>
+        <div id="react-coffeeshop-form" data-show="{{ route('api.forms.show', ['key' => 'coffeeshop-landing']) }}" data-store="{{ route('api.forms.store', ['key' => 'coffeeshop-landing']) }}" class="p-3 flex flex-col items-center text-gray-900"></div>
         <div class="p-3">
             image goes here
         </div>

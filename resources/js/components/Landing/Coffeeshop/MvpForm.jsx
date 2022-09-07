@@ -1,50 +1,52 @@
-import { Field, Form, Formik } from "formik";
-import { useEffect } from "react";
-import { useState } from "react";
+import { Field, Form, Formik, ErrorMessage } from "formik";
+import * as Yup from 'yup';
+import { useEffect, useState } from "react";
 import AlertService from "../../../services/AlertService";
 import { useHttpService } from "../../../userarea/hooks";
-import validation from "./validation";
 
-export default function MvpForm(props) {
+const validation = Yup.object({
+    business_type: Yup.string().required('اجباری است'),
+    fullname: Yup.string().min(5, 'حداقل 5 حرف').max(30, 'نهایتا 30 حرف').required('اجباری است'),
+    phone_number: Yup.string().matches(/^0?9[0-9]{9}$/, 'شماره معتبر نیست').required('اجباری است'),
+    notes: Yup.string().min(4, 'حداقل 4 حرف').max(300, 'نهایتا 300 کاراکتر').optional()
+})
+
+export default function MvpForm({formData, formAnswer}) {
     const http = useHttpService("")
     const Alert = new AlertService({customClass: {container: "rtl"}, timer: 3000, showConfirmButton: false})
+
     const [disbaled, setDisabled] = useState(false)
     const [form, setForm] = useState(null)
-    useEffect(() => {
-        let data = {
-            data: {
-                business_type: '',
-                fullname: '',
-                phone_number: '',
-                notes: ''
-            },
-            businessType: [
-                {name: 'coffeeshop', title: 'کافی شاپ', icon: 'far fa-coffee'},
-                {name: 'takeaway', title: 'کافه takeaway', icon: 'far fa-coffee-togo'},
-                {name: 'coffee-restaurant', title: 'کافه رستوران', icon: 'fas fa-utensils-alt'}
-            ]
-        }
-        setForm(data)
-    }, [])
-    const placeHolder = "هدف فعلی تبلیغاتی/برندینگ که دغدغه شما یا سازمان تان است را شرح دهید.\n- برای مثال:‌ من قصد افزایش فروش رستوران خود را با ارتقا سطح برند خود دارم",
-        inactiveClassNames = 'border-gray-500 ring-transparent',
-        activeClassNames = 'border-amber-500 ring-amber-400'
 
+    const inactiveClassNames = 'border-gray-500 ring-transparent', activeClassNames = 'border-amber-500 ring-amber-400'
+
+    const handleSubmit = async (values, { setSubmitting }) => {
+        const filteredValues = Object.fromEntries(Object.entries(values).filter(([key, value]) => Object.keys(form.inputData).includes(key)))
+        const response = await http.post(formAnswer, filteredValues)
+        console.log(response);
+        setSubmitting(false)
+    }
+
+    useEffect(() => {
+        http.get(formData).then(res => {
+            let {inputs} = res
+            let inputData = inputs.reduce((prev, current) => ({...prev, [current.name]: current}), {})
+            let data = inputs.reduce((prev, current) => ({...prev, [current.name]: current.default ?? ''}), {});
+            let businessType = inputs.filter(x => x.name === 'business_type')[0]?.details?.meta
+            setForm({businessType, data, inputData})
+        })
+    }, [])
+    
     return form && (
         <Formik
             initialValues={form.data}
-            // validationSchema={validation}
-            onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                    console.log(values)
-                    setSubmitting(false);
-                }, 2000);
-            }}
+            validationSchema={validation}
+            onSubmit={handleSubmit}
         >
         {({ isSubmitting, setFieldValue, values }) => (
             <Form className="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 bg-white shadow-lg rounded-md p-6">
-                <div id="position" className="col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8 h-fit">
-                    <p className="col-span-full font-semibold text-lg">- مسئولیت شما در کسب و کارتان کدام یک از موارد زیر است؟</p>
+                <div className="col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8 h-fit">
+                    <p className="col-span-full font-semibold text-lg">- {form.inputData['business_type'].placeholder}</p>
                     {form.businessType.map((business, key) => (
                         <div 
                             key={key}
@@ -60,18 +62,24 @@ export default function MvpForm(props) {
                             <span className="mt-4 text-lg text-gray-600 text-center">{business.title}</span>
                         </div>
                     ))}
+                    <div className="col-span-full">
+                        <span className="text-sm text-red-500"><ErrorMessage name="business_type"/></span>
+                    </div>
                 </div>
                 <div className="col-span-full lg:col-span-1">
-                    <p className="font-semibold text-lg">- نام و  نام خانوادگی</p>
+                    <p className="font-semibold text-lg">- {form.inputData['fullname'].label}</p>
                     <Field name="fullname" type="text" disabled={isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" />
+                    <span className="text-sm text-red-500"><ErrorMessage name="fullname"/></span>
                 </div>
                 <div className="col-span-full lg:col-span-1">
-                    <p className="font-semibold text-lg">- شماره تماس</p>
-                    <Field name="phone_number" type="text" disabled={isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" style={{ direction: 'ltr' }} />
+                    <p className="font-semibold text-lg">- {form.inputData['phone_number'].label}</p>
+                    <Field name="phone_number" type="text" disabled={isSubmitting} placeholder={form.inputData['phone_number'].placeholder} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300 placeholder:text-right" style={{ direction: 'ltr' }} />
+                    <span className="text-sm text-red-500"><ErrorMessage name="phone_number"/></span>
                 </div>
                 <div id="description" className="col-span-full">
-                    <p className="font-semibold text-lg">- یادداشت شما</p>
-                    <Field as="textarea" name="notes" placeholder={placeHolder} disabled={isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" cols="30" rows="5" />
+                    <p className="font-semibold text-lg">- {form.inputData['notes'].label}</p>
+                    <Field as="textarea" name="notes" placeholder={form.inputData['notes'].placeholder} disabled={isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" cols="30" rows="5" />
+                    <span className="text-sm text-red-500"><ErrorMessage name="notes"/></span>
                 </div>
                 <div className="col-span-full text-center">
                     <button type="submit" disabled={isSubmitting} className="w-fit py-2 px-6 text-base shadow-lg text-gray-700 bg-amber-500 disabled:text-gray-400 disabled:bg-gray-300 duration-200 cursor-pointer rounded-md">ارسال اطلاعات</button>
