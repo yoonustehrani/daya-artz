@@ -70,6 +70,7 @@ mix.postCss(res.css + "landing.css", pub.css, [
     ])
     .js(res.js + 'landing-page.js', pub.js).react()
     .sourceMaps(sourceMapForProduction, sourceMapType)
+
 mix.browserSync({
     port: 8080,
     proxy: "http://127.0.0.1:8000",
@@ -80,7 +81,7 @@ mix.browserSync({
         "resources/css/**/*.css",
 
     ]
-});
+})
     // .js(res.js + "landing-opening.js", pub.js).react()
     
 // zeus

@@ -1,10 +1,18 @@
-import React from 'react';
+import Loading from './components/Loading';
+import { lazy, Suspense } from 'react';
 import {render} from 'react-dom';
-import MvpForm from './components/Landing/Coffeeshop/MvpForm';
-import HeaderForm from './components/Landing/Form/HeaderForm'
+
+const MvpForm = lazy(() => import('./components/Landing/Coffeeshop/MvpForm'))
+const HeaderForm = lazy(() => import('./components/Landing/Form/HeaderForm'))
+
 const react_form = document.getElementById("react_form"), header_form_url = react_form.getAttribute("header-form-url")
 if (react_form) {
-    render(<HeaderForm headerFormUrl={header_form_url} />, react_form)
+    render(
+        <Suspense fallback={<Loading />}>
+            <HeaderForm headerFormUrl={header_form_url} />
+        </Suspense>,
+        react_form
+    )
 }
 
 // faq
@@ -55,5 +63,10 @@ body.addEventListener("click", (e) => {
 const formElement = document.getElementById('react-coffeeshop-form')
 
 if (formElement) {
-    render(<MvpForm />, formElement)
+    render(
+        <Suspense fallback={<Loading />}>
+            <MvpForm formData={formElement.getAttribute('data-show')} formAnswer={formElement.getAttribute('data-store')}/>
+        </Suspense>,
+        formElement
+    )
 }

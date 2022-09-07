@@ -2951,8 +2951,7 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\f00c"; }.fa-check-circle:before {
   content: "\f058"; }.fa-circle:before {
   content: "\f111"; }.fa-clipboard-list:before {
-  content: "\f46d"; }.fa-coffee:before {
-  content: "\f0f4"; }.fa-coffee-togo:before {
+  content: "\f46d"; }.fa-coffee-togo:before {
   content: "\f6c5"; }.fa-hashtag:before {
   content: "\f292"; }.fa-home:before {
   content: "\f015"; }.fa-instagram:before {
@@ -2971,8 +2970,7 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\f057"; }.fa-user-circle:before {
   content: "\f2bd"; }.fa-user-headset:before {
   content: "\f82d"; }.fa-user-tie:before {
-  content: "\f508"; }.fa-utensils-alt:before {
-  content: "\f2e6"; }.fa-whatsapp:before {
+  content: "\f508"; }.fa-whatsapp:before {
   content: "\f232"; }@font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
@@ -2999,8 +2997,7 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\10f00c"; }.fad.fa-check-circle:after {
   content: "\10f058"; }.fad.fa-circle:after {
   content: "\10f111"; }.fad.fa-clipboard-list:after {
-  content: "\10f46d"; }.fad.fa-coffee:after {
-  content: "\10f0f4"; }.fad.fa-coffee-togo:after {
+  content: "\10f46d"; }.fad.fa-coffee-togo:after {
   content: "\10f6c5"; }.fad.fa-hashtag:after {
   content: "\10f292"; }.fad.fa-home:after {
   content: "\10f015"; }.fad.fa-lightbulb:after {
@@ -3016,8 +3013,7 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\10f057"; }.fad.fa-user-circle:after {
   content: "\10f2bd"; }.fad.fa-user-headset:after {
   content: "\10f82d"; }.fad.fa-user-tie:after {
-  content: "\10f508"; }.fad.fa-utensils-alt:after {
-  content: "\10f2e6"; }@font-face {
+  content: "\10f508"; }@font-face {
   font-family: 'Font Awesome 5 Pro';
   font-style: normal;
   font-weight: 300;
@@ -3892,6 +3888,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.text-gray-500{
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}.text-red-500{
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }.text-red-200{
   --tw-text-opacity: 1;
   color: rgb(254 202 202 / var(--tw-text-opacity));
@@ -3950,6 +3949,8 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.ring-purple-400{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(167 139 250 / var(--tw-ring-opacity));
+}.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }.backdrop-blur-md{
   --tw-backdrop-blur: blur(12px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -4013,7 +4014,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.\[animation-duration\:0\.2s\]{
   -webkit-animation-duration: 0.2s;
           animation-duration: 0.2s;
-}.placeholder\:text-right::-moz-placeholder{
+}/* .text-with-shadow {
+    text-shadow: -0.125rem 0.25rem 2px rgba(0,0,0,0.7);
+} */.placeholder\:text-right::-moz-placeholder{
   text-align: right;
 }.placeholder\:text-right:-ms-input-placeholder{
   text-align: right;
