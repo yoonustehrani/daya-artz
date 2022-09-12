@@ -530,8 +530,8 @@
         <div class="w-full lg:w-11/12 xl:w-10/12 2xl:w-4/5 4k:w-3/5 md:grid flex justify-start px-2 py-4 md:px-1 lg:p-5 items-center md:grid-cols-3 md:grid-rows-2 place-items-center snap-mandatory md:snap-none overflow-x-auto md:overflow-x-hidden overflow-y-hidden h-72 md:h-auto">
             {{-- ITEM 1 --}}
             <div class="relative aspect-square md:w-full md:mt-0 snap-always snap-center h-full md:h-auto">
-                <div class="borderable-circle border-classy-orange border-b-transparent rotate-45 overflow-hidden">
-                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center p-5">
+                <div class="borderable-circle border-classy-orange border-b-transparent rotate-45 flex justify-center items-center overflow-hidden">
+                    <div class="w-[190px] h-[190px] md:w-full md:h-full mx-auto relative box-border bg-white rotate-[-45deg] flex justify-center p-5 rounded-full">
                         <p class="text-center p-3 xl:p-6 h-full rounded-full flex justify-center items-center text-base lg:text-xl 2xl:text-2xl 4k:text-3xl">جمع آوری اطلاعات و تعیین اهداف تبلیغاتی</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-[#3f403d] flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-classy-orange flex justify-center items-center">
@@ -544,8 +544,8 @@
             </div>
             {{-- ITEM 2 --}}
             <div class="relative aspect-square md:w-full md:mt-0 snap-always snap-center h-full md:h-auto">
-                <div class="borderable-circle md:mt-16 border-transparent border-b-classy-orange border-r-classy-orange rotate-45">
-                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                <div class="borderable-circle md:mt-16 border-transparent border-b-classy-orange border-r-classy-orange flex justify-center items-center rotate-45">
+                    <div class="w-[190px] h-[190px] md:w-full md:h-full mx-auto relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-[#3f403d] flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-classy-orange flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">02</span>
@@ -560,8 +560,8 @@
             </div>
             {{-- ITEM 3 --}}
             <div class="relative aspect-square md:w-full md:mt-0 snap-always snap-center h-full md:h-auto">
-                <div class="borderable-circle border-classy-orange border-b-transparent md:border-b-classy-orange border-r-transparent rotate-45">
-                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                <div class="borderable-circle border-classy-orange border-b-transparent md:border-b-classy-orange border-r-transparent rotate-45 flex justify-center items-center">
+                    <div class="w-[190px] h-[190px] md:w-full md:h-full mx-auto box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         {{-- <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl grid place-content-center">لیست پیشنهادی طراحی های موردنیاز جهت دستیابی به هدفتان به شما ارائه می شود</p> --}}
                         <div class="text-center p-3 lg:pt-6 xl:p-6 xl:mt-6 h-3/4 rounded-full text-sm lg:text-base 2xl:text-xl 4k:text-2xl">
                             <span class="text-base lg:text-xl 2xl:text-2xl 4k:text-3xl">پروسه تحقیقات</span>
@@ -584,8 +584,8 @@
             </div>
             {{-- ITEM 6 --}}
             <div class="relative aspect-square md:w-full md:mt-0 order-6 md:order-4 snap-always snap-center h-full md:h-auto">
-                <div class="borderable-circle md:mt-2 border-classy-orange border-t-transparent md:border-t-classy-orange md:border-l-transparent rotate-45">
-                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                <div class="borderable-circle md:mt-2 border-classy-orange border-t-transparent md:border-t-classy-orange md:border-l-transparent rotate-45 flex justify-center items-center">
+                    <div class="w-[190px] h-[190px] md:w-full md:h-full mx-auto box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-[#3f403d] flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-classy-orange flex justify-center items-center">
                                 <span class="lg:text-4xl font-bold text-white mt-2">06</span>
@@ -601,8 +601,8 @@
             </div>
             {{-- ITEM 5 --}}
             <div class="relative aspect-square md:w-full md:mt-0 order-5 snap-always snap-center h-full md:h-auto">
-                <div class="borderable-circle md:-mt-4 border-transparent border-t-classy-orange border-l-classy-orange rotate-45">
-                    <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
+                <div class="borderable-circle md:-mt-4 border-transparent border-t-classy-orange border-l-classy-orange rotate-45 flex justify-center items-center">
+                    <div class="w-[190px] h-[190px] md:w-full md:h-full mx-auto box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-5">
                         <p class="text-center p-3 xl:p-6 h-3/4 rounded-full text-base lg:text-xl 2xl:text-2xl 4k:text-3xl grid place-content-center">انجام طراحی های برنامه ریزی شده</p>
                         <div class="w-1/3 h-1/3 absolute bottom-[-10%] rounded-full bg-[#3f403d] flex justify-center items-center p-2">
                             <div class="w-full h-full rounded-full bg-classy-orange flex justify-center items-center">
@@ -616,8 +616,8 @@
                 </span>
             </div>
             {{-- ITEM 4 --}}
-            <div class="borderable-circle aspect-square md:mt-2 border-classy-orange border-t-transparent border-l-transparent md:border-l-classy-orange rotate-45 order-4 md:order-6 snap-always snap-center h-full md:h-auto">
-                <div class="w-full h-full relative box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-0 md:p-5">
+            <div class="borderable-circle aspect-square md:mt-2 border-classy-orange border-t-transparent flex justify-center items-center border-l-transparent md:border-l-classy-orange rotate-45 order-4 md:order-6 snap-always snap-center h-full md:h-auto">
+                <div class="w-[190px] h-[190px] md:w-full md:h-full mx-auto box-border rounded-full bg-white rotate-[-45deg] flex justify-center items-center p-0 md:p-5">
                     <div class="w-1/3 h-1/3 absolute top-[-10%] rounded-full bg-[#3f403d] flex justify-center items-center p-2">
                         <div class="w-full h-full rounded-full bg-classy-orange flex justify-center items-center">
                             <span class="lg:text-4xl font-bold text-white mt-2">04</span>
