@@ -3373,34 +3373,12 @@ readers do not read off random characters that represent icons */.fa-address-car
   height: 1px;
 }.h-\[300px\]{
   height: 300px;
+}.h-\[190px\]{
+  height: 190px;
 }.h-12{
   height: 3rem;
 }.h-8{
   height: 2rem;
-}.h-7{
-  height: 1.75rem;
-}.h-\[\]{
-  height: ;
-}.h-\[400p\]{
-  height: 400p;
-}.h-\[400px\]{
-  height: 400px;
-}.h-\[100px\]{
-  height: 100px;
-}.h-\[300pz\]{
-  height: 300pz;
-}.h-\[200px\]{
-  height: 200px;
-}.h-\[150px\]{
-  height: 150px;
-}.h-\[170px\]{
-  height: 170px;
-}.h-\[190px\]{
-  height: 190px;
-}.h-\[2-0px\]{
-  height: 2 - 0px;
-}.h-\[195px\]{
-  height: 195px;
 }.max-h-\[350px\]{
   max-height: 350px;
 }.w-full{
@@ -3421,40 +3399,12 @@ readers do not read off random characters that represent icons */.fa-address-car
   width: 80%;
 }.w-11\/12{
   width: 91.666667%;
+}.w-\[190px\]{
+  width: 190px;
 }.w-12{
   width: 3rem;
 }.w-8{
   width: 2rem;
-}.w-7{
-  width: 1.75rem;
-}.w-72{
-  width: 18rem;
-}.w-\[\]{
-  width: ;
-}.w-\[400pz\]{
-  width: 400pz;
-}.w-\[400px\]{
-  width: 400px;
-}.w-\[100px\]{
-  width: 100px;
-}.w-\[200p\]{
-  width: 200p;
-}.w-\[200px\]{
-  width: 200px;
-}.w-\[0px\]{
-  width: 0px;
-}.w-\[1500px\]{
-  width: 1500px;
-}.w-\[150px\]{
-  width: 150px;
-}.w-\[170px\]{
-  width: 170px;
-}.w-\[190px\]{
-  width: 190px;
-}.w-\[1px\]{
-  width: 1px;
-}.w-\[195px\]{
-  width: 195px;
 }.min-w-\[60px\]{
   min-width: 60px;
 }.min-w-\[50\%\]{
@@ -3480,10 +3430,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }.rotate-180{
   --tw-rotate: 180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}.scale-50{
-  --tw-scale-x: .5;
-  --tw-scale-y: .5;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }@keyframes pulse{50%{
     opacity: .5;
@@ -3995,6 +3941,9 @@ readers do not read off random characters that represent icons */.fa-address-car
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}.shadow-orange-500\/50{
+  --tw-shadow-color: rgb(249 115 22 / 0.5);
+  --tw-shadow: var(--tw-shadow-colored);
 }.outline-none{
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -4316,6 +4265,9 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:mr-10{
     margin-right: 2.5rem;
   }
+    .md\:mt-12{
+    margin-top: 3rem;
+  }
     .md\:block{
     display: block;
   }
@@ -4556,6 +4508,9 @@ readers do not read off random characters that represent icons */.fa-address-car
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+    .md\:leading-loose{
+    line-height: 2;
+  }
     .md\:opacity-100{
     opacity: 1;
   }
@@ -4639,6 +4594,8 @@ readers do not read off random characters that represent icons */.fa-address-car
     width: 25%;
   }.xl\:w-8\/12{
     width: 66.666667%;
+  }.xl\:w-4\/5{
+    width: 80%;
   }.xl\:w-3\/4{
     width: 75%;
   }.xl\:min-w-\[88px\]{
