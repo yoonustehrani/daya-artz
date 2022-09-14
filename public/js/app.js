@@ -2060,8 +2060,26 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // custom components
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$('.scroll-to-element').on('click', function (e) {
+  var elem; // console.log(e.target.getAttribute('data-scroll'));
+
+  switch (e.target.getAttribute('data-scroll')) {
+    case 'pricing':
+      elem = document.getElementsByClassName('order-packs-section')[0];
+      break;
+
+    case 'portfolio':
+      elem = document.getElementById('portfolio-section');
+      break;
+  }
+
+  elem && elem.scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+$('.post-main-section img').addClass('lazyload'); // custom components
 
 __webpack_require__(/*! ./components */ "./resources/js/components/index.js");
 
@@ -2083,25 +2101,6 @@ __webpack_require__(/*! ./components */ "./resources/js/components/index.js");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-$('.scroll-to-element').on('click', function (e) {
-  var elem;
-  console.log(e.target.getAttribute('data-scroll'));
-
-  switch (e.target.getAttribute('data-scroll')) {
-    case 'pricing':
-      elem = document.getElementsByClassName('order-packs-section')[0];
-      break;
-
-    case 'portfolio':
-      elem = document.getElementById('portfolio-section');
-      break;
-  }
-
-  elem && elem.scrollIntoView({
-    behavior: 'smooth',
-    block: 'center'
-  });
-});
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -35128,7 +35127,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 //! moment.js
-//! version : 2.29.3
+//! version : 2.29.4
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -37582,7 +37581,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
     function preprocessRFC2822(s) {
         // Remove comments and folding whitespace and replace multiple-spaces with a single space
         return s
-            .replace(/\([^)]*\)|[\n\t]/g, ' ')
+            .replace(/\([^()]*\)|[\n\t]/g, ' ')
             .replace(/(\s\s+)/g, ' ')
             .replace(/^\s\s*/, '')
             .replace(/\s\s*$/, '');
@@ -40763,7 +40762,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
     //! moment.js
 
-    hooks.version = '2.29.3';
+    hooks.version = '2.29.4';
 
     setHookCallback(createLocal);
 

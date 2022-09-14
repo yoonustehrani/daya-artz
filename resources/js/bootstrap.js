@@ -11,19 +11,6 @@ window.$ = window.jQuery = require('jquery');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-$('.scroll-to-element').on('click', function(e) {
-    let elem;
-    console.log(e.target.getAttribute('data-scroll'));
-    switch (e.target.getAttribute('data-scroll')) {
-        case 'pricing':
-            elem = document.getElementsByClassName('order-packs-section')[0]
-            break;
-        case 'portfolio':
-            elem = document.getElementById('portfolio-section')
-            break;
-    }
-    elem && elem.scrollIntoView({ behavior: 'smooth', block: 'center' })
-})
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

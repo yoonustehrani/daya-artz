@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ mix("css/_fonts.css") }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="preload" as="image" href="{{ asset('images/spinner.gif') }}">
     @stack('head')
     @include('components.gstag')
 </head>
@@ -25,7 +26,7 @@
         APP_PATH = "{{ asset('/') }}"
     </script>
     <script src="{{ mix('js/app.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
     @stack('scripts')
 </body>
 </html>
