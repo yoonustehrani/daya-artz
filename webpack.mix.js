@@ -41,11 +41,13 @@ if (mix.inProduction) {
     mix.version()
 }
 
+let [sourceMapForProduction, sourceMapType] = [mix.inProduction(), mix.inProduction() ? 'eval' : undefined];
+
 // website
 mix.sass(res.sass + 'app.scss', pub.css)
-mix.sass(res.sass + '_fonts.scss', pub.css)
-mix.js(res.js + 'app.js', pub.js).react()
-mix.js(res.js + "userarea.js", pub.js).react()
+    .sass(res.sass + '_fonts.scss', pub.css)
+    .js(res.js + 'app.js', pub.js).react()
+    .js(res.js + "userarea.js", pub.js).react().sourceMaps(sourceMapForProduction, sourceMapType)
 // err
 mix.sass(res.sass + "err.scss", pub.css)
 // catalog
