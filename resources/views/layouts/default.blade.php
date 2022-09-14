@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ mix("css/_fonts.css") }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="preload" as="image" href="{{ asset('images/spinner.gif') }}">
     @stack('head')
     @include('components.gstag')
 </head>
