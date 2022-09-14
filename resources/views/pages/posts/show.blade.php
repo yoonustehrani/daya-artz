@@ -73,7 +73,7 @@
                 </div>
                 <div class="post-info-cover float-left mt-2 mt-md-0">
                     @if ($post->image && $post->image->file)
-                        <img data-src="{{ asset($post->image->file->path) }}" alt="{{ $post->image->alt }}" class="lazyload">
+                        <img data-src="{{ asset($post->image->file->path) }}" alt="{{ $post->image->alt }}" class="m-auto lazyload">
                     @endif
                 </div>
             </div>
