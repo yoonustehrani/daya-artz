@@ -1,28 +1,30 @@
 import { lazy, Suspense } from "react";
 import { render } from "react-dom";
+import Loading from './Loading';
+import './menu';
+import './logo-fade';
+import './item-info';
+import './accordion';
+import './animation';
+import './section-guide';
+import 'select2/dist/js/select2.min.js';
+import './services';
+import './scrollTo';
+import './portfolioImages';
+import './loadEnamad';
+// import './lazyLoad';
+import './lity';
+
 const QuickOrder = lazy(() => import('./QuickOrder'));
 const PortfolioSection = lazy(() => import('./PortfolioSection'));
 const BlogSwiper = lazy(() => import('./BlogSuggestion'));
 const ServiceSearch = lazy(() => import('./ServiceSearch'));
-import './menu'
-import './logo-fade'
-import './item-info'
-import './accordion'
-import './animation'
-import './section-guide'
-import 'select2/dist/js/select2.min.js'
-import './services'
-import './scrollTo'
-import './portfolioImages'
-import './loadEnamad'
-// import './lazyLoad'
-import './lity'
 
 // quick order
 const quickOrderElement = document.getElementById("react-quick-order")
 if (quickOrderElement) {
     render(
-        <Suspense>
+        <Suspense fallback={<Loading />}>
             <QuickOrder reCAPTCHA_Key={quickOrderElement.getAttribute('data-recaptcha')} targetApi={quickOrderElement.getAttribute('data-post-api')} searchApi={quickOrderElement.getAttribute("data-search")} dataInitial={quickOrderElement.getAttribute("data-initial")}/>
         </Suspense>,
         quickOrderElement
@@ -33,7 +35,7 @@ if (quickOrderElement) {
 const portfolioSectionElement = document.querySelector("div[react-portfolio-section]");
 if (portfolioSectionElement) {
     render(
-        <Suspense>
+        <Suspense fallback={<Loading />}>
             <PortfolioSection targetApi={portfolioSectionElement.getAttribute('data-target-api')}/>
         </Suspense>,
         portfolioSectionElement
@@ -44,7 +46,7 @@ if (portfolioSectionElement) {
 const blogSuggestionElement = document.getElementById("blog-suggestion-react")
 if (blogSuggestionElement) {
     render(
-        <Suspense>
+        <Suspense fallback={<Loading />}>
             <BlogSwiper apiTargetLatest={blogSuggestionElement.getAttribute("api-target-latest")} apiTargetRandom={blogSuggestionElement.getAttribute("api-target-random")}/>
         </Suspense>,
         blogSuggestionElement
@@ -55,7 +57,7 @@ if (blogSuggestionElement) {
 const serviceSearchElement = document.getElementById("react-service-search")
 if (serviceSearchElement) {
     render(
-        <Suspense>
+        <Suspense fallback={<Loading />}>
             <ServiceSearch searchApi={serviceSearchElement.getAttribute("data-search")}/>
         </Suspense>,
         serviceSearchElement
