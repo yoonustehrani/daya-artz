@@ -130,8 +130,7 @@ const mceOptions = {
             picker.style.display = 'none'
             document.body.append(picker)
             function insertImage(file) {
-                // src="${APP_PATH + file.thumbnail_path}"
-                editor.insertContent(`&nbsp;<img class="lazyload" data-src="${APP_PATH + file.path}"/>&nbsp;`)
+                editor.insertContent(`&nbsp;<img class="lazyload" src="${APP_PATH + file.thumbnail_path}" data-src="${APP_PATH + file.path}"/>&nbsp;`)
                 picker.style.display = 'none'
             }
             render(
