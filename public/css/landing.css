@@ -3268,6 +3268,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   margin: 0.5rem;
 }.m-0{
   margin: 0px;
+}.m-3{
+  margin: 0.75rem;
 }.mx-2{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -3331,12 +3333,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   margin-top: 25%;
 }.mb-3{
   margin-bottom: 0.75rem;
-}.ml-auto{
-  margin-left: auto;
-}.mr-auto{
-  margin-right: auto;
-}.ml-1{
-  margin-left: 0.25rem;
 }.box-border{
   box-sizing: border-box;
 }.block{
@@ -3413,6 +3409,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   width: 2rem;
 }.min-w-\[60px\]{
   min-width: 60px;
+}.min-w-\[95\%\]{
+  min-width: 95%;
 }.min-w-\[50\%\]{
   min-width: 50%;
 }.max-w-2xl{
@@ -4212,6 +4210,9 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:m-5{
     margin: 1.25rem;
   }
+    .md\:m-\[2\%\]{
+    margin: 2%;
+  }
     .md\:my-4{
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -4271,20 +4272,14 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:mr-10{
     margin-right: 2.5rem;
   }
+    .md\:mr-\[initial\]{
+    margin-right: initial;
+  }
     .md\:mt-12{
     margin-top: 3rem;
   }
     .md\:mr-auto{
     margin-right: auto;
-  }
-    .md\:ml-auto{
-    margin-left: auto;
-  }
-    .md\:mr-\[\]{
-    margin-right: ;
-  }
-    .md\:mr-\[initial\]{
-    margin-right: initial;
   }
     .md\:block{
     display: block;
@@ -4342,11 +4337,17 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:w-11\/12{
     width: 91.666667%;
   }
+    .md\:w-\[46\%\]{
+    width: 46%;
+  }
     .md\:w-1\/2{
     width: 50%;
   }
     .md\:min-w-\[76px\]{
     min-width: 76px;
+  }
+    .md\:min-w-0{
+    min-width: 0px;
   }
     .md\:max-w-none{
     max-width: none;
@@ -4376,6 +4377,9 @@ readers do not read off random characters that represent icons */.fa-address-car
   }
     .md\:flex-row{
     flex-direction: row;
+  }
+    .md\:flex-wrap{
+    flex-wrap: wrap;
   }
     .md\:place-content-around{
     place-content: space-around;
@@ -4502,24 +4506,6 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:pb-5{
     padding-bottom: 1.25rem;
   }
-    .md\:pl-10{
-    padding-left: 2.5rem;
-  }
-    .md\:pr-10{
-    padding-right: 2.5rem;
-  }
-    .md\:pl-8{
-    padding-left: 2rem;
-  }
-    .md\:pr-8{
-    padding-right: 2rem;
-  }
-    .md\:pr-6{
-    padding-right: 1.5rem;
-  }
-    .md\:pl-6{
-    padding-left: 1.5rem;
-  }
     .md\:text-2xl{
     font-size: 1.5rem;
     line-height: 2rem;
@@ -4558,6 +4544,8 @@ readers do not read off random characters that represent icons */.fa-address-car
     bottom: -0.75rem;
   }.lg\:col-span-1{
     grid-column: span 1 / span 1;
+  }.lg\:m-\[1\%\]{
+    margin: 1%;
   }.lg\:mt-40{
     margin-top: 10rem;
   }.lg\:mb-10{
@@ -4570,6 +4558,8 @@ readers do not read off random characters that represent icons */.fa-address-car
     width: 91.666667%;
   }.lg\:w-full{
     width: 100%;
+  }.lg\:w-\[31\%\]{
+    width: 31%;
   }.lg\:min-w-\[80px\]{
     min-width: 80px;
   }.lg\:max-w-\[45\%\]{
@@ -4612,7 +4602,9 @@ readers do not read off random characters that represent icons */.fa-address-car
     font-size: 3.75rem;
     line-height: 1;
   }
-}@media (min-width: 1280px){.xl\:my-4{
+}@media (min-width: 1280px){.xl\:m-\[1\%\]{
+    margin: 1%;
+  }.xl\:my-4{
     margin-top: 1rem;
     margin-bottom: 1rem;
   }.xl\:mx-6{
@@ -4630,6 +4622,8 @@ readers do not read off random characters that represent icons */.fa-address-car
     width: 25%;
   }.xl\:w-8\/12{
     width: 66.666667%;
+  }.xl\:w-\[23\%\]{
+    width: 23%;
   }.xl\:w-4\/5{
     width: 80%;
   }.xl\:w-3\/4{
