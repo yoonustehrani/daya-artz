@@ -44,7 +44,7 @@ export default function MvpForm({formData, formAnswer}) {
             onSubmit={handleSubmit}
         >
         {({ isSubmitting, setFieldValue, values }) => (
-            <Form className="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 bg-white shadow-lg rounded-md p-6">
+            <Form className="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 bg-white shadow-lg rounded-md p-6 md:mr-auto">
                 <div className="col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8 h-fit">
                     <p className="col-span-full font-semibold text-lg">- {form.inputData['business_type'].placeholder}</p>
                     {form.businessType.map((business, key) => (
