@@ -77,6 +77,10 @@ module.exports = {
             }
         },
     },
+    safelist: [
+        'fa-coffee',
+        'fa-utensils-alt'
+    ],
     plugins: [
         require('@tailwindcss/forms')({strategy: 'class',}),
     ],

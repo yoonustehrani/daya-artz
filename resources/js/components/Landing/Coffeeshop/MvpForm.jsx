@@ -23,7 +23,9 @@ export default function MvpForm({formData, formAnswer}) {
     const handleSubmit = async (values, { setSubmitting }) => {
         const filteredValues = Object.fromEntries(Object.entries(values).filter(([key, value]) => Object.keys(form.inputData).includes(key)))
         const response = await http.post(formAnswer, filteredValues)
-        console.log(response);
+        if (response.okay) {
+            Alert.success({title: "ارسال شد", text: response.message, heightAuto: false, customClass: {container: "iran-sans"}})
+        }
         setSubmitting(false)
     }
 
@@ -46,7 +48,10 @@ export default function MvpForm({formData, formAnswer}) {
         {({ isSubmitting, setFieldValue, values }) => (
             <Form className="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 bg-white shadow-lg rounded-md p-6 md:mr-auto">
                 <div className="col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8 h-fit">
-                    <p className="col-span-full font-semibold text-lg">- {form.inputData['business_type'].placeholder}</p>
+                    <p className="col-span-full font-semibold text-lg">
+                        - {form.inputData['business_type'].placeholder} 
+                        <span className="text-sm text-red-500 block"><ErrorMessage name="business_type"/></span>
+                    </p>
                     {form.businessType.map((business, key) => (
                         <div 
                             key={key}
@@ -62,22 +67,26 @@ export default function MvpForm({formData, formAnswer}) {
                             <span className="mt-4 text-lg text-gray-600 text-center">{business.title}</span>
                         </div>
                     ))}
-                    <div className="col-span-full">
-                        <span className="text-sm text-red-500"><ErrorMessage name="business_type"/></span>
-                    </div>
                 </div>
                 <div className="col-span-full lg:col-span-1">
-                    <p className="font-semibold text-lg">- {form.inputData['fullname'].label}</p>
+                    <div>
+                        <label className="font-semibold text-lg">- {form.inputData['fullname'].label}</label>
+                    </div>
                     <Field name="fullname" type="text" disabled={isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" />
                     <span className="text-sm text-red-500"><ErrorMessage name="fullname"/></span>
                 </div>
                 <div className="col-span-full lg:col-span-1">
-                    <p className="font-semibold text-lg">- {form.inputData['phone_number'].label}</p>
+                    <div>
+                        <label className="font-semibold text-lg">- {form.inputData['phone_number'].label}</label>
+                    </div>
                     <Field name="phone_number" type="text" disabled={isSubmitting} placeholder={form.inputData['phone_number'].placeholder} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300 placeholder:text-right" style={{ direction: 'ltr' }} />
                     <span className="text-sm text-red-500"><ErrorMessage name="phone_number"/></span>
                 </div>
                 <div id="description" className="col-span-full">
-                    <p className="font-semibold text-lg">- {form.inputData['notes'].label}</p>
+                    <div>
+                        <label className="font-semibold text-lg">- {form.inputData['notes'].label}</label>
+                        <span className="text-gray-500 float-left">اختیاری</span>
+                    </div>
                     <Field as="textarea" name="notes" placeholder={form.inputData['notes'].placeholder} disabled={isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" cols="30" rows="5" />
                     <span className="text-sm text-red-500"><ErrorMessage name="notes"/></span>
                 </div>
