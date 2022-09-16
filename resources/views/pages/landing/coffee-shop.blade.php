@@ -423,11 +423,11 @@
                             <span class="text-sm align-middle"></span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i>طراحی خاص 10 پست در ماه</span>
+                            <span><i class="fas fa-check-circle ml-2"></i>طراحی خاص 10 پست اینستاگرامی</span>
                             <span class="text-sm align-middle"></span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i>طراحی خاص 10 استوری در ماه</span>
+                            <span><i class="fas fa-check-circle ml-2"></i>طراحی خاص 10 استوری اینستاگرامی</span>
                             <span class="text-sm align-middle"></span>
                         </li>
                     </ul>
