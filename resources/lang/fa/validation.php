@@ -174,6 +174,7 @@ return [
         'ad_goal' => 'هدف تبلیغاتی',
         'in_company_position' => 'مسئولیت شما در کسب و کار',
         'business_type' => 'نوع کسب و کار',
-        'notes' => 'یادداشت'
+        'notes' => 'یادداشت',
+        'calltime' => 'ساعت تماس'
     ],
 ];
