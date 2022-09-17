@@ -19,6 +19,6 @@
             <sub>/</sub>
             <span>{{ $data['price']['info'] }}</span>
         </div>
-        <button class="my-2 font-semibold duration-300 hover:bg-white hover:text-amber-500 bg-amber-600 text-white text-lg px-3 py-2 w-fit min-w-[50%] rounded-md scroll-to-form">درخواست پکیج</button>
+        <a href="#mvp-form" class="my-2 text-center font-semibold duration-300 hover:bg-white hover:text-amber-500 bg-amber-600 text-white text-lg px-3 py-2 w-fit min-w-[50%] rounded-md scroll-to-form">درخواست پکیج</a>
     </div>
 </div>

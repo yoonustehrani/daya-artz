@@ -69,6 +69,8 @@
                 <h4 class="text-gray-800 text-2xl font-bold my-4">کافی شاپ</h4>
                 <p class="text-gray-600">
                     برای راه اندازی هر کافی شاپ از هر نوعی یا ترمیم و باز طراحی برند کافی شاپ ها، همراه شما خواهیم بود. تا با جلوگیری از هزینه های اضافی در طراحی و تبلیغات، شاهد رشد کسب و کار خود باشید. از طراحی لوگو و پیج اینستاگرام تا طراحی منو و کارت ویزیت برای کافی شاپ شما به شکل متفاوتی طراحی می‌شود!
+                    {{-- <button data-scroll="mvp-form" class="my-2 text-center font-semibold duration-300 hover:bg-white hover:text-amber-500 bg-amber-600 text-white text-lg px-3 py-2 w-fit min-w-[50%] rounded-md">درخواست پکیج</button> --}}
+                    <a href="#mvp-form" class="block text-center my-2 font-semibold duration-300 text-amber-500 text-lg px-3 py-2 w-fit rounded-md">شروع طراحی برند کافی شاپ&nbsp;<i class="fas fa-long-arrow-left"></i></a>
                 </p>
             </div>
         </div>
@@ -81,6 +83,7 @@
                 <h4 class="text-gray-800 text-2xl font-bold my-4">کافه رستوران</h4>
                 <p class="text-gray-600">
                     مدیریت و افزایش فروش یک کافه رستوران کار آسانی نیست! بازاریابی و تبلیغات هدفمند و ایجاد یک برند مشهور از چشم انداز های مهم هر صاحب کافه رستورانی است. اگر شما یک کافه رستوران را اداره می‌کنید دایا آرتز برای توسعه برند و  طراحی تبلیغاتی شما حرف هایی دارد
+                    <a href="#mvp-form" class="block text-center my-2 font-semibold duration-300 text-amber-500 text-lg px-3 py-2 w-fit rounded-md">شروع طراحی تبلیغاتی کافه رستوران&nbsp;<i class="fas fa-long-arrow-left"></i></a>
                 </p>
             </div>
         </div>
@@ -90,9 +93,10 @@
                 <img class="h-full absolute z-10 bottom-3 left-0 lazyload" data-src="{{ asset('images/landing/coffee/takeaway.svg') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
-                <h4 class="text-gray-800 text-2xl font-bold my-4">کافه takeaway (بیرون بر)</h4>
+                <h4 class="text-gray-800 text-2xl font-bold my-4">کافه takeaway ( بیرون بر )</h4>
                 <p class="text-gray-600">
                     اگر صاحب یک کافی شاپ بیرون بر هستید یا مدیریت یک کافه Takeaway را برعهده دارید، دایا آرتز برای جذب مشتری جدید و ثابت کردن مشتری های کافه شما ایده های متفاوتی داره. از طراحی کم هزینه پیج ایسنتاگرام و ایده های تولید محتوایی تا طراحی بسته بندی های جذاب و  ایده های خلاقانه بر اساس پتانسیل های کافی شاپ شما!
+                    <a href="#mvp-form" class="block text-center my-2 font-semibold duration-300 text-amber-500 text-lg px-3 py-2 w-fit rounded-md">طراحی گرافیک کافه takeaway&nbsp;<i class="fas fa-long-arrow-left"></i></a>
                 </p>
             </div>
         </div>
@@ -300,7 +304,7 @@
         </div>
     </section>
     {{-- Mvp form --}}
-    <div class="mt-10 py-3 text-center w-full grid place-content-center place-items-center">
+    <div class="mt-10 py-3 text-center w-full grid place-content-center place-items-center" id="mvp-form">
         <div class="w-fit grid place-content-center place-items-center text-gray-800">
             <h2 class="font-bold text-2xl">فرم درخواست خدمات دایا آرتز</h2>
             <span class="h-px w-[80%] block bg-gray-800 mt-8"></span>

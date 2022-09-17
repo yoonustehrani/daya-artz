@@ -29,6 +29,15 @@ document.querySelectorAll('#faq-list > div > div:first-child').forEach((el, i) =
     })
 })
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach((el, i) => {
+        el.addEventListener('click', function(e) {
+            e.preventDefault()
+            document.querySelector(this.getAttribute('href')).scrollIntoView(true)
+        })
+    })
+})
+
 // handling header
 var body = document.body
 function toggle_menu() {
