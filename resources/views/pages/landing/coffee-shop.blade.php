@@ -66,7 +66,6 @@
                 <img class="h-full absolute z-10 -bottom-2 left-0 lazyload" data-src="{{ asset('images/landing/coffee/coffeeshop.svg') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
-                {{-- <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span> --}}
                 <h4 class="text-gray-800 text-2xl font-bold my-4">کافی شاپ</h4>
                 <p class="text-gray-600">
                     برای راه اندازی هر کافی شاپ از هر نوعی یا ترمیم و باز طراحی برند کافی شاپ ها، همراه شما خواهیم بود. تا با جلوگیری از هزینه های اضافی در طراحی و تبلیغات، شاهد رشد کسب و کار خود باشید. از طراحی لوگو و پیج اینستاگرام تا طراحی منو و کارت ویزیت برای کافی شاپ شما به شکل متفاوتی طراحی می‌شود!
@@ -79,7 +78,6 @@
                 <img class="h-full absolute z-10 -bottom-8 left-0 lazyload" data-src="{{ asset('images/landing/coffee/coffee-restaurant.svg') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
-                {{-- <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span> --}}
                 <h4 class="text-gray-800 text-2xl font-bold my-4">کافه رستوران</h4>
                 <p class="text-gray-600">
                     مدیریت و افزایش فروش یک کافه رستوران کار آسانی نیست! بازاریابی و تبلیغات هدفمند و ایجاد یک برند مشهور از چشم انداز های مهم هر صاحب کافه رستورانی است. اگر شما یک کافه رستوران را اداره می‌کنید دایا آرتز برای توسعه برند و  طراحی تبلیغاتی شما حرف هایی دارد
@@ -92,8 +90,7 @@
                 <img class="h-full absolute z-10 bottom-3 left-0 lazyload" data-src="{{ asset('images/landing/coffee/takeaway.svg') }}" alt="">
             </div>
             <div class="p-3 pt-5 md:w-3/5">
-                {{-- <span class="bg-amber-600 text-slate-50 p-1 px-3 rounded-lg inline-block text-lg font-semibold">ایده پیشنهادی</span> --}}
-                <h4 class="text-gray-800 text-2xl font-bold my-4">کافه takeaway</h4>
+                <h4 class="text-gray-800 text-2xl font-bold my-4">کافه takeaway (بیرون بر)</h4>
                 <p class="text-gray-600">
                     اگر صاحب یک کافی شاپ بیرون بر هستید یا مدیریت یک کافه Takeaway را برعهده دارید، دایا آرتز برای جذب مشتری جدید و ثابت کردن مشتری های کافه شما ایده های متفاوتی داره. از طراحی کم هزینه پیج ایسنتاگرام و ایده های تولید محتوایی تا طراحی بسته بندی های جذاب و  ایده های خلاقانه بر اساس پتانسیل های کافی شاپ شما!
                 </p>
