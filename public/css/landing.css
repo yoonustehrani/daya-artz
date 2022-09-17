@@ -2959,7 +2959,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\f16d"; }.fa-lightbulb:before {
   content: "\f0eb"; }.fa-lightbulb-on:before {
   content: "\f672"; }.fa-linkedin-in:before {
-  content: "\f0e1"; }.fa-mobile:before {
+  content: "\f0e1"; }.fa-long-arrow-left:before {
+  content: "\f177"; }.fa-mobile:before {
   content: "\f10b"; }.fa-paperclip:before {
   content: "\f0c6"; }.fa-phone:before {
   content: "\f095"; }.fa-phone-office:before {
@@ -3005,7 +3006,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   content: "\10f292"; }.fad.fa-home:after {
   content: "\10f015"; }.fad.fa-lightbulb:after {
   content: "\10f0eb"; }.fad.fa-lightbulb-on:after {
-  content: "\10f672"; }.fad.fa-mobile:after {
+  content: "\10f672"; }.fad.fa-long-arrow-left:after {
+  content: "\10f177"; }.fad.fa-mobile:after {
   content: "\10f10b"; }.fad.fa-paperclip:after {
   content: "\10f0c6"; }.fad.fa-phone:after {
   content: "\10f095"; }.fad.fa-phone-office:after {
@@ -3156,7 +3158,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.form-input::-webkit-datetime-edit,.form-input::-webkit-datetime-edit-year-field,.form-input::-webkit-datetime-edit-month-field,.form-input::-webkit-datetime-edit-day-field,.form-input::-webkit-datetime-edit-hour-field,.form-input::-webkit-datetime-edit-minute-field,.form-input::-webkit-datetime-edit-second-field,.form-input::-webkit-datetime-edit-millisecond-field,.form-input::-webkit-datetime-edit-meridiem-field{
   padding-top: 0;
   padding-bottom: 0;
-}/* fast order form */.title {
+}/* fast order form */.fast-order-container .fast-order-section .fast-order-form .order-types .checkbox {
+                        margin-bottom: 15px;
+                    }.title {
         font-size: 24px;
         font-weight: bold;
     }p {
@@ -3274,6 +3278,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   margin: 0px;
 }.m-3{
   margin: 0.75rem;
+}.m-1{
+  margin: 0.25rem;
 }.mx-2{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -3286,15 +3292,15 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.mx-4{
   margin-left: 1rem;
   margin-right: 1rem;
-}.my-3{
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}.my-5{
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
 }.mx-auto{
   margin-left: auto;
   margin-right: auto;
+}.my-5{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}.my-3{
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }.mb-6{
   margin-bottom: 1.5rem;
 }.mb-4{
@@ -3387,6 +3393,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   height: 2rem;
 }.max-h-\[350px\]{
   max-height: 350px;
+}.max-h-52{
+  max-height: 13rem;
 }.w-full{
   width: 100%;
 }.w-1\/3{
@@ -3411,6 +3419,12 @@ readers do not read off random characters that represent icons */.fa-address-car
   width: 3rem;
 }.w-8{
   width: 2rem;
+}.w-24{
+  width: 6rem;
+}.w-2{
+  width: 0.5rem;
+}.w-28{
+  width: 7rem;
 }.min-w-\[60px\]{
   min-width: 60px;
 }.min-w-\[95\%\]{
@@ -3421,6 +3435,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   max-width: 42rem;
 }.max-w-full{
   max-width: 100%;
+}.max-w-\[60px\]{
+  max-width: 60px;
 }.-translate-x-1\/2{
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -3489,6 +3505,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }.grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}.grid-cols-4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }.flex-row-reverse{
   flex-direction: row-reverse;
 }.flex-col{
@@ -3499,6 +3517,10 @@ readers do not read off random characters that represent icons */.fa-address-car
   flex-wrap: nowrap;
 }.place-content-center{
   place-content: center;
+}.place-content-around{
+  place-content: space-around;
+}.place-items-end{
+  place-items: end;
 }.place-items-center{
   place-items: center;
 }.items-start{
@@ -3517,6 +3539,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   justify-content: space-around;
 }.justify-evenly{
   justify-content: space-evenly;
+}.justify-items-center{
+  justify-items: center;
 }.gap-4{
   gap: 1rem;
 }.gap-8{
@@ -3535,6 +3559,8 @@ readers do not read off random characters that represent icons */.fa-address-car
   overflow-x: hidden;
 }.overflow-y-hidden{
   overflow-y: hidden;
+}.scroll-smooth{
+  scroll-behavior: smooth;
 }.whitespace-nowrap{
   white-space: nowrap;
 }.break-words{
@@ -3652,9 +3678,6 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.bg-gray-700{
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}.bg-amber-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 158 11 / var(--tw-bg-opacity));
 }.bg-\[\#3f403d\]{
   --tw-bg-opacity: 1;
   background-color: rgb(63 64 61 / var(--tw-bg-opacity));
@@ -3667,9 +3690,14 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.bg-amber-700{
   --tw-bg-opacity: 1;
   background-color: rgb(180 83 9 / var(--tw-bg-opacity));
+}.bg-amber-900\/90{
+  background-color: rgb(120 53 15 / 0.9);
 }.bg-amber-300{
   --tw-bg-opacity: 1;
   background-color: rgb(252 211 77 / var(--tw-bg-opacity));
+}.bg-amber-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 158 11 / var(--tw-bg-opacity));
 }.bg-red-300{
   --tw-bg-opacity: 1;
   background-color: rgb(252 165 165 / var(--tw-bg-opacity));
@@ -3683,6 +3711,15 @@ readers do not read off random characters that represent icons */.fa-address-car
   background-color: rgb(51 65 85 / 0.3);
 }.bg-gray-300\/80{
   background-color: rgb(209 213 219 / 0.8);
+}.bg-emerald-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(110 231 183 / var(--tw-bg-opacity));
+}.bg-emerald-100{
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 250 229 / var(--tw-bg-opacity));
+}.bg-emerald-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(167 243 208 / var(--tw-bg-opacity));
 }.bg-gradient-to-r{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }.bg-gradient-to-l{
@@ -3795,6 +3832,10 @@ readers do not read off random characters that represent icons */.fa-address-car
   padding-top: 0.5rem;
 }.pr-6{
   padding-right: 1.5rem;
+}.pt-0{
+  padding-top: 0px;
+}.pt-3{
+  padding-top: 0.75rem;
 }.text-left{
   text-align: left;
 }.text-center{
@@ -3897,18 +3938,24 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.text-amber-500{
   --tw-text-opacity: 1;
   color: rgb(245 158 11 / var(--tw-text-opacity));
-}.text-amber-600{
-  --tw-text-opacity: 1;
-  color: rgb(217 119 6 / var(--tw-text-opacity));
 }.text-gray-500{
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}.text-amber-600{
+  --tw-text-opacity: 1;
+  color: rgb(217 119 6 / var(--tw-text-opacity));
 }.text-red-500{
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }.text-red-200{
   --tw-text-opacity: 1;
   color: rgb(254 202 202 / var(--tw-text-opacity));
+}.text-emerald-500{
+  --tw-text-opacity: 1;
+  color: rgb(16 185 129 / var(--tw-text-opacity));
+}.text-emerald-600{
+  --tw-text-opacity: 1;
+  color: rgb(5 150 105 / var(--tw-text-opacity));
 }.underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -4066,9 +4113,6 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:bg-rose-400:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(251 113 133 / var(--tw-bg-opacity));
-}.hover\:bg-amber-600:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(217 119 6 / var(--tw-bg-opacity));
 }.hover\:bg-social-media-instagram:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(225 48 108 / var(--tw-bg-opacity));
@@ -4081,6 +4125,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:bg-social-media-whatsapp:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(37 211 102 / var(--tw-bg-opacity));
+}.hover\:bg-white:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }.hover\:bg-purple-500:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(139 92 246 / var(--tw-bg-opacity));
@@ -4093,9 +4140,9 @@ readers do not read off random characters that represent icons */.fa-address-car
 }.hover\:text-blue-400:hover{
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity));
-}.hover\:text-white:hover{
+}.hover\:text-amber-500:hover{
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(245 158 11 / var(--tw-text-opacity));
 }.hover\:ring-purple-200:hover{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(221 214 254 / var(--tw-ring-opacity));
@@ -4285,6 +4332,9 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:mr-auto{
     margin-right: auto;
   }
+    .md\:ml-2{
+    margin-left: 0.5rem;
+  }
     .md\:block{
     display: block;
   }
@@ -4341,11 +4391,11 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:w-11\/12{
     width: 91.666667%;
   }
-    .md\:w-\[46\%\]{
-    width: 46%;
-  }
     .md\:w-1\/2{
     width: 50%;
+  }
+    .md\:w-\[46\%\]{
+    width: 46%;
   }
     .md\:min-w-\[76px\]{
     min-width: 76px;
@@ -4355,9 +4405,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   }
     .md\:max-w-none{
     max-width: none;
-  }
-    .md\:max-w-\[80\%\]{
-    max-width: 80%;
   }
     .md\:translate-x-0{
     --tw-translate-x: 0px;
@@ -4408,6 +4455,9 @@ readers do not read off random characters that represent icons */.fa-address-car
   }
     .md\:gap-8{
     gap: 2rem;
+  }
+    .md\:gap-3{
+    gap: 0.75rem;
   }
     .md\:overflow-x-hidden{
     overflow-x: hidden;
@@ -4629,12 +4679,14 @@ readers do not read off random characters that represent icons */.fa-address-car
     width: 25%;
   }.xl\:w-8\/12{
     width: 66.666667%;
-  }.xl\:w-\[23\%\]{
-    width: 23%;
   }.xl\:w-4\/5{
     width: 80%;
+  }.xl\:w-\[23\%\]{
+    width: 23%;
   }.xl\:w-3\/4{
     width: 75%;
+  }.xl\:w-auto{
+    width: auto;
   }.xl\:min-w-\[88px\]{
     min-width: 88px;
   }.xl\:grid-cols-4{
