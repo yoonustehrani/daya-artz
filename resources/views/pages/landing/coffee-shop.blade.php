@@ -212,32 +212,32 @@
                     <p class="underline decoration-2 underline-offset-[9px]">راه اندازی تخصصی برای کافه رستوران</p>
                     <ul class="w-full list-inside my-4 leading-loose text-lg">
                         <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i>طراحی لوگو</span>
-                            <span class="text-sm align-middle">پلن استاندارد</span>
+                            <span><i class="fas fa-check-circle ml-2"></i>طراحی لوگو ترکیبی</span>
+                            <span class="text-sm align-middle">پلن اقتصادی</span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
                             <span><i class="fas fa-check-circle ml-2"></i>طراحی منوی تراکتی</span>
-                            <span class="text-sm align-middle">پلن استاندارد</span>
+                            <span class="text-sm align-middle">پلن اقتصادی</span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
                             <span><i class="fas fa-check-circle ml-2"></i>طراحی کارت ویزیت</span>
-                            <span class="text-sm align-middle">پلن استاندارد</span>
+                            <span class="text-sm align-middle">پلن اقتصادی</span>
+                        </li>
+                        <li class="px-3 my-2 flex justify-between items-center">
+                            <span><i class="fas fa-check-circle ml-2"></i>طراحی قالب اینستاگرام</span>
+                            <span class="text-sm align-middle">پست و استوری</span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
                             <span><i class="fas fa-check-circle ml-2"></i>طراحی بنر شبکه های اجتماعی</span>
                             <span class="text-sm align-middle"></span>
                         </li>
-                        <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i>طراحی پیج اینستاگرام</span>
-                            <span class="text-sm align-middle">قالب 3 تایی</span>
-                        </li>
                     </ul>
                 </div>
                 <div class="relative flex flex-col items-center justify-center w-full">
                     <div class="text-center my-5">
-                        <span class="text-4xl">5,500</span>
+                        <span class="text-4xl">5.950</span>
                         <sub>/</sub>
-                        <span>هزار تومان</span>
+                        <span>میلیون تومان</span>
                     </div>
                     <button class="my-2 font-semibold duration-300 bg-white text-amber-500 hover:bg-amber-600 hover:text-white text-lg px-3 py-2 w-fit min-w-[50%] rounded-md scroll-to-form">درخواست پکیج</button>
                 </div>
@@ -250,24 +250,20 @@
                     <p class="underline decoration-2 underline-offset-[9px]">راه اندازی اقتصادی برای همه کافی شاپ</p>
                     <ul class="w-full list-inside my-4 leading-loose text-lg">
                         <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i>طراحی لوگو</span>
+                            <span><i class="fas fa-check-circle ml-2"></i>طراحی لوگو تصویری</span>
                             <span class="text-sm align-middle">پلن اقتصادی</span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
                             <span><i class="fas fa-check-circle ml-2"></i>طراحی منو تراکتی</span>
                             <span class="text-sm align-middle">پلن استاندارد</span>
                         </li>
-                        <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i> طراحی کارت ویزیت</span>
-                            <span class="text-sm align-middle">پلن استاندارد</span>
-                        </li>
                     </ul>
                 </div>
                 <div class="relative flex flex-col items-center justify-center w-full">
                     <div class="text-center my-5">
-                        <span class="text-4xl">4,300</span>
+                        <span class="text-4xl">3.950</span>
                         <sub>/</sub>
-                        <span>هزار تومان</span>
+                        <span>میلیون تومان</span>
                     </div>
                     <button class="my-2 font-semibold duration-300 bg-white text-amber-500 hover:bg-amber-600 hover:text-white text-lg px-3 py-2 w-fit min-w-[50%] rounded-md scroll-to-form">درخواست پکیج</button>
                 </div>
@@ -280,25 +276,22 @@
                     <p class="underline decoration-2 underline-offset-[9px]">جذب مشتری بیشتر با آیتم های خلاقانه</p>
                     <ul class="w-full list-inside my-4 leading-loose text-lg">
                         <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i>کارت جایزه یا تخفیف</span>
-                            <span class="text-sm align-middle"></span>
-                        </li>
-                        <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i>طراحی کارت ویزیت</span>
-                            <span class="text-sm align-middle">پلن استاندارد</span>
+                            <span><i class="fas fa-check-circle ml-2"></i>طراحی کوپن تخفیف</span>
+                            <span class="text-sm align-middle">ویژه کافی شاپ شما</span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
                             <span><i class="fas fa-check-circle ml-2"></i>قالب پست اینستاگرام</span>
-                            <span class="text-sm align-middle"></span>
+                            <span class="text-sm align-middle">تک پست</span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
-                            <span>آیتم های موجود قابلیت جایگزینی دارند</span>
+                            <span><i class="fas fa-check-circle ml-2"></i>طراحی کارت ویزیت</span>
+                            <span class="text-sm align-middle">پلن اقتصادی</span>
                         </li>
                     </ul>
                 </div>
                 <div class="relative flex flex-col items-center justify-center w-full">
                     <div class="text-center my-5">
-                        <span class="text-4xl">890</span>
+                        <span class="text-4xl">780</span>
                         <sub>/</sub>
                         <span>هزار تومان</span>
                     </div>
@@ -308,13 +301,13 @@
             <div class="snap-center bg-amber-500 px-3 py-5 flex flex-col justify-between rounded-md text-white w-full min-w-[95%] md:min-w-0 m-3 md:w-[46%] md:m-[2%] lg:w-[31%] lg:m-[1%] xl:w-[23%] xl:m-[1%]">
                 <div class="flex flex-col items-center">
                     <div class="bg-white px-3 py-2 my-3 w-fit rounded-full">
-                        <h3 class="text-amber-600 text-xl font-bold text-center">باز سازی برند کافی شاپ شما</h3>
+                        <h3 class="text-amber-600 text-xl font-bold text-center">بازسازی برند کافی شاپ شما</h3>
                     </div>
                     <p class="underline decoration-2 underline-offset-[9px]">ری ‌برندینگ و بازطراحی برند کافی شاپ</p>
                     <ul class="w-full list-inside my-4 leading-loose text-lg">
                         <li class="px-3 my-2 flex justify-between items-center">
-                            <span><i class="fas fa-check-circle ml-2"></i>باز طراحی لوگو</span>
-                            <span class="text-sm align-middle">پلن اقتصادی</span>
+                            <span><i class="fas fa-check-circle ml-2"></i>بازطراحی لوگو</span>
+                            <span class="text-sm align-middle">ارتقا و ترمیم</span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
                             <span><i class="fas fa-check-circle ml-2"></i>باز طراحی منو</span>
@@ -322,7 +315,7 @@
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
                             <span><i class="fas fa-check-circle ml-2"></i>طراحی کارت ویزیت</span>
-                            <span class="text-sm align-middle">پلن استاندارد</span>
+                            <span class="text-sm align-middle">پلن اقتصادی</span>
                         </li>
                         <li class="px-3 my-2 flex justify-between items-center">
                             <span><i class="fas fa-check-circle ml-2"></i>طراحی پیج اینستاگرام</span>
@@ -332,9 +325,9 @@
                 </div>
                 <div class="relative flex flex-col items-center justify-center w-full">
                     <div class="text-center my-5">
-                        <span class="text-4xl">1,900</span>
+                        <span class="text-4xl">2.200</span>
                         <sub>/</sub>
-                        <span>هزار تومان</span>
+                        <span>میلیون تومان</span>
                     </div>
                     <button class="my-2 font-semibold duration-300 bg-white text-amber-500 hover:bg-amber-600 hover:text-white text-lg px-3 py-2 w-fit min-w-[50%] rounded-md scroll-to-form">درخواست پکیج</button>
                 </div>
