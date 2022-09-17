@@ -43,7 +43,7 @@ export default function MvpForm({formData, formAnswer}) {
             setForm({businessType, data, inputData})
         })
     }, [])
-    
+
     return form && (
         <Formik
             initialValues={form.data}
@@ -61,7 +61,7 @@ export default function MvpForm({formData, formAnswer}) {
                     {form.businessType.map((business, key) => (
                         <div 
                             key={key}
-                            onClick={() => setFieldValue('business_type', business.name)}
+                            onClick={() => {! (disabled || isSubmitting) && setFieldValue('business_type', business.name)}}
                             className={`${values.business_type === business.name ? activeClassNames : inactiveClassNames} flex flex-col items-center justify-center aspect-square border-2 rounded-md p-2 md:p-3 relative ring-4 duration-300 hover:border-amber-500 hover:ring-amber-400 cursor-pointer`}
                         >
                             {values.business_type === business.name && (
@@ -78,14 +78,14 @@ export default function MvpForm({formData, formAnswer}) {
                     <div>
                         <label className="font-semibold text-lg">- {form.inputData['fullname'].label}</label>
                     </div>
-                    <Field name="fullname" type="text" disabled={isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" />
+                    <Field name="fullname" type="text" disabled={disabled || isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" />
                     <span className="text-sm text-red-500"><ErrorMessage name="fullname"/></span>
                 </div>
                 <div className="col-span-full lg:col-span-1">
                     <div>
                         <label className="font-semibold text-lg">- {form.inputData['phone_number'].label}</label>
                     </div>
-                    <Field name="phone_number" type="text" disabled={isSubmitting} placeholder={form.inputData['phone_number'].placeholder} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300 placeholder:text-right" style={{ direction: 'ltr' }} />
+                    <Field name="phone_number" type="text" disabled={disabled || isSubmitting} placeholder={form.inputData['phone_number'].placeholder} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300 placeholder:text-right" style={{ direction: 'ltr' }} />
                     <span className="text-sm text-red-500"><ErrorMessage name="phone_number"/></span>
                 </div>
                 <div id="description" className="col-span-full">
@@ -93,11 +93,11 @@ export default function MvpForm({formData, formAnswer}) {
                         <label className="font-semibold text-lg">- {form.inputData['notes'].label}</label>
                         <span className="text-gray-500 float-left">اختیاری</span>
                     </div>
-                    <Field as="textarea" name="notes" placeholder={form.inputData['notes'].placeholder} disabled={isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" cols="30" rows="5" />
+                    <Field as="textarea" name="notes" placeholder={form.inputData['notes'].placeholder} disabled={disabled || isSubmitting} className="w-full p-3 mt-3 rounded-md border-2 border-gray-400 outline-none focus:border-amber-500 ring-4 ring-transparent focus:ring-amber-200 duration-300" cols="30" rows="5" />
                     <span className="text-sm text-red-500"><ErrorMessage name="notes"/></span>
                 </div>
                 <div className="col-span-full text-center">
-                    <button type="submit" disabled={isSubmitting} className="w-fit py-2 px-6 text-base shadow-lg text-gray-700 bg-amber-500 disabled:text-gray-400 disabled:bg-gray-300 duration-200 cursor-pointer rounded-md">ارسال اطلاعات</button>
+                    <button type="submit" disabled={disabled || isSubmitting} className="w-fit py-2 px-6 text-base shadow-lg text-gray-700 bg-amber-500 disabled:text-gray-400 disabled:bg-gray-300 duration-200 cursor-pointer rounded-md">{isSubmitting ? 'در حال ارسال' : 'ارسال اطلاعات'}</button>
                 </div>
             </Form>
         )}
