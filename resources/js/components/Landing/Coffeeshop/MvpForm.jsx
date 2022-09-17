@@ -1,7 +1,7 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from 'yup';
-import { useEffect, useState } from "react";
-import AlertService from "../../../services/AlertService";
+import { useEffect, useState, useRef } from "react";
+// import AlertService from "../../../services/AlertService";
 import { useHttpService } from "../../../userarea/hooks";
 
 const validation = Yup.object({
@@ -13,18 +13,23 @@ const validation = Yup.object({
 
 export default function MvpForm({formData, formAnswer}) {
     const http = useHttpService("")
-    const Alert = new AlertService({customClass: {container: "rtl"}, timer: 3000, showConfirmButton: false})
+    const formRef = useRef()
+    // const Alert = new AlertService({customClass: {container: "rtl"}, timer: 3000, showConfirmButton: false})
 
-    const [disbaled, setDisabled] = useState(false)
+    const [disabled, setDisabled] = useState(false)
     const [form, setForm] = useState(null)
+    const [done, setDone] = useState(false)
 
     const inactiveClassNames = 'border-gray-500 ring-transparent', activeClassNames = 'border-amber-500 ring-amber-400'
 
     const handleSubmit = async (values, { setSubmitting }) => {
         const filteredValues = Object.fromEntries(Object.entries(values).filter(([key, value]) => Object.keys(form.inputData).includes(key)))
-        const response = await http.post(formAnswer, filteredValues)
+        const response = await http.post(formAnswer, {...filteredValues, __name: filteredValues.fullname})
         if (response.okay) {
-            Alert.success({title: "ارسال شد", text: response.message, heightAuto: false, customClass: {container: "iran-sans"}})
+            formRef.current?.scrollIntoView({behavior: 'smooth'})
+            // Alert.success({title: "ارسال شد", text: response.message, heightAuto: false, customClass: {container: "iran-sans"}})
+            setDisabled(true)
+            setDone(response.message)
         }
         setSubmitting(false)
     }
@@ -46,7 +51,8 @@ export default function MvpForm({formData, formAnswer}) {
             onSubmit={handleSubmit}
         >
         {({ isSubmitting, setFieldValue, values }) => (
-            <Form className="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 bg-white shadow-lg rounded-md p-6 md:mr-auto">
+            <Form ref={formRef} className="grid grid-cols-2 gap-8 h-full w-full xl:w-3/4 bg-white shadow-lg rounded-md p-6 md:mr-auto">
+                {done &&  <p className="p-3 col-span-full bg-emerald-200 text-emerald-600 rounded-md shadow-sm"><i className="fas fa-check ml-2"></i>{done}</p>}
                 <div className="col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8 h-fit">
                     <p className="col-span-full font-semibold text-lg">
                         - {form.inputData['business_type'].placeholder} 
