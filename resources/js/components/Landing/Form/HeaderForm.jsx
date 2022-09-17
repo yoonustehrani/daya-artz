@@ -74,8 +74,8 @@ class HeaderForm extends Component {
     handleFormRequest = async () => {
         let { time, phone } = this.state.data
         const res = await this.http.post(this.props.headerFormUrl, {
-            time: time,
-            phone: phone
+            calltime: time,
+            phone_number: phone
         })
         if (res.okay) {
             this.Alert.success({title: "ارسال شد", text: res.message, heightAuto: false, customClass: {container: "iran-sans"}})
