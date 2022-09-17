@@ -44,7 +44,7 @@ class HeaderForm extends Component {
             }
             if (errs.length > 0) {
                 !hasErr ? hasErr = true : null
-                !document.querySelector("#err-container>ul") && document.getElementById("err-container").insertAdjacentHTML('beforeend', "<ul class='bg-slate-700/30 p-2 pr-6 rounded-md text-sm text-red-200 mt-1 list-disc col-span-full err-container'></ul>")
+                !document.querySelector("#err-container>ul") && document.getElementById("err-container").insertAdjacentHTML('beforeend', "<ul class='bg-red-500/80 p-2 pr-6 rounded-md text-slate-50 mt-1 list-disc col-span-full err-container'></ul>")
                 errs.map(err => {document.querySelector("#err-container>ul").insertAdjacentHTML('beforeend', `<li>${err}</li>`)})
             }
         })
@@ -89,18 +89,18 @@ class HeaderForm extends Component {
             <form className="block w-full md:w-fit p-4" onSubmit={this.handleSendForm.bind(this)}>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                     <div className="p-3 font-semibold">
-                        <div>
+                        <div className='my-2'>
                             <label className="text-with-shadow ml-2 cursor-pointer" htmlFor="time-morning">تماس از ساعت 8 الی 14</label>
                             <input disabled={this.state.disabled} className='cursor-pointer' type="checkbox" id="time-morning" value="8to14" onChange={(e) => this.changeValue(e.target.value, 'time')} checked={time === "8to14"} />
                         </div>
-                        <div>
+                        <div className='my-2'>
                             <label className="text-with-shadow ml-2 cursor-pointer" htmlFor="time-evening">تماس از ساعت 17 الی 21</label>
                             <input disabled={this.state.disabled} className='cursor-pointer' type="checkbox" id="time-evening" value="17to22" onChange={(e) => this.changeValue(e.target.value, 'time')} checked={time === "17to22"} />
                         </div>
                     </div>
                     <div className="p-3">
                         <input disabled={this.state.disabled}
-                        className="text-left placeholder:text-right [direction:ltr] text-xl form-input bg-black/50 px-4 py-3 rounded-md border-transparent shadow-sm focus:outline-none focus:border-gray-600 focus:ring focus:ring-white focus:ring-opacity-10" 
+                        className="text-left placeholder:text-right placeholder:text-slate-50 [direction:ltr] text-xl form-input bg-black/50 px-4 py-3 rounded-md border-transparent shadow-sm focus:outline-none focus:border-gray-600 focus:ring focus:ring-white focus:ring-opacity-10" 
                         type="text" name="phone_number" placeholder="شماره موبایل" value={phone} onChange={(e) => this.changeValue(e.target.value, 'phone', true)} />
                     </div>
                 </div>
