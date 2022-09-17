@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { useHttpService } from '../../../userarea/hooks';
 import validator from 'validator';
 import AlertService from '../../../services/AlertService';
-import Log from 'laravel-mix/src/Log';
 
 class HeaderForm extends Component {
     constructor(props) {
