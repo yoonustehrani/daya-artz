@@ -92,11 +92,11 @@ class HeaderForm extends Component {
                     <div className="p-3 font-semibold">
                         <div>
                             <label className="text-with-shadow ml-2 cursor-pointer" htmlFor="time-morning">تماس از ساعت 8 الی 14</label>
-                            <input disabled={this.state.disabled} className='cursor-pointer' type="radio" name="time-to-call" id="time-morning" value="8to14" onChange={(e) => this.changeValue(e.target.value, 'time')} checked={time === "8to14"} />
+                            <input disabled={this.state.disabled} className='cursor-pointer' type="checkbox" id="time-morning" value="8to14" onChange={(e) => this.changeValue(e.target.value, 'time')} checked={time === "8to14"} />
                         </div>
                         <div>
                             <label className="text-with-shadow ml-2 cursor-pointer" htmlFor="time-evening">تماس از ساعت 17 الی 21</label>
-                            <input disabled={this.state.disabled} className='cursor-pointer' type="radio" name="time-to-call" id="time-evening" value="17to22" onChange={(e) => this.changeValue(e.target.value, 'time')} checked={time === "17to22"} />
+                            <input disabled={this.state.disabled} className='cursor-pointer' type="checkbox" id="time-evening" value="17to22" onChange={(e) => this.changeValue(e.target.value, 'time')} checked={time === "17to22"} />
                         </div>
                     </div>
                     <div className="p-3">
