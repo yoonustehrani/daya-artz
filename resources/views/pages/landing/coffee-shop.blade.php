@@ -317,8 +317,12 @@
     <section class="w-full p-3 mb-10 grid grid-cols-1 md:grid-cols-2">
         <div id="react-coffeeshop-form" data-show="{{ route('api.forms.show', ['key' => 'coffeeshop-landing']) }}" data-store="{{ route('api.forms.store', ['key' => 'coffeeshop-landing']) }}" class="p-3 flex flex-col items-center text-gray-900 xl:pl-6"></div>
         <div class="p-3 xl:pr-6">
-            <img src={{ asset('images/landing/mvp-form.jpg') }} alt="coffe" class="w-full xl:w-4/5 mx-auto md:mr-[initial] shadow-lg shadow-orange-500/50 rounded-md" />
-            <p class="text-lg md:text-xl w-full xl:w-4/5 mx-auto md:mr-[initial] mt-5 md:mt-12 leading-loose md:leading-loose">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی </p>
+            <img src={{ asset('images/landing/mvp-form.jpg') }} alt="coffe" class="w-full xl:w-auto mx-auto md:mr-[initial] shadow-lg shadow-orange-500/50 rounded-md" />
+            <p class="text-lg text-gray-800 md:text-xl w-full xl:w-4/5 mx-auto md:mr-[initial] mt-5 md:mt-12 leading-loose md:leading-loose">
+                با ارسال این فرم، کارشناسان ما طی یک 
+                <span class="underline underline-offset-8">مشاوره تلفنی 15 دقیقه ای</span>
+                ایده های متناسب با هدف رشد کافی شاپ شما را بررسی خواهند کرد.
+            </p>
         </div>
     </section>
     {{-- Startup path - six --}}
