@@ -120,18 +120,19 @@
         <div class="flex flex-col justify-center items-center order-first md:order-none">
             <img class="lazyload" data-src="{{ asset('images/landing/orange-logo.png') }}" alt="">
             <p class="text-4xl text-center font-semibold leading-relaxed">خدمات دایا آرتز<br>متناسب با کافی شاپ شما</p>
+            <a href="#mvp-form" class="my-2 text-center font-semibold duration-300 hover:bg-white hover:text-amber-500 bg-amber-600 text-white text-lg px-3 py-2 w-fit min-w-[50%] rounded-md scroll-to-form">درخواست خدمات طراحی گرافیک</a>
         </div>
         <ul class="p-5 pb-0 md:pb-5 flex flex-col justify-around gap-4 items-start md:gap-0 py-5 font-semibold text-lg md:text-xl">
             <li>
-                <img class="inline w-10 md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/24.png') }}" alt="">
+                <img class="inline w-10 md:ml-2 md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/24.png') }}" alt="">
                 <span>طراحی و ترمیم لوگو کافی شاپ</span>
             </li>
             <li class="md:mr-10">
-                <img class="inline w-10 md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/26.png') }}" alt="">
+                <img class="inline w-10 md:ml-2 md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/26.png') }}" alt="">
                 <span>طراحی پوستر کافه گالری</span>
             </li>
             <li>
-                <img class="inline w-10 md:w-auto lazyload" data-src="{{ asset('images/landing/coffee/23.png') }}" alt="">
+                <img class="inline w-10 md:ml-2 md:w-auto max-w-[60px] lazyload" data-src="{{ asset('images/landing/coffee/23.png') }}" alt="">
                 <span>طراحی قالب های  اینستاگرامی</span>
             </li>
         </ul>
