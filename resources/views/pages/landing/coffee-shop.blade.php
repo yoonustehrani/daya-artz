@@ -204,7 +204,7 @@
         <div class="w-full md:w-11/12 backdrop-blur-sm p-5 rounded-md shadow-lg md:text-lg font-semibold
         grid gap-4 md:gap-8 auto-cols-[95%] md:auto-cols-auto grid-flow-col md:grid-flow-row
         md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:place-content-around overflow-x-auto snap-x snap-mandatory md:snap-none --}}
-        <div class="w-full md:w-11/12 p-5 pt-0 font-semibold flex rounded-md shadow-lg items-stretch overflow-x-auto snap-x snap-mandatory md:flex-wrap md:justify-center md:snap-none md:text-lg">
+        <div class="w-full md:w-11/12 p-5 pt-0 font-semibold flex rounded-md items-stretch overflow-x-auto snap-x snap-mandatory md:flex-wrap md:justify-center md:snap-none md:text-lg">
             @php
                 $packages = [
                     'افزایش فروش کافی شاپ' => [
@@ -442,7 +442,7 @@
                     <i class="inline float-left duration-300 fas fa-angle-up mt-2"></i>
                 </div>
                 <p class="text-base hidden text-gray-500 mt-5 mb-3">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                    پس از ثبت سفارش، پروسه طراحی و بازه زمانی طراحی هر سفارش متفاوت است. ممکن است حجم سفارشات شمالا بالا باشد و زمان طولانی تری برای طراحی آن مورد نیاز باشد اما به صورت متوسط، هر سفارش طراحی گرافیک بین 3 تا 7 روز زمان برای ارائه اولیه خود نیاز دارد. در خصوص طراحی لوگو این زمان ممکن است تا 15 روز زمان ببرد.
                 </p>
             </div>
             <div class="border-t border-gray-400 py-8 px-5 text-2xl">
@@ -451,7 +451,7 @@
                     <i class="inline float-left duration-300 fas fa-angle-up mt-2"></i>
                 </div>
                 <p class="text-base hidden my-3">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                    دایا آرتز به عنوان یک استارت آپ نوآور در زمینه طراحی گرافیک، پشتیبان و مشاور شما کارفرمایان خود است. دایا آرتز در طول هفته از روز شنبه تا پنجشنبه به صورت مستمر از ساعت 8 صبح الی 8 شب آماده پشتیبانی است. 
                 </p>
             </div>
             <div class="border-t border-gray-400 py-8 px-5 text-2xl">
@@ -460,7 +460,7 @@
                     <i class="inline float-left duration-300 fas fa-angle-up mt-2"></i>
                 </div>
                 <p class="text-base hidden my-3">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                    برای هر سفارش طراحی گرافیک، مبلغ نیمی از هزینه کل به عنوان پیش پرداخت واریز می‌شود. دایا آرتز اتود های اولیه طراحی های سفارش شما را ارائه می‌دهد و پس از تایید و دریافت اصلاحات مورد نیاز شما، پس از تسویه نهایی هزینه سفارشات، فایل های سفارش برای شما ارسال می‌شود.
                 </p>
             </div>
             <div class="border-t border-gray-400 py-8 px-5 text-2xl">
@@ -469,7 +469,7 @@
                     <i class="inline float-left duration-300 fas fa-angle-up mt-2"></i>
                 </div>
                 <p class="text-base hidden my-3">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                    دایا آرتز برای تمامی کسب و کار های موجود در بازار،  طراحی گرافیک وابسته به نیاز و هدف گذاری ایشان انجام می‌دهد.
                 </p>
             </div>
         </div>
@@ -505,7 +505,7 @@
             </div>
             <div>
                 <p class="text-xl font-bold mb-3">دایا مجازی</p>
-                <div class="my-2 grid grid-cols-2 gap-3 text-2xl pt-2">
+                <div class="my-2 w-28 grid grid-cols-2 gap-3 text-2xl pt-2">
                     <a class="w-12 h-12 border-2 duration-300 hover:bg-social-media-instagram hover:border-social-media-instagram rounded-full flex justify-center items-center" href="https://instagram.com/dayaartz"><i class="fab fa-instagram"></i></a>
                     <a class="w-12 h-12 border-2 duration-300 hover:bg-social-media-telegram  hover:border-social-media-telegram rounded-full flex justify-center items-center" href="https://t.me/daya_artz"><i class="fab fa-telegram-plane"></i></a>
                     <a class="w-12 h-12 border-2 duration-300 hover:bg-social-media-linkedin  hover:border-social-media-linkedin rounded-full flex justify-center items-center" href="https://www.linkedin.com/company/dayaartz/"><i class="fab fa-linkedin-in"></i></a>
