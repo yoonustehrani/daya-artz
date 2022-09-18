@@ -1,4 +1,12 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_userarea_Pages_Private_Dashboard_components_MiddleItem_jsx"],{
 
 /***/ "./resources/js/userarea/Pages/Private/Dashboard/components/MiddleItem.jsx":
@@ -7,83 +15,7 @@
   \*********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Layout/components/Activity */ "./resources/js/userarea/Pages/Private/Layout/components/Activity.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-
-var MiddleItem = /*#__PURE__*/function (_Component) {
-  _inherits(MiddleItem, _Component);
-
-  var _super = _createSuper(MiddleItem);
-
-  function MiddleItem() {
-    _classCallCheck(this, MiddleItem);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(MiddleItem, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          title = _this$props.title,
-          number = _this$props.number;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "dashboard-item-container col-12 col-md-6 col-lg-4",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "dashboard-middle-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "shapes-back-img",
-            children: [typeof number !== 'number' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "h-100 d-flex align-items-center",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_1__["default"], {
-                size: "16"
-              })
-            }), number >= 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              children: number
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-              children: title
-            })]
-          })
-        })
-      });
-    }
-  }]);
-
-  return MiddleItem;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MiddleItem);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Layout_components_Activity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Layout/components/Activity */ \"./resources/js/userarea/Pages/Private/Layout/components/Activity.jsx\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }, _typeof(obj); }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function\"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, \"prototype\", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }\n\nfunction _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }\n\nfunction _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) { return call; } else if (call !== void 0) { throw new TypeError(\"Derived constructors may only return object or undefined\"); } return _assertThisInitialized(self); }\n\nfunction _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return self; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }\n\nfunction _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }\n\n\n\n\n\n\nvar MiddleItem = /*#__PURE__*/function (_Component) {\n  _inherits(MiddleItem, _Component);\n\n  var _super = _createSuper(MiddleItem);\n\n  function MiddleItem() {\n    _classCallCheck(this, MiddleItem);\n\n    return _super.apply(this, arguments);\n  }\n\n  _createClass(MiddleItem, [{\n    key: \"render\",\n    value: function render() {\n      var _this$props = this.props,\n          title = _this$props.title,\n          number = _this$props.number;\n      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(\"div\", {\n        className: \"dashboard-item-container col-12 col-md-6 col-lg-4\",\n        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(\"div\", {\n          className: \"dashboard-middle-item\",\n          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(\"div\", {\n            className: \"shapes-back-img\",\n            children: [typeof number !== 'number' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(\"div\", {\n              className: \"h-100 d-flex align-items-center\",\n              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layout_components_Activity__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n                size: \"16\"\n              })\n            }), number >= 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(\"p\", {\n              children: number\n            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(\"h4\", {\n              children: title\n            })]\n          })\n        })\n      });\n    }\n  }]);\n\n  return MiddleItem;\n}(react__WEBPACK_IMPORTED_MODULE_0__.Component);\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MiddleItem);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvdXNlcmFyZWEvUGFnZXMvUHJpdmF0ZS9EYXNoYm9hcmQvY29tcG9uZW50cy9NaWRkbGVJdGVtLmpzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBO0FBQ0E7Ozs7SUFFTUc7Ozs7Ozs7Ozs7Ozs7V0FDRixrQkFBUztNQUNMLGtCQUF3QixLQUFLQyxLQUE3QjtNQUFBLElBQU1DLEtBQU4sZUFBTUEsS0FBTjtNQUFBLElBQWFDLE1BQWIsZUFBYUEsTUFBYjtNQUNBLG9CQUNJO1FBQUssU0FBUyxFQUFDLG1EQUFmO1FBQUEsdUJBQ0k7VUFBSyxTQUFTLEVBQUMsdUJBQWY7VUFBQSx1QkFDSTtZQUFLLFNBQVMsRUFBQyxpQkFBZjtZQUFBLFdBQ0ssT0FBT0EsTUFBUCxLQUFrQixRQUFsQixpQkFBOEI7Y0FBSyxTQUFTLEVBQUMsaUNBQWY7Y0FBQSx1QkFBaUQsdURBQUMsbUVBQUQ7Z0JBQVUsSUFBSSxFQUFDO2NBQWY7WUFBakQsRUFEbkMsRUFFS0EsTUFBTSxJQUFJLENBQVYsaUJBQWU7Y0FBQSxVQUFJQTtZQUFKLEVBRnBCLGVBR0k7Y0FBQSxVQUFLRDtZQUFMLEVBSEo7VUFBQTtRQURKO01BREosRUFESjtJQVdIOzs7O0VBZG9CSjs7QUFpQnpCLGlFQUFlRSxVQUFmIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL3VzZXJhcmVhL1BhZ2VzL1ByaXZhdGUvRGFzaGJvYXJkL2NvbXBvbmVudHMvTWlkZGxlSXRlbS5qc3g/OTE0YyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgQ29tcG9uZW50IH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IEFjdGl2aXR5IGZyb20gJy4uLy4uL0xheW91dC9jb21wb25lbnRzL0FjdGl2aXR5JztcblxuY2xhc3MgTWlkZGxlSXRlbSBleHRlbmRzIENvbXBvbmVudCB7XG4gICAgcmVuZGVyKCkge1xuICAgICAgICBsZXQgeyB0aXRsZSwgbnVtYmVyIH0gPSB0aGlzLnByb3BzXG4gICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImRhc2hib2FyZC1pdGVtLWNvbnRhaW5lciBjb2wtMTIgY29sLW1kLTYgY29sLWxnLTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImRhc2hib2FyZC1taWRkbGUtaXRlbVwiPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNoYXBlcy1iYWNrLWltZ1wiPlxuICAgICAgICAgICAgICAgICAgICAgICAge3R5cGVvZiBudW1iZXIgIT09ICdudW1iZXInICYmIDxkaXYgY2xhc3NOYW1lPSdoLTEwMCBkLWZsZXggYWxpZ24taXRlbXMtY2VudGVyJz48QWN0aXZpdHkgc2l6ZT1cIjE2XCIvPjwvZGl2Pn1cbiAgICAgICAgICAgICAgICAgICAgICAgIHtudW1iZXIgPj0gMCAmJiA8cD57bnVtYmVyfTwvcD59XG4gICAgICAgICAgICAgICAgICAgICAgICA8aDQ+e3RpdGxlfTwvaDQ+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICk7XG4gICAgfVxufVxuXG5leHBvcnQgZGVmYXVsdCBNaWRkbGVJdGVtOyJdLCJuYW1lcyI6WyJSZWFjdCIsIkNvbXBvbmVudCIsIkFjdGl2aXR5IiwiTWlkZGxlSXRlbSIsInByb3BzIiwidGl0bGUiLCJudW1iZXIiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/userarea/Pages/Private/Dashboard/components/MiddleItem.jsx\n");
 
 /***/ }),
 
@@ -93,27 +25,7 @@ var MiddleItem = /*#__PURE__*/function (_Component) {
   \****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Activity)
-/* harmony export */ });
-/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-activity */ "./node_modules/react-activity/dist/react-activity.js");
-/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-function Activity(_ref) {
-  var _ref$size = _ref.size,
-      size = _ref$size === void 0 ? 34 : _ref$size;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    className: "activity-container",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_1__.Spinner, {
-      color: "#6332df",
-      size: size
-    })
-  });
-}
-;
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Activity)\n/* harmony export */ });\n/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-activity */ \"./node_modules/react-activity/dist/react-activity.js\");\n/* harmony import */ var react_activity__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_activity__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n\n\nfunction Activity(_ref) {\n  var _ref$size = _ref.size,\n      size = _ref$size === void 0 ? 34 : _ref$size;\n  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"div\", {\n    className: \"activity-container\",\n    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_activity__WEBPACK_IMPORTED_MODULE_1__.Spinner, {\n      color: \"#6332df\",\n      size: size\n    })\n  });\n}\n;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvdXNlcmFyZWEvUGFnZXMvUHJpdmF0ZS9MYXlvdXQvY29tcG9uZW50cy9BY3Rpdml0eS5qc3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUVlLFNBQVNDLFFBQVQsT0FBK0I7RUFBQSxxQkFBWkMsSUFBWTtFQUFBLElBQVpBLElBQVksMEJBQUwsRUFBSztFQUMxQyxvQkFDSTtJQUFLLFNBQVMsRUFBQyxvQkFBZjtJQUFBLHVCQUFvQyx1REFBQyxtREFBRDtNQUFTLEtBQUssRUFBQyxTQUFmO01BQXlCLElBQUksRUFBRUE7SUFBL0I7RUFBcEMsRUFESjtBQUdIO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvdXNlcmFyZWEvUGFnZXMvUHJpdmF0ZS9MYXlvdXQvY29tcG9uZW50cy9BY3Rpdml0eS5qc3g/YjhkNiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBTcGlubmVyIH0gZnJvbSAncmVhY3QtYWN0aXZpdHknXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEFjdGl2aXR5KHtzaXplID0gMzR9KSB7XG4gICAgcmV0dXJuIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJhY3Rpdml0eS1jb250YWluZXJcIj48U3Bpbm5lciBjb2xvcj1cIiM2MzMyZGZcIiBzaXplPXtzaXplfSAvPjwvZGl2PlxuICAgICk7XG59OyJdLCJuYW1lcyI6WyJTcGlubmVyIiwiQWN0aXZpdHkiLCJzaXplIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/userarea/Pages/Private/Layout/components/Activity.jsx\n");
 
 /***/ })
 
