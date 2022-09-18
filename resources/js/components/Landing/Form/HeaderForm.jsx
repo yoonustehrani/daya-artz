@@ -44,7 +44,7 @@ class HeaderForm extends Component {
             }
             if (errs.length > 0) {
                 !hasErr ? hasErr = true : null
-                !document.querySelector("#err-container>ul") && document.getElementById("err-container").insertAdjacentHTML('beforeend', "<ul class='bg-red-500/80 p-2 pr-6 rounded-md text-slate-50 mt-1 list-disc col-span-full err-container'></ul>")
+                !document.querySelector("#err-container>ul") && document.getElementById("err-container").insertAdjacentHTML('beforeend', "<ul class='bg-red-500/80 text-sm p-2 pr-6 rounded-md text-slate-50 mt-1 list-disc col-span-full err-container'></ul>")
                 errs.map(err => {document.querySelector("#err-container>ul").insertAdjacentHTML('beforeend', `<li>${err}</li>`)})
             }
         })

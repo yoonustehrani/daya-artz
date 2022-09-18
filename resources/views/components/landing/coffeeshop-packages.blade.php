@@ -1,4 +1,4 @@
-<div class="px-3 py-5 snap-always snap-center bg-amber-900/90 flex flex-col justify-between rounded-md text-white w-full min-w-[95%] md:min-w-0 m-1 md:w-[46%] md:m-[2%] lg:w-[31%] lg:m-[1%] xl:w-[23%] xl:m-[1%]">
+<div class="px-3 py-5 snap-always snap-center bg-amber-900/90 flex flex-col justify-between rounded-md text-white w-full min-w-[95%] md:min-w-0 m-1 md:w-[46%] md:m-[2%] lg:w-[31%] lg:m-[1%] 2xl:w-[23%] xl:m-[1%]">
     <div class="flex flex-col items-center">
         <div class="bg-white px-3 py-2 my-3 w-fit rounded-full">
             <h3 class="text-amber-600 text-xl font-bold text-center">{{ $title }}</h3>

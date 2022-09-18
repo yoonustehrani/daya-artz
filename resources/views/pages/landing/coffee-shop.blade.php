@@ -61,7 +61,7 @@
     {{-- Client types --}}
     <section class="p-3 w-full flex flex-col items-center gap-8 mb-10">
         <div class="w-11/12 md:w-5/6 p-3 flex flex-col items-center md:flex-row md:justify-center">
-            <div class="p-3 h-[300px] relative">
+            <div class="p-3 w-full md:w-[initial] h-auto md:h-[300px] relative">
                 <img class="h-full opacity-30 lazyload" data-src="{{ asset('images/landing/coffee/coffeeshop-back.svg') }}" alt="">
                 <img class="h-full absolute z-10 -bottom-2 left-0 lazyload" data-src="{{ asset('images/landing/coffee/coffeeshop.svg') }}" alt="">
             </div>
@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="w-11/12 md:w-5/6 p-3 flex flex-col items-center md:flex-row md:justify-center [direction:ltr]">
-            <div class="p-3 h-[300px] relative">
+            <div class="p-3 w-full md:w-[initial] h-auto md:h-[300px] relative">
                 <img class="h-full opacity-30 lazyload" data-src="{{ asset('images/landing/coffee/coffee-restaurant-back.svg') }}" alt="">
                 <img class="h-full absolute z-10 -bottom-8 left-0 lazyload" data-src="{{ asset('images/landing/coffee/coffee-restaurant.svg') }}" alt="">
             </div>
@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="w-11/12 md:w-5/6 p-3 flex flex-col items-center md:flex-row md:justify-center">
-            <div class="p-3 h-[300px] relative">
+            <div class="p-3 w-full md:w-[initial] h-auto md:h-[300px] relative">
                 <img class="h-full opacity-30 lazyload" data-src="{{ asset('images/landing/coffee/takeaway-back.svg') }}" alt="">
                 <img class="h-full absolute z-10 bottom-3 left-0 lazyload" data-src="{{ asset('images/landing/coffee/takeaway.svg') }}" alt="">
             </div>
