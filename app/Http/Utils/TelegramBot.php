@@ -18,9 +18,9 @@ class TelegramBot
         $options = array_merge($options, ['timeout' => 60, 'headers' => ['Accept' => 'application/json']]);
         $request = new \GuzzleHttp\Client;
         if ($type == 'post') {
-            $request = $request->post($path, $options);
+            $request = $request->request('POST', $path, $options);
         } else {
-            $request = $request->get($path, $options);
+            $request = $request->request('GET', $path, $options);
         }
         $response = $request->getBody();
         return json_decode($response->getContents());
@@ -44,7 +44,7 @@ class TelegramBot
             'chat_id' => $chat_id,
             'text'    => $text,
         ];
-        return $this->makeRequest($path, 'post', array_merge($data, $extra));
+        return $this->makeRequest($path, 'post', array_merge($data, $extra), 'json');
     }
     public function sendPhoto($chat_id, $photo_url, $extra = [])
     {

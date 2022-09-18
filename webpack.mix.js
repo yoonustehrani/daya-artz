@@ -36,7 +36,9 @@ const src = {
     }
 }
 var { res, pub, zeus } = src
+
 mix.disableNotifications()
+
 if (mix.inProduction) {
     mix.version()
 }
@@ -66,7 +68,7 @@ mix.postCss(res.css + "landing.css", pub.css, [
         require('tailwindcss')({config: './tailwind.landing.config.js'}),
         require('autoprefixer'), 
     ])
-    .js(res.js + "landing-opening.js", pub.js).react()
+    .js(res.js + "landing-page.js", pub.js).react()
 // zeus
 mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
     require('postcss-import'),

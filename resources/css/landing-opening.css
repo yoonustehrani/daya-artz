@@ -296,6 +296,9 @@
     #menu-list.open {
         @apply opacity-90 right-0;
     }
+    #menu-list.open-full {
+        @apply opacity-100 right-0;
+    }
     .hide-scroll {
         &::-webkit-scrollbar {
             display: none;

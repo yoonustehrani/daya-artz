@@ -405,6 +405,6 @@
         </div>
     </section>
     @push('scripts')
-        <script src="{{ mix('js/landing-opening.js') }}"></script>
+        {{-- <script src="{{ mix('js/landing-opening.js') }}"></script> --}}
     @endpush
 </x-layout.landing>
