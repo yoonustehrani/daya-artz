@@ -3381,8 +3381,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   height: 2.5rem;
 }.h-px{
   height: 1px;
-}.h-\[300px\]{
-  height: 300px;
 }.h-\[190px\]{
   height: 190px;
 }.h-12{
@@ -4364,6 +4362,9 @@ readers do not read off random characters that represent icons */.fa-address-car
     .md\:w-5\/6{
     width: 83.333333%;
   }
+    .md\:w-\[initial\]{
+    width: initial;
+  }
     .md\:w-3\/5{
     width: 60%;
   }
@@ -4378,9 +4379,6 @@ readers do not read off random characters that represent icons */.fa-address-car
   }
     .md\:w-\[46\%\]{
     width: 46%;
-  }
-    .md\:w-\[initial\]{
-    width: initial;
   }
     .md\:min-w-\[76px\]{
     min-width: 76px;
