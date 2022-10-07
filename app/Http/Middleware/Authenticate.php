@@ -15,7 +15,9 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('login');
+            return route(
+                \Str::startsWith($request->path(), 'zeus') ? 'zeus.auth.login.form' : 'login'
+            );
         }
     }
 }

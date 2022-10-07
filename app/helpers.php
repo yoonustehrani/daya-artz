@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Utils\SMSTool;
+use App\Http\Utils\TelegramBot;
 use App\Models\Offer;
 use App\Models\Bill;
+use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 
 if (! function_exists('generate_code')) {
@@ -52,14 +55,13 @@ if (! function_exists('custom_route')) {
 
 if (! function_exists('get_menu_items')) {
     function get_menu_items($menu_name) {
-        $menu = \Cache::rememberForever("site.menus.{$menu_name}", function () use($menu_name) {
+        return \Cache::rememberForever("site.menus.{$menu_name}", function () use($menu_name) {
             $menu = App\Models\Menu::where('name', $menu_name)->with('items')->first();
             if ($menu) {
                 return $menu->items->toArray();
             }
             return [];
         });
-        return $menu;
     }
 }
 
@@ -124,5 +126,39 @@ if (! function_exists('make_bills')) {
             array_push($bills, $bill);
         }
         return $bills;
+    }
+}
+
+if (! function_exists('get_seo_settings')) {
+    function get_seo_settings($slug, $instance) {
+        return \Cache::rememberForever("{$slug}.{$instance->id}.seo_settings", function () use($instance) {
+            return $instance->seo_settings;
+        });
+    }
+}
+
+if (! function_exists('get_website_page')) {
+    function get_website_page($slug) {
+        $page = \Cache::rememberForever("website.pages.{$slug}", function () use($slug) {
+            return Page::whereSlug($slug)->first();
+        });
+        abort_if(! $page, 404);
+        return $page;
+    }
+}
+
+if (! function_exists('sms_driver')) {
+    /**
+     * @return App\Http\Utils\SMSDrivers\Faraz
+     */
+    function sms_driver()
+    {
+        return (new SMSTool)->getDriver('faraz');
+    }
+}
+
+if (! function_exists('telegram_notifier_bot')) {
+    function telegram_notifier_bot() {
+        return new TelegramBot(config('services.telegram_bots.notifier.token'));
     }
 }

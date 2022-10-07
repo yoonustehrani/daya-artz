@@ -2,17 +2,18 @@
 
 namespace App\Notifications;
 
-use App\Broadcasting\SMSChannel;
-use App\Http\Utils\SMS;
+use App\Mail\VerificationEmail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class VerificationNotification extends Notification
+class VerificationNotification extends Notification implements ShouldQueue
 {
     use Queueable;
     private $via;
+    public $tries = 2;
+    public $timeout = 90;
     /**
      * Create a new notification instance.
      *
@@ -37,20 +38,16 @@ class VerificationNotification extends Notification
     public function toMail($notifiable)
     {
         $verification_url = $notifiable->generateVerificationUrl();
-        return (new MailMessage)
-                    ->subject('تایید آدرس ایمیل')
-                    ->line('برای تایید آدرس ایمیل خود روی دکمه زیر کلیک کنید')
-                    ->action('تایید آدرس ایمیل', $verification_url)
-                    ->line('اگر شما اکانتی در وب سایت ما نساخته اید ، این ایمیل را نادیده بگیرید.');
+        return (new VerificationEmail($notifiable, $verification_url));
     }
 
     public function toSms($notifiable)
     {
         $verification = $notifiable->generateVerificationCode('verify_phone', generate_code(), false, 2);
-        if (!! config('services.sms.active')) {
-            \Log::critical("verification code is: {$verification->code}");
-            // (new SMS())->to($notifiable->phone_number)->sendAuth("کد احراز هویت : {$verification->code}");
-        }
+        $pattern = "xfi0x9hy0k";
+        sms_driver()->sendPattern('+983000505', $notifiable->phone_number, $pattern, [
+            'code' => (string) $verification->code
+        ]);
     }
     
     /**

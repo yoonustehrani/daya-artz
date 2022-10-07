@@ -1,16 +1,16 @@
 <div class="col-12 mt-5 title-section">
     <div class="title-container">
-        <h2 class="title-text">لوگو</h2>
+        <h2 class="title-text">{{ get_setting('mainpage.info_item.title') }}</h2>
         <span class="title-underline"></span>
     </div>
 </div>
 <div class="col-12 float-left p-3">
     <div class="tab-element">
         <ul class="tabs-container col-12 float-left p-0">
-            <li class="tab badge badge-pill eggplant active">لوگو چیست؟</li>
-            <li class="tab badge badge-pill eggplant">انواع لوگو</li>
-            <li class="tab badge badge-pill eggplant">کاربرد لوگو</li>
-            <li class="tab badge badge-pill eggplant">فلسفه فکری لوگو</li>
+            <li class="tab active"><h3 class="badge badge-pill eggplant">لوگو چیست</h3></li>
+            <li class="tab"><h3 class="badge badge-pill eggplant">انواع لوگو</h3></li>
+            <li class="tab"><h3 class="badge badge-pill eggplant">کاربرد لوگو</h3></li>
+            <li class="tab"><h3 class="badge badge-pill eggplant">فلسفه فکری لوگو</h3></li>
         </ul>
         <div class="tab-contents col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12 float-left mt-3">
             <article class="tab-content active">
@@ -38,7 +38,7 @@
                 <p>در پس زمینه هر چیز، عقیده و باور نهادینه شده است. باور ها و عقاید تبدیل به ارزش ها می شوند و ارزش ها برایمان ملاک های زیبایی را به وجود می آورند. در خصوص لوگو نیز به همین شکل است. عقاید و باور های هر شخص در کسب و کارش تبدیل به ارزش های معنوی آن کسب و کار می شود و آرمان ها را می سازد. ارزش های آن فعالیت و کسب و کار، خط قرمز هایی را به وجود می آورد که برای طراحی لوگو به شکل زیبا و بامعنی نمی توان از آن ها عبور کرد. همه این پروسه چکیده ایی از فلسفه فکری لوگو است که برای هر شخص و هر کسب و کار متفاوت است چرا که عقاید و باور ها متفاوت هستند و این علتی است که لوگو ها تکراری طراحی نمی شوند.</p>
             </article>
             <div class="col-12 mt-4 text-center">
-                <a href="#" class="btn badge-pill eggplant active">همین حالا سفارشت رو ثبت کن!</a>
+                <a href="#start-fast-order" class="btn badge-pill eggplant active scroll-to-form">همین حالا سفارشت رو ثبت کن!</a>
             </div>
         </div>
     </div>

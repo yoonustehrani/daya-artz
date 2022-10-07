@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Broadcasting\SMSChannel;
 use App\Mail\Welcome;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,7 +31,7 @@ class WelcomeNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return $notifiable->email ? ['mail', 'database'] : ['database'];
+        return $notifiable->email ? ['mail', 'database'] : [SMSChannel::class, 'database'];
     }
 
     /**
@@ -42,6 +43,22 @@ class WelcomeNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return new Welcome($notifiable);
+    }
+
+    /**
+     * Send the Sms through SMS Service tool
+     * 
+     * @param App\Models\User $notifiable
+     * @return void
+     */
+    public function toSms($notifiable)
+    {
+        sms_driver()->sendPattern(
+            config('services.farazSMS.from_number'),
+            $notifiable->phone_number,
+            '9ijbkelwrbjl3gm',
+            ['name' => $notifiable->lastname ?: __('User')]
+        );
     }
     /**
      * Get the array representation of the notification.

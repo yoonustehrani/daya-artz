@@ -11,7 +11,12 @@ class Zarinpal extends Gateway
     public function __construct()
     {
         parent::__construct();
-        $this->setMerchantId('00000000-0000-0000-0000-000000000000');
+        if (config('services.zarinpal.sandbox')) {
+            $this->sandbox();
+            $this->setMerchantId('00000000-0000-0000-0000-000000000000');
+        } else {
+            $this->setMerchantId(config('services.zarinpal.merchant_id'));
+        }
     }
     /**
      * Requesting a Zarinpal gateway
@@ -39,8 +44,8 @@ class Zarinpal extends Gateway
             return ['okay' => false];
         }
         $data = $body['data'];
-        if (isset($data['code']) && $data['code'] === 100 && $data['authority']) {
-            $this->authority = $data['authority'];
+        if (isset($data->code) && $data->code === 100 && $data->authority) {
+            $this->authority = $data->authority;
             return [
                 'okay' => true,
                 'gateway' => $this->getRedirection(),
@@ -66,25 +71,18 @@ class Zarinpal extends Gateway
             if (in_array($status, [100, 101]) && $ref_id) {
                 return [
                     'okay' => true,
-                    'ref_id' => $ref_id,
-                    // 'meta' => [
-                    //     'card_pan' => $data['card_pan'],
-                    //     'fee' => $data['fee']
-                    // ]
+                    'ref_id' => $ref_id
                 ];
             }
         }
-        // $data = $body['data'];
-        // if (isset($data['code']) && ($data === 100 || $data === 101) && $data['ref_id']) {
-        //     return [
-        //         'okay' => true,
-        //         'ref' => $data['ref_id'],
-        //         'meta' => [
-        //             'card_pan' => $data['card_pan'],
-        //             'fee' => $data['fee']
-        //         ]
-        //     ];
-        // }
+        $data = $body['data'];
+        if (isset($data->code) && ($data->code === 100 || $data->code === 101) && $data->ref_id) {
+            return [
+                'okay' => true,
+                'ref_id' => $data->ref_id,
+                'card_pan' => $data->card_pan ?? null
+            ];
+        }
         return [
             'okay' => false,
             'errors' => $body['errors'] ?? []
@@ -141,7 +139,8 @@ class Zarinpal extends Gateway
                     'amount' => $this->getAmount(),
                     'description' => $this->description,
                     'callback_url' => $this->redirectUrl('zarinpal'),
-                    'metadata' => $this->metadata
+                    'metadata' => $this->metadata,
+                    'currency' => 'IRT'
                 ];
         return compact('json');
     }
@@ -186,4 +185,3 @@ class Zarinpal extends Gateway
         return $this->sandbox;
     }
 }
-

@@ -16,6 +16,9 @@ const validate = (inputsArray) => {
                             case "phone_number":
                                 ! validator.isMobilePhone(value) ? err = "شماره تلفن وارد شده معتبر نیست" : null
                                 break
+                            case "state_code":
+                                ! validator.isNumeric(value) || ! value.length !== 3 ? err = "کد استان وارد شده معتبر نیست" :  null
+                                break;
                             case "short_text":
                                 ! validator.isLength(value, {min: 0, max: 60}) ? err = `طول فیلد ${title} حداکثر شصت کاراکتر میباشد` : null
                                 break

@@ -25,7 +25,7 @@ class CreateTicketsTable extends Migration
                 'on-hold',
                 'in-progress',
                 'awaiting-reply',
-                'reviewd',
+                'reviewed',
                 'closed'
             ]);
             $table->timestamp('closed_at')->nullable();

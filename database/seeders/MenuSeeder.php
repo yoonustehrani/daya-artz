@@ -45,12 +45,12 @@ class MenuSeeder extends Seeder
                 [
                     'title' => 'تماس با ما',
                     'route' => 'contact',
-                    'icon' => 'fas fa-headset'
+                    'icon' => 'fas fa-user-headset'
                 ],
                 [
                     'title' => 'شرایط و ضوابط',
                     'route' => 'policy',
-                    'icon' => 'fas fa-rule'
+                    'icon' => 'fas fa-user-lock'
                 ]
             ];
             foreach ($items as $order => $item) {

@@ -1,0 +1,82 @@
+@import './fonts';
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    direction: rtl;
+    text-align: right;
+    background-color: #fafafa;
+    background-image: url('/images/dots-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.err__title {
+    color: #17093c;
+    font-size: 2rem;
+    margin: 20px 0;
+    text-align: center;
+}
+.err__subtitle {
+    color: #17093c;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 20px 0;
+}
+.err__btn-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 20px 0;
+    .err__btn {
+        margin: 0 20px;
+        border-radius: 2rem;
+        color: #fff;
+        background-color: #17093c;
+        text-align: center;
+        padding: 8px 12px;
+        box-shadow: 0 0 8 rgba($color: #000, $alpha: 0.3);
+        text-decoration: none;
+        transition: 0.3s;
+        &:hover {
+            background-color: #6332df;
+        }
+    }
+}
+.err__vector {
+    width: 50%;
+    height: auto;
+    margin: 40px auto;
+    display: block;
+}
+@media screen and (max-width: 768px) { // mobile size
+    .err__vector, .err__footer {
+        width: 90%;
+    }
+}
+.err__footer {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: center;
+    .err__footer-item {
+        color: #17093c;
+        border-left: 2px solid #17093c;
+        padding: 0 20px;
+        text-decoration: none;
+        transition: 0.4s;
+        margin: 10px 0;
+        display: inline-block;
+        &:hover {
+            color: #6332df;
+        }
+        &:last-child {
+            border-left: none;
+        }
+    }
+}

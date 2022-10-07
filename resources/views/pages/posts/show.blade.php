@@ -2,50 +2,87 @@
 
 @push('head')
     <title>{{ $post->title }} - وبلاگ دایا آرتز</title>
+    @component('components.seo', [
+        'instance' => $post,
+        'slug' => 'posts',
+        'og' => [
+            'title' => $post->title,
+            'type' => 'article',
+            'type_details' => [
+                'published_time' => $post->created_at->format('Y-m-d'),
+                'modified_time' => $post->updated_at->format('Y-m-d')
+            ],
+            'image' => ($post->image && $post->image->file) ? $post->image->file : null
+        ]
+    ]) @endcomponent
+    <script type="application/ld+json">
+        [{
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "{{ $post->title }}",
+            @if ($post->image && $post->image->file)
+            "image": [
+              "{{ asset($post->image->file->path) }}"
+            ],
+            @endif
+            "datePublished": "{{ $post->created_at->format('Y-m-d') }}",
+            "dateModified": "{{ $post->updated_at->format('Y-m-d') }}"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "وبلاگ",
+                "item": "{{ route('blog.index') }}"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ $post->title }}",
+                "item": "{{ route('blog.show', ['slug' => $post->slug]) }}"
+              }]
+        }]
+    </script>
 @endpush
 
 @section('content')
-    <div itemscope itemtype="https://schema.org/BlogPosting">
+    <div>
         <div class="section w-100">
             <div class="horizontal-centerlize-w col-12 col-lg-11 col-xl-10 post-info-section mt-3">
                 <div class="post-info-container vertical-centerlize p-4">
                     <h1 class="horizontal-centerlize post-title mb-4 pr-2">{{ $post->title }}</h1>
                     <div class="post-info-flex rtl">
-                        <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2">
+                        <div class="col-12 col-lg-6 mb-4 mb-md-3 mb-lg-4 pr-2">
                             <i class="fas fa-icons"></i>
                             <span>دسته بندی موضوعی: </span>
                             <span itemprop="genre">{{ optional($post->category)->title }}</span>
                         </div>
-                        <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2">
+                        <div class="col-12 col-lg-6 mb-4 mb-md-3 mb-lg-4 pr-2">
                             <i class="fas fa-calendar-day"></i>
                             <span>تاریخ انتشار: </span>
                             <span>
                                 <time datetime="{{ $post->created_at->format('Y-m-d') }}">{{ jdate($post->created_at)->format('%e %B %Y') }}</time>
                             </span>
                         </div>
-                        <div class="col-12 col-md-6 mb-4 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-hourglass-start"></i><span>مدت زمان مطالعه: </span><span>{{ $post->reading_time }}</span></div>
+                        <div class="col-12 col-lg-6 mb-4 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-hourglass-start"></i><span>مدت زمان مطالعه: </span><span>{{ $post->reading_time }}</span></div>
                         @if ($post->author_id)
-                            <div class="col-12 col-md-6 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-user-edit"></i><span>نویسنده: </span><span>{{ $post->author->fullname }}</span></div>
+                            <div class="col-12 col-lg-6 mb-md-3 mb-lg-4 pr-2"><i class="fas fa-user-edit"></i><span>نویسنده: </span><span>{{ $post->author->fullname }}</span></div>
                         @endif
                     </div>
                 </div>
                 <div class="post-info-cover float-left mt-2 mt-md-0">
                     @if ($post->image && $post->image->file)
-                        <img itemprop="image"
-                            class="w-100 h-100"
-                            src="{{ asset($post->image->file->thumbnail_path) }}"
-                            data-src="{{ asset($post->image->file->path) }}"
-                            alt="{{ $post->image->alt }}">
+                        <img data-src="{{ asset($post->image->file->path) }}" alt="{{ $post->image->alt }}" class="m-auto lazyload">
                     @endif
                 </div>
             </div>
         </div>
-
         <div class="section post-main-section p-2 mt-4">
-            <div class="post-main-text" itemprop="articleBody">{!! $post->body !!}</div>
+            <div class="post-main-text" id="post-content">{!! $post->body !!}</div>
         </div>
     </div>
-    @if ($post->related->count())
+    {{-- @if ($post->related->count())
     <div class="section w-100">
         <div class="title-section col-12 mb-3">
             <div class="title-container">
@@ -53,7 +90,6 @@
                 <span class="title-underline"></span>
             </div>
         </div>
-        {{-- TODO Centralize if related posts are less than 3 --}}
         <div class="blog-posts-container {{ $post->related->count() > 3 ? 'swiper-container' : 'd-flex justify-content-center' }} w-100">
             <div class="swiper-wrapper">
                 @foreach ($post->related as $post_item)
@@ -78,8 +114,10 @@
             @endif
         </div>
     </div>
-    @endif
+
+    @endif --}}
+            {{-- TODO Centralize if related posts are less than 3 --}}
     <div class="section col-12 col-md-10 offset-md-1 col-xl-8 offset-xl-2 blog-post-end">
-        <img src="{{ asset('images/blog-post-end.svg') }}">
+        <img data-src="{{ asset('images/blog-post-end.svg') }}" class="lazyload" alt="وبلاگ دایا آرتز">
     </div>
 @endsection

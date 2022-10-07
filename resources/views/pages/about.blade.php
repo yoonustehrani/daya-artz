@@ -1,9 +1,9 @@
 @extends('layouts.page')
 
-@section('head')
-    <title>About us | Daya Artz</title>
-@endsection
-
+@push('head')
+    <title>{{ $page->title }}</title>
+    @component('components.seo', ['instance' => $page, 'slug' => 'pages', 'og' => ['title' => $page->title]]) @endcomponent
+@endpush
 
 @section('content')
 <article class="text-dark">
@@ -63,7 +63,7 @@
             </ul>
         </div>
         <div class="image-box float-right p-0 col-lg-6 col-12">
-            <img src="{{ asset('images/about-us-vector.svg') }}" alt="">
+            <img data-src="{{ asset('images/about-us-vector.svg') }}" class="lazyload" alt="مزیت های دایاآرتز">
         </div>
     </div>
     <div class="section col-lg-10 offset-lg-1 col-12 p-3 px-4 px-md-5 mt-3">
@@ -75,7 +75,7 @@
         <div class="section col-12 p-2">
             <div class="col-12 title-section">
                 <div class="title-container">
-                    <h1 class="title-text">فلسفه لوگو دایا آرتز</h1>
+                    <h2 class="title-text">فلسفه لوگو دایا آرتز</h2>
                     <span class="title-underline"></span>
                 </div>
             </div>

@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function show(Request $request)
     {
-        $company = $request->user()->company()->first();
+        $company = $request->user() ? $request->user()->company()->first() : null;
         return response()->json([
             'okay' => true,
             'user' => $request->user(),

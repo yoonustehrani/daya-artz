@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import {render} from 'react-dom'
-import UserArea from './react/components/UserArea'
+import UserArea from './userarea/components/UserArea'
 import { Provider } from 'react-redux';
-import store from './react/redux/store';
-import { checkAuth, logoutUser } from './react/redux/actions'
+import store from './userarea/redux/store';
+import { checkAuth, logoutUser } from './userarea/redux/actions'
 
 const elem = document.getElementById('main')
 

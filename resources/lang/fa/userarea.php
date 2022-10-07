@@ -7,7 +7,7 @@ return [
             'on-hold' => 'موقتا در حال انتظار',
             'in-progress' => 'در حال انجام',
             'awaiting-reply' => 'منتظر پاسخ شما',
-            'reviewd' => 'توسط تیم پشتیبانی مشاهده شده',
+            'reviewed' => 'توسط تیم پشتیبانی مشاهده شده',
             'closed' => 'بسته شده'
         ]
     ],
@@ -25,7 +25,7 @@ return [
         ],
         'status' => [
             'submitted' => 'ثبت شده',
-            'reviewd' => 'دریافت و بررسی شده',
+            'reviewed' => 'دریافت و بررسی شده',
             'designing' => 'در حال طراحی',
             'finished' => 'پایان یافته',
             'checked-out' => 'تسویه شده',
@@ -39,7 +39,7 @@ return [
     'transactions' => [
         'provider' => [
             'zarinpal' => 'درگاه زرین پال',
-            'direct' => 'واریز به حساب'
+            'manual' => 'واریز به حساب'
         ],
         'status' => [
             'verified' => 'تایید شده',

@@ -53,6 +53,14 @@ class User extends Authenticatable
         return $this->phone_number ?: $this->email;
     }
 
+    public function getCallableNameAttribute()
+    {
+        if ($this->lastname) {
+            return "{$this->firstname} {$this->lastname}";    
+        }
+        return null;
+    }
+
     public function verification_codes()
     {
         return $this->hasMany(VerificationCode::class)->where('expires_at', '>', now());

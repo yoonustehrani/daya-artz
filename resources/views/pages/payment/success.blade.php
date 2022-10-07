@@ -12,8 +12,13 @@
                 </p>
                 <hr>
                 <p class="item">
+                    <span>کارت بانکی</span>
+                    <span class="d-inline-block ltr">{{ optional($transaction->details)->card_pan }}</span>
+                </p>
+                <hr>
+                <p class="item">
                     <span>پیگیری تراکنش</span>
-                    <span>123456</span>
+                    <span>{{ optional($transaction->details)->ref_id }}</span>
                 </p>
                 <hr>
                 <p class="item">
@@ -23,7 +28,7 @@
                 <hr>
                 <p class="item">
                     <span>پذیرنده</span>
-                    <span>@lang($transaction->provider) <img src="{{ asset('images/gallery/zarin-paal.jpg') }}" height="20" alt=""></span>
+                    <span>@lang($transaction->provider) <img data-src="{{ asset('images/gallery/zarin-paal.jpg') }}" class="lazyload" height="20" alt="لوگوی زرین پال"></span>
                 </p>
             </div>
             <div class="text-center mt-3">

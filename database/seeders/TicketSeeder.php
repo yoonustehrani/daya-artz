@@ -19,22 +19,22 @@ class TicketSeeder extends Seeder
     {
         $user = User::first();
         TicketDepartment::factory()->count(5)->create();
-        // if ($user) {
-        //     Ticket::factory()
-        //         ->state([
-        //             'user_id' => $user->getKey() 
-        //         ])
-        //         ->count(3)
-        //         ->forDepartment()
-        //         ->has(
-        //             TicketMessage::factory()
-        //                 ->state([
-        //                     'user_id' => $user->getKey()
-        //                 ])
-        //                 ->count(20)
-        //             , 'messages'
-        //         )
-        //         ->create();
-        // }
+        if ($user) {
+            Ticket::factory()
+                ->state([
+                    'user_id' => $user->getKey() 
+                ])
+                ->count(3)
+                ->forDepartment()
+                ->has(
+                    TicketMessage::factory()
+                        ->state([
+                            'user_id' => $user->getKey()
+                        ])
+                        ->count(20)
+                    , 'messages'
+                )
+                ->create();
+        }
     }
 }

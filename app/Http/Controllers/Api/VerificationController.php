@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Events\UserVerifiedTheirAccount;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Cache\RateLimiter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -91,15 +92,16 @@ class VerificationController extends Controller
                         $user->level = 'new';
                     }
                     if ($user->save()) {
-                        event(new UserVerifiedTheirAccount($user));
+                        \Cache::forget("phone-validation-user-{$user->phone_number}");
                         $verification->delete();
                         \DB::commit();
+                        event(new UserVerifiedTheirAccount($user));
                         return response()->json(['okay' => true, 'verified' => true]);
                     }
                 }
             }
             \DB::rollback();
-            return response()->json(['errors' => ['code' => 'کد وارد شده نامعتبر است.']], 422);
+            return response()->json(['errors' => ['code' => ['کد وارد شده نامعتبر است.']]], 422);
         } catch (\Throwable $th) {
             \DB::rollback();
             return ['okay' => false, 'verified' => !! $user->phone_verified];
@@ -119,6 +121,24 @@ class VerificationController extends Controller
             $user->resendSms();
             return ['okay' => true];
         }
+    }
+    public function verifyEmail($id, $hash, Request $request) {
+        $user = User::findOrFail($id);
+        if (! hash_equals($hash, sha1($user->email))) {
+            abort(401);
+        }
+        if ($user->hasVerifiedEmail()) {
+            return 'email is already verified';
+        }
+        $user->email_verified_at = now();
+        if ($user->level === 'register') {
+            $user->level = 'new';
+        }
+        if ($user->save()) {
+            \Cache::forget("email-validation-user-{$user->email}");
+            event(new UserVerifiedTheirAccount($user));
+        }
+        return redirect()->to(route('userarea'));
     }
     public function editEmail(Request $request)
     {

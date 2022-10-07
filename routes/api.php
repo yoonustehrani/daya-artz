@@ -3,7 +3,9 @@
 use App\Customer;
 use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\OrderController as ApiOrderController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserArea\InvoiceController;
 use App\Http\Controllers\Api\UserArea\OrderController;
 use App\Http\Controllers\Api\UserArea\OrderItemController;
@@ -36,9 +38,14 @@ Route::get('/', fn() => ['okay' => true]);
 
 Route::prefix('forms')->name('forms.')->group(function() {
     Route::post('quick-order', [FormsController::class, 'quickOrder'])->name('orders.quick');
+    Route::get('quick-order/services', [ApiOrderController::class, 'search'])->name('orders.services.search');
+    Route::get('quick-order/services/main', [ApiOrderController::class, 'index'])->name('orders.services.main');
     Route::post('contact', [FormsController::class, 'contact'])->name('contact');
+    Route::get('/{key}', [FormsController::class, 'show'])->name('show');
+    Route::post('/{key}/answer', [FormsController::class, 'store'])->middleware('throttle:5,1,forms')->name('store');
 });
 
+Route::get('services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
 Route::get('portfolio/{service?}', [PortfolioController::class, 'index'])->name('portfolios.index');
 
@@ -67,7 +74,7 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
     Route::post('tickets/', [TicketController::class, 'store'])->name('tickets.store');
     Route::get('tickets/departments', [TicketController::class, 'departments'])->name('tickets.departments.index');
     Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
-    Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+    Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update')->middleware('throttle:3,1,ticketing_system');
     Route::get('transactions', [ReportController::class, 'transactions'])->name('transactions.index');
     // Invoices
     Route::get('invoices', [InvoiceController::class, 'index'])->name('invoices.index');
@@ -94,3 +101,5 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
         Route::put('company', [UserController::class, 'updateCompany']);
     });
 });
+
+\ZeusPanel::api_routes();

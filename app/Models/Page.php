@@ -4,8 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Page extends Model
+class Page extends ZeusModel
 {
     use HasFactory;
+    public static function booted() {
+        static::saved(function($page) {
+            \Cache::forever("website.pages.{$page->slug}", $page);
+        });
+        static::deleted(function($page) {
+            \Cache::forget("website.pages.{$page->slug}");
+        });
+    }
 }

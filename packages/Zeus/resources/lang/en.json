@@ -1,0 +1,10 @@
+{
+    "dashboard": "Dashboard",
+    "database": "Database",
+    "order_by": "Order by",
+    "order_dir": "Order Direction",
+    "search": "Search",
+    "search_placeholder": "search for anything ...",
+    "search_by": "Search by :key",
+    "Form Answer": "Answer to form #:id"
+}

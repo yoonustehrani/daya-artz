@@ -12,18 +12,18 @@ class TelegramBot
         $this->telegram_path = str_replace('BOT_TOKEN', $bot_token ,$this->telegram_path);
         return $this;
     }
-    private function makeRequest($path, $type = 'get', $body = null)
+    private function makeRequest($path, $type = 'get', $body = null, $key = 'form_params')
     {
-        $options = $body ? ['form_params' => $body] : [];
+        $options = $body ? [$key => $body] : [];
         $options = array_merge($options, ['timeout' => 60, 'headers' => ['Accept' => 'application/json']]);
         $request = new \GuzzleHttp\Client;
         if ($type == 'post') {
-            $request = $request->post($path, $options);
+            $request = $request->request('POST', $path, $options);
         } else {
-            $request = $request->get($path, $options);
+            $request = $request->request('GET', $path, $options);
         }
         $response = $request->getBody();
-        return $response;
+        return json_decode($response->getContents());
     }
     private function setMethod($method_name)
     {
@@ -33,6 +33,10 @@ class TelegramBot
     {
         return $this->makeRequest($this->setMethod('getMe'));
     }
+    public function getUpdates()
+    {
+        return $this->makeRequest($this->setMethod('getUpdates'));
+    }
     public function sendMessage($chat_id, $text, $extra = [])
     {
         $path = $this->setMethod('sendMessage');
@@ -40,7 +44,7 @@ class TelegramBot
             'chat_id' => $chat_id,
             'text'    => $text,
         ];
-        return $this->makeRequest($path, 'post', array_merge($data, $extra));
+        return $this->makeRequest($path, 'post', array_merge($data, $extra), 'json');
     }
     public function sendPhoto($chat_id, $photo_url, $extra = [])
     {
@@ -50,6 +54,25 @@ class TelegramBot
             'photo' => $photo_url,
         ];
         return $this->makeRequest($path, 'post', array_merge($data, $extra));
+    }
+    public function sendDocument($chat_id, $document, $caption = "", $extra = [])
+    {
+        $path = $this->setMethod('sendDocument');
+        $final_data = [
+            [
+                'name' => 'chat_id',
+                'contents' => $chat_id
+            ],
+            [
+                'name' => 'document',
+                'contents' => \GuzzleHttp\Psr7\Utils::tryFopen($document, 'r')
+            ],
+            [
+                'name' => 'caption',
+                'contents' => $caption
+            ]
+        ];
+        return $this->makeRequest($path, 'post', array_merge($final_data, $extra), 'multipart');
     }
     public function pinChatMessage($chat_id, $message_id, $notification = true)
     {

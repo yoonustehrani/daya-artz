@@ -126,6 +126,7 @@ p {
     display: inline-block;
     overflow: hidden;
     text-decoration: none;
+    margin: 15px 0 15px 0;
 }
 
 .button-blue,

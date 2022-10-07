@@ -15,7 +15,7 @@ if ($(".section-guide-container").length > 0) {
     })
 
     // the code below is for checking which element is in viewport
-    const section_ids = ["#logo-info", "#order-detail", "#customer-detail", "#about-logo", "#start-order", "#daya-guide", "#daya-samples"]
+    const section_ids = ["#logo-info", "#order-detail", "#customer-detail", "#about-logo", "#start-order", "#daya-guide", "#quick-order-container"]
     $("body").on('scroll', function() {
         let sections_info = [], current_section_index
         section_ids.map((id, index) => {
@@ -40,7 +40,7 @@ if ($(".section-guide-container").length > 0) {
     let target_index, target_position
     $("#guide-list>li").click(function() {
         target_index = $(this).index(), target_position = $(`${section_ids[target_index]}`).offset().top + $("body").scrollTop()
-        $(window).width() >= 768 ? target_position -= 199 : null
+        $(window).width() >= 768 ? target_position -= 199 : target_position -= 100
         $("body").animate({
             scrollTop: target_position
         }, 500)

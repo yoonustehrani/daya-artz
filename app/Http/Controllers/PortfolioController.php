@@ -11,18 +11,24 @@ class PortfolioController extends Controller
     public function index($service = null)
     {
         if ($service) {
-            $portfolios = \Cache::rememberForever("service.{$service}.portfolios", function () use($service) {
-                $portfolios = Portfolio::where('service_id', $service)
-                ->get()
-                ->each(function($p) {
-                    $p->url = route('portfolio.show', ['slug' => $p->slug]);
-                });
-                $portfolios->load('images.file');
-                return $portfolios;
+            $service = Service::findOrFail($service);
+            $portfolios = \Cache::remember("service.{$service->id}.portfolios", 60 * 5, function () use($service) {
+                $results = Portfolio::select(['id', 'title', 'slug'])
+                    ->where('service_id', $service->id)
+                    ->get()
+                    ->append('url');
+                if ($results->count()) {
+                    $results->load('images.file');
+                }
+                return $results;
             });
         } else {
-            $portfolios = Portfolio::take(6)->with('images.file')->inRandomOrder()->get()->each(function($p) {
-                $p->url = route('portfolio.show', ['slug' => $p->slug]);
+            $portfolios = \Cache::remember('services.random.portfolios', 60 * 10, function () {
+                $results = Portfolio::select(['id', 'title', 'slug'])->take(6)->inRandomOrder()->get()->append('url');
+                if ($results->count()) {
+                    $results->load('images.file');
+                }
+                return $results;
             });
         }
         return response()->json($portfolios);
@@ -30,9 +36,6 @@ class PortfolioController extends Controller
     public function show($slug)
     {
         $portfolio = Portfolio::whereSlug($slug)->with('service', 'images.file')->firstOrFail();
-        if (request()->has('debug')) {
-            return $portfolio;
-        }
         return view('pages.portfolio', compact('portfolio'));
     }
 }
