@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Zeus\Models\File;
+use Illuminate\Http\UploadedFile;
 
 class FileController extends Controller
 {
-    protected function makeThumbnailFrom($uploaded_file)
+    protected function makeThumbnailFrom(UploadedFile $uploaded_file)
     {
+        if ($uploaded_file->getMimeType() === "image/svg") return null;
         $img = \Image::make($uploaded_file)->widen(200);
         $file_name = 'images/tn_' . $uploaded_file->hashName();
         $file = $img->encode($uploaded_file->extension());
@@ -71,12 +73,18 @@ class FileController extends Controller
             $file->ext = $uploaded_file->extension();
             $file->path = $private ? $path : 'storage/' . $path;
             $file->type = $type;
-            $file->thumbnail_path = $private ? $thumbnail_path : 'storage/' . $thumbnail_path;
+            if ($thumbnail_path) {
+                $file->thumbnail_path = $private ? $thumbnail_path : 'storage/' . $thumbnail_path;
+            } else {
+                $file->thumbnail_path = $file->path;
+            }
             $file->save();
             return $file;
         }
 
-        abort(500);
+        return response()->json([
+            'message' => 'خطای آپلود'
+        ], 500);
     }
     public function show($file)
     {

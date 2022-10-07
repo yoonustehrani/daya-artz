@@ -172,6 +172,9 @@ return [
         'department' => 'بخش مربوطه',
         'files' => 'فایل ها',
         'ad_goal' => 'هدف تبلیغاتی',
-        'in_company_position' => 'مسئولیت شما در کسب و کار'
+        'in_company_position' => 'مسئولیت شما در کسب و کار',
+        'business_type' => 'نوع کسب و کار',
+        'notes' => 'یادداشت',
+        'calltime' => 'ساعت تماس'
     ],
 ];

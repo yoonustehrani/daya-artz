@@ -1,6 +1,6 @@
 <x-layout.landing :title="$page->title">
     @php
-        $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2022-06-26 00:00:00', 'Asia/Tehran')->toISOString();
+        $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2022-08-01 00:00:00', 'Asia/Tehran')->toISOString();
     @endphp
     <x-slot name="header">
         <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
@@ -351,13 +351,6 @@
                     فقط کافیست با
                     <button type="button" class="bg-rose-400/80 hover:bg-rose-400 duration-300 rounded-full px-3 button-to-form">تکمیل فرم درخواست پیشنهادات ما</button>
                     با رویکرد تخصصی متفاوت دایا آرتز آشنا شوید و با مقایسه راهکار ما با راهکار های موجود در بازار بهترین تصمیم ممکن را بگیرید.
-                    <br>
-                    <br>
-                    دایا آرتز صاحب یک شخصیت حقوقی است و با عنوان اقتصادی
-                    <span class="font-bold underline underline-offset-[10px]">"شرکت ارمغان کهکشان پارس"</span>
-                    فعالیت می کند فلذا تمامی قرارداد های سازمانی از رسمیت و اعتبار بالا برخوردار هستند.
-                    <br>
-ساختار سازمانی دایا آرتز به این شکل تنظیم شده است که همه پروسه های سازمانی اعم از ثبت سفارش،‌ پشتیبانی مشتریان و طراحی گرافیک توسط متخصصین همان بخش انجام می شود و تضمین می شود که مشتریان ما رفتار حرفه ای سازمانی و قابل اعتماد را تجربه خواهند کرد.
                 </p>
             </div>
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
@@ -382,10 +375,20 @@
                     <span id="to-customers" class="underline underline-offset-8 text-blue-300 hover:text-blue-400 duration-200 cursor-pointer">(توضیحات بیشتر)</span>
                 </p>
             </div>
+            {{-- <div class="border-b-2 border-stone-100 py-3 md:px-6">
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300"> <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
+                    دایا آرتز صاحب یک شخصیت حقوقی است و با عنوان اقتصادی
+                    <span class="font-bold underline underline-offset-[10px]">"شرکت ارمغان کهکشان پارس"</span>
+                    فعالیت می کند فلذا تمامی قرارداد های سازمانی از رسمیت و اعتبار بالا برخوردار هستند.
+                    <br>
+                    ساختار سازمانی دایا آرتز به این شکل تنظیم شده است که همه پروسه های سازمانی اعم از ثبت سفارش،‌ پشتیبانی مشتریان و طراحی گرافیک توسط متخصصین همان بخش انجام می شود و تضمین می شود که مشتریان ما رفتار حرفه ای سازمانی و قابل اعتماد را تجربه خواهند کرد.
+                </p>
+            </div> --}}
             <div class="border-b-2 border-stone-100 py-3 md:px-6">
-                <p class="font-bold select-none text-lg lg:text-xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">از چه راهی می‌توانم با شما تماس حاصل کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
-                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out !leading-loose hidden">
-                    <i class="fas fa-plus m-2 !leading-loose"></i>
+                <p class="font-bold select-none text-xl lg:text-2xl md:pl-4 hover:cursor-pointer duration-200 hover:text-purple-300">از چه راهی می‌توانم با شما تماس حاصل کنم ؟ <i class="float-left far fa-caret-circle-down"></i></p>
+                <p class="mt-6 text-base lg:text-xl transition duration-500 ease-in-out leading-loose hidden">
+                    <i class="fas fa-plus m-2 leading-loose"></i>
                     تنها کافیست با
                     <button type="button" class="bg-rose-400/80 hover:bg-rose-400 duration-300 rounded-full px-3 button-to-form whitespace-nowrap">تکمیل فرم درخواست خدمات</button>
                     دایا آرتز
@@ -402,6 +405,6 @@
         </div>
     </section>
     @push('scripts')
-        <script src="{{ mix('js/landing-opening.js') }}"></script>
+        {{-- <script src="{{ mix('js/landing-opening.js') }}"></script> --}}
     @endpush
 </x-layout.landing>

@@ -172,3 +172,15 @@ a:hover {
         width: 40px;
     }
 }
+
+// lazysizes lazyloading
+.lazyload {
+	opacity: 0;
+}
+
+.lazyloading {
+	opacity: 1;
+	transition: opacity 300ms;
+	background: url(/images/spinner.gif) no-repeat center;
+    background-size: 50px 50px;
+}

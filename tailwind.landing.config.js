@@ -4,12 +4,15 @@ const { default: plugin } = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
-        "./resources/views/pages/landing/new-opening.blade.php",
-        "./resources/views/components/layout/*.blade.php",
-        "./resources/js/landing-opening.js",
-        // "./resources/views/components/quick-order-form.blade.php",
-        "./resources/js/components/Landing/**/*.jsx",
-        // "./resources/js/landing-opening.js",
+        './resources/views/pages/landing/new-opening.blade.php',
+        './resources/views/pages/landing/coffee-shop.blade.php',
+        './resources/views/components/landing/*.blade.php',
+        './resources/js/landing-page.js',
+        // './resources/views/components/layout/*.blade.php',
+        // './resources/js/landing-opening.js',
+        // './resources/views/components/quick-order-form.blade.php',
+        './resources/js/components/Landing/**/*.jsx',
+        // './resources/js/landing-opening.js',
     ],
     theme: {
         fontFamily: {
@@ -55,10 +58,17 @@ module.exports = {
                     light: '#AC7FF4',
                     dark: '#6232DE',
                     medium: '#8F60EC'
-                }
+                },
+                'classy-orange': '#d6851b'
             },
             backgroundImage: {
-                "zeus-dashboard-vbg": "url('/images/zeus-images/dashboard-bvector.png')"
+                'coffeeshop-medium': "url('/images/landing/coffee/background-coffee-1280X720.jpg')",
+                'coffeeshop': "url('/images/landing/coffee/background-coffee-1536X864.jpg')",
+                'coffeeshop-high': "url('/images/landing/coffee/background-coffee-1920X1080.jpg')",
+                // "coffeeshop": "url('/images/landing/header-background.jpg')",
+                'coffeeshop-pattern': "url('/images/landing/coffee-shop-background-with-pattern.jpg')",
+                'footer-pattern': "url('/images/landing/coffee/orange-footer-pattern.png')",
+                'coffee-pattern': "url('/images/landing/coffee/coffee-pattern.png')"
             },
             screens: {
                 'mobiles': "320px",
@@ -68,6 +78,10 @@ module.exports = {
             }
         },
     },
+    safelist: [
+        'fa-coffee',
+        'fa-utensils-alt'
+    ],
     plugins: [
         require('@tailwindcss/forms')({strategy: 'class',}),
     ],
