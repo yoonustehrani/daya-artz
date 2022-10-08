@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RecaptchaRequest;
 use App\Models\Order;
+use App\Models\Zeus\Form;
+use App\Models\Zeus\FormAnswer;
 use Illuminate\Http\Request;
 
 class FormsController extends Controller
@@ -50,5 +52,47 @@ class FormsController extends Controller
             'email' => 'required|email:filter,dns|max:255'
         ]);
         return redirect()->to(route('contact'));
+    }
+
+    public function show($key)
+    {
+        $form = Form::select(['id', 'title'])->with(['inputs' => function($q) {
+            $q->orderBy('order');
+        }])->active()->where('key', $key)->firstOrFail();
+
+        return response()->json($form);
+    }
+
+    public function store(Request $request, $key)
+    {
+        $form = Form::select(['id', 'title'])->active()->where('key', $key)->firstOrFail();
+        $form->load(['inputs' => function($q) {
+            $q->select(['id', 'form_id', 'name', 'default', 'required', 'validation_rules', 'details']);
+        }]);
+        $request_rules = $form->validation_rules;
+        if ($request_rules->count()) {
+            $request->validate($request_rules->toArray());
+        }
+        $submissions = collect([]);
+        $form->inputs->each(function($input) use($submissions, $request) {
+            $value = $request->input($input->name) ?: $input->default;
+            $submissions->put($input->id, ['value' => serialize($value)]);
+        });
+        try {
+            $answer = new FormAnswer([
+                'ip' => $request->ip(),
+                'user_id' => $request->user() ? $request->user()->id : null,
+                'name' => $request->input('__name')
+            ]);
+            \DB::beginTransaction();
+            $form->answers()->save($answer);
+            $answer->inputs()->attach($submissions->toArray());
+            \DB::commit();
+            return ['okay' => true, 'message' => __('messages.form.success')];
+        } catch (\Throwable $th) {
+            \DB::rollback();
+            \Log::alert($request->all());
+            abort(500);
+        }
     }
 }
