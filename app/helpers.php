@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Utils\SMSTool;
+use App\Http\Utils\TelegramBot;
 use App\Models\Offer;
 use App\Models\Bill;
 use Illuminate\Support\Facades\Route;
@@ -124,5 +126,74 @@ if (! function_exists('make_bills')) {
             array_push($bills, $bill);
         }
         return $bills;
+    }
+}
+
+if (! function_exists('get_seo_settings')) {
+    function get_seo_settings($slug, $instance) {
+        return \Cache::rememberForever("{$slug}.{$instance->id}.seo_settings", function () use($instance) {
+            return $instance->seo_settings;
+        });
+    }
+}
+
+if (! function_exists('get_website_page')) {
+    function get_website_page($slug) {
+        $page = \Cache::rememberForever("website.pages.{$slug}", function () use($slug) {
+            return Page::whereSlug($slug)->first();
+        });
+        abort_if(! $page, 404);
+        return $page;
+    }
+}
+
+if (! function_exists('sms_driver')) {
+    /**
+     * @return App\Http\Utils\SMSDrivers\Faraz
+     */
+    function sms_driver()
+    {
+        return (new SMSTool)->getDriver('faraz');
+    }
+}
+
+if (! function_exists('telegram_notifier_bot')) {
+    function telegram_notifier_bot() {
+        return new TelegramBot(config('services.telegram_bots.notifier.token'));
+    }
+}
+
+if (! function_exists('telegram_keyboard')) {
+    function telegram_keyboard(array $keyboard) {
+        return [
+            'reply_markup' => [
+                'keyboard' => $keyboard,
+                'resize_keyboard' => true
+            ]
+        ];
+    }
+}
+
+if (! function_exists('get_list_of_services')) {
+    /**
+     * @return Illuminate\Support\Collection
+     */
+    function get_list_of_services($query = null, $limit = 5, $select = ['id', 'title', 'group', 'subtitle', 'short_description']) {
+        $dbquery = \App\Models\Service::select($select)->where('package', false);
+        if ($query) {
+            $dbquery->where('title', 'like', "%{$query}%")->orWhere('subtitle', 'like', "%{$query}%")->limit($limit);
+        } else {
+            $dbquery->where('main', true);
+        }
+        return $dbquery->get();
+    }
+}
+
+if (! function_exists('set_telegram_webhook')) {
+    function set_telegram_webhook($bot_token, $url) {
+        $webhook_url = url()->to("api/{$url}");
+        \Log::info('setting webhook to ' . $webhook_url);
+        $bot = new TelegramBot($bot_token);
+        $bot->setWebhook($webhook_url);
     }
 }
