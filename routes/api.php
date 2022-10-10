@@ -1,9 +1,10 @@
 <?php
 
-use App\Customer;
 use App\Http\Controllers\Api\FormsController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\TelegramHookController;
 use App\Http\Controllers\Api\UserArea\InvoiceController;
 use App\Http\Controllers\Api\UserArea\OrderController;
 use App\Http\Controllers\Api\UserArea\OrderItemController;
@@ -14,9 +15,8 @@ use App\Http\Controllers\Api\VerificationController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\WebsiteController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Ramsey\Uuid\Uuid;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,3 +94,15 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
         Route::put('company', [UserController::class, 'updateCompany']);
     });
 });
+
+\ZeusPanel::api_routes();
+
+try {
+    $bot_token = config('services.telegram_bots.dayaartz.token');
+    $tg_route_id = Uuid::uuid4();
+    $path = "telegram/{$tg_route_id}/bot/{$bot_token}";
+    Route::post($path, [TelegramHookController::class, 'handle'])->name('telegram.bot.handle');
+    set_telegram_webhook($bot_token, $path);
+} catch (\Throwable $th) {
+    \Log::error('error setting webhook');
+}
