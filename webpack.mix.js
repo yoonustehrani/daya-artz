@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
- const src = {
+const src = {
     res: {
         css: "resources/css/",
         sass: "resources/sass/",
@@ -24,29 +24,71 @@ const mix = require('laravel-mix');
         css: "public/css/",
         fonts: "public/fonts/"
     },
-    node: {
-
+    zeus: {
+        res: {
+            css: "packages/Zeus/resources/css/",
+            js: "packages/Zeus/resources/js/"
+        },
+        pub: {
+            css: "public/css/zeus/",
+            js: "public/js/zeus/"
+        }
     }
 }
-var { res, pub } = src
+var { res, pub, zeus } = src
+
 mix.disableNotifications()
 
-mix.js(res.js + 'app.js', pub.js).react()
-mix.js(res.js + "userarea.js", pub.js).react()
-mix.sass(res.sass + 'app.scss', pub.css)
-    .sass(res.sass + '_fonts.scss', pub.css)
-// mix.postCss(res.css + "landing.css", pub.css).options({
-//     postCss: [
-//         require('postcss-import'),
-//         require('tailwindcss/nesting'),
-//         require('tailwindcss'),
-//         require('autoprefixer'),
-//     ]
-// })
-//     .js(res.js + "landing-opening.js", pub.js).react()
-    // .copy(pub.fonts + "fa-**", res.webfonts)
-    // .copy('node_modules/animate.css/animate.css', res.css);
-
-if (mix.inProduction()) {
+if (mix.inProduction) {
     mix.version()
 }
+
+let [sourceMapForProduction, sourceMapType] = [mix.inProduction(), mix.inProduction() ? 'eval' : undefined];
+
+// website
+mix.sass(res.sass + 'app.scss', pub.css)
+    .sass(res.sass + '_fonts.scss', pub.css)
+    .js(res.js + 'app.js', pub.js).react()
+    .js(res.js + "userarea.js", pub.js).react().sourceMaps(sourceMapForProduction, sourceMapType)
+// err
+mix.sass(res.sass + "err.scss", pub.css)
+// catalog
+mix.postCss(res.css + "catalog.css", pub.css, [
+    require("postcss-import"),
+    require('tailwindcss/nesting'),
+    require('tailwindcss')({config: './tailwind.catalog.config.js'}),
+    require('autoprefixer')
+])
+    .js(src.res.js + "catalog.js", src.pub.js).react()
+
+// landing
+mix.postCss(res.css + "landing.css", pub.css, [
+        require('postcss-import'),
+        require('tailwindcss/nesting'),
+        require('tailwindcss')({config: './tailwind.landing.config.js'}),
+        require('autoprefixer'), 
+    ])
+    .js(res.js + "landing-page.js", pub.js).react()
+// zeus
+mix.postCss(zeus.res.css + "style.css", zeus.pub.css, [
+    require('postcss-import'),
+    require('tailwindcss/nesting'),
+    require('tailwindcss')({config: "./tailwind.zeus.config.js"}),
+    require('autoprefixer')
+])
+mix.postCss(zeus.res.css + "rtl.css", zeus.pub.css, [
+    require('postcss-import'),
+    require('tailwindcss/nesting'),
+    require('tailwindcss')({config: './tailwind.zeus.config.js'}),
+    require('autoprefixer')
+])
+mix.js(zeus.res.js + "app.js", zeus.pub.js).react()
+mix.js(res.js + "components/zeusTickets.js", pub.js).react()
+
+// tinymce
+// mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce')
+// mix.js(zeus.res.js + 'tinymce/langs/fa.js', 'public/js/tinymce/langs')
+
+// just need to run once if you got an err
+//  mix.copy(pub.fonts + "fa-**", res.webfonts)
+    // .copy('node_modules/animate.css/animate.css', res.css)

@@ -10,9 +10,10 @@ function handle_image_change (image_index) {
     $(main_image).removeClass("fadeIn")
     setTimeout(() => $(main_image).addClass("fadeIn"), 0)
     setTimeout(() => $(main_image).removeClass("fadeIn"), 1000)
-    main_image.attr("src", $(small_images[image_index]).attr("src"))
-    main_image.attr("data-src", $(small_images[image_index]).attr("data-src"))
+    main_image.attr("src", $(small_images[image_index]).attr("main-src"))
+    main_image.attr("data-src", $(small_images[image_index]).attr("main-src"))
     main_image.attr("alt", $(small_images[image_index]).attr("alt"))
+    main_image.parent("a").attr("href", $(small_images[image_index]).attr("main-src"))
 }
 // handling small images click
 small_images.each((index, elem) => {

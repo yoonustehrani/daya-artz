@@ -1,34 +1,92 @@
 @extends('layouts.page')
 
 @push('head')
-    <title>{{ $service->title }}</title>
+    <title>{{ $service->title }} - خدمات طراحی گرافیک - دایا آرتز</title>
+    @php
+        $seo = get_seo_settings('services', $service);
+        $offers = $service->plans->sortBy('price');
+        $image_path = $service->image ? optional($service->image->file)->path : null;
+    @endphp
+    @component('components.seo', ['instance' => $service, 'slug' => 'services']) @endcomponent
+    @include('pages.services.json-ld')
 @endpush
+
+@section('header')
+<div class="header-section policy-header dotted-background services-header">
+    <div class="p-4 col-12 col-md-7">
+        <div class="w-100 piped">
+            <h1 class="d-inline text-white">{{ $service->title }}</h1>
+        </div>
+        <p class="px-3 text-light">{{ $service->short_description ?:  $service->subtitle }}</p>
+        <br>
+        @if ($service->children->count())
+            @foreach ($service->children->chunk(3) as $chunk)
+            <div>
+                @foreach ($chunk as $item)
+                <a href="{{ route('services.show', ['slug' => $item->slug]) }}" class="fancy-btn bg-purple text-white d-inline-flex align-items-center py-2 px-3 mx-2">
+                    {{ $item->title }} <i class="circle mr-2 mt-0 fas fa-plus"></i>
+                </a>
+                @endforeach
+            </div>
+            @endforeach
+        @endif
+        <div>
+            <button class="fancy-btn whiten d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-form">ثبت سفارش<i class="circle mr-2 mt-0 fas fa-plus"></i></button>
+            @if ($service->children->isEmpty())
+            <button class="fancy-btn bg-success d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-element" data-scroll="pricing">پلن های قیمتی<i class="circle mr-2 mt-0 fas fa-dollar-sign"></i></button>
+            @endif
+            <button class="fancy-btn bg-warning d-inline-flex align-items-center py-2 px-3 mx-2 scroll-to-element" data-scroll="portfolio">نمونه کارها<i class="circle mr-2 mt-0 fas fa-drafting-compass"></i></button>
+        </div>
+    </div>
+    @if ($image_path)
+        <div class="d-flex justify-content-center col-12 col-md-5 mb-3 mb-md-0">
+            <div class="d-flex justify-content-center align-items-center mw-100 overflow-hidden service-image">
+                <img data-src="{{ asset($image_path) }}" class="w-auto h-auto lazyload" alt="خدمات دایا آرتز">
+            </div>
+        </div>
+    @endif
+    <div class="triangle d-none d-md-block"></div>
+</div>
+@endsection
 
 @section('content')
     <!-- first-section -->
-    <div class="section col-12 mt-4 service-first-section dotted-background">
-        <div class="title-section w-100">
-            <div class="title-container">
-                <h1 class="title-text">{{ $service->title }}</h1>
-            </div>
-        </div>
-        @if ($service->content)
+    <div class="section col-12 mt-4 py-5 service-first-section dotted-background">
         {!! $service->content !!}
-        @endif
     </div>
     <!-- end first-section -->
+    @if ($service->children->count())
+    <div class="section w-100 pt-3 pb-4 dotted-background">
+        <div class="title-section w-100 mb-4">
+            <div class="title-container">
+                <p class="title-text">خدمات زیر مجموعه</p>
+                <span class="title-underline"></span>
+            </div>
+        </div>
+        <div class="other-services-container w-100">
+            <p class="text-center w-100">شما می‌توانید با انتخاب خدمات زیر مجموعه سرویس {{ $service->title }} از جزئیات تعرفه و پلن های قیمت گذاری {{ $service->title }} مطلع شوید و سفارش خود را ثبت کنید</p>
+            @foreach ($service->children as $child)
+            <div class="other-service">
+                <span class="back-aqua"><i class="{{ $child->icon_class }}"></i></span>
+                <h3 class="title service-title">{{ $child->title }}</h3>
+                <a class="service-subtitle" href="{{ route('services.show', ['slug' => $child->slug]) }}">{{ $child->subtitle }}</a>
+                <div class="button-container">
+                    <a href="{{ route('services.show', ['slug' => $child->slug]) }}" class="btn btn-gradient">مشاهده تعرفه</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    @endif
     <!-- sevices benefits -->
     <div class="header-section service-benefits-section auto-height p-3">
         <div class="header-text col-12 col-md-8">
-            <h4>مزیت های دایا ...</h2>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای </p>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای </p>
-            <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای </p>
-            <br>
+            <h2>مزیت های {{ $service->title }} در دایا آرتز ...</h2>
+            {!! $service->description !!}
         </div>
         <div class="header-vector col-10 col-sm-8 col-md-4 mb-3 mb-md-0">
-            <img src="{{ asset('images/benefits.svg') }}" alt="rules vector" class="rules">
-            <img src="{{ asset('images/benefits-background.svg') }}" alt="rules-back" class="rules-back">
+            <img data-src="{{ asset('images/benefits.svg') }}" alt="مزیت های دایا" class="lazyload rules">
+            <img data-src="{{ asset('images/benefits-background.svg') }}" alt="vector background" class="lazyload rules-back">
         </div>
         <div class="triangle d-none d-md-block"></div>
     </div>
@@ -101,112 +159,64 @@
                     </div>
                 </div>
                 <div class="step-info step-5">
-                    <h4>تصویه و تحویل</h4>
+                    <h4>تسویه و تحویل</h4>
                     <p>پرداخت کامل هزینه سفارش و دریافت فایل مورد نظر شما</p>
                 </div>
             </div>
         </div>
-    </div> 
-    <!-- end order steps -->
-    <!-- start order 1 -->
+    </div>
+
     @include('components.start-order')
-    <!-- end start order 1 -->
-    <!-- Portfolio -->
+    
     <x-portfolio :api-target="route('api.portfolios.index', ['service' => $service->getKey()])"/>
-    <!-- end Portfolio -->
-    <!-- order packs -->
+    
+    @if ($service->children->isEmpty())
     <div class="section w-100 mt-3 order-packs-section">
         <div class="title-section w-100 mb-4">
             <div class="title-container">
-                <h2 class="title-text">{{ $service->subtitle }}</h2>
+                <h2 class="title-text">{{ 'پلن های قیمتی' . ' ' . $service->title}}</h2>
                 <h4 class="subtitle">بسته های هوشمند جهت سفارش {{ $service->title }} برای شما</h4>
             </div>
         </div>
-        <div class="col-12 order-card-container">
-        @foreach ($service->plans->chunk(3) as $plans)
-            @foreach ($plans as $plan)
-            <div class="order-card card-{{ $plan->order ?: $loop->index + 1 }} col-12 col-md-4 col-xl-3">
-                <h4 class="card-title bold">{{ $plan->title }}</h4>
-                <div class="card-price-container">
-                    <span class="card-price font-24 bold">{{ number_format($plan->price) }}</span>
-                    <span class="font-16 ltr card-price">/تومان</span>
+        @foreach ($service->plans->groupBy('row')->sortKeys() as $key => $plans)
+            <div class="col-12 mb-3 order-card-container">
+                @foreach ($plans->sortBy('order') as $plan)
+                <div class="order-card col-12 col-md-6 col-lg-4 col-xl-3 p-0 my-2 my-md-0 p-md-2 mx-xl-2">
+                    <div>
+                        <h4 class="card-title bold">{{ $plan->title }}</h4>
+                        <div class="card-price-container">
+                            <span class="card-price font-24 bold">{{ number_format($plan->price) }}</span>
+                            <span class="font-16 ltr card-price">/تومان</span>
+                        </div>
+                        {!! $plan->caption !!}
+                        {{-- <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn badge-pill">ثبت سفارش</button>
+                        </form> --}}
+                    </div>
                 </div>
-                {!! $plan->caption !!}
-                <form action="{{ route('order.store', ['service' => $service->getKey(), 'plan' => $plan->getKey()]) }}" method="post">
-                    @csrf
-                    <button type="submit" class="btn btn-outline-light badge-pill">ثبت سفارش</button>
-                </form>
+                @endforeach
             </div>
-            @endforeach
         @endforeach
-        </div>
     </div>
-    <!-- end order packs -->
-    <!-- contact ways -->
-    <div class="section w-100 mt-5 mb-5 order-ways-section">
-        <div class="title-section mb-5 w-100">
-            <div class="title-container">
-                <h2 class="title-text">ثبت سفارش</h2>
-            </div>
-        </div>
-        <div class="absolute-contact w-100">
-            <div class="contact-section section w-100">
-                <div class="col-12 bg-heavy-aqua contact-section-back d-none d-md-block"></div>
-                <div class="section contact-info w-100">
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-phone"></i></span>
-                        <h4>تلفن</h4>
-                        <p class="text-secondary">با شماره گیری تلفن های ثابت زیر سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr">+98 123456789</button>
-                        <button class="btn btn-gradient ltr">021 1234567</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-crosshairs"></i></span>
-                        <h4>سفارش تخصصی</h4>
-                        <p class="text-secondary">ثبت سفارش شما به شیوه تخصصی توسط فرم ها</p>
-                        <button class="btn btn-gradient ltr">سفارش</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-robot"></i></span>
-                        <h4>ربات تلگرام</h4>
-                        <p class="text-secondary">توسط ربات تلگرام ما سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr mt-12-p">@DAYABOT</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-space-shuttle"></i></span>
-                        <h4>سفارش فوری</h4>
-                        <p class="text-secondary">ثبت سفارش شما به صورت فوری و سریع توسط فرم ها</p>
-                        <button class="btn btn-gradient ltr">سفارش</button>
-                    </div>
-                    <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
-                        <span class="back-aqua"><i class="fas fa-mobile"></i></span>
-                        <h4>پیامرسان</h4>
-                        <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
-                        <button class="btn btn-gradient ltr">+98 123456789</button>
-                        <button class="btn btn-gradient ltr">@DAYAADMIN</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end contact ways -->
-    <!-- guide section -->
+    @endif
+    <x-contact-ways />
     <div class="section w-100 text-center mb-4 daya-guide">
         <div class="title-section w-100">
             <div class="title-container">
-                <h2 class="title-text">راهنمای دایا آرتز</h2>
+                <h3 class="title-text">راهنمای دایا آرتز</h3>
             </div>
         </div>
         <div class="section contact-us-first-section w-100 text-center">
             <div class="contact-us-background w-100">
                 <div class="background-left">
-                    <img src="{{ asset('images/contact-us-background-2.png') }}" alt="">
+                    <img data-src="{{ asset('images/contact-us-background-2.png') }}" class="lazyload" alt="vector background">
                 </div>
                 <div class="background-right">
-                    <img src="{{ asset('images/contact-us-background-1.png') }}" alt="">
+                    <img data-src="{{ asset('images/contact-us-background-1.png') }}" class="lazyload" alt="vector background">
                 </div>
                 <div class="contact-us-vector-1">
-                    <img src="{{ asset('images/contact-us-vector-1.png') }}" alt="">
+                    <img data-src="{{ asset('images/contact-us-vector-1.png') }}" class="lazyload" alt="ارتباط با دایا">
                 </div>
             </div>
             <div class="contact-us-form">
@@ -219,8 +229,7 @@
             </div>
         </div>
     </div>
-    <!-- end guide section -->
-    <!-- FAQ accordion 1 -->
+    <x-quick-order-form />
     <div class="section w-100 FAQ-section mt-5">
         <h4 class="faq-title mt-3 mb-4">سوالات متداول</h4>
         <div class="accordion-container p-4">
@@ -286,8 +295,5 @@
             </div>
         </div>
     </div>
-    <!-- end FAQ accordion 1 -->
-    <!-- daya blog -->
     <div id="blog-suggestion-react" api-target-random="{{ route('api.posts.index', ['mode' => 'random', 'limit' => '8']) }}" api-target-latest="{{ route('api.posts.index', ['mode' => 'latest', 'limit' => '8']) }}"></div>
-    <!-- end daya blog -->
 @endsection

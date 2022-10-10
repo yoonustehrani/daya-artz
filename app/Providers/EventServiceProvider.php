@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
+use App\Events\QuickOrderSubmitted;
 use App\Events\UserRegistered;
 use App\Events\UserVerifiedTheirAccount;
+use App\Events\FormAnswered;
+use App\Listeners\NotifyAdminsOfQuickOrder;
+use App\Listeners\SendQuickOrderNotification;
 use App\Listeners\SendVerificationNotification;
 use App\Listeners\SendWelcomeNotification;
+use App\Listeners\SendFormAnsweredNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -24,10 +29,14 @@ class EventServiceProvider extends ServiceProvider
         ],
         UserVerifiedTheirAccount::class => [
             SendWelcomeNotification::class
+        ],
+        QuickOrderSubmitted::class => [
+            NotifyAdminsOfQuickOrder::class,
+            SendQuickOrderNotification::class
+        ],
+        FormAnswered::class => [
+            SendFormAnsweredNotification::class
         ]
-        // Registered::class => [
-        //     SendEmailVerificationNotification::class,
-        // ],
     ];
 
     /**

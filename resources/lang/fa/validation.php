@@ -62,7 +62,7 @@ return [
         'array' => 'The :attribute must have :value items or more.',
     ],
     'image' => 'The :attribute must be an image.',
-    'in' => 'The selected :attribute is invalid.',
+    'in' => 'گزینه انتخاب شده در فیلد :attribute نامعتبر است.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
     'ip' => 'The :attribute must be a valid IP address.',
@@ -84,7 +84,7 @@ return [
     ],
     'max' => [
         'numeric' => 'The :attribute must not be greater than :max.',
-        'file' => 'The :attribute must not be greater than :max kilobytes.',
+        'file' => 'حجم :attribute نباید بیش از :max کیلوبایت باشد.',
         'string' => ':attribute نباید بیشتر از :max حرف باشد.',
         'array' => 'The :attribute must not have more than :max items.',
     ],
@@ -122,9 +122,9 @@ return [
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string' => 'مقدار :attribute باید از نوع متنی باشد.',
     'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => ':attribute قبلا استفاده شده است.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -169,6 +169,12 @@ return [
         'order_items' => 'خدمات درخواستی',
         'message' => 'متن پیام',
         'ticket_content' => 'متن تیکت',
-        'department' => 'بخش مربوطه'
+        'department' => 'بخش مربوطه',
+        'files' => 'فایل ها',
+        'ad_goal' => 'هدف تبلیغاتی',
+        'in_company_position' => 'مسئولیت شما در کسب و کار',
+        'business_type' => 'نوع کسب و کار',
+        'notes' => 'یادداشت',
+        'calltime' => 'ساعت تماس'
     ],
 ];

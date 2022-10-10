@@ -15,9 +15,9 @@ class TelegramBot
         $this->telegram_path = str_replace('API_BASEURL', config('services.telegram_bots.api_baseURL'), $telegram_path);
         return $this;
     }
-    private function makeRequest($path, $type = 'get', $body = null)
+    private function makeRequest($path, $type = 'get', $body = null, $key = 'form_params')
     {
-        $options = $body ? ['form_params' => $body] : [];
+        $options = $body ? [$key => $body] : [];
         $options = array_merge($options, ['timeout' => 60, 'headers' => ['Accept' => 'application/json']]);
         try {
             $request = new \GuzzleHttp\Client;
@@ -74,7 +74,7 @@ class TelegramBot
             'chat_id' => $chat_id,
             'text'    => $text,
         ];
-        return $this->makeRequest($path, 'post', array_merge($data, $extra));
+        return $this->makeRequest($path, 'post', array_merge($data, $extra), 'json');
     }
     public function sendPhoto($chat_id, $photo_url, $extra = [])
     {

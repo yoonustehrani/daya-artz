@@ -2,8 +2,8 @@
     {{-- start header --}}
     <x-slot name="header">
         <div class="w-full h-auto bg-gradient-to-r from-indigo-400 to-indigo-600 flex flex-nowrap items-stretch justify-between relative">
-            <img src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="h-full md:h-[400px] lg:h-[500px] xl:h-[600px] absolute md:static opacity-20 md:opacity-100 right-0">
-            <img src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute right-0 md:bottom-[4%] lg:bottom-[6%]">
+            <img data-src="{{ asset('/images/baloone-right-1.png') }}" alt="baloone-right" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] absolute md:static opacity-20 md:opacity-100 right-0">
+            <img data-src="{{ asset('/images/baloone-right-2.png') }}" alt="baloone-right" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute right-0 md:bottom-[4%] lg:bottom-[6%]">
             <div class="w-full md:w-auto px-4 md:px-2 py-4 text-center flex flex-col justify-evenly items-center">
                 <p class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white w-full font-bold leading-normal my-3 xl:my-0"><span class="text-cyan-300">همین حالا</span> سفارشت رو ثبت کن؛ <span class="text-cyan-300">زمان</span> محدودست</p>
                 <ul class="p-0 flex flex-nowrap justify-center items-stretch w-full text-gray-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center font-bold my-3 xl:my-0">
@@ -20,8 +20,8 @@
                     </p>
                 </div>    
             </div>
-            <img src="{{ asset('/images/baloone-left-2.png') }}" alt="baloone-left" class="h-full md:h-[400px] lg:h-[500px] xl:h-[600px] hidden sm:inline absolute md:static opacity-20 md:opacity-100 left-0">
-            <img src="{{ asset('/images/baloone-left-1.png') }}" alt="baloone-left" class="md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute left-0 md:bottom-[4%] lg:bottom-[6%]">
+            <img data-src="{{ asset('/images/baloone-left-2.png') }}" alt="baloone-left" class="lazyload h-full md:h-[400px] lg:h-[500px] xl:h-[600px] hidden sm:inline absolute md:static opacity-20 md:opacity-100 left-0">
+            <img data-src="{{ asset('/images/baloone-left-1.png') }}" alt="baloone-left" class="lazyload md:h-[400px] lg:h-[500px] xl:h-[600px] hidden md:inline absolute left-0 md:bottom-[4%] lg:bottom-[6%]">
         </div>
     </x-slot>
     {{-- end header --}}
@@ -40,8 +40,8 @@
                 <button class="p-3 mt-2 md:mt-0 md:mr-1 rounded-2xl bg-indigo-500 hover:bg-indigo-600 shadow-md shadow-indigo-500/50 duration-300">دریافت مشاوره</button>
             </div>
         </div>
-        <img src="{{ asset("/images/daya-logo-opening.png") }}" alt="daya-logo" class="absolute opacity-[0.08] md:opacity-100 md:static w-100 md:w-48 lg:w-[17rem] mb-2 md:mb-0 md:mr-12 order-first md:order-last">
-    </div>     
+        <img data-src="{{ asset("/images/daya-logo-opening.png") }}" alt="daya-logo" class="lazyload absolute opacity-[0.08] md:opacity-100 md:static w-100 md:w-48 lg:w-[17rem] mb-2 md:mb-0 md:mr-12 order-first md:order-last">
+    </div>
     {{-- end discount description --}}
     {{-- start packages --}}
     <div class="w-full my-6 h-auto py-8 px-2 md:px-6 bg-gradient-to-bl text-slate-50 from-indigo-600 to-indigo-500">
@@ -138,7 +138,7 @@
                     <a href="#whatsapp" class="[direction:ltr] w-fit group duration-300 hover:text-sky-300">+98 901 604 5025<span class="ml-2 text-sky-300 text-xl md:text-2xl"><i class="fab fa-whatsapp group-hover:scale-125 duration-300"></i></span></a>
                 </div>
             </div>
-            <img src="{{ asset("/images/hand-point-lock.png") }}" alt="order-methods" class="w-40 mx-auto mb-4 md:m-0 md:w-auto h-auto md:h-full order-first md:order-last">
+            <img data-src="{{ asset("/images/hand-point-lock.png") }}" alt="order-methods" class="lazyload w-40 mx-auto mb-4 md:m-0 md:w-auto h-auto md:h-full order-first md:order-last">
         </div>
     </div>
     {{-- end order methods --}}
@@ -224,7 +224,7 @@
     {{-- start daya opening --}}
     <div class="w-full my-6 bg-gradient-to-r from-indigo-600 to-indigo-400">
         <div class="w-full h-full py-6 px-4 md:px-10 bg-shaped bg-cover">
-            <p class="mb-8 font-bold text-3xl w-full text-blue-200"><img src="{{ asset("/images/fire-off.png") }}" class="ml-2 align-middle relative inline-block w-11" />جشنواره افتتاحیه دایا آرتز و مزیت های آن</p>
+            <p class="mb-8 font-bold text-3xl w-full text-blue-200"><img data-src="{{ asset("/images/fire-off.png") }}" class="lazyload ml-2 align-middle relative inline-block w-11" />جشنواره افتتاحیه دایا آرتز و مزیت های آن</p>
             <div class="w-full xl:w-5/6 sm:px-5 md:px-8 lg:px-16 text-slate-50 text-right my-8">
                 <p class="mb-4 font-bold text-xl md:text-2xl w-full"><span class="ml-2 align-middle inline-block h-fit"><i class="far fa-business-time text-3xl md:text-4xl text-blue-200"></i></span>سفارش سریع</p>
                 <p class="leading-loose text-lg md:text-xl">امکان سفارش سریع برای تمامی مخاطبان دایا آرتز فراهم شده تا در <b>سریع ترین روش ممکن</b> به ثبت سفارش شما بپردازد.</p>

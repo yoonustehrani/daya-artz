@@ -45,10 +45,11 @@
     input {
         border: 3px solid $dark-blue;
         color: $dark-blue !important;
+        border-radius: 0.3rem !important;
         &:focus {
             border-color: $light-eggplant !important;
-            border-left-width: 0 !important;
-            box-shadow: 2px 0 0 0.2rem $light-eggplant !important;
+            // border-left-width: 0 !important;
+            box-shadow: 0 0 0 0.2rem $light-eggplant !important;
         }
     }
 }

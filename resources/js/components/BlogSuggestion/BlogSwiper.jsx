@@ -3,7 +3,7 @@ import SwiperItem from './SwiperItem';
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import SwiperCore, { Navigation } from 'swiper/core'
-import LoaderComponents from '../../react/components/LoaderComponent'
+import LoaderComponents from '../../userarea/components/LoaderComponent'
 import axios from 'axios';
 
 class BlogSwiper extends Component {
@@ -27,7 +27,7 @@ class BlogSwiper extends Component {
                 SwiperCore.use([Navigation])
                 const swiper = new Swiper('.swiper-container', {
                     direction: 'horizontal',
-                    loop: true,
+                    loop: false,
                     autoHeight: true,
                     slidesPerView: 1,
                     spaceBetween: 0,

@@ -1,7 +1,23 @@
 @extends('layouts.page')
 
 @push('head')
-    <title>وبلاگ دایا آرتز</title>
+    <title>{{ $page->title }}</title>
+    @component('components.seo', ['instance' => $page, 'slug' => 'pages', 'og' => ['title' => $page->title]]) @endcomponent
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "{{ asset('/') }}",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ route('blog.index') }}?q={search_query}"
+            },
+            "query-input": "required name=search_query"
+        }
+    }
+</script>
 @endpush
 
 @section('header')
@@ -28,7 +44,7 @@
         </form>
     </div>
     <div class="header-vector col-lg-6 col-md-5 col-12 mb-3 mb-md-0">
-        <img src="{{ asset('images/blog.svg') }}">
+        <img data-src="{{ asset('images/blog.svg') }}" class="lazyload" alt="وبلاگ دایا آرتز">
     </div>
     <div class="triangle d-none d-md-block"></div>
 </div>
@@ -56,7 +72,7 @@
             <a itemprop="url" href="{{ route('blog.show', ['slug' => $post->slug]) }}">
                 <div class="img-container w-100">
                     @if ($post->image && $post->image->file)
-                        <img itemprop="image" data-src="{{ asset($post->image->file->path) }}" src="{{ asset($post->image->file->thumbnail_path) }}" alt="{{ $post->image->alt }}" class="w-100 h-100">
+                        <img itemprop="image" data-src="{{ asset($post->image->file->path) }}" src="{{ asset($post->image->file->thumbnail_path) }}" alt="{{ $post->image->alt }}" class="w-100 h-100 lazyload">
                     @endif
                     <span class="article-date">
                         <time itemprop="datePublished" datetime="{{ $post->created_at->format('Y-m-d') }}">{{ jdate($post->created_at)->format('%e %B') }}<br>{{ jdate($post->created_at)->format('%Y') }}</time>
@@ -66,7 +82,7 @@
                     @if ($post->author_id)
                         <p class="blog-post-source">نوشته شده توسط: ویکی پدیا</p>
                     @endif
-                    <h3 itemprop="name" class="block mt-4">{{ $post->title }}</h3>
+                    <h3 itemprop="headline" class="block mt-4">{{ $post->title }}</h3>
                     <p class="blog-post-description text-secondary">{{ $post->description }}</p>
                     <div class="article-time"><span>زمان مطالعه: {{ $post->reading_time }} <i class="far fa-clock"></i></span></div>
                 </div>

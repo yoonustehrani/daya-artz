@@ -1,7 +1,7 @@
 <div id="about-logo" class="col-12 float-left p-3 mt-4">
     <div class="w-100 title-section">
         <div class="title-container">
-            <h2 class="title-text">فلسفه فکری لوگو</h2>
+            <h3 class="title-text">فلسفه فکری لوگو</h3>
         </div>
     </div>
     <div class="tab-element mt-2">

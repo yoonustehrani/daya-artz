@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class Post extends Model
+class Post extends ZeusModel
 {
     use HasFactory;
 
     public function scopePublished($builder)
     {
-        $builder->where('published', true);
+        $builder->whereNull('publishes_at')->orWhere('publishes_at', '<', now());
     }
 
     public function author()

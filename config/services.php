@@ -48,7 +48,8 @@ return [
 
     'farazSMS' => [
         'base_url' => 'https://rest.ippanel.com/v1/',
-        'apikey' => 'wwCG0nQcdunKIsSZg5doljNKdIHIZkOFV-q60pg5KLo='
+        'apikey' => 'wwCG0nQcdunKIsSZg5doljNKdIHIZkOFV-q60pg5KLo=',
+        'from_number' => '+983000505'
     ],
     
     'zarinpal' => [
@@ -57,7 +58,10 @@ return [
     ],
 
     'telegram_bots' => [
+<<<<<<< HEAD
         'api_baseURL' => env('TELEGRAM_API_BASEURL', 'https://api.telegram.org'),
+=======
+>>>>>>> 6076e726e776632ebd9476b8d19340277c511d9d
         'notifier' => [
             'token' => '5095238584:AAGT7GlypV8ZznQIDmowjPLEc0gMOndZJSw',
             'channel_chat_id' => -1001707124270
@@ -65,11 +69,15 @@ return [
         'server' => [
             'token' => '5334104425:AAGrSGa6ysifA2ueez3LkgmjLFMmos9kebg',
             'channel_chat_id' => -1001794637315
+<<<<<<< HEAD
         ],
         'dayaartz' => [
             'token' => env('DAYA_TELEGRAM_BOT_TOKEN')
         ],
         'secret_token' => env('TELEGRAM_SECRET_TOKEN', 'abcd1234')
+=======
+        ]
+>>>>>>> 6076e726e776632ebd9476b8d19340277c511d9d
     ],
 
     'sms' => ['active' => false]

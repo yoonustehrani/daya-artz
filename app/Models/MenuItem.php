@@ -4,8 +4,9 @@ namespace App\Models;
 
 use App\Traits\HasDetailsAttribute;
 use Illuminate\Database\Eloquent\Model;
+use Zeus\Models\ZeusModel;
 
-class MenuItem extends Model
+class MenuItem extends ZeusModel
 {
     use HasDetailsAttribute;
     public $timestamps = false;
