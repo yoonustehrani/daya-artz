@@ -1,22 +1,28 @@
 <?php
 
-use App\Events\UserVerifiedTheirAccount;
+// use App\Broadcasting\SMSChannel;
+// use App\Events\UserVerifiedTheirAccount;
+use App\Http\Controllers\Api\VerificationController;
 use App\Http\Controllers\LandingsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\WebsiteController;
-use App\Models\User;
-use Illuminate\Http\Request;
+// use App\Models\User;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
-use App\Models\Order;
+use App\Http\Controllers\SitemapController;
 use App\Models\Service;
-use App\Models\Setting;
-use App\Models\Ticket;
-use App\Models\Transaction;
-use App\Notifications\WelcomeNotification;
-use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+use Illuminate\Http\Request;
+
+// use App\Http\Utils\TelegramBot;
+// use App\Models\Service;
+// use App\Notifications\WelcomeNotification;
+// use Illuminate\Support\Carbon;
+// use Illuminate\Support\Facades\Storage;
+// use Ramsey\Uuid\Uuid;
 
 /*
 |--------------------------------------------------------------------------
