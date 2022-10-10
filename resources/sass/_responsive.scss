@@ -546,8 +546,16 @@ $xl-xl-breakpoint: 1600px;
             transform: translateY(-50%);
         }
     }
+    .service-image {
+        width: 300px !important;
+        height: 300px !important;
+        img {
+            width: 300px !important;
+        }
+    }
     .services-header {
-        height: 400px !important;
+        min-height: 400px !important;
+        height: auto;
     }
     .process-timeline {
         .dates-line {
