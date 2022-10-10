@@ -51,5 +51,26 @@ return [
         'apikey' => 'wwCG0nQcdunKIsSZg5doljNKdIHIZkOFV-q60pg5KLo='
     ],
     
+    'zarinpal' => [
+        'merchant_id' => '354f67be-1d7e-4ae9-b095-0ed736208ec2',
+        'sandbox' => false
+    ],
+
+    'telegram_bots' => [
+        'api_baseURL' => env('TELEGRAM_API_BASEURL', 'https://api.telegram.org'),
+        'notifier' => [
+            'token' => '5095238584:AAGT7GlypV8ZznQIDmowjPLEc0gMOndZJSw',
+            'channel_chat_id' => -1001707124270
+        ],
+        'server' => [
+            'token' => '5334104425:AAGrSGa6ysifA2ueez3LkgmjLFMmos9kebg',
+            'channel_chat_id' => -1001794637315
+        ],
+        'dayaartz' => [
+            'token' => env('DAYA_TELEGRAM_BOT_TOKEN')
+        ],
+        'secret_token' => env('TELEGRAM_SECRET_TOKEN', 'abcd1234')
+    ],
+
     'sms' => ['active' => false]
 ];
