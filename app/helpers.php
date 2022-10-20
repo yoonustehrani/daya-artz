@@ -164,11 +164,11 @@ if (! function_exists('telegram_notifier_bot')) {
 }
 
 if (! function_exists('telegram_keyboard')) {
-    function telegram_keyboard(array $keyboard) {
+    function telegram_keyboard(array $keyboard, $resize = true) {
         return [
             'reply_markup' => [
                 'keyboard' => $keyboard,
-                'resize_keyboard' => true
+                'resize_keyboard' => $resize
             ]
         ];
     }
