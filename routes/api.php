@@ -104,12 +104,12 @@ Route::prefix('userarea')->name('userarea.')->middleware('auth:sanctum')->group(
 
 \ZeusPanel::api_routes();
 
-// try {
-//     $bot_token = config('services.telegram_bots.dayaartz.token');
-//     $tg_route_id = Uuid::uuid4();
-//     $path = "telegram/{$tg_route_id}/bot/{$bot_token}";
-//     Route::post($path, [TelegramHookController::class, 'handle'])->name('telegram.bot.handle');
-//     set_telegram_webhook($bot_token, $path);
-// } catch (\Throwable $th) {
-//     \Log::error('error setting webhook');
-// }
+try {
+    $bot_token = config('services.telegram_bots.dayaartz.token');
+    $tg_route_id = Uuid::uuid4();
+    $path = "telegram/{$tg_route_id}/bot/{$bot_token}";
+    Route::post($path, [TelegramHookController::class, 'handle'])->name('telegram.bot.handle');
+    set_telegram_webhook($bot_token, $path);
+} catch (\Throwable $th) {
+    \Log::error('error setting webhook');
+}
