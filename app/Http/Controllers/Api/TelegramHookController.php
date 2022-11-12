@@ -10,6 +10,7 @@ class TelegramHookController extends Controller
 {
     public function handle(Request $request)
     {
+        \Log::alert(config('services.telegram_bots.dayaartz.token'));
         // try {
         //     (new DayaBot(config('services.telegram_bots.dayaartz.token')))->processRequest($request);
         // } catch (\Throwable $th) {
