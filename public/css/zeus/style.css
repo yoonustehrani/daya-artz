@@ -15001,6 +15001,12 @@ input:checked + .toggle-bg {
 
 .h-1 {
   height: 0.25rem; } 
+<<<<<<< HEAD
+=======
+
+.h-\[300px\] {
+  height: 300px; } 
+>>>>>>> site
 
 .h-4\/5 {
   height: 80%; } 
@@ -16360,6 +16366,7 @@ input:checked + .toggle-bg {
 .text-social-media-whatsapp {
   --tw-text-opacity: 1;
   color: rgb(37 211 102 / var(--tw-text-opacity)); } 
+<<<<<<< HEAD
 
 .text-social-media-telegram {
   --tw-text-opacity: 1;
@@ -16385,6 +16392,33 @@ input:checked + .toggle-bg {
   --tw-text-opacity: 1;
   color: rgb(252 211 77 / var(--tw-text-opacity)); } 
 
+=======
+
+.text-social-media-telegram {
+  --tw-text-opacity: 1;
+  color: rgb(34 158 217 / var(--tw-text-opacity)); } 
+
+.text-social-media-instagram {
+  --tw-text-opacity: 1;
+  color: rgb(225 48 108 / var(--tw-text-opacity)); } 
+
+.text-red-900 {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity)); } 
+
+.text-ghost-white-lighter {
+  --tw-text-opacity: 1;
+  color: rgb(247 247 255 / var(--tw-text-opacity)); } 
+
+.text-pink-500 {
+  --tw-text-opacity: 1;
+  color: rgb(236 72 153 / var(--tw-text-opacity)); } 
+
+.text-yellow-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 211 77 / var(--tw-text-opacity)); } 
+
+>>>>>>> site
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity)); } 
@@ -17200,10 +17234,17 @@ input:checked + .toggle-bg {
 
   .md\:w-1\/2 {
     width: 50%; } 
+<<<<<<< HEAD
 
   .md\:w-2\/4 {
     width: 50%; } 
 
+=======
+
+  .md\:w-2\/4 {
+    width: 50%; } 
+
+>>>>>>> site
   .md\:w-3\/4 {
     width: 75%; } 
 
@@ -17691,6 +17732,12 @@ input:checked + .toggle-bg {
   .xl\:w-2\/3 {
     width: 66.666667%; } 
 
+<<<<<<< HEAD
+=======
+  .xl\:w-\[23\%\] {
+    width: 23%; } 
+
+>>>>>>> site
   .xl\:w-5\/6 {
     width: 83.333333%; } 
 

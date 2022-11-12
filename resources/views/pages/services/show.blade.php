@@ -39,13 +39,13 @@
         </div>
     </div>
     @if ($image_path)
-        <div class="d-flex justify-content-center col-12 col-md-5 mb-3 mb-md-0">
-            <div class="d-flex justify-content-center align-items-center mw-100 overflow-hidden service-image">
-                <img data-src="{{ asset($image_path) }}" class="w-auto h-auto lazyload" alt="خدمات دایا آرتز">
+        <div class="flex-center col-12 col-md-5 mb-3 mb-md-0">
+            <div class="flex-center mw-100 overflow-hidden service-image">
+                <img data-src="{{ asset($image_path) }}" class="h-auto lazyload" alt="خدمات دایا آرتز">
             </div>
         </div>
     @endif
-    <div class="triangle d-none d-md-block"></div>
+    {{-- <div class="triangle d-none d-md-block"></div> --}}
 </div>
 @endsection
 
