@@ -10,13 +10,12 @@ class TelegramHookController extends Controller
 {
     public function handle(Request $request)
     {
-        \Log::alert('hello');
-        // try {
-        //     (new DayaBot(config('services.telegram_bots.dayaartz.token')))->processRequest($request);
-        // } catch (\Throwable $th) {
-        //     \Log::error($th->getMessage());
-        //     \Log::error($th->getTraceAsString());
-        // }
+        try {
+            (new DayaBot(config('services.telegram_bots.dayaartz.token')))->processRequest($request);
+        } catch (\Throwable $th) {
+            \Log::error($th->getMessage());
+            \Log::error($th->getTraceAsString());
+        }
         return response()->json(['okay' => true]);
     }
 }
