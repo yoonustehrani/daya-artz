@@ -34,6 +34,8 @@ use Ramsey\Uuid\Uuid;
 //     return $request->user();
 // });
 
+Route::get('/', fn() => ['okay' => true]);
+
 Route::prefix('forms')->name('forms.')->group(function() {
     Route::post('quick-order', [FormsController::class, 'quickOrder'])->name('orders.quick');
     Route::get('quick-order/services', [ApiOrderController::class, 'search'])->name('orders.services.search');
