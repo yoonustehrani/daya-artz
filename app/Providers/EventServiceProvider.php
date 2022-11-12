@@ -6,11 +6,13 @@ use App\Events\QuickOrderSubmitted;
 use App\Events\UserRegistered;
 use App\Events\UserVerifiedTheirAccount;
 use App\Events\FormAnswered;
+use App\Events\TelegramBotOrderRecieved;
 use App\Listeners\NotifyAdminsOfQuickOrder;
 use App\Listeners\SendQuickOrderNotification;
 use App\Listeners\SendVerificationNotification;
 use App\Listeners\SendWelcomeNotification;
 use App\Listeners\SendFormAnsweredNotification;
+use App\Listeners\SendNewOrderNotificationToAdmins;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -36,6 +38,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         FormAnswered::class => [
             SendFormAnsweredNotification::class
+        ],
+        TelegramBotOrderRecieved::class => [
+            SendNewOrderNotificationToAdmins::class
         ]
     ];
 

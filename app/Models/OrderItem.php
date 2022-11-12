@@ -9,6 +9,7 @@ use App\Traits\HasOfferAttribute;
 class OrderItem extends Model
 {
     use HasFactory, HasOfferAttribute;
+    protected $fillable = ['service_id', 'title', 'status'];
     const STATUS = [
         'submitted',
         'reviewed',

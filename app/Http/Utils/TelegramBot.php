@@ -38,6 +38,11 @@ class TelegramBot
     {
         return str_replace('METHOD_NAME', $method_name, $this->telegram_path);
     }
+    private function postRequestUsingMethod($method_name, $body = null) {
+        return $this->makeRequest(
+            $this->setMethod($method_name), 'post', $body, 'json'
+        );
+    }
     public function answerInlineQuery($queryId, array $results = [])
     {
         return $this->makeRequest($this->setMethod('answerInlineQuery'), 'post', [
@@ -54,6 +59,36 @@ class TelegramBot
             'show_alert' => $show_alert,
             'cache_time' => 5
         ], 'json');
+    }
+    public function quickAnswerCallbackQuery($callback_query_id, $additional_data = [])
+    {
+        return $this->makeRequest($this->setMethod('answerCallbackQuery'), 'post', array_merge(
+            ['callback_query_id' => $callback_query_id],
+            $additional_data
+        ), 'json');
+    }
+    public function editMessageText($chat_id, $message_id, $text, $extra = [])
+    {
+        return $this->postRequestUsingMethod(
+            'editMessageText',
+            array_merge(compact('chat_id', 'message_id', 'text'), $extra)
+        );
+    }
+    public function editMessageCaption($chat_id, $message_id, $caption, $extra = [])
+    {
+        return $this->postRequestUsingMethod(
+            'editMessageCaption',
+            array_merge(compact('chat_id', 'message_id', 'caption'), $extra)
+        );
+    }
+    public function editMessageReplyMarkup($chat_id, $message_id, $reply_markup)
+    {
+        return $this->makeRequest(
+            $this->setMethod('editMessageReplyMarkup'),
+            'post',
+            compact('chat_id', 'message_id', 'reply_markup'),
+            'json'
+        );
     }
     public function getMe()
     {
