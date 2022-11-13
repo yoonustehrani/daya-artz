@@ -16,6 +16,6 @@ class TelegramHookController extends Controller
             \Log::error($th->getMessage());
             \Log::error($th->getTraceAsString());
         }
-        return response()->json(['okay' => true]);
+        return response()->json(['ok' => true]);
     }
 }

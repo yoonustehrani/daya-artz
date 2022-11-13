@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Utils\Telegram\DayaBot;
+use App\Http\Utils\TelegramBot;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;

@@ -15,7 +15,7 @@ class TelegramBot
         $this->telegram_path = str_replace('API_BASEURL', config('services.telegram_bots.api_baseURL'), $telegram_path);
         return $this;
     }
-    private function makeRequest($path, $type = 'get', $body = null, $key = 'form_params')
+    public function makeRequest($path, $type = 'get', $body = null, $key = 'form_params')
     {
         $options = $body ? [$key => $body] : [];
         $options = array_merge($options, ['timeout' => 60, 'headers' => ['Accept' => 'application/json']]);
@@ -34,7 +34,7 @@ class TelegramBot
             throw $ex;
         }
     }
-    private function setMethod($method_name)
+    public function setMethod($method_name)
     {
         return str_replace('METHOD_NAME', $method_name, $this->telegram_path);
     }
@@ -137,13 +137,9 @@ class TelegramBot
         ];
         return $this->makeRequest($path, 'post', array_merge($final_data, $extra), 'multipart');
     }
-    public function setWebhook($url)
+    public function setWebhook($url, $extra = [])
     {
-        return $this->makeRequest($this->setMethod('setWebhook'), 'post', [
-            'url' => $url,
-            // 'drop_pending_updates' => true,
-            // 'secret_token' => config('services.telegram_bots.secret_token')
-        ], 'json');
+        return $this->makeRequest($this->setMethod('setWebhook'), 'post', array_merge(compact('url'), $extra), 'json');
     }
     public function pinChatMessage($chat_id, $message_id, $notification = true)
     {

@@ -323,8 +323,8 @@ class DayaBot extends TelegramBot
 
     public function processRequest(Request $request)
     {
-        \Log::info("handling telegram request for {$this->chat_id}");
-        \Log::alert($request->all());
+        // \Log::info("handling telegram request for {$this->chat_id}");
+        // \Log::alert($request->all());
         if ($request->has('message')) {
             return $this->handleRawMessage($request);
         }
