@@ -194,6 +194,13 @@ if (! function_exists('set_telegram_webhook')) {
         $webhook_url = url()->to("api/{$url}");
         \Log::info('setting webhook to ' . $webhook_url);
         $bot = new TelegramBot($bot_token);
-        $bot->setWebhook($webhook_url);
+        $data = [];
+        if (config('app.env') === 'prouction') {
+            $data = [
+                'ip_address' => env('APP_IP'),
+                'drop_pending_updates' => true
+            ];
+        }
+        $bot->setWebhook($webhook_url, $data);
     }
 }
