@@ -197,7 +197,7 @@ if (! function_exists('set_telegram_webhook')) {
         $data = [];
         if (config('app.env') === 'prouction') {
             $data = [
-                'ip_address' => env('APP_IP'),
+                'ip_address' => config('app.ip'),
                 'drop_pending_updates' => true
             ];
         }

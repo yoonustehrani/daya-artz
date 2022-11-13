@@ -15,6 +15,9 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+
+    'ip' => env('APP_IP', '0.0.0.0'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
