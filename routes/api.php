@@ -47,7 +47,7 @@ Route::prefix('forms')->name('forms.')->group(function() {
 
 Route::get('services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('posts', [PostController::class, 'indexApi'])->name('posts.index');
-Route::get('portfolio/{service?}', [PortfolioController::class, 'index'])->name('portfolios.index');
+Route::get('portfolio', [PortfolioController::class, 'index'])->name('portfolios.index');
 
 /**
  * Auth Api routes

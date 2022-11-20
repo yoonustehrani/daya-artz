@@ -29,7 +29,7 @@ class WebsiteController extends Controller
         $service = Service::whereSlug($slug)
                     ->where('package', false)
                     ->with(['children' => function($q) {
-                        $q->select(['title', 'subtitle', 'slug', 'icon_class', 'parent_id']);
+                        $q->select(['id', 'title', 'subtitle', 'slug', 'icon_class', 'parent_id']);
                     }, 'image.file'])
                     ->firstOrFail();
         if ($service->children->isEmpty()) {

@@ -204,3 +204,17 @@ if (! function_exists('set_telegram_webhook')) {
         $bot->setWebhook($webhook_url, $data);
     }
 }
+
+if (! function_exists('make_http_multi_params')) {
+    function make_http_multi_params($param_name, $params)
+    {
+        $query = '';
+        for ($i=0; $i < count($params); $i++) { 
+            $query .= $param_name . '[]=' . $params[$i];
+            if ($i < (count($params) - 1)) {
+                $query .= '&';
+            }
+        }
+        return $query;
+    }
+}

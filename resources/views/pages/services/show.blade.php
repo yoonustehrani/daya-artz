@@ -168,7 +168,19 @@
 
     @include('components.start-order')
     
-    <x-portfolio :api-target="route('api.portfolios.index', ['service' => $service->getKey()])"/>
+    @if ($service->children->isEmpty())
+        <x-portfolio :api-target="route('api.portfolios.index', ['service' => $service->getKey()])"/>
+    @else
+        <x-portfolio 
+            :api-target="route('api.portfolios.index') . '?' . make_http_multi_params(
+                'service',
+                array_merge(
+                    [$service->getKey()],
+                    $service->children->pluck('id')->toArray()
+                )
+            )"
+        />
+    @endif
     
     @if ($service->children->isEmpty())
     <div class="section w-100 mt-3 order-packs-section">

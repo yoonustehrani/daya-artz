@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Portfolio;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class PortfolioController extends Controller
 {
-    public function index($service = null)
+    public function index(Request $request)
     {
-        if ($service) {
-            $service = Service::findOrFail($service);
-            $portfolios = \Cache::remember("service.{$service->id}.portfolios", 60 * 5, function () use($service) {
+        if (request()->has('service')) {
+            $service_items = (array) request()->get('service');
+            $cache_key = 'service.' . implode('-', $service_items) . '.portfolios';
+            $portfolios = Cache::remember($cache_key, 60 * 5, function () use($service_items) {
                 $results = Portfolio::select(['id', 'title', 'slug'])
-                    ->where('service_id', $service->id)
+                    ->whereIn('service_id', $service_items)
                     ->get()
                     ->append('url');
                 if ($results->count()) {
@@ -23,7 +25,7 @@ class PortfolioController extends Controller
                 return $results;
             });
         } else {
-            $portfolios = \Cache::remember('services.random.portfolios', 60 * 10, function () {
+            $portfolios = Cache::remember('services.random.portfolios', 60 * 10, function () {
                 $results = Portfolio::select(['id', 'title', 'slug'])->take(6)->inRandomOrder()->get()->append('url');
                 if ($results->count()) {
                     $results->load('images.file');
