@@ -123,23 +123,23 @@
                 <div class="section contact-info w-100">
                     <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                         <span class="back-aqua"><i class="fal fa-phone"></i></span>
-                        <h4>تلفن تماس</h4>
-                        <p class="text-secondary">ثبت سفارش و دریافت پشتیبانی از طریق شماره های:</p>
+                        <h4>تماس تلفنی</h4>
+                        <p class="text-secondary">مشاوره تلفنی رایگان + ثبت سفارش طراحی گرافیک</p>
                         <a class="btn btn-gradient ltr" href="tel:+982128423542">021 2842 3542</a>
                         <a class="btn btn-gradient ltr" href="tel:+989015045025">0901 504 5025</a>
                     </div>
                     <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                         <span class="back-aqua"><i class="fal fa-robot"></i></span>
-                        <h4>ربات تلگرام</h4>
-                        <p class="text-secondary">ثبت سفارش تخصصی و هوشمند با ربات تلگرام:</p>
-                        <a class="btn btn-gradient ltr mt-12-p soon" href="#">بزودی</a>
+                        <h4>ربات تلگرامی</h4>
+                        <p class="text-secondary">سفارش طراحی گرافیک تون رو خیلی راحت و سریع از طریق ربات تلگرام ما ثبت کنید.</p>
+                        <a class="btn btn-gradient ltr mt-12-p" href="https://t.me/DayaArtzBot">شروع سفارش تلگرامی</a>
                     </div>
                     <div class="col-10 mb-2 mb-md-0 col-md-2 p-2 text-center">
                         <span class="back-aqua"><i class="fal fa-mobile"></i></span>
                         <h4>پیام رسان</h4>
                         <p class="text-secondary">از طریق واتساپ و تلگرام سفارش خود را ثبت کنید</p>
-                        <a class="btn btn-gradient ltr" href="https://telegram.me/dayasales">0901 504 5025</a>
-                        <a class="btn btn-gradient ltr" href="https://wa.me/989016045025">0901 604 5025</a>
+                        <a class="btn btn-gradient ltr" href="https://telegram.me/dayasales"><i class="fab fa-telegram-plane"></i> 0901 504 5025</a>
+                        <a class="btn btn-gradient ltr" href="https://wa.me/989016045025"><i class="fab fa-whatsapp"></i> 0901 604 5025</a>
                     </div>
                 </div>
             </div>

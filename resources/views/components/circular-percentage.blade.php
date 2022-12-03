@@ -7,7 +7,7 @@
             </svg>
             <figcaption></figcaption>
         </figure>   
-        <span>سفارش ربات تلگرام</span>
+        <span>سفارش با ربات تلگرام</span>
     </div>
     <div class="progress-bar-container col-6 col-md-4 col-lg-2">
         <figure class="chart-two animate" data-inviewport="circular-transform">
@@ -27,7 +27,7 @@
             </svg>
             <figcaption></figcaption>
         </figure>   
-        <span>سفارش تخصصی</span>
+        <span>سفارش تلفنی</span>
     </div>
     <div class="progress-bar-container col-6 col-md-4 col-lg-2">
         <figure class="chart-four animate" data-inviewport="circular-transform">
