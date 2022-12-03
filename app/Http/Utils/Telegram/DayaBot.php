@@ -254,6 +254,10 @@ class DayaBot extends TelegramBot
                     break;
                 case 'checkout/phone_number':
                     $phone_number = $request->has('message.contact') ? $request->input('message.contact.phone_number') : $message_text;
+                    $phone_number = pure_phone_number($phone_number);
+                    if (! $phone_number) {
+                        return $this->send_message_to_user('فرمت شماره تلفن اشتباه است' . ' ' . 'لطفا دوباره تلاش کنید');
+                    }
                     $this->createWebsiteUser($phone_number, $request->has('message.contact'));
                     // rolling to next state
                     $this->sendMessage($this->chat_id, "لطفا اگر توضیحات اضافه ای دارید در ادامه این پیام ذکر کنید.", [

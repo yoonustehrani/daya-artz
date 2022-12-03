@@ -201,7 +201,10 @@ if (! function_exists('set_telegram_webhook')) {
                 'drop_pending_updates' => true
             ];
         }
-        $bot->setWebhook($webhook_url, $data);
+        $webhook_request = $bot->setWebhook($webhook_url, $data);
+        if ($webhook_request->ok) {
+            \Log::info("webhook was set");
+        }
     }
 }
 
@@ -216,5 +219,18 @@ if (! function_exists('make_http_multi_params')) {
             }
         }
         return $query;
+    }
+}
+
+if (! function_exists('pure_phone_number')) {
+    function pure_phone_number($input)
+    {
+        if (preg_match('/^0?9[0-9]{9}$/', $input)) {
+            return $input;
+        }
+        if (preg_match('/^\+[1-9]{1,3}[0-9]{9,}$/', $input)) {
+            return str_replace('+', '', $input);
+        }
+        return false;
     }
 }
