@@ -16,6 +16,13 @@ object-assign
  */
 
 /*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
  * jQuery JavaScript Library v3.6.0
  * https://jquery.com/
  *
@@ -34,6 +41,8 @@ object-assign
 * Copyright (c) 2015-2020 Jan Sorgalla; Licensed MIT */
 
 /*! Select2 4.1.0-rc.0 | https://github.com/select2/select2/blob/master/LICENSE.md */
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
 /** @license React v0.19.1
  * scheduler.production.min.js
