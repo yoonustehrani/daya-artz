@@ -79,8 +79,9 @@
             </div>
         </div>
         <div class="section post-main-section p-2 mt-4">
-            <div id="pos-article-text-card-92258">
+            <div id="pos-article-display-card-92247">
                 <div class="post-main-text" id="post-content">
+                    <div id="pos-article-text-card-92258"></div>
                     {!! $post->body !!}
                 </div>
             </div>
