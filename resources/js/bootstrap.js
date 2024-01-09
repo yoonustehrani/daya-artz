@@ -1,11 +1,9 @@
 // window._ = require('lodash');
-import { getAnalytics, logEvent } from "firebase/analytics";
-import firebaseApp from './firebaseApp';
-
-
-const analytics = getAnalytics(firebaseApp);
-const analytics2 = getAnalytics(firebaseApp);
-logEvent(analytics, 'notification_received')
+// import { getAnalytics, logEvent } from "firebase/analytics";
+// import firebaseApp from './firebaseApp';
+// const analytics = getAnalytics(firebaseApp);
+// const analytics2 = getAnalytics(firebaseApp);
+// logEvent(analytics, 'notification_received')
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
