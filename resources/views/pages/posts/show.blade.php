@@ -79,8 +79,9 @@
             </div>
         </div>
         <div class="section post-main-section p-2 mt-4">
-            <div class="post-main-text" id="post-content">{!! $post->body !!}</div>
-            <div id="pos-article-display-card-92247"></div>
+            <div id="pos-article-display-card-92247">
+                <div class="post-main-text" id="post-content">{!! $post->body !!}</div>
+            </div>
         </div>
     </div>
     {{-- @if ($post->related->count())
